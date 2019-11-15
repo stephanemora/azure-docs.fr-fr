@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105492"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827926"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturation à la consommation avec le service de mesure de la consommation de la Place de marché
 

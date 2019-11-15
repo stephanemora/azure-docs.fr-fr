@@ -4,19 +4,20 @@ description: Disponibilité géographique dans la place de marché Azure et AppS
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619973"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822954"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Prise en charge de la disponibilité géographique et des devises
 
-Les offres de la Place de marché Azure et AppSource peuvent être achetées dans des 141 zones géographiques, définies par l’adresse de facturation du client, et les transactions peuvent être effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
+Les offres de la Place de marché Azure et AppSource peuvent être achetées dans 141 zones géographiques, déterminées par l’adresse de facturation du client, et les transactions effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
 
 |   Nom du pays/de la région               |   ISO-2   |   Devise   |
 |-------------------------------------|-----------|--------------|
@@ -153,7 +154,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Ukraine                             | UA        | USD          |
 | Émirats Arabes Unis                | AE        | USD          |
 | Royaume-Uni                      | GB        | GBP          |
-| États-Unis                       | FR        | USD          |
+| États-Unis                       | US        | USD          |
 | Uruguay                             | UY        | USD          |
 | Ouzbékistan                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |

@@ -6,14 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 683da62ad78cde1a4f72b2ac0554e90d78b3ac6e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92aaa42aeca294db62445a9434d0b5838a1f3855
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815030"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606531"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API MongoDB Azure Cosmos DB à l’aide de modèles Azure Resource Manager
+
+Cet article explique comment effectuer différentes opérations pour automatiser la gestion de bases de données, conteneurs et comptes Azure Cosmos DB avec des modèles Azure Resource Manager. Les exemples qu’il contient ne portent que sur l’API d’Azure Cosmos DB pour MongoDB. Pour obtenir des exemples liés à d’autres comptes de type d’API, voir les articles Utiliser des modèles Resource Manager avec l’API d’Azure Cosmos DB pour [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md) et [Table](manage-table-with-resource-manager.md).
 
 ## Créer une API Azure Cosmos DB pour un compte, une base de données et une collection MongoDB<a id="create-resource"></a>
 

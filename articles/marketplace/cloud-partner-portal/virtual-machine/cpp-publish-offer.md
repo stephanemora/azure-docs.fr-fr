@@ -4,15 +4,16 @@ description: Affiche les étapes nécessaires pour publier une offre de machine 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938593"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824410"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publier une offre de machine virtuelle
 
@@ -30,7 +31,7 @@ Le tableau suivant décrit ces étapes et fournit une estimation de leur durée 
 | Validation de Test Drive (facultatif) | 2 heures | Si vous avez choisi d’activer Test Drive, Microsoft vérifie la configuration de Test Drive, son déploiement et la réplication sur les régions sélectionnées. |
 | Certification                  | 3 jours | L’offre est analysée par l’équipe de certification d’Azure. Cette étape recherche des virus, des programmes malveillants et des problèmes de sécurité, et vérifie la conformité de la sécurité. Si un problème est détecté, des commentaires sont fournis. |
 | Approvisionnement                   | 4 jours   | L’offre de machine virtuelle est répliquée dans les systèmes de production de place de marché.               |
-| Empaquetage et référencement de génération de prospects | \< 1 heure  | Les ressources techniques de l’offre sont empaquetées pour une utilisation par le client, et les systèmes de prospection sont installés et configurés. |
+| Empaquetage et référencement de génération de prospects | \< 1 heure  | Les ressources techniques de l’offre sont packagées de façon à être utilisées par le client, et les systèmes de prospection sont installés et configurés. |
 |  Validation de l’éditeur             |  -        | Révision finale de l’éditeur et confirmation avant la mise en ligne de l’offre. Vous pouvez déployer votre offre dans les abonnements sélectionnés (dans les étapes d’informations de l’offre) pour vérifier qu’elle répond à toutes vos exigences.  |
 | Approvisionnement                   | 4 jours | L’offre de machine virtuelle finalisée est répliquée dans les régions et systèmes de production de place de marché. | 
 | En direct                           | 4 jours | L’offre de machine virtuelle est publiée, répliquée dans les régions requises et mises à la disposition du public. |

@@ -1,6 +1,6 @@
 ---
 title: Questions fréquentes (FAQ) sur la solution d’usine connectée - Azure | Microsoft Docs
-description: Questions fréquentes sur l’accélérateur de solution d’usine connectée
+description: Cet article répond aux questions fréquemment posées sur l’accélérateur de solution d’usine connectée. Il comprend des liens vers le référentiel GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447928"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826276"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 

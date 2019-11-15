@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695188"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825239"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -49,7 +49,7 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
 
 * Il utilise la [bibliothèque SSH.NET](https://github.com/sshnet/SSH.NET), qui est une bibliothèque Secure Shell (SSH) open source prenant en charge .NET.
 
-* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers supérieurs à 15 Mo, les actions SFTP-SSH peuvent utiliser la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). Cependant, l’action Copier le fichier n’accepte que les fichiers de 15 Mo car elle ne prend pas en charge la segmentation des messages. Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation.
+* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers supérieurs à 15 Mo, les actions SFTP-SSH peuvent utiliser la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). Des autorisations d’accès en lecture et en écriture sont également nécessaires pour charger des fichiers volumineux. Cependant, l’action Copier le fichier n’accepte que les fichiers de 15 Mo car elle ne prend pas en charge la segmentation des messages. Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation.
 
 * Fournit l’action **Créer un dossier**, qui crée un dossier au niveau du chemin spécifié sur le serveur SFTP.
 
@@ -61,7 +61,7 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Vos informations d’identification de compte et adresse du serveur SFTP, qui permettent à votre application logique d’accéder à votre compte SFTP. Vous devez également accéder à une clé privée SSH et au mot clé privé SSH.
+* Vos informations d’identification de compte et adresse du serveur SFTP, qui permettent à votre application logique d’accéder à votre compte SFTP. Vous devez également accéder à une clé privée SSH et au mot clé privé SSH. Des autorisations d’accès en lecture et en écriture sont nécessaires pour utiliser la segmentation lors du chargement de fichiers volumineux.
 
   > [!IMPORTANT]
   >

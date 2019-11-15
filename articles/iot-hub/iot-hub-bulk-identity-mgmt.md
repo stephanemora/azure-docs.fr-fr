@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927416"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809196"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importer et exporter des identités d’appareil IoT Hub en bloc
 
-Chaque IoT Hub a un registre des identités que vous pouvez utiliser pour créer des ressources par appareil dans le service. Le registre des identités vous permet également de contrôler l’accès aux points de terminaison orientés appareil. Cet article explique comment importer et exporter les identités des appareils en bloc vers et à partir d’un registre des identités.
+Chaque IoT Hub a un registre des identités que vous pouvez utiliser pour créer des ressources par appareil dans le service. Le registre des identités vous permet également de contrôler l’accès aux points de terminaison orientés appareil. Cet article explique comment importer et exporter les identités des appareils en bloc vers et à partir d’un registre des identités. Pour voir un exemple fonctionnel en C# et découvrir comment utiliser cette fonctionnalité lors du clonage d’un hub dans une autre région, voir [Guide pratique pour cloner un hub IoT](iot-hub-how-to-clone.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -421,7 +421,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment effectuer des opérations en bloc dans le registre des identités dans un IoT Hub. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
+Dans cet article, vous avez appris comment effectuer des opérations en bloc dans le registre des identités dans un IoT Hub. La plupart de ces opérations, notamment le déplacement d’appareils d’un hub à un autre, sont utilisées dans la [section Gérer les appareils enregistrés dans le hub IoT du Guide pratique pour cloner un hub IoT](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+
+L’article sur le clonage comporte un exemple fonctionnel, qui se trouve dans les exemples C# IoT sur cette page : [Exemples Azure IoT pour C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), avec le projet ImportExportDevicesSample. Vous pouvez télécharger l’exemple et l’essayer ; vous trouverez des instructions dans l’article [Guide pratique pour cloner un hub IoT](iot-hub-how-to-clone.md).
+
+Pour plus d’informations sur la gestion d’Azure IoT Hub, voir les articles suivants :
 
 * [Métriques d’IoT Hub](iot-hub-metrics.md)
 * [Journaux d’activités IoT Hub](iot-hub-monitor-resource-health.md)

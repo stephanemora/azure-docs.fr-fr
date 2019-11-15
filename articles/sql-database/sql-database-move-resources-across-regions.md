@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour déplacer des ressources Azure SQL Database vers une autre région | Microsoft Docs
+title: Comment déplacer des ressources vers une autre région
 description: Découvrez comment déplacer votre base de données Azure SQL Database, votre pool élastique Azure SQL ou votre instance managée Azure SQL vers une autre région.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 851ef49a5c066f12a95baa54daf5e267cb4278c5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567170"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821432"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Guide pratique pour déplacer des ressources Azure SQL vers une autre région
 

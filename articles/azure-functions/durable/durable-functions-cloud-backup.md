@@ -7,18 +7,20 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 81c1279670e786ddaa03946869773121a859d3b7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735234"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615024"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
 *Fan-out/fan-in* fait référence à un modèle incluant une exécution simultanée de plusieurs fonctions puis une agrégation à partir des résultats. Cet article décrit un exemple utilisant [Fonctions durables](durable-functions-overview.md) pour implémenter un scénario fan-in/fan-out. L’exemple représente une fonction durable qui sauvegarde tout ou partie du contenu du site d’une application dans Stockage Azure.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -26,9 +28,9 @@ ms.locfileid: "70735234"
 
 Dans cet exemple, les fonctions chargent tous les fichiers dans un répertoire spécifié de manière récursive dans le stockage d’objets blob. Elles comptent également le nombre total d’octets qui ont été chargés.
 
-Il est possible d’écrire une fonction unique qui prend tout en charge. Le principal problème que vous risquez de rencontrer est **l’évolutivité**. Comme une fonction unique ne peut s’exécuter que sur une seule machine virtuelle, son débit est limité par celui de cette machine virtuelle unique. Un autre problème est la **fiabilité**. Si une défaillance survient en cours de processus, ou si l’ensemble du processus prend plus de 5 minutes, la sauvegarde risque d’échouer dans un état partiellement terminé. Le processus devra alors être redémarré.
+Il est possible d’écrire une fonction unique qui prend tout en charge. Le principal problème que vous risquez de rencontrer est **l’évolutivité**. Comme une fonction unique ne peut s’exécuter que sur une seule machine virtuelle, son débit est limité par celui de cette machine virtuelle unique. Un autre problème est la **fiabilité**. Si une défaillance survient en cours de route, ou que l’ensemble du processus prend plus de cinq minutes, la sauvegarde risque d’échouer dans un état partiellement terminé. Le processus devra alors être redémarré.
 
-Une approche plus robuste consiste à écrire deux fonctions régulières : une pour énumérer les fichiers et ajouter les noms de fichiers à une file d’attente, et une autre pour lire à partir de la file d’attente et charger les fichiers vers le stockage d’objets blob. Cette approche est préférable en termes de débit et de fiabilité, mais elle vous oblige à configurer et à gérer une file d’attente. Plus important encore, elle ajoute une complexité significative en termes de **gestion d’état** et de **coordination** si vous souhaitez effectuer une tâche supplémentaire, comme calculer le nombre total d’octets chargés.
+Une approche plus robuste consiste à écrire deux fonctions régulières : une pour énumérer les fichiers et ajouter les noms de fichiers à une file d’attente, et une autre pour lire à partir de la file d’attente et charger les fichiers vers le stockage d’objets blob. Cette approche est préférable du point de vue du débit et de la fiabilité, mais elle oblige à configurer et à gérer une file d’attente. Plus important encore, elle ajoute une complexité significative en termes de **gestion d’état** et de **coordination** si vous souhaitez effectuer une tâche supplémentaire, comme calculer le nombre total d’octets chargés.
 
 Une approche Fonctions durables vous offre tous les avantages mentionnés, à peu de frais.
 
@@ -54,7 +56,7 @@ Voici le code qui implémente la fonction d’orchestrateur :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -66,7 +68,7 @@ Cette fonction d’orchestrateur effectue essentiellement les opérations suivan
 4. Attend la fin de tous les chargements.
 5. Retourne le nombre total d’octets qui ont été chargés dans Stockage Blob Azure.
 
-Notez les lignes `await Task.WhenAll(tasks);` (C#) et `yield context.df.Task.all(tasks);` (JavaScript). Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll` (C#) ou `context.df.Task.all` (JavaScript), nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET ou [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) dans JavaScript, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
+Notez les lignes `await Task.WhenAll(tasks);` (C#) et `yield context.df.Task.all(tasks);` (JavaScript). *Aucun* des différents appels à la fonction `E2_CopyFileToBlob` n’a été attendu, ce qui leur permet de s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll` (C#) ou `context.df.Task.all` (JavaScript), nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET ou [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) dans JavaScript, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
 
 > [!NOTE]
 > Bien que les tâches soient conceptuellement similaires aux promesses JavaScript, les fonctions d’orchestrateur doivent utiliser `context.df.Task.all` et `context.df.Task.any` plutôt que `Promise.all` et `Promise.race` pour gérer la parallélisation de la tâche.
@@ -85,7 +87,7 @@ Et voici l’implémentation :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -98,13 +100,13 @@ Le fichier *function.json* pour `E2_CopyFileToBlob` est tout aussi simple :
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-L’implémentation C# est également très simple. Elle utilise certaines des fonctionnalités avancées des liaisons d’Azure Functions (autrement dit, l’utilisation du paramètre `Binder`), mais vous n’avez pas à vous soucier de ces détails dans cette procédure pas à pas.
+L’implémentation C# est également simple. Elle utilise certaines des fonctionnalités avancées des liaisons d’Azure Functions (autrement dit, l’utilisation du paramètre `Binder`), mais vous n’avez pas à vous soucier de ces détails dans cette procédure pas à pas.
 
 ### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 L’implémentation JavaScript n’a pas accès à la fonctionnalité `Binder` Azure Functions. Par conséquent, le [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) prend sa place.
 
@@ -136,7 +138,7 @@ Cette requête HTTP déclenche l’orchestrateur `E2_BackupSiteContent` et trans
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
 (...trimmed...)
 ```
@@ -144,16 +146,16 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 Selon le nombre de fichiers journaux que contient votre application de fonction, cette opération peut prendre plusieurs minutes. Vous pouvez obtenir l’état le plus récent en interrogeant l’URL dans l’en-tête `Location` de la réponse HTTP 202 précédente.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 148
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:16Z"}
+{"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:16Z"}
 ```
 
 Dans ce cas, la fonction est toujours en cours d’exécution. Vous pouvez voir l’entrée enregistrée dans l’état de l’orchestrateur et l’heure de la dernière mise à jour. Vous pouvez continuer à utiliser les valeurs d’en-tête `Location` jusqu’à la fin de l’interrogation. Lorsque l’état indique « Completed » (Terminé), une valeur de réponse HTTP semblable à ce qui suit apparaît :
@@ -163,7 +165,7 @@ HTTP/1.1 200 OK
 Content-Length: 152
 Content-Type: application/json; charset=utf-8
 
-{"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:26Z"}
+{"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:26Z"}
 ```
 
 Vous pouvez maintenant voir que l’orchestration est terminée et la durée approximative de cette opération. Vous voyez également une valeur pour le champ `output`, indiquant qu’environ 450 ko de journaux d’activité ont été chargés.
@@ -173,7 +175,7 @@ Vous pouvez maintenant voir que l’orchestration est terminée et la durée app
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
 > [!NOTE]
-> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Storage` pour exécuter l’exemple de code ci-dessous.
+> Il est nécessaire d’installer le package NuGet `Microsoft.Azure.WebJobs.Extensions.Storage` pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

@@ -1,6 +1,6 @@
 ---
-title: Améliorer les performances de l’index columnstore dans Azure SQL Data Warehouse | Microsoft Docs
-description: Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.
+title: Améliorer les performances de l’index columnstore
+description: Azure SQL Data Warehouse réduit la mémoire requise ou augmente la mémoire disponible afin d’optimiser le nombre de lignes compressées par un index columnstore dans chaque rowgroup.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ec85bcc764ba7a7ae6341e0490530c31fdb5a02b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595470"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685656"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 

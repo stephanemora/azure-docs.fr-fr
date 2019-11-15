@@ -1,6 +1,6 @@
 ---
 title: Installer le serveur de sauvegarde Azure sur Azure Stack | Microsoft Docs
-description: Utilisez un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
+description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639860"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747294"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -25,6 +25,7 @@ Cet article explique comment installer un serveur de sauvegarde Azure sur Azure 
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
+
 Le serveur de sauvegarde Azure protège les charges de travail de machine virtuelle Azure Stack suivantes.
 
 | Source de données protégée | Protection et récupération |
@@ -46,20 +47,26 @@ Le serveur de sauvegarde Azure protège les charges de travail de machine virtue
 Au moment d’installer un serveur de sauvegarde Azure dans votre environnement Azure Stack, tenez compte des suggestions de cette section. Même si le programme d’installation du serveur de sauvegarde Azure vérifie que votre environnement suit les conditions préalables requises, vous gagnerez du temps en préparant l’installation.
 
 ### <a name="determining-size-of-virtual-machine"></a>Détermination de la taille de machine virtuelle
+
 Pour exécuter un serveur de sauvegarde Azure sur une machine virtuelle Azure Stack, optez pour la taille A2 ou une taille supérieure. Pour obtenir de l’assistance pour le choix de la taille d’une machine virtuelle, téléchargez le [calculateur de taille de machine virtuelle Azure Stack](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Réseaux virtuels sur machines virtuelles Azure Stack
+
 Toutes les machines virtuelles utilisées dans une charge de travail Azure Stack doivent appartenir aux mêmes réseau virtuel et abonnement Azure.
 
 ### <a name="azure-backup-server-vm-performance"></a>Performances de machine virtuelle de serveur de sauvegarde Azure
+
 En cas de partage avec d’autres machines virtuelles, la taille du compte de stockage et les limites d’E/S par seconde ont une incidence sur les performances de la machine virtuelle d’un serveur de sauvegarde Azure. C’est pourquoi vous devez utiliser un compte de stockage distinct pour la machine virtuelle du serveur de sauvegarde Azure. L’agent Sauvegarde Azure s’exécutant sur le serveur de sauvegarde Azure a besoin d’un stockage temporaire pour :
+
 - son propre usage (emplacement de cache) ;
 - les données restaurées à partir du cloud (zone de transit locale).
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Configuration d’un stockage sur disque temporaire pour Sauvegarde Azure
+
 Chaque machine virtuelle Azure Stack est fournie avec un stockage sur disque temporaire qui est disponible pour l’utilisateur en tant que volume `D:\`. Il est possible de configurer la zone de transit locale dont Sauvegarde Azure a besoin de façon à ce qu’elle réside sur `D:\`, et de placer le cache sur `C:\`. De cette façon, aucun stockage ne doit être effectué à l’écart des disques de données attachés à la machine virtuelle d’un serveur de sauvegarde Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Stockage de données de sauvegarde sur disque local et dans Azure
+
 Un serveur de sauvegarde Azure stocke les données de sauvegarde sur des disques Azure attachés à la machine virtuelle à des fins de récupération opérationnelle. Une fois les disques et l’espace de stockage attachés à la machine virtuelle, le serveur de sauvegarde Azure gère le stockage pour vous. Le volume de stockage de données de sauvegarde varie selon le nombre et la taille des disques attachés à chaque [machine virtuelle Azure Stack](/azure-stack/user/azure-stack-storage-overview). Chaque taille de machine virtuelle Azure Stack est associée à un nombre maximal de disques pouvant être attachés à la machine virtuelle. Par exemple, la taille A2 correspond à quatre disques. La taille A3 correspond à huit disques. La taille A4 correspond à seize disques. Ici encore, la taille et le nombre de disques déterminent la capacité totale du pool de stockage de sauvegarde.
 
 > [!IMPORTANT]
@@ -69,12 +76,14 @@ Un serveur de sauvegarde Azure stocke les données de sauvegarde sur des disques
 Stocker des données de sauvegarde dans Azure réduit l’infrastructure de sauvegarde sur Azure Stack. Les données de plus de cinq jours doivent être stockées dans Azure.
 
 Pour stocker des données de sauvegarde dans Azure, créez ou utilisez un coffre Recovery Services. Lors de la préparation de la sauvegarde de la charge de travail d’un serveur de sauvegarde Azure, vous [configurez le coffre Recovery Services](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Une fois la configuration effectuée, chaque fois qu’une opération de sauvegarde a lieu, un point de récupération est créé dans le coffre. Chaque coffre Recovery Services conserve jusqu’à 9 999 points de récupération. En fonction du nombre de points de récupération créés et de la durée de leur conservation, vous pouvez conserver des données de sauvegarde pendant de nombreuses années. Par exemple, vous créez des points de récupération mensuellement et les conserver pendant cinq ans.
- 
+
 ### <a name="scaling-deployment"></a>Déploiement avec mise à l’échelle
+
 Si vous souhaitez mettre à l’échelle votre déploiement, vous disposez des options suivantes :
-  - Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
-  - Décharger des données : envoyer des données plus anciennes vers Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
-  - Monter en charge : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
+
+- Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
+- Décharger des données : envoyer des données plus anciennes vers Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
+- Monter en charge : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -92,6 +101,7 @@ La protection des charges de travail à l’aide d’Azure Backup Server peut pr
 
 > [!NOTE]
 > Le serveur de sauvegarde Azure est conçu pour s’exécuter sur une machine virtuelle dédiée et spécialisée. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
+>
 > - Un ordinateur servant de contrôleur de domaine
 > - Un ordinateur sur lequel est installé le rôle de serveur d’applications
 > - Un ordinateur sur lequel Exchange Server s’exécute
@@ -331,7 +341,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
 
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, mettez sur liste verte les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, ajoutez les adresses de domaine suivantes à la liste verte du profil de pare-feu/proxy :
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

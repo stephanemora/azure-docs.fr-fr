@@ -1,5 +1,5 @@
 ---
-title: Présentation de Machine Learning Services avec R dans Azure SQL Database (préversion)
+title: Machine Learning Services (avec R) (préversion)
 description: Cet article décrit Machine Learning Services (avec R) dans Azure SQL Database et en explique le fonctionnement.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 186b986fe1931365ee34efab2e04e58908402cc0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a2af1fdd1ee461e3b3db613ff4a575649da2dfdc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427943"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827431"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services avec R dans Azure SQL Database (préversion)
 

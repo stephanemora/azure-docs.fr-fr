@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0900dbfee81952ed014d976cc8d7136ea65f8fc
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191711"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812074"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 
@@ -22,7 +23,7 @@ Dans cette documentation, nous allons aborder les principes fondamentaux de la c
 
 ## <a name="about-microsofts-commercial-marketplace"></a>À propos de la Place de marché commerciale Microsoft
 
-Les entreprises, les gouvernements et les organisations de toutes tailles recherchent des solutions métiers, des technologies innovantes, et des services d’activation par le biais des boutiques web de la [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/), de l’[ expérience d’utilisation réelle du produit du Portail Azure](https://portal.azure.com), des [fournisseurs de solutions cloud](https://partner.microsoft.com/cloud-solution-provider), et des équipes de vente Microsoft. 
+Les entreprises, les gouvernements et les organisations de toutes tailles recherchent des solutions métiers, des technologies innovantes, et des services d’activation par le biais des boutiques web de la [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/), de l’[expérience d’utilisation réelle du produit du Portail Azure](https://portal.azure.com), des [fournisseurs de solutions cloud](https://partner.microsoft.com/cloud-solution-provider), et des équipes de vente Microsoft. 
 
 L’Espace partenaires est le concentrateur de l’expérience des partenaires Microsoft. Pour les organisations qui effectuent la commercialisation avec Microsoft et tirent parti de la Place de marché, l’Espace partenaires est le portail grâce auquel les éditeurs créent et gèrent les offres, fournissent des démonstrations de version d’évaluation, et affichent les analyses relatives aux performances de l’offre. 
 

@@ -1,5 +1,5 @@
 ---
-title: Assistant Azure Data Factory Copy | Microsoft Docs
+title: Assistant Azure Data Factory Copy
 description: Découvrez comment utiliser l’Assistant Azure Data Factory Copy pour copier des données à partir de sources de données prises en charge dans des récepteurs.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b2ec8e2cc09b6deb236bd83cb5cca99fead97279
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567671"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683233"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 > [!NOTE]

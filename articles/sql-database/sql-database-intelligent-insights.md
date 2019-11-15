@@ -1,5 +1,5 @@
 ---
-title: Superviser les performances de la base de données avec Intelligent Insights - Azure SQL Database | Microsoft Docs
+title: Surveiller les performances de la base de données avec Intelligent Insights
 description: Azure SQL Database Intelligent Insights utilise l’intelligence intégrée pour surveiller en permanence l’utilisation de la base de données et détecter les événements perturbateurs entraînant des performances médiocres.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262156"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810186"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights
 

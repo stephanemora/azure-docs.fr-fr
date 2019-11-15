@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240182"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815747"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Python
 
@@ -74,6 +74,13 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >      - Sélectionnez la durée de clé **Dans 1 an**.
 >      - Quand vous cliquez sur **Ajouter**, la valeur de la clé s’affiche.
 >      - Copiez la valeur de la clé. Vous en aurez besoin ultérieurement.
+> 1. Sélectionnez la section **Autorisations de l’API** :
+>
+>      - Cliquez sur le bouton **Ajouter une autorisation**.
+>      - Vérifiez ensuite que l’onglet **API Microsoft** est sélectionné.
+>      - Dans la section *API Microsoft couramment utilisées*, cliquez sur **Microsoft Graph**
+>      - Dans la section **Autorisations déléguées**, vérifiez que les autorisations appropriées sont cochées : **User.ReadBasic.All**. Utilisez la zone de recherche au besoin.
+>      - Sélectionnez le bouton **Ajouter des autorisations**
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -83,9 +90,10 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >
 > 1. Ajoutez une URL de réponse sous la forme `http://localhost:5000/getAToken`.
 > 1. Créer un secret client.
+> 1. Ajoutez la permission déléguée User.ReadBasic.All de l’API Microsoft Graph.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Apporter cette modification pour moi]()
+> > [Apporter ces modifications pour moi]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-aspnet-webapp/green-check.png) Votre application est configurée avec cet attribut.
 
@@ -100,8 +108,9 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 1. Ouvrez le fichier **app_config.py** qui se trouve dans le dossier racine, puis remplacez son contenu par l’extrait de code suivant :
 
 ```python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
@@ -109,6 +118,7 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 >
 > - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
 > - `Enter_the_Client_Secret_Here` - correspond au **secret client** que vous avez créé dans **Certificats et secrets** pour l’application que vous avez inscrite.
+> - `Enter_the_Tenant_Name_Here` – est la valeur **ID de l’annuaire (locataire)** de l’application que vous avez inscrite.
 
 #### <a name="step-4-run-the-code-sample"></a>Étape 4 : Exécuter l’exemple de code
 
@@ -123,6 +133,25 @@ CLIENT_ID = "Enter_the_Application_Id_here"
    ```Shell
    python app.py
    ```
+   > [!IMPORTANT]
+   > Cette application de démarrage rapide utilise un secret client pour s’identifier en tant que client confidentiel. Le secret client étant ajouté en texte brut à vos fichiers projet, il est recommandé, pour des raisons de sécurité, d’utiliser un certificat au lieu d’un secret client avant de considérer l’application comme application de production. Pour savoir plus en détails comment utiliser un certificat, voir [ces instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+
+## <a name="more-information"></a>Plus d’informations
+
+### <a name="getting-msal"></a>Obtention de MSAL
+MSAL est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons permettant d’accéder à une API protégée par la Plateforme d’identités Microsoft.
+Pour ajouter MSAL Python à votre application, vous pouvez utiliser Pip.
+
+```Shell
+pip install msal
+```
+
+### <a name="msal-initialization"></a>Initialisation MSAL
+Pour ajouter la référence à MSAL Python, ajoutez le code suivant au début du fichier où vous allez utiliser MSAL :
+
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

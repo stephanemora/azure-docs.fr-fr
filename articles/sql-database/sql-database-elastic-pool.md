@@ -1,5 +1,5 @@
 ---
-title: Gérer plusieurs bases de données SQL avec les pools élastiques - Azure | Microsoft Docs
+title: Gérer plusieurs bases de données avec des pools élastiques
 description: Gérez et mettez à l’échelle plusieurs bases de données SQL (des centaines et des milliers) avec des pools élastiques. Un prix unique pour des ressources que vous pouvez distribuer là où vous en avez besoin.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876403"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823827"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL
 

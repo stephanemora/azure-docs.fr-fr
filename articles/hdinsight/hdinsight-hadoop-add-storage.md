@@ -2,24 +2,24 @@
 title: Ajouter des comptes de stockage Azure supplémentaires à HDInsight
 description: Découvrez comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: hrasheed
-ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/31/2019
+ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665470"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
 Découvrez comment utiliser des actions de script pour ajouter des *comptes* de stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant basé sur Linux. Cet article s’applique au *comptes* de stockage (différents des comptes de stockage en cluster par défaut) et au stockage de base comme [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) et [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> Ce document porte sur l’ajout de stockage supplémentaire à un cluster après que celui-ci a été créé. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
+> Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,7 +59,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 __Emplacement du script__ : [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
-__Conditions requises__ :  Le script doit être appliqué sur les __nœuds principaux__. Vous n’avez pas besoin de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari.
+__Conditions requises__ :  Le script doit être appliqué sur les __nœuds principaux__. Il n’est pas nécessaire de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari du cluster.
 
 ## <a name="to-use-the-script"></a>Pour utiliser le script
 
@@ -112,57 +112,51 @@ Si vous choisissez de sécuriser votre compte de stockage à l’aide des restri
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Comptes de stockage non affichés dans le portail ou les outils Azure
 
-Lorsque vous affichez le cluster HDInsight dans le portail Azure, les comptes de stockage ajoutés à l’aide de cette action de script ne s’affichent pas lorsque vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__. Azure PowerShell et l’interface de ligne de commande Azure n’affichent pas non plus les comptes de stockage supplémentaires.
+Lorsque vous affichez le cluster HDInsight sur le Portail Azure, les comptes de stockage ajoutés par cette action de script ne s’affichent pas quand vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__. Azure PowerShell et Azure CLI n’affichent pas non plus les comptes de stockage supplémentaires.
 
-Les informations de stockage n’apparaissent pas car le script modifie uniquement la configuration core-site.xml du cluster. Ces informations ne sont pas utilisées lors de la récupération des informations du cluster à l’aide des API de gestion Azure.
+Les informations de stockage n’apparaissent pas car le script modifie uniquement la configuration core-site.xml du cluster. Ces informations ne sont pas utilisées pour récupérer les informations du cluster avec les API de gestion Azure.
 
 Pour afficher les informations des comptes de stockage ajoutés au cluster à l’aide de ce script, utilisez l’API REST Ambari. Pour récupérer ces informations pour votre cluster, utilisez les commandes suivantes :
 
 ### <a name="powershell"></a>PowerShell
 
-Remplacez `CLUSTERNAME` par le nom du cluster, avec la bonne casse. Tout d’abord, identifiez la version de configuration du service en cours d’utilisation en entrant la commande suivante :
-
-```powershell
-# getting service_config_version
-$clusterName = "CLUSTERNAME"
-
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
-    -Credential $creds -UseBasicParsing
-$respObj = ConvertFrom-Json $resp.Content
-$respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
-```
-
-Remplacez `ACCOUNTNAME` par le nom réel. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande. Lorsque vous y êtes invité, entrez le mot de passe de connexion au cluster.
+Remplacez `CLUSTERNAME` par le nom du cluster, avec la bonne casse. Remplacez `ACCOUNTNAME` par le nom réel. Lorsque vous y êtes invité, entrez le mot de passe de connexion au cluster.
 
 ```powershell
 # Update values
+$clusterName = "CLUSTERNAME"
 $accountName = "ACCOUNTNAME"
-$version = 4
 
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$version" `
+
+# getting service_config_version
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+
+$configVersion=$respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
+
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
 ```
 
 ### <a name="bash"></a>bash
-Remplacez `myCluster` par le nom du cluster avec la bonne casse.
+
+Remplacez `CLUSTERNAME` par le nom du cluster, avec la bonne casse. Remplacez `PASSWORD` par le mot de passe de l’administrateur du cluster. Remplacez `STORAGEACCOUNT` par le nom réel du compte de stockage.
 
 ```bash
-export CLUSTERNAME='myCluster'
+export clusterName="CLUSTERNAME"
+export password='PASSWORD'
+export storageAccount="STORAGEACCOUNT"
 
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" \
-| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
-```
+export ACCOUNTNAME='"'fs.azure.account.key.$storageAccount.blob.core.windows.net'"'
 
-Remplacez `myAccount` par le nom réel du compte de stockage. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande :
+export configVersion=$(curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName?fields=Clusters/desired_service_config_versions/HDFS" \
+| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version")
 
-```bash
-export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
-export VERSION='4'
-
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=$VERSION" \
+curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" \
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
@@ -172,7 +166,7 @@ Remplacez `CLUSTERNAME` par le nom du cluster avec la bonne casse, dans les deux
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
-jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
+jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version"
 ```
 
 Remplacez `ACCOUNTNAME` par le nom réel du compte de stockage. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande :
@@ -181,9 +175,10 @@ Remplacez `ACCOUNTNAME` par le nom réel du compte de stockage. Puis, remplacez 
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
 jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
 ```
+
 ---
 
- Les informations renvoyées par cette commande sont semblables au texte suivant :
+Les informations renvoyées par cette commande sont semblables au texte suivant :
 
     "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
 
@@ -193,7 +188,7 @@ Ce texte est un exemple de clé chiffrée, utilisée pour accéder au compte de 
 
 Si vous modifiez la clé d’un compte de stockage, HDInsight ne peut plus accéder au compte de stockage. HDInsight utilise une copie de la clé mise en cache dans le fichier core-site.xml pour le cluster. Cette copie mise en cache doit être mise à jour pour correspondre à la nouvelle clé.
 
-Si vous exécutez de nouveau l’action de script, la clé n’est __pas__ mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. Si une entrée existe déjà, aucune modification n’est apportée.
+Si vous exécutez de nouveau l’action de script, la clé n’est __pas__ mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. S’il existe déjà une entrée, aucune modification n’est apportée.
 
 Pour contourner ce problème, vous devez supprimer l’entrée existante pour le compte de stockage. Procédez comme suit pour supprimer l’entrée existante :
 
@@ -227,4 +222,4 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Vous avez appris à ajouter des comptes de stockage supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).

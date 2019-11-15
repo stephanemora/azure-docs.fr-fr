@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la requête élastique Azure SQL Database | Microsoft Docs
+title: Vue d’ensemble des requêtes élastiques
 description: Une requête élastique vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568563"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823751"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 

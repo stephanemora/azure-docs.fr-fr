@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes courants de vérification à deux facteurs - Azure Active Directory | Microsoft Docs
+title: 'Résoudre les problèmes courants de vérification à deux facteurs : Azure AD'
 description: Découvrez les solutions possibles à certains des problèmes de vérification à deux facteurs les plus courants.
 services: active-directory
 author: eross-msft
@@ -9,16 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616116"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805297"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Résoudre les problèmes courants de vérification à deux facteurs
 
@@ -63,6 +63,8 @@ Le fait de ne pas recevoir votre code de vérification est un problème courant,
 - **Vérifiez que votre appareil capte un signal et dispose d’une connexion Internet.** Vérifiez que vos appels téléphoniques et vos SMS parviennent à votre appareil mobile. Demandez à un ami de vous appeler et de vous envoyer un SMS pour vérifier que vous les recevez bien. Si ce n’est pas le cas, commencez par vérifier que votre appareil mobile est allumé. S’il est allumé mais que vous ne recevez toujours pas l’appel ou le SMS, le problème est sans doute lié à votre réseau et vous devrez le signaler à votre fournisseur. Si vous rencontrez souvent des problèmes liés aux signaux, nous vous recommandons d’installer et d’utiliser l’[application Microsoft Authenticator](user-help-auth-app-download-install.md) sur votre appareil mobile. L’application Authenticator peut générer des codes de sécurité aléatoires pour la connexion, sans nécessiter de signal de réseau mobile ou de connexion Internet.
 
 - **Désactivez la fonctionnalité Ne pas déranger.** Vérifiez que vous n’avez pas activé la fonctionnalité **Ne pas déranger** sur votre appareil mobile. Quand elle est activée, les notifications ne sont pas autorisées à vous alerter sur votre appareil mobile. Pour obtenir des instructions sur la façon de désactiver cette fonctionnalité, consultez le manuel de votre appareil mobile.
+
+- **Débloquer les numéros de téléphone** Aux États-Unis, les appels vocaux de Microsoft proviennent des numéros suivants : +1 (866) 539 4191, +1 (855) 330 8653 et +1 (877) 668 6536.
 
 - **Vérifiez les paramètres liés à la batterie.** Cela peut sembler étrange de prime abord, mais si vous avez configuré l’optimisation de la batterie de façon à empêcher les applications les moins utilisées de rester actives en arrière-plan, cela aura probablement affecté votre système de notification. Pour essayer de résoudre ce problème, désactivez l’optimisation de la batterie pour votre application d’authentification et votre application de messagerie, puis réessayez de vous connecter à votre compte.
 

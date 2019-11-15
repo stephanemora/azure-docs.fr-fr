@@ -1,31 +1,34 @@
 ---
-title: Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C | Microsoft Docs
-description: En savoir plus sur les comptes d’utilisateur dans Azure Active Directory B2C.
+title: Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
+description: Découvrez les types de comptes d’utilisateur utilisables dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063136"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620454"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
-Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez utiliser différents types de comptes. Azure Active Directory, Azure Active Directory B2B et Azure Active Directory B2C partagent les types de comptes d’utilisateur qui peuvent être utilisés.
+Dans Azure Active Directory B2C (Azure AD B2C), plusieurs types de comptes peuvent être créés. Azure Active Directory, Active Directory B2B et Active Directory B2C partagent les types de comptes d’utilisateur utilisables.
 
 Les types de comptes suivants sont disponibles :
 
 - **Compte professionnel** – Un compte professionnel peut accéder aux ressources dans un locataire et, avec un rôle d’administrateur, peut gérer des locataires.
 - **Compte invité** – Un compte invité peut uniquement être un compte Microsoft ou un utilisateur Azure Active Directory qui peut être utilisé pour accéder à des applications ou gérer des locataires.
-- **Compte consommateur** – Un compte consommateur est créé en passant par un flux d’utilisateur d’inscription dans une application Azure AD B2C ou en utilisant l’API Azure AD Graph, et il est utilisé par les utilisateurs des applications qui sont inscrites auprès d’Azure AD B2C.
+- **Compte de consommateur** – Un compte de consommateur est utilisé par un utilisateur des applications inscrites auprès d’Azure AD B2C. Il existe plusieurs moyens de créer des comptes de consommateur :
+  - L’utilisateur suit un flux utilisateur d’inscription dans une application Azure AD B2C
+  - Utilisation de l’API Graph Azure AD
+  - Utilisation du portail Azure
 
 ## <a name="work-account"></a>Compte professionnel
 
@@ -73,7 +76,7 @@ Vous pouvez également utiliser l’[API Microsoft Graph](https://docs.microsoft
 
 ## <a name="consumer-user"></a>Utilisateur consommateur
 
-L’utilisateur consommateur peut se connecter aux applications sécurisées par Azure AD B2C, mais il ne peut pas accéder aux ressources Azure telles que le portail Azure.  L’utilisateur consommateur peut utiliser un compte local ou des comptes fédérés, tels que Facebook ou Twitter. Un compte de consommateur est créé en utilisant un [flux d’utilisateur d’inscription ou de connexion](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+L’utilisateur consommateur peut se connecter aux applications sécurisées par Azure AD B2C, mais il ne peut pas accéder aux ressources Azure telles que le portail Azure. L’utilisateur consommateur peut utiliser un compte local ou des comptes fédérés, tels que Facebook ou Twitter. Pour créer un compte de consommateur, on peut utiliser un [flux utilisateur d’inscription ou de connexion](../active-directory-b2c/active-directory-b2c-reference-policies.md), l’API Graph Azure AD ou le Portail Azure.
 
 Vous pouvez spécifier les données qui sont collectées lorsqu’un compte d’utilisateur consommateur est créé à l’aide des attributs d’utilisateur personnalisés. Pour plus d’informations, consultez [Définir des attributs personnalisés dans Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

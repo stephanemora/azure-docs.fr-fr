@@ -1,5 +1,5 @@
 ---
-title: Utilisation de la bibliothèque cliente de la base de données élastique avec Entity Framework | Microsoft Docs
+title: Utilisation d’une bibliothèque cliente de la base de données élastique avec Entity Framework
 description: Utilisez la bibliothèque cliente de la base de données élastique et Entity Framework pour le codage de bases de données
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568306"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823486"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 

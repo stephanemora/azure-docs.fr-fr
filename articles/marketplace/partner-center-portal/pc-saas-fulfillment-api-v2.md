@@ -4,15 +4,16 @@ description: Cet article explique comment créer et gérer une offre SaaS sur Ap
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 05/23/2019
+ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595553"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816602"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -87,14 +88,14 @@ Le tableau suivant répertorie les définitions des entités et paramètres cour
 | `offerId`                | Identificateur de chaîne unique pour chaque offre (par exemple « offer1 »).  |
 | `planId`                 | Identificateur de chaîne unique pour chaque plan/référence SKU (par exemple « silver »). |
 | `operationId`            | Identificateur GUID d’une opération spécifique.  |
-|  `action`                | Action effectuée sur une ressource, `unsubscribe`, `suspend`, `reinstate`, `changePlan` ou `changeQuantity`, `transfer`.  |
+|  `action`                | Action effectuée sur une ressource (`Unsubscribe`, `Suspend`, `Reinstate` ou `ChangePlan`, `ChangeQuantity`, `Transfer`). |
 |   |   |
 
 Les identificateurs globaux uniques ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sont des nombres de 128 bits (32 chiffres hexadécimaux) générés automatiquement. 
 
 #### <a name="resolve-a-subscription"></a>Résoudre un abonnement 
 
-Le point de terminaison de résolution permet à l’éditeur d’associer un jeton de place de marché à un ID de ressource persistant. L’ID de ressource est l’identificateur unique d’un abonnement SaaS. Lorsqu’un utilisateur est redirigé vers le site Web d’un partenaire, les paramètres de requête figurant dans l’URL contiennent un jeton. Le partenaire doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SaaS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement. 
+Le point de terminaison de résolution permet à l’éditeur d’associer un jeton de place de marché à un ID de ressource persistant. L’ID de ressource est l’identificateur unique d’un abonnement SaaS. Lorsqu’un utilisateur est redirigé vers le site web d’un partenaire, les paramètres de requête figurant dans l’URL contiennent un jeton. Le partenaire doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SaaS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement. 
 
 ##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
@@ -112,7 +113,7 @@ Le point de terminaison de résolution permet à l’éditeur d’associer un je
 |  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Par exemple : « `Bearer <access_token>` ». |
-|  x-ms-marketplace-token  |  Paramètre de requête de jeton dans l’URL lorsque l’utilisateur est redirigé vers le site web du partenaire SaaS depuis Azure (par exemple : `https://contoso.com/signup?token=..`). *Remarque :* L’URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.  |
+|  x-ms-marketplace-token  |  Paramètre de requête de jeton présent dans l’URL lorsque l’utilisateur est redirigé d’Azure vers le site web du partenaire SaaS (par exemple, `https://contoso.com/signup?token=..`). *Remarque :* L’URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.  |
 
 *Codes de réponse :*
 
@@ -212,7 +213,7 @@ Charge utile de la réponse pour l’API factice :<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
+          "isFreeTrial": "true", // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -250,7 +251,7 @@ Et pour l’API réelle : <br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
           "isTest": false, //indicating whether the current subscription is a test asset
           "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
@@ -320,7 +321,7 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
-        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
+        "isFreeTrial": "true", // true - customer subscription is currently in free trial, false - customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
@@ -707,7 +708,7 @@ Erreur interne du serveur.
 
 #### <a name="get-operation-status"></a>Obtenir l’état d’une opération
 
-Permet à l’éditeur de suivre l’état de l’opération asynchrone déclenchée spécifiée (comme `subscribe`, `unsubscribe`, `changePlan` ou `changeQuantity`).
+Permet à l’éditeur de suivre l’état de l’opération asynchrone déclenchée spécifiée (comme `Subscribe`, `Unsubscribe`, `ChangePlan` ou `ChangeQuantity`).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obtenir<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -839,7 +840,7 @@ L’éditeur doit implémenter un webhook dans ce service SaaS pour informer les
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
+  "publisherId": "<this is the publisher's name>",
   "offerId": "<this is the offer name>",
   "planId": "<this is the plan id>",
   "quantity": "<the number of seats, will be null if not per-seat saas offer>",
@@ -850,11 +851,11 @@ L’éditeur doit implémenter un webhook dans ce service SaaS pour informer les
 }
 ```
 Il peut s’agir de l’une des actions suivantes : 
-- `unsubscribe` (lorsque la ressource a été supprimée)
-- `changePlan` (lorsque l’opération de changement de plan est terminée)
-- `changeQuantity` (lorsque l’opération de changement de quantité est terminée)
-- `suspend` (lorsque la ressource a été suspendue)
-- `reinstate` (lorsque ressource a été rétablie après suspension)
+- `Unsubscribe` (lorsque la ressource a été supprimée)
+- `ChangePlan` (lorsque l’opération de changement de plan est terminée)
+- `ChangeQuantity` (lorsque l’opération de changement de quantité est terminée)
+- `Suspend` (lorsque la ressource a été suspendue)
+- `Reinstate` (lorsque ressource a été rétablie après suspension)
 
 Il peut s’agir de l’un des états suivants : 
 - **NotStarted** <br>

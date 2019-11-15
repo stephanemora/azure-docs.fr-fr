@@ -4,15 +4,16 @@ description: Décrit le processus et les étapes de publication d’une offre d�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 2326ce1a591d1276dbaf9c7f3238f7214e5134ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0005760a16f5109ca3555df5c5c5137facc84c40
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826161"
 ---
 # <a name="publish-azure-application-offer"></a>Publier une offre d’application Azure
 

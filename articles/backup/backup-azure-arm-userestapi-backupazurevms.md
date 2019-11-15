@@ -1,6 +1,6 @@
 ---
 title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure avec l’API REST'
-description: Gérer les opérations de sauvegarde des machines virtuelles Azure avec une API REST
+description: Dans cet article, découvrez comment configurer, lancer et gérer les opérations de la sauvegarde de machines virtuelles Azure avec l’API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954975"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747617"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 L’URI *GET* contient tous les paramètres requis. Aucun corps de demande supplémentaire n’est nécessaire.
 
-##### <a name="responses-1"></a>Réponses
+#### <a name="responses-1"></a>Réponses
 
 |Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses-1"></a>Exemples de réponses
+#### <a name="example-responses-1"></a>Exemples de réponses
 
 Une fois la demande *GET* envoyée, une réponse 200 (OK) est retournée.
 
@@ -179,7 +179,7 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 `{containerName}` et `{protectedItemName}` sont tels que créés ci-dessus. `{fabricName}` est « Azure ». Dans notre exemple, cela se traduit par :
 
 ```http
-PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 #### <a name="create-the-request-body"></a>Créer le corps de la demande
@@ -227,7 +227,7 @@ Une fois que vous envoyez la demande *PUT* de création ou de mise à jour d’u
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4-85b8-151e12b07d03
@@ -237,7 +237,7 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
@@ -293,7 +293,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 `{containerName}` et `{protectedItemName}` sont tels que créés [ci-dessus](#responses-1). `{fabricName}` est « Azure ». Dans notre exemple, cela se traduit par :
 
 ```http
-POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2019-05-13
 ```
 
 ### <a name="create-the-request-body"></a>Créer le corps de la demande
@@ -329,7 +329,7 @@ Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autr
 |---------|---------|---------|
 |202 Accepté     |         |     Acceptée    |
 
-##### <a name="example-responses-3"></a>Exemples de réponses
+#### <a name="example-responses-3"></a>Exemples de réponses
 
 Une fois que vous envoyez la demande *POST* pour une sauvegarde à la demande, la réponse initiale est 202 (Accepté) avec un en-tête d’emplacement ou Azure-async-header.
 
@@ -337,7 +337,7 @@ Une fois que vous envoyez la demande *POST* pour une sauvegarde à la demande, l
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: 7885ca75-c7c6-43fb-a38c-c0cc437d8810
 x-ms-client-request-id: 7df8e874-1d66-4f81-8e91-da2fe054811d; 7df8e874-1d66-4f81-8e91-da2fe054811d
@@ -354,7 +354,7 @@ X-Powered-By: ASP.NET
 Effectuez ensuite le suivi de l’opération qui en résulte en utilisant l’en-tête d’emplacement ou Azure-AsyncOperation avec une commande *GET* simple.
 
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
 Une fois l’opération terminée, elle retourne 200 (OK) avec l’ID du travail de sauvegarde obtenu dans le corps de la réponse.
@@ -430,13 +430,13 @@ Pour supprimer la protection sur une machine virtuelle protégée ainsi que les 
 L’arrêt de la protection avec suppression des données est une opération *DELETE*.
 
 ```http
-DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
+DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
 `{containerName}` et `{protectedItemName}` sont tels que créés [ci-dessus](#responses-1). `{fabricName}` est « Azure ». Dans notre exemple, cela se traduit par :
 
 ```http
-DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 ### <a name="responses-2"></a>Réponses
@@ -454,7 +454,7 @@ Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autr
 
 [Restaurer des données à partir d’une sauvegarde de machine virtuelle Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 
-Pour plus d’informations sur les API REST de sauvegarde Azure, consultez les documents suivants :
+Pour plus d’informations sur les API REST de la Sauvegarde Azure, voir les documents suivants :
 
 - [API REST du fournisseur Azure Recovery Services](/rest/api/recoveryservices/)
 - [Bien démarrer avec l’API REST Azure](/rest/api/azure/)

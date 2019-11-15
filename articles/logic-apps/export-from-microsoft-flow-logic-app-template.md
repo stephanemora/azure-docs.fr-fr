@@ -1,6 +1,6 @@
 ---
-title: Exporter des flux de Microsoft Flow vers Azure Logic Apps
-description: Migrez des flux de Microsoft Flow vers Azure Logic Apps en les exportant en tant que modèles Azure Resource Manager.
+title: Exporter des flux de Power Automate vers Azure Logic Apps
+description: Migrez des flux de Power Automate vers Azure Logic Apps en les exportant sous forme de modèles Azure Resource Manager.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 82c4e55eff36a7da70e0304fc8152491a8030e04
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441004"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583256"
 ---
-# <a name="export-flows-from-microsoft-flow-and-deploy-to-azure-logic-apps"></a>Exporter les flux depuis Microsoft Flow et déployer sur Azure Logic Apps
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exporter des flux de Power Automate et les déployer sur Azure Logic Apps
 
-Pour étendre les fonctionnalités de votre flux, vous pouvez le migrer de [Microsoft Flow](https://flow.microsoft.com) vers [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Vous pouvez exporter votre flux en tant que modèle Azure Resource Manager pour une application logique, déployer ce modèle d’application logique dans un groupe de ressources Azure, puis ouvrir cette application logique dans le Concepteur d’application logique.
+Pour étendre les fonctionnalités de votre flux, vous pouvez le migrer de [Power Automate](https://flow.microsoft.com) vers [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Vous pouvez exporter votre flux en tant que modèle Azure Resource Manager pour une application logique, déployer ce modèle d’application logique dans un groupe de ressources Azure, puis ouvrir cette application logique dans le Concepteur d’application logique.
 
 > [!NOTE]
-> Les connecteurs Microsoft Flow ne sont pas tous disponibles dans Azure Logic Apps. Vous pouvez importer des flux qui ont des [connecteurs équivalents](../connectors/apis-list.md) dans Azure Logic Apps. Par exemple, le déclencheur de bouton, le connecteur d’approbation et le connecteur de notification sont propres à Microsoft Flow.
+> Les connecteurs Power Automate ne sont pas tous disponibles dans Azure Logic Apps. Vous pouvez importer des flux qui ont des [connecteurs équivalents](../connectors/apis-list.md) dans Azure Logic Apps. Par exemple, le déclencheur de bouton, le connecteur d’approbation et le connecteur de notification sont propres à Power Automate.
 >
-> Les flux basés sur OpenAPI exportés à partir de Microsoft Flow ne sont pas pris en charge actuellement pour le déploiement en tant que modèles d’application logique. 
+> Le déploiement sous forme de modèles d’applications logiques des flux basés sur OpenAPI et exportés à partir de Power Automate n’est pas pris en charge actuellement. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/)
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Le flux que vous souhaitez exporter à partir de Microsoft Flow
+* Le flux que vous souhaitez exporter à partir de Power Automate
 
 ## <a name="export-a-flow"></a>Exporter un flux
 
-1. Connectez-vous à [Microsoft Flow](https://flow.microsoft.com), puis sélectionnez **Mes flux**. Recherchez et sélectionnez votre flux. Dans la barre d’outils, sélectionnez les points de suspension ( **...** ). Sélectionnez **Exporter** > **Modèle Logic Apps (.json)** .
+1. Connectez-vous à [Power Automate](https://flow.microsoft.com), puis sélectionnez **Mes flux**. Recherchez et sélectionnez votre flux. Dans la barre d’outils, sélectionnez les points de suspension ( **...** ). Sélectionnez **Exporter** > **Modèle Logic Apps (.json)** .
 
    ![Exporter un flux](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez [Grow up to Azure Logic Apps](https://flow
 
    ![Sélectionnez « Créer votre propre modèle dans l’éditeur »](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. Dans la barre d’outils **Modifier le modèle**, sélectionnez **Charger le fichier**. Recherchez et sélectionnez le modèle JSON que vous avez exporté à partir de Microsoft Flow, puis sélectionnez **Ouvrir**.
+1. Dans la barre d’outils **Modifier le modèle**, sélectionnez **Charger le fichier**. Recherchez et sélectionnez le modèle JSON que vous avez exporté à partir de Power Automate, puis sélectionnez **Ouvrir**.
 
    ![Sélectionnez « Charger le fichier »](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez [Grow up to Azure Logic Apps](https://flow
   
    ![Spécifiez les paramètres d’entrée pour le modèle](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   Azure déploie votre modèle en tant qu’application logique dans votre groupe de ressources spécifié. Toutes les applications logiques que vous migrez à partir de Microsoft Flow sont déployées dans un état désactivé.
+   Azure déploie votre modèle en tant qu’application logique dans votre groupe de ressources spécifié. Toutes les applications logiques migrées à partir de Power Automate sont déployées avec l’état désactivé.
 
 1. Avant d’activer votre application logique, autorisez les nouvelles connexions en effectuant les étapes suivantes :
 
@@ -102,7 +102,7 @@ Pour plus d’informations, consultez [Grow up to Azure Logic Apps](https://flow
 
 Si vous avez configuré Visual Studio avec les [prérequis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) pour la création d’applications logiques, vous pouvez déployer votre modèle exporté de Visual Studio vers Azure Logic Apps.
 
-1. Dans Visual Studio, ouvrez le fichier de modèle que vous avez exporté à partir de Microsoft Flow.
+1. Dans Visual Studio, ouvrez le modèle de fichier que vous avez exporté à partir de Power Automate.
 
 1. Dans Visual Studio, créez un projet de groupe de ressources Azure et sélectionnez le modèle **Application logique** en suivant les étapes décrites dans [Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), par exemple :
 

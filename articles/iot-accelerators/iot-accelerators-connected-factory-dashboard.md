@@ -1,6 +1,6 @@
 ---
 title: Utiliser le tableau de bord Usine connectée - Azure | Microsoft Docs
-description: Découvrez comment utiliser les fonctionnalités du tableau de bord Usine connectée.
+description: Cet article explique comment utiliser les fonctionnalités du tableau de bord Usine connectée pour surveiller et gérer vos appareils IoT industriels.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067935"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820178"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utiliser les fonctionnalités du tableau de bord de l’accélérateur de solution Usine connectée
 

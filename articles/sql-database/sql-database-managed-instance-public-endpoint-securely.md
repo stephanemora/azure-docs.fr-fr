@@ -1,5 +1,5 @@
 ---
-title: Sécuriser des points de terminaison publics d’instance gérée - Instance gérée Azure SQL Database | Microsoft Docs
+title: Sécuriser des points de terminaison publics Managed Instance
 description: Utilisez en toute sécurité des points de terminaison publics dans Azure avec une instance gérée
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821740"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilisez une instance gérée Azure SQL Database en toute sécurité avec des points de terminaison publics
 

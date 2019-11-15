@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Créer une application de traduction avec WPF, C# - API Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Dans ce tutoriel, vous créez une application Windows Presentation Foundation (WPF) qui utilise les API Cognitive Services pour la traduction de texte, la détection de langue et la correction orthographique avec une seule clé d’abonnement. Cet exercice explique comment utiliser les fonctionnalités de l’API Traduction de texte Translator Text et de l’API Vérification orthographique Bing.
+description: Dans ce tutoriel, vous créez une application WPF qui traduit le texte, détecte la langue et corrige l’orthographe avec une seule clé d’abonnement.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6f8196c276b4f8ef5c8a49f6f83f59f9f505a6be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858912"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647701"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Didacticiel : Créer une application de traduction avec WPF
 
@@ -37,7 +37,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Cette liste inclut les services Cognitive Services utilisés dans ce tutoriel. Suivez le lien pour accéder à la référence d’API de chaque fonctionnalité.
 
-| de diffusion en continu | Fonctionnalité | Description |
+| Service | Fonctionnalité | Description |
 |---------|---------|-------------|
 | Translator Text | [Obtenir les langues](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Récupérez la liste complète des langues prises en charge pour la traduction de texte. |
 | Translator Text | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduisez du texte dans plus de 60 langues. |

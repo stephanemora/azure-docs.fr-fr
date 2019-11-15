@@ -4,15 +4,15 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061745"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826819"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -69,7 +69,7 @@ La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Syn
 Cette section traite de la configuration requise et de l’interopérabilité de l’agent Azure File Sync avec les fonctionnalités et rôles Windows Server, ainsi qu’avec des solutions tierces.
 
 ### <a name="evaluation-cmdlet"></a>Applet de commande d’évaluation
-Avant de déployer Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’applet de commande d’évaluation d’Azure File Sync. Cette applet de commande recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
+Avant de déployer Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’applet de commande d’évaluation d’Azure File Sync. Cette cmdlet recherche les problèmes potentiels liés au système de fichiers et au jeu de données, comme des caractères ou une version de système d’exploitation non pris en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
 
 Vous pouvez installer l’applet de commande d’évaluation en installant le module Az PowerShell en suivant ces instructions : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -97,13 +97,16 @@ Pour afficher les résultats au format CSV :
 ```
 
 ### <a name="system-requirements"></a>Configuration requise
-- Un serveur exécutant Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 :
+- Un serveur fonctionnant avec l’une des versions de système d’exploitation suivantes :
 
     | Version | Références prises en charge | Options de déploiement prises en charge |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter et Standard | Complète et Minimale |
     | Windows Server 2016 | Datacenter et Standard | Complète et Minimale |
     | Windows Server 2012 R2 | Datacenter et Standard | Complète et Minimale |
+    | Windows Server IoT 2019 pour le stockage| Datacenter et Standard | Complète et Minimale |
+    | Windows Storage Server 2016| Datacenter et Standard | Complète et Minimale |
+    | Windows Storage Server 2012 R2| Datacenter et Standard | Complète et Minimale |
 
     Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles.
 
@@ -155,15 +158,18 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 > L’agent Azure File Sync doit être installé sur chaque nœud d’un cluster de basculement pour que la synchronisation fonctionne correctement.
 
 ### <a name="data-deduplication"></a>Déduplication des données
-**Agent version 5.0.2.0 ou ultérieure**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
+**Windows Server 2016 et Windows Server 2019**   
+La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
 
 Quand la déduplication des données est activée sur un volume où la hiérarchisation cloud est activée, les fichiers optimisés par la déduplication à l’emplacement du point de terminaison de serveur sont hiérarchisés d’une façon similaire à un fichier normal, en fonction des paramètres de stratégie de hiérarchisation cloud. Une fois que les fichiers optimisés par la déduplication ont été hiérarchisés, le travail de nettoyage de la mémoire de la déduplication des données s’exécute automatiquement pour récupérer de l’espace disque en supprimant les blocs inutiles qui ne sont plus référencés par d’autres fichiers sur le volume.
 
 Notez que les économies faites sur les volumes s’appliquent seulement au serveur ; vos données dans le partage de fichiers Azure ne sont pas dédupliquées.
 
-**Windows Server 2012 R2 ou versions d’agent plus anciennes**  
-Pour les volumes sur lesquels la hiérarchisation cloud n’est pas activée, Azure File Sync prend en charge la déduplication des données Windows Server quand elle est activée sur le volume.
+> [!Note]  
+> La déduplication des données et la hiérarchisation cloud ne sont à l’heure actuelle pas prises en charge sur le même volume sur Server 2019 en raison d’un bogue qui sera résolu dans une prochaine mise à jour.
+
+**Windows Server 2012 R2**  
+Azure File Sync ne prend pas en charge la déduplication des données et la hiérarchisation cloud sur le même volume. Si la déduplication des données est activée sur un volume, la hiérarchisation cloud doit être désactivée. 
 
 **Remarques**
 - Si la déduplication des données est installée avant d’installer l’agent Azure File Sync, un redémarrage est nécessaire pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume.
@@ -271,6 +277,8 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Gouvernement des États-Unis – Arizona | Arizona |
 | Gouvernement des États-Unis – Texas | Texas |
 | Gouvernement américain - Virginie | Virginie |
+| Émirats arabes unis Nord | Dubaï |
+| Émirats arabes unis Centre* | Abu Dhabi |
 | Europe Ouest | Pays-bas |
 | Centre-USA Ouest | Wyoming |
 | USA Ouest | Californie |

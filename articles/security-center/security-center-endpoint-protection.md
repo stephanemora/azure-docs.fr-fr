@@ -1,5 +1,5 @@
 ---
-title: Détection des solutions de protection des points de terminaison et évaluation de l'intégrité dans Azure Security Center | Microsoft Docs
+title: Suggestions de protection de point de terminaison dans Azure Security Centers
 description: Découvrez comment les solutions de protection de point de terminaison sont détectées et identifiées comme saines.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202262"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748426"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Évaluation de la protection de point de terminaison et recommandations dans Azure Security Center
 
@@ -35,23 +35,23 @@ Azure Security Center fournit des évaluations d’intégrité des versions [pri
 
   * L’une des propriétés suivantes est false :
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * Si au moins une des deux propriétés suivantes a une valeur égale ou supérieure à 7.
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Protection du point de terminaison Microsoft System Center
 
@@ -61,30 +61,30 @@ Azure Security Center fournit des évaluations d’intégrité des versions [pri
 
     * Au moins une des propriétés suivantes est False :
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * Si une, voire les deux mises à jour de signature sont supérieures ou égales à 7. 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## <a name="trend-micro"></a>Trend Micro
 
 * Security Center vous recommande d’ **« Installer les solutions de protection de point de terminaison sur la machine virtuelle »** si une des vérifications suivantes n’est pas satisfaite :
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** existe
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe
-    * Le fichier **dsq_query.cmd** se trouve dans le dossier d’installation
+    * Le fichier **dsa_query.cmd** se trouve dans le dossier d’installation
     * L'exécution de **dsa_query.cmd** indique **Component.AM.mode : on - Trend Micro Deep Security Agent détecté**
 
 ## <a name="symantec-endpoint-protection"></a>Protection de point de terminaison Symantec
@@ -102,7 +102,7 @@ Ou
 
 Security Center vous recommande de **« Résoudre les problèmes d’intégrité de la protection de point de terminaison sur vos machines »** si une des vérifications suivantes n’est pas satisfaite :
 
-* Vérifier la version de Symantec > = 12 :  Emplacement du registre : **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Vérifier la version de Symantec > = 12 : Emplacement du registre : **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
 * Vérifier l'état de la protection en temps réel : **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
@@ -163,22 +163,21 @@ Security Center vous recommande d’ **« Installer les solutions de protection
 
 Security Center vous recommande de **« Résoudre les problèmes d’intégrité de la protection de point de terminaison sur vos machines »** si une des vérifications suivantes n’est pas satisfaite :
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , retourne une valeur   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , retourne une valeur
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", retourne une valeur   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", retourne une valeur
 
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** retourne lastUpdate qui doit être <= 7 jours 
 
 - **"/opt/sophos-av/bin/savdstatus -v"** est égal à **"On-access scanning is running"** 
 
-- **"/opt/sophos-av/bin/savconfig get LiveProtection"** retourne activé  
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** retourne activé
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
 ### <a name="troubleshoot"></a>Résolution des problèmes
 
-Les journaux de l'extension Microsoft Antimalware à l'emplacement :  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
+Les journaux d’activité de l’extension Microsoft Antimalware sont disponibles à l’emplacement suivant : **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Ou PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
 ### <a name="support"></a>Support
 

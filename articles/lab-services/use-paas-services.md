@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833908"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621385"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utiliser des services PaaS (Platform-as-a-Service) dans Azure DevTest Labs
 PaaS est pris en charge dans DevTest Labs via les environnements. Dans DevTest Labs, les environnements sont pris en charge par les modèles préconfigurés Azure Resource Manager dans un référentiel Git. Les environnements peuvent contenir des ressources PaaS et IaaS. Ainsi, vous pouvez créer des systèmes complexes pouvant inclure des ressources Azure telles que des machines virtuelles, bases de données, réseaux virtuels et applications web, qui sont personnalisés pour fonctionner ensemble. Ces modèles permettent un déploiement cohérent et améliorent la gestion des environnements à l’aide du contrôle de code source. 
@@ -46,7 +46,7 @@ Le propriétaire du lab peut personnaliser des environnements lab pour faire év
 Certaines informations de lab personnalisé se trouvent en dehors du groupe de ressources et sont spécifiques aux environnements auxquels le modèle peut accéder. En voici quelques-unes : 
 
 - Identification du réseau du lab
-- Lieu
+- Location
 - Compte de stockage dans lequel sont stockés des modèles Resource Manager. 
  
 #### <a name="lab-virtual-network"></a>Réseau virtuel du lab

@@ -4,16 +4,16 @@ description: Cet article explique de quelle façon les clients d’Azure Entrepr
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 11/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 1882b283f376a1bb8706132263c83e1a24ec0705
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 567beb9de0c0a8039d774270bdf61a7db437091e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900928"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888373"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Bien démarrer avec le portail Azure EA
 
@@ -205,7 +205,8 @@ Vous pouvez ajouter un autre compte en cliquant sur **Add Another Account** (Ajo
 Pour confirmer la propriété du compte :
 
 1. Connectez-vous au portail Azure EA.
-2. Confirmez la propriété du compte en vérifiant l’état. L’état doit passer de **Pending** (En attente) à **Start/End date** (Date de début/fin). La date de début/fin correspond à la date à laquelle l’utilisateur s’est connecté pour la première fois et à la date de fin du contrat.
+1. Confirmez la propriété du compte en vérifiant l’état. L’état doit passer de **Pending** (En attente) à **Start/End date** (Date de début/fin). La date de début/fin correspond à la date à laquelle l’utilisateur s’est connecté pour la première fois et à la date de fin du contrat.
+1. Lorsque le message « avertissement » s’affiche, le propriétaire du compte doit cliquer sur **Continuer** pour activer le compte la première fois qu’il se connecte au portail Azure EA.
 
 
 ## <a name="change-account-owner"></a>Changer le propriétaire du compte
@@ -220,7 +221,7 @@ Points importants sur le transfert des informations d’un compte d’utilisateu
 - Les transferts d’un compte Microsoft vers un autre compte Microsoft sont pris en charge. Le compte cible doit être un compte Azure Commerce valide pour être autorisé comme cible des transferts. Pour les nouveaux comptes, vous êtes invité à créer un compte Azure Commerce quand vous vous connectez au portail Azure EA. Pour les comptes existants, vous devez d’abord créer un abonnement Azure pour que le compte soit éligible.
 - Quand vous effectuez un transfert d’abonnement, Microsoft met à jour le propriétaire du compte.
 
-Stratégies RBAC :
+Stratégies de contrôle d’accès en fonction du rôle :
 
 - Seuls les transferts d’abonnement Azure entre deux ID d’organisation dans le même locataire conservent les stratégies de contrôle d’accès en fonction du rôle (RBAC) Azure, les attributions de rôle d’administrateur de service et les attributions de rôle de coadministrateur qui avaient été initialement définies. Pour tous les autres transferts d’abonnement, les stratégies RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont perdues. Les stratégies et les rôles d’administrateur ne sont pas transférés entre les annuaires. Les administrateurs de service sont mis à jour pour refléter le propriétaire du compte de destination.
 - Lorsque vous effectuez des transferts d’abonnement entre deux ID d’organisation dans le même locataire, les stratégies RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
@@ -284,16 +285,64 @@ Cela peut prendre jusqu’à 24 heures pour que les nouveaux abonnements soient
 - [Modifier les détails de l’abonnement](https://account.azure.com/Subscriptions)
 - [Gérer les services de l’abonnement](https://portal.azure.com/#home)
 
-## <a name="transfer-pay-as-you-go-subscription-to-ea-subscription"></a>Changer un abonnement avec paiement à l’utilisation en abonnement Entreprise Azure (EA)
+## <a name="transfer-ea-subscription-to-pay-as-you-go-subscription"></a>Changer un abonnement EA en abonnement avec paiement à l’utilisation
 
-Pour changer un abonnement individuel avec les tarifs du paiement à l’utilisation en abonnement Entreprise Azure (EA), vous devez créer une demande de support dans le portail Azure. Pour créer une demande de support, cliquez sur **+ Nouvelle demande de support** dans la zone Aide et support.
+Pour changer un abonnement EA en un abonnement individuel avec les tarifs du paiement à l’utilisation, vous devez créer une demande de support dans le portail Azure EA. Pour créer une demande de support, cliquez sur **+ Nouvelle demande de support** dans la zone Aide et support.
 
+## <a name="associate-an-existing-account-with-your-pay-as-you-go-subscription"></a>Associer un compte existant à votre abonnement avec paiement à l’utilisation
+
+Si vous disposez déjà d’un compte de Microsoft Azure sur le Portail Microsoft Azure, entrez le compte Microsoft ou le compte professionnel ou scolaire associé pour l’associer à votre inscription EA.
+
+### <a name="associate-an-existing-account"></a>Associer un compte existant
+
+1. Dans le Enterprise Portal, cliquez sur **Gérer**.
+1. Cliquez sur l’onglet **Compte**.
+1. Cliquez sur **+Ajouter un compte**.
+1. Entrez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
+1. Confirmez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
+1. Spécifiez le nom à utiliser pour identifier ce compte dans les rapports.
+1. Cliquez sur **Add**.
+1. Vous pouvez ajouter un compte supplémentaire en sélectionnant à nouveau l’option **+Ajouter un compte**, ou bien revenir à la page d’accueil en sélectionnant le bouton **Admin**.
+1. Si vous cliquez pour afficher la page **Compte**, le compte que vous venez d’ajouter s’affiche avec l’état **En attente**.
+
+### <a name="confirm-account-ownership"></a>Confirmer la propriété du compte
+
+1. Connectez-vous au compte de messagerie associé au compte Microsoft ou un compte professionnel ou scolaire que vous avez fourni.
+1. Ouvrez l’e-mail de notification intitulé _« Invitation à activer votre compte sur le service Microsoft Azure de la part de Microsoft Volume Licensing »_ .
+1. Cliquez sur le lien **Connectez-vous au Microsoft Azure Enterprise Portal** dans l’invitation.
+1. Cliquez sur **Se connecter**.
+1. Entrez votre compte Microsoft ou votre compte professionnel ou scolaire et votre mot de passe pour vous connecter et confirmer la propriété du compte.
+
+### <a name="azure-marketplace"></a>Place de marché Azure
+
+Bien que la plupart des abonnements soient convertis de l’environnement de paiement à l’utilisation à Enterprise Azure, ce n’est pas le cas des services de la place de marché Azure. Pour obtenir une vue unique de tous les abonnements et facturations, nous vous recommandons d’ajouter les services de la place de marché Azure à Enterprise Portal :
+
+1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
+1. Cliquez sur l’onglet **Inscription**.
+1. Consultez la section Détails de l’inscription.
+1. À droite du champ Place de marché Azure, cliquez sur l’icône de crayon pour l’activer, puis sur **Enregistrer**.
+
+Le propriétaire du compte peut désormais acheter des abonnements de la place de marché Azure qui appartiennent au paiement à l’utilisation.
+
+Une fois les abonnements de la place de marché Azure activés dans le cadre de votre inscription, annulez les abonnements de la place de marché créés dans l’environnement de paiement à l’utilisation. Cette étape est essentielle afin que les abonnements de la place de marché ne tombent pas dans un état incorrect lors de l’expiration de votre instrument de paiement à l’utilisation.
+
+### <a name="msdn"></a>MSDN
+
+Les abonnements MSDN sont automatiquement convertis en MSDN Dev/test, et l’offre EA perd tout crédit monétaire existant.
+
+### <a name="azure-in-open"></a>Azure dans Open
+
+L’association d’un abonnement Azure dans Open avec un Contrat Entreprise annulera les crédits Azure dans Open non consommés. Pour éviter la perte éventuelle de crédit, nous recommandons aux clients de consommer tous les crédits d’un abonnement Azure dans Open avant d’ajouter le compte à leur Contrat Entreprise.  
+
+### <a name="accounts-with-support-subscriptions"></a>Comptes avec abonnements au support
+
+Lorsque vous ajoutez des comptes existants au Enterprise Portal ayant un abonnement au support (et que vous ne disposez pas déjà d’un abonnement au support EA), notez que l’abonnement au support MOSA n’est pas automatiquement transféré et que le support doit être reacheté dans EA. Une période de grâce pour la couverture du support sera fournie jusqu’à la fin du mois suivant, afin de laisser le temps nécessaire à la réorganisation du support.
 
 ## <a name="view-usage-summary-and-download-reports"></a>Consulter le résumé de l’utilisation et télécharger les rapports
 
 Les administrateurs d’entreprise peuvent voir un résumé de leurs données d’utilisation, engagement financier consommé et frais associés à l’utilisation supplémentaire dans le portail Azure EA. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
 
-Pour voir l’utilisation détaillée de comptes spécifiques
+Pour voir l’utilisation détaillée de comptes spécifiques :
 
 Téléchargez le rapport Usage Detail (Détails de l’utilisation). Cliquez sur **Reports** (Rapports), puis sur l’onglet **Download Usage** (Télécharger l’utilisation). Dans la liste des rapports, cliquez sur **Download** (Télécharger) à côté du rapport mensuel qui vous intéresse.
 
@@ -302,10 +351,10 @@ Le rapport n’inclut pas les taxes applicables. Une latence pouvant atteindre h
 Pour voir les rapports et graphes du résumé de l’utilisation :
 
 1. Dans le portail Azure EA, dans la zone de navigation de gauche, cliquez sur **Reports** (Rapports) et accédez à l’onglet **Usage Summary** (Résumé de l’utilisation).  
-  ![](./media/billing-ea-portal-get-started/create-ea-view usage-summary-and-download-reports.png)
+  ![Créer et afficher un résumé de l’utilisation et télécharger les rapports](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
 2. Sélectionnez une durée d’engagement.
 3. Basculez entre **M** (Mensuel) et **C** (Personnalisé) en haut à droite de la page pour afficher le **résumé de l’utilisation** avec des dates de début et de fin personnalisées.  
-  ![](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+  ![Créer et afficher un résumé de l’utilisation et télécharger les rapports dans un affichage personnalisé](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 4. Sélectionnez une période ou un mois sur le graphe pour afficher des détails supplémentaires.
 5. Le graphe montre l’utilisation par mois, en détaillant l’engagement utilisé, le dépassement des frais de service, les frais facturés séparément et les frais de la Place de marché.
 6. Pour le mois sélectionné, filtrez par services, comptes et abonnements sous le graphe.
@@ -346,10 +395,151 @@ Voici une vidéo qui montre comment télécharger les données d’utilisation 
 
 >[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
-## <a name="schedule-an-onboarding-call"></a>Planifier un appel d’intégration
+### <a name="advanced-report-download"></a>Téléchargement des rapports avancés
 
-Si vous souhaitez planifier une session d’intégration pour un client, créez une demande de support dans le [portail Azure EA](https://support.microsoft.com/supportrequestform/e114582c-4e51-af46-10b1-1f0cc141e133). Sélectionnez **Onboarding** (Intégration) dans **Issue Category** (Catégorie de problème).
+Pour la création de rapports sur des plages de dates ou des comptes spécifiques, le téléchargement de rapports avancés peut être utilisé. Depuis le 30 août 2016, le format du fichier de sortie passe de. xlsx à. csv afin de prendre en charge les jeux d’enregistrements plus volumineux.
+
+1. Sélectionnez **Téléchargement des rapports avancés**.
+1. Sélectionnez **Plage de dates appropriée**.
+1. Sélectionnez **Plage de comptes appropriée**.
+1. Sélectionnez **Exiger les données d’utilisation**.
+1. Sélectionnez le bouton **Actualiser** jusqu’à ce que l’état du rapport soit **Télécharger**.
+1. Téléchargez le rapport.
+
+## <a name="ea-term-glossary"></a>Glossaire des termes EA
+
+- **Compte**  : Une unité d’organisation sur le portail Azure EA utilisée pour gérer les abonnements et utilisée pour la création de rapports.
+- **Propriétaire du compte** : Personne identifiée pour gérer les abonnements et les administrateurs de service sur Microsoft Azure. Elles peuvent afficher les données d’utilisation sur ce compte et ses abonnements associés.
+- **Abonnement de modification** : Un abonnement d’un an ou équivalent dans le cadre de la modification de l’inscription.
+- **Engagement** : Engagement d’un montant monétaire annuel pour les services Microsoft Azure à un tarif d’engagement réduit pour une utilisation à partir de ce prépaiement.
+- **Administrateur de service** : Personne(s) identifiée(s) pour gérer les services, créer des comptes et des propriétaires de comptes, afficher les détails d’utilisation des services qu’ils gèrent et afficher les coûts quand des autorisations leur sont accordées.
+- **Numéro d’inscription** : Identificateur unique fourni par Microsoft pour identifier l’inscription spécifique associée à un contrat Entreprise.
+- **Administrateur d’entreprise** : Personne(s) identifiée(s) pour gérer les services et les propriétaires de service et les comptes et propriétaires de compte sur Microsoft Azure. Elles ont la possibilité de gérer les administrateurs d’entreprise, ainsi que d’afficher les données d’utilisation, les quantités facturées et les frais non facturés pour tous les comptes et abonnements associés à l’inscription d’entreprise.
+- **Contrat Entreprise** : Un contrat de licence Microsoft pour les clients avec des achats centralisés qui souhaitent normaliser leur organisation entière sur la technologie Microsoft et maintenir une infrastructure informatique sur des logiciels Microsoft.
+- **Inscription à un contrat Entreprise** : Inscription dans le programme contrat Entreprise fournissant des produits Microsoft en volume à tarif réduit.
+- **Compte Microsoft** : Un service Web qui permet aux sites participants d’authentifier un utilisateur avec un ensemble unique d’informations d’identification.
+- **Modification d’inscription Microsoft Azure Enterprise (modification de l’inscription)**  : Une modification signée par une entreprise, qui lui permet d’accéder à Microsoft Azure dans le cadre de l’inscription de l’entreprise.
+- **Portail Azure EA** : Portail utilisé par nos clients d’entreprise pour gérer leurs comptes Microsoft Azure et leurs abonnements associés.
+- **Quantité de ressources consommées** : Quantité d’un service Microsoft Azure utilisée durant un mois.
+- **Administrateur de services** : La personne identifiée pour accéder aux abonnements et projets de développement sur le portail Azure EA et les gérer.
+- **Abonnement**: Représente un abonnement au portail Azure EA et est un conteneur de services Microsoft Azure gérés par le même administrateur de services.
+- **Compte professionnel ou scolaire** : Pour les organisations qui ont configuré Active Directory avec une fédération dans le cloud, et dont tous les comptes se trouvent sur un seul locataire.
+
+### <a name="enrollment-statuses"></a>États de l'inscription :
+
+- **Pending** : l’administrateur de l’inscription doit se connecter au portail Azure EA. Une fois connecté, l’inscription passe à l’état Active.
+- **Active** : L’inscription est active et les comptes et les abonnements peuvent être créés dans le portail Azure EA. L’inscription reste active jusqu’à la date de fin du contrat Entreprise.
+- **Durée prolongée indéterminée** : Une durée prolongée indéterminée prend place quand la date de fin du contrat Entreprise est atteinte. Il permet aux clients EA qui ont opté pour le terme étendu de continuer à utiliser Azure indéfiniment à la fin de leur contrat Entreprise. Avant que l’inscription EA ait atteint la date de fin de contrat Entreprise, l’administrateur de l’inscription doit décider entre le renouvellement de l’inscription en ajoutant un engagement monétaire supplémentaire, le transfert vers une nouvelle inscription, la migration vers Microsoft Online Subscription Program (MOSP), ou la confirmation de la désactivation de tous les services associés à l’inscription.
+- **Expiré** : Le client EA a refusé le terme prolongé, l’inscription de contrat entreprise a atteint la date de fin de contrat Entreprise, l’inscription expire et tous les services associés sont désactivés.
+- **Transférée** : Les inscriptions où tous les comptes et services associés ont été transférés vers une nouvelle inscription se voit appliquer l’état Transférée. Veuillez noter que les inscriptions ne sont pas automatiquement transférées si un nouveau numéro d’inscription est généré lors du renouvellement. Le numéro d’inscription précédent doit être inclus dans la demande de renouvellement du client pour qu’un transfert automatique puisse avoir lieu.
+
+## <a name="get-started-on-azure-ea-faq"></a>FAQ de prise en main d’Azure EA
+
+Ce document fournit des informations sur les questions types posées par les clients au cours du processus d’intégration.  
+
+### <a name="can-i-associate-my-existing-azure-account-to-enterprise-enrollment"></a>Puis-je associer mon compte Azure existant à l’inscription Entreprise ?
+
+Oui, vous pouvez. Un point important, tous les abonnements Azure pour lesquels vous êtes propriétaire du compte seront convertis en contrat Entreprise. Cela comprend les abonnements qui utilisent le crédit mensuel (par exemple, Visual Studio, AzurePass, MPN, BizSpark, etc.), ce qui signifie que vous perdez alors le crédit mensuel.
+
+### <a name="i-accidentally-associated-my-existing-azure-account-with-enterprise-enrollment-as-a-result-i-lost-my-monthly-credit-is-it-possible-to-get-my-monthly-credit-back"></a>J’ai accidentellement associé mon compte Azure existant à l’inscription Entreprise. Par conséquent, j’ai perdu mon crédit mensuel. Est-il possible d’accéder à mon crédit mensuel ?
+
+Pour récupérer votre offre d’abonnement Visual Studio individuel après vous être authentifié en tant que propriétaire d’un compte EA, après avoir utilisé la même connexion pour EA que votre abonnement Visual Studio, vous devez :
+1. Supprimer ce propriétaire de compte du portail EA, après avoir supprimé ou déplacé les abonnements Azure dont il est propriétaire, et faire qu’ils soient de nouveau inscrits pour leurs avantages individuels de Visual Studio Azure.
+ Ou
+1. Supprimer l’abonné Visual Studio du site d’administration dans VLSC et réaffectez l’abonnement, en faisant en sorte qu’il utilise une connexion différente cette fois-ci. Ils peuvent ensuite s’inscrire de nouveau pour leurs avantages individuels de Visual Studio Azure.
+
+### <a name="what-type-of-subscription-should-i-create"></a>Quel type d’abonnement devrais-je créer ?
+
+Le portail EA offre deux types d’abonnements pour les clients d’entreprise :
+
+- Microsoft Azure Enterprise, idéal pour :
+  - Toutes les utilisations de production
+  - Meilleurs prix basés sur les dépenses d’infrastructure
+  - Vous trouverez plus d’informations à l’adresse https://azure.microsoft.com/pricing/enterprise-agreement/
+- Enterprise Dev/Test - idéal pour :
+  - Toutes les charges de travail de développement/test d'équipe
+  - Charges de travail de test/développement individuelles moyennes à fortes
+  - Accès aux images MSDN spéciales et aux tarifs de service préférentiels
+  - Vous trouverez plus d’informations à l’adresse https://azure.microsoft.com/offers/ms-azr-0148p/
+
+### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>Est-il possible de transférer la propriété de l’abonnement à un autre compte ?
+
+Oui, il est possible de transférer la propriété de l’abonnement à un autre compte. Par exemple, si un compte A possède trois abonnements, l’administrateur de l’entreprise peut transférer un abonnement au compte B, l’autre au compte C et l’autre au compte D ou bien tous les transférer au compte E.
+
+Vous pouvez accéder à EA et cliquer sur Gérer > Compte, pointer sur **Compte** (à l’extrême droite) et vous verrez l’option Transférer la propriété (icône portrait) et transférer l’abonnement (icône de liste).
+
+Cette option est visible uniquement pour les comptes actifs.
+
+### <a name="i-see-subscription-name-defaults-to-offer-name-should-i-change-the-subscription-name-to-something-meaningful-to-my-organization"></a>Je vois le nom par défaut de l’abonnement, dois-je le remplacer par un nom significatif pour mon organisation ?
+
+Le type d’offre que vous choisissez est défini par défaut pour tous les abonnements créés. Nous vous recommandons de remplacer le nom d’abonnement par un nom qui en facilite le suivi.
+
+**Pour changer le nom :**
+1. Connectez-vous à [https://account.windowsazure.com](https://account.windowsazure.com).
+1. Cliquez sur la liste Abonnement.
+1. Sélectionnez l’abonnement.
+1. Cliquez sur l’icône **Gérer l’abonnement**.
+1. Modifiez les détails de l’abonnement.
+
+### <a name="how-can-i-track-cost-incurred-by-cost-center"></a>Comment puis-je suivre les coûts engendrés par le centre de coût ?
+
+Pour suivre les coûts par centre de coût, vous devez définir le centre de coûts à l’un des niveaux suivants :
+- department
+- Compte
+- Subscription
+
+En fonction de vos besoins, vous pouvez utiliser le même centre de coûts pour suivre l’utilisation et les coûts associés à un centre de coûts particulier.
+
+Par exemple, pour suivre le coût d’un projet spécial dans lequel plusieurs services sont impliqués, vous pouvez utiliser le centre de coût au niveau de l’abonnement pour suivre l’utilisation et le coût.
+
+Vous ne pouvez pas définir le centre de coût au niveau du service et, au cas où vous souhaiteriez suivre l’utilisation au niveau du service, vous pouvez utiliser la fonctionnalité « balise » disponible au niveau du service.
+
+### <a name="how-do-i-track-usage-and-spend-by-different-departments-in-my-organization"></a>Comment faire suivre l’utilisation et les dépenses de différents services dans mon organisation ?
+
+Vous pouvez créer autant de services que nécessaire dans le cadre de votre inscription EA. Pour suivre correctement l’utilisation, vous devez vous assurer que les abonnements ne sont pas partagés entre les services.
+
+Une fois la création du service et de l’abonnement terminée, vous pouvez voir les informations qui circulent dans le rapport d’utilisation qui vous aideront à suivre l’utilisation et à gérer les coûts et les dépenses au niveau du service.
+
+Vous pouvez également accéder à l’utilisation via des informations détaillées sur l’API et des exemples de code sont disponibles sur [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+
+### <a name="can-i-set-the-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Puis-je définir le quota de dépense et recevoir des alertes lorsque j’approche ma limite ?
+
+Vous pouvez définir un quota de dépense au niveau du service et le système vous informera automatiquement à mesure que vos limites de dépense atteignent 50 %, 75 %, 90 % et 100 % du quota que vous avez défini.
+
+Pour définir votre quota de dépense, cliquez sur le service auquel vous souhaitez ajouter une limite de dépense, puis cliquez sur l’icône Modifier. Cliquez sur **Enregistrer** pour enregistrer les détails.
+
+### <a name="i-used-resource-groups-rgs-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>J’ai utilisé des groupes de ressources pour implémenter RBAC et suivre l’utilisation, comment puis-je afficher les détails d’utilisation associés ?
+
+Les informations telles que « Groupes de ressources » et « Balises », si elles sont utilisées, sont suivies au niveau du service et les informations sont disponibles dans le fichier des détails de l’utilisation (format CSV), à télécharger depuis le portail Azure EA [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
+
+Vous pouvez également accéder à l’utilisation via des informations détaillées sur l’API et des exemples de code sont disponibles sur [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+
+Veuillez noter que vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (tel que via le portail Azure classique), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
+
+### <a name="can-i-perform-analyses-using-power-bi"></a>Puis-je effectuer des analyses à l’aide de Power BI ?
+
+Oui. Avec le pack de contenu Microsoft Azure Enterprise pour Power BI, vous pouvez importer et analyser rapidement la consommation Azure de l'inscription de votre entreprise. Découvrez quel service, compte ou abonnement a consommé le plus d'utilisation, quel service votre organisation a le plus utilisé, ou faites le suivi des dépenses et des tendances d'utilisation.
+
+**Accédez au site Web Power BI :**
+
+ 1. Connectez-vous avec un compte professionnel ou scolaire valide.
+    - Le compte professionnel ou scolaire peut être identique ou différent de celui utilisé pour accéder à l’inscription via le portail Azure EA.
+ 1. Dans le tableau de bord des services, choisissez :
+    - Vignette Microsoft Azure Enterprise.
+    - Cliquez sur **Connecter**.
+ 1. Depuis l’écran « se connecter à Azure Enterprise », choisissez :
+    - URL Environnement Azure : [https://ea.azure.com](https://ea.azure.com).
+    - Nombre de mois : choisissez entre 1 et 36.
+    - Numéro d’inscription : entrez le numéro d’inscription.
+    - Cliquez sur **Suivant**.
+ 1. Entrez la clé API dans la zone de la clé d’authentification. Vous pouvez accéder à la clé API dans le portail Azure EA sous l’onglet « Télécharger l’utilisation », puis cliquez sur **Clé d’accès API**.
+    - Copiez et collez la clé dans la zone « Clé de compte ».
+    - Le chargement des données dure entre 5 et 30 minutes environ dans Power BI, selon la taille du jeu de données.
+
+La création de rapport de Power BI est disponible pour les clients EA directs, les partenaires et les clients indirects qui sont en mesure d’afficher les informations de facturation.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Les administrateurs du portail Azure EA doivent lire la [documentation consacrée à l’administration du portail Azure EA](billing-ea-portal-administration.md) pour découvrir les tâches d’administration courantes.
 - Si vous avez besoin d’aide pour résoudre des problèmes rencontrés avec le portail Azure EA, consultez [Résoudre les problèmes d’accès au portail Azure EA](billing-ea-portal-troubleshoot.md).
+- Pour obtenir un guide d’intégration d’Azure EA, consultez [Guide d’intégration d’Azure EA](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).

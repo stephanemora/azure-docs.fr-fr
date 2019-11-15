@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955860"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601384"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -26,7 +26,7 @@ Le tableau suivant compare quatre types de disque managé : les disques Ultra, 
 |   | Disque Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Type de disque   |SSD   |SSD   |SSD   |HDD   |
-|Scénario   |Charges de travail gourmandes en E/S, telles que le système SAP HANA, les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
+|Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
 |Taille maximale du disque   |65 536 gibioctets (Gio)    |32 767 Gio    |32 767 Gio   |32 767 Gio   |
 |Débit max.   |2 000 Mio/s    |900 Mio/s   |750 Mio/s   |500 Mio/s   |
 |Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
@@ -62,13 +62,4 @@ Voici certaines fonctionnalités clés des disques Ultra :
 
 ### <a name="ga-scope-and-limitations"></a>Étendue et limitations de la version en disponibilité générale
 
-Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
-
-- Ils sont pris en charge dans les régions USA Est 2, Asie Sud-Est et Europe Nord, dans deux zones de disponibilité par région  
-- Ils peuvent être utilisés seulement avec des zones de disponibilité (les groupes à haute disponibilité et les déploiements de machine virtuelle individuelle en dehors des zones n’ont pas la possibilité d’attacher un disque Ultra)
-- Ils sont pris en charge seulement sur les machines virtuelles ES/DS v3
-- Ils sont disponibles seulement comme des disques de données et prennent en charge uniquement une taille de secteur physique de 4 k  
-- Ils peuvent être créés seulement comme des disques vides  
-- Ils ne prennent pas encore en charge les captures instantanées de disque, les images de machine virtuelle, les groupes à haute disponibilité, les groupes de machines virtuelles identiques et Azure Disk Encryption
-- Ils ne prennent pas encore en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery
-- À l’heure actuelle, le nombre limite d’IOPS sur les machines virtuelles en disponibilité générale est de 80 000.
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

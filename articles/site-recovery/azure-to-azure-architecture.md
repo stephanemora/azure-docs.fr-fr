@@ -1,19 +1,19 @@
 ---
-title: Architecture de réplication Azure sur Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lorsque vous configurez une récupération d’urgence entre des régions Azure pour des machines virtuelles Azure en utilisant le service Azure Site Recovery.
+title: Architecture de la reprise d’activité après sinistre Azure vers Azure dans Azure Site Recovery
+description: Vue d’ensemble de l’architecture utilisée lorsque vous configurez une récupération d’urgence entre des régions Azure pour des machines virtuelles Azure en utilisant le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231453"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621123"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 

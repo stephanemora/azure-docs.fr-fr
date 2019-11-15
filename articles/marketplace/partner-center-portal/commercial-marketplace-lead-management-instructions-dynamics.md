@@ -4,15 +4,16 @@ description: Configurez la gestion des prospects pour Dynamics 365 for Customer
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177802"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812305"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 for Customer Engagement
 
@@ -82,7 +83,7 @@ Pour configurer Azure Active Directory pour Dynamics 365 for Customer Engagement
 
     ![Inscrire une application](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
-8. À présent que votre application est inscrite, accédez à la page de vue d’ensemble de l’application, puis copiez la valeur **ID d’application (client)** sur cette page. Enregistrez cette valeur, car il s’agit de la valeur d’*ID d’application (client)* que vous devez fournir dans le portail de publication et dans Dynamics afin de recevoir des prospects pour votre offre de la Place de marché.
+8. Maintenant que votre application est inscrite, accédez à la page de vue d’ensemble de l’application, puis copiez la valeur **ID d’application (client)** sur cette page. Enregistrez cette valeur, car il s’agit de la valeur d’*ID d’application (client)* que vous devez fournir dans le portail de publication et dans Dynamics afin de recevoir des prospects pour votre offre de la Place de marché.
 
     ![ID d’application (client)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
@@ -128,7 +129,7 @@ Pour configurer Office 365 pour Dynamics 365 for Customer Engagement, procédez
     * Fournir un nom d’utilisateur
     * Fournissez un mot de passe et désactivez la case à cocher « Demander à cet utilisateur de modifier son mot de passe lors de sa première connexion ».
     * Sélectionnez « Utilisateur (pas d’accès administrateur) » en tant que rôle de l’utilisateur.
-    * Sélectionnez « Offre Dynamics 365 for Customer Engagement » en tant que licence de produit, comme dans la capture d’écran suivante. Vous êtes facturé pour la licence sélectionnée. 
+    * Sélectionnez « Offre Dynamics 365 for Customer Engagement » en tant que licence de produit, comme dans la capture d’écran suivante. Vous êtes facturé pour la licence sélectionnée. 
 
 Enregistrez ces valeurs, car il s’ agit des valeurs *Nom d’utilisateur et Mot de passe* que vous devez fournir sur le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché.
 
@@ -145,22 +146,22 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
     ![Gérer les rôles](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
-5. Recherchez le nom de rôle « Microsoft Marketplace Lead Writer », puis sélectionnez-le pour attribuer le rôle à l’utilisateur.
+5. Recherchez le nom de rôle « Microsoft Marketplace Lead Writer », puis sélectionnez-le pour attribuer le rôle à l’utilisateur.
 
     ![Gérer les rôles d’utilisateur](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!Note]
     >Ce rôle est créé par la solution que vous avez importée, et dispose uniquement des autorisations d’écrire les prospects et de suivre la version de la solution pour garantir la compatibilité.
 
-6. Revenez à la page Sécurité, puis sélectionnez **Rôles de sécurité**. Recherchez le rôle « Microsoft Marketplace Lead Writer » et sélectionnez-le.
+6. Revenez à la page Sécurité, puis sélectionnez **Rôles de sécurité**. Recherchez le rôle « Microsoft Marketplace Lead Writer » et sélectionnez-le.
 
     ![Rôles de sécurité](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Une fois dans le rôle de sécurité, sélectionnez l’onglet **Enregistrements principaux**. Recherchez l’entité « Paramètres d’interface utilisateur de l’entité utilisateur » et activez les autorisations Créer, Lire et Écrire pour l’utilisateur (1/4 de cercle jaune) pour cette entité en cliquant une fois dans chacun des cercles correspondants.
+7. Une fois dans le rôle de sécurité, sélectionnez l’onglet **Enregistrements principaux**. Recherchez l’entité « Paramètres d’interface utilisateur de l’entité utilisateur » et activez les autorisations Créer, Lire et Écrire pour l’utilisateur (1/4 de cercle jaune) pour cette entité en cliquant une fois dans chacun des cercles correspondants.
 
     ![Microsoft Marketplace Lead Writer – Enregistrements principaux](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. À présent, accédez à l’onglet **Personnalisation**. Recherchez l’entité « Tâche système » et activez les autorisations Lire, Écrire et AppendTo pour Organisation (vert en aplat) pour cette entité en cliquant quatre fois sur chacun des cercles correspondants.
+8. À présent, accédez à l’onglet **Personnalisation**. Recherchez l’entité « Tâche système » et activez les autorisations Lire, Écrire et AppendTo pour Organisation (vert en aplat) pour cette entité en cliquant quatre fois sur chacun des cercles correspondants.
 
     ![Microsoft Marketplace Lead Writer – Personnalisation](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

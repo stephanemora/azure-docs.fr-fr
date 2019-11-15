@@ -1,5 +1,5 @@
 ---
-title: Restaurer une base de données Azure SQL Data Warehouse à partir d’une sauvegarde géo-redondante | Microsoft Docs
+title: Restaurer un entrepôt de données géosauvegardé
 description: Guide pratique pour la restauration géo-redondante d’Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68425876"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685507"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>Restauration géo-redondante d’Azure SQL Data Warehouse
 

@@ -1,20 +1,20 @@
 ---
-title: Sécurité des instances managées Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD | Microsoft Docs
+title: Sécurité des instances managées à l’aide de principaux de serveur (connexions) Azure AD
 description: Découvrir les techniques et fonctionnalités permettant de sécuriser une instance managée dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231006"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822792"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Didacticiel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
@@ -35,9 +35,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > - Utiliser l’emprunt d’identité avec des utilisateurs Azure AD
 > - Utiliser des requêtes de bases de données croisées avec des utilisateurs Azure AD
 > - Découvrir les fonctionnalités de sécurité, notamment la protection contre les menaces, l’audit, le masquage des données et le chiffrement
-
-> [!NOTE]
-> Les principaux de serveur (connexions) Azure AD pour les instances managées sont en **préversion publique**.
 
 Pour en savoir plus, consultez les articles sur la [vue d’ensemble des instances managées Azure SQL Database](sql-database-managed-instance-index.yml) et leurs [fonctionnalités](sql-database-managed-instance.md).
 
@@ -64,15 +61,14 @@ Il est également possible de configurer un point de terminaison de service sur 
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Créer un principal de serveur (connexion) Azure AD pour une instance managée à l’aide de SSMS
 
-Le premier principal de serveur (connexion) Azure AD doit être créé par le compte SQL Server standard (non-Azure AD) de type `sysadmin`. Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
+Le premier principal de serveur Azure AD (connexion) peut être créé par le compte SQL Server standard (autre qu’Azure AD) qui est un `sysadmin`, ou par l’administrateur Azure AD pour l’instance gérée créée pendant le processus de configuration. Pour plus d’informations, consultez [Approvisionner un administrateur d’Azure Active Directory pour votre instance gérée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Cette fonctionnalité a changé depuis la [disponibilité générale des principaux de serveur Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
+Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
 
 - [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
 - [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
 
-> [!IMPORTANT]
-> Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-
-1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non-Azure AD) de type `sysadmin`, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non Azure AD) de type `sysadmin` ou d’un administrateur Azure AD pour MI, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -125,7 +121,7 @@ Pour créer d’autres principaux de serveur (connexions) Azure AD, des rôles 
 
 Pour ajouter la connexion au rôle serveur `sysadmin` :
 
-1. Reconnectez-vous à l’instance managée ou utilisez la connexion `sysadmin` existante au principal SQL.
+1. Reconnectez-vous à l’instance managée ou utilisez la connexion `sysadmin` existante à l’administrateur Azure AD ou au principal SQL.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 
@@ -425,7 +421,7 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
 
     Vous devez voir les résultats de la table dans **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Scénarios supplémentaires pris en charge pour les principaux de serveur (connexions) Azure AD (préversion publique) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Scénarios supplémentaires pris en charge pour les principaux de serveur (connexions) Azure AD
 
 - La gestion et les exécutions de travaux SQL Agent sont prises en charge pour les principaux de serveur (connexions) Azure AD.
 - Les opérations de sauvegarde et de restauration de base de données peuvent être exécutées par les principaux de serveur (connexions) Azure AD.

@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble de l’ajout de comptes à l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
-description: Vue d’ensemble de l’ajout de vos comptes professionnels et personnels à l’application Microsoft Authenticator pour la vérification à deux facteurs.
+title: Vue d’ensemble de l’ajout de comptes à l’application authentificateur - Azure AD
+description: Liens vers les rubriques sur l’ajout de vos comptes professionnels et personnels à l’application Microsoft Authenticator pour la vérification à deux facteurs.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382654"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820277"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Vue d’ensemble de l’ajout de comptes à l’application Microsoft Authenticator
 
@@ -43,7 +43,7 @@ Vous pouvez activer la vérification à deux facteurs pour de nombreux comptes q
 | Comptes professionnels ou scolaires | Le compte que votre organisation professionnelle ou scolaire vous a donné, par exemple alain@contoso.com. |
 | Comptes personnels | Les comptes Microsoft et non-Microsoft que vous avez ouverts à titre personnel, par exemple pour Outlook.com, Xbox LIVE, Google, Facebook, etc. |
 
-## <a name="in-this-section"></a>Dans cette section
+## <a name="articles-about-how-to-add-different-accounts"></a>Articles sur l’ajout de comptes différents
 
 | Article |Description |
 | ------|------------|

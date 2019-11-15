@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452951"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603452"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Effectuer un déploiement d’authentification sans mot de passe
 
@@ -104,9 +104,9 @@ Les clés de sécurité permettent l’accès à vos ressources, et vous devez p
 
 L’activation de la connexion Windows 10 au moyen de clés de sécurité FIDO2 nécessite l’activation de la fonctionnalité de fournisseur d’informations d’identification dans Windows 10. Activez-la de l’une des deux façons suivantes :
 
-- [Activer le fournisseur d’informations d’identification par le biais du déploiement Intune ciblé](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - Le déploiement Intune est l’option recommandée pour les machines jointes à Azure Active Directory.
-- [Activer le fournisseur d’informations d’identification par le biais d’un package de provisionnement](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Activer le fournisseur d’informations d’identification avec Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - Le déploiement Intune est l’option recommandée.
+- [Activer le fournisseur d’informations d’identification avec un package d’approvisionnement](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Si le déploiement Intune n’est pas possible, les administrateurs doivent déployer un package sur chaque machine pour activer la fonctionnalité de fournisseur d’informations d’identification. L’installation du package peut être effectuée à l’aide de l’une des options suivantes :
       - Stratégie de groupe ou System Center Configuration Manager (SCCM)
       - Installation locale sur une machine Windows 10
@@ -115,7 +115,7 @@ L’activation de la connexion Windows 10 au moyen de clés de sécurité FIDO2
 
 Les utilisateurs doivent inscrire leur clé de sécurité sur chacune de leurs machines Windows 10 jointes à Azure Active Directory.
 
-Pour plus d’informations, consultez [Inscription des utilisateurs et gestion des clés de sécurité FIDO2](howto-authentication-passwordless-security-key.md).
+Pour plus d’informations, consultez [Inscription des utilisateurs et gestion des clés de sécurité FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### <a name="licensing-for-passwordless-authentication"></a>Gestion des licences de l’authentification sans mot de passe
 
@@ -185,7 +185,7 @@ Voici des exemples de cas de test pour l’authentification sans mot de passe, a
 | L’utilisateur peut se connecter avec l’appareil FIDO2 (1809) | L’utilisateur peut sélectionner Clé de sécurité dans la fenêtre de connexion et se connecter avec succès. |
 | L’utilisateur peut inscrire l’appareil FIDO2 (1903) | L’utilisateur peut inscrire l’appareil FIDO2 en passant par Paramètres > Comptes > Options de connexion > Clé de sécurité |
 | L’utilisateur peut réinitialiser l’appareil FIDO2 (1903) | L’utilisateur peut réinitialiser l’appareil FIDO2 en passant par Paramètres > Comptes > Options de connexion > Clé de sécurité |
-| L’utilisateur peut se connecter avec l’appareil FIDO2 (1809) | L’utilisateur peut sélectionner Clé de sécurité dans la fenêtre de connexion et se connecter avec succès. |
+| L’utilisateur peut se connecter avec l’appareil FIDO2 (1903) | L’utilisateur peut sélectionner Clé de sécurité dans la fenêtre de connexion et se connecter avec succès. |
 
 **Connexion FIDO sans mot de passe pour des applications web Azure AD**
 
@@ -257,7 +257,7 @@ Suivez les étapes décrites dans l’article [Activer la connexion sans mot de 
 ### <a name="deploy-fido2-security-key-sign-in"></a>Déployer la connexion par clé de sécurité FIDO2
 
 Suivez les étapes de l’article [Activer la connexion par clé de sécurité sans mot de passe pour Azure AD](howto-authentication-passwordless-security-key.md) afin d’activer les clés de sécurité comme méthodes d’authentification sans mot de passe dans votre organisation.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>Résoudre les problèmes de la connexion par téléphone
 
 | Scénario | Solution |

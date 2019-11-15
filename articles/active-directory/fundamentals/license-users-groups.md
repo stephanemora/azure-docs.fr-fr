@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805521"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
@@ -87,6 +87,8 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 1. Sélectionnez **Attribuer**.
 
     L’utilisateur est ajouté à la liste des utilisateurs sous licence et a accès aux services Azure AD inclus.
+    > [!NOTE]
+    > Les licences peuvent également être attribuées directement à un utilisateur à partir de la page **Licences**de l’utilisateur. Si un utilisateur dispose d’une licence attribuée par le biais d’une appartenance à un groupe et que vous souhaitez attribuer la même licence à l’utilisateur directement, vous ne pouvez le faire qu’à partir de la page **Produits** mentionnée à l’étape 1 uniquement.
 
 ### <a name="to-assign-a-license-to-a-group"></a>Pour affecter une licence à un groupe
 

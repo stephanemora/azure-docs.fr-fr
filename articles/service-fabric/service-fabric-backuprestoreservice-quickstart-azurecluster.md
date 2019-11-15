@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aeffa8b756340851ca4c82ebaed2453d4ac03bc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819507"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -126,6 +126,21 @@ Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans 
     ```
 
 4. Après avoir mis à jour votre modèle de cluster avec les modifications précédentes, appliquez-les et laissez le déploiement/la mise à niveau s’accomplir. Une fois l’opération terminée, le _service de sauvegarde et de restauration_ commence à s’exécuter dans votre cluster. L’URI de ce service est `fabric:/System/BackupRestoreService` et le service peut être situé sous la section du service système dans Service Fabric Explorer. 
+
+### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+
+1. Vérifiez que le mode avancé est activé.
+
+    ![Activer le mode avancé][2]
+
+2. Sélectionnez une application et accédez à Action. Cliquez sur Activer/Mettre à jour la sauvegarde de l’application.
+
+    ![Activer la sauvegarde de l’application][3] 
+
+3. Enfin, sélectionnez la stratégie souhaitée, puis cliquez sur Activer la sauvegarde.
+
+    ![Sélectionner une stratégie][4]
+
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Activation de la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors)
 Examinons la procédure pour activer la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors). Cette procédure suppose les éléments suivants :
@@ -280,6 +295,12 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+
+Pour afficher les sauvegardes dans Service Fabric Explorer, accédez à une partition et sélectionnez l’onglet Sauvegardes.
+
+![Énumérer les sauvegardes][5]
+
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
 - Les applets de commande PowerShell Service Fabric sont en mode Aperçu.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
@@ -288,6 +309,9 @@ FailureError            :
 - [Présentation de la configuration de la sauvegarde périodique](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-
+[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

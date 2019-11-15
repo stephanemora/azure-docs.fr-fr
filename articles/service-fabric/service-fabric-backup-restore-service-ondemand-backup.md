@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413935"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815853"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Sauvegarde à la demande dans Azure Service Fabric
 
@@ -111,6 +111,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Vous pouvez utiliser l’API [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) pour configurer le suivi de la [progression de la sauvegarde à la demande](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
+### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+Vérifiez que le mode avancé est activé dans les paramètres Service Fabric Explorer.
+1. Sélectionnez les partitions souhaitées, puis cliquez sur Actions. 
+2. Sélectionnez Déclencher la sauvegarde de partition, puis renseignez les informations pour Azure :
+
+    ![Déclencher la sauvegarde de partition][0]
+
+    ou FileShare :
+
+    ![Déclencher la sauvegarde de partition pour FileShare][1]
+
 ## <a name="tracking-on-demand-backup-progress"></a>Suivi de la progression de la sauvegarde à la demande
 
 Une partition d’un service fiable avec état ou Reliable Actor accepte une seule demande de sauvegarde à la demande à la fois. Une autre demande ne peut être acceptée que lorsque la demande de sauvegarde à la demande en cours est terminée.
@@ -183,3 +194,6 @@ Les demandes de sauvegarde à la demande peuvent avoir les états suivants :
 
 - [Comprendre la configuration de la sauvegarde périodique](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Référence sur l’API REST BackupRestore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

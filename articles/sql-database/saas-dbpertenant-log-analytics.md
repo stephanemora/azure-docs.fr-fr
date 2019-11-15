@@ -1,22 +1,22 @@
 ---
-title: Utiliser des journaux Azure Monitor avec une application multilocataire SQL Database | Microsoft Docs
+title: Journaux Azure Monitor avec application multi-locataire
 description: Configurer et utiliser des journaux Azure Monitor avec une application SaaS Azure SQL Database multilocataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570519"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826407"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser des journaux Azure Monitor avec une application SaaS SQL Database multilocataire
 

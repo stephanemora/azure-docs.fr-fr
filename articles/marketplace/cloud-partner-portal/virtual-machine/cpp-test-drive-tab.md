@@ -4,15 +4,16 @@ description: Décrit l’onglet Version d’évaluation utilisé pour créer une
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 31c7968d0d96a44ff166444f73807e0ccb5dc583
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938002"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808874"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Onglet Version d’évaluation de machine virtuelle
 

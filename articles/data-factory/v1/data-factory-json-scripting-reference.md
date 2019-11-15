@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory - Référence de script JSON | Microsoft Docs
+title: Azure Data Factory - Référence de script JSON
 description: Fournit des schémas JSON pour les entités Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 520bce39841f1008a0e47af1089db7fdce5ccae8
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255327"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815634"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -378,7 +378,7 @@ Cliquez sur le lien du magasin qui vous intéresse pour afficher les schémas JS
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Recherche Azure](#azure-search) |
+| &nbsp; |[Recherche cognitive Azure](#azure-cognitive-search) |
 | &nbsp; |[Stockage Table Azure](#azure-table-storage) |
 | **Bases de données** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -1279,15 +1279,15 @@ Si vous copiez des données dans Azure SQL Data Warehouse, définissez le **type
 
 Pour plus d’informations, consultez l’article [Azure SQL Data Warehouse connector (connecteur Azure SQL Data Warehouse)](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties).
 
-## <a name="azure-search"></a>Recherche Azure
+## <a name="azure-cognitive-search"></a>Recherche cognitive Azure
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Recherche Azure, définissez le **type** du service lié sur **Recherche Azure** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Recherche cognitive Azure, définissez son **type** sur **AzureSearch** et spécifiez les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| url | URL du service Recherche Azure. | OUI |
-| key | Clé d’administration du service Recherche Azure. | OUI |
+| url | URL du service de recherche. | OUI |
+| key | Clé d’administration du service de recherche. | OUI |
 
 #### <a name="example"></a>Exemples
 
@@ -1304,15 +1304,15 @@ Pour définir un service lié Recherche Azure, définissez le **type** du servic
 }
 ```
 
-Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#linked-service-properties).
+Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azure](data-factory-azure-search-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Jeu de données
-Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu de données sur **AzureSearchIndex** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Recherche cognitive Azure, définissez son **type** sur **AzureSearchIndex** et spécifiez les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
-| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
+| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans la Recherche cognitive Azure. | OUI |
 
 #### <a name="example"></a>Exemples
 
@@ -1333,15 +1333,15 @@ Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu
 }
 ```
 
-Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#dataset-properties).
+Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azure](data-factory-azure-search-connector.md#dataset-properties).
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>Récepteur Index Recherche Azure dans l’activité de copie
-Si vous copiez des données dans un Index Recherche Azure, définissez le **type de récepteur** de l’activité de copie sur **AzureSearchIndexSink** et spécifiez les propriétés suivantes dans la section **sink** :
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Récepteur de l’index Recherche cognitive Azure dans l’activité de copie
+Si vous copiez des données dans un index de recherche, définissez le **type de récepteur** de l’activité de copie sur **AzureSearchIndexSink** et spécifiez les propriétés suivantes dans la section **sink** :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. | Merge (par défaut)<br/>Télécharger| Non |
-| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. | 1 à 1 000. Valeur par défaut : 1 000. | Non |
+| writeBatchSize | Charge des données dans l’index de recherche lorsque la taille de la mémoire tampon atteint writeBatchSize. | 1 à 1 000. Valeur par défaut : 1 000. | Non |
 
 #### <a name="example"></a>Exemples
 
@@ -1386,7 +1386,7 @@ Si vous copiez des données dans un Index Recherche Azure, définissez le **type
 }
 ```
 
-Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#copy-activity-properties).
+Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azure](data-factory-azure-search-connector.md#copy-activity-properties).
 
 ## <a name="azure-table-storage"></a>Stockage de table Azure
 

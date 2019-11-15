@@ -4,15 +4,16 @@ description: Guide pratique pour publier une offre de conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 9433673e464beb2df74eb4f49851e960d2e7f99c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf422e3d77fa0722fe10a52073cf89ab2a76dcc0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942669"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823168"
 ---
 # <a name="publish-container-offer"></a>Publier l’offre de conteneur
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400624"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646978"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -50,6 +50,7 @@ Pour les informations les plus récentes sur les limites du service de stockage 
 - Chaque fichier écrit dans les partages *ObjetBlobDeBlocs* et *ObjetBlobDePages* est chargé respectivement en tant qu’objet blob de blocs et objet blob de pages.
 - Une hiérarchie de répertoires vides (sans fichiers) créée sous les dossiers *ObjetBlobDeBlocs* et *ObjetBlobDePages* n’est pas chargée.
 - S’il se produit des erreurs lors du chargement des données sur Azure, un journal des erreurs est créé dans le compte de stockage cible. Le chemin menant à ce journal des erreurs est disponible dans le portail à l’issue du chargement ; vous pouvez consulter ce journal afin de procéder aux corrections. Ne supprimez pas les données de la source sans avoir préalablement vérifié les données chargées.
+- Les métadonnées des fichiers et les autorisations NTFS ne sont pas préservées pendant le chargement des données sur Azure Files. Par exemple, l’attribut *Dernière modification* des fichiers ne sera pas conservé lors de la copie des données.
 - Si vous avez spécifié des disques managés dans la commande, passez en revue les considérations supplémentaires suivantes :
 
     - Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés vers les dossiers précréés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’a pas déjà été utilisé pour un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.

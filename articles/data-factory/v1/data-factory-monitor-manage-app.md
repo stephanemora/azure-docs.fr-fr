@@ -1,5 +1,5 @@
 ---
-title: Surveiller et gérer les pipelines de données - Azure | Microsoft Docs
+title: Monitorage et gestion de pipelines de données – Azure
 description: Découvrez comment utiliser l’application de surveillance et gestion pour surveiller et gérer les fabriques de données et les pipelines Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139589"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666928"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]

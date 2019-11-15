@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1f03f9e68640edd73d2f6bb55cf205a609450658
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620500"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606465"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -56,7 +56,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Nom de l’Event Hub** | Nom du concentrateur Event Hub à utiliser comme entrée. |
 | **Nom de la stratégie du hub d’événements** | La stratégie d’accès partagé qui fournit l’accès au concentrateur Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres de l’Event Hub.|
 | **Groupe de consommateurs du hub d’événements** (recommandé) | Il est vivement recommandé d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. Cette chaîne identifie le groupe de consommateurs à utiliser pour ingérer les données du concentrateur Event Hub. Si aucun groupe de consommateurs n’est spécifié, le travail Stream Analytics utilise le groupe de consommateurs $Default.  |
-| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
+| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
 | **Type de compression d’événement** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |
 
@@ -105,7 +105,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Nom de la stratégie d’accès partagé** | La stratégie d’accès partagé qui fournit l’accès au concentrateur IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | **Clé de la stratégie d’accès partagé** | La clé d’accès partagé utilisée pour autoriser l’accès au concentrateur IoT Hub.  Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du concentrateur IoT Hub. |
 | **Groupe de consommateurs** | Il est vivement recommandé d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. Le groupe de consommateurs à utiliser pour ingérer les données du concentrateur IoT Hub. Stream Analytics utilise le groupe de consommateurs $Default, sauf si vous spécifiez autre chose.  |
-| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
+| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
 | **Type de compression d’événement** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |
 
@@ -129,7 +129,13 @@ Quand il est nécessaire de stocker de grandes quantités de données non struct
 
 Le traitement des journaux est un scénario couramment utilisé pour se servir des entrées de stockage d’objets blob avec Stream Analytics. Dans ce scénario, des fichiers de données de télémétrie ont été capturés à partir d’un système, et doivent être analysés et traités pour extraire des données significatives.
 
-L’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, soit `BlobLastModifiedUtcTime`. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Une tâche Stream Analytics extrait les données de l’entrée Stockage Blob Azure toutes les secondes si le fichier blob est disponible. Si le fichier blob n’est pas disponible, il existe une interruption exponentielle avec un délai maximal de 90 secondes.
+L’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, soit `BlobLastModifiedUtcTime`. Si un objet blob est chargé dans un compte de stockage à 13:00, et que le travail Azure Stream Analytics est lancé avec l’option *Maintenant* à 13:01, l’objet blob n’est pas récupéré, car son heure de modification se situe en dehors de la période d’exécution de la tâche.
+
+Si un objet blob est chargé dans un conteneur de comptes de stockage à 13:00, et que le travail Azure Stream Analytics est lancé avec l’option *Heure personnalisée* à 13:00 ou avant, l’objet blob est récupéré, car son heure de modification se situe dans la période d’exécution de la tâche.
+
+Si un travail Azure Stream Analytics est lancé avec l’option *Maintenant* à 13:00, et qu’un objet blob est chargé dans le conteneur de comptes de stockage à 13:01, Azure Stream Analytics récupère l’objet blob.
+
+Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Une tâche Stream Analytics extrait les données de l’entrée Stockage Blob Azure toutes les secondes si le fichier blob est disponible. Si le fichier blob n’est pas disponible, il existe une interruption exponentielle avec un délai maximal de 90 secondes.
 
 Les entrées au format CSV nécessitent une ligne d’en-tête pour définir les champs du jeu de données. En outre, tous les champs de ligne d’en-tête doivent être uniques.
 
@@ -149,10 +155,10 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Compte de stockage** | Nom du compte de stockage dans lequel se trouvent les fichiers d’objets blob. |
 | **Clé du compte de stockage** | Clé secrète associée au compte de stockage. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du stockage d’objets blob. |
 | **Conteneur** | Conteneur pour les entrées d’objets blob. Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous chargez un objet blob dans le service de stockage Blob Azure, vous devez spécifier un conteneur pour cet objet blob. Vous pouvez choisir l’option **Use existing container** (Utiliser un conteneur existant) ou **Créer nouveau**.|
-| **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. N’incluez pas de noms de conteneurs ou de fichiers. |
+| **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Si vous souhaitez lire des objets blob à partir de la racine du conteneur, ne définissez pas de modèle de chemin d’accès. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. N’incluez pas de noms de conteneurs ou de fichiers. |
 | **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur possible est `HH` pour les heures. |
-| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
+| **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | **Compression** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |
 

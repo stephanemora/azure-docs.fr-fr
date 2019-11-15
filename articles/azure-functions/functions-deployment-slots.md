@@ -1,8 +1,6 @@
 ---
 title: Emplacements de déploiement Azure Functions
 description: Apprendre à créer et à utiliser des emplacements de déploiement avec Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: azure functions, fonctions
@@ -10,12 +8,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085668"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576319"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -27,7 +25,7 @@ Les éléments suivants reflètent la manière dont les fonctions sont affectée
 - Si une fonction est en cours d’exécution pendant un permutation, l’exécution se poursuit et les déclencheurs suivants sont routés vers l’instance d’application permutée.
 
 > [!NOTE]
-> Les emplacements ne sont pas disponibles pour le plan Consommation Linux.
+> Les emplacements ne sont actuellement pas disponibles pour le plan Consommation Linux.
 
 ## <a name="why-use-slots"></a>Pourquoi utiliser des emplacements ?
 
@@ -182,10 +180,10 @@ Il existe deux niveaux de prise en charge des emplacements de déploiement :
 | Système d’exploitation/Plan d’hébergement           | Niveau de prise en charge     |
 | ------------------------- | -------------------- |
 | Consommation Windows       | Disponibilité générale |
-| Windows Premium (préversion) | PRÉVERSION              |
+| Windows Premium           | Disponibilité générale  |
 | Dédié (Windows)         | Disponibilité générale |
 | Consommation Linux         | Non pris en charge          |
-| Premium (Linux) (préversion)   | PRÉVERSION              |
+| Linux Premium             | Disponibilité générale  |
 | Dédié (Linux)           | Disponibilité générale |
 
 ## <a name="next-steps"></a>Étapes suivantes

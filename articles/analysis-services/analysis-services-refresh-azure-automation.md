@@ -1,17 +1,17 @@
 ---
 title: Actualiser des modèles Azure Analysis Services avec Azure Automation | Microsoft Docs
-description: Découvrez comment coder des actualisations de modèle à l’aide d’Azure Automation.
+description: Cet article explique comment coder l’actualisation du modèle pour Azure Analysis Services avec Azure Automation.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572351"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 

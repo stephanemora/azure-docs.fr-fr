@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168484"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693216"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
 
@@ -32,7 +32,7 @@ Vous trouverez différents diagrammes dans cet article. Chaque section présente
 
 La connexion de passerelle VPN point à site de cet exemple est pour un réseau virtuel qui n’est connecté ni appairé à aucun autre réseau virtuel (VNet1). Dans cet exemple, les clients peuvent accéder à VNet1.
 
-![routage de réseau virtuel isolé](./media/vpn-gateway-about-point-to-site-routing/1.jpg "routage de réseau virtuel isolé")
+![Routage d’un réseau virtuel isolé](./media/vpn-gateway-about-point-to-site-routing/1.jpg "Routage d’un réseau virtuel isolé")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -56,7 +56,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows peuvent accéder directement aux réseaux virtuels appairés, mais le client VPN doit être retéléchargé si des changements sont apportés au peering du réseau virtuel ou à la topologie du réseau. Les clients non-Windows peuvent accéder directement aux réseaux virtuels appairés. L’accès n’est pas transitif et est limité aux réseaux virtuels directement appairés uniquement.
 
-![plusieurs réseaux virtuels appairés](./media/vpn-gateway-about-point-to-site-routing/2.jpg "plusieurs réseaux virtuels appairés")
+![Plusieurs réseaux virtuels appairés](./media/vpn-gateway-about-point-to-site-routing/2.jpg "Plusieurs réseaux virtuels appairés")
 
 ### <a name="address-space"></a>Espace d’adressage :
 
@@ -86,7 +86,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows ou un autre système d’exploitation pris en charge peuvent accéder à VNet1 uniquement. Pour accéder à d’autres réseaux virtuels, BGP doit être utilisé.
 
-![plusieurs réseaux virtuels et S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "plusieurs réseaux virtuels et S2S")
+![Plusieurs réseaux virtuels et S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "Plusieurs réseaux virtuels et S2S")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -114,7 +114,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows ou un autre système d’exploitation pris en charge peuvent accéder à tous les réseaux virtuels qui sont connectés avec une connexion VPN site à site, mais les routes vers les réseaux virtuels connectés doivent être ajoutées manuellement dans les clients Windows.
 
-![plusieurs réseaux virtuels et S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "plusieurs réseaux virtuels et S2S (BGP)")
+![Plusieurs réseaux virtuels et S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "Plusieurs réseaux virtuels et S2S BGP")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -142,7 +142,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients Windows et non-Windows peuvent uniquement accéder à VNet1.
 
-![routage avec un réseau virtuel et une filiale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routage avec un réseau virtuel et une filiale")
+![Routage avec un réseau virtuel et une filiale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "Routage avec un réseau virtuel et une filiale")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -168,7 +168,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients Windows peuvent accéder au réseau virtuel et à la filiale (Site1), mais les routes vers Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder au réseau virtuel, ainsi qu’à la filiale locale.
 
-![un réseau virtuel et une filiale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "un réseau virtuel et une filiale")
+![Un réseau virtuel et une filiale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "Un réseau virtuel et une filiale")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -195,7 +195,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Tous les clients peuvent accéder à VNet1 uniquement.
 
-![plusieurs réseaux virtuels S2S et une filiale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "plusieurs réseaux virtuels S2S et une filiale")
+![S2S à plusieurs réseaux virtuels et filiale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S à plusieurs réseaux virtuels et filiale")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -209,7 +209,7 @@ Tous les clients peuvent accéder à VNet1 uniquement.
 
 ### <a name="routes-added"></a>Routes ajoutées
 
-* Routes ajoutées aux clients : 10.1.0.0/16, 192.168.0.0/24
+* Routes ajoutées aux clients Windows : 10.1.0.0/16, 192.168.0.0/24
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -225,7 +225,7 @@ Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. V
 
 Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site, mais les routes vers VNet2, VNet3 et Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder aux réseaux virtuels et aux sites qui sont connectés avec une connexion VPN site à site sans aucune intervention manuelle. L’accès est transitif et les clients peuvent accéder aux ressources de tous les réseaux virtuels et sites (locaux) connectés.
 
-![plusieurs réseaux virtuels S2S et une filiale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "plusieurs réseaux virtuels S2S et une filiale")
+![S2S à plusieurs réseaux virtuels et filiale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S à plusieurs réseaux virtuels et filiale")
 
 ### <a name="address-space"></a>Espace d’adressage
 
@@ -239,7 +239,7 @@ Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux site
 
 ### <a name="routes-added"></a>Routes ajoutées
 
-* Routes ajoutées aux clients : 10.1.0.0/16, 192.168.0.0/24
+* Routes ajoutées aux clients Windows : 10.1.0.0/16, 192.168.0.0/24
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

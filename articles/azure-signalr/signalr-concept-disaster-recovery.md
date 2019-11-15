@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61402130"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747647"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Résilience et reprise d’activité après sinistre
 
@@ -19,7 +19,7 @@ La résilience et la reprise d’activité après sinistre sont des besoins comm
 Votre instance de service s’exécute toujours dans une seule région et ne bascule pas vers une autre région lors d’une panne au niveau régional.
 
 Au lieu de cela, le kit SDK de notre service fournit une fonctionnalité permettant de prendre en charge plusieurs instances du service SignalR et de basculer automatiquement vers d’autres instances lorsque certaines ne sont pas disponibles.
-Cette fonctionnalité vous permet de récupérer en cas de sinistre, mais vous devez configurer par vous-même la topologie appropriée du système. Vous allez apprendre à le faire dans ce document.
+Cette fonctionnalité vous permet de récupérer en cas de sinistre, mais vous devez configurer par vous-même la bonne topologie du système. Vous allez apprendre à le faire dans ce document.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>Architecture à haute disponibilité pour le service SignalR
 
@@ -51,11 +51,11 @@ Vous pouvez procéder de deux façons :
 
 ### <a name="through-config"></a>Via la configuration
 
-Vous devez déjà savoir comment définir la chaîne de connexion du service SignalR via variables d’environnement/paramètres d’application/web.config, via une entrée de configuration nommée `Azure:SignalR:ConnectionString`.
+Normalement, vous savez déjà comment définir la chaîne de connexion du service SignalR grâce à des variables d’environnement/paramètres d’application/web.config, dans une entrée de configuration nommée `Azure:SignalR:ConnectionString`.
 Si vous avez plusieurs points de terminaison, vous pouvez les définir dans plusieurs entrées de configuration, chacune dans le format suivant :
 
 ```
-Azure:SignalR:Connection:<name>:<role>
+Azure:SignalR:ConnectionString:<name>:<role>
 ```
 
 Ici, `<name>` est le nom du point de terminaison et `<role>` est son rôle (principal ou secondaire).
@@ -63,7 +63,7 @@ Le nom est facultatif mais il sera utile si vous souhaitez personnaliser davanta
 
 ### <a name="through-code"></a>Via le code
 
-Si vous préférez stocker la chaîne de connexion à un autre endroit, vous pouvez également la lire dans votre code et l’utiliser en tant que paramètre lorsque vous appelez `AddAzureSignalR()` (dans ASP.NET Core) ou `MapAzureSignalR()` (dans ASP.NET).
+Si vous préférez stocker les chaînes de connexion à un autre endroit, vous pouvez également les lire dans votre code et les utiliser comme paramètres lorsque vous appelez `AddAzureSignalR()` (dans ASP.NET Core) ou `MapAzureSignalR()` (dans ASP.NET).
 
 Exemple de code :
 
@@ -87,6 +87,11 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
         new ServiceEndpoint("<connection_string2>", EndpointType.Secondary, "region2"),
     };
 ```
+
+Il est possible de configurer plusieurs instances principales ou secondaires, auquel cas la négociation renverra un point de terminaison dans l’ordre suivant :
+
+1. S’il y a au moins une instance principale en ligne, retourner une instance principale en ligne aléatoire.
+2. Si toutes les instances principales sont hors service, retourner une instance secondaire en ligne aléatoire.
 
 ## <a name="failover-sequence-and-best-practice"></a>Bonne pratique et séquence de basculement
 
@@ -130,4 +135,4 @@ Vous devez gérer de telles situations côté client pour les rendre transparent
 
 Dans cet article, vous avez appris à configurer votre application pour assurer la résilience pour le service SignalR. Pour plus de détails sur la connexion serveur/client et le routage des connexions dans le service SignalR, vous pouvez lire [cet article](signalr-concept-internals.md) sur les éléments internes du service SignalR.
 
-Pour les scénarios de mise à l’échelle tels que le partitionnement, qui utilisent plusieurs instances pour gérer un grand nombre de connexions, consultez [Guide pratique pour mettre à l’échelle plusieurs instances](signalr-howto-scale-multi-instances.md).
+Dans les scénarios de mise à l’échelle, comme le partitionnement, qui utilisent conjointement plusieurs instances pour gérer un grand nombre de connexions, voir [Guide pratique pour mettre à l’échelle plusieurs instances](signalr-howto-scale-multi-instances.md).

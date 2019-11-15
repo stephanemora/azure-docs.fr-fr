@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle automatiquement des hôtes de session Windows Virtual Desktop - Azure
+title: Mise à l’échelle dynamique des hôtes de session Windows Virtual Desktop - Azure
 description: Explique comment configurer le script de mise à l’échelle automatique pour les hôtes de session Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607460"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Mettre à l’échelle dynamiquement des hôtes de session
 

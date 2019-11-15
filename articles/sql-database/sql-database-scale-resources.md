@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle des ressources Azure SQL Database | Microsoft Docs
+title: Mettre les ressources à l’échelle
 description: Cet article explique comment mettre à l'échelle votre base de données en ajoutant ou en supprimant des ressources allouées.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: abc6f8a7a2fda3578bbcf2947188752f8f3373cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566818"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819839"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -54,6 +54,8 @@ Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre 
 - Avec une [base de données unique](sql-database-single-database-scale.md), vous pouvez utiliser des modèles [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) pour définir le volume maximal de ressources assignées à chaque base de données.
 - Une instance [Managed Instance](sql-database-managed-instance.md) utilise le modèle [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et vous permet de définir la quantité maximale de cœurs de processeur et de stockage allouée à votre instance. Toutes les bases de données au sein de l’instance partageront les ressources allouées à l’instance.
 - Les [pools élastiques](sql-database-elastic-pool-scale.md) vous permettent de définir la limite de ressources maximale par groupe de bases de données dans le pool.
+
+Quelle que soit la version, une action de mise à l’échelle (scale up ou scale down) aurait pour effet de redémarrer le processus du moteur de base de données et de le déplacer si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne**, ce qui vous permet de continuer à utiliser votre service Azure SQL Database existant pendant sa progression. Une fois le moteur de base de données cible entièrement initialisé et prêt à traiter les requêtes, les connexions sont [basculées du moteur de base de données source vers le moteur de base de données cible](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
 
 > [!NOTE]
 > Une courte interruption de la connexion risque de se produire à la fin du processus de mise à l’échelle. Si vous avez implémenté une [Logique de nouvelles tentatives pour les erreurs temporaires standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), vous ne remarquerez pas le basculement.

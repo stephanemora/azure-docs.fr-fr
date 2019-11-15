@@ -1,5 +1,5 @@
 ---
-title: Stocker les sauvegardes Azure SQL Database pendant 10 ans | Microsoft Docs
+title: Stocker les sauvegardes jusqu’à une durée de 10 ans
 description: Découvrez comment Azure SQL Database prend en charge le stockage des sauvegardes complètes de bases de données jusqu’à une durée de 10 ans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: b43097dee6a3b4e8ec762e193dc2faf006ec796c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0cd4c45403d59819bf7ba729ea99de76ccf967ca
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819905"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database jusqu’à une durée de 10 ans
 

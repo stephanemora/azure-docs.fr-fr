@@ -1,5 +1,5 @@
 ---
-title: Planifications de maintenance Azure (préversion) | Microsoft Docs
+title: Calendriers de maintenance Azure
 description: La planification de maintenance permet aux clients de planifier les événements de maintenance planifiée nécessaires au service Azure SQL Data Warehouse pour déployer de nouveaux correctifs, mises à niveau et fonctionnalités.
 services: sql-data-warehouse
 author: antvgski
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958889"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686073"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 

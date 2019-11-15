@@ -1,5 +1,5 @@
 ---
-title: Mettre à jour les informations relatives à vos groupes sur le portail Mes applications - Azure Active Directory | Microsoft Docs
+title: 'Mettre à jour les informations relatives à vos groupes sur le portail Mes applications : Azure AD'
 description: Apprenez à afficher et à mettre à jour les informations relatives à vos groupes, notamment à afficher la liste des groupes dont vous êtes propriétaire, à créer des groupes, à afficher la liste des groupes dont vous êtes membre et à rejoindre des groupes dont vous ne faites pas encore partie.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383169"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803915"
 ---
-# <a name="update-your-groups-info-from-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
+# <a name="update-your-groups-info-on-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
 
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
@@ -91,7 +91,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
     - **Stratégie de groupe.** Choisissez d'autoriser tout le monde à rejoindre le groupe, ou d'autoriser uniquement le propriétaire du groupe à ajouter des membres.
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
     Votre nouveau groupe est créé. Il apparaît alors dans votre liste **Groupes dont je suis propriétaire**. Comme vous en êtes le propriétaire, ce groupe apparaît également dans la liste **Groupes dont je suis membre**.
 

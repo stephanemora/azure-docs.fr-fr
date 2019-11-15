@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827901"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -70,7 +71,7 @@ Aucune information n’est requise dans la section **Gravité**. Sélectionnez *
 
 #### <a name="who-should-we-contact"></a>Qui devons-nous contacter
 
-Dans la section **Coordonnées de contact**, assurez-vous que le nom de votre contact principal, le numéro de téléphone et l’e-mail sont corrects. 
+Dans la section **Informations de contact**, vérifiez que le nom, le numéro de téléphone et l’adresse e-mail de votre interlocuteur principal sont corrects. 
 - Mettez à jour ces informations si elles sont incorrectes
 - Vous pouvez ajouter d’autres contacts de votre entreprise à cette demande de support si vous le souhaitez
 - Sélectionnez **Suivant**.

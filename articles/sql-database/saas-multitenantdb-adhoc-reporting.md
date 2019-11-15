@@ -1,5 +1,5 @@
 ---
-title: Exécuter des requêtes de rapport ad hoc sur plusieurs bases de données Azure SQL | Microsoft Docs
+title: Requêtes de génération d’états ad hoc sur plusieurs bases de données
 description: Exécutez des requêtes de rapport ad hoc sur plusieurs bases de données SQL dans un exemple d’application multiclient.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570365"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822184"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données Azure SQL
 

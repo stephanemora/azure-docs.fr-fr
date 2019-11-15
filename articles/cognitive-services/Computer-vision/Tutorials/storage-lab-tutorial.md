@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057737"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604656"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
-Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images chargées. Vous trouverez un guide complet de l’application dans le [lab Azure Storage and Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) sur GitHub. Ce tutoriel couvre essentiellement l’exercice 5 du lab. Si vous souhaitez créer l’application de bout en bout, vous pouvez suivre toutes les étapes, mais si vous voulez seulement voir de quelle façon intégrer Vision par ordinateur à une application web existante, lisez le présent tutoriel.
+Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images chargées. Cela est utile pour les scénarios de [gestion des actifs numériques](../Home.md#computer-vision-for-digital-asset-management), par exemple si une entreprise souhaite générer rapidement des sous-titres descriptifs ou des mots clés de recherche pour toutes ses images.
+
+Vous trouverez un guide complet de l’application dans le [lab Azure Storage and Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) sur GitHub. Ce tutoriel couvre essentiellement l’exercice 5 du lab. Si vous souhaitez créer l’application de bout en bout, vous pouvez suivre toutes les étapes, mais si vous voulez seulement voir de quelle façon intégrer Vision par ordinateur à une application web existante, lisez le présent tutoriel.
 
 Ce didacticiel vous explique les procédures suivantes :
 

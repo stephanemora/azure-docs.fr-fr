@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480762"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668983"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -165,6 +165,10 @@ Les listes suivantes présentent des options de configuration Docker Compose pri
 
 > [!NOTE]
 > Les autres options qui ne sont pas explicitement appelées sont ignorées dans la préversion publique.
+
+## <a name="configure-vnet-integration"></a>Configurer l’intégration au réseau virtuel
+
+L’utilisation d’un conteneur personnalisé avec l’intégration au réseau virtuel peut nécessiter une configuration de conteneur supplémentaire. Consultez [Intégrer une application à un réseau virtuel Azure](../web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

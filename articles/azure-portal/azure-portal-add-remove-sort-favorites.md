@@ -5,41 +5,51 @@ services: azure-portal
 keywords: favoris
 author: kfollis
 ms.author: kfollis
-ms.date: 04/03/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690623"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579537"
 ---
 # <a name="add-remove-and-sort-favorites"></a>Ajouter, supprimer et trier des favoris
 
 Ajoutez ou supprimez des éléments dans votre liste **Favoris** afin de pouvoir rapidement accéder aux services que vous utilisez le plus souvent. Nous avons déjà ajouté certains services courants à votre liste **Favoris**, mais vous aurez probablement envie de la personnaliser. Vous êtes la seule personne qui peut voir les modifications que vous apportez aux **Favoris**.
 
-## <a name="add-or-remove-a-favorite"></a>Ajouter ou supprimer un favori
+## <a name="add-a-favorite"></a>Ajouter un favori
 
-Les éléments qui sont listés sous **Favoris** sont sélectionnés à partir de **Tous les services**. Une icône représentant une étoile ![Icône représentant une étoile jaune](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png) en regard de chaque service indique si l’élément apparaît dans la liste. Sélectionnez l’icône représentant une étoile pour ajouter ou supprimer un service dans la liste **Favoris**.
+Les éléments qui sont listés sous **Favoris** sont sélectionnés à partir de **Tous les services**. Placez le curseur sur un nom de service pour afficher les informations et les ressources associées au service. Une icône d’étoile pleine ![Icône d’étoile pleine](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) en regard du nom du service indique que l’élément apparaît dans la liste **Favoris**. Sélectionnez l’icône représentant une étoile pour ajouter un service à la liste **Favoris**.
 
 ### <a name="add-cost-management--billing-to-favorites"></a>Ajouter Gestion des coûts + facturation aux Favoris
 
-1. Sélectionnez **Tous les services** dans la section supérieure de la barre latérale.
+1. Sélectionnez **Tous les services**, à partir du menu du Portail Azure.
 
-    ![Capture d’écran mettant en évidence l’option Tous les services](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-all-services.png)
+    ![Capture d’écran mettant en évidence l’option Tous les services](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. Entrez le mot « coût » dans le champ de recherche. Seuls les services dont le titre contient « coût » ou qui ont « coût » comme mot clé apparaissent.
+1. Entrez le mot « coût » dans le champ de recherche. Les services dont le titre contient « coût » ou qui ont « coût » comme mot clé apparaissent.
 
-   ![Capture d’écran illustrant une recherche dans Tous les services](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-search.png)
+   ![Capture d’écran illustrant une recherche dans Tous les services](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. Sélectionnez l’icône représentant une étoile.
+1. Pointez sur le nom du service pour afficher la carte d’informations **Gestion des coûts + facturation**. Sélectionnez l’icône représentant une étoile.
 
    ![Capture d’écran mettant en évidence l’icône représentant une étoile en regard de Gestion des coûts + facturation](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
 1. **Gestion des coûts + facturation** est désormais ajouté en tant que dernier élément de votre liste **Favoris**.
+
+## <a name="remove-an-item-from-favorites"></a>Supprimer un élément des favoris
+
+Vous pouvez maintenant supprimer un élément directement à partir de la liste **Favoris**.
+
+1. Dans la section **Favoris** du menu du portail, pointez sur le nom du service que vous souhaitez supprimer.
+
+   ![Capture d’écran montrant le comportement du pointage dans les favoris](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
+
+2. Sur la carte d’informations, sélectionnez l’étoile afin qu’elle passe de remplie à non remplie. Le service est supprimé de la liste des **Favoris**.
 
 ## <a name="sort-favorites"></a>Trier les favoris
 

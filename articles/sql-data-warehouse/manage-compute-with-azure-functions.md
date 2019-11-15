@@ -1,21 +1,22 @@
 ---
-title: 'Didacticiel : Gestion du calcul avec Azure Functions dans Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Didacticiel : Gérer le calcul avec Azure Functions'
 description: Comment utiliser Azure Functions pour gérer le calcul de votre entrepôt de données.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083803"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693017"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans Azure SQL Data Warehouse
 
@@ -53,7 +54,7 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
 
    ![Sélectionnez Intégrer pour la fonction](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. À présent, la valeur affichée devrait indiquer *%ScaleDownTime%* ou *%ScaleUpTime%* . Ces valeurs indiquent que la planification est basée sur les valeurs définies dans vos [Paramètres de l’application][Application Settings]. Vous pouvez ignorer cette valeur pour le moment et définir la planification sur votre heure de préférence en fonction des étapes suivantes.
+3. À présent, la valeur affichée devrait indiquer *%ScaleDownTime%* ou *%ScaleUpTime%* . Ces valeurs indiquent que la planification se base sur les valeurs définies dans les [Paramètres d’application][Application Settings]. Vous pouvez ignorer cette valeur pour le moment et définir la planification sur votre heure de préférence en fonction des étapes suivantes.
 
 4. Dans la zone de planification, ajoutez l’heure de l’expression CRON pour refléter la fréquence à laquelle vous souhaitez que SQL Data Warehouse soit mis à l’échelle. 
 
@@ -64,7 +65,7 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Par exemple, *« 0 30 9 * * 1-5 »* reflète un déclencheur qui se produit chaque jour de la semaine à 9h30. Pour plus d’informations, consultez les [Exemples de planification][schedule examples] Azure Functions.
+   Par exemple, *« 0 30 9 * * 1-5 »* reflète un déclencheur qui se produit chaque jour de la semaine à 9h30. Pour plus d’informations, voir les [Exemples de planification][schedule examples] Azure Functions.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Modifier l’heure de l’opération de mise à l’échelle
@@ -92,7 +93,7 @@ Actuellement, les fonctions activées par défaut sont *DWScaleDownTrigger* et *
 3. Accédez aux onglets *Intégrer* des déclencheurs respectifs pour modifier leur planification.
 
    > [!NOTE]
-   > La différence fonctionnelle entre les déclencheurs de mise à l’échelle et les déclencheurs de pause/reprise réside dans le message envoyé à la file d’attente. Pour plus d’informations, consultez [Ajouter une nouvelle fonction de déclencheur][Add a new trigger function].
+   > La différence fonctionnelle entre les déclencheurs de mise à l’échelle et les déclencheurs de pause/reprise réside dans le message envoyé à la file d’attente. Pour plus d’informations, voir [Ajouter une nouvelle fonction de déclencheur][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Ajouter une nouvelle fonction de déclenchement

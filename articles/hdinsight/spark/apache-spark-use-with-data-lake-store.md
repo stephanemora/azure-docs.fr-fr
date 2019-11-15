@@ -1,5 +1,5 @@
 ---
-title: Utiliser Apache Spark pour analyser les données dans Azure Data Lake Storage Gen1
+title: Analyser Azure Data Lake Storage Gen1 avec HDInsight Apache Spark
 description: Exécuter des travaux Apache Spark pour analyser les données stockées dans Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002493"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818165"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Storage Gen1
 
@@ -30,7 +30,7 @@ Dans cet article, vous utilisez [Jupyter Notebook](https://jupyter.org/), dispon
 > [!NOTE]  
 > Vous n’avez pas besoin de suivre cette étape si vous avez créé le cluster HDInsight avec Data Lake Storage comme stockage par défaut. Le processus de création de cluster ajoute quelques exemples de données dans le compte Data Lake Storage spécifié durant la création du cluster. Passez à la section Utiliser le cluster Azure HDInsight Spark avec Data Lake Storage.
 
-Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage supplémentaire, et Azure Storage Blob comme stockage par défaut, vous devez dans un premier temps copier quelques exemples de données dans le compte Data Lake Storage. Vous pouvez utiliser les exemples de données de l’instance Azure Storage Blob associée au cluster HDInsight. Vous pouvez utiliser [l’outil ADLCopy](https://aka.ms/downloadadlcopy) pour cette opération. Téléchargez et installez l’outil à l’aide du lien.
+Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage supplémentaire, et Azure Storage Blob comme stockage par défaut, vous devez dans un premier temps copier quelques exemples de données dans le compte Data Lake Storage. Vous pouvez utiliser les exemples de données de l’instance Azure Storage Blob associée au cluster HDInsight. Vous pouvez utiliser [l’outil ADLCopy](https://www.microsoft.com/download/details.aspx?id=50358) pour cette opération. Téléchargez et installez l’outil à l’aide du lien.
 
 1. Ouvrez une invite de commandes et accédez au répertoire où vous avez installé AdlCopy, généralement `%HOMEPATH%\Documents\adlcopy`.
 
@@ -67,7 +67,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
 
 3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
-    ![Créer un bloc-notes Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Créer un bloc-notes Jupyter")
+    ![Créer un bloc-notes Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Créer un bloc-notes Jupyter")
 
 4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -75,7 +75,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
 
     À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **PySpark** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
-     ![État d’une tâche de bloc-notes Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "État d’une tâche de bloc-notes Jupyter")
+     ![État d’un travail de bloc-notes Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "État d’un travail de bloc-notes Jupyter")
 
 5. Chargez des exemples de données dans une table temporaire à l’aide du fichier **HVAC.csv** que vous avez copié dans le compte Data Lake Storage Gen1. Vous pouvez accéder aux données du compte Data Lake Storage à l’aide du modèle d’URL suivant.
 
@@ -115,11 +115,11 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
 
 7. Une fois le travail terminé, le résultat tabulaire suivant s’affiche par défaut.
 
-      ![Table de sortie des résultats de la requête](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Table de sortie des résultats de la requête")
+      ![Sortie table du résultat de la requête](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Sortie de table du résultat de la requête")
 
      Vous pouvez également voir les résultats dans d’autres visualisations. Par exemple, un graphique en aires pour le même résultat se présenterait comme suit.
 
-     ![Graphique en aires des résultats de la requête](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Graphique en aires des résultats de la requête")
+     ![Graphique en aires du résultat de la requête](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Graphique en aires du résultat de la requête")
 
 8. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 

@@ -1,5 +1,5 @@
 ---
-title: Supervision des performances d’Azure SQL Database à l’aide de vues DMV | Microsoft Docs
+title: Surveiller les performances à l’aide des DMV
 description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants avec des vues de gestion dynamique permettant de superviser Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881555"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802915"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 

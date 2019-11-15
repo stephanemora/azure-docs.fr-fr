@@ -9,18 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0c1c92dde2d698fb2c92fb3680ab05393a25573d
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735194"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614733"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
 Cette exemple indique comment créer une orchestration [Fonctions durables](durable-functions-overview.md) impliquant des interactions humaines. Lorsqu’une personne participe à un processus automatisé, ce dernier doit pouvoir envoyer des notifications à cette personne, et recevoir des réponses de manière asynchrone. Il doit également tenir compte du fait que la personne peut être indisponible. (C’est pour cela que les délais d’attente jouent un rôle d’autant plus important.)
 
-Cet exemple implémente un système de vérification de téléphone SMS. Ces types de flux sont souvent utilisés lors de la vérification du numéro de téléphone d’un client, ou pour l’authentification multifacteur (MFA). Cet exemple est efficace, car l’implémentation s’effectue à l’aide de quelques fonctions de petite taille. Aucune banque de données externe (base de données, par exemple) n’est requise.
+Cet exemple implémente un système de vérification de téléphone SMS. Ces types de flux sont souvent utilisés lors de la vérification du numéro de téléphone d’un client, ou pour l’authentification multifacteur (MFA). Il s’agit d’un exemple efficace, car l’implémentation s’effectue à l’aide de quelques fonctions de petite taille. Aucune banque de données externe (base de données, par exemple) n’est requise.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -43,7 +45,7 @@ Cet article détaille les fonctions suivantes de l’exemple d’application :
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisé pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
 
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure)
 
@@ -57,7 +59,7 @@ Voici le code qui implémente la fonction :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -71,7 +73,7 @@ Une fois démarrée, cette fonction d’orchestrateur effectue les opérations s
 L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
 
 > [!NOTE]
-> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, les propriétés `CurrentUtcDateTime` (.NET) et `currentUtcDateTime` (JavaScript) sont utilisées pour calculer le délai d’expiration du minuteur, et ces propriétés retournent la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Il est important de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript).
+> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. Cela est déterministe, car les propriétés `CurrentUtcDateTime` (.NET) et `currentUtcDateTime` (JavaScript) sont utilisées pour calculer le délai d’expiration du minuteur, et ces propriétés retournent la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important afin de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Il est important [d’annuler les minuteurs](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans l’exemple ci-dessus, quand une réponse à une stimulation est acceptée.
@@ -88,7 +90,7 @@ Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -110,9 +112,9 @@ Content-Type: application/json
 HTTP/1.1 202 Accepted
 Content-Length: 695
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 La fonction d’orchestrateur reçoit le numéro de téléphone fourni, et lui envoie immédiatement un SMS incluant un code de vérification à 4 chiffres généré de manière aléatoire &mdash; par exemple, *2168*. Ensuite, la fonction attend une réponse pendant 90 secondes.
@@ -120,7 +122,7 @@ La fonction d’orchestrateur reçoit le numéro de téléphone fourni, et lui e
 Pour répondre avec le code, vous pouvez utiliser [`RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202 ci-dessus, en remplaçant`{eventName}` par le nom de l’événement, `SmsChallengeResponse` :
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Length: 4
 Content-Type: application/json
 
@@ -130,7 +132,7 @@ Content-Type: application/json
 Si vous envoyez ce code avant l’expiration du minuteur, l’orchestration se termine ; le champ `output` est défini sur `true`, ce qui indique que la vérification a abouti.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 ```
@@ -162,7 +164,7 @@ Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple a illustré quelques-unes des fonctionnalités avancées de Fonctions durables, notamment `WaitForExternalEvent` et `CreateTimer`. Vous avez vu de quelle manière les combiner avec `Task.WaitAny` pour implémenter un système fiable de gestion du délai d’expiration, qui est souvent utile pour interagir avec des personnes. Vous pouvez approfondir vos connaissances se rapportant à l’utilisation de Fonctions durables par la lecture d’une série d’articles développant certaines rubriques spécifiques.
+Cet exemple a illustré quelques-unes des fonctionnalités avancées de Durable Functions, notamment les API `WaitForExternalEvent` et `CreateTimer`. Vous avez vu de quelle manière les combiner avec `Task.WaitAny` pour implémenter un système fiable de gestion du délai d’expiration, qui est souvent utile pour interagir avec des personnes. Vous pouvez approfondir vos connaissances se rapportant à l’utilisation de Fonctions durables par la lecture d’une série d’articles développant certaines rubriques spécifiques.
 
 > [!div class="nextstepaction"]
 > [Accéder au premier article de la série](durable-functions-bindings.md)

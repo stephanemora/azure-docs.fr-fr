@@ -4,15 +4,16 @@ description: Créez une offre d'application Power BI destinée à la Place de m
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler
-ms.openlocfilehash: 702be34a5be69c050b809713a5742c2189892a27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0ee26672697517556a2f639b533a1217712d03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943331"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822698"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d'application Power BI
 
@@ -23,7 +24,7 @@ Les groupes de ressources sont décrits dans le tableau suivant :
 |   Groupe de ressources      | Description                                                                         |
 | ----------------   | ----------------                                                                    |
 | Paramètres de l’offre     | Identifications principales et nom de l'offre.                                      |
-| Informations techniques     | URL d'installation utilisée pour installer l'application dans l'espace de travail Power BI du client. Pour plus d'informations sur la création de cette URL, consultez la [documentation relative aux applications Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Informations techniques     | URL du programme d’installation permettant d’installer l’application dans l’espace de travail Power BI du client. Pour plus d'informations sur la création de cette URL, consultez la [documentation relative aux applications Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Informations sur les vitrines | Contient des ressources marketing, juridiques et de gestion des prospects. Les ressources marketing incluent la description de l'offre et les logos. Les ressources juridiques incluent une politique de confidentialité, des conditions d'utilisation et d'autres documents juridiques. La stratégie de gestion des prospects vous permet de spécifier comment gérer les prospects à partir du portail des utilisateurs d'AppSource. |
 | Contacts           | Contient les informations de contact et de stratégie du support.                                     |
 

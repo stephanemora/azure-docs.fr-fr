@@ -1,5 +1,5 @@
 ---
-title: Fuseaux horaires d’Azure SQL Database Managed Instance | Microsoft Docs
+title: Fuseaux horaires de Managed Instance
 description: En savoir plus sur les spécificités des fuseaux horaires d'Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
-ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233225"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818863"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 

@@ -1,5 +1,5 @@
 ---
-title: Questions courantes sur la récupération d’urgence d’Azure sur Azure avec Azure Site Recovery
+title: Questions courantes sur la récupération d’urgence de machine virtuelle Azure avec Azure Site Recovery
 description: Cet article répond aux questions courantes concernant la récupération d'urgence de machines virtuelles Azure dans une autre région Azure avec Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861393"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621065"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 

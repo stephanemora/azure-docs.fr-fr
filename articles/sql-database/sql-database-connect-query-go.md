@@ -1,5 +1,5 @@
 ---
-title: Utiliser Go pour interroger Azure SQL Database | Microsoft Docs
+title: Utiliser Accéder à la requête
 description: Utilisez Go pour créer un programme qui se connecte à une base de données Azure SQL, et utilisez des instructions Transact-SQL pour interroger et modifier des données.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827075"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Golang pour interroger une base de données Azure SQL
 

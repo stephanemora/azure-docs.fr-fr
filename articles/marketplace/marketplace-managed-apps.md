@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: v-qiwe
-ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: bdb2a54748c734d7b44dfa0b1f106d37e817f80e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154949"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822926"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Applications Azure : Guide de publication d’une offre d’application managée
 
@@ -32,8 +33,8 @@ Utilisez le type d’offre Application Azure : application managée lorsque les
 
 |Configuration requise |Détails  |
 |---------|---------|
-|Déployée dans l’abonnement Azure d’un client | Les applications managées doivent être déployées dans l’abonnement du client et peuvent être gérées par une tierce partie. | 
-|Facturation et mesure    |  Les ressources seront approvisionnées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation (PAYGO) feront l’objet de transactions avec le client par le biais de Microsoft, facturées dans le cadre de l’abonnement (PAYGO) Azure du client. <br> Dans le cas de BYOL (apportez votre propre licence), Microsoft facturera les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuerez la transaction de vos frais de licence logicielle directement avec le client.        |
+|Déployée dans l’abonnement Azure d’un client | Les applications managées doivent être déployées dans l’abonnement du client et peuvent être gérées par un tiers. | 
+|Facturation et mesure    |  Les ressources seront approvisionnées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation (PAYGO) feront l’objet de transactions avec le client par le biais de Microsoft et seront facturées dans le cadre de l’abonnement Azure (PAYGO) du client. <br> Dans le cas de BYOL (apportez votre propre licence), Microsoft facturera les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuerez la transaction de vos frais de licence logicielle directement avec le client.        |
 |Disque dur virtuel compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<ul> <ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]

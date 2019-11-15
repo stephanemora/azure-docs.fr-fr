@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996377"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576398"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -61,12 +61,12 @@ Trois méthodes s’offrent à vous pour configurer une stratégie juste-à-temp
 - [Configurer un accès juste-à-temps dans un panneau de machine virtuelle Azure](#jit-vm)
 - [Configurer une stratégie juste-à-temps sur une machine virtuelle par programme](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>Configurer une stratégie juste-à-temps dans ASC
+## <a name="configure-jit-in-security-center"></a>Configurer JIT dans Security Center
 
-Dans ASC, vous pouvez configurer un accès juste-à-temps et demander l’accès à une machine virtuelle à l’aide d’une stratégie juste-à-temps
+Dans Security Center, il est possible de configurer une stratégie JIT pour demander l’accès à une machine virtuelle.
 
 
-### Configurer un accès juste-à-temps sur une machine virtuelle dans ASC <a name="jit-asc"></a>
+### Configurer un accès JIT sur une machine virtuelle dans Security Center <a name="jit-asc"></a>
 
 1. Ouvrez le tableau de bord **Security Center**.
 
@@ -114,9 +114,9 @@ Dans ASC, vous pouvez configurer un accès juste-à-temps et demander l’accès
 >Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de « refus de tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés et le pare-feu Azure. Si d’autres règles avaient été créées pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’y a aucune règle sur les ports sélectionnés, alors les nouvelles règles de « refus de tout le trafic entrant » sont prioritaires sur les groupes de sécurité réseau et le pare-feu Azure.
 
 
-## <a name="request-jit-access-via-asc"></a>Demander l’accès juste-à-temps via ASC
+## <a name="request-jit-access-via-security-center"></a>Demander un accès JIT dans Security Center
 
-Pour demander l’accès à une machine virtuelle via ASC :
+Pour demander l’accès à une machine virtuelle avec Security Center :
 
 1. Sous **Accès juste-à-temps à la machine virtuelle**, sélectionnez l’onglet **Configuré**.
 
@@ -140,7 +140,7 @@ Pour demander l’accès à une machine virtuelle via ASC :
 > [!NOTE]
 > Si un utilisateur demande l’accès alors qu’il se trouve derrière un proxy, l’option **Mon IP** risque de ne pas fonctionner. Il peut se révéler nécessaire de définir la plage complète d’adresses IP de l’organisation.
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>Modifier une stratégie d’accès juste-à-temps via ASC
+## <a name="edit-a-jit-access-policy-via-security-center"></a>Modifier une stratégie d’accès JIT dans Security Center
 
 Vous pouvez modifier la stratégie juste-à-temps d’une machine virtuelle en ajoutant et en configurant un port à protéger pour cette machine virtuelle, ou en modifiant tout autre paramètre lié à un port déjà protégé.
 
@@ -151,7 +151,7 @@ Pour modifier une stratégie juste-à-temps existante d’une machine virtuelle�
 1. Sous **JIT VM access configuration** (Configuration de l’accès juste-à-temps à la machine virtuelle), vous pouvez soit modifier les paramètres existants d’un port déjà protégé, soit ajouter un nouveau port personnalisé. 
   ![accès JIT à la machine virtuelle](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>Auditer l’activité d’accès juste-à-temps dans ASC
+## <a name="audit-jit-access-activity-in-security-center"></a>Auditer l’activité d’accès JIT dans Security Center
 
 Vous pouvez obtenir des informations sur les activités des machines virtuelles à l’aide de la recherche dans les journaux. Pour consulter les journaux d’activité :
 
@@ -168,11 +168,11 @@ Modifiez les filtres et sélectionnez **Appliquer** pour créer une recherche et
 
 
 
-## Configurer un accès juste-à-temps dans un panneau de machine virtuelle Azure <a name="jit-vm"></a>
+## Configurer un accès JIT sur la page d’une machine virtuelle Azure <a name="jit-vm"></a>
 
-Pour votre commodité, vous pouvez vous connecter à une machine virtuelle à l’aide de JIT, directement à partir du panneau de machine virtuelle dans Azure.
+Dans un souci de simplicité, il est possible de se connecter à une machine virtuelle en accès JIT, directement sur la page de cette machine virtuelle dans Security Center.
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>Configurer un accès juste-à-temps sur une machine virtuelle via le panneau de machine virtuelle Azure
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Configurer un accès JIT sur une machine virtuelle sur la page de la machine virtuelle Azure
 
 Pour faciliter le déploiement de l’accès juste-à-temps entre vos machines virtuelles, vous pouvez configurer une machine virtuelle pour autoriser uniquement l’accès juste-à-temps directement à partir de la machine virtuelle.
 

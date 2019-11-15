@@ -4,15 +4,16 @@ description: Vue d’ensemble montrant comment effectuer le suivi de l’utilisa
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260082"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819882"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -137,7 +138,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Les partenaires qui souhaitent que leur déploiement via Terraform soit suivi en fonction de l’attribution de l’utilisation de client doivent procéder comme suit :
 

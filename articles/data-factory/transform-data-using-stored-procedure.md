@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide de l’activité de procédure stockée dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide de l’activité de procédure stockée dans Azure Data Factory
 description: Explique comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database/Data Warehouse à partir d’un pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: e063875e4c619b65290511d61923fd7c715aba49
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742175"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683727"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -79,10 +79,10 @@ Le type de données que vous spécifiez pour le paramètre est le type Azure Dat
 
 | source de données          | Mappage de type de données |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
 ## <a name="error-info"></a>Informations sur l’erreur

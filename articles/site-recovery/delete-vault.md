@@ -1,64 +1,59 @@
 ---
-title: Supprimer un coffre Recovery Services configuré pour le service Azure Site Recovery
+title: Supprimer un coffre Azure Site Recovery
 description: Découvrez comment supprimer un coffre Recovery Services configuré pour Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876041"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721299"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Supprimer un coffre de services Site Recovery
 
-Des dépendances peuvent vous empêcher de supprimer un archivage Azure Site Recovery. Les actions à effectuer varient en fonction du scénario de Site Recovery. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
+Cet article explique comment supprimer un coffre Recovery Services pour Site Recovery. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="delete-a-site-recovery-vault"></a>Supprimer un archivage Site Recovery 
-Pour supprimer l’archivage, suivez les étapes recommandées pour votre scénario.
-### <a name="azure-vms-to-azure"></a>Machines virtuelles Azure vers Azure
 
-1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’un VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
-2. Supprimez l’archivage.
+## <a name="before-you-start"></a>Avant de commencer
 
-### <a name="vmware-vms-to-azure"></a>Machines virtuelles VMware vers Azure
-
-1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’un VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-
-2. Supprimez toutes les stratégies de réplication en suivant les étapes décrites dans [Supprimer une stratégie de réplication](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
-
-3. Supprimez les références à vCenter en suivant les étapes décrites dans la section [Supprimer un serveur vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
-
-4. Supprimez le serveur de configuration en suivant les étapes décrites dans [Désaffecter un serveur de configuration](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
-
-5. Supprimez l’archivage.
+Avant de pouvoir supprimer un coffre, vous devez supprimer les serveurs inscrits et les éléments du coffre. Ce que vous devez supprimer dépend des scénarios de réplication que vous avez déployés. 
 
 
-### <a name="hyper-v-vms-with-vmm-to-azure"></a>Machines virtuelles Hyper-V (avec VMM) dans Azure
-1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’une machine virtuelle Hyper-V (avec VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+## <a name="delete-a-vault-azure-vm-to-azure"></a>Supprimer un coffre : machine virtuelle Azure sur Azure
 
-2. Dissociez et supprimez toutes les stratégies de réplication en accédant à votre coffre -> **Infrastructure Site Recovery** -> **For System Center VMM (Pour System Center VMM)**  -> **Stratégies de réplication**
+1. Suivez [ces instructions](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) pour supprimer toutes les machines virtuelles protégées.
+2. Ensuite, supprimez le coffre.
 
-3.  Supprimez les références aux serveurs VMM en suivant les étapes décrites dans [Annuler l’inscription d’un serveur VMM connecté](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+## <a name="delete-a-vault-vmware-vm-to-azure"></a>Supprimer un coffre : machine virtuelle VMware sur Azure
 
-4.  Supprimez l’archivage.
+1. Suivez [ces instructions](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) pour supprimer toutes les machines virtuelles protégées.
+2. Suivez [ces étapes](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) pour supprimer toutes les stratégies de réplication.
+3. Supprimez les références à vCenter à l’aide de [ces étapes](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
+4. Suivez [ces instructions](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) pour désactiver un serveur de configuration.
+5. Ensuite, supprimez le coffre.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Machines virtuelles Hyper-V (sans Virtual Machine Manager) vers Azure
-1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’une machine virtuelle Hyper-V dans un site Hyper-V](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
 
-2. Dissociez et supprimez toutes les stratégies de réplication en accédant à votre coffre -> **Infrastructure Site Recovery** -> **For Hyper-V Sites (Pour des sites Hyper-V)**  -> **Stratégies de réplication**
+## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Supprimer un coffre : machine virtuelle Hyper-V (avec VMM) sur Azure
 
-3. Supprimez les références aux serveurs Hyper-V en suivant les étapes décrites dans [Annuler l’inscription d’un ordinateur hôte Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+1. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) pour supprimer les machines virtuelles Hyper-V gérées par System Center VMM.
+2. Dissociez et supprimez toutes les stratégies de réplication. Effectuez ce qui suit dans votre coffre > **Infrastructure Site Recovery** > **Pour System Center VMM** > **Stratégies de réplication**.
+3. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) pour annuler l’inscription d’un serveur VMM connecté.
+4. Ensuite, supprimez le coffre.
 
+## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Supprimer un coffre : machine virtuelle Hyper-V sur Azure
+
+1. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) pour supprimer toutes les machines virtuelles protégées.
+2. Dissociez et supprimez toutes les stratégies de réplication. Effectuez ce qui suit dans votre coffre > **Infrastructure Site Recovery** > **Pour Sites Hyper-V** > **Stratégies de réplication**.
+3. Suivez [ces instructions](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) pour annuler l’inscription d’un hôte Hyper-V.
 4. Supprimez le site Hyper-V.
-
-5. Supprimez l’archivage.
+5. Ensuite, supprimez le coffre.
 
 
 ## <a name="use-powershell-to-force-delete-the-vault"></a>Utiliser PowerShell pour forcer la suppression de l’archivage 

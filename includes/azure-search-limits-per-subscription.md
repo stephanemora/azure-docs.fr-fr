@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 380a0a76de763df5f2cc6ff702750b36d233728d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818337"
 ---
-Vous pouvez créer plusieurs services au sein d’un abonnement. Chacun peut être approvisionné à un niveau spécifique. Vous êtes uniquement limité par le nombre de services autorisé à chaque niveau. Ainsi, vous pouvez créer jusqu’à 12 services au niveau de base et 12 autres au niveau S1 au sein du même abonnement. Pour en savoir plus sur ces niveaux, consultez [Choose a pricing tier for Azure Search](../articles/search/search-sku-tier.md) (Choisir un niveau tarifaire pour Recherche Azure).
+Vous pouvez créer plusieurs services au sein d’un abonnement. Chacun peut être approvisionné à un niveau spécifique. Vous êtes uniquement limité par le nombre de services autorisé à chaque niveau. Ainsi, vous pouvez créer jusqu’à 12 services au niveau de base et 12 autres au niveau S1 au sein du même abonnement. Pour en savoir plus sur ces niveaux, consultez [Choisir un niveau tarifaire pour Recherche cognitive Azure](../articles/search/search-sku-tier.md).
 
 Les limites de service maximales peuvent être augmentées sur demande. S’il vous faut davantage de services dans le même abonnement, contactez le Support Azure.
 

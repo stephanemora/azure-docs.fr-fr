@@ -1,22 +1,23 @@
 ---
-title: Octroi d’un accès à Azure SQL Database et SQL Data Warehouse | Microsoft Docs
+title: Octroi de l’accès
 description: Découvrez comment octroyer un accès à Microsoft Azure SQL Database et SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sql-data-warehouse
+titleSuffix: Azure SQL Database and SQL Data Warehouse
+ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 05a949bbd99a36c41143190d216116f78c433951
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569040"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826609"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Contrôle de l’accès à Azure SQL Database et SQL Data Warehouse
 

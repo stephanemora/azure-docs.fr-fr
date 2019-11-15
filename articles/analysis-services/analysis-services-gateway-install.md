@@ -1,18 +1,18 @@
 ---
 title: Installer une passerelle de données locale pour Azure Analysis Services | Microsoft Docs
-description: Découvrez comment installer et configurer une passerelle de données locale.
+description: Découvrez comment installer et configurer une passerelle de données locale pour vous connecter à des sources de données locales à partir d’un serveur Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572857"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 

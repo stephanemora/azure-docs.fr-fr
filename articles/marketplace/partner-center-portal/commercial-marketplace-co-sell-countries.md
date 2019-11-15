@@ -5,22 +5,23 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 1c3227c89a6355c99cf31b48720dd022de8aae4a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dc27756cd231bc744e539321af7884cc85ca1e9a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076037"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812926"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 
 Utilisez ces codes pays/région à deux lettres lorsque vous devez [fournir des coordonnées dans la page de co-vente de votre offre](commercial-marketplace-co-sell.md).
 
-Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ».
+Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ».
 
-Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres en les séparant par une virgule (par exemple, entrez « US, CA, FR » sans guillemets).
+Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres en les séparant par une virgule (par exemple, entrez « US, CA, FR » sans guillemets).
 
 ## <a name="countryregion-table"></a>Tableaux des pays/régions
 
@@ -260,7 +261,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Ukraine                             | UA        |
 | Émirats Arabes Unis                | AE        |
 | Royaume-Uni                      | GB        |
-| États-Unis                       | FR        |
+| États-Unis                       | US        |
 | Uruguay                             | UY        |
 | Données Îles éloignées               | UM        |
 | Données Îles Vierges                 | VI        |

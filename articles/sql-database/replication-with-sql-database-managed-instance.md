@@ -1,5 +1,5 @@
 ---
-title: Configurer la réplication dans une base de données d’instances gérées Azure SQL Database | Microsoft Docs
+title: Configurer la réplication dans une base de données Managed Instance
 description: Familiarisez-vous avec la configuration de la réplication transactionnelle dans une base de données d’instances managées Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338731"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822586"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 

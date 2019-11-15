@@ -1,5 +1,5 @@
 ---
-title: Exemples de scripts Azure PowerShell pour SQL Database | Microsoft Docs
+title: Exemples de script Azure PowerShell
 description: Exemples de scripts Azure PowerShell vous permettant de créer et de gérer des serveurs, des pools élastiques, des bases de données et des pare-feu Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821398"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemples Azure PowerShell pour Azure SQL Database
 
@@ -41,6 +41,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL dans un pool élastique SQL et la fait basculer vers le réplica secondaire. |
 |**Configurer un groupe de basculement**||
 | [Configurer un groupe de basculement pour une seule base de données](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée une base de données et un groupe de basculement, ajoute la base de données au groupe de basculement et teste le basculement sur le serveur secondaire. | 
+| [Configurer un groupe de basculement pour un pool de bases de données élastique](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée une base de données, l’ajoute à un pool élastique, ajoute le pool élastique à un groupe de basculement et teste le basculement sur le serveur secondaire. | 
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
 | [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell surveille les mesures de performances d’une base de données Azure SQL, l’adapte à une taille de calcul supérieure et crée une règle d’alerte sur l’une des mesures de performances. |
 | [Mettre à l’échelle un pool élastique](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell surveille les mesures de performances d’un pool élastique Azure SQL Database, l’adapte à une taille de calcul supérieure et crée une règle d’alerte sur l’une des mesures de performances. |
@@ -70,6 +71,8 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | [Restaurer une base de données vers une instance Managed Instance dans une autre région de zone géographique](scripts/sql-managed-instance-restore-geo-backup.md) | Ce script PowerShell effectue une sauvegarde d’une base de données et la restaure dans une autre région. Il s’agit d’un scénario de reprise d’activité après sinistre par géorestauration. |
 | **Configurer Transparent Data Encryption (TDE)**||
 | [Gérer Transparent Data Encryption dans une instance gérée à l’aide de votre propre clé Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure Transparent Data Encryption (TDE) dans le scénario Bring Your Own Key pour Azure SQL Managed Instance, à l’aide d’une clé Azure Key Vault.|
+|**Configurer un groupe de basculement**||
+| [Configurer un groupe de basculement pour une instance gérée](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée deux instances gérées, les ajoute à un groupe de basculement, puis teste le basculement de l’instance gérée principale vers l’instance gérée secondaire. | 
 |||
 
 Découvrez-en plus sur l’[API Managed Instance Azure PowerShell](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).

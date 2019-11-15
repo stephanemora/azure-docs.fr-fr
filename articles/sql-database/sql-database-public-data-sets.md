@@ -1,5 +1,5 @@
 ---
-title: Jeux de données publics pour Azure Analytics | Microsoft Docs
+title: Jeux de données publics pour Azure Analytics
 description: Apprenez-en davantage sur les jeux de données publics que vous pouvez utiliser pour créer des prototypes et tester des solutions et services Azure Analytics.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: a16f6d6b0bf8600270fdf4e00cfa379ee4422fd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566997"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821282"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 
@@ -42,7 +42,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 | [Données des taxis de la ville de New York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | « Les enregistrements de trajets en taxi incluent les dates et heures de début et fin de trajet, les emplacements respectifs, la distance des trajets, les tarifs détaillés, les types de tarifs, les types de paiement et le nombre de passagers signalé par le conducteur ». | Les jeux de données sont des fichiers CSV (un par mois). |
 | [Jeux de données de Microsoft Research - « Science des données pour la recherche »](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Plusieurs jeux de données couvrant l’interaction homme-ordinateur, l’audio/la vidéo, la récupération/l’exploration de données, la localisation géographique, traitement de langage naturel et la vision par informatique/robotique. | Les jeux de données sont disponibles dans différents formats, compressés pour le téléchargement. |
 | [Données publiques de génome](https://www.completegenomics.com/public-data/) | « Un vaste jeu de données pour des génomes humains entiers est librement accessible au public pour améliorer les études génomiques... » Le fournisseur, Complete Genomics, est une société privée à but lucratif. | Les jeux de données, après extraction, sont au format UNIX. Des outils d’analyse sont également disponibles. |
-| [Données de l’Open Science Data Cloud](https://www.opensciencedatacloud.org/) | « L’Open Science Data Cloud offre à la communauté scientifiques des ressources pour stocker, partager et analyser des jeux de données scientifiques à l’échelle du téraoctet et du pétaoctet. »| Les jeux de données se trouvent dans différents formats. |
+| [Données de l’Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | « L’Open Science Data Cloud offre à la communauté scientifiques des ressources pour stocker, partager et analyser des jeux de données scientifiques à l’échelle du téraoctet et du pétaoctet. »| Les jeux de données se trouvent dans différents formats. |
 | [Données climatiques mondiales - WorldClim](https://worldclim.org/) | « WorldClim est un ensemble de couches climatiques mondiales (données climatiques en grille) avec une résolution spatiale d’environ 1 km2. Ces données peuvent être utilisées pour le mappage et la modélisation spatiale. » | Ces fichiers contiennent des données géospatiales. Pour plus d’informations, consultez [Format de données](https://worldclim.org/formats1). |
 | [Données sur la société humaine - Le projet GDELT](https://www.gdeltproject.org/data.html) | « Le projet GDELT est la plus grande base, la plus complète et la plus détaillée base de données ouverte sur la société humaine jamais créée. » | Les fichiers de données brutes sont au format CSV. |
 | [Données de prévision des clics sur les publicités pour l’apprentissage automatisé de Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | « Le plus grand jeu de données jamais publié pour l’apprentissage automatisé. » Pour plus d’informations, consultez [Jeu de données de prévision de clics de 1 To de Criteo](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |

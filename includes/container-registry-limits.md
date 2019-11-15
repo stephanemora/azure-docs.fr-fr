@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177427"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795254"
 ---
 | Ressource | De base | standard | Premium |
 |---|---|---|---|
@@ -26,6 +26,12 @@ ms.locfileid: "67177427"
 | webhooks | 2 | 10 | 100 |
 | Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
 | Approbation du contenu | N/A | N/A | [Pris en charge][content-trust] |
+| Accès au réseau virtuel | N/A | N/A | [Préversion][vnet] |
+| Autorisations délimitées par le référentiel | N/A | N/A | [Préversion][token]|
+| &bull; jetons | N/A | N/A | 20 000 |
+| &bull; mappages d’étendue | N/A | N/A | 20 000 |
+| &bull; référentiels par mappage d’étendue | N/A | N/A | 500 |
+
 
 <sup>1</sup>Les limites de stockage spécifiées correspondent à la quantité de stockage *inclus* pour chaque niveau. Vous êtes facturé un tarif journalier supplémentaire pour chaque Gio de stockage d’images utilisé au-dessus de ces limites. Pour obtenir des informations tarifaires, consultez [Tarification d’Azure Container Registry][pricing].
 
@@ -41,3 +47,5 @@ ms.locfileid: "67177427"
 <!-- LINKS - Internal -->
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
+[vnet]: ../articles/container-registry/container-registry-vnet.md
+[token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

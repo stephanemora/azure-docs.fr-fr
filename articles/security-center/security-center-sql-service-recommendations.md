@@ -1,5 +1,5 @@
 ---
-title: Protéger des services de données et de stockage Azure dans Azure Security Center | Microsoft Docs
+title: 'Recommandations de stockage et de données : Centre de sécurité Azure'
 description: Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos données et le service SQL Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: memildin
-ms.openlocfilehash: 80611fe0c37af7dfd27b561186f3e967ad3159b4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21da7c49b158345894ee7fdc164d205bcefe1640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201044"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663893"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protéger des services de données et de stockage Azure dans Azure Security Center
 Cette rubrique montre comment afficher et mettre en œuvre des recommandations en matière de sécurité pour les ressources de stockage et de données. Azure Security Center a trouvé ces recommandations lors de l’analyse de l’état de sécurité de vos ressources Azure.
@@ -27,16 +27,16 @@ Cette rubrique montre comment afficher et mettre en œuvre des recommandations e
 
 1. Dans la section **Hygiène de sécurité de la ressource**, cliquez sur **Ressources de données et de stockage**.
 
-   ![Ressources de données et de stockage](./media/security-center-monitoring/click-data.png)
+    ![Ressources de données et de stockage](./media/security-center-monitoring/click-data.png)
 
     La page **Sécurité des données** s’ouvre avec des recommandations pour les ressources de données.
 
-     ![Ressources de données](./media/security-center-monitoring/sql-overview.png)
+    ![Ressources de données](./media/security-center-monitoring/sql-overview.png)
 
-À partir de cette page, vous pouvez :
+    À partir de cette page, vous pouvez :
 
-* Cliquer sur l’onglet **Vue d’ensemble** pour lister toutes les recommandations relatives aux ressources de données. 
-* Cliquer sur chaque onglet et afficher les recommandations par type de ressource.
+    * Cliquer sur l’onglet **Vue d’ensemble** pour lister toutes les recommandations relatives aux ressources de données. 
+    * Cliquer sur chaque onglet et afficher les recommandations par type de ressource.
 
     > [!NOTE]
     > Pour plus d’informations sur le chiffrement du stockage, consultez la page [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
@@ -65,7 +65,7 @@ Cette rubrique montre comment afficher et mettre en œuvre des recommandations e
 |Compte de stockage|20|La sécurisation du transfert vers des comptes de stockage doit être activée|L’option de sécurisation du transfert oblige votre compte de stockage à accepter uniquement des requêtes provenant de connexions sécurisées (HTTPS). Le protocole HTTPS garantit l’authentification entre le serveur et le service, et protège les données en transit contre les attaques de la couche réseau (attaque de l’intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
 |Redis|20|Seules les connexions sécurisées à votre cache Redis doivent être activées|Activer les connexions établies uniquement par le biais de SSL au cache Azure pour Redis. L'utilisation de connexions sécurisées garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
 |SQL|15|Transparent Data Encryption sur les bases de données SQL doit être activé|Activer le chiffrement transparent des données pour protéger les données au repos et respecter les exigences de conformité.|
-|SQL|15|L’audit des serveurs SQL doit être activé|Activer l’audit sur les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
+|SQL|15|L’audit des serveurs SQL doit être activé|Activez l’audit sur les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
 |Data Lake Analytics|5\.|Les journaux de diagnostic dans Data Lake Analytics doivent être activés|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
 |Data Lake Store|5\.|Les journaux de diagnostic dans Azure Data Lake Store doivent être activés|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
 |SQL|30|Les vulnérabilités sur vos bases de données SQL doivent être éliminées|L’évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux bonnes pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|

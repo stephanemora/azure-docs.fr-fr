@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour .NET'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment bien démarrer avec la bibliothèque de client Language Understanding (LUIS) pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.  Language Understanding (LUIS) vous permet d’appliquer une intelligence Machine Learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées et pertinentes.
+description: Commencez à utiliser la bibliothèque de client LUIS pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258780"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672094"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour .NET
 

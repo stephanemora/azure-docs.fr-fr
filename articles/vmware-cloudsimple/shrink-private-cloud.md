@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d0067fe51efef8efffe31860e16f4530adf3ac
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972367"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825682"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Réduire un cloud privé CloudSimple
 
@@ -53,6 +53,10 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 8. Cliquez sur **Soumettre** pour réduire le cloud privé.
 
 La réduction du cloud privé démarre.  Vous pouvez suivre la progression dans des tâches.  Le processus de réduction peut prendre quelques heures en fonction des données, qui doivent être resynchronisées sur le vSAN.
+
+> [!NOTE]
+> Si vous réduisez un cloud privé en supprimant le dernier ou le seul cluster dans le centre de données, le centre de données n’est pas supprimé.  
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

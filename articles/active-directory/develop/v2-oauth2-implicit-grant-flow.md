@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375fe839c31062474994d329379b066049272f55
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 136a018e3ac66e2f3fd928a786a24652b99ea040
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527045"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73600993"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -55,7 +55,7 @@ Le diagramme suivant montre à quoi ressemble le flux implicite de connexion com
 Pour connecter une première fois l’utilisateur à votre application, vous pouvez envoyer une demande d’authentification [OpenID Connect](v2-protocols-oidc.md) et obtenir un jeton `id_token` à partir du point de terminaison de la plateforme d’identités Microsoft.
 
 > [!IMPORTANT]
-> Pour demander un jeton d’ID avec succès, le flux d’octroi implicite de l’inscription d’application sur la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) doit être correctement activé. Pour ce faire, sélectionnez **Jetons d’accès** et **Jetons d’ID** sous la section **Octroi implicite**. S’il n’est pas activé, une erreur `unsupported_response` est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
+> Pour demander un jeton d’ID ou d’accès avec succès, le flux d’octroi implicite correspondant à l’inscription d’application sur la page [Inscriptions d’applications du Portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) doit être activé. Pour ce faire, sélectionnez **Jetons d’ID** et/ou **Jetons d’accès** sous la section **Octroi implicite**. S’il n’est pas activé, une erreur `unsupported_response` est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
 
 ```
 // Line breaks for legibility only
@@ -78,15 +78,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | Obligatoire |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | required | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
-| `response_type` | required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure l’élément response_type `token`. L’utilisation de l’élément `token` permet ici à votre application de recevoir immédiatement un jeton d’accès à partir du point de terminaison d’autorisation sans avoir à exécuter une deuxième requête sur le point de terminaison d’autorisation. Si vous utilisez l’élément response_type `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
+| `response_type` | required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure l’élément response_type `token`. L’utilisation de l’élément `token` permet ici à votre application de recevoir immédiatement un jeton d’accès à partir du point de terminaison d’autorisation sans avoir à exécuter une deuxième requête sur le point de terminaison d’autorisation. Si vous utilisez l’élément response_type `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis (par exemple, user.read sur Microsoft Graph).  |
 | `redirect_uri` | recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
-| `scope` | required |Une liste d’[étendues](v2-permissions-and-consent.md) séparées par des espaces. Pour OpenID Connect, vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Vous pouvez également inclure les étendues `email` ou `profile` permettant d’accéder à des données utilisateur supplémentaires. Vous pouvez aussi inclure d’autres étendues dans cette requête pour solliciter le consentement sur diverses ressources. |
-| `response_mode` | facultatif |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut demande un jeton d’accès, mais fragmente si la requête inclut un jeton id_token. |
+| `scope` | required |Une liste d’[étendues](v2-permissions-and-consent.md) séparées par des espaces. Pour OpenID Connect (id_tokens), vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Vous pouvez également inclure les étendues `email` et `profile` permettant d’accéder à des données utilisateur supplémentaires. Vous pouvez aussi inclure d’autres étendues dans cette requête pour solliciter le consentement sur diverses ressources, si un jeton d’accès est demandé. |
+| `response_mode` | facultatif |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut demande simplement un jeton d’accès, mais fragmente si la requête inclut un jeton id_token. |
 | `state` | recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | `nonce` | required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. Nécessaire uniquement lorsqu’un jeton id_token est demandé. |
 | `prompt` | facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none », « select_account » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison de la plateforme d’identités Microsoft renvoie une erreur. `prompt=select_account` envoie l’utilisateur vers un sélecteur de compte dans lequel tous les comptes mémorisés dans la session seront affichés. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
 | `login_hint`  |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username` .|
-| `domain_hint` | facultatif |Peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton id_token. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), vous devez utiliser `domain_hint=consumers`. Sinon, vous pouvez utiliser `domain_hint=organizations` au cours de la réauthentification. |
+| `domain_hint` | facultatif |S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur. Cela est couramment utilisé pour les applications métier qui fonctionnent dans un locataire unique, où elles fournissent un nom de domaine au sein d’un locataire donné.  L’utilisateur est transféré vers le fournisseur de fédération pour ce locataire.  Notez que cela empêchera les invités de se connecter à cette application.  |
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison de la plateforme d’identités Microsoft s’assure également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a accepté **aucune** de ces autorisations, il lui demande de corriger ce manquement. Pour plus d’informations, consultez [Autorisations, consentement et applications multi-locataires](v2-permissions-and-consent.md).
 
@@ -98,17 +98,15 @@ Une réponse correcte utilisant `response_mode=fragment` et `response_type=id_to
 
 ```
 GET https://localhost/myapp/#
-access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
 
 | Paramètre | Description |
 | --- | --- |
-| `access_token` |Inclus si `response_type` inclut `token`. Jeton d’accès demandé par l’application, dans ce cas Microsoft Graph. Le jeton d’accès ne doit pas être décodé ou inspecté ; il doit être traité comme une chaîne opaque. |
+| `access_token` |Inclus si `response_type` inclut `token`. Le jeton d'accès que l’application a demandé. Le jeton d’accès ne doit pas être décodé ou inspecté ; il doit être traité comme une chaîne opaque. |
 | `token_type` |Inclus si `response_type` inclut `token`. Sera toujours `Bearer`. |
 | `expires_in`|Inclus si `response_type` inclut `token`. Indique, en secondes, la durée de validité du jeton pour la mise en cache. |
 | `scope` |Inclus si `response_type` inclut `token`. Indique la ou les étendues pour lesquelles le jeton access_token sera valide. Peut ne pas inclure toutes les étendues demandées, si elles n’étaient pas applicables à l’utilisateur (dans le cas des étendues spécifiques à Azure AD demandées au moment de la connexion avec un compte personnel). |
@@ -130,9 +128,9 @@ error=access_denied
 | `error` |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreurs se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
-## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
+## <a name="getting-access-tokens-silently-in-the-background"></a>Obtention des jetons d’accès en mode silencieux en arrière-plan
 
-Maintenant que vous avez connecté l’utilisateur dans votre application à page unique, vous pouvez obtenir des jetons d’accès destinés à appeler des API web sécurisées à l’aide de la plateforme d’identités Microsoft, comme [Microsoft Graph](https://developer.microsoft.com/graph). Même si vous avez déjà reçu un jeton utilisant l’élément response_type `token`, vous pouvez utiliser cette méthode pour acquérir des jetons vers des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
+Maintenant que vous avez connecté l’utilisateur dans votre application à page unique, vous pouvez obtenir silencieusement des jetons d’accès destinés à appeler des API web sécurisées à l’aide de la plateforme d’identités Microsoft, comme [Microsoft Graph](https://developer.microsoft.com/graph). Même si vous avez déjà reçu un jeton utilisant l’élément response_type `token`, vous pouvez utiliser cette méthode pour acquérir des jetons vers des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
 
 Dans le flux normal OpenID Connect/OAuth, il vous faut transmettre une demande au point de terminaison `/token` de la plateforme d’identités Microsoft. Toutefois, le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge les demandes CORS. Il est donc hors de question d’effectuer des appels AJAX afin d’obtenir et d’actualiser des jetons. Au lieu de cela, vous pouvez utiliser le flux implicite d’un iFrame masqué afin d’obtenir de nouveaux jetons pour d’autres API web : 
 
@@ -145,9 +143,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
 &response_mode=fragment
-&state=12345&nonce=678910
+&state=12345
+&nonce=678910
 &prompt=none
-&domain_hint=organizations
 &login_hint=myuser@mycompany.com
 ```
 
@@ -156,7 +154,7 @@ Pour plus d’informations sur les paramètres de requête dans l’URL, consult
 > [!TIP]
 > Essayez de copier et coller la requête ci-dessous dans un onglet de navigateur ! (N'oubliez pas de remplacer les valeurs `login_hint` par la valeur correcte pour votre utilisateur)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
 Grâce au paramètre `prompt=none` , cette requête va immédiatement réussir ou échouer, avant de revenir vers votre application. Une réponse correcte sera envoyée à votre application, à l’`redirect_uri` indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
@@ -202,7 +200,7 @@ Si vous recevez cette erreur dans la requête iFrame, l’utilisateur doit se co
 
 ## <a name="refreshing-tokens"></a>Actualisation des jetons
 
-L’octroi implicite ne fournit pas de jetons d’actualisation. Les `id_token` et les `access_token` expirant après une courte période, votre application doit être préparée à les actualiser de manière régulière. Pour actualiser chaque type de jeton, vous pouvez exécuter la demande iFrame masquée ci-dessus à l’aide du paramètre `prompt=none` afin de contrôler le comportement de la plateforme d’identités. Si vous souhaitez recevoir un nouvel élément `id_token`, veillez à utiliser `response_type=id_token` et `scope=openid`, ainsi qu’un paramètre `nonce`.
+L’octroi implicite ne fournit pas de jetons d’actualisation. Les `id_token` et les `access_token` expirant après une courte période, votre application doit être préparée à les actualiser de manière régulière. Pour actualiser chaque type de jeton, vous pouvez exécuter la demande iFrame masquée ci-dessus à l’aide du paramètre `prompt=none` afin de contrôler le comportement de la plateforme d’identités. Si vous souhaitez recevoir un nouvel élément `id_token`, veillez à utiliser `id_token` dans le `response_type` et le `scope=openid`, ainsi qu’un paramètre `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 

@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109452"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721034"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
 
@@ -165,7 +165,8 @@ Ce portail vous permet d’afficher des alertes, de surveiller les performances 
 * **Active Directory Domain Services** : cette option affiche toutes les forêts AD DS supervisées par Azure AD Connect Health. Lorsque vous sélectionnez une forêt, le panneau qui s’ouvre fournit des informations sur cette forêt. Ces informations incluent une vue d’ensemble des informations essentielles, le tableau de bord des contrôleurs de domaine, le tableau de bord d’état de réplication, des alertes et la surveillance. Pour en savoir plus sur les fonctionnalités, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
 * **Configurer** : cette section inclut des options permettant d’activer ou de désactiver les éléments suivants :
 
-  - L’entrée **Paramètres** inclut les configurations de base de vos agents. Le paramètre de mise à niveau automatique permet de mettre automatiquement à jour l’agent Azure AD Connect Health avec la version la plus récente : votre système est automatiquement mis à jour avec la dernière version disponible de l’agent Azure AD Connect Health. Cette option est activée par défaut. Autorisation de l’accès, par Microsoft, aux données d’intégrité de votre répertoire Azure AD à des fins exclusives de résolution des problèmes : si cette option est activée, Microsoft peut consulter les données auxquelles vous avez accès. L’accès à ces informations simplifient la résolution des problèmes. Elle est désactivée par défaut.
+   - La **mise à jour automatique** de l’agent Azure AD Connect Health vers la dernière version : l’agent Azure AD Connect Health est automatiquement mis à jour dès que de nouvelles versions sont disponibles. Cette option est activée par défaut.
+   - **Accès aux données** à partir de l’intégrité de l’annuaire Azure AD par Microsoft uniquement à des fins de dépannage : si cette option est activée, Microsoft peut accéder aux mêmes données que l’utilisateur. Ces informations peuvent être utiles pour la résolution des problèmes et pour fournir l’assistance nécessaire. Cette option est désactivée par défaut
 * **Contrôle d’accès en fonction du rôle (IAM)** est la section permettant de gérer l’accès aux données Connect Health en fonction du rôle. 
 
 ## <a name="next-steps"></a>Étapes suivantes

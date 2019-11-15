@@ -1,20 +1,17 @@
 ---
 title: Guide de dépannage pour Azure Spring Cloud | Microsoft Docs
 description: Guide de dépannage pour Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.topic: troubleshooting
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 9603f4a687b55f45be2875ccaa7b801c0c5589c9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592480"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607629"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guide de dépannage pour les problèmes courants
 
@@ -165,7 +162,7 @@ Les variables d’environnement informent le framework Azure Spring Cloud et per
             </dependency>
         ```
 
-1. Une fois le point de terminaison Spring Boot Actuator activé, accédez au portail Azure, puis recherchez la page de configuration de votre application.  Ajoutez une variable d’environnement nommée `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*`. 
+1. Une fois le point de terminaison Spring Boot Actuator activé, accédez au portail Azure, puis recherchez la page de configuration de votre application.  Ajoutez une variable d’environnement avec le nom `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` et la valeur `*`. 
 
 1. Redémarrez votre application.
 

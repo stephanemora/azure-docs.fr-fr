@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791288"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614513"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
 
@@ -32,7 +32,7 @@ Par exemple, supposons que vous disposiez de la fonction d’orchestrateur suiva
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ Cette fonction simpliste récupère les résultats de **Foo** et les passe à **
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-Cette modification fonctionne pour toutes les nouvelles instances de la fonction d’orchestrateur, mais décompose toutes les instances en cours. Envisageons le cas où une instance d’orchestration appelle **Foo**, et récupère une valeur booléenne, puis des points de contrôle. Si la modification de signature est déployée à ce stade, l’instance faisant l’objet de points de contrôle échoue immédiatement, puis reprend et exécute à nouveau l’appel à `context.CallActivityAsync<int>("Foo")`. En effet, le résultat de la table d’historique `bool`, mais le nouveau code tente de le désérialiser dans `int`.
+> [!NOTE]
+> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
 
-Il s’agit d’une des différentes méthodes selon lesquelles une modification de signature peut décomposer des instances existantes. En général, si un orchestrateur doit modifier le mode d’appel d’une fonction, la modification risque de créer des problèmes.
+Cette modification fonctionne pour toutes les nouvelles instances de la fonction d’orchestrateur, mais décompose toutes les instances en cours. Envisageons le cas où une instance d’orchestration appelle une fonction nommée `Foo`, récupère une valeur booléenne, puis des points de contrôle. Si la modification de signature est déployée à ce stade, l’instance faisant l’objet de points de contrôle échoue immédiatement, puis reprend et exécute à nouveau l’appel à `context.CallActivityAsync<int>("Foo")`. Cette erreur se produit car le résultat de la table d’historique est `bool`, mais le nouveau code tente de le désérialiser en `int`.
+
+Cet exemple est une des différentes méthodes selon lesquelles une modification de signature peut décomposer des instances existantes. En général, si un orchestrateur doit modifier le mode d’appel d’une fonction, la modification risque de créer des problèmes.
 
 ### <a name="changing-orchestrator-logic"></a>Modification de la logique de l’orchestrateur
 
@@ -62,7 +65,7 @@ Prenons l’exemple de fonction d’orchestrateur suivante :
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ Supposons à présent que vous souhaitiez apporter une modification apparemment 
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -84,6 +87,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+> [!NOTE]
+> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
 
 Cette modification ajoute un nouvel appel de fonction au paramètre **SendNotification**, entre **Foo** et **Bar**. Aucune modification de signature n’est effectuée. Le problème survient lorsqu’une instance existante reprend à partir de l’appel à **bar**. Lors de la réexécution, si l’appel d’origine à **Foo** renvoie `true`, la réexécution de l’orchestrateur effectue l’appel dans **SendNotification**, qui n’est pas dans son historique d’exécution. De ce fait, l’infrastructure de tâche durable échoue en générant une exception `NonDeterministicOrchestrationException`, car elle a rencontré un appel à **SendNotification** alors qu’elle attendait un appel envoyé à **Bar**. Le même type de problème peut survenir lors de l’ajout d’appels à des API « durables », y compris `CreateTimer`, `WaitForExternalEvent`, etc.
 
@@ -99,11 +105,11 @@ Voici quelques stratégies permettant de gérer les défis associés au contrôl
 
 Le moyen le plus simple de gérer une modification avec rupture consiste à laisser échouer les instances d’orchestration en cours. Les nouvelles instances exécutent correctement le code modifié.
 
-L’importance de vos instances en cours détermine s’il s’agit d’un problème. Si le développement est actif et si vous ne vous souciez pas des instances en cours, cela peut s’avérer suffisant. Toutefois, vous devez traiter les exceptions et les erreurs dans votre pipeline de diagnostics. Si vous souhaitez éviter cette opération, envisagez les autres options de contrôle de version.
+L’importance de vos instances en cours détermine si ce type de défaillance est un problème. Si le développement est actif et si vous ne vous souciez pas des instances en cours, cela peut s’avérer suffisant. Toutefois, vous devez traiter les exceptions et les erreurs dans votre pipeline de diagnostics. Si vous souhaitez éviter cette opération, envisagez les autres options de contrôle de version.
 
 ### <a name="stop-all-in-flight-instances"></a>Arrêter toutes les instances en cours
 
-Une autre option consiste à arrêter toutes les instances en cours. Pour cela, effacez le contenu des files d’attente **control-queue** et **workitem-queue**. Les instances restent bloquées à leur niveau, mais n’encombrent pas votre télémétrie avec des messages signalant des échecs. Cette approche permet d’accélérer efficacement le développement de prototypes.
+Une autre option consiste à arrêter toutes les instances en cours. Pour arrêter toutes les instances, effacez le contenu des files d’attente **control-queue** et **workitem-queue**. Les instances restent bloquées à leur niveau, mais n’encombrent pas vos journaux avec des messages signalant des échecs. Cette approche permet d’accélérer efficacement le développement de prototypes.
 
 > [!WARNING]
 > Les détails de ces files d’attente peuvent changer au fil du temps. Pour cette raison, ne vous fiez pas à cette technique dans le cas de charges de travail de production.
@@ -113,8 +119,8 @@ Une autre option consiste à arrêter toutes les instances en cours. Pour cela, 
 La méthode la plus sûre pour assurer un déploiement sécurisé des modifications consiste à les installer côte à côte avec les versions plus anciennes. Pour cela, utilisez l’une des techniques suivantes :
 
 * Déployer toutes les mises à jour en tant que nouvelles fonctions, en laissant les fonctions existantes telles quelles. Cette solution peut s’avérer compliqué, car les appelants des nouvelles versions de la fonction doivent être aussi mis à jour en suivant les mêmes consignes.
-* Déployer toutes les mises à jour en tant que nouvelle application de fonction, en utilisant un autre compte de stockage.
-* Déployer une nouvelle copie de l’application de fonction avec le même compte de stockage, mais en utilisant un nom `taskHub` mis à jour. Il s’agit de la technique recommandée.
+* Déployez toutes les mises à jour en tant que nouvelle application de fonction, en utilisant un autre compte de stockage.
+* Déployer une nouvelle copie de l’application de fonction avec le même compte de stockage, mais en utilisant un nom `taskHub` mis à jour. Les déploiements côte à côte sont la technique recommandée.
 
 ### <a name="how-to-change-task-hub-name"></a>Comment modifier le nom du hub de tâches
 
@@ -130,7 +136,7 @@ Le hub de tâches peut être configuré dans le fichier *host.json*, comme suit�
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

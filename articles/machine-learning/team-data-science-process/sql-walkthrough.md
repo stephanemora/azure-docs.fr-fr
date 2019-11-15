@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606513"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669396"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -172,7 +172,7 @@ Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses a
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -233,7 +233,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
 Vous pouvez également utiliser les requêtes de génération d’étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D’autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb) . L’exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s’exécutent directement sur l’instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans Notebook IPython ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
 
 #### <a name="preparing-data-for-model-building"></a>Préparation des données pour la création de modèles
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] [d’Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -282,7 +282,7 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Afficher le nombre de lignes et de colonnes de la table nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Afficher le nombre de lignes et de colonnes de la table nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -593,7 +593,7 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 > 
 
 ## <a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
-Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
 

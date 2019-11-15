@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166471"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601313"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -206,9 +206,9 @@ Azure Container Instances n’expose pas un accès direct à l’infrastructure 
 
 Azure Container Instances ne prend pas encore en charge le mappage de ports, contrairement à une configuration Docker classique. Si vous constatez que l’adresses IP d’un groupe de conteneurs n’est pas accessible alors que vous pensez qu’elle devrait l’être, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
 
-Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port que vous avez configuré dans votre image conteneur, testez un déploiement de l’image `aci-helloworld` qui expose le port. Exécutez également l’application `aci-helloworld` afin qu’elle écoute le port. `aci-helloworld` accepte une variable d’environnement facultative `PORT` pour remplacer le port 80 écouté par défaut. Par exemple, pour tester le port 9000 :
+Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port que vous avez configuré dans votre image conteneur, testez un déploiement de l’image `aci-helloworld` qui expose le port. Exécutez également l’application `aci-helloworld` afin qu’elle écoute le port. `aci-helloworld` accepte une variable d’environnement facultative `PORT` pour remplacer le port 80 écouté par défaut. Par exemple, pour tester le port 9000, définissez la [variable d’environnement](container-instances-environment-variables.md) lors de la création du groupe de conteneurs :
 
-1. Configurez le groupe de conteneurs pour exposer le port 9000 et transmettez le numéro de port comme valeur de la variable d’environnement :
+1. Configurez le groupe de conteneurs pour exposer le port 9000 et transmettez le numéro de port comme valeur de la variable d’environnement. L’exemple est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables en conséquence.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \

@@ -1,5 +1,5 @@
 ---
-title: Activer le réglage automatique pour Azure SQL Database | Microsoft Docs
+title: Activer le réglage automatique
 description: Vous pouvez facilement activer le réglage automatique sur Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162342"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821911"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique pour surveiller les requêtes et améliorer les performances de la charge de travail
 
@@ -104,9 +104,15 @@ Pour en savoir plus sur les options T-SQL permettant de configurer le réglage a
 
 Le réglage automatique surveille toutes les actions effectuées sur la base de données et, dans certains cas, il peut déterminer que le réglage automatique ne peut pas fonctionner correctement sur la base de données. Dans ce cas, l’option de réglage est désactivée par le système. Dans la plupart des cas, cela est dû au fait que le Magasin des requêtes n’est pas activé ou est en lecture seule sur une base de données spécifique.
 
+## <a name="permissions"></a>Autorisations
+
+Comme le réglage automatique est une fonctionnalité Azure, il faut utiliser les rôles RBAC intégrés d’Azure pour pouvoir s’en servir. L’authentification SQL seule ne suffit pas pour utiliser la fonctionnalité du Portail Azure.
+
+Pour utiliser le réglage automatique, l’autorisation minimale requise à accorder à l’utilisateur est le rôle [Collaborateur SQL DB](../role-based-access-control/built-in-roles.md#sql-db-contributor) intégré d’Azure. Vous pouvez également utiliser des rôles à privilège plus élevés, comme Collaborateur SQL Server, Collaborateur et Propriétaire.
+
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
 
-Consultez le guide [Notifications par e-mail du réglage automatique](sql-database-automatic-tuning-email-notifications.md).
+Voir le guide [Notifications par e-mail du réglage automatique](sql-database-automatic-tuning-email-notifications.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

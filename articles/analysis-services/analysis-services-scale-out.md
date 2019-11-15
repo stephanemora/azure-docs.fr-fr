@@ -1,18 +1,18 @@
 ---
 title: Montée en charge d’Azure Analysis Services | Microsoft Docs
-description: Répliquer les serveurs Azure Analysis Services avec montée en charge
+description: Répliquer les serveurs Azure Analysis Services avec Scale-out. Les requêtes client peuvent ensuite être distribuées entre plusieurs réplicas de requête dans un pool de requêtes Scale-out.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301177"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572634"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -138,7 +138,7 @@ Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur.
 
 Pour les connexions de clients d’utilisateur finaux, comme Power BI Desktop, Excel et des applications personnalisées, utilisez **Nom du serveur**. 
 
-Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications de fonction Azure et AMO, utilisez **Nom du serveur d’administration**. Le nom du serveur d’administration inclut un qualificateur `:rw` (lecture-écriture) spécial. Toutes les opérations de traitement se produisent sur le serveur d’administration (principal).
+Pour SSMS, Visual Studio et les chaînes de connexion dans PowerShell, les applications de fonction Azure et AMO, utilisez **Nom du serveur d’administration**. Le nom du serveur d’administration inclut un qualificateur `:rw` (lecture-écriture) spécial. Toutes les opérations de traitement se produisent sur le serveur d’administration (principal).
 
 ![Noms de serveur](media/analysis-services-scale-out/aas-scale-out-name.png)
 

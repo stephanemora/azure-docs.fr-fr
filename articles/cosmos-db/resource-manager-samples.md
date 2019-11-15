@@ -4,14 +4,14 @@ description: Utilisez des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a32b0497d2457a740e9c082f990bb9112208bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969182"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582810"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modèles Azure Resource Manager pour Azure Cosmos DB
 
@@ -20,10 +20,9 @@ Les tableaux suivants incluent des liens vers des modèles Azure Resource Manage
 ## <a name="sql-core-api"></a>API SQL (Core)
 
 |**Modèle**|**Description**|
-|---| ---|
-|[Créer un compte, une base de données et un conteneur Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Ce modèle crée un compte API SQL (Core) dans deux régions avec multimaître activé. Le compte Azure Cosmos dispose de deux conteneurs qui partagent le débit du niveau de la base de données. |
-|[Mettre à jour le débit (RU/s) d’une base de données](manage-sql-with-resource-manager.md#database-ru-update) | Ce modèle met à jour le débit d’une base de données dans un compte API SQL (Core). |
-|[Mettre à jour le débit (RU/s) d’un conteneur](manage-sql-with-resource-manager.md#container-ru-update) | Ce modèle met à jour le débit d’un conteneur dans un compte API SQL (Core). |
+|---|---|
+|[Créer un compte, une base de données et un conteneur Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Ce modèle crée un compte d’API SQL (Core) dans deux régions avec deux conteneurs avec un débit de base de données partagé et un conteneur avec un débit dédié. Le débit peut être mis à jour en renvoyant le modèle avec une valeur de propriété de débit mise à jour. |
+|[Créer un compte Azure Cosmos, une base de données et un conteneur avec une procédure stockée, un déclencheur et une fonction définie par l’utilisateur](manage-sql-with-resource-manager.md#create-sproc) | Ce modèle crée un compte d’API SQL (Core) dans deux régions avec une procédure stockée, un déclencheur et une fonction définie par l’utilisateur (UDF) pour un conteneur. |
 
 ## <a name="mongodb-api"></a>API MongoDB
 

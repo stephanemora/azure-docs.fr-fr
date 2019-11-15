@@ -4,15 +4,16 @@ description: Configurez les champs Détails de la vitrine d’une offre d’appl
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309b2eb33c594b5233c547e3bf45a49aa3a25678
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942624"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817663"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine des applications Power BI
 
@@ -64,7 +65,7 @@ Pour renseigner les champs figurant dans cette section, utilisez le tableau suiv
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
 | **Logo de l’offre (format png, 48 x 48)\***   | Chargez un logo à afficher dans la vue d’ensemble de l’application ou dans les résultats de recherche d’application. AppSource prend en charge uniquement le format PNG avec une résolution de 48 x 48 px.  |
-| **Logo de l’offre (format png, 216 x 216)\*** | Chargez un logo à afficher dans la page de détails de votre application.  AppSource prend en charge uniquement le format PNG avec une résolution de 216 x 216 px.  |
+| **Logo de l’offre (format png, 216 x 216)\*** | Chargez un logo à afficher sur la page des informations de votre application.  AppSource prend en charge uniquement le format PNG avec une résolution de 216 x 216 px.  |
 | *Vidéos*                             |                                                                   |
 | **Nom**                             | Entrez le nom ou le titre de votre application.                                          |
 | **URL**                              | Entrez l’URL d’une vidéo hébergée sur YouTube ou Vimeo.                              |

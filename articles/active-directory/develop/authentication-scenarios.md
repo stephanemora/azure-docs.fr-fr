@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430012"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718366"
 ---
 # <a name="authentication-basics"></a>Principes fondamentaux de l’authentification
 
@@ -35,7 +35,7 @@ L’**authentification** est le processus visant à prouver que vous êtes bien 
 
 L’**autorisation** correspond à l’action d’accorder à une partie authentifiée le droit de faire quelque chose. Elle détermine les données auxquelles vous pouvez accéder, et ce que vous pouvez faire de ces données. On abrège parfois l’autorisation de cette manière : AuthZ.
 
-Au lieu de créer des applications gérant chacune leurs propres informations de nom d’utilisateur et de mot de passe (ce qui entraîne une charge administrative importante lorsque vous avez plusieurs applications et que vous devez leur ajouter ou leur supprimer des utilisateurs), les applications peuvent déléguer cette responsabilité à un fournisseur d’identité centralisée.
+Au lieu de créer des applications gérant chacune leurs propres informations de nom d’utilisateur et de mot de passe (ce qui entraîne une charge administrative importante lorsque vous devez ajouter ou supprimer des utilisateurs sur plusieurs applications), les applications peuvent déléguer cette responsabilité à un fournisseur d’identité centralisée.
 
 Azure Active Directory (Azure AD) est un fournisseur d’identité centralisée, présent dans le cloud. La délégation de l’authentification et de l’autorisation à ce service permet des scénarios, tels que des stratégies d’accès conditionnel nécessitant la présence d’un utilisateur dans un lieu spécifique, l’utilisation de l’authentification multifacteur, ainsi que la possibilité pour l’utilisateur de se connecter une seule fois et d’être ensuite connecté automatiquement à toutes les applications web qui partagent le même annuaire centralisé. Cette fonctionnalité s’appelle l’authentification unique (SSO).
 
@@ -43,7 +43,7 @@ Un fournisseur d’identité centralisée est encore plus important pour les app
 
 La plateforme d’identités Microsoft simplifie l’authentification pour les développeurs d’application, en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect, ainsi que des bibliothèques open source pour différentes plateformes, afin de vous permettre de commencer à coder rapidement. Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres APIs Microsoft ou des API que des développeurs ont créées. Pour plus d’informations, consultez [Évolution de la plateforme d’identités Microsoft](about-microsoft-identity-platform.md).
 
-## <a name="tenants"></a>Locataires
+### <a name="tenants"></a>Locataires
 
 Un fournisseur d’identité cloud est utilisé par de nombreuses organisations. Afin de séparer les utilisateurs de différentes organisations, Azure AD est partitionné en locataires, à raison d’un locataire par organisation.
 
@@ -53,7 +53,7 @@ Azure AD fournit également Azure Active Directory B2C, afin que les organisatio
 
 ### <a name="security-tokens"></a>Jetons de sécurité
 
-Les jetons de sécurité contiennent des informations sur les utilisateurs et les applications. Azure AD utilise des jetons JSon (jetons JWT) qui comportent des revendications. Une revendication fournit des assertions d’une entité à une autre. Les applications peuvent utiliser des revendications pour diverses tâches, par exemple :
+Les jetons de sécurité contiennent des informations sur les utilisateurs et les applications. Azure AD utilise des jetons JSON (jetons JWT) qui comportent des revendications. Une revendication fournit des assertions d’une entité à une autre. Les applications peuvent utiliser des revendications pour diverses tâches, par exemple :
 
 * Validation du jeton
 * Identification du locataire d’annuaire du sujet
@@ -76,32 +76,31 @@ Les jetons ne sont valides que pour une durée limitée. En règle générale, l
 
 Les jetons d’accès sont passés à une API web en tant que jeton du porteur dans l’en-tête `Authenticate`. Une application peut fournir un jeton d’actualisation au STS et, si l’accès de l’utilisateur à l’application n’a pas été révoqué, un nouveau jeton d’accès et un nouveau jeton d’actualisation sont obtenus en retour. C’est de cette façon que le scénario d’une personne quittant l’entreprise est géré. Lorsque le STS reçoit le jeton d’actualisation, il n’émet pas d’autre jeton d’accès valide si l’utilisateur n’est plus autorisé.
 
-### <a name="applications"></a>APPLICATIONS
+## <a name="application-model"></a>Modèle d'application
 
 Les applications peuvent connecter les utilisateurs elles-mêmes, ou déléguer la connexion à un fournisseur d’identité. Découvrez plus en détail les scénarios de connexion pris en charge par Azure AD en consultant [Flux d’authentification et scénarios d’application](authentication-flows-app-scenarios.md).
 
 Pour qu’un fournisseur d’identité sache qu’un utilisateur a accès à une application particulière, l’utilisateur et l’application doivent tous les deux être inscrits auprès du fournisseur d’identité. Lorsque vous inscrivez votre application auprès d’Azure AD, vous fournissez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer à Azure AD. L’inscription de l’application vous permet également d’effectuer les opérations suivantes :
 
 - Personnaliser la boîte de dialogue de connexion avec la marque de votre application. C’est important, car il s’agit de la première expérience de l’utilisateur avec votre application.
-- Décider si vous souhaitez laisser les utilisateurs se connecter uniquement s’ils appartiennent à votre organisation. Il s’agit d’une application monolocataire. Ou autoriser les utilisateurs à se connecter avec un compte professionnel ou scolaire. C’est alors une application multilocataire. Vous pouvez également autoriser les comptes Microsoft personnels, ou un compte social depuis Linked-In, Google, etc.
+- Décider si vous souhaitez laisser les utilisateurs se connecter uniquement s’ils appartiennent à votre organisation. Il s’agit d’une application monolocataire. Ou autoriser les utilisateurs à se connecter avec un compte professionnel ou scolaire. C’est alors une application multilocataire. Vous pouvez également autoriser les comptes Microsoft personnels, ou un compte social depuis LinkedIn, Google, etc.
 - Demander des autorisations d’étendue. Par exemple, vous pouvez demander l’étendue « user.read », qui accorde l’autorisation de lire le profil de l’utilisateur connecté.
 - Préciser les étendues qui définissent l’accès à votre API web. En général, lorsqu’une application souhaite accéder à votre API, elle doit demander des autorisations pour les étendues que vous définissez.
 - Partager un secret avec Azure AD qui prouve l’identité de l’application à Azure AD.  Cette action est pertinente dans le cas où l’application est une application cliente confidentielle. Une application cliente confidentielle est une application qui peut conserver les informations d’identification en toute sécurité. Un serveur back-end approuvé pour stocker les informations d’identification.
 
 Une fois inscrite, l’application reçoit un GUID qu’elle partage avec Azure AD lorsqu’elle demande des jetons. Si l’application est une application cliente confidentielle, elle partage également le secret ou la clé publique, selon que des certificats ou des secrets ont été utilisés.
 
-### <a name="application-model"></a>Modèle d'application
-
 La plateforme d’identités Microsoft représente des applications utilisant un modèle qui remplit deux fonctions principales :
 
-**Identifier l’application par les protocoles d’authentification qu’elle prend en charge, et fournir tous les identificateurs, URL, secrets et informations connexes nécessaires pour authentifier.**
+Identifier l’application par les protocoles d’authentification qu’elle prend en charge, et fournir tous les identificateurs, URL, secrets et informations connexes nécessaires pour authentifier.
 La plateforme d’identités Microsoft :
 
 * contient toutes les données nécessaires lors de l’authentification, au moment de l’exécution ;
 * contient toutes les données permettant de déterminer les ressources susceptibles d’être demandées par une application pour obtenir l’accès, et les circonstances dans lesquelles une requête donnée doit être traitée.
 * fournit l’infrastructure pour implémenter le provisionnement de l’application au sein du locataire du développeur, et de n’importe quel autre locataire Azure AD.
+* Gérer le consentement de l’utilisateur au moment de la demande de jeton et faciliter l’approvisionnement dynamique des applications entre les locataires
 
-**Gérer le consentement de l’utilisateur au moment de la demande de jeton, et faciliter le provisionnement dynamique des applications entre les locataires.** Le consentement est le processus d’un propriétaire de ressource qui accorde l’autorisation à une application cliente d’accéder aux ressources protégées, selon certaines autorisations, pour le compte du propriétaire de la ressource. La plateforme d’identités Microsoft :
+Le consentement est un processus par lequel un propriétaire de ressources octroie à une application cliente l’accès à des ressources protégées, avec des autorisations spécifiques, en son nom. La plateforme d’identités Microsoft :
 
 * Il permet aux utilisateurs et administrateurs d’accorder ou de refuser dynamiquement le consentement lorsque l’application souhaite accéder aux ressources en leur nom.
 * Il permet aux administrateurs d’avoir la décision finale sur les applications qu’ils sont autorisées à fonctionner, les utilisateurs qui peuvent utiliser des applications spécifiques et la manière dont les ressources de répertoire sont consultées.
@@ -154,7 +153,7 @@ L’authentification de l’utilisateur s’effectue via le navigateur. Le proto
 - La redirection est fournie par l’application web sous la forme d’un URI de redirection. Cet URI de redirection est inscrit auprès de l’objet d’application Azure AD. Il peut y avoir plusieurs URI de redirection, car l’application peut être déployée sur plusieurs URL. Par conséquent, l’application web doit également spécifier l’URi de redirection à utiliser.
 - Azure AD vérifie que l’URI de redirection envoyé par l’application web est l’un des URI de redirection inscrits pour l’application.
 
-## <a name="generalization-to-desktop-and-mobile-apps"></a>Généralisation aux applications mobiles et de bureau
+## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Flux de connexion d’application mobile et de bureau avec Azure AD
 
 Le flux décrit ci-dessus s’applique, avec de légères différences, aux applications mobiles et de bureau.
 

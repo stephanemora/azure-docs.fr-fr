@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: ca77cf6b838d2e10eab422f37ff55fbb43a2dba0
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677839"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667999"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -569,7 +569,7 @@ telemetry.trackTrace({
 *JavaScript côté client/navigateur*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
 ```
 
 Enregistrer un événement de diagnostic comme l'utilisation ou la non-utilisation d'une méthode.
@@ -614,7 +614,7 @@ Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la p
 
 ## <a name="trackdependency"></a>TrackDependency
 
-Utilisez l’appel à TrackDependency pour suivre les temps de réponse et les taux de réussite des appels vers un bloc de code externe. Les résultats s'affichent dans les graphiques de dépendance sur le portail.
+Utilisez l’appel à TrackDependency pour suivre les temps de réponse et les taux de réussite des appels vers un bloc de code externe. Les résultats s'affichent dans les graphiques de dépendance sur le portail. L’extrait de code ci-dessous doit être ajouté chaque fois qu’un appel de dépendance est effectué.
 
 *C#*
 

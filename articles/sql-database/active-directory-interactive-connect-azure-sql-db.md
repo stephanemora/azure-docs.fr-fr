@@ -1,5 +1,5 @@
 ---
-title: Se connecter à SQL en mode ActiveDirectoryInteractive | Microsoft Docs
+title: Se connecter à SQL en mode ActiveDirectoryInteractive
 description: Exemple de code C# accompagné d’explications, pour établir une connexion à Azure SQL Database en utilisant le mode SqlAuthenticationMethod.ActiveDirectoryInteractive.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
-ms.openlocfilehash: c55fa6d58109345a0c600bd0c1c76c5a229c03bc
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554479"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692301"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Se connecter à Azure SQL Database avec Microsoft Azure Multi-Factor Authentication
 

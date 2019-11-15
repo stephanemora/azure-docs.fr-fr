@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876895"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748572"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -62,7 +62,7 @@ Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les op
 > [!CAUTION]
 > - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application principale, vous devrez reconfigurer votre application en [extrayant le nouveau nom et le nouveau point de terminaison compatibles Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations.
 >
-> - Pour effectuer un routage vers le stockage Blob, nous vous recommandons d’inscrire les objets Blob, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les conteneurs seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Pour découvrir comment énumérer la liste des objets blob, consultez [Routage vers le stockage Blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. 
 
 ## <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 

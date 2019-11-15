@@ -1,5 +1,5 @@
 ---
-title: Approvisionnement dans une application SaaS multilocataire Azure | Microsoft Docs
+title: Approvisionner dans une architecture mutualisée SaaS
 description: Découvrez comment provisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570311"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817925"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 

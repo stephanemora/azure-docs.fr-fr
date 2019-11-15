@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 27c21171c2a53cb739215dcae070b94c8610a490
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880899"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815114"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur les changements qu’apportent les Services conne
 
 Avant de commencer, vérifiez que vous êtes connecté à Visual Studio. Connectez-vous avec le même compte que celui que vous utilisez pour votre abonnement Azure. Ouvrez ensuite un projet web ASP.NET 4.7.1 ou version ultérieure, ou ASP.NET Core 2.0, puis procédez comme suit :
 
-1. Dans **l’Explorateur de solutions**, choisissez **Ajouter** > **Service connecté**.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet auquel vous souhaitez ajouter la prise en charge du coffre de clés, puis choisissez **Ajouter** > **Service connecté**.
    La page Service connecté s’affiche et montre des services que vous pouvez ajouter à votre projet.
 1. Dans le menu des services disponibles, choisissez **Sécuriser les secrets avec Azure Key Vault**.
 

@@ -4,15 +4,16 @@ description: Réponses aux questions courantes sur la Place de marché Azure et 
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822976"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
@@ -246,7 +247,7 @@ Les licences annulées sont soumises à la politique de remboursement figurant d
 
 **Les remboursements sont-ils pris en charge pour les offres basées sur la consommation ?**
 
-Les frais basés sur la consommation, qu’il s’agisse de machines virtuelles facturées à l’heure ou de compteurs personnalisés, ne sont pas remboursables en cas d’annulation. Une fois la consommation effectuée, les frais sont traités par la plateforme Commerce de Microsoft, et les litiges en lien avec la qualité du service où un remboursement est demandé sont gérés en dehors des systèmes Microsoft directement entre l’éditeur et le client. Les offres basée sur un taux forfaitaire additionné d’une facturation limitée suivent la politique de remboursement standard des frais forfaitaires.
+Les frais basés sur la consommation, qu’il s’agisse de machines virtuelles facturées à l’heure ou de compteurs personnalisés, ne sont pas remboursables en cas d’annulation. Une fois la consommation effectuée, les frais sont traités par la plateforme Commerce de Microsoft, et les litiges en lien avec la qualité du service dans le cadre desquels un remboursement est demandé sont gérés en dehors des systèmes Microsoft, directement entre l’éditeur et le client. Les offres basée sur un taux forfaitaire additionné d’une facturation limitée suivent la politique de remboursement standard des frais forfaitaires.
 
 **Est-il possible de modifier des plans à moyen terme ?**
 
@@ -285,7 +286,7 @@ La Place de marché Azure est un marché qui permet aux partenaires Microsoft de
 
 Les partenaires Microsoft peuvent choisir où publier en fonction de leur public cible.
 
-Microsoft propose deux vitrines distinctes de place de marché dans le cloud : Place de marché Microsoft Azure et Microsoft AppSource. Ces vitrines permettent aux clients de trouver, d’essayer et d’acheter des applications et des services cloud. Chaque vitrine répond aux besoins uniques des clients et permet aux partenaires Microsoft de cibler leurs solutions ou services en fonction du public cible.
+Microsoft propose deux vitrines de place de marché distinctes dans le cloud : la Place de marché Azure et AppSource. Ces vitrines permettent aux clients de trouver, d’essayer et d’acheter des applications et des services cloud. Chaque vitrine répond aux besoins uniques des clients et permet aux partenaires Microsoft de cibler leurs solutions ou services en fonction du public cible.
 
 Sélectionnez [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps) afin de cible les professionnels de l’informatique, développeurs et utilisateurs techniques.
 
@@ -463,7 +464,7 @@ Un abonnement de niveau Gratuit est une offre perpétuelle gratuite.  Une offre 
 
 **Quel est le processus qui permet de valider l’achat de bout en bout et le flux de provisionnement ?**
 
-Pendant le processus de publication, vous aurez accès à un aperçu de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifiés sous l’onglet Aperçu, et il s’agit d’une offre en direct que personne d’autre ne peut voir. Vous pouvez l’acheter et tester le processus. Cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
+Pendant le processus de publication, vous aurez accès à un aperçu de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifiés sous l’onglet Aperçu, et il s’agit d’une offre en direct que personne d’autre ne peut voir. Vous pouvez l’acheter pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
 
 Pour effectuer un achat à un prix très bas, Microsoft vous conseille de publier un plan privé pour vous-même dont vous pourrez accepter le prix comme coût de test. Il est possible de fixer un coût égal à zéro, mais vous ne profiterez pas d’une expérience complète comme le permet un abonnement payant.
 

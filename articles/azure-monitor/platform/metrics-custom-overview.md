@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844657"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669162"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -58,7 +58,7 @@ Cette propriété capture la région Azure dans laquelle est déployée la resso
 Chaque point de données envoyé à Azure Monitor doit être marqué par un timestamp. Cet horodatage capture la date et l’heure auxquelles la valeur de métrique a été mesurée ou collectée. Azure Monitor accepte les données métriques dont les horodatages ne datent pas de plus de 20 minutes et ne dépassent pas les 5 minutes à venir. Le timestamp doit être au format ISO 8601.
 
 ### <a name="namespace"></a>Espace de noms
-Les espaces de noms offrent un moyen de grouper ou classer par catégorie des métriques similaires. Les espaces de noms permettent d’isoler les groupes de métriques collectant différents insights ou indicateurs de performances. Par exemple, vous pouvez avoir un espace de noms appelé **ContosoMemoryMetrics** qui effectue le suivi des métriques d’utilisation de la mémoire qui profile votre application. Un autre espace de noms appelé **ContosoAppTransaction** peut effectuer le suivi de toutes les métriques relatives aux transactions utilisateur de votre application.
+Les espaces de noms offrent un moyen de grouper ou classer par catégorie des métriques similaires. Les espaces de noms permettent d’isoler les groupes de métriques collectant différents insights ou indicateurs de performances. On peut avoir par exemple un espace de noms nommé **contosomemorymetrics** qui effectue le suivi des métriques d’utilisation de la mémoire caractéristiques de l’application. Un autre espace de noms appelé **contosoapptransaction** pourrait effectuer le suivi de toutes les métriques relatives aux transactions utilisateur de l’application.
 
 ### <a name="name"></a>Nom
 **Nom** correspond au nom de la métrique rapportée. Généralement, le nom est suffisamment descriptif pour identifier ce qui est mesuré. Par exemple, il peut s’agir d’une métrique qui mesure le nombre d’octets de mémoire utilisés sur une machine virtuelle donnée. Le nom de cette métrique pourrait être **Memory Bytes In Use** (Octets de mémoire en cours d’utilisation).
