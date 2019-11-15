@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244572"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621343"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Détection des menaces pour les services de données dans Azure Security Center
 
@@ -40,7 +40,7 @@ SQL Threat Detection identifie les activités anormales qui indiquent des tentat
 
 Pour plus d’informations sur les alertes SQL Threat Detection, consultez [Détection des menaces Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). Examinez tout particulièrement la section relative aux alertes de détection des menaces. Consultez également [Comment Azure Security Center peut révéler une cyberattaque](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) pour avoir un exemple de la façon dont Security Center utilise la détection d’activités SQL malveillantes pour détecter une attaque.
 
-## Stockage <a name="azure-storage"></a>
+## Stockage Azure <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection pour le stockage est actuellement disponible pour le stockage Blob uniquement.
@@ -53,7 +53,7 @@ Security Center analyse les journaux de diagnostic des requêtes de lecture, éc
 
 |Alerte|Description|
 |---|---|
-|**Anomalies d'accès inhabituel à l'emplacement**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale, établie à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Elle peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison RDP externe. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Anomalies d'accès inhabituel à l'emplacement**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale, établie à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Elle peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison RDP externe. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
 |**Anomalie d'accès aux applications**|Indique qu’une application inhabituelle a accédé à ce compte de stockage. Un attaquant a peut-être accédé à votre compte de stockage à l’aide d’une nouvelle application.|
 |**Anomalie d'accès anonyme**|Indique un changement dans le modèle d’accès à un compte de stockage. Par exemple, le compte a fait l’objet d’un accès anonyme (sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte. Un attaquant a peut-être exploité un accès en lecture public à un conteneur de stockage d’objets blob.|
 |**Anomalie Tor**|Indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). La gravité de cette alerte considère le type d’authentification utilisé (le cas échéant) et le fait qu’il s’agit ou non du premier cas de ce type d’accès. Un attaquant ou un utilisateur légitime a peut-être accédé à votre compte de stockage à l’aide de Tor.|
@@ -63,6 +63,7 @@ Security Center analyse les journaux de diagnostic des requêtes de lecture, éc
 |**Anomalie d'autorisation d'accès**|Indique que les autorisations d’accès de ce conteneur de stockage ont été modifiées de façon inhabituelle. Un attaquant a peut-être changé les autorisations du conteneur pour affaiblir son état de sécurité ou y accéder de façon persistante.|
 |**Anomalie d'accès à l'inspection**|Indique que les autorisations d’accès d’un compte de stockage ont été inspectées de façon inhabituelle, par rapport à l’activité récente sur ce compte. Il est possible qu'un attaquant ait effectué une reconnaissance en vue d’une attaque future.|
 |**Anomalie d'exploration des données**|Indique que les objets blob ou les conteneurs dans un compte de stockage ont été énumérés de manière inhabituelle, par rapport à l’activité récente sur ce compte. Il est possible qu'un attaquant ait effectué une reconnaissance en vue d’une attaque future.|
+|**Chargement potentiel de programmes malveillants**|Indique qu’un objet blob contenant des programmes malveillants potentiels a été chargé dans un compte de stockage. Les causes potentielles peuvent inclure le chargement d’un programme malveillant intentionnel par une personne malveillante ou le chargement non intentionnel d’un objet blob potentiellement malveillant par un utilisateur légitime.|
 
 >[!NOTE]
 >Advanced Threat Protection pour le stockage n’est actuellement pas disponible dans les régions de cloud souverain et Azure Government.

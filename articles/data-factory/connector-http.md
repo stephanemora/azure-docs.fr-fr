@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir d’une source HTTP à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données d’une source HTTP à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source HTTP dans le cloud ou locale vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dd40527cdb073c76872c5768a7bea44b74155b7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 125841697a8ad7d34441dfca3a4c079ef59e5f96
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092063"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680834"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -171,12 +171,9 @@ Si vous utilisez **certThumbprint** pour l’authentification et que le certific
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
-- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données vers et à partir des **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété    | Description                                                  | Obligatoire |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -185,9 +182,6 @@ Pour copier des données vers et à partir des **formats Parquet, de texte déli
 
 > [!NOTE]
 > La taille de charge utile de requête HTTP prise en charge est d’environ 500 Ko. Si la taille de charge utile que vous souhaitez passer au point de terminaison web est supérieure à 500 Ko, envisagez de la traiter en blocs plus petits.
-
-> [!NOTE]
-> Le jeu de données de type **HttpFile** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité de copie/recherche pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -215,9 +209,10 @@ Pour copier des données vers et à partir des **formats Parquet, de texte déli
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour la copie de données à partir de HTTP au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -279,12 +274,9 @@ Pour obtenir la liste complète des sections et des propriétés permettant de d
 
 ### <a name="http-as-source"></a>HTTP en tant que source
 
-- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -294,9 +286,6 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 | requestBody              | Corps de la requête HTTP.                               | Non       |
 | requestTimeout           | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **HttpSource** mentionnée dans la section suivante est toujours prise en charge pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -339,9 +328,10 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour la copie de données à partir de HTTP au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -382,7 +372,7 @@ Pour la copie de données à partir de HTTP au **format ORC**, les propriétés 
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, voir [Activité Lookup](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

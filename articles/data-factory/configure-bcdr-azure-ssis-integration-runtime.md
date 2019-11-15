@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure-SSIS Integration Runtime pour le basculement de SQL Database | Microsoft Docs
+title: Configurer Azure-SSIS Integration Runtime pour le basculement SQL Database
 description: Cet article explique comment configurer Azure-SSIS Integration Runtime avec la géo-réplication et le basculement Azure SQL Database pour la base de données SSISDB.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e709a25c6c33a1fc80a110435035b1473d92681
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399235"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681387"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géo-réplication et le basculement Azure SQL Database
 

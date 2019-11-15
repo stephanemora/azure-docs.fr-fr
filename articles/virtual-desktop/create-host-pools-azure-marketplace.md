@@ -1,5 +1,5 @@
 ---
-title: Créer un pool d’hôtes Windows Virtual Desktop à l’aide de la Place de marché Azure - Azure
+title: Pool d’hôtes Windows Virtual Desktop Place de marché Azure - Azure
 description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide de la Place de marché Azure.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757521"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605582"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes en utilisant la Place de marché Azure
 
@@ -40,7 +40,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 Pour exécuter l’offre de la Place de marché Azure pour provisionner un nouveau pool d’hôtes :
 
-1. Sélectionnez **+** or **+ Créer une ressource**.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Entrez **Windows Virtual Desktop** dans la fenêtre de recherche de la Place de marché.
 3. Sélectionnez **Windows Virtual Desktop - Provisionner un pool d’hôtes**, puis **Créer**.
 
@@ -73,7 +73,9 @@ Pour le panneau **Configurer des machines virtuelles** :
 Pour le panneau **Paramètres de la machine virtuelle** :
 
 >[!NOTE]
-> Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est membre du [groupe Administrateurs AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> Le compte doit également faire partie du domaine managé Azure AD DS ou du locataire Azure AD : les comptes provenant d’annuaires externes associés à votre locataire Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine. 
 
 1. Pour **Source de l’image**, sélectionnez la source, puis entrez les informations appropriées concernant la façon de la rechercher et de la stocker. Si vous choisissez de ne pas utiliser de disques managés, sélectionnez le compte de stockage qui contient le fichier .vhd.
 2. Entrez le nom d’utilisateur principal et le mot de passe pour le compte de domaine qui va joindre les machines virtuelles au domaine Active Directory. Ces mêmes nom d’utilisateur et mot de passe sont créés sur les machines virtuelles sous la forme d’un compte local. Vous pouvez réinitialiser ces comptes locaux ultérieurement.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510574"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747695"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Déployer une passerelle auto-hébergée de gestion des API Azure sur Docker
 
@@ -31,6 +31,9 @@ Cet article présente les étapes du déploiement de la passerelle de gestion de
 - Effectuez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 - Créez un environnement Docker. [Docker pour le bureau](https://www.docker.com/products/docker-desktop) est une bonne option en matière de développement et d’évaluation. Pour plus d’informations sur toutes les éditions de Docker, leurs fonctionnalités et une documentation complète sur Docker, voir la [Documentation Docker](https://docs.docker.com).
 - [Approvisionnez une ressource de passerelle dans votre instance Gestion des API](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> La passerelle auto-hébergée se présente sous la forme d’un conteneur Docker basé sur Linux.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Déployer une passerelle auto-hébergée sur Docker
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle de gestion des API Azure auto-hébergée](self-hosted-gateway-overview.md)
+* Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md).
+* [Configurer un nom de domaine personnalisé pour la passerelle auto-hébergée](api-management-howto-configure-custom-domain-gateway.md).

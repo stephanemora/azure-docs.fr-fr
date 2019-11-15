@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481236"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647399"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-sdk-180-2019-november-release"></a>SDK Speech 1.8.0 : Version de novembre 2019
+
+**Nouvelles fonctionnalités**
+*   Ajout d’une API FromHost (), pour faciliter l’utilisation avec des conteneurs locaux et des clouds souverains.
+*   Ajout de la détection de langue source automatique pour la reconnaissance vocale (en Java et C++)
+*   Ajout de l’objet SourceLanguageConfig pour la reconnaissance vocale, utilisé pour spécifier les langues sources attendues (en Java et C++)
+*   Ajout de la prise en charge de KeywordRecognizer sur Windows (UWP), Android et iOS via les packages NuGet et Unity
+*   Ajout de l’API Java de conversation à distance pour effectuer une transcription de conversation dans des lots asynchrones.
+
+**Dernières modifications**
+*   Les fonctionnalités du transcripteur de conversation ont été déplacées sous l’espace de noms Microsoft.CognitiveServices.Speech.Transcription.
+*   Une partie des méthodes du transcripteur de conversation est sont déplacées vers une nouvelle classe Conversation.
+*   Suppression de la prise en charge d’iOS 32 bits (ARMv7 et x86) 
+
+**Résolution des bogues**
+*   Correction du plantage si le KeywordRecognizer local est utilisé sans clé d’abonnement valide au service Speech
+
+**Exemples**
+*   Exemple Xamarin pour KeywordRecognizer
+*   Exemple Unity pour KeywordRecognizer
+*   Exemples C++ et Java pour la détection automatique de la langue source.
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>SDK Speech 1.7.0 : version de septembre 2019
 
 **Nouvelles fonctionnalités**
@@ -37,7 +61,6 @@ ms.locfileid: "73481236"
 *   Correction d’un problème lié à la multiplicité des UUID dans certaines propriétés de connexion
 *   Correction de quelques avertissements sur les spécificateurs de possibilité de valeur null dans les liaisons Swift (ce qui peut nécessiter de petites modifications de code)
 *   Correction d’un bogue provoquant la fermeture anormale des connexions WebSocket sous une charge réseau
-*   iOS : suppression de la prise en charge de l’architecture arm7s
 *   Correction d’un problème sur Android pouvant entraîner des ID d’impression en double utilisés par DialogServiceConnector
 *   Améliorations apportées à la stabilité des connexions entre les interactions multitours et au signalement des défaillances (par le biais d’événements annulés) quand elles se produisent avec DialogServiceConnector
 *   Les démarrages de session DialogServiceConnector fournissent désormais correctement des événements, notamment lors de l’appel de ListenOnceAsync() durant une opération StartKeywordRecognitionAsync() active

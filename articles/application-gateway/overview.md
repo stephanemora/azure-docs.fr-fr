@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469746"
+ms.locfileid: "73572034"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -47,11 +47,11 @@ L’adresse IP virtuelle de la passerelle d’application sur la référence SKU
 
 ## <a name="web-application-firewall"></a>Pare-feu d’application web
 
-Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d’application qui protège vos applications web de manière centralisée contre les vulnérabilités et exploits courants. WAF suit les règles des [ensembles de règles de base OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 uniquement), 3.0 et 2.2.9. 
+Le pare-feu d’applications web est un service qui permet de centraliser la protection de vos applications web contre les vulnérabilités et les attaques courantes. WAF suit les règles des [ensembles de règles de base OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 uniquement), 3.0 et 2.2.9. 
 
 Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau d’un grand nombre de couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
 
-Pour plus d’informations, consultez [Pare-feu d’applications web (WAF) dans Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+Pour plus d’informations, consultez [Présentation du pare-feu d’applications web](../web-application-firewall/overview.md).
 
 ## <a name="ingress-controller-for-aks"></a>Contrôleur d’entrée pour AKS
 Le contrôleur d’entrée Application Gateway (AGIC) vous permet d'utiliser Application Gateway en tant qu’entrée pour un cluster [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 

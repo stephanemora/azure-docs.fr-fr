@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
-ms.date: 07/15/2019
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
+ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330730"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576695"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Ce kit de développement logiciel (SDK) sera bientôt mis hors service. Ce kit de développement logiciel (SDK) est toujours approprié pour les développeurs surveillant la dérive des données dans les modèles, mais la plupart des développeurs bénéficieraient de la [surveillance simplifiée des données avec Application Insights ](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -47,9 +48,12 @@ La sortie est enregistrée dans un objet blob Azure. Les données étant ajouté
 Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> Dans les versions du kit de développement logiciel (SDK) antérieures à `0.1.0a16` l’argument `designation` était nommé `identifier`. Si votre code a été développé avec une version antérieure, vous devrez mettre à jour en conséquence.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -80,8 +84,8 @@ Pour l’activer, vous devez :
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     *CorrelationId* est un paramètre facultatif ; inutile de le configurer si votre modèle n’en a pas besoin. Un ID de corrélation facilite le mappage avec d’autres données. (Voici quelques exemples : LoanNumber, CustomerId, etc.)
@@ -112,7 +116,7 @@ Pour l’activer, vous devez :
 
 Si vous disposez déjà d’un service avec les dépendances installées dans votre **fichier d’environnement** et votre **fichier de scoring**, activez la collecte de données en effectuant les étapes suivantes :
 
-1. Accédez au [Portail Azure](https://portal.azure.com).
+1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Ouvrez votre espace de travail.
 
@@ -120,7 +124,7 @@ Si vous disposez déjà d’un service avec les dépendances installées dans vo
 
    ![Modifier le service](media/how-to-enable-data-collection/EditService.PNG)
 
-1. Dans **Paramètres avancés**, désélectionnez **Activer la collecte des données de modèle**. 
+1. Dans **Paramètres avancés**, sélectionnez **Activer la collecte des données de modèle**. 
 
     [![contrôler la Collection de données](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
@@ -130,10 +134,10 @@ Si vous disposez déjà d’un service avec les dépendances installées dans vo
 
 
 ## <a name="disable-data-collection"></a>Désactiver la collecte de données
-Vous pouvez arrêter la collecte de données à tout moment. Pour désactiver la collecte de données, utilisez du code Python ou le portail Azure.
+Vous pouvez arrêter la collecte de données à tout moment. Utilisez le code Python ou Azure Machine Learning Studio pour désactiver la collecte des données.
 
-+ Option 1 : désactiver dans le portail Azure : 
-  1. Connectez-vous au [portail Azure](https://portal.azure.com).
++ Option 1 - Désactiver dans Azure Machine Learning Studio : 
+  1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Ouvrez votre espace de travail.
 
@@ -147,7 +151,7 @@ Vous pouvez arrêter la collecte de données à tout moment. Pour désactiver la
 
   1. Sélectionnez **Mettre à jour** pour appliquer la modification.
 
-  Vous pouvez également accéder à ces paramètres dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
+  Vous pouvez également accéder à ces paramètres dans votre espace de travail dans [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Option 2 : utiliser Python pour désactiver la collecte de données :
 
@@ -157,10 +161,10 @@ Vous pouvez arrêter la collecte de données à tout moment. Pour désactiver la
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Validez vos données et analysez-les
-Vous pouvez choisir l’outil de votre choix pour analyser les données recueillies dans votre objet Blob Azure. 
+Vous pouvez choisir l’outil de votre choix pour analyser les données recueillies dans votre objet Blob Azure.
 
 Pour accéder rapidement aux données à partir de votre objet blob :
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Ouvrez votre espace de travail.
 1. Cliquez sur **Stockage**.
@@ -170,7 +174,7 @@ Pour accéder rapidement aux données à partir de votre objet blob :
 1. Suivez le chemin des données de sortie dans l’objet blob avec cette syntaxe :
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -190,7 +194,7 @@ Pour accéder rapidement aux données à partir de votre objet blob :
 
     [![Navigateur PBI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. Dans l’éditeur de requête, cliquez sous la colonne « Name » et ajoutez votre Compte de stockage 1. Chemin d’accès du modèle dans le filtre. Remarque : si vous ne voulez examiner que les fichiers d’une année ou d’un mois spécifique, développez simplement le chemin du filtre. Par exemple, regardez simplement les données de mars : /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+1. Dans l’éditeur de requête, cliquez sous la colonne « Name » et ajoutez votre Compte de stockage 1. Chemin d’accès du modèle dans le filtre. Remarque : si vous ne voulez examiner que les fichiers d’une année ou d’un mois spécifique, développez simplement le chemin du filtre. Par exemple, regardez simplement les données de mars : /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/designation>/year>/3
 
 1. Filtrez les données qui vous concernent en fonction du **Nom**. Si vous avez stocké des **prédictions** et des **entrées**, vous devrez créer une requête pour chacune d’elles.
 

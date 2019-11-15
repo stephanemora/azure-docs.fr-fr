@@ -1,5 +1,5 @@
 ---
-title: Créer des déclencheurs de planification dans Azure Data Factory | Microsoft Docs
+title: Créer des déclencheurs de planification dans Azure Data Factory
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline selon une planification.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 127db8a484b9624586dea70c44af3bc84b3fc84e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141623"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673767"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).

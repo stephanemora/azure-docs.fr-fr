@@ -1,5 +1,5 @@
 ---
-title: Copier des données de ou vers l’API Azure Cosmos DB pour MongoDB à l’aide de Data Factory | Microsoft Docs
+title: Copier des données de ou vers l’API Azure Cosmos DB pour MongoDB à l’aide de Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge de ou vers l’API Azure Cosmos DB pour MongoDB.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: dfacecbaaf627b05d7706f60b4eb86cca9d856ba
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d0c90562c5e0810e5ed4898f6b2ec09ee52d16a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720854"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681321"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copier des données de ou vers l’API Azure Cosmos DB pour MongoDB à l’aide d’Azure Data Factory
 

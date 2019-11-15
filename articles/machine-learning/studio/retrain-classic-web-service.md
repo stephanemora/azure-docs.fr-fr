@@ -1,6 +1,6 @@
 ---
-title: Réentraîner et déployer un service web classique
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Réentraîner un service web classique
+titleSuffix: ML Studio (classic) Azure
 description: Apprenez à réentraîner un modèle et à mettre à jour un service web classique pour utiliser le modèle réentraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17d15de3df73592c3ce410535235559c8c6fb584
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480199"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670535"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 

@@ -1,5 +1,5 @@
 ---
-title: Création de branches dans un pipeline Azure Data Factory | Microsoft Docs
+title: 'Création de branches dans un pipeline Azure Data Factory '
 description: Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0a7e5f56fe71c174c78f1363e403ae41a2ec90a6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176002"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683660"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 

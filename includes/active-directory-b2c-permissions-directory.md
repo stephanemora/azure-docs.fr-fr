@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 6cb0ef848bdeab35c971ebd1a0b14eca1dfe3001
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 43bcd1f11eb228bd1454b2ad0f2addb851029f2f
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522763"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799812"
 ---
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
@@ -32,4 +32,4 @@ ms.locfileid: "73522763"
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
 1. Sélectionnez un compte d’administrateur abonné.
 1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît sous **ÉTAT**. La propagation des autorisations peut prendre quelques minutes.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît sous **État**. La propagation des autorisations peut prendre quelques minutes.

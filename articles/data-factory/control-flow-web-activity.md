@@ -1,5 +1,5 @@
 ---
-title: Activité Web dans Azure Data Factory | Microsoft Docs
+title: Activité web dans Azure Data Factory
 description: Découvrez comment utiliser Activité Web, l’une des activités de flux de contrôle prises en charge par Azure Data Factory, pour appeler un point de terminaison REST à partir d’un pipeline.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 73770e559af8a999c17fff5ea1aa6ee53ac17e83
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141585"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678184"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.

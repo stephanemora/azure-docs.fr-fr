@@ -1,5 +1,5 @@
 ---
-title: Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory avec PowerShell | Microsoft Docs
+title: Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 description: Apprenez à créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory afin que plusieurs fabriques de données aient accès au runtime d’intégration.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,47 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155150"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677055"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory avec PowerShell
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
-Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory à l’aide d’Azure PowerShell. Vous pouvez ensuite utiliser le runtime d’intégration auto-hébergé partagé dans une autre fabrique de données. Dans ce tutoriel, vous effectuez les étapes suivantes : 
+Ce guide explique comment créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory. Vous pouvez ensuite utiliser le runtime d’intégration auto-hébergé partagé dans une autre fabrique de données.
 
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Créer un runtime d’intégration auto-hébergé partagé à l’aide de l’IU Azure Data Factory
+
+Pour créer un runtime d’intégration auto-hébergé partagé à l’aide de l’IU Azure Data Factory, effectuez les étapes suivantes :
+
+1. Dans le runtime d’intégration auto-hébergé, accordez l’autorisation à la fabrique de données au sein de laquelle vous souhaitez créer le runtime d’intégration lié.
+      
+    ![Bouton pour accorder l’autorisation sur l’onglet Partage](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
+      
+    ![Sélections d'assignation des autorisations](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    
+2. Notez l’ID de ressource du runtime d’intégration auto-hébergé à partager.
+      
+   ![Emplacement de l’ID de ressource](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
+    
+3. Dans la fabrique de données à laquelle les autorisations ont été accordées, créez un runtime d’intégration auto-hébergé (lié) et entrez l’ID de ressource.
+      
+   ![Bouton pour créer un runtime d’intégration auto-hébergé lié](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
+      
+    ![Champs de saisie du nom et de l’ID de ressource](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Créer un runtime d’intégration auto-hébergé partagé à l’aide d’Azure PowerShell
+
+Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’Azure PowerShell, effectuez les étapes suivantes : 
 1. Créer une fabrique de données. 
 1. Créez un runtime d’intégration auto-hébergé.
 1. Partager le runtime d’intégration auto-hébergé avec d’autres fabriques de données.
 1. Créer un runtime d’intégration lié.
 1. Révoquer le partage.
 
-## <a name="prerequisites"></a>Prérequis 
+### <a name="prerequisites"></a>Prérequis 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,7 +62,7 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
 > [!NOTE]  
 > Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
-## <a name="create-a-data-factory"></a>Créer une fabrique de données
+### <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 1. Lancez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE).
 
@@ -90,7 +113,7 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
                              -Name $SharedDataFactoryName
     ```
 
-## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
+### <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
 > [!NOTE]  
 > Cette étape est facultative. Si vous disposez déjà du runtime d’intégration auto-hébergé que vous souhaitez partager avec d’autres fabriques de données, ignorez cette étape.
@@ -106,7 +129,7 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtenir la clé d’authentification du runtime d’intégration et inscrire un nœud
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtenir la clé d’authentification du runtime d’intégration et inscrire un nœud
 
 Exécutez la commande suivante pour obtenir la clé d’authentification du runtime d’intégration auto-hébergé :
 
@@ -119,7 +142,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 
 La réponse contient la clé d’authentification de ce runtime d’intégration auto-hébergé. Vous utilisez cette clé lorsque vous inscrivez le nœud du runtime d’intégration.
 
-### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Installer et inscrire le runtime d’intégration auto-hébergé
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Installer et inscrire le runtime d’intégration auto-hébergé
 
 1. Téléchargez le programme d’installation du runtime intégration auto-hébergé depuis [Azure Data Factory Integration Runtime](https://aka.ms/dmg).
 
@@ -127,9 +150,9 @@ La réponse contient la clé d’authentification de ce runtime d’intégration
 
 3. Inscrivez la nouvelle intégration auto-hébergée à l’aide de la clé d’authentification que vous avez récupérée à l’étape précédente.
 
-## <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Partager le runtime d’intégration auto-hébergé avec une autre fabrique de données
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Partager le runtime d’intégration auto-hébergé avec une autre fabrique de données
 
-### <a name="create-another-data-factory"></a>Créer une autre fabrique de données
+#### <a name="create-another-data-factory"></a>Créer une autre fabrique de données
 
 > [!NOTE]  
 > Cette étape est facultative. Si vous disposez déjà de la fabrique de données avec laquelle vous souhaitez procéder au partage, ignorez cette étape.
@@ -139,7 +162,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-### <a name="grant-permission"></a>Accorder l’autorisation
+#### <a name="grant-permission"></a>Accorder l’autorisation
 
 Accordez l’autorisation à la fabrique de données qui doit accéder au runtime d’intégration auto-hébergé que vous avez créé et inscrit.
 
@@ -153,7 +176,7 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-## <a name="create-a-linked-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé lié
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé lié
 
 Exécutez la commande suivante pour créer un runtime d’intégration auto-hébergé lié :
 
@@ -169,7 +192,7 @@ Set-AzDataFactoryV2IntegrationRuntime `
 
 À présent, vous pouvez utiliser ce runtime d’intégration lié dans n’importe quel service lié. Le runtime d’intégration lié utilise le runtime d’intégration partagé pour exécuter des activités.
 
-## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Révoquer le partage du runtime d’intégration à partir d’une fabrique de données
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Révoquer le partage du runtime d’intégration à partir d’une fabrique de données
 
 Pour révoquer l'accès d'une fabrique de données à partir du runtime d'intégration partagé, exécutez la commande suivante :
 
@@ -191,7 +214,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 - Étudiez les [concepts de runtime d’intégration dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 

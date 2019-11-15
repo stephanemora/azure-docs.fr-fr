@@ -1,5 +1,5 @@
 ---
-title: Exécution et déclencheurs du pipeline dans Azure Data Factory | Microsoft Docs
+title: Exécution et déclencheurs du pipeline dans Azure Data Factory
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137033"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681469"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -142,7 +142,7 @@ Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline
 
 - Déclencheur basé sur des événements : déclencheur qui répond à un événement.
 
-Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent lancer un même pipeline et un seul déclencheur peut lancer plusieurs pipelines. Dans la définition de déclencheur suivante, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier. La définition de propriété inclut des valeurs pour les paramètres de pipeline.
+Les pipelines et les déclencheurs ont une relation plusieurs à plusieurs (à l’exception du déclencheur de fenêtre bascule). Plusieurs déclencheurs peuvent lancer un même pipeline, ou un déclencheur peut lancer plusieurs pipelines. Dans la définition de déclencheur suivante, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier. La définition de propriété inclut des valeurs pour les paramètres de pipeline.
 
 ### <a name="basic-trigger-definition"></a>Définition du déclencheur de base
 

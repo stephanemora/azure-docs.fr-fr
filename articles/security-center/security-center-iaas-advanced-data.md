@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/29/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202177"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571571"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Advanced Data Security pour les serveurs SQL Server sur Machines virtuelles Azure (préversion publique)
-Advanced Data Security pour les serveurs SQL Server est un package unifié de fonctionnalités de sécurité SQL avancées. Actuellement en préversion publique, il inclut des fonctionnalités permettant de découvrir et d’atténuer les vulnérabilités de votre base de données, et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security pour SQL Server sur les machines virtuelles Azure (préversion)
+Advanced Data Security pour les serveurs SQL Server est un package unifié de fonctionnalités de sécurité SQL avancées. Cette fonctionnalité en préversion inclut des fonctions qui permettent d’identifier et d’atténuer les vulnérabilités potentielles de votre base de données, et de détecter les activités anormales susceptibles de présenter des menaces pour votre base de données. 
 
 Cette offre de sécurité pour les serveurs SQL de machines virtuelles Azure est basée sur la même technologie fondamentale que celle utilisée dans le [package Azure SQL Database Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
@@ -37,68 +37,39 @@ Advanced Data Security fournit un ensemble de fonctionnalités de sécurité SQL
 
 Les étapes suivantes vous aideront à bien démarrer avec Advanced Data Security pour SQL sur les machines virtuelles Azure en préversion publique.
 
-### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurer Advanced Data Security pour SQL sur des machines virtuelles Azure
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurer Advanced Data Security pour SQL sur les machines virtuelles Azure
 
-**Avant de commencer** : Vous avez besoin d’un espace de travail Log Analytics pour stocker les journaux de sécurité en cours d’analyse. Si vous n’en avez pas, vous pouvez en créer un facilement, comme expliqué dans [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Activez Advanced Data Security pour SQL Server sur les machines virtuelles au niveau de l’abonnement/l’espace de travail :
+ 
+1. À partir de la barre latérale de Security Center, ouvrez **Tarification et paramètres**.
 
-1. Connectez la machine virtuelle qui héberge le serveur SQL à l’espace de travail Log Analytics. Pour obtenir des instructions, consultez [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+1. Sélectionnez l’abonnement ou l’espace de travail pour lequel vous souhaitez activer Advanced Data Security pour SQL Server sur les machines virtuelles Azure.
 
-1. À partir de la Place de marché Azure, accédez à la [solution SQL Advanced Data Security](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
-(Vous pouvez la trouver à l’aide de l’option de recherche de la Place de marché, comme illustré dans l’image suivante.) La page **SQL Advanced Data Security** s’ouvre.
+1. Activez l’option **SQL Server sur les machines virtuelles (préversion)** . 
 
-    ![Advanced Data Security pour IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
+    (Cliquez sur la capture d’écran pour la développer)
 
-1. Cliquez sur **Créer**. Les espaces de travail s’affichent.
+    [![Alertes et recommandations de Security Center comme elles sont affichées dans Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    ![Advanced Data Security - Créer](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
+    Advanced Data Security pour SQL Server est activé sur toutes les machines SQL Server qui sont connectées à l’espace de travail sélectionné ou à l’espace de travail par défaut de l’abonnement sélectionné.
 
-1. Sélectionnez l’espace de travail à utiliser et cliquez sur **Créer**.
+    >[!NOTE]
+    > La solution sera active après le premier redémarrage de SQL Server. 
 
-   ![Sélectionner un espace de travail](./media/security-center-advanced-iaas-data/sql-workspace.png)
+Pour créer un espace de travail, suivez les instructions fournies dans [Créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. Redémarrez le [serveur SQL de la machine virtuelle](https://docs.microsoft.com/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
+Pour connecter la machine hôte SQL Server à un espace de travail, suivez les instructions données dans [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
-
-## <a name="explore-and-investigate-security-alerts"></a>Explorer et examiner les alertes de sécurité
-
-Vous pouvez afficher et gérer vos alertes de sécurité actuelles.
-
-1. Cliquez sur **Security Center** > **Alertes de sécurité**, puis cliquez sur une alerte.
-
-    ![Rechercher une alerte](./media/security-center-advanced-iaas-data/find-alert.png)
-
-1. Dans la colonne **Ressource attaquée**, cliquez sur une ressource qui a été attaquée.
-
-1. Pour afficher les détails de l’alerte et les actions nécessaires afin d’examiner les menaces actuelles et de répondre aux menaces ultérieures, faites défiler la page **Informations générales** puis, dans la section **Étapes de correction** , cliquez sur le lien **Étapes d’investigation**.
-
-    ![Étapes de correction](./media/security-center-advanced-iaas-data/remediation-steps.png)
-
-1. Pour afficher les journaux associés au déclenchement de l’alerte, accédez à **Espaces de travail Log Analytics** et effectuez les étapes suivantes :
-
-     > [!NOTE]
-     > Si **Espaces de travail Log Analytics** n’apparaît pas dans le menu gauche, cliquez sur **Tous les services**, puis recherchez **Espaces de travail Log Analytics**.
-
-    1. Vérifiez que les colonnes **Niveau tarifaire** et **ID d’espace de travail** sont visibles. (**Espaces de travail Log Analytics** > **Modifier les colonnes**, ajoutez **Niveau tarifaire** et **ID d’espace de travail**.)
-
-     ![Modifier les colonnes](./media/security-center-advanced-iaas-data/edit-columns.png)
-
-    1. Cliquez sur l’espace de travail qui a les journaux d’alerte.
-
-    1. Dans le menu **Général**, cliquez sur **Journaux**.
-
-    1. Cliquez sur le œil en regard de la table **SQLAdvancedThreatProtection**. La liste des journaux s’affiche.
-
-     ![Voir les journaux](./media/security-center-advanced-iaas-data/view-logs.png)
 
 ## <a name="set-up-email-notification-for-atp-alerts"></a>Configurer la notification par e-mail pour les alertes ATP 
 
-Vous pouvez définir une liste de destinataires devant recevoir une notification par e-mail quand des alertes ASC sont générées. L’e-mail contient un lien direct vers l’alerte dans Azure Security Center avec tous les détails pertinents. 
+Vous pouvez définir une liste de destinataires devant recevoir une notification par e-mail quand des alertes Security Center sont générées. L’e-mail contient un lien direct vers l’alerte dans Azure Security Center avec tous les détails pertinents. 
 
 1. Accédez à **Security Center** > **Tarification & paramètres**, puis cliquez sur l’abonnement concerné.
 
     ![Paramètres d’abonnement](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
-1. Dans le menu **Paramètres**, cliquez sur **Notifications par e-mail**. 
+1. Dans le menu Paramètres, cliquez sur **Notifications par e-mail**. 
 1. Dans la zone de texte **Adresse e-mail**, entrez les adresses e-mail devant recevoir les notifications. Vous pouvez entrer plusieurs adresses e-mail en les séparant par une virgule (,).  Par exemple admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com.
 
       ![Paramètres de courrier électronique](./media/security-center-advanced-iaas-data/email-settings.png)
@@ -141,27 +112,56 @@ Vous pouvez afficher vos rapports et résultats d’Évaluation des vulnérabili
 
 1. Vous pouvez exécuter n’importe quelle requête Log Analytics sur vos données de résultats d’évaluation des vulnérabilités, afin de segmenter et découper les données en fonction de vos besoins.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Alertes Advanced Threat Protection pour les serveurs SQL sur les machines virtuelles Azure
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Alertes Advanced Threat Protection pour SQL Server sur les machines virtuelles Azure
 Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des serveurs SQL. Ces événements peuvent déclencher les alertes suivantes :
 
-### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Alertes de modèle d’accès anormal (prises en charge dans la préversion publique)
+### <a name="anomalous-access-pattern-alerts-preview"></a>Alertes de modèle d’accès anormal (préversion)
 
 * **Accès à partir d’un emplacement inhabituel :** cette alerte est déclenchée en cas de changement du modèle d’accès au serveur SQL, quand un utilisateur s’est connecté au serveur SQL à partir d’un emplacement géographique inhabituel. Causes potentielles :
-     * Un attaquant ou un ancien employé malveillant a accédé à votre serveur SQL Server.
-     * Un utilisateur légitime a accédé à votre serveur SQL à partir d’un nouvel emplacement.
+    * Un attaquant ou un ancien employé malveillant a accédé à votre serveur SQL Server.
+    * Un utilisateur légitime a accédé à votre serveur SQL à partir d’un nouvel emplacement.
 * **Accès à partir d’une application potentiellement dangereuse** : cette alerte est déclenchée quand une application potentiellement dangereuse est utilisée pour accéder à la base de données. Causes potentielles :
-     * Un attaquant a tenté d’accéder à votre serveur SQL à l’aide d’outils d’attaque courants.
-     * Des tests d’intrusion légitimes sont en cours.
+    * Un attaquant a tenté d’accéder à votre serveur SQL à l’aide d’outils d’attaque courants.
+    * Des tests d’intrusion légitimes sont en cours.
 * **Accès à partir d’une entité de sécurité inconnue** : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur SQL, quand un utilisateur s’est connecté au serveur SQL à l’aide d’un principal inhabituel (utilisateur SQL). Causes potentielles :
-     * Un attaquant ou un ancien employé malveillant a accédé à votre serveur SQL Server. 
-     * Un utilisateur légitime a accédé à votre serveur SQL avec un nouveau principal.
+    * Un attaquant ou un ancien employé malveillant a accédé à votre serveur SQL Server. 
+    * Un utilisateur légitime a accédé à votre serveur SQL avec un nouveau principal.
 * **Informations d’identification SQL par force brute** : cette alerte est déclenchée quand il existe un nombre anormalement élevé d’échecs de connexion avec des informations d’identification différentes. Causes potentielles :
-     * Un attaquant a tenté d’accéder à votre serveur SQL à l’aide de force brute.
-     * Des tests d’intrusion légitimes sont en cours.
+    * Un attaquant a tenté d’accéder à votre serveur SQL à l’aide de force brute.
+    * Des tests d’intrusion légitimes sont en cours.
 
-### <a name="potential-sql-injection-attacks-coming"></a>Attaques par injection SQL potentielles (à venir)
+### <a name="potential-sql-injection-attacks-supported-in-sql-server-2019"></a>Attaques par injection potentielle de code SQL (prise en charge dans SQL Server 2019)
 
 * **Vulnérabilité par injection de code SQL** : cette alerte est déclenchée quand une application génère une instruction SQL défectueuse dans la base de données. Cette alerte peut éventuellement indiquer une vulnérabilité aux attaques par injection de code SQL. Causes potentielles :
-     * Un défaut dans le code d’application qui crée l’instruction SQL défectueuse
-     * Le code de l’application ou des procédures stockées qui n’assainissent pas l’entrée utilisateur lors de la création de l’instruction SQL défectueuse, qui peut être exploitée par les injections SQL
+    * Un défaut dans le code d’application qui crée l’instruction SQL défectueuse
+    * Le code de l’application ou des procédures stockées qui n’assainissent pas l’entrée utilisateur lors de la création de l’instruction SQL défectueuse, qui peut être exploitée par les injections SQL
 * **Injection potentielle de code SQL** : cette alerte est déclenchée en cas d’attaque active contre une vulnérabilité d’application identifiée sur l’injection SQL. Cela signifie que l’attaquant tente d’injecter des instructions SQL malveillantes en utilisant les procédures stockées ou le code d’application vulnérables.
+
+
+### <a name="unsafe-command-supported-in-sql-server-2019"></a>Commande dangereuse (prise en charge dans SQL Server 2019)
+
+* **Action potentiellement dangereuse** : cette alerte est déclenchée quand une commande à privilèges élevés et potentiellement dangereuse est exécutée. Causes potentielles :
+    * Une commande qu’il est recommandé de désactiver pour une meilleure posture de sécurité est activée.
+    * Un attaquant essaie d’exploiter ou de réaffecter des privilèges d’accès SQL.   
+
+
+## <a name="explore-and-investigate-security-alerts"></a>Explorer et examiner les alertes de sécurité
+
+Vous pouvez examiner vos alertes sur la sécurité des données dans la page des alertes de Security Center, sous l’onglet Sécurité de la ressource ou par le biais du lien direct fourni dans les e-mails d’alerte.
+
+1. Pour examiner les alertes :
+
+    * Dans Security Center, cliquez sur **Alertes de sécurité** dans la barre latérale et sélectionnez une alerte.
+    * Dans l’étendue des ressources, ouvrez la page de la ressource appropriée et, dans la barre latérale, cliquez sur **Sécurité**. 
+
+1. Les alertes sont conçues pour être autonomes, avec des étapes de correction détaillées et des informations d’investigation dans chacune d’elles. Vous pouvez approfondir vos investigations en utilisant d’autres fonctionnalités d’Azure Security Center et d’Azure Sentinel pour avoir une vue plus large :
+
+    * Activez la fonctionnalité d’audit de SQL Server pour faire d’autres investigations. Si vous utilisez Azure Sentinel, chargez les journaux d’audit SQL des événements du journal de sécurité Windows pour profiter d’une expérience d’investigation enrichie.
+    * Pour améliorer votre posture de sécurité, appliquez les recommandations concernant la machine hôte que Security Center indique dans chaque alerte. Vous réduirez ainsi les risques d’attaques futures. 
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour des informations connexes, consultez l’article suivant :
+
+- [Comment appliquer les recommandations](security-center-remediate-recommendations.md)

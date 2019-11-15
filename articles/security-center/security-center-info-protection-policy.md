@@ -1,5 +1,5 @@
 ---
-title: Personnalisation de la stratégie de protection des informations SQL dans Azure Security Center | Microsoft Docs
+title: Personnaliser la stratégie de protection des informations SQL - Azure Security Center
 description: Découvrez comment personnaliser les stratégies de protection des informations dans Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520804"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664382"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
-Une stratégie de protection des informations SQL peut être définie et personnalisée pour votre locataire Azure entier, dans Azure Security Center.
+Vous pouvez définir et personnaliser une stratégie de protection des informations SQL pour tout votre locataire Azure dans Azure Security Center.
 
 La protection des informations est une fonctionnalité de sécurité avancée pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos ressources de données Azure. La découverte et la classification de vos données les plus sensibles (professionnelles, financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 - Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes
-- Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
+- Des scénarios de sécurité comme la supervision (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases des magasins de données contenant des données sensibles
  
-La [protection des informations SQL](../sql-database/sql-database-data-discovery-and-classification.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour Azure SQL Database. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données de base de données Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md).
+La [protection des informations SQL](../sql-database/sql-database-data-discovery-and-classification.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour Azure SQL Database. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données d’Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md).
  
 Le mécanisme de classification est basé sur deux constructions principales qui composent la taxonomie de classification : les **étiquettes** et les **types d’informations**.
 - **Étiquettes** : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne. 
 - **Types d’informations** : spécifie une granularité supplémentaire concernant le type des données stockées dans la colonne.
  
-La protection des informations est fournie avec un ensemble intégré d’étiquettes et de types d’informations utilisés par défaut. Pour les personnaliser, vous pouvez personnaliser la stratégie de protection des informations dans Azure Security Center.
+La protection des informations est fournie avec un ensemble intégré d’étiquettes et de types d’informations utilisés par défaut. Pour personnaliser ces étiquettes et ces types, vous pouvez personnaliser la stratégie de protection des informations dans Security Center.
  
 ## <a name="customize-the-information-protection-policy"></a>Personnaliser la politique de protection des informations
 Pour personnaliser la stratégie de protection des informations pour votre locataire Azure, vous devez disposer [des privilèges d’administrateur sur le groupe d’administration racine du locataire](security-center-management-groups.md). 

@@ -1,6 +1,6 @@
 ---
-title: Créer un espace de noms Azure Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
-description: Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
+title: 'Démarrage rapide : Créer un espace de noms et une file d’attente Azure Service Bus en utilisant un modèle Azure Resource Manager'
+description: 'Démarrage rapide : Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482386"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718799"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus et une file d’attente au sein de cet espace de noms. L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés durant l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18032250bc5c321d638ad46204738f49f1a0c744
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480137"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747986"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -34,20 +34,30 @@ Le tableau récapitule les scénarios de détection, d’évaluation et de migra
 **Déploiement** | **Détails** 
 --- | --- 
 **Détection spécifique de l’application** | Vous pouvez détecter des applications, des rôles et des fonctionnalités qui s’exécutent sur des machines virtuelles VMware. Actuellement, cette fonctionnalité est limitée à la détection. L’évaluation est actuellement au niveau de la machine. Nous n’offrons pas encore d’évaluation spécifique d’une application, d’un rôle ou d’une fonctionnalité. 
-**Évaluation locale** | Évaluez les charges de travail et les données locales exécutées sur des machines virtuelles VMware et des machines virtuelles Hyper-V. Évaluez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et de l’Assistant Migration de données Microsoft, ainsi que d’outils tiers, notamment Cloudamize, Corent Tech et Turbonomic Server.
-**Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et d’Azure Database Migration Service (DMS) ainsi que d’outils tiers, notamment Carbonite et CorentTech.
+**Évaluation locale** | Évaluez les charges de travail et les données locales qui s’exécutent sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques. Évaluez en utilisant Azure Migrate Server Assessment et l’Assistant Migration de données Microsoft ainsi que d’autres outils et offres ISV.
+**Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez en utilisant Azure Migrate Server Assessment et Azure Database Migration Service ainsi que d’autres outils et offres ISV.
 
-La prise en charge d’outils spécifiques est résumée ci-dessous.
 
-**Outil** | **Évaluation/migration** | **Détails**
+## <a name="supported-tools"></a>Outils pris en charge
+
+La prise en charge d’outils spécifiques est récapitulée ci-dessous.
+
+**Outil** | **Évaluer** | **Migrer** 
 --- | --- | ---
-Évaluation de serveur Azure Migrate | Évaluation | Essayez l’évaluation de serveur pour [Hyper-V](tutorial-prepare-hyper-v.md) et [VMware](tutorial-prepare-vmware.md).
-Cloudamize | Évaluation | [Plus d’informations](https://www.cloudamize.com/platform#tab-0)
-CorentTech | Évaluation | [Plus d’informations](https://www.corenttech.com/)
-Turbonomic | Évaluation | [Plus d’informations](https://turbonomic.com/solutions/technologies/azure-cloud/)
-Migration de serveur Azure Migrate | Migration | Essayez la migration de serveur pour [Hyper-V](tutorial-migrate-hyper-v.md) et [VMware](tutorial-migrate-vmware.md).
-Carbonite | Migration | [Plus d’informations](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure)
-CorentTech | Migration | [Plus d’informations](https://www.corenttech.com/)
+Évaluation de serveur Azure Migrate | Évaluer des [machines virtuelles VMware](tutorial-prepare-vmware.md), des [machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md) et des [serveurs physiques](tutorial-prepare-physical.md). |  Non disponible (N/D)
+Migration de serveur Azure Migrate | N/D | Migrer des [machines virtuelles VMware](tutorial-migrate-vmware.md), des [machines virtuelles Hyper-V](tutorial-migrate-hyper-v.md) et des [serveurs physiques](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/D | Migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. | N/D
+[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Évaluer et migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. |  Migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public.
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public.| N/D
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Évaluer des bases de données SQL Server locales. | N/D
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | N/D | Migrer SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Évaluer Virtual Desktop Infrastructure (VDI) | N/D
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Évaluer des machines virtuelles VMWare, des machines virtuelles Hyper-V, des machines virtuelles Xen, des machines physiques, des stations de travail (y compris VDI) et des charges de travail de cloud public | N/D
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/D | Migrer des machines virtuelles VMWare, des machines virtuelles Hyper-V, des machines virtuelles Xen, des machines virtuelles KVM, des machines physiques, des charges de travail de cloud public 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. | N/D
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques, des charges de travail de cloud public et des bases de données SQL Server. | N/D
+[Assistant Migration d’applications web](https://appmigration.microsoft.com/) | Évaluer des applications web | Migrer des applications web.
 
 
 ## <a name="azure-migrate-projects"></a>Projets Azure Migrate

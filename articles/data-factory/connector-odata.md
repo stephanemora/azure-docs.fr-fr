@@ -1,5 +1,5 @@
 ---
-title: Copier des données de sources OData à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données de sources OData à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de sources OData vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f3afccd2414ae4acbd31452d989e9540d36d512d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 85da7752575164ba505d788a5d45f5af0908edc9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089996"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680592"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 
@@ -291,7 +291,7 @@ Lorsque vous copiez des données à partir d’OData, les mappages suivants sont
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Single |
+| Edm.Single | Unique |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

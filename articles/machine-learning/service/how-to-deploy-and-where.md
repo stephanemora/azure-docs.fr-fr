@@ -11,14 +11,15 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a5674658fa237e44c7caea45c8f6d587a471b981
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595638"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622395"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment déployer votre modèle Machine Learning en tant que service web dans le cloud Azure ou sur des appareils Azure IoT Edge.
 
@@ -253,7 +254,7 @@ Les types suivants sont pris en charge :
 * `pyspark`
 * Objet Python standard
 
-Pour utiliser la génération de schéma, incluez le package `inference-schema` dans votre fichier d’environnement Conda.
+Pour utiliser la génération de schéma, incluez le package `inference-schema` dans votre fichier d’environnement Conda. Pour plus d’informations sur ce package, consultez [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
 
 ##### <a name="example-dependencies-file"></a>Exemple de fichier de dépendances
 
@@ -609,7 +610,7 @@ Pour plus d’informations, consultez la documentation sur [az ml model deploy](
 
 ### <a id="notebookvm"></a> Service web de machines virtuelles Notebook (dev/test)
 
-Consultez [Déployer un modèle sur des machines virtuelles Notebook](how-to-deploy-local-container-notebook-vm.md).
+Consultez [Déployer un modèle sur des machines virtuelles de notebooks Azure Machine Learning](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a> Azure Container Instances (dev/test)
 
@@ -997,7 +998,80 @@ Pour supprimer un modèle inscrit, utilisez `model.delete()`.
 
 Pour plus d’informations, consultez la documentation sur [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) et [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
+## <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
+
+Le modèle de déploiement sans code est actuellement en version préliminaire et prend en charge les infrastructures d’apprentissage automatique suivants :
+
+### <a name="tensorflow-savedmodel-format"></a>Format Tensorflow SavedModel
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='flowers',                        # Name of the registered model in your workspace.
+                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='Flowers model')
+
+service_name = 'tensorflow-flower-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="onnx-models"></a>Modèles ONNX
+
+L’inscription et le déploiement du modèle ONNX sont pris en charge pour tout graphique d’inférence ONNX. Les étapes de prétraitement et de post-traitement ne sont pas prises en charge actuellement.
+
+Voici un exemple d’inscription et de déploiement d’un modèle MNIST ONNX :
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
+                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
+                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
+                       model_framework_version='1.3',              # Version of ONNX used to create the model.
+                       description='Onnx MNIST model')
+
+service_name = 'onnx-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="scikit-learn-models"></a>Modèles Scikit-learn
+
+Aucun modèle de déploiement de code n’est pris en charge pour tous les types de modèles Scikit-learn intégrés.
+
+Voici un exemple d’inscription et de déploiement d’un modèle sklearn sans code supplémentaire :
+
+```python
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
+                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+                       description='Ridge regression model to predict diabetes progression.',
+                       tags={'area': 'diabetes', 'type': 'regression'})
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+REMARQUE :  Ces dépendances sont incluses dans le conteneur d’inférence sklearn prédéfini :
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)

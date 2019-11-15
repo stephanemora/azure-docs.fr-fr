@@ -1,5 +1,5 @@
 ---
-title: Se connecter à Windows Virtual Desktop (préversion) à partir de Windows 10 ou Windows 7 - Azure
+title: Se connecter à Windows Virtual Desktop - Windows 10 ou 7 - Azure
 description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2552fcbd860a0cc98aa7e2a6c7f92796a8d588ca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482208"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605785"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 

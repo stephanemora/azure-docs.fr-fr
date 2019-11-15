@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir de Google Cloud Storage avec Azure Data Factory | Microsoft Docs
+title: Copier des données à partir de Google Cloud Storage avec Azure Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de Google Cloud Storage vers des banques de données réceptrices prises en charge.
 services: data-factory
 author: linda33wj
@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f8b38e7d6a6a480b7455d33cbf86b512430f39a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4eedf54f3824adfb92ee22e5338325ccc5de3f75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090307"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680915"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copier des données à partir de Google Cloud Storage avec Azure Data Factory
 
@@ -34,6 +34,16 @@ Plus spécifiquement, ce connecteur Google Cloud Storage prend en charge la copi
 
 >[!NOTE]
 >Copier des données à partir de Google Cloud Storage exploite le [connecteur Amazon S3](connector-amazon-simple-storage-service.md) avec le point de terminaison personnalisé S3 correspondant, car Google Cloud Storage offre une interopérabilité compatible S3.
+
+## <a name="prerequisites"></a>Prérequis
+
+La configuration suivante est requise sur votre compte Google Cloud Storage :
+
+1. Activez l’interopérabilité pour votre compte Google Cloud Storage.
+2. Définissez le projet par défaut qui contient les données que vous souhaitez copier.
+3. Créez une clé d’accès.
+
+![Récupérer la clé d’accès pour Google Cloud Storage](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
 
 ## <a name="required-permissions"></a>Autorisations requises
 
@@ -54,8 +64,8 @@ Les propriétés prises en charge pour le service lié Google Cloud Storage sont
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
-| accessKeyId | ID de la clé d’accès secrète. Pour trouver la clé d’accès et le secret, accédez à **Google Cloud Storage** > **Paramètres** > **Interopérabilité**. |OUI |
+| Type | La propriété type doit être définie sur **GoogleCloudStorage**. | OUI |
+| accessKeyId | ID de la clé d’accès secrète. Pour trouver la clé d’accès et le secret, consultez [Prérequis](#prerequisites). |OUI |
 | secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | serviceUrl | Spécifiez le point de terminaison personnalisé S3 en tant que **`https://storage.googleapis.com`** . | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
@@ -66,7 +76,7 @@ Voici un exemple :
 {
     "name": "GoogleCloudStorageLinkedService",
     "properties": {
-        "type": "AmazonS3",
+        "type": "GoogleCloudStorage",
         "typeProperties": {
             "accessKeyId": "<access key id>",
             "secretAccessKey": {
@@ -85,12 +95,9 @@ Voici un exemple :
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
-
-Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -98,9 +105,6 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 | bucketName | Le nom de compartiment S3.                                          | OUI      |
 | folderPath | Le chemin d’accès au dossier sous le compartiment donné. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le compartiment et le chemin d’accès folderPath donnés. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
-> Le jeu de données de type **AmazonS3Object** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité de copie/de recherche/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF génère désormais ces nouveaux types.
 
 **Exemple :**
 
@@ -129,9 +133,10 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour copier des données à partir de Google Cloud Storage au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -184,12 +189,9 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage comme source
 
-- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
-- Pour copier des données depuis d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -201,9 +203,6 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                                          |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                                          |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                                          |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -246,9 +245,10 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour copier des données à partir de Google Cloud Storage au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

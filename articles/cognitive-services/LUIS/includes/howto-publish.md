@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495401"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647450"
 ---
 Pour recevoir une prédiction LUIS dans un chatbot ou une autre application cliente, vous devez publier l’application sur le point de terminaison. 
 
@@ -31,4 +31,4 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
     ![LUIS - Publier sur le point de terminaison](../media/howto-publish/publish-endpoint-success.png)
 
-4. Sélectionnez le lien **Points de terminaison** dans la barre d’état verte pour accéder à la page **Clés et points de terminaison**. Les URL des points de terminaison sont répertoriés en bas.
+4. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’**Exemple de requête**.

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
-ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580577"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -46,16 +46,20 @@ Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcul Azure Machine Learning (managé)
 
-Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule ressource de calcul managée à partir du 30 mai 2019. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
+Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. Clusters de calcul Azure Machine Learning. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
 
-Vous pouvez utiliser la capacité de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (préversion).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
+Vous pouvez créer des clusters de calcul Azure Machine Learning dans Azure Machine Learning Studio, dans le portail Azure, dans le SDK, dans un modèle Resource Manager ou dans l’interface CLI.
+
+Une fois créées, ces instances de calcul font automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
+
+Vous pouvez utiliser les clusters de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (version préliminaire).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
 
 * Cluster unique ou à plusieurs nœuds
 * Mises à l’échelle automatique chaque fois que vous envoyez une exécution 
 * Gestion des clusters et planification automatiques des travaux 
 * Prise en charge des ressources UC et GPU
 
-Vous pouvez créer des instances de capacité de calcul Azure Machine Learning dans le portail Azure ou dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com), avec le SDK ou avec l’interface CLI. Une fois l’instance créée, elle fait automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
+
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 

@@ -1,5 +1,5 @@
 ---
-title: Créer une fabrique de données Azure à l’aide de l’interface utilisateur d’Azure Data Factory | Microsoft Docs
+title: Créer une fabrique de données Azure avec l’interface utilisateur d’Azure Data Factory
 description: Créez une fabrique de données avec un pipeline copiant les données d’un emplacement dans un stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077043"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684482"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory
 
@@ -39,7 +39,10 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
-1. Sélectionnez **Créer une ressource** dans le menu de gauche, sélectionnez **Analytique**, puis **Data Factory**. 
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
+   
+   ![Sélectionner Créer une ressource depuis le menu du portail Azure](./media/doc-common-process/create-a-resource.png)
+1. Sélectionnez **Analytics**, puis sélectionnez **Data Factory**. 
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 

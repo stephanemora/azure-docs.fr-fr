@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497412"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818454"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -102,7 +102,7 @@ Créez un nouveau magasin de données en quelques étapes dans Azure Machine Lea
 1. Sélectionnez **+ Nouveau magasin de données**.
 1. Remplissez le formulaire du nouveau magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et des sélections relatives au type d’authentification.
   
-Vous trouverez les informations dont vous avez besoin pour renseigner le formulaire via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
+Vous trouverez les informations dont vous avez besoin pour renseigner le formulaire via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme une clé de compte ou un jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
 
 L’exemple suivant montre à quoi ressemble le formulaire si vous créez un magasin de données d’objets blob Azure. 
     
@@ -163,7 +163,7 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-Le paramètre `target_path` spécifie l’emplacement dans le partage de fichiers (ou le conteneur d’objets blob) à charger. La valeur par défaut est `None`, auquel cas les données sont chargées à la racine. Quand `overwrite=True` toutes les données existantes dans `target_path` sont remplacées.
+Le paramètre `target_path` spécifie l’emplacement dans le partage de fichiers (ou le conteneur d’objets blob) à charger. La valeur par défaut est `None`, auquel cas les données sont chargées à la racine. Sinon, quand `overwrite=True`, toutes les données existantes dans `target_path` sont remplacées.
 
 Ou téléchargez une liste de fichiers individuels sur le magasin de donnés via la méthode `upload_files()`.
 
@@ -183,7 +183,7 @@ Le paramètre `target_path` correspond à l’emplacement du répertoire local d
 ## <a name="access-your-data-during-training"></a>Accédez à vos données pendant la formation
 
 > [!IMPORTANT]
-> L’utilisation de [jeux de données Azure Machine Learning (préversion)](how-to-create-register-datasets.md) est désormais recommandée pour accéder à vos données en formation. Les jeux de données fournissent des fonctions qui chargent des données tabulaires dans le dataframe Pandas ou Spark, ainsi que la possibilité de télécharger ou de monter des fichiers de n’importe quel format à partir d’Azure BLOB, Azure File, Azure Data Lake GEN 1, Azure Data Lake Gen 2, Azure SQL et Azure PostgreSQL. Apprenez-en davantage sur la [façon de former des modèles avec des jeux de données](how-to-train-with-datasets.md).
+> L’utilisation de [jeux de données Azure Machine Learning](how-to-create-register-datasets.md) est le nouveau moyen recommandé pour accéder à vos données pendant l’entraînement. Les jeux de données fournissent des fonctions qui chargent des données tabulaires dans le dataframe Pandas ou Spark, ainsi que la possibilité de télécharger ou de monter des fichiers de n’importe quel format à partir d’Azure BLOB, Azure File, Azure Data Lake GEN 1, Azure Data Lake Gen 2, Azure SQL et Azure PostgreSQL. Apprenez-en davantage sur la [façon de former des modèles avec des jeux de données](how-to-train-with-datasets.md).
 
 Le tableau suivant liste les méthodes qui indiquent à la cible de calcul comment utiliser le magasin de données lors des exécutions. 
 

@@ -1,5 +1,5 @@
 ---
-title: Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs
+title: Créer des pipelines de données prédictifs avec Azure Data Factory
 description: Découvrez comment créer un pipeline prédictif à l’aide d’Azure Machine Learning - Activité d’exécution par lot dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928058"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683762"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

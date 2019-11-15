@@ -1,5 +1,5 @@
 ---
-title: Copier de façon incrémentielle des données en utilisant Azure Data Factory | Microsoft Docs
+title: 'Copier de façon incrémentielle des données avec Azure Data Factory '
 description: Ces didacticiels vous montrent comment copier de façon incrémentielle des données d’un magasin de données source dans un magasin de données de destination. Dans le premier, les données sont copiées à partir d’une table.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9cbe9dfea116df30f49b89e2e59886f2f112487c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140579"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683365"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Charger de façon incrémentielle des données d’un magasin de données source vers un magasin de données de destination
 
@@ -54,7 +54,7 @@ Pour les modèles, consultez ce qui suit :
 - [Copier les nouveaux fichiers par LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Chargement de nouveaux fichiers uniquement à l’aide d’un nom de dossier ou de fichier partitionné chronologiquement.
-Vous pouvez copier les nouveaux fichiers uniquement, où les fichiers ou dossiers ont déjà été partitionnés chronologiquement avec des informations de tranches de temps comme composants du nom de fichier ou de dossier (par exemple, /aaaa/mm/jj/fichier.csv). Il s'agit là de l'approche la plus performante pour le chargement incrémentiel de nouveaux fichiers. 
+Vous pouvez copier les nouveaux fichiers uniquement, où les fichiers ou dossiers ont déjà été partitionnés chronologiquement avec des informations de tranches de temps comme composants du nom de fichier ou de dossier (par exemple, /aaaa/mm/jj/fichier.csv). Il s’agit là de l’approche la plus performante pour le chargement incrémentiel de nouveaux fichiers. 
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 - [Copier de façon incrémentielle de nouveaux fichiers uniquement en fonction d’un nom de dossier ou de fichier partitionné chronologiquement du Stockage Blob Azure vers le Stockage Blob Azure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

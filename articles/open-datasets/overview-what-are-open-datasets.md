@@ -1,22 +1,22 @@
 ---
 title: Que sont les jeux de données ouverts ? Jeux de données publics organisés
-titleSuffix: Azure Open Datasets (preview)
-description: Familiarisez-vous avec Azure Open Datasets (préversion) et les jeux de données organisés du domaine public qui sont prêts à être utilisés dans des solutions de Machine Learning et d'analyse. Les jeux de données englobent des données publiques portant sur la météo, le recensement, les jours fériés et la localisation pour vous aider à enrichir des solutions prédictives.
+titleSuffix: Azure Open Datasets
+description: Découvrez Azure Open Datasets, les jeux de données organisés du domaine public, tels que la météo, le recensement, les vacances et l’emplacement, pour enrichir les solutions prédictives.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.date: 11/04/2019
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213578"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606152"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Que sont les jeux de données Azure Open Datasets (préversion) et comment pouvez-vous les utiliser ?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Qu’est-ce qu’Azure Open Datasets et comment l’utiliser ?
 
-Les jeux de données [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios à des solutions de Machine Learning afin d'obtenir des modèles plus précis. Les jeux de données ouverts se trouvent dans le cloud, sur Microsoft Azure, et sont facilement accessibles à Azure Databricks, au service Machine Learning et à Machine Learning Studio. Vous pouvez également accéder aux jeux de données via des API et les utiliser dans d'autres produits, tels que Power BI et Azure Data Factory.
+Les jeux de données [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios à des solutions de Machine Learning afin d'obtenir des modèles plus précis. Open Datasets se trouvent dans le cloud, sur Microsoft Azure et sont intégrés à Azure Machine Learning et facilement accessibles pour Azure Databricks et Machine Learning Studio (classique). Vous pouvez également accéder aux jeux de données via des API et les utiliser dans d'autres produits, tels que Power BI et Azure Data Factory.
 
 Les jeux de données englobent des données du domaine public portant sur la météo, le recensement, les jours fériés, la sécurité publique et la localisation et vous aident à former des modèles Machine Learning et à enrichir des solutions prédictives. Vous pouvez également partager vos jeux de données publics sur la plateforme Azure Open Datasets. 
 
@@ -25,7 +25,7 @@ Les jeux de données englobent des données du domaine public portant sur la mé
 ## <a name="curated-prepared-datasets"></a>Jeux de données organisés et préparés
 Les jeux de données publics ouverts et organisés contenus dans Azure Open Datasets sont optimisés pour être utilisés dans les flux de travail de Machine Learning. 
 
-Les scientifiques des données passent souvent la majeure partie de leur temps à nettoyer et à préparer les données pour les analyses avancées. Les jeux de données ouverts sont copiés dans le cloud Azure et prétraités afin de vous faire gagner du temps. À intervalles réguliers, les données sont extraites des sources, par exemple par une connexion FTP à la NOAA (National Oceanic and Atmospheric Administration), analysées sous un format structuré, puis enrichies, le cas échéant, avec des caractéristiques telles que le code postal ou l'emplacement de la station météo la plus proche.
+Les scientifiques des données passent souvent la majeure partie de leur temps à nettoyer et à préparer les données pour les analyses avancées. Les jeux de données ouverts sont copiés dans le cloud Azure et prétraités afin de vous faire gagner du temps. À intervalles réguliers, les données sont extraites des sources, par exemple par via une connexion FTP à la NOAA (National Oceanic and Atmospheric Administration). Ensuite, les données sont analysées dans un format structuré, puis enrichies en fonction de caractéristiques comme le code postal ou l’emplacement de la station météorologique la plus proche.
 
 Les jeux de données sont co-hébergés avec les ressources de calcul du cloud Azure, ce qui facilite l'accès et la manipulation.  
 
@@ -47,7 +47,7 @@ Voici quelques exemples de jeux de données disponibles.
 ## <a name="access-to-datasets"></a>Accès aux jeux de données  
 Grâce à un compte Azure, vous pouvez accéder aux jeux de données ouverts à l'aide d'un code ou via l'interface de service Azure. Les données sont co-hébergées avec les ressources de calcul du cloud Azure pour être utilisées dans votre solution de Machine Learning.  
 
-Open Datasets fournit des notebooks Azure Notebooks et Azure Databricks que vous pouvez utiliser pour connecter les données au service Azure Machine Learning et à Azure Databricks. Les jeux de données sont également accessibles via un kit de développement logiciel (SDK) Python. 
+Open Datasets sont disponibles via l’interface utilisateur et le kit de développement logiciel (SDK) Azure Machine Learning. De plus, Open Datasets fournissent des notebooks Azure Notebooks et Azure Databricks que vous pouvez utiliser pour connecter les données à Azure Machine Learning et à Azure Databricks. Les jeux de données sont également accessibles via un kit de développement logiciel (SDK) Python. 
 
 Toutefois, aucun compte Azure n’est nécessaire pour accéder à Open Datasets. Vous pouvez y accéder dans n’importe quel environnement Python, avec ou sans Spark.
 
@@ -57,5 +57,5 @@ Si vous ne trouvez pas les données que vous recherchez, envoyez-nous un e-mail 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de notebook](samples.md)
-* [Tutoriel : Modélisation de régression avec données sur les taxis de New York](tutorial-opendatasets-automl.md)
+* [Tutoriel : Modélisation de régression avec données sur les taxis de New York](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Kit de développement logiciel (SDK) Python pour jeux de données ouverts](/python/api/azureml-opendatasets/?view=azure-ml-py)

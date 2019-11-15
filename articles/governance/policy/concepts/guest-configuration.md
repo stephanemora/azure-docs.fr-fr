@@ -3,15 +3,15 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise la configuration d’invité pour auditer les paramètres à l’intérieur d’une machine Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464061"
+ms.locfileid: "73581441"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -121,30 +121,27 @@ Azure Policy utilise la propriété **complianceStatus** des fournisseurs de res
 > [!NOTE]
 > La stratégie **DeployIfNotExists** est requise pour que la stratégie **AuditIfNotExists** retourne des résultats. Sans la stratégie **DeployIfNotExists**, la stratégie **AuditIfNotExists** affiche « 0 sur 0 » ressource comme état.
 
-Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. La logique de [définition de stratégie](definition-structure.md#policy-rule) valide que seul le système d’exploitation cible est évalué.
+Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée _\[Préversion\] : Auditer les paramètres de sécurité de mot de passe dans les machines Linux et Windows_ contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. La logique de [définition de stratégie](definition-structure.md#policy-rule) valide que seul le système d’exploitation cible est évalué.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Audit des paramètres du système d’exploitation conformément aux lignes de base du secteur
 
-L’une des initiatives disponibles dans Azure Policy permet d’auditer les paramètres du système d’exploitation à l’intérieur des machines virtuelles en suivant une « ligne de base » de Microsoft.  La définition, *[Préversion] : Auditer les machines virtuelles Windows qui ne correspondent pas aux paramètres de la base de référence de sécurité Azure* comprend un ensemble complet de règles d’audit basées sur les paramètres de stratégie de groupe Active Directory.
+L’une des initiatives disponibles dans Azure Policy permet d’auditer les paramètres du système d’exploitation à l’intérieur des machines virtuelles en suivant une « ligne de base » de Microsoft. La définition, _\[Préversion\] : Auditer les machines virtuelles Windows qui ne correspondent pas aux paramètres de la base de référence de sécurité Azure_ comprend un ensemble complet de règles d’audit basées sur les paramètres de stratégie de groupe Active Directory.
 
-La plupart des paramètres sont disponibles en tant que tels.  Cette fonctionnalité vous permet de personnaliser ce qui sera audité afin d’aligner la stratégie sur les besoins de votre organisation, ou de mapper la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
+La plupart des paramètres sont disponibles en tant que tels. Cette fonctionnalité vous permet de personnaliser ce qui est audité afin d’aligner la stratégie sur les besoins de votre organisation, ou de mapper la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
 
-Certains paramètres prennent en charge une plage de valeurs entières.  Par exemple, le paramètre Âge maximum du mot de passe peut être défini à l’aide d’un opérateur de plage pour offrir de la flexibilité aux propriétaires d’ordinateurs.  Vous pouvez vérifier que le paramètre de stratégie de groupe effectif exigeant que l’utilisateur modifie son mot de passe ne soit pas supérieur à 70 jours ou inférieur à 1 jour.  Comme décrit dans l’info-bulle du paramètre, pour rendre cette valeur d’audit effective, définissez la valeur sur « 1,70 ».
+Certains paramètres prennent en charge une plage de valeurs entières. Par exemple, le paramètre Âge maximum du mot de passe peut être défini à l’aide d’un opérateur de plage pour offrir de la flexibilité aux propriétaires d’ordinateurs. Vous pouvez vérifier que le paramètre de stratégie de groupe effectif exigeant que les utilisateurs modifient leur mot de passe ne soit pas supérieur à 70 jours ou inférieur à 1 jour. Comme décrit dans l’info-bulle du paramètre, pour faire de cette stratégie d’entreprise la valeur d’audit effective, définissez la valeur sur « 1,70 ».
 
-Si vous affectez la stratégie à l’aide d’un modèle de déploiement Azure Resource Manager, vous pouvez utiliser un fichier de paramètres pour gérer ces paramètres à partir du contrôle de code source.
-L’utilisation d’un outil tel que Git pour gérer les modifications des stratégies d’audit avec des commentaires à chaque enregistrement permet de documenter les raisons pour lesquelles une affectation doit être en exception de la valeur attendue.
+Si vous affectez la stratégie à l’aide d’un modèle de déploiement Azure Resource Manager, vous pouvez utiliser un fichier de paramètres pour gérer ces paramètres à partir du contrôle de code source. L’utilisation d’un outil tel que Git pour gérer les modifications des stratégies d’audit avec des commentaires à chaque enregistrement permet de documenter les raisons pour lesquelles une affectation doit être en exception de la valeur attendue.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Application de configurations à l’aide de Guest Configuration
 
-La dernière fonctionnalité d’Azure Policy configure les paramètres à l’intérieur des machines.
-La définition *Configurer le fuseau horaire sur les machines Windows* apporte des modifications à la machine en configurant le fuseau horaire.
+La dernière fonctionnalité d’Azure Policy configure les paramètres à l’intérieur des machines. La définition _Configurer le fuseau horaire sur les machines Windows_ apporte des modifications à la machine en configurant le fuseau horaire.
 
-Lorsque vous attribuez des définitions qui commencent par *Configurer*, vous devez également attribuer la définition *Déployer les composants requis pour activer la stratégie de configuration d’invité sur des machines virtuelles Windows*.
-Vous pouvez combiner ces définitions dans une initiative.
+Lorsque vous attribuez des définitions qui commencent par _Configurer_, vous devez également attribuer la définition _Déployer les composants requis pour activer la stratégie de configuration d’invité sur des machines virtuelles Windows_. Vous pouvez combiner ces définitions dans une initiative.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Attribution de stratégies à des machines en dehors d’Azure
 
-Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**.  Toutes les machines intégrées à Azure Arc qui se trouvent dans l’étendue de l’attribution sont automatiquement incluses.
+Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour les serveurs](../../../azure-arc/servers/overview.md) qui se trouvent dans l’étendue de l’attribution de stratégie sont automatiquement incluses.
 
 ### <a name="multiple-assignments"></a>Affectations multiples
 
@@ -152,8 +149,7 @@ Actuellement, les stratégies de configuration d’invité prennent en charge l�
 
 ## <a name="built-in-resource-modules"></a>Modules de ressources intégrés
 
-Lors de l’installation de l’extension Guest Configuration, le module PowerShell « GuestConfiguration » est inclus dans la dernière version des modules de ressources DSC. Ce module peut être téléchargé à partir de la PowerShell Gallery à l’aide du lien « Téléchargement manuel » dans la page du module [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
-Le format de fichier « .nupkg » peut être renommé en « .zip » pour le décompresser et le vérifier.
+Lors de l’installation de l’extension Guest Configuration, le module PowerShell « GuestConfiguration » est inclus dans la dernière version des modules de ressources DSC. Ce module peut être téléchargé à partir de la PowerShell Gallery à l’aide du lien « Téléchargement manuel » dans la page du module [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Le format de fichier « .nupkg » peut être renommé en « .zip » pour le décompresser et le vérifier.
 
 ## <a name="client-log-files"></a>Fichiers journaux du client
 

@@ -1,5 +1,5 @@
 ---
-title: Copier de façon incrémentielle plusieurs tables en utilisant Azure Data Factory | Microsoft Docs
+title: 'Copier de façon incrémentielle plusieurs tables avec Azure Data Factory '
 description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: a93b9249bde19c9ac902adbb7fc2b5469942f366
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3129a0629c4de69e6e3d65f2f74da97e8d39a467
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595937"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683421"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
 Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données Azure SQL.    

@@ -1,5 +1,5 @@
 ---
-title: Apprentissage du réseau neural d’apprentissage profond avec PyTorch
+title: Entraîner des modèles PyTorch de deep learning
 titleSuffix: Azure Machine Learning
 description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur PyTorch de Azure Machine Learning.  Les exemples de scripts classifient des images de poulets et de dindes pour créer un réseau neural d’apprentissage profond basé sur le didacticiel sur le transfert d’apprentissage de PyTorch.
 services: machine-learning
@@ -11,14 +11,15 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002565"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822708"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Former des modèles d’apprentissage profond Pytorch à l’échelle avec Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, découvrez comment exécuter vos scripts de formation [PyTorch](https://pytorch.org/) à l’échelle de l’entreprise à l'aide de la classe d’[estimateur PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) de Azure Machine Learning.  
 

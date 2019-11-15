@@ -1,5 +1,5 @@
 ---
-title: Copier des données d’un serveur SFTP à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données d’un serveur SFTP à l’aide d’Azure Data Factory
 description: Découvrez le connecteur MySQL dans Azure Data Factory, qui permet de copier des données d’un serveur SFTP vers une banque de données réceptrice prise en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 074fb498ee5bc07bba69df04bd56bd3393e95f1b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a3eb3193e0c1cd508bc1fc269cd75254d9392885
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089420"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680202"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copier des données d’un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -178,21 +178,15 @@ Pour utiliser l’authentification par clé publique SSH, définissez la propri�
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
-- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données vers et à partir des **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres `location` dans le jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **SFTPLocation**. | OUI      |
 | folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Nom de fichier dans le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
-> Le jeu de données de type **FileShare** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -220,9 +214,10 @@ Pour copier des données vers et à partir des **formats Parquet, de texte déli
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour la copie de données à partir d’un système SFTP au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -277,12 +272,9 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sftp-as-source"></a>SFTP en tant que source
 
-- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -293,9 +285,6 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -338,9 +327,10 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour la copie de données à partir d’un système SFTP au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -393,15 +383,15 @@ Cette section décrit le comportement résultant de l’utilisation de filtres d
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, voir [Activité Lookup](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
 
-Pour en savoir plus sur les propriétés, voir [Activité GetMetadata](control-flow-get-metadata-activity.md). 
+Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
 
 ## <a name="delete-activity-properties"></a>Propriétés de l’activité Delete
 
-Pour en savoir plus sur les propriétés, voir [Activité Delete](delete-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

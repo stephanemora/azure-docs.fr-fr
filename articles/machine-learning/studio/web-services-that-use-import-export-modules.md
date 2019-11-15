@@ -1,8 +1,8 @@
 ---
-title: Importer/Exporter des données dans les services web - Azure Machine Learning Studio | Microsoft Docs
+title: Importer/exporter des données dans des services web
+titleSuffix: ML Studio (classic) Azure
 description: Découvrez comment utiliser les modules Importer des données et Exporter des données pour envoyer et recevoir des données à partir d’un service web.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,19 +10,16 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a88d3958378a0746a22e99a817ad9ecebf217dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345117"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684697"
 ---
-# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio utilisant les modules d’importation et d’exportation des données
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio (classique) utilisant les modules d’importation et d’exportation des données
 
 Lorsque vous créez une expérience prédictive, vous ajoutez généralement une entrée et une sortie de service web. Lorsque vous déployez l’expérience, les consommateurs peuvent envoyer et recevoir des données à partir du service web via les entrées et sorties. Pour certaines applications, les données d’un consommateur peuvent être disponibles à partir d’un flux de données ou figurer déjà dans une source de données externe tels que le stockage d’objets blob Azure. Dans ces cas, elles n’ont pas besoin de lire ni d’écrire les données en utilisant des entrées et sorties de service web. Au lieu de cela, elles peuvent utiliser le Service d’exécution de lots (BES, Batch Execution Service) pour lire les données à partir de la source de données à l’aide d’un module Importer des données et écrire les résultats de la notation dans un autre emplacement de données à l’aide d’un module d’exporter de données.
 
@@ -78,7 +75,7 @@ Maintenant, vous devez configurer l’expérience prédictive à partir de laque
 9. Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
 10. Dans le champ **Liste des colonnes de table de données séparées par des virgules** , tapez Étiquettes notées.
 
-Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres du service web, consultez [l’entrée sur les paramètres du service web Azure Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence et Machine Learning.
+Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres de service web, consultez l’[entrée des paramètres de service web Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence and Machine Learning.
 
 Pour configurer les paramètres du service web pour la requête d’importation et la table de destination :
 

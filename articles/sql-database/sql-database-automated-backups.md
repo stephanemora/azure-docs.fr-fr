@@ -1,5 +1,5 @@
 ---
-title: Sauvegardes Azure SQL Database automatiques ou géoredondantes | Microsoft Docs
+title: Sauvegardes géoredondantes automatiques
 description: SQL Database crée automatiquement une sauvegarde de base de données locale toutes les cinq minutes et utilise le stockage géoredondant avec accès en lecture pour fournir la géoredondance.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492233"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821942"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 

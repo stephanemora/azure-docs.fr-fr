@@ -1,5 +1,5 @@
 ---
-title: Continuité des activités cloud - récupération de base de données - SQL Database | Microsoft Docs
+title: Continuité des activités cloud - récupération de base de données
 description: Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud critiques pour la mission.
 keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 5a6a96f478c4402a830cc522657f56cfd11fa56f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744465"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821822"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -53,7 +53,7 @@ SQL Database fournit également plusieurs fonctionnalités de continuité des ac
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Récupérer une base de données dans la même région Azure
 
-Vous pouvez utiliser des sauvegardes de base de données automatiques pour restaurer une base de données à un point dans le temps passé. Vous pouvez ainsi récupérer suite à des altérations de données dues à des erreurs humaines. La restauration dans le temps vous permet de créer une nouvelle base de données sur le même serveur qui représente l’état des données avant la corruption. Pour la plupart des bases de données, les opérations de restauration prennent moins de 12 heures. La récupération d’une base de données très volumineuse ou très active peut prendre plus de temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](sql-database-recovery-using-backups.md#recovery-time). 
+Vous pouvez utiliser des sauvegardes de base de données automatiques pour restaurer une base de données à un point dans le temps passé. Vous pouvez ainsi récupérer suite à des altérations de données dues à des erreurs humaines. La restauration dans le temps vous permet de créer une nouvelle base de données sur le même serveur qui représente l’état des données avant l’événement de corruption. Pour la plupart des bases de données, les opérations de restauration prennent moins de 12 heures. La récupération d’une base de données très volumineuse ou très active peut prendre plus de temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](sql-database-recovery-using-backups.md#recovery-time). 
 
 Si la période maximale de rétention de base de données prise en charge associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de conservation à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 

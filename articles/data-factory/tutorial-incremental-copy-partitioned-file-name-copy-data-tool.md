@@ -1,5 +1,5 @@
 ---
-title: Utilisation d’Azure Data Factory pour copier de nouveaux fichiers de façon incrémentielle uniquement sur la base du nom de fichier partitionné dans le temps | Microsoft Docs
+title: Utilisation d’Azure Data Factory pour copier de nouveaux fichiers de façon incrémentielle uniquement sur la base du nom de fichier partitionné dans le temps
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données afin de charger de nouveaux fichiers de façon incrémentielle uniquement sur la base du nom de fichier partitionné dans le temps.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8081d7112d67e3bb4e72c6f6e88d765a159e047f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 273aaaa2ac51f75edfad6da03d6720f58b7c3c47
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933914"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683451"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copier de nouveaux fichiers de façon incrémentielle sur la base du nom de fichier partitionné dans le temps à l’aide de l’outil Copier des données
 
@@ -77,7 +77,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 5. Sous **Version**, sélectionnez **V2** pour la version.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
 7. Sélectionnez **Épingler au tableau de bord**. 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 9. Sur le tableau de bord, la vignette **Déploiement de Data Factory** affiche l’état du processus.
 
     ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)

@@ -1,6 +1,6 @@
 ---
-title: Limites de ressources vCore Azure SQL Database – base de données unique | Microsoft Docs
-description: Cette page décrit certaines des limites de ressources vCore courantes pour une base de données unique dans Azure SQL Database.
+title: Limites des ressources vCore - Base de données unique
+description: Cette page décrit certaines limites de ressources vCore courantes pour une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,29 +10,115 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/21/2019
-ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: 11d9115893f8d0632110d86a671a6590ca48e220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693362"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822329"
 ---
-# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
+# <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
 Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat vCore.
 
-Pour connaître les limites du modèle d’achat DTU pour les bases de données sur un serveur SQL Database, consultez [Limites de ressources SQL Database pour le serveur Azure SQL Database](sql-database-resource-limits-database-server.md).
+Pour connaître les limites du modèle d’achat DTU pour les bases de données uniques sur un serveur SQL Database, consultez [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 
-> [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Rendre scalable une seule base de données](sql-database-single-database-scale.md).
 
-## <a name="general-purpose-service-tier-for-provisioned-compute"></a>Niveau de service Usage général pour un calcul approvisionné
+
+## <a name="general-purpose---serverless-compute---gen5"></a>Usage universel - calcul serverless - Gen5
+
+Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement disponible sur le matériel Gen5 uniquement.
+
+### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
+
+|Taille de calcul|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|0,75-6|1,0-8|
+|Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|2,25-18|3,00-24|
+|Délai minimal de pause automatique (minutes)|60|60|60|60|60|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|512|1 024|1 024|1 024|1536|
+|Taille maximale du journal (Go)|154|307|307|307|461|
+|Taille maximale des données TempDB (Go)|32|64|128|192|256|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|500|1 000|2000|3000|4000|
+|Taux de journalisation maximal (Mbits/s)|2.5|5.6|10|15|20|
+|Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
+
+|Taille de calcul|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|
+|Nombre minimal-maximal de vCores|1,25-10|1,50-12|1,75-14|2,00-16|
+|Mémoire minimale-maximale (Go)|3,75-30|4,50-36|5,25-42|6,00-48|
+|Délai minimal de pause automatique (minutes)|60|60|60|60|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|1536|1536|1536|3 072|
+|Taille maximale du journal (Go)|461|461|461|922|
+|Taille maximale des données TempDB (Go)|320|384|448|512|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|5 000|6000|7000|8000|
+|Taux de journalisation maximal (Mbits/s)|20|20|20|20|
+|Nombre maximal d’ouvriers simultanés (demandes)|750|900|1050|1 200|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+
+## <a name="hyperscale---provisioned-compute---gen5"></a>Hyperscale - calcul provisionné - Gen5
+
+### <a name="gen5-compute-generation"></a>Génération de calcul Gen5
+
+|Niveau de performance|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|vCores|2|4|8|16|24|32|40|80|
+|Mémoire (Go)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
+|Taille [RBPEX](sql-database-service-tier-hyperscale.md#compute)|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |1 |
+|Taille maximale des données TempDB (Go)|64|128|256|384|384|384|384|384|
+|Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) | [Remarque 1](#notes) |
+|Nombre maximal d’IOPS de données (64 Ko)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|30000|
+|Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
+|||
+
+#### <a name="notes"></a>Notes
+
+**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Remarque 2** : L’architecture Hyperscale à plusieurs niveaux offre une mise en cache à plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.
+
+**Remarque 3** : La latence est de 1-2 ms pour les données du cache SSD RBPEX sur les réplicas de calcul, qui met en cache les pages de données les plus utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
+
+## <a name="general-purpose---provisioned-compute---gen4"></a>Usage universel - calcul provisionné - Gen4
 
 > [!IMPORTANT]
 > Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
@@ -83,6 +169,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
+## <a name="general-purpose---provisioned-compute---gen5"></a>Usage universel - calcul provisionné - Gen5
+
 ### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
 
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
@@ -129,59 +217,34 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="general-purpose-service-tier-for-serverless-compute"></a>Niveau de service Usage général pour le calcul serverless
+## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Usage général - calcul provisionné - série Fsv2
 
-Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion.
+### <a name="fsv2-series-compute-generation-preview"></a>Génération de calcul de série Fsv2 (préversion)
 
-### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
+|Taille de calcul|GP_Fsv2_72|
+|:--- | --: |
+|Génération de calcul|Série Fsv2|
+|vCores|72|
+|Mémoire (Go)|136|
+|Prise en charge de ColumnStore|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|
+|Taille maximale des données (Go)|4096|
+|Taille maximale du journal (Go)|1 024|
+|Taille maximale des données TempDB (Go)|333|
+|Type de stockage|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|36000|
+|Taux de journalisation maximal (Mbits/s)|30|
+|Nombre maximal de workers simultanés (demandes)|3600|
+|Nombre maximal de sessions simultanées|30000|
+|Nombre de réplicas|1|
+|Plusieurs zones de disponibilités|N/A|
+|Lecture du Scale-out|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|
 
-|Taille de calcul|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
-|:--- | --: |--: |--: |--: |--: |
-|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|
-|Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|0,75-6|1,0-8|
-|Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|2,25-18|3,00-24|
-|Délai minimal de pause automatique (minutes)|60|60|60|60|60|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|512|1 024|1 024|1 024|1536|
-|Taille maximale du journal (Go)|154|307|307|307|461|
-|Taille maximale des données TempDB (Go)|32|64|128|192|256|
-|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données (64 Ko)|500|1 000|2000|3000|4000|
-|Taux de journalisation maximal (Mbits/s)|2.5|5.6|10|15|20|
-|Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
-|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|
-|Nombre de réplicas|1|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
-|Taille de calcul|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
-|:--- | --: |--: |--: |--: |
-|Génération de calcul|Gen5|Gen5|Gen5|Gen5|
-|Nombre minimal-maximal de vCores|1,25-10|1,50-12|1,75-14|2,00-16|
-|Mémoire minimale-maximale (Go)|3,75-30|4,50-36|5,25-42|6,00-48|
-|Délai minimal de pause automatique (minutes)|60|60|60|60|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|1536|1536|1536|3 072|
-|Taille maximale du journal (Go)|461|461|461|922|
-|Taille maximale des données TempDB (Go)|320|384|448|512|
-|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données (64 Ko)|5 000|6000|7000|8000|
-|Taux de journalisation maximal (Mbits/s)|20|20|20|20|
-|Nombre maximal d’ouvriers simultanés (demandes)|750|900|1050|1 200|
-|Nombre maximal de sessions simultanées|30000|30000|30000|30000|
-|Nombre de réplicas|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|N/A|N/A|N/A|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
-
-## <a name="business-critical-service-tier-for-provisioned-compute"></a>Niveau de service critique pour l’entreprise concernant le calcul approvisionné
+## <a name="business-critical---provisioned-compute---gen4"></a>Critique pour l’entreprise - calcul provisionné - Gen4
 
 > [!IMPORTANT]
 > Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
@@ -234,7 +297,9 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="gen5-compute-compute-part-1"></a>Génération de calcul Gen5 (partie 1)
+## <a name="business-critical---provisioned-compute---gen5"></a>Critique pour l’entreprise - calcul provisionné - Gen5
+
+### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
 
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -282,45 +347,43 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="hyperscale-service-tier-for-provisioned-compute"></a>Niveau de service Hyperscale pour un calcul approvisionné
 
-### <a name="gen5-compute-generation"></a>Génération de calcul Gen5
+## <a name="business-critical---provisioned-compute---m-series"></a>Vital pour l’entreprise - calcul provisionné - série M
 
-|Niveau de performance|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
-|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|8|16|24|32|40|80|
-|Mémoire (Go)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
-|Taille [RBPEX](sql-database-service-tier-hyperscale.md#compute)|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |1 |
-|Taille maximale des données TempDB (Go)|64|128|256|384|384|384|384|384|
-|Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) | [Remarque 1](#notes) |
-|Nombre maximal d’IOPS de données (64 Ko)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
-|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
-|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
-|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|30000|
-|Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
-|||
+### <a name="m-series-compute-generation-preview"></a>Génération de calcul de série M (préversion)
 
-#### <a name="notes"></a>Notes
+|Taille de calcul|GP_M_128|
+|:--- | --: |
+|Génération de calcul|Série M|
+|vCores|128|
+|Mémoire (Go)|3767|
+|Prise en charge de ColumnStore|OUI|
+|Stockage In-Memory OLTP (Go)|481|
+|Taille maximale des données (Go)|4096|
+|Taille maximale du journal (Go)|2 048|
+|Taille maximale des données TempDB (Go)|4096|
+|Type de stockage|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|204800|
+|Taux de journalisation maximal (Mbits/s)|192|
+|Nombre maximal d’ouvriers simultanés (demandes)|12800|
+|Nombre maximal de sessions simultanées|30000|
+|Nombre de réplicas|4|
+|Plusieurs zones de disponibilités|OUI|
+|Lecture du Scale-out|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|
 
-**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Remarque 2** : L’architecture Hyperscale à plusieurs niveaux offre une mise en cache à plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.
 
-**Remarque 3** : La latence est de 1-2 ms pour les données du cache SSD RBPEX sur les réplicas de calcul, qui met en cache les pages de données les plus utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour connaître les limites de ressources DTU des bases de données uniques, consultez l’article sur les [limites de ressources pour les bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
-- Pour connaître les limites de ressources vCore des pools élastiques, consultez l'article consacré aux [limites de ressources pour les pools élastiques suivant le modèle d'achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Pour connaître les limites de ressources vCore des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
 - Pour connaître les limites de ressources DTU des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Pour connaître les limites de ressources des instances gérées, consultez l’article sur les [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
+- Pour connaître les limites de ressources des instances gérées, consultez l'article consacré aux [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
 - Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 - Pour plus d'informations sur les limites de ressources au niveau du serveur de base de données et de l'abonnement, consultez l'article [Vue d'ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).

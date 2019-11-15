@@ -6,14 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: d646187627d74810a846d7126562e2e796c5c9f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510274"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720255"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
+
+> [!NOTE]
+> Si vous ne voyez pas encore cette fonctionnalité dans le portail Azure Migrate, patientez un peu. Elle apparaîtra au cours de la semaine suivante ou un peu plus tard.
 
 Cet article explique comment configurer le mappage de dépendances sans agent dans Azure Migrate : Server Assessment. Cette fonctionnalité est actuellement disponible en préversion pour les machines VMware découvertes à l’aide d’une appliance Azure Migrate. 
 
@@ -34,7 +37,7 @@ Le mappage des dépendances vous aide à visualiser les dépendances entre les m
 La visualisation des dépendances sans agent ne nécessite pas d’installation d’agents des machines. Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit.
 
 - Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines selon un intervalle d’interrogation de cinq minutes.
-- Les données suivantes sont collectées :
+- Les données suivantes sont collectées :
     - Connexions TCP
     - Noms des processus ayant des connexions actives
     - Noms des applications installées exécutant les processus ci-dessus

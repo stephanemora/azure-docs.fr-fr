@@ -1,5 +1,5 @@
 ---
-title: Exemples de notebooks Jupyter utilisant un jeu de données ouvert NOAA
+title: Exemples de notebooks Jupyter utilisant des données NOAA
 titleSuffix: Azure Open Datasets
 description: Utilisez les exemples de notebooks Jupyter pour Azure Open Datasets afin de savoir comment charger des jeux de données ouverts et les utiliser pour enrichir les données de démonstration. Les techniques utilisent Spark et Pandas à des fins de traitement des données.
 ms.service: open-datasets
@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496578"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606142"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exemples de notebooks Jupyter montrant comment enrichir les données avec Open Datasets 
 Les exemples de notebooks Jupyter pour Azure Open Datasets montrent comment charger des jeux de données ouverts et les utiliser pour enrichir les données de démonstration. Les techniques utilisent Apache Spark et Pandas à des fins de traitement des données.
@@ -40,6 +40,6 @@ Les exemples de notebooks Jupyter pour Azure Open Datasets montrent comment char
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Modélisation de régression avec Machine Learning automatisé et jeu de données ouvert](tutorial-opendatasets-automl.md)
+* [Tutoriel : Modélisation de régression avec Machine Learning automatisé et jeu de données ouvert](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Kit de développement logiciel (SDK) Python pour Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catalogue Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)

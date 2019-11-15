@@ -1,5 +1,5 @@
 ---
-title: Variables système dans Azure Data Factory | Microsoft Docs
+title: Variables système dans Azure Data Factory
 description: Cet article décrit les variables système prises en charge par Azure Data Factory. Vous pouvez utiliser ces variables dans des expressions lors de la définition des entités Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: b6c04edb3fc843dfe1b9176dc06bf312473591c3
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0a5237336530d30c3801b13b910171e236e87a23
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376440"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679288"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables système prises en charge par Azure Data Factory
 Cet article décrit les variables système prises en charge par Azure Data Factory. Vous pouvez utiliser ces variables dans des expressions lors de la définition des entités Data Factory.

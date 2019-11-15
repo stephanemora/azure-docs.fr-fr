@@ -11,14 +11,15 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755984"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818415"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous apprendrez à créer, publier et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) et en effectuer le suivi à l’aide du [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utilisez des **pipeline ML** pour créer un workflow qui combine plusieurs phases ML, puis publiez ce pipeline dans votre espace de travail Azure Machine Learning pour y accéder ultérieurement ou le partager avec d’autres.  Les pipelines ML sont idéaux pour les scénarios de scoring par lots, car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres. 
 
@@ -36,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md) afin de contenir toutes les ressources de votre pipeline.
 
-* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le kit SDK Azure Machine Learning, ou utilisez une [machine virtuelle Notebook](tutorial-1st-experiment-sdk-setup.md#azure) avec le kit SDK déjà installé.
+* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [machine virtuelle de notebooks Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) avec le SDK déjà installé.
 
 Commencez par attacher votre espace de travail :
 
@@ -165,7 +166,7 @@ Pour joindre Azure Databricks comme cible de calcul, fournissez les informations
 
 * __Nom de la capacité de calcul Databricks__ : nom que vous voulez affecter à cette ressource de calcul.
 * __Nom de l’espace de travail Databricks__ : nom de l’espace de travail Azure Databricks.
-* __Jeton d’accès Databricks__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/api/latest/authentication.html).
+* __Jeton d’accès Databricks__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
 
 Le code suivant montre comment attacher Azure Databricks comme cible de calcul avec le SDK Azure Machine Learning :
 
@@ -410,21 +411,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Afficher les résultats d’un pipeline publié
 
 Consultez la liste de tous vos pipelines publiés et les détails relatifs à leur exécution :
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. [Affichez votre espace de travail](how-to-manage-workspace.md#view) pour trouver la liste des pipelines.
  ![Liste de pipelines Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Sélectionnez un pipeline spécifique pour afficher les résultats de l’exécution.
 
-Ces résultats sont également disponibles dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
+Ces résultats sont également disponibles dans votre espace de travail dans [Azure Machine Learning Studio]](https://ml.azure.com).
 
 ### <a name="disable-a-published-pipeline"></a>Désactiver un pipeline publié
 
 Pour masquer un pipeline de votre liste de pipelines publiés, vous le désactivez :
 
 ```
-# Get the pipeline by using its ID from the Azure portal
+# Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

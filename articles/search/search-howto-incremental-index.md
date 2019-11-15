@@ -1,7 +1,7 @@
 ---
-title: Configurer l'indexation incrémentielle du suivi des modifications basé sur le contenu enrichi
+title: Configurer l’indexation incrémentielle (préversion) du suivi des modifications basé sur le contenu enrichi
 titleSuffix: Azure Cognitive Search
-description: Activez le suivi des modifications et préservez l'état du contenu enrichi pour un traitement contrôlé dans un ensemble de compétences cognitives.
+description: Activez le suivi des modifications et préservez l'état du contenu enrichi pour un traitement contrôlé dans un ensemble de compétences cognitives. Cette fonctionnalité est actuellement disponible en préversion publique.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510082"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719945"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Configuration de l'indexation incrémentielle de documents enrichis dans la Recherche cognitive Azure
+
+> [!IMPORTANT] 
+> L’indexation incrémentielle est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
 
 Cet article explique comment ajouter l'état et la mise en cache à des documents enrichis traversant un pipeline d'enrichissement Recherche cognitive Azure afin de procéder à l'indexation incrémentielle de documents issus de n'importe laquelle des sources de données prises en charge. Par défaut, un ensemble de compétences n'a pas d'état, et toute modification de sa composition nécessite une réexécution complète de l'indexeur. L'indexation incrémentielle permet à l'indexeur de déterminer quelles parties du pipeline ont été modifiées, en réutilisant les enrichissements existants pour les parties inchangées et en révisant les enrichissements pour les étapes modifiées. Le contenu mis en cache est placé dans le Stockage Azure.
 
 Si le processus de configuration des indexeurs ne vous est pas familier, commencez par la [Présentation de l'indexeur](search-indexer-overview.md), puis passez aux [Ensembles de compétences](cognitive-search-working-with-skillsets.md) pour en savoir plus sur les pipelines d'enrichissement. Pour plus d'informations sur les concepts clés, reportez-vous à [Indexation incrémentielle](cognitive-search-incremental-indexing-conceptual.md).
-
-L'indexation incrémentielle est configurée à l'aide de [Search REST api-version=2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> Cette fonctionnalité n’est pas encore disponible dans le portail et doit être utilisée par programmation.
->
 
 ## <a name="modify-an-existing-indexer"></a>Modifier un indexeur existant
 

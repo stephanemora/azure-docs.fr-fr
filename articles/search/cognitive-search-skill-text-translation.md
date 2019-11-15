@@ -1,21 +1,24 @@
 ---
-title: Compétence cognitive Traduction de texte
+title: Compétence cognitive Traduction de texte (préversion)
 titleSuffix: Azure Cognitive Search
-description: Évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure.
+description: Évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure. Cette compétence est actuellement en préversion publique.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791853"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715402"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
+
+> [!IMPORTANT] 
+> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
 
 La compétence **Traduction de texte** évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée. Cette compétence utilise l’[API de traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponible dans Cognitive Services.
 

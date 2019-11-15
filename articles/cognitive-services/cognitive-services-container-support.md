@@ -8,26 +8,28 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 8/21/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: eac9264a98c6224af56618e439a1cd3f00f7157c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146815"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604447"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
-La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure, et permet une flexibilité sur l’emplacement de déploiement et de stockage des services fournis avec les [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est désormais disponible en préversion pour quelques solutions Azure Cognitive Services, dont des composants de :
+La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure, et permet une flexibilité sur l’emplacement de déploiement et de stockage des services fournis avec les [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services, dont des composants de :
 
-* [Détecteur d’anomalies][ad-containers]
-* [Vision par ordinateur][cv-containers]
-* [Visage][fa-containers]
-* [Form Recognizer][fr-containers]
-* [Language Understanding (LUIS)][lu-containers]
-* [API Speech Service][sp-containers]
-* [Analyse de texte][ta-containers]
+> [!div class="checklist"]
+> * [Détecteur d’anomalies][ad-containers]
+> * [Vision par ordinateur][cv-containers]
+> * [Visage][fa-containers]
+> * [Form Recognizer][fr-containers]
+> * [Language Understanding (LUIS)][lu-containers]
+> * [API Speech Service][sp-containers]
+> * [Analyse de texte][ta-containers]
+> * [Translator Text][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -46,19 +48,21 @@ Les ressources Cognitive Services sont disponibles sur [Microsoft Azure](https:/
 
 Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de conteneurs Docker, chacun contenant un sous-ensemble de fonctionnalités à partir de services dans Azure Cognitive Services :
 
-| de diffusion en continu | Niveau tarifaire pris en charge | Conteneur | Description |
+| Service | Niveau tarifaire pris en charge | Conteneur | Description |
 |---------|----------|----------|-------------|
 |[Détecteur d’anomalies][ad-containers] |F0, S0|**Détecteur d’anomalies** |L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès](https://aka.ms/adcontainer)|
-|[Vision par ordinateur][cv-containers] |F0, S1|**Lire** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur Lire détecte le *texte manuscrit* dans les images et prend en charge les documents PDF/TIFF/multipage.<br/><br/>**Important :** Le conteneur Lire prend uniquement en charge l’anglais.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
-|[Vision par ordinateur][cv-containers] |F0, S1|**Reconnaître le texte** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite.<br/><br/>**Important :** Le conteneur Reconnaître le texte ne fonctionne qu’en anglais pour le moment.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Vision par ordinateur][cv-containers] |F0, S1|**Lire** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur Lire détecte le *texte manuscrit* dans les images et prend en charge les documents PDF/TIFF/multipage.<br/><br/>**Important :** Le conteneur Lire prend uniquement en charge l’anglais.|
 |[Visage][fa-containers] |F0, S0|**Visage** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form Recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application.|
-|[API Speech Service][sp-containers] |F0, S0|**Reconnaissance vocale** |Retranscrit une voix en un texte de façon continue et en temps réel.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
-|[API Speech Service][sp-containers] |F0, S0|**Synthèse vocale** |Convertit le texte en paroles naturelles.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
+|[API Speech Service][sp-containers-stt] |F0, S0|**Reconnaissance vocale** |Retranscrit une voix en un texte de façon continue et en temps réel.|
+|[API Speech Service][sp-containers-cstt] |F0, S0|**Reconnaissance vocale personnalisée** |Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé.|
+|[API Speech Service][sp-containers-tts] |F0, S0|**Synthèse vocale** |Convertit le texte en paroles naturelles.|
+|[API Speech Service][sp-containers-ctts] |F0, S0|**Synthèse vocale personnalisée** |Convertit le texte en paroles naturelles à l’aide d’un modèle personnalisé.|
 |[Analyse de texte][ta-containers] |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 |[Analyse de texte][ta-containers]|F0, S|**Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
 |[Analyse de texte][ta-containers]|F0, S|**Analyse des sentiments** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](./text-analytics/language-support.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
+|[Translator Text][tt-containers]| **N/A** | **Translator Text** | L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST.<br>[Demander l’accès](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -80,8 +84,9 @@ Les conteneurs Azure Cognitive Services sont accessibles publiquement via votre 
 > * [Détecteur d’anomalies](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Visage](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
-> * [Reconnaître le texte](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Lire](computer-vision/computer-vision-how-to-install-containers.md)
 > * [Reconnaissance vocale et Synthèse vocale](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
+> * [Translator Text](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
@@ -116,6 +121,7 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 * [Conteneurs Language Understanding (LUIS)][lu-containers]
 * [Conteneurs API Speech Service][sp-containers]
 * [Conteneurs Analyse de texte][ta-containers]
+* [Conteneurs de traduction de texte Translator Text][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -126,4 +132,9 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
+[sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
+[sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
+[sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+[tt-containers]: translator/how-to-install-containers.md

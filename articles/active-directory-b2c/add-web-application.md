@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0fd6af26390778491a127ce1bd0a58846b87f721
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 37cb242f667190fcd29bed1b7a82ca44ba2c94e9
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474831"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641566"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 
  Inscrivez les ressources des API web auprès de votre locataire afin qu’elles puissent accepter les demandes des applications clientes qui présentent un jeton d’accès et y répondre. Cet article explique comment inscrire une API web dans Azure Active Directory B2C (Azure AD B2C).
 
-Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur l’expérience de préversion](https://aka.ms/b2cappregintro).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 

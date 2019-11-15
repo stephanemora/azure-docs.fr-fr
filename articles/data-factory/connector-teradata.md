@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis une base de données Teradata Vantage avec Azure Data Factory | Microsoft Docs
+title: Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 description: Découvrez le connecteur Teradata du service Data Factory, qui vous permet de copier des données Teradata Vantage vers des magasins de données pris en charge par Data Factory en tant que récepteurs.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e538c8b00bddc8a2fa35b158c1e76f9033b73a56
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089186"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680106"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -71,6 +71,13 @@ Le service lié Teradata prend en charge les propriétés suivantes :
 | username | Spécifiez le nom d’utilisateur associé à la connexion à Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
 | password | Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous pouvez également choisir de [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br>S’applique lors de l’utilisation de l’authentification Windows ou du référencement du mot de passe dans Key Vault pour l’authentification de base. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |OUI |
+
+Autres propriétés de connexion que vous pouvez définir dans la chaîne de connexion selon votre cas :
+
+| Propriété | Description | Valeur par défaut |
+|:--- |:--- |:--- |
+| CharacterSet | Jeu de caractères à utiliser pour la session. Par exemple, `CharacterSet=UTF16`.<br><br/>Cette valeur peut être un jeu de caractères défini par l’utilisateur ou l’un des jeux de caractères prédéfinis suivants : <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, compatible DOS, KANJISJIS_0S)<br/>- EUC (compatible Unix, KANJIEC_0U)<br/>- Mainframe IBM (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | La valeur par défaut est `ASCII`. |
+| MaxRespSize |Taille maximale de la mémoire tampon de réponse pour les requêtes SQL en Ko (kilo-octets). Par exemple, `MaxRespSize=‭10485760‬`.<br/><br/>Pour la version de base de données Teradata 16.00 (ou ultérieure), la valeur maximale est 7361536. Pour les connexions qui utilisent des versions antérieures, la valeur maximale est 1048576. | La valeur par défaut est `65536`. |
 
 **Exemple : utilisation de l’authentification de base**
 
@@ -337,7 +344,7 @@ Lorsque vous copiez des données à partir de Teradata, les mappages suivants s�
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,21 +1,24 @@
 ---
-title: Créer une base de connaissances avec REST
+title: Créer une base de connaissances (préversion) avec REST
 titleSuffix: Azure Cognitive Search
-description: Utilisez l’API REST et Postman pour créer une base de connaissances Recherche cognitive Azure pour conserver les enrichissements d’un pipeline d’enrichissement par IA.
-author: lobrien
+description: Utilisez l’API REST et Postman pour créer une base de connaissances Recherche cognitive Azure pour conserver les enrichissements d’un pipeline d’enrichissement par IA. Cette fonctionnalité est actuellement disponible en préversion publique.
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790028"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720071"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Créer une base de connaissances Recherche cognitive Azure en utilisant REST
+
+> [!IMPORTANT] 
+> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du kit SDK .NET.
 
 La fonctionnalité de base de connaissances dans Recherche cognitive Azure conserve la sortie d’un pipeline d’enrichissement par IA pour une analyse ultérieure ou tout autre traitement en aval. Un pipeline enrichi par IA accepte les fichiers image ou les fichiers texte non structurés, les index en utilisant Recherche cognitive Azure, applique des enrichissements par IA provenant d’Azure Cognitive Services (par exemple l’analyse d’images et le traitement en langage naturel), puis enregistre les résultats au sein d’une base de connaissances dans Stockage Azure. Vous pouvez utiliser des outils comme Power BI ou l’Explorateur Stockage sur le portail Azure pour explorer la base de connaissances.
 

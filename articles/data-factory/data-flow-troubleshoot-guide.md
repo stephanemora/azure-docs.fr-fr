@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de flux de données Azure Data Factory | Microsoft Docs
+title: Résoudre les problèmes de flux de données Azure Data Factory
 description: Découvrez comment résoudre les problèmes de flux de données dans Azure Data Factory.
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387732"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721350"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Résoudre les problèmes de flux de données Azure Data Factory
 
@@ -67,6 +67,23 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Cause** : Une table portant le même nom que celui défini dans votre source ou dans le jeu de données existe déjà dans la base de données cible
 
 - **Résolution** : Changez le nom de la table que vous essayez de créer
+
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Message d’erreur : DF-SYS-01 : com.microsoft.sqlserver.jdbc.SQLServerException : Les données binary ou String seront tronquées. 
+
+- **Symptômes** : Lors de l’écriture de données dans un récepteur SQL, votre flux de données échoue lors de l’exécution du pipeline avec une erreur de troncation possible.
+
+- **Cause** : Un champ de votre flux de données mappé à une colonne de votre base de données SQL n’est pas suffisamment grand pour stocker la valeur, le pilote SQL génère alors cette erreur.
+
+- **Résolution** : Vous pouvez réduire la longueur des données pour les colonnes de type chaîne à l’aide de ```left()``` dans une colonne dérivée ou implémenter le modèle [« ligne d’erreur ».](how-to-data-flow-error-rows.md)
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Message d’erreur : Depuis Spark 2.3, les requêtes provenant de fichiers JSON/CSV bruts ne sont pas autorisées lorsque les colonnes référencées incluent uniquement la colonne interne d’enregistrements endommagés. 
+
+- **Symptômes** : Échec de la lecture à partir d’une source JSON
+
+- **Cause** : Lors de la lecture à partir d’une source JSON avec un document unique sur de nombreuses lignes imbriquées, ADF, via Spark, ne peut pas déterminer l’emplacement où un nouveau document commence et où le document précédent se termine.
+
+- **Résolution** : Sur la transformation source qui utilise un jeu de données JSON, développez « Paramètres JSON » et activez « Un seul document ».
+
 
 ## <a name="general-troubleshooting-guidance"></a>Instructions générales pour la résolution des problèmes
 

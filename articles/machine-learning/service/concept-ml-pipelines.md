@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/04/2019
-ms.openlocfilehash: 85346a2334d240eceb0daa4519ce69b4eb4906cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497458"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671545"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -119,7 +119,7 @@ Les développeurs qui préfèrent une aire de conception visuelle peuvent utilis
 
 Lorsque vous concevez visuellement des pipelines, les entrées et sorties d’une étape sont visibles. Vous pouvez faire glisser et déposer des connexions de données, ce qui vous permet de comprendre et de modifier rapidement le flux de données de votre pipeline.
  
-![Exemple de concepteur Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Exemple de concepteur Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Fonctionnement du graphique d’exécution
 
@@ -183,7 +183,7 @@ Il est facile de s’enthousiasmer en ce qui concerne la réutilisation des rés
 
 * L’utilisation de pipelines comme seul moyen de séparer les préoccupations. Les fonctions, les objets et les modules intégrés de Python s’avèrent très utiles pour éviter un état de programmation confus. Une étape de pipeline est beaucoup plus coûteuse qu’un appel de fonction.
 
-* Le couplage intensif entre les étapes de pipeline. Si la refactorisation d’une étape dépendante requiert fréquemment la modification des sorties d’une étape précédente, il est probable que des étapes distinctes soient actuellement plus coûteuses qu’un avantage. Une autre indication que les étapes sont trop couplées sont les arguments d’une étape qui ne sont pas des données mais des indicateurs permettant de contrôler le traitement. 
+* Couplage fort entre les étapes du pipeline. Si la refactorisation d’une étape dépendante requiert fréquemment la modification des sorties d’une étape précédente, il est probable que des étapes distinctes soient actuellement plus coûteuses qu’un avantage. Une autre indication que les étapes sont trop couplées sont les arguments d’une étape qui ne sont pas des données mais des indicateurs permettant de contrôler le traitement. 
 
 * Optimisation prématurée des ressources de calcul. Par exemple, il existe souvent plusieurs étapes pour la préparation des données et l’on peut souvent se dire « Oh, voici un endroit où je pourrais utiliser un `MpiStep` pour la programmation parallèle, mais voici un endroit où je pourrais utiliser un `PythonScriptStep` avec une cible de calcul moins puissante », et ainsi de suite. Et peut-être, à long terme, la création d’étapes granulaires comme cela, peut s’avérer utile, en particulier s’il est possible d’utiliser des résultats mis en cache plutôt que de toujours recalculer. Toutefois, les pipelines ne sont pas destinés à remplacer le module `multiprocessing`. 
 

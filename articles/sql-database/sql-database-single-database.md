@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’une base de données Azure SQL Database unique | Microsoft Docs
+title: Qu’est-ce qu’une base de données unique ?
 description: En savoir plus sur les bases de données uniques dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316657"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820939"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
 
@@ -29,7 +29,7 @@ L’option de déploiement d’une base de données unique crée dans Azure SQL 
 
 ## <a name="dynamic-scalability"></a>Évolutivité dynamique
 
-Vous pouvez créer votre première application sur une petite base de données unique à faible coût dans la couche de calcul serverless (version préliminaire) ou une petite taille de calcul dans le niveau de calcul provisionné. Vous pouvez modifier le [niveau de calcul ou de service](sql-database-single-database-scale.md) manuellement ou programmatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+Vous pouvez créer votre première application sur une petite base de données unique à faible coût dans le niveau de calcul serverless ou une petite taille de calcul dans le niveau de calcul provisionné. Vous pouvez modifier le [niveau de calcul ou de service](sql-database-single-database-scale.md) manuellement ou programmatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de données uniques et pools élastiques
 

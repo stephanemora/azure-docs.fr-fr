@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 57e8905fd9722d5b8a8b0ab76dbcea5b91c6d30a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495849"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799827"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
-La stratégie IPsec/IKE personnalisée est prise en charge sur **toutes les références SKU Azure, à l’exception de la référence SKU De base**.
+La stratégie personnalisée IPsec/IKE est prise en charge sur les passerelles VPN Azure **VpnGw1, VpnGw2, VpnGw3, Standard** et **HighPerformance**. La **référence SKU** de base **n’est pas** prise en charge.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Combien de stratégies puis-je spécifier pour une connexion ?
 Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
@@ -27,22 +27,22 @@ Non, vous devez spécifier tous les algorithmes et paramètres pour IKE (mode pr
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Quels sont les algorithmes et les forces de clé pris en charge dans la stratégie personnalisée ?
 Le tableau suivant répertorie les algorithmes de chiffrement et les puissances de clé pris en charge et configurables par les clients. Vous devez sélectionner une option pour chaque champ.
 
-| **IPsec/IKEv2**  | **Options**                                                                   |
-| ---              | ---                                                                           |
-| Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
-| Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Groupe DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun |
-| Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
-| Intégrité IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
-| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)           |
-| Sélecteur de trafic | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                  |                                                                               |
+| **IPsec/IKEv1, IKEv2**  | **Options**                                                                   |
+| ---                     | ---                                                                           |
+| Chiffrement IKEv1, IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
+| Intégrité IKEv1, IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
+| Groupe DH                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun  |
+| Chiffrement IPsec        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
+| Intégrité IPsec         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| Groupe PFS               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
+| Durée de vie de l’AS en mode rapide          | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko) |
+| Sélecteur de trafic        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                         |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 et PFS2048 sont identiques en tant que groupe Diffie-Hellman **14** dans IKE et IPsec PFS. Voir [Groupes Diffie-Hellman](#DH) pour accéder aux mappages complets.
 > 2. Pour les algorithmes GCMAES, vous devez spécifier le même algorithme GCMAES et la longueur de clé pour le chiffrement IPsec et l’intégrité IPsec.
-> 3. La durée de vie de l’AS en mode principal IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure
+> 3. La durée de vie de l’AS en mode principal IKEv1 et IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure.
 > 4. Les durées de vie de l’AS en mode rapide sont des paramètres facultatifs. Si rien n’a été spécifié, les valeurs par défaut de 27 000 secondes (7,5 heures) et de 102 400 000 kilo-octets (102 Go) sont utilisées.
 > 5. UsePolicyBasedTrafficSelector est un paramètre d’option sur la connexion. Consultez le point suivant de la FAQ pour « UsePolicyBasedTrafficSelectors ».
 
@@ -102,6 +102,18 @@ Oui. Un tunnel entre des réseaux virtuels se compose de deux ressources de conn
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>La stratégie IPsec/IKE est-elle compatible avec une connexion ExpressRoute ?
 Non. La stratégie IPsec/IKE est uniquement compatible avec les connexions S2S VPN et entre des réseaux virtuels via les passerelles VPN Azure.
+
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Comment créer des connexions avec le type de protocole IKEv1 ou IKEv2 ?
+Les connexions IKEv1 peuvent être créées sur toutes les références SKU de type VPN RouteBased, à l’exception de la référence SKU de base. Vous pouvez spécifier un type de protocole de connexion IKEv1 ou IKEv2 lors de la création de connexions. Si vous ne spécifiez pas de type de protocole de connexion, IKEv2 est utilisé comme option par défaut là où c’est applicable. Pour plus d’informations, consultez la documentation de l’[applet de commande PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Pour les types SKU et la prise en charge de IKEv1/IKEv2, consultez [Connecter des passerelles à des appareils VPN basés sur des stratégies](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Le transit entre les connexions IKEv1 et IKEv2 est-il autorisé ?
+Oui. Le transit entre les connexions IKEv1 et IKEv2 est pris en charge.
+
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Puis-je avoir des connexions de site à site IKEv1 sur les références SKU de base de type VPN RouteBased ?
+Non. Toutes les références SKU VPN RouteBased, à l’exception des références SKU de base de type VPN basé sur les routes prennent en charge les connexions IKEv1 pour le site à site.
+
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Puis-je changer le type de protocole de connexion une fois la connexion créée (IKEv1 en IKEv2 et vice versa) ?
+Non. Une fois la connexion créée, les protocoles IKEv1/IKEv2 ne peuvent pas être changés. Vous devez supprimer et recréer une connexion avec le type de protocole souhaité.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Où puis-je trouver des informations de configuration supplémentaires pour IPsec ?
 Consultez [Configurer la stratégie IPsec/IKE pour des connexions S2S ou de réseau virtuel à réseau virtuel](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

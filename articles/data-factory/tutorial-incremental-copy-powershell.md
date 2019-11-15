@@ -1,5 +1,5 @@
 ---
-title: Copier de façon incrémentielle une table en utilisant Azure Data Factory | Microsoft Docs
+title: 'Copier de façon incrémentielle une table avec Azure Data Factory '
 description: Dans ce tutoriel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bb1ddbddfb2e06f394ac2f57b10e18893879b51b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140604"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683350"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure. 

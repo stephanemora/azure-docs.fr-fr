@@ -1,5 +1,5 @@
 ---
-title: Configurer les performances pour Azure-SSIS Integration Runtime | Microsoft Docs
+title: Configurer les performances pour Azure-SSIS Integration Runtime
 description: Découvrez comment configurer les propriétés d’Azure-SSIS Integration Runtime pour de hautes performances
 services: data-factory
 ms.date: 01/10/2018
@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 518da092f690108111ca4456eaca66e4f3153c54
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232544"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681434"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -118,7 +118,7 @@ Si vous avez beaucoup de packages à exécuter et que vous vous souciez surtout 
 Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Pour les nœuds Standard_D1_v2, 1 à 4 exécutions parallèles par nœud sont prises en charge. Pour tous les autres types de nœuds, 1-max(2 x le nombre de cœurs, 8) exécutions parallèles par nœud sont prises en charge. Si vous souhaitez **AzureSSISMaxParallelExecutionsPerNode** au-delà de la valeur maximale que nous avons prise en charge, vous pouvez ouvrir un ticket de support et nous pouvons augmenter la valeur maximale pour vous, après quoi vous devrez utiliser Azure Powershell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode**.
 Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/windows/sizes-general.md).
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+| Size             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1 500                                       |
@@ -131,7 +131,7 @@ Vous pouvez estimer la valeur appropriée sur la base du coût de votre package 
 | Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24 x 500                       | 4/4000                                       |
 | Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48 x 500                        | 8 / 8000                                       |
 | Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96 x 500                       | 8 / 16 000                                      |
-| Standard\_D64\_v3| 64   | 256         | 1 600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
+| Standard\_D64\_v3| 64   | 256         | 1 600                   | 96000 / 1000 / 500                                         | 32/192 x 500                      | 8 / 30000                                      |
 | Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6 x 500                         | 2 / 1 000                                       |
 | Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12 x 500                        | 2 / 2 000                                       |
 | Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24 x 500                       | 4/4000                                       |

@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis/vers Stockage Fichier Azure à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers/à partir du Stockage Fichier Azure à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données depuis Stockage Fichier Azure vers des magasins de données récepteurs pris en charge (ou) depuis des magasins de données sources pris en charge vers Stockage Fichier Azure à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 2a5837bb9f57c0f83ac7075c560633002b40567b
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: bf7ae7f9dc3bb45482f20df07be5e2358a388714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010082"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681198"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -46,7 +46,7 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **FileServer**. | OUI |
+| type | La propriété type doit être définie sur : **AzureFileStorage**. | OUI |
 | host | Spécifiez le point de terminaison Stockage Fichier Azure comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Utilisation de JSON : `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | OUI |
 | userid | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `AZURE\<storage name>`<br/>\- Utilisation de JSON : `"userid": "AZURE\\<storage name>"`. | OUI |
 | password | Spécifiez la clé d’accès au stockage. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -65,7 +65,7 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 {
     "name": "AzureFileStorageLinkedService",
     "properties": {
-        "type": "FileServer",
+        "type": "AzureFileStorage",
         "typeProperties": {
             "host": "\\\\<storage name>.file.core.windows.net\\<file service name>",
             "userid": "AZURE\\<storage name>",
@@ -86,22 +86,15 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, Avro et Binaire**, voir la section [Jeu de données au format Parquet, Texte délimité, Avro ou Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données vers et à partir des **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FileServerLocation**. | OUI      |
 | folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Nom de fichier dans le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
->
-> Le jeu de données de type **FileShare** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -129,9 +122,10 @@ Pour copier des données vers et à partir des **formats Parquet, de texte déli
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour la copie de données vers et à partir de Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -185,12 +179,9 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="azure-file-storage-as-source"></a>Stockage Fichier Azure en tant que source
 
-- Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Source au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données à partir du **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -201,9 +192,6 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur Null, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -246,9 +234,10 @@ Pour copier des données à partir du **format Parquet, de texte délimité, JSO
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour la copie de données à partir de Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -290,21 +279,15 @@ Pour la copie de données à partir de Stockage Fichier Azure au **format ORC**,
 
 ### <a name="azure-file-storage-as-sink"></a>Stockage Fichier Azure en tant que récepteur
 
-- Pour copier des données au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous à la section [Récepteur au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-sink).
-- Pour copier des données vers d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Récepteur au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données au **format Parquet, de texte délimité, JSON, Avro ou binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
+Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerWriteSetting**. | OUI      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, le récepteur de l’activité de copie de type **FileSystemSink** mentionnée dans la section suivante est toujours prise en charge pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -341,9 +324,10 @@ Pour copier des données au **format Parquet, de texte délimité, JSON, Avro ou
 ]
 ```
 
-#### <a name="other-format-sink"></a>Autres formats de récepteur
+#### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
-Pour la copie de données vers Stockage Fichier Azure au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
+>[!NOTE]
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -409,15 +393,15 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, voir [Activité Lookup](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
 
-Pour en savoir plus sur les propriétés, voir [Activité GetMetadata](control-flow-get-metadata-activity.md). 
+Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
 
 ## <a name="delete-activity-properties"></a>Propriétés de l’activité Delete
 
-Pour en savoir plus sur les propriétés, voir [Activité Delete](delete-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

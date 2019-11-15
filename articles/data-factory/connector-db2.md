@@ -1,5 +1,5 @@
 ---
-title: Copier des données de DB2 à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données à partir de DB2 avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de DB2 vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d89b4018da7c50127fc38219c6cb799a89509258
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: dad28da0b481467633bebf664fea2be39a50200b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092125"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681049"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -207,7 +207,7 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | LongVarChar |Chaîne |
 | LongVarGraphic |Chaîne |
 | Chiffre |Decimal |
-| Real |Single |
+| Real |Unique |
 | SmallInt |Int16 |
 | Temps |TimeSpan |
 | Timestamp |DateTime |

@@ -1,5 +1,5 @@
 ---
-title: Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs
+title: Copier des données avec l’outil Copier des données d’Azure
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier des données depuis un emplacement dans un stockage d’objets Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
-ms.openlocfilehash: b330c6010ddb5401dbf9753c2ea91bfeedf35c3b
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 64f2c989d6ccb4b3ade96065836e1b1f2439e6f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020050"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684552"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Démarrage rapide : Utiliser l’outil Copier des données pour copier des données
 
@@ -35,9 +35,14 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
-1. Sélectionnez **Créer une ressource** dans le menu de gauche, sélectionnez **Analytique**, puis **Data Factory**. 
-   
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**.
+
+    ![Créer une ressource à partir du menu du Portail Azure](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
+
+1. Sélectionnez **Analytics**, puis sélectionnez **Data Factory**.
+
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+
 1. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
  
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, **&lt;votrenom&gt;ADFTutorialDataFactory**), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.

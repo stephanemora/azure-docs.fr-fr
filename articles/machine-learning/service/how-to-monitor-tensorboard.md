@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489641"
+ms.locfileid: "73574292"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,13 +28,16 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
 
 + Pour les expériences qui ne génèrent pas en mode natif des fichiers consommables par TensorBoard, comme les expériences Scikit-learn ou Azure Machine Learning, utilisez [la méthode `export_to_tensorboard()`](#export) pour exporter les historiques des exécutions en tant que journaux TensorBoard et lancer TensorBoard à partir de là. 
 
+> [!TIP]
+> Les informations contenues dans ce document sont principalement destinées aux scientifiques des données et aux développeurs qui veulent superviser le processus d’entraînement du modèle. Si vous êtes un administrateur intéressé par la supervision de l’utilisation des ressources et des événements d’Azure Machine Learning, comme les quotas, les exécutions d’entraînement réalisées ou les déploiements de modèles terminés, consultez [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## <a name="prerequisites"></a>Prérequis
 
 * Pour lancer TensorBoard et afficher les historiques des exécutions de vos expériences, la journalisation doit avoir été activée pour celles-ci afin d’effectuer le suivi des métriques et performances.  
 
-* Le code dans cette procédure peut être exécuté dans l’un des environnements suivants : 
+* Le code de ce document peut être exécuté dans l’un des environnements suivants : 
 
-    * Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
+    * Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
         * Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
 
@@ -216,7 +219,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Exécuter l’expérience et consigner les métriques
 
-Pour ce code, nous entraînons un modèle de régression linéaire et consignons des métriques clés, le coefficient alpha `alpha` et l’erreur quadratique moyenne `mse` dans l’historique des exécutions.
+Pour ce code, nous entraînons un modèle de régression linéaire et nous consignons des métriques clés, le coefficient alpha `alpha` et l’erreur quadratique moyenne `mse` dans l’historique des exécutions.
 
 ```Python
 from tqdm import tqdm

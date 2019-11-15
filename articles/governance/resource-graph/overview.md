@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755888"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622530"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Vue d’ensemble du service Azure Resource Graph
 
@@ -92,7 +92,9 @@ Resource Graph prend en charge Azure CLI, Azure PowerShell, le kit Azure SDK pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Exécutez votre première requête en utilisant le [portail Azure](first-query-portal.md).
 - Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md).
 - Exécuter votre première requête avec [Azure PowerShell](first-query-powershell.md).
+- Obtenir plus d’informations sur le [langage de requête](./concepts/query-language.md).
 - Commencer des [requêtes de démarrage](./samples/starter.md).
 - Aller plus loin avec des [requêtes avancées](./samples/advanced.md).

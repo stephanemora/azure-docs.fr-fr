@@ -3,21 +3,22 @@ title: Comprendre les résultats des ML automatisés
 titleSuffix: Azure Machine Learning
 description: Apprenez à visualiser et à comprendre les graphiques et les métriques pour chacune de vos exécutions de Machine Learning automatisées.
 services: machine-learning
-author: nilesha
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 11/04/2019
+ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571402"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous apprenez à visualiser et à comprendre les graphiques et les métriques pour chacune de vos exécutions de Machine Learning automatisées. 
 
@@ -30,14 +31,14 @@ Pour en savoir plus :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Créez une expérience pour votre exécution de machine learning automatisé, que ce soit avec le kit SDK, sur le portail Azure ou dans la page de destination de votre espace de travail (préversion).
+* Créez une expérience pour votre exécution de machine learning automatisé, que ce soit avec le SDK ou dans Azure Machine Learning Studio.
 
     * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
-    * Utilisez [le portail Azure ou la page d’accueil de votre espace de travail (préversion)](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
+    * Utilisez [Azure Machine Learning Studio](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
 
 ## <a name="view-the-run"></a>Afficher l’exécution
 
-Après avoir exécuté une expérience de Machine Learning automatisée, vous trouverez un historique des exécutions dans votre espace de travail de service de Machine Learning. 
+Après avoir exécuté une expérience de machine learning automatisé, un historique des exécutions est disponible dans votre espace de travail de Machine Learning. 
 
 1. Accédez à votre espace de travail.
 
@@ -49,11 +50,11 @@ Après avoir exécuté une expérience de Machine Learning automatisée, vous tr
 
    [![Liste d’expériences](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. Dans la table du bas, sélectionnez le **numéro d’exécution**.
+1. Dans la table du bas, sélectionnez l’**Exécution**.
 
    [![Exécution de l’expérience](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. Dans la table des itérations, sélectionnez le **numéro d’itération** du modèle que vous souhaitez explorer.
+1. Dans les modèles, sélectionnez le **Nom de l’algorithme** pour le modèle que vous voulez explorer plus en détail.
 
    [![Modèle d’expérience](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
@@ -90,12 +91,12 @@ f1_score_micro|Le score F1 est la moyenne harmonique de la précision et du rapp
 f1_score_weighted|Le score F1 est la moyenne harmonique de la précision et du rappel. Moyenne pondérée par fréquence de classe du score F1 pour chaque classe|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
 log_loss|Il s’agit de la fonction de perte utilisée dans la régression logistique (multinomiale) et les extensions de celle-ci, comme les réseaux neuronaux, définie comme la probabilité logarithmique négative des étiquettes réelles, étant données les prédictions d’un classifieur probabiliste. Pour un échantillon unique avec l’étiquette vraie yt dans {0,1} et la probabilité estimée yp que yt = 1, la perte logarithmique est - -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Aucun|
 norm_macro_recall|Le rappel macro normalisé est tel que la performance aléatoire ait un score de 0 et la performance parfaite ait un score de 1. Ceci est réalisé par norm_macro_recall := (recall_score_macro - R)/(1 - R), où R est la valeur attendue de recall_score_macro pour des prédictions aléatoires (c’est-à-dire R=0,5 pour la classification binaire et R=(1/C) pour les problèmes de classification de classe C).|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "macro" |
-precision_score_macro|La précision est le pourcentage d’éléments étiquetés comme classe certaine et qui sont réellement dans cette classe. « Macro » est la moyenne arithmétique de la précision pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
-precision_score_micro|La précision est le pourcentage d’éléments étiquetés comme classe certaine et qui sont réellement dans cette classe. « Micro » est calculé globalement en comptant le total des vrais positifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|La précision est le pourcentage d’éléments étiquetés comme classe certaine et qui sont réellement dans cette classe. « Weighted » est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
-recall_score_macro|Le rappel est le pourcentage d’éléments qui sont réellement dans une classe certaine et qui sont correctement étiquetés. « Macro » est la moyenne arithmétique du rappel pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-recall_score_micro|Le rappel est le pourcentage d’éléments qui sont réellement dans une classe certaine et qui sont correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Le rappel est le pourcentage d’éléments qui sont réellement dans une classe certaine et qui sont correctement étiquetés. « Weighted » est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
+precision_score_macro|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Macro » est la moyenne arithmétique de la précision pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
+precision_score_micro|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
+precision_score_weighted|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Weighted » est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
+recall_score_macro|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Macro » est la moyenne arithmétique du rappel pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
+recall_score_micro|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
+recall_score_weighted|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Weighted » est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|La précision pondérée est la précision où le poids donné à chaque exemple est égal à la proportion d’instances « true » dans la classe « true » de cet exemple.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight est un vecteur égal à la proportion de cette classe pour chaque élément dans la cible|
 
 ### <a name="confusion-matrix"></a>Matrice de confusion
@@ -212,7 +213,7 @@ Vous pouvez consulter le score d’importance des fonctionnalités pour le modè
 
 ![Explication des fonctionnalités](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-Pour plus d'informations sur l'activation des fonctionnalités d'interprétabilité, voir [Configurer des expériences ML automatisées dans Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  Pour obtenir un exemple décrivant le meilleur modèle, voir [Meilleure explication de modèle](how-to-auto-train-remote.md#explain).
+Pour plus d’informations sur l’activation des caractéristiques d’interprétabilité, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md) sur l’activation de l’interprétabilité dans des expériences de machine learning automatisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

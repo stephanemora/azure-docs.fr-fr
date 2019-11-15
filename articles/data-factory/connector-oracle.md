@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis et vers Oracle à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis et vers Oracle à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser Data Factory pour copier des données de banque de données sources prises en charge vers une base de données Oracle, ou à partir d’Oracle vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 318014ec10bda0fa0ead9787067bb30f57707930
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008575"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680505"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -75,6 +75,12 @@ Le service lié Oracle prend en charge les propriétés suivantes :
 
 >[!TIP]
 >En cas d’erreur, « ORA-01025 : UPI parameter out of range » et que votre version d’Oracle est 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
+
+Autres propriétés de connexion que vous pouvez définir dans la chaîne de connexion selon votre cas :
+
+| Propriété | Description | Valeurs autorisées |
+|:--- |:--- |:--- |
+| ArraySize |Nombre d’octets que le connecteur peut extraire dans un aller-retour réseau. Par exemple, `ArraySize=‭10485760‬`.<br/><br/>Des valeurs plus élevées augmentent le débit en réduisant le nombre de fois que des données sont extraites sur le réseau. Des valeurs réduites augmentent le temps de réponse, car il y a moins de retard à attendre que le serveur transmette les données. | Entier compris entre 1 et 4294967296 (4 Go). La valeur par défaut est `60000`. La valeur 1 ne définit pas le nombre d’octets, mais indique une allocation d’espace pour une seule ligne de données. |
 
 Pour activer le chiffrement sur la connexion Oracle, deux options s’offrent à vous :
 

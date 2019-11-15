@@ -1,5 +1,5 @@
 ---
-title: Transformation d’agrégation dans le flux de données de mappage Azure Data Factory | Microsoft Docs
+title: Transformation d’agrégation dans le flux de données de mappage Azure Data Factory
 description: Découvrez comment agréger des données à grande échelle dans Azure Data Factory avec la transformation d’agrégation de flux de données de mappage.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514832"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676909"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformation d’agrégation dans le flux de données de mappage 
 

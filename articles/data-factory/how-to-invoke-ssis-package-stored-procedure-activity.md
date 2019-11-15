@@ -1,5 +1,5 @@
 ---
-title: Exécuter le package SSIS avec l’activité de procédure stockée - Azure | Microsoft Docs
+title: Exécuter le package SSIS avec l’activité de procédure stockée - Azure
 description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3bfef0d787d8289055ab80e2ac30408dd7a13fb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154923"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673756"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 

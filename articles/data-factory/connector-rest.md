@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir d’une source REST à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données d’une source REST à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source REST dans le cloud ou locale vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6bb597ab49050c2bb365379cfac44f4b4d176af1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276623"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680404"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 

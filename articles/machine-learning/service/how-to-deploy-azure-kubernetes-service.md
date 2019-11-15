@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 11/06/2019
+ms.openlocfilehash: 9055223d1e4ed056ad606533219925972b623f86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299687"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682126"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur Azure Kubernetes service (AKS). Azure Kubernetes Service est idéal pour les déploiements de production à grande échelle. Utilisez Azure Kubernetes Service si vous avez besoin d’une ou de plusieurs des fonctionnalités suivantes :
 
@@ -30,8 +31,8 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 
 Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un cluster AKS qui est __connecté à votre espace de travail__. Il existe deux façons de connecter un cluster AKS à votre espace de travail :
 
-* Créez le cluster AKS à l’aide du kit SDK Azure Machine Learning, de l’interface de ligne de commande Machine Learning, du [Portail Azure](https://portal.azure.com) ou de la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com). Ce processus connecte automatiquement le cluster à l’espace de travail.
-* Attachez un cluster AKS existant à votre espace de travail Azure Machine Learning. Un cluster peut être attaché au moyen du Kit de développement logiciel (SDK) Azure Machine Learning, de l’interface de ligne de commande Machine Learning ou du Portail Azure.
+* Créez le cluster AKS à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning, de l’interface de ligne de commande Machine Learning ou d’[Azure Machine Learning Studio](https://ml.azure.com). Ce processus connecte automatiquement le cluster à l’espace de travail.
+* Attachez un cluster AKS existant à votre espace de travail Azure Machine Learning. Un cluster peut être attaché au moyen du Kit de développement logiciel (SDK) Azure Machine Learning, de l’interface de ligne de commande Machine Learning ou d’Azure Machine Learning Studio.
 
 > [!IMPORTANT]
 > Le processus de création ou d’attachement est une tâche unique. Une fois qu’un cluster AKS est connecté à l’espace de travail, vous pouvez l’utiliser pour les déploiements. Vous pouvez détacher ou supprimer le cluster AKS si vous n’en avez plus besoin. Une fois détaché ou supprimé, vous ne pourrez plus déployer sur le cluster.
@@ -93,7 +94,7 @@ aks_target.wait_for_completion(show_output = True)
 > [!IMPORTANT]
 > Pour [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si vous choisissez des valeurs personnalisées pour `agent_count` et `vm_size` que `cluster_purpose` n’est pas `DEV_TEST`, vous devez vous assurer que `agent_count` multiplié par `vm_size` est supérieur ou égal à 12 processeurs virtuels. Par exemple, si vous définissez une `vm_size` sur « Standard_D3_v2 », qui comporte 4 processeurs virtuels, vous devez en définir `agent_count` sur 3 ou plus.
 >
-> Le kit de développement logiciel (SDK) Azure Machine Learning ne prend pas en charge la mise à l’échelle d'un cluster AKS. Pour mettre à l'échelle les nœuds du cluster, utilisez l’interface utilisateur de votre cluster AKS dans le portail Azure. Vous pouvez modifier le nombre de nœuds, mais pas la taille de machine virtuelle du cluster.
+> Le kit de développement logiciel (SDK) Azure Machine Learning ne prend pas en charge la mise à l’échelle d'un cluster AKS. Pour mettre à l’échelle les nœuds du cluster, utilisez l’interface utilisateur de votre cluster AKS dans Azure Machine Learning Studio. Vous pouvez modifier le nombre de nœuds, mais pas la taille de machine virtuelle du cluster.
 
 Pour plus d’informations sur les classes, les méthodes et les paramètres utilisés dans cet exemple, consultez les documents de référence suivants :
 
@@ -121,12 +122,16 @@ Si vous avez déjà un cluster AKS d’une version inférieure à 1.14 dans votr
 >
 > Si vous souhaitez sécuriser votre cluster AKS à l’aide d’un réseau virtuel Azure, vous devez commencer par créer le réseau virtuel. Pour plus d’informations, voir [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md#aksvnet).
 
+Quand vous attachez un cluster AKS à un espace de travail, vous pouvez spécifier la façon dont vous allez l’utiliser en définissant le paramètre `cluster_purpose`.
+
+Si vous ne définissez pas le paramètre `cluster_purpose`, ou `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, le cluster doit avoir au moins 12 processeurs virtuels disponibles.
+
+Si vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, le cluster n’a pas besoin d’autant de processeurs virtuels. Nous vous recommandons d’utiliser au moins 2 processeurs virtuels pour le développement/test. Toutefois, un cluster configuré pour le développement/test n’est pas approprié pour le trafic de production et peut augmenter les temps d’inférence. Par ailleurs, les clusters de développement/test ne garantissent pas une tolérance de panne.
+
 > [!WARNING]
-> Quand vous attachez un cluster AKS à un espace de travail, vous pouvez spécifier la façon dont vous allez l’utiliser en définissant le paramètre `cluster_purpose`.
+> Ne créez pas plusieurs attachements en même temps dans le même cluster AKS depuis votre espace de travail. Par exemple, l’attachement d’un cluster AKS à un espace de travail en utilisant deux noms différents. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 >
-> Si vous ne définissez pas le paramètre `cluster_purpose`, ou `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, le cluster doit avoir au moins 12 processeurs virtuels disponibles.
->
-> Si vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, le cluster n’a pas besoin d’autant de processeurs virtuels. Nous vous recommandons d’utiliser au moins 2 processeurs virtuels pour le développement/test. Toutefois, un cluster configuré pour le développement/test n’est pas approprié pour le trafic de production et peut augmenter les temps d’inférence. Par ailleurs, les clusters de développement/test ne garantissent pas une tolérance de panne.
+> Si vous voulez réattacher un cluster AKS, par exemple pour changer le paramètre de configuration SSL ou un autre paramètre de configuration de cluster, vous devez d’abord supprimer l’attachement existant en utilisant [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Pour plus d’informations sur la création d’un cluster AKS à l’aide de l’interface de ligne de commande Azure ou du portail, consultez les articles suivants :
 
@@ -226,6 +231,69 @@ Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer 
 
 > [!IMPORTANT] 
 > Le déploiement via VS Code nécessite que le cluster AKS soit créé ou attaché à votre espace de travail à l’avance.
+
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Déployer des modèles sur AKS à l’aide d’un déploiement contrôlé (préversion)
+Analyser et promouvoir des versions de modèle de manière contrôlée à l’aide de points de terminaison. Déployez jusqu’à 6 versions derrière un point de terminaison unique et configurez le pourcentage du trafic de notation sur chaque version déployée. Vous pouvez activer App Insights pour afficher les métriques opérationnelles des points de terminaison et des versions déployées.
+
+### <a name="create-an-endpoint"></a>Création d’un point de terminaison
+Une fois que vous êtes prêt à déployer vos modèles, créez un point de terminaison de notation et déployez votre première version. L’étape ci-dessous montre comment déployer et créer le point de terminaison à l’aide du kit de développement logiciel (SDK). Le premier déploiement sera défini comme la version par défaut, ce qui signifie qu’un centile de trafic non spécifié dans toutes les versions passera à la version par défaut.  
+
+```python
+import azureml.core,
+from azureml.core.webservice import AksEndpoint
+from azureml.core.compute import AksCompute
+from azureml.core.compute import ComputeTarget
+# select a created compute
+compute = ComputeTarget(ws, 'myaks')
+namespace_name= endpointnamespace 
+# define the endpoint and version name
+endpoint_name = "mynewendpoint",
+version_name= "versiona",
+# create the deployment config and define the scoring traffic percentile for the first deployment
+endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
+                                                              enable_app_insights = true, 
+                                                              tags = {'sckitlearn':'demo'},
+                                                              decription = testing versions,
+                                                              version_name = version_name,
+                                                              traffic_percentile = 20)
+ # deploy the model and endpoint
+ endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ ```
+
+### <a name="update-and-add-versions-to-an-endpoint"></a>Mettre à jour un point de terminaison et y ajouter des versions
+
+Ajoutez une autre version à votre point de terminaison et configurez le centile de trafic de notation passant à la version. Il existe deux types de versions : version de contrôle et version de traitement. Il peut y avoir plusieurs versions de traitement pour faciliter la comparaison avec une version de contrôle unique. 
+
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# add another model deployment to the same endpoint as above
+version_name_add = "versionb" 
+endpoint.create_version(version_name = version_name_add, 
+                        inference_config=inference_config,
+                        models=[model], 
+                        tags = {'modelVersion':'b'}, 
+                        description = "my second version", 
+                        traffic_percentile = 10)
+```
+
+Mettez à jour les versions existantes ou supprimez-les dans un point de terminaison. Vous pouvez modifier le type par défaut, le type de contrôle et le centile de trafic de la version. 
+ 
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# update the version's scoring traffic percentage and if it is a default or control type 
+endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
+                        description="my second version update", 
+                        traffic_percentile=40,
+                        is_default=True,
+                        is_control_version_type=True)
+
+# delete a version in an endpoint 
+endpoint.delete_version(version_name="versionb")
+
+```
+
 
 ## <a name="web-service-authentication"></a>Authentification de service web
 

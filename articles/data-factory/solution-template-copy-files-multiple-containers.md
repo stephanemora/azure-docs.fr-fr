@@ -1,5 +1,5 @@
 ---
-title: Copier des fichiers issus de plusieurs conteneurs à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des fichiers issus de différents conteneurs à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser un modèle de solution pour copier des fichiers provenant de plusieurs conteneurs à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635135"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684266"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copier des fichiers issus de plusieurs conteneurs avec Azure Data Factory
 

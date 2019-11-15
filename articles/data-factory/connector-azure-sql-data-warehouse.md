@@ -1,5 +1,5 @@
 ---
-title: Copier des données dans et à partir d’Azure SQL Data Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers et à partir d’Azure SQL Data Warehouse avec Azure Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de magasins de données sources pris en charge vers SQL Data Warehouse ou de SQL Data Warehouse vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387911"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681150"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -618,7 +618,7 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Data Warehouse, l
 | nchar                                 | String, Char[]                 |
 | numeric                               | Decimal                        |
 | nvarchar                              | String, Char[]                 |
-| real                                  | Single                         |
+| real                                  | Unique                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | Datetime                       |
 | smallint                              | Int16                          |

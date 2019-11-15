@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis Office 365 avec Azure Data Factory | Microsoft Docs
+title: Copier des données depuis Office 365 avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475653"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680567"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
 
@@ -119,13 +119,10 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **Office365Table** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **Office365Table** | OUI |
 | tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | OUI |
-| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données sont retournées pour toute l’organisation. | Non |
-| userScopeFilterUri | Lorsque la propriété `allowedGroups` n’est pas spécifiée, vous pouvez utiliser une expression de prédicat appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire d’Office 365. Le format de prédicat doit correspondre au format de requête des API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
-| dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pendant lequel les données Office 365 sont extraites. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Reportez-vous [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour obtenir la liste des jeux de données qui nécessitent ce filtre de date/heure. |
-| startTime | Valeur de date/heure de début sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
-| endTime | Valeur de date/heure de fin sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
+
+Si vous avez défini `dateFilterColumn`, `startTime`, `endTime` et `userScopeFilterUri` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
 
 **Exemple**
 
@@ -138,189 +135,9 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
             "referenceName": "<Office 365 linked service name>",
             "type": "LinkedServiceReference"
         },
-        "structure": [
-            {
-                "name": "Id",
-                "type": "String",
-                "description": "The unique identifier of the event."
-            },
-            {
-                "name": "CreatedDateTime",
-                "type": "DateTime",
-                "description": "The date and time that the event was created."
-            },
-            {
-                "name": "LastModifiedDateTime",
-                "type": "DateTime",
-                "description": "The date and time that the event was last modified."
-            },
-            {
-                "name": "ChangeKey",
-                "type": "String",
-                "description": "Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object."
-            },
-            {
-                "name": "Categories",
-                "type": "String",
-                "description": "The categories associated with the event. Format: ARRAY<STRING>"
-            },
-            {
-                "name": "OriginalStartTimeZone",
-                "type": "String",
-                "description": "The start time zone that was set when the event was created. See DateTimeTimeZone for a list of valid time zones."
-            },
-            {
-                "name": "OriginalEndTimeZone",
-                "type": "String",
-                "description": "The end time zone that was set when the event was created. See DateTimeTimeZone for a list of valid time zones."
-            },
-            {
-                "name": "ResponseStatus",
-                "type": "String",
-                "description": "Indicates the type of response sent in response to an event message. Format: STRUCT<Response: STRING, Time: STRING>"
-            },
-            {
-                "name": "iCalUId",
-                "type": "String",
-                "description": "A unique identifier that is shared by all instances of an event across different calendars."
-            },
-            {
-                "name": "ReminderMinutesBeforeStart",
-                "type": "Int32",
-                "description": "The number of minutes before the event start time that the reminder alert occurs."
-            },
-            {
-                "name": "IsReminderOn",
-                "type": "Boolean",
-                "description": "Set to true if an alert is set to remind the user of the event."
-            },
-            {
-                "name": "HasAttachments",
-                "type": "Boolean",
-                "description": "Set to true if the event has attachments."
-            },
-            {
-                "name": "Subject",
-                "type": "String",
-                "description": "The text of the event's subject line."
-            },
-            {
-                "name": "Body",
-                "type": "String",
-                "description": "The body of the message associated with the event.Format: STRUCT<ContentType: STRING, Content: STRING>"
-            },
-            {
-                "name": "Importance",
-                "type": "String",
-                "description": "The importance of the event: Low, Normal, High."
-            },
-            {
-                "name": "Sensitivity",
-                "type": "String",
-                "description": "Indicates the level of privacy for the event: Normal, Personal, Private, Confidential."
-            },
-            {
-                "name": "Start",
-                "type": "String",
-                "description": "The start time of the event. Format: STRUCT<DateTime: STRING, TimeZone: STRING>"
-            },
-            {
-                "name": "End",
-                "type": "String",
-                "description": "The date and time that the event ends. Format: STRUCT<DateTime: STRING, TimeZone: STRING>"
-            },
-            {
-                "name": "Location",
-                "type": "String",
-                "description": "Location information of the event. Format: STRUCT<DisplayName: STRING, Address: STRUCT<Street: STRING, City: STRING, State: STRING, CountryOrRegion: STRING, PostalCode: STRING>, Coordinates: STRUCT<Altitude: DOUBLE, Latitude: DOUBLE, Longitude: DOUBLE, Accuracy: DOUBLE, AltitudeAccuracy: DOUBLE>>"
-            },
-            {
-                "name": "IsAllDay",
-                "type": "Boolean",
-                "description": "Set to true if the event lasts all day. Adjusting this property requires adjusting the Start and End properties of the event as well."
-            },
-            {
-                "name": "IsCancelled",
-                "type": "Boolean",
-                "description": "Set to true if the event has been canceled."
-            },
-            {
-                "name": "IsOrganizer",
-                "type": "Boolean",
-                "description": "Set to true if the message sender is also the organizer."
-            },
-            {
-                "name": "Recurrence",
-                "type": "String",
-                "description": "The recurrence pattern for the event. Format: STRUCT<Pattern: STRUCT<Type: STRING, `Interval`: INT, Month: INT, DayOfMonth: INT, DaysOfWeek: ARRAY<STRING>, FirstDayOfWeek: STRING, Index: STRING>, `Range`: STRUCT<Type: STRING, StartDate: STRING, EndDate: STRING, RecurrenceTimeZone: STRING, NumberOfOccurrences: INT>>"
-            },
-            {
-                "name": "ResponseRequested",
-                "type": "Boolean",
-                "description": "Set to true if the sender would like a response when the event is accepted or declined."
-            },
-            {
-                "name": "ShowAs",
-                "type": "String",
-                "description": "The status to show: Free, Tentative, Busy, Oof, WorkingElsewhere, Unknown."
-            },
-            {
-                "name": "Type",
-                "type": "String",
-                "description": "The event type: SingleInstance, Occurrence, Exception, SeriesMaster."
-            },
-            {
-                "name": "Attendees",
-                "type": "String",
-                "description": "The collection of attendees for the event. Format: ARRAY<STRUCT<EmailAddress: STRUCT<Name: STRING, Address: STRING>, Status: STRUCT<Response: STRING, Time: STRING>, Type: STRING>>"
-            },
-            {
-                "name": "Organizer",
-                "type": "String",
-                "description": "The organizer of the event. Format: STRUCT<EmailAddress: STRUCT<Name: STRING, Address: STRING>>"
-            },
-            {
-                "name": "WebLink",
-                "type": "String",
-                "description": "The URL to open the event in Outlook Web App."
-            },
-            {
-                "name": "Attachments",
-                "type": "String",
-                "description": "The FileAttachment and ItemAttachment attachments for the message. Navigation property. Format: ARRAY<STRUCT<LastModifiedDateTime: STRING, Name: STRING, ContentType: STRING, Size: INT, IsInline: BOOLEAN, Id: STRING>>"
-            },
-            {
-                "name": "BodyPreview",
-                "type": "String",
-                "description": "The preview of the message associated with the event. It is in text format."
-            },
-            {
-                "name": "Locations",
-                "type": "String",
-                "description": "The locations where the event is held or attended from. The location and locations properties always correspond with each other. Format:  ARRAY<STRUCT<DisplayName: STRING, Address: STRUCT<Street: STRING, City: STRING, State: STRING, CountryOrRegion: STRING, PostalCode: STRING>, Coordinates: STRUCT<Altitude: DOUBLE, Latitude: DOUBLE, Longitude: DOUBLE, Accuracy: DOUBLE, AltitudeAccuracy: DOUBLE>, LocationEmailAddress: STRING, LocationUri: STRING, LocationType: STRING, UniqueId: STRING, UniqueIdType: STRING>>"
-            },
-            {
-                "name": "OnlineMeetingUrl",
-                "type": "String",
-                "description": "A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting"
-            },
-            {
-                "name": "OriginalStart",
-                "type": "DateTime",
-                "description": "The start time that was set when the event was created in UTC time."
-            },
-            {
-                "name": "SeriesMasterId",
-                "type": "String",
-                "description": "The ID for the recurring series master item, if this event is part of a recurring series."
-            }
-        ],
+        "schema": [],
         "typeProperties": {
-            "tableName": "BasicDataSet_v0.Event_v1",
-            "dateFilterColumn": "CreatedDateTime",
-            "startTime": "2019-04-28T16:00:00.000Z",
-            "endTime": "2019-05-05T16:00:00.000Z",
-            "userScopeFilterUri": "https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'"
+            "tableName": "BasicDataSet_v0.Event_v1"
         }
     }
 }
@@ -332,7 +149,17 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="office-365-as-source"></a>Office 365 comme source
 
-Pour copier des données depuis Office 365, définissez le type de source dans l’activité de copie sur **Office365Source**. Aucune autre propriété n’est prise en charge dans la section **source** de l’activité de copie.
+Pour copier des données à partir d’Office 365, les propriétés prises en charge dans la section **source** de l'activité de copie sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **Office365Source** | OUI |
+| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données sont retournées pour toute l’organisation. | Non |
+| userScopeFilterUri | Lorsque la propriété `allowedGroups` n’est pas spécifiée, vous pouvez utiliser une expression de prédicat appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire d’Office 365. Le format de prédicat doit correspondre au format de requête des API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
+| dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pendant lequel les données Office 365 sont extraites. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Reportez-vous [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour obtenir la liste des jeux de données qui nécessitent ce filtre de date/heure. |
+| startTime | Valeur de date/heure de début sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
+| endTime | Valeur de date/heure de fin sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
+| outputColumns | Tableau des colonnes à copier dans le récepteur. | Non |
 
 **Exemple :**
 
@@ -355,7 +182,118 @@ Pour copier des données depuis Office 365, définissez le type de source dans l
         ],
         "typeProperties": {
             "source": {
-                "type": "Office365Source"
+                "type": "Office365Source",
+                "dateFilterColumn": "CreatedDateTime",
+                "startTime": "2019-04-28T16:00:00.000Z",
+                "endTime": "2019-05-05T16:00:00.000Z",
+                "userScopeFilterUri": "https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'",
+                "outputColumns": [
+                    {
+                        "name": "Id"
+                    },
+                    {
+                        "name": "CreatedDateTime"
+                    },
+                    {
+                        "name": "LastModifiedDateTime"
+                    },
+                    {
+                        "name": "ChangeKey"
+                    },
+                    {
+                        "name": "Categories"
+                    },
+                    {
+                        "name": "OriginalStartTimeZone"
+                    },
+                    {
+                        "name": "OriginalEndTimeZone"
+                    },
+                    {
+                        "name": "ResponseStatus"
+                    },
+                    {
+                        "name": "iCalUId"
+                    },
+                    {
+                        "name": "ReminderMinutesBeforeStart"
+                    },
+                    {
+                        "name": "IsReminderOn"
+                    },
+                    {
+                        "name": "HasAttachments"
+                    },
+                    {
+                        "name": "Subject"
+                    },
+                    {
+                        "name": "Body"
+                    },
+                    {
+                        "name": "Importance"
+                    },
+                    {
+                        "name": "Sensitivity"
+                    },
+                    {
+                        "name": "Start"
+                    },
+                    {
+                        "name": "End"
+                    },
+                    {
+                        "name": "Location"
+                    },
+                    {
+                        "name": "IsAllDay"
+                    },
+                    {
+                        "name": "IsCancelled"
+                    },
+                    {
+                        "name": "IsOrganizer"
+                    },
+                    {
+                        "name": "Recurrence"
+                    },
+                    {
+                        "name": "ResponseRequested"
+                    },
+                    {
+                        "name": "ShowAs"
+                    },
+                    {
+                        "name": "Type"
+                    },
+                    {
+                        "name": "Attendees"
+                    },
+                    {
+                        "name": "Organizer"
+                    },
+                    {
+                        "name": "WebLink"
+                    },
+                    {
+                        "name": "Attachments"
+                    },
+                    {
+                        "name": "BodyPreview"
+                    },
+                    {
+                        "name": "Locations"
+                    },
+                    {
+                        "name": "OnlineMeetingUrl"
+                    },
+                    {
+                        "name": "OriginalStart"
+                    },
+                    {
+                        "name": "SeriesMasterId"
+                    }
+                ]
             },
             "sink": {
                 "type": "BlobSink"

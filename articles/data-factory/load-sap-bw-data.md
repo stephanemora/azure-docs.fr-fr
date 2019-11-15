@@ -1,5 +1,5 @@
 ---
-title: Charger des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+title: Charger des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 description: Utiliser Azure Data Factory pour copier des données à partir de SAP Business Warehouse (BW)
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449698"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672646"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 

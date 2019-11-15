@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466426"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818546"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :
@@ -99,7 +99,7 @@ Si vous ne souhaitez pas configurer un mappage de champs explicite, assurez-vous
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous n’êtes pas déjà familiarisé avec la structure et le flux de travail de base de l’indexation d’objets BLOB, vous devez passer en revue [Indexation du stockage d’objets blob Azure avec la Recherche Azure](search-howto-index-json-blobs.md) en premier. Pour plus d’informations sur les modes d’analyse pour les différents types de contenu blob, consultez les articles suivants.
+Si vous n’êtes pas déjà familiarisé avec la structure et le workflow de base de l’indexation d’objets blob, vous devez d’abord passer en revue [Indexation de Stockage Blob Azure avec la Recherche cognitive Azure](search-howto-index-json-blobs.md). Pour plus d’informations sur les modes d’analyse pour les différents types de contenu blob, consultez les articles suivants.
 
 > [!div class="nextstepaction"]
 > [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md)

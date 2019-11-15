@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510462"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795958"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une instance Application Gateway existante
 
@@ -46,7 +46,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour installer Helm :
 
 1. Installez [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) et exécutez la commande suivante pour ajouter le package Helm `application-gateway-kubernetes-ingress` :
 
-    - Cluster AKS avec *contrôle d’accès en fonction du rôle activé*
+    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) activé*
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -54,7 +54,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour installer Helm :
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - Cluster AKS avec *contrôle d’accès en fonction du rôle désactivé*
+    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) désactivé*
 
     ```bash
     helm init
@@ -244,7 +244,7 @@ Veuillez __sauvegarder la configuration de votre instance Application Gateway__ 
 Le fichier zip que vous avez téléchargé aura des modèles JSON, des scripts bash et PowerShell que vous pouvez utiliser pour restaurer l’instance Application Gateway
 
 ### <a name="example-scenario"></a>Exemple de scénario
-Examinons une instance Application Gateway imaginaire, qui gère le trafic de 2 sites web :
+Examinons une instance Application Gateway imaginaire, qui gère le trafic de deux sites web :
   - `dev.contoso.com` - hébergé sur une nouvelle instance AKS à l’aide d’une instance Application Gateway et d’AGIC
   - `prod.contoso.com` - hébergé sur un [groupe de machines virtuelles identiques Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 

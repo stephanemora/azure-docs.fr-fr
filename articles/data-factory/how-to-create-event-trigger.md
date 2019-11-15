@@ -1,5 +1,5 @@
 ---
-title: Créer des déclencheurs basés sur un événement dans Azure Data Factory | Microsoft Docs
+title: Créer des déclencheurs basés sur un événement dans Azure Data Factory
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline en réponse à un événement.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: a2c046d4375b891d17d545edd804d0fa1da6ee75
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 7581831e846e6de835c261d3430a88f1dcee9eb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142351"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673698"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 

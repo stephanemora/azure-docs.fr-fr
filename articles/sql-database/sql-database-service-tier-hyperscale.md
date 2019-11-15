@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du niveau Hyperscale dans Azure SQL Database | Microsoft Docs
+title: Vue d’ensemble d’Hyperscale
 description: Cet article décrit le niveau de service Hyperscale dans le modèle d’achat vCore dans Azure SQL Database, et explique en quoi il diffère des niveaux de service Usage général et Critique pour l’entreprise.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: df6926a8f50d7ffb2765557cdf75ed6d09b3810b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428045"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821113"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -38,7 +38,7 @@ Le niveau de service Hyperscale dans Azure SQL Database fournit les fonctionnali
 
 - Prise en charge d’une taille de base de données pouvant atteindre 100 To
 - Sauvegardes de base de données quasi instantanées (basées sur des instantanés de fichiers conservés dans le Stockage Blob Azure), quel que soit leur taille, sans impact des E/S sur les ressources de calcul  
-- Restaurations de base de données rapides (basées sur des instantanés de fichiers) en minutes plutôt qu’en heures ou en jours (opération qui ne dépend pas de la taille des données)
+- Limite de restaurations dans le temps de base de données rapides (basées sur des instantanés de fichiers) en minutes plutôt qu’en heures ou en jours (opération qui ne dépend pas de la taille des données)
 - Meilleures performances générales en raison d’un débit de journal plus élevé et de temps de validation de transaction plus rapides, quels que soient les volumes de données
 - Augmentation rapide du nombre de nœuds (scale out) : vous pouvez provisionner un ou plusieurs nœuds en lecture seule pour décharger votre charge de travail de lecture et les utiliser comme serveurs de secours
 - Augmentation rapide de la puissance des ressources (scale up) : vous pouvez, en temps constant, augmenter la puissance de vos ressources de calcul pour prendre en charge des charges de travail lourdes quand vous en avez besoin, puis diminuer la puissance des ressources de calcul quand elles ne sont plus nécessaires.
@@ -47,7 +47,7 @@ Le niveau de service Hyperscale supprime de nombreuses limites pratiques traditi
 
 Par ailleurs, le temps nécessaire pour créer des sauvegardes de base de données ou pour augmenter ou diminuer la puissance n’est plus lié au volume de données de la base de données. Les bases de données Hyperscale peuvent être sauvegardées presque instantanément. Vous pouvez aussi mettre à l’échelle une base de données de plusieurs dizaines de téraoctets en quelques minutes. Cette fonctionnalité vous évite d’être limité par votre choix de configuration initial.
 
-Pour plus d’informations sur les tailles de calcul pour le niveau de service Hyperscale, consultez [Caractéristiques du niveau de service](sql-database-service-tiers-vcore.md#service-tier-characteristics).
+Pour plus d’informations sur les tailles de calcul pour le niveau de service Hyperscale, consultez [Caractéristiques du niveau de service](sql-database-service-tiers-vcore.md#service-tiers).
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>À qui est destiné le niveau de service Hyperscale
 
@@ -82,7 +82,7 @@ Contrairement aux moteurs de base de données traditionnels qui centralisaient t
 
 Le diagramme suivant illustre les différents types de nœuds dans une base de données Hyperscale :
 
-![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 Une base de données Hyperscale contient les différents types de composants suivants :
 
@@ -104,7 +104,7 @@ Stockage Azure contient tous les fichiers de données d’une base de données. 
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
-Comme les sauvegardes sont basées sur des instantanés de fichiers, elles sont quasi instantanées. La séparation du stockage et du calcul permet de pousser l’opération de sauvegarde/restauration vers la couche de stockage afin de réduire la charge de traitement sur le réplica de calcul principal. Ainsi, la sauvegarde de base de données n’a pas d’impact sur les performances du nœud de calcul principal. De même, les restaurations sont effectuées en rétablissant les instantanés de fichiers ; par conséquent, il ne s’agit pas d’une opération de taille de données. La restauration est une opération à temps constant, et même les bases de données de plusieurs téraoctets peuvent être restaurées en quelques minutes au lieu de plusieurs heures ou jours. La création de nouvelles bases de données en restaurant une sauvegarde existante tire également parti de cette fonctionnalité : la création de copies de base de données à des fins de développement ou de test, notamment des bases de données de plusieurs téraoctets, est réalisable en minutes.
+Comme les sauvegardes sont basées sur des instantanés de fichiers, elles sont quasi instantanées. La séparation du stockage et du calcul permet de pousser l’opération de sauvegarde/restauration vers la couche de stockage afin de réduire la charge de traitement sur le réplica de calcul principal. Ainsi, la sauvegarde de base de données n’a pas d’impact sur les performances du nœud de calcul principal. De même, les restaurations sont effectuées en rétablissant les instantanés de fichiers ; par conséquent, il ne s’agit pas d’une opération de taille de données. La restauration est une opération à temps constant, et même les bases de données de plusieurs téraoctets peuvent être restaurées en quelques minutes au lieu de plusieurs heures ou jours. La création de bases de données en restaurant une sauvegarde existante tire également parti de cette fonctionnalité : la création de copies de base de données dans le même serveur logique à des fins de développement ou de test, même pour des bases de données de plusieurs téraoctets, est réalisable en quelques minutes.
 
 ## <a name="scale-and-performance-advantages"></a>Avantages de scalabilité et de performances
 

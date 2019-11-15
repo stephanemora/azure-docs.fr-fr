@@ -2,19 +2,19 @@
 title: 'Démarrage rapide : Créer un index de recherche dans Node.js à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
 description: Exemple Node.js pour la Recherche cognitive Azure, qui illustre la création d’un index, le chargement des données et l’interrogation d’un index en JavaScript.
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787439"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719991"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Node.js à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -680,7 +680,7 @@ Exécutez le programme avec `node index.js`. À présent, en plus des étapes pr
 
 L’exemple utilise une petite quantité de données relatives à un hôtel. Elle est suffisante pour illustrer les bases de la création et de l’interrogation d’un index Recherche cognitive Azure.
 
-La classe **AzureSearchClient** encapsule la configuration, les URL et les requêtes HTTP de base pour le service de recherche. Le fichier **index.js** charge les données de configuration du service Recherche cognitive Azure ainsi que les données relatives à hôtel, qui vont être chargées pour l’indexation. De plus, dans sa fonction `run`, il ordonne et exécute les diverses opérations.
+La classe **AzureSearchClient** encapsule la configuration, les URL et les requêtes HTTP de base pour le service de recherche. Le fichier **index.js** charge les données de configuration du service Recherche cognitive Azure ainsi que les données relatives aux hôtels, qui vont être chargées pour l’indexation ; en outre, dans sa fonction `run`, il ordonne et exécute les différentes opérations.
 
 Le comportement global de la fonction `run` consiste à supprimer l’index Recherche cognitive Azure s’il existe, à créer l’index, à ajouter des données et à effectuer des requêtes.  
 

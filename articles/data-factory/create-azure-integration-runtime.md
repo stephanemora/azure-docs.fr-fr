@@ -1,5 +1,5 @@
 ---
-title: Créer un runtime d’intégration Azure dans Azure Data Factory | Microsoft Docs
+title: Créer un runtime d’intégration Azure dans Azure Data Factory
 description: Apprenez à créer un runtime d’intégration Azure dans Azure Data Factory, qui est utilisé pour copier des données et répartir des activités de transformation.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4b166ded3dcef4a89951eb81f7f1b321f89a0e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 898290f70777ca442bb8885d83064231c5486a7c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153394"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677260"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration, voir [Runtime d’intégration](concepts-integration-runtime.md).
@@ -36,7 +36,7 @@ Vous pouvez créer un runtime d’intégration à l’aide de la cmdlet PowerShe
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Pour un runtime d’intégration Azure, le type doit être défini sur **Géré**. Vous n’avez pas besoin de spécifier les détails du calcul, car il est entièrement géré de façon élastique dans le cloud. Spécifiez des détails de calcul tels que la taille de nœud et le nombre de nœuds lorsque vous souhaitez créer un runtime d’intégration Azure-SSIS. Pour plus d’informations, voir [Créer et configurer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md).
+Pour un runtime d’intégration Azure, le type doit être défini sur **Géré**. Vous n’avez pas besoin spécifier les détails du calcul, car il est entièrement géré de façon élastique dans le cloud. Spécifiez des détails de calcul tels que la taille de nœud et le nombre de nœuds lorsque vous souhaitez créer un runtime d’intégration Azure-SSIS. Pour plus d’informations, voir [Créer et configurer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md).
 
 Vous pouvez configurer un runtime d’intégration Azure existant pour modifier son emplacement à l’aide de la cmdlet PowerShell Set-AzDataFactoryV2IntegrationRuntime. Pour plus d’informations sur l’emplacement d’un runtime d’intégration Azure, voir [Présentation du runtime d’intégration](concepts-integration-runtime.md).
 

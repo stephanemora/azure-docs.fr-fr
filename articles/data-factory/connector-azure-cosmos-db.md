@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis ou vers Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers ou à partir d’Azure Cosmos DB (API SQL) avec Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers Azure Cosmos DB (API SQL), ou d’Azure Cosmos DB vers des banques de données réceptrices prises en charge.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 561f383327738c9a2ab29f2907f00ace1eec6def
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 74bec61cbb69b17afddeb5abc1df16d8c1140234
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010274"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681297"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier des données depuis ou vers Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 

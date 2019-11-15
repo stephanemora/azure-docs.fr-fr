@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir votre première base de données relationnelle dans Azure SQL Database avec SSMS | Microsoft Docs'
+title: 'Didacticiel : Concevoir votre première base de données relationnelle avec SSMS'
 description: Apprenez à concevoir votre première base de données relationnelle dans une base de données unique dans Azure SQL Database à l’aide de SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640940"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818299"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
 
@@ -52,7 +52,7 @@ Une base de données unique dans Azure SQL Database est créée avec un ensemble
 
 Suivez ces étapes pour créer une base de données unique vide.
 
-1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
@@ -97,21 +97,23 @@ Le service SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu e
 > [!IMPORTANT]
 > Le service SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à ce service à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre base de données unique, sauf si votre administrateur ouvre le port 1433.
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur *yourDatabase* dans la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le **nom complet du serveur** (par exemple, *yourserver.database.windows.net*) et fournit des options pour poursuivre la configuration.
+1. Une fois le déploiement terminé, sélectionnez **Bases de données SQL** dans le menu Portail Azure ou recherchez et sélectionnez *Bases de données SQL* à partir de n’importe quelle page.  
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et aux bases de données à partir de SQL Server Management Studio.
+1. Sélectionnez *YourDatabase* dans la page **Bases de données SQL**. La page d’aperçu de votre base de données s’ouvre. Elle affiche le **Nom du serveur** complet (par exemple `contosodatabaseserver01.database.windows.net`) et fournit des options pour poursuivre la configuration.
 
    ![nom du serveur](./media/sql-database-design-first-database/server-name.png)
 
-3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
+1. Copiez le nom complet du serveur pour vous connecter à votre serveur et aux bases de données à partir de SQL Server Management Studio.
+
+1. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
    ![règle de pare-feu IP au niveau du serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
+1. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+1. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
-6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+1. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
 Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenant vous connecter à votre base de données unique à l’aide de SQL Server Management Studio ou tout autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
 

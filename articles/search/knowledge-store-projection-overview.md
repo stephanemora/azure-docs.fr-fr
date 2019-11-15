@@ -1,25 +1,24 @@
 ---
 title: Utilisation de projections dans une base de connaissances (préversion)
 titleSuffix: Azure Cognitive Search
-description: Enregistrez et mettez en forme vos données enrichies du pipeline d’indexation d’enrichissement de l’IA pour mes utiliser dans des scénarios autres que de recherche en texte intégral.
+description: Enregistrez et mettez en forme vos données enrichies provenant du pipeline d’indexation d’enrichissement par IA dans une base de connaissances pour les utiliser dans des scénarios autres que ceux de recherche en texte intégral. La base de connaissances est actuellement en préversion publique.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789996"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720041"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilisation de projections dans une base de connaissances dans Recherche cognitive Azure
 
-> [!Note]
-> La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
->
+> [!IMPORTANT] 
+> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
 
 Recherche cognitive Azure permet l’enrichissement de contenu via des compétences cognitives intégrées et personnalisées dans le cadre de l’indexation. Les enrichissements renforcent la structure de vos documents et rendent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que de recherche, pour l’exploration de connaissances par exemple.
 

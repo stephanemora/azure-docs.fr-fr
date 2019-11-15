@@ -1,5 +1,5 @@
 ---
-title: Apprentissage du réseau neural d’apprentissage profond avec Keras
+title: Entraîner des modèles Keras de deep learning
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et enregistrer un modèle de classification de réseau neuronal profond Keras s’exécutant sur TensorFlow à l’aide d’Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb6bba26fd97a0219f183ffcc67e3e34e3973c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489459"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814871"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entraîner et enregistrer un modèle de classification Keras avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Pour plus d’informations sur les différences entre l’apprentissage automati
 
 Exécutez ce code sur l’un de ces environnements :
 
- - Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
+ - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
      - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
     - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras**.

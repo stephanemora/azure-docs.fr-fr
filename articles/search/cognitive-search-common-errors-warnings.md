@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bbaec55666b877e1d9343d8b80ea44a189c0c5b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806120"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erreurs et avertissements courants du pipeline d’enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -63,6 +63,8 @@ L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compét
 
 | Motif | Exemples | Action |
 | --- | --- | --- |
+| Un champ contient un terme trop grand | Votre document contient un terme qui dépasse la [limite de 32 Ko](search-limits-quotas-capacity.md#api-request-limits) | Vous pouvez éviter cette restriction en vérifiant que le champ n’est pas configuré comme étant filtrable, à choix multiple ou triable.
+| Le document est trop volumineux pour être indexé | Un document est plus volumineux que la [taille maximale de demande d’API](search-limits-quotas-capacity.md#api-request-limits) | [Indexer les jeux de données volumineux](search-howto-large-index.md)
 | Problèmes de connectivité temporaires | Une erreur temporaire s’est produite. Veuillez réessayer plus tard. | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 | Bogue potentiel du produit | Une erreur inattendue s’est produite. | Cela indique une classe de défaillance inconnue et peut signifier qu’il existe un bogue de produit. Pour obtenir de l’aide, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support). |
 | Une compétence a rencontré une erreur lors de son exécution | (à partir de Compétence Fusion) Une ou plusieurs valeurs de décalage n’étaient pas valides. Il n’a pas été possible de les analyser. Des éléments ont été insérés à la fin du texte | Utilisez les informations contenues dans le message d’erreur pour résoudre le problème. La résolution de ce type de défaillance nécessite une action. |
@@ -114,6 +116,7 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 | --- | --- | --- |
 | Votre document contient un terme qui dépasse la [limite de 32 Ko](search-limits-quotas-capacity.md#api-request-limits) | Un champ contient un terme trop grand | Vous pouvez éviter cette restriction en vérifiant que le champ n’est pas configuré comme étant filtrable, à choix multiple ou triable.
 | Un document est plus volumineux que la [taille maximale de demande d’API](search-limits-quotas-capacity.md#api-request-limits) | Le document est trop volumineux pour être indexé | [Indexer les jeux de données volumineux](search-howto-large-index.md)
+| Le document contient un trop grand nombre d’objets dans la collection | Une collection dans votre document dépasse la [limite maximale d’éléments pour toutes collections complexes](search-limits-quotas-capacity.md#index-limits) | Nous vous recommandons de réduire la taille de la collection complexe dans le document en dessous de la limite et d’éviter une utilisation intensive du stockage.
 | Difficultés à se connecter à l’index cible (qui persiste après les nouvelles tentatives), car le service est soumis à une autre charge, par exemple l’interrogation ou l’indexation. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est soumis à une charge importante. | [Effectuer le scale-up de votre service de recherche](search-capacity-planning.md)
 | Un correctif est appliqué au service de recherche en vue de sa mise à jour ou fait l’objet d’une reconfiguration de topologie. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est actuellement inopérant/Le service de recherche est en cours de transition. | Configurer le service avec au moins trois réplicas pour une disponibilité de 99,9 % selon la [documentation SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Échec dans la ressource de calcul/réseau sous-jacente (rare) | Échec de l’établissement d’une connexion pour mettre à jour l’index. Une erreur inconnue s’est produite. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec.
@@ -224,7 +227,12 @@ La possibilité de reprendre un travail d’indexation inachevé dépend de la d
 
 Il est possible de modifier ce comportement en activant la progression incrémentielle et en supprimant l’avertissement à l’aide de la propriété de configuration `assumeOrderByHighWatermarkColumn`.
 
-[Autres informations sur la progression incrémentielle de Cosmos DB et les requêtes personnalisées.](https://go.microsoft.com/fwlink/?linkid=2099593)
+Pour plus d’informations, consultez [Progression incrémentielle et requêtes personnalisées](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### <a name="truncated-extracted-text-to-x-characters"></a>Texte extrait tronqué à X caractères
+Les indexeurs limitent la quantité de texte qui peut être extraite d’un document. Cette limite dépend du niveau tarifaire : 32 000 caractères pour le niveau gratuit, 64 000 pour le niveau De base et 4 millions pour les niveaux Standard, Standard S2 et Standard S3. Le texte qui a été tronqué ne sera pas indexé. Pour éviter cet avertissement, essayez en scindant les documents avec de grandes quantités de texte en plusieurs documents plus petits. 
+
+Pour plus d’informations, consultez [Limites des indexeurs](search-limits-quotas-capacity.md#indexer-limits).
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>Impossible de mapper le champ de sortie « X » à l’index de recherche
 Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

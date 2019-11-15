@@ -1,5 +1,5 @@
 ---
-title: Formats de fichier pris en charge dans Azure Data Factory | Microsoft Docs
+title: Formats de fichier pris en charge dans Azure Data Factory
 description: Cette rubrique décrit les formats de fichier et les codes de compression pris en charge par les connecteurs basés sur des fichiers dans Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812315"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683978"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -474,6 +474,9 @@ Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L
 | CharArray | Non pris en charge | N/A | N/A |
 
 ## <a name="orc-format"></a>Format ORC
+
+>[!NOTE]
+>Data Factory a introduit un nouveau jeu de données au format ORC. Pour plus d’informations, consultez l’article [Format ORC](format-orc.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 Si vous souhaitez analyser des fichiers ORC ou écrire des données au format ORC, définissez la propriété `format` `type` sur **OrcFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
 

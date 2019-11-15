@@ -1,5 +1,5 @@
 ---
-title: Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs
+title: Copier des données avec l’outil d’Azure Copier des données
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis Stockage Blob Azure vers une base de données SQL.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683606"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -96,7 +96,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
 1. Sous **Version**, sélectionnez **V2** pour la version.
 1. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
     

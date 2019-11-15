@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fb16f6ef58efc5c63e743e557558dc60cf52f86
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510714"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684917"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Machine Learning
 
@@ -54,7 +54,7 @@ Le tableau suivant liste les propriétés des journaux de ressources Azure Machi
 | JobErrorMessage | Message détaillé de l’erreur du travail |
 | NodeId | ID du nœud créé sur lequel le travail s’exécute |
 
-### <a name="amlcomputerclusterevents-table"></a>Tableau AmlComputerClusterEvents
+### <a name="amlcomputeclusterevents-table"></a>Table AmlComputeClusterEvents
 
 | Propriété | Description |
 |:--- |:--- |

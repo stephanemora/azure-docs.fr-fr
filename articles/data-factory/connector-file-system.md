@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers/à partir d’un système de fichiers à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données d’un système de fichiers vers des banques de données réceptrices prises en charge (ou) depuis des banques de données sources prises en charge vers un système de fichiers à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: b22242ac617f8dca95941a489c38658f5721851a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a9770edd4e15263ed0ba10ea3dc99f704f078d38
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387292"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680996"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -100,21 +100,15 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, de texte délimité, JSON, Avro et binaire**, reportez-vous à la section [Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire](#format-based-dataset).
-- Pour les autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `location` dans le jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FileServerLocation**. | OUI      |
 | folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Nom de fichier dans le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
-> Le jeu de données de type **FileShare** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante, mais il ne fonctionne pas pour le mappage de flux de données. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -142,9 +136,10 @@ Pour copier des données vers et depuis les **formats Parquet, Texte délimité,
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour copier des données depuis et vers le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -198,25 +193,19 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="file-system-as-source"></a>Système de fichiers en tant que source
 
-- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, de texte délimité, JSON, Avro ou binaire
-
-Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans la source de copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerReadSetting**. | OUI                                           |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                            |
 | wildcardFolderPath       | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
-| wildcardFileName         | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
+| wildcardFileName         | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). (Notez que ceci remplace le paramètre fileName.) | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -259,9 +248,10 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour copier des données depuis le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -303,21 +293,15 @@ Pour copier des données depuis le système de fichiers au **format ORC**, les p
 
 ### <a name="file-system-as-sink"></a>Système de fichiers en tant que récepteur
 
-- Pour copier des données au **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-sink).
-- Pour copier des données vers d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Récepteur au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans le récepteur de copie basé sur le format :
+Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans le récepteur de copie basé sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerWriteSetting**. | OUI      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, le récepteur de l’activité de copie de type **FileSystemSink** mentionnée dans la section suivante est toujours prise en charge pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -354,9 +338,10 @@ Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et 
 ]
 ```
 
-#### <a name="other-format-sink"></a>Autres formats de récepteur
+#### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
-Pour copier des données vers le système de fichiers au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
+>[!NOTE]
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

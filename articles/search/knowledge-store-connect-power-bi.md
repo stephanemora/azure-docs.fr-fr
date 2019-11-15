@@ -1,32 +1,40 @@
 ---
-title: Se connecter une base de connaissances avec Power BI
+title: Se connecter à une base de connaissances (préversion) avec Power BI
 titleSuffix: Azure Cognitive Search
-description: Connectez une base de connaissances Recherche cognitive Azure à Power BI à des fins d’analyse et d’exploration.
+description: Connectez une base de connaissances Recherche cognitive Azure (préversion) à Power BI à des fins d’analyse et d’exploration.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790071"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715497"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connecter une base de connaissances à Power BI
 
-> [!Note]
-> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche cognitive Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
->
-Dans cet article, vous allez apprendre à connecter et explorer une base de connaissances à l’aide de Power Query dans l’application Power BI Desktop. Pour créer l’exemple de base de connaissances utilisé dans cette procédure pas à pas, consultez [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md).
+> [!IMPORTANT] 
+> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
 
-## <a name="prerequisites"></a>Prérequis
+Cet article explique comment connecter et explorer une base de connaissances à l’aide de Power Query dans l’application Power BI Desktop. Vous pouvez commencer plus rapidement avec des modèles, ou créer un tableau de bord personnalisé à partir de rien.
 
-+ Suivez les étapes décrites dans [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md) pour créer l’exemple de base de connaissances utilisé dans cette procédure pas à pas. Vous aurez également besoin du nom du compte de stockage Azure utilisé pour créer la base de connaissances ainsi que de sa clé d’accès dans le portail Azure.
++ Suivez les étapes décrites dans [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md) ou [Créer une base de connaissances Recherche cognitive Azure en utilisant REST](knowledge-store-create-rest.md) pour créer l’exemple de base de connaissances utilisé dans cette procédure pas à pas. Vous aurez également besoin du nom du compte de stockage Azure utilisé pour créer la base de connaissances ainsi que de sa clé d’accès dans le portail Azure.
 
 + [Installer Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+## <a name="sample-power-bi-template---azure-portal-only"></a>Exemple de modèle Power BI - Portail Azure uniquement
+
+Si vous [avez créé votre base de connaissances à l’aide du portail Azure](knowledge-store-create-portal.md), vous pouvez utiliser l’[exemple de modèle Recherche cognitive Azure Power BI](https://github.com/Azure-Samples/cognitive-search-templates) pour afficher et expérimenter des visualisations Power BI. Ce modèle est également disponible au téléchargement lorsque vous parcourez l’Assistant **Importer des données**.
+
+L’exemple de modèle effectue automatiquement les étapes de configuration décrites dans le reste de cet article. En revanche, si vous avez utilisé l’API REST pour créer votre base de connaissances, ignorez le modèle et utilisez les sections restantes de cet article pour connecter votre base de connaissances à Power BI. Commencez par [Se connecter avec Power BI](#connect-with-power-bi).
+
+L’exemple de modèle comprend plusieurs visualisations, telles que WordCloud et Network Navigator. Certaines visualisations dans le modèle, telles que Locations map (mappage d’emplacements) et Entity-Graph Viewer (visionneuse de graphe d’entité), n’affichent pas les données de l’exemple de base de connaissances créé dans [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md). Cela est dû au fait que seul un sous-ensemble des enrichissements de l’IA disponibles dans l’Assistant **Importer des données** a été utilisé.
+
+![Exemple de modèle Recherche cognitive Azure Power BI](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Exemple de modèle Power BI")
 
 ## <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521179"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825447"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -59,7 +59,7 @@ Le niveau d’accès froid possède des coûts de stockage plus faibles et des c
 
 ## <a name="archive-access-tier"></a>Niveau d’accès archive
 
-Le niveau d’accès archive présente le coût de stockage le plus faible. Toutefois, les coûts d’extraction des données sont plus élevés par rapport aux niveaux d’accès chaud et froid. La récupération des données dans le niveau d’accès archive peut prendre plusieurs heures. Les données doivent se trouver dans le niveau d’accès archive pendant au moins 180 jours ou être soumises à des frais de suppression précoces.
+Le niveau d’accès archive présente le coût de stockage le plus faible. Toutefois, les coûts d’extraction des données sont plus élevés par rapport aux niveaux d’accès chaud et froid. La récupération des données dans le niveau d’accès archive peut prendre plusieurs heures. Les données doivent rester dans le niveau d’accès archive pendant au moins 180 jours ; sinon, elles sont soumises à des frais de suppression anticipée.
 
 Tant qu’un objet blob se trouve dans un stockage archive, les données d’objets blob ne peuvent être ni lues, ni copiées, ni remplacées, ni modifiées. Vous ne pouvez pas prendre de captures instantanées d’un objet blob dans un stockage archive. Toutefois, les métadonnées de l’objet blob restent en ligne et disponible, ce qui vous permet de répertorier l’objet blob et ses propriétés. Pour les objets blob du niveau archive, les seules opérations valides sont GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier et DeleteBlob.
 

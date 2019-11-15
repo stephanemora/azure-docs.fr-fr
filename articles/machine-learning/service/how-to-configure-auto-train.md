@@ -2,23 +2,24 @@
 title: Créer des expériences de machine learning automatisé
 titleSuffix: Azure Machine Learning
 description: Le machine learning automatisé choisit un algorithme pour vous et génère un modèle prêt pour le déploiement. Découvrez les options que vous pouvez utiliser pour configurer les expériences de machine learning automatisé.
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793886"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580562"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans ce guide, découvrez comment définir différents paramètres de configuration de votre expérience d’apprentissage automatique avec le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le machine learning automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous disposez de plusieurs options pour configurer les expériences de machine learning automatisé.
 
@@ -34,11 +35,11 @@ Options de configuration disponibles dans le machine learning automatisé :
 * Explorer les métriques du modèle
 * Inscrire et déployer un modèle
 
-Si vous préférez une expérience sans code, vous pouvez également [créer vos expériences de Machine Learning automatisé dans le portail Azure](how-to-create-portal-experiments.md).
+Si vous préférez une expérience sans code, vous pouvez également [créer vos expériences de machine learning automatisé dans Azure Machine Learning Studio](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Sélectionner le type de votre expérience
 
-Avant de commencer votre expérience, vous devez déterminer le type de problème de machine learning que vous résolvez. Le machine learning automatisé prend en charge les types de tâches de classification, de régression et de prévision.
+Avant de commencer votre expérience, vous devez déterminer le type de problème de machine learning que vous résolvez. Le machine learning automatisé prend en charge les types de tâches de classification, de régression et de prévision. Découvrez plus d’informations sur les [types de tâches](how-to-define-task-type.md).
 
 Le machine learning automatisé prend en charge les algorithmes suivants lors du processus d’automatisation et d’optimisation. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme.
 
@@ -50,15 +51,16 @@ classification ; | régression ; | Prévision de séries chronologiques
 [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
 [K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
 [Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[C-Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Classifieur DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Régresseur DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Régresseur DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Classifieur linéaire DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Régression linéaire](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Régression linéaire](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|||ForecastTCN
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[FastLinearRegressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[OnlineGradientDescentRegressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|[AveragedPerceptronClassifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
+|[LinearSVMClassifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
 Utilisez le paramètre `task` dans le constructeur `AutoMLConfig` pour spécifier le type de votre expérience.
 
@@ -144,26 +146,24 @@ Vous disposez de plusieurs options pour configurer votre expérience de machine 
 
 Voici quelques exemples :
 
-1.  Expérience de classification utilisant l’AUC pondéré comme métrique principale avec une durée maximale de 12 000 secondes par itération, l’expérience se terminant au bout de 50 itérations et 2 tranches de validation croisée.
+1.  Expérience de classification utilisant l’AUC pondéré comme métrique principale avec le délai d’expiration (exprimé en minutes) défini sur 30 minutes et 2 plis de validation croisée.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Voici un exemple d’une expérience de régression définie pour se terminer au bout de 100 itérations, avec chaque itération durant jusqu’à 600 secondes avec 5 tranches de validation croisée.
+2.  Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec 5 plis de validation croisée.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -171,7 +171,7 @@ Voici quelques exemples :
         n_cross_validations=5)
     ```
 
-Les trois valeurs différentes du paramètre `task` (le troisième type de tâche, `forecasting`, utilise le même pool d’algorithmes que les tâches `regression`) déterminent la liste des modèles à appliquer. Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les modèles disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge dans [Classe SupportedModels](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+Les trois valeurs différentes du paramètre `task` (le troisième type de tâche, `forecasting`, utilise le même pool d’algorithmes que les tâches `regression`) déterminent la liste des modèles à appliquer. Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les modèles disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge dans [Classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Métrique principale
 La métrique principale détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
@@ -224,7 +224,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -261,7 +261,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -275,7 +275,7 @@ L’entraînement des ensembles est activé par défaut, mais peut être désact
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -313,7 +313,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>Critères de sortie
 Vous pouvez définir quelques options pour terminer votre expérience.
 1. Aucun critère : si vous ne définissez pas de paramètres de sortie, l’expérience continuera jusqu’à ce que votre métrique principale ne progresse plus.
-1. Nombre d’itérations : vous définissez le nombre d’itérations pour l’expérience à exécuter. Facultativement, vous pouvez ajouter `iteration_timeout_minutes` afin de définir une limite de temps en minutes pour chaque itération.
 1. Quitter après un certain temps : utilisez `experiment_timeout_minutes` dans vos paramètres pour définir la durée en minutes pendant laquelle l’expérience doit s’exécuter.
 1. Quitter une fois qu’un score a été atteint : si vous utilisez `experiment_exit_score`, l’expérience se termine après qu’un score de métrique principal a été atteint.
 
@@ -337,12 +336,12 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Ingénierie des fonctionnalités automatisées
 
-Afficher la liste de prétraitement et [d’ingénierie des fonctionnalités automatisées](concept-automated-ml.md#preprocess) qui se produit lorsque prétraiter = True.
+Consultez la liste de prétraitement et d’[ingénierie des caractéristiques automatisées](concept-automated-ml.md#preprocess) qui se produit quand la caractérisation est définie sur auto.
 
 Examinez cet exemple :
 + Il y a 4 fonctionnalités d’entrée : A (numérique), B (numérique), C (numérique), D (DateTime)
 + La fonctionnalité numérique C est supprimée, car il s’agit d’une colonne d’ID avec toutes les valeurs uniques
-+ Il manque des valeurs dans les fonctionnalités numériques A et B, par conséquent une moyenne leur est imputée
++ Il manque des valeurs dans les caractéristiques numériques A et B : une moyenne leur est donc affectée
 + La fonctionnalité DateTime D a 11 fonctionnalités d’ingénierie différentes
 
 Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plus.  Consultez le [notebook de cet exemple](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
@@ -406,6 +405,32 @@ Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plu
    |Supprimé|Indique si la fonctionnalité d’entrée a été supprimée ou utilisée.|
    |EngineeringFeatureCount|Nombre de fonctionnalités générées par le biais de transformations d’ingénierie de la fonctionnalité automatisée.|
    |Transformations|Liste des transformations appliquées à des fonctionnalités d’entrée pour générer des fonctionnalités d’ingénierie.|
+   
+### <a name="customize-feature-engineering"></a>Personnaliser l’ingénierie des caractéristiques
+Pour personnaliser l’ingénierie des caractéristiques, spécifiez `"feauturization":FeaturizationConfig`.
+
+La personnalisation prise en charge comprend les éléments suivants :
+
+|Personnalisation|Définition|
+|--|--|
+|Mise à jour de l’objectif de la colonne|Remplacer le type de caractéristique pour la colonne spécifiée.|
+|Mise à jour des paramètres du transformateur |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge Imputer et HashOneHotEncoder.|
+|Supprimer des colonnes |Colonnes à supprimer de la caractérisation.|
+|Transformateurs de blocs| Transformateurs de blocs à utiliser dans le processus de caractérisation.|
+
+Créez l’objet FeaturizationConfig à l’aide d’appels d’API :
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Mise à l’échelle/Normalisation et algorithme avec des valeurs d’hyperparamètre :
 
@@ -466,78 +491,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## <a name="explain-the-model-interpretability"></a>Expliquer le modèle (interprétabilité)
+## <a name="model-interpretability"></a>Interprétabilité de modèles
 
-Le machine learning automatisé vous permet de comprendre l’importance des caractéristiques.  Pendant le processus d’entraînement, vous pouvez obtenir l’importance globale des caractéristiques pour le modèle.  Pour les scénarios de classification, vous pouvez également obtenir d’importance des caractéristiques au niveau des classes.  Vous devez fournir un jeu de données de validation (validation_data) pour obtenir l’importance des caractéristiques.
+L’interprétabilité de modèles vous permet de comprendre pourquoi vos modèles ont effectué des prédictions, ainsi que les valeurs d’importance des caractéristiques sous-jacentes. Le SDK comprend différents packages pour l’activation des caractéristiques d’interprétabilité de modèles, aussi bien au moment de l’entraînement qu’au moment de l’inférence, pour les modèles locaux et déployés.
 
-Il y a deux façons de générer l’importance des caractéristiques.
+Pour obtenir des exemples de code sur la façon d’activer les caractéristiques d’interprétabilité spécifiquement au sein d’expériences de machine learning automatisé, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md).
 
-*   Une fois qu’une expérience est terminée, vous pouvez utiliser la méthode `explain_model` sur une des itérations.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*   Pour visualiser l’importance des caractéristiques pour toutes les itérations, définissez l’indicateur `model_explainability` sur `True` dans AutoMLConfig.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    Quand c’est fait, vous pouvez utiliser la méthode retrieve_model_explanation pour récupérer l’importance des caractéristiques pour une itération spécifique.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-Affichez l’URL pour voir l’importance de la caractéristique à l’aide de l’objet run :
-
-```
-automl_run.get_portal_url()
-```
-
-Vous pouvez visualiser le graphique d’importance des caractéristiques dans le portail Azure ou à partir de la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com). Le graphique apparaît également quand vous utilisez le [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` dans un notebook. Pour en savoir plus sur les graphiques, consultez [Comprendre les résultats du machine learning automatisé](how-to-understand-automated-ml.md).
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![Graphique d’importance des caractéristiques](./media/how-to-configure-auto-train/feature-importance.png)
-
-Pour plus d’informations sur la façon dont les explications des modèles et l’importance des fonctionnalités peuvent être activés dans d’autres domaines du kit de développement logiciel (SDK) en dehors de l’apprentissage automatisé, consultez l’article [concept](machine-learning-interpretability-explainability.md) sur l’interprétabilité.
+Pour obtenir des informations générales sur la façon dont les explications de modèle et l’importance des caractéristiques peuvent être activées dans d’autres domaines du SDK en dehors du machine learning automatisé, consultez l’article de présentation du [concept](how-to-machine-learning-interpretability.md) de l’interprétabilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

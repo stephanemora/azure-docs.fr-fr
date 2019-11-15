@@ -1,7 +1,7 @@
 ---
 title: One-vs-All Multiclass
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module One-vs-All Multiclass dans Azure Machine Learning service pour créer un modèle de classification multiclasse à partir d’un ensemble de modèles de classification binaire.
+description: Découvrez comment utiliser le module One-vs-All Multiclass dans le service Azure Machine Learning pour créer un modèle de classification multiclasse à partir d’un ensemble de modèles de classification binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,46 +9,46 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 9ded83dc5b8b8b98af66c8858214e8f82a4aa166
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511922"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717185"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
-Cet article explique comment utiliser le module **One-vs-All Multiclass** du concepteur Azure Machine Learning (préversion) pour créer un modèle de classification capable de prédire plusieurs classes selon l’approche « One-vs-All ».
+Cet article décrit comment utiliser le module One-vs-All Multiclass dans le concepteur Azure Machine Learning (préversion). L’objectif est de créer un modèle de classification capable de prédire plusieurs classes, en utilisant l’approche *One-versus-All* (un contre tous).
 
 Ce module est utile pour créer des modèles qui prédisent trois résultats possibles, lorsque le résultat dépend de variables de prédiction continues ou catégoriques. Cette méthode vous permet également d’utiliser des méthodes de classification binaire pour les problèmes qui requièrent plusieurs classes de sortie.
 
-### <a name="more-about-one-vs-all-models"></a>En savoir plus sur les modèles One-vs-All
+### <a name="more-about-one-versus-all-models"></a>En savoir plus sur les modèles One-versus-All
 
-Bien que certains algorithmes de classification permettent d’utiliser plus de deux classes par conception, d’autres limitent les résultats possibles à l’une des deux valeurs (modèle binaire ou à deux classes). Toutefois, même les algorithmes de classification binaire peuvent être adaptés aux tâches de classification multiclasse à l’aide de différentes stratégies. 
+Certains algorithmes de classification permettent d’utiliser plus de deux classes par conception. D’autres limitent les résultats possibles à l’une des deux valeurs (modèle binaire ou à deux classes). Toutefois, même les algorithmes de classification binaire peuvent être adaptés aux tâches de classification multiclasse via diverses stratégies. 
 
-Ce module implémente la *méthode One-vs-All*, dans laquelle un modèle binaire est créé pour chacune des classes de sortie multiples. Chacun de ces modèles binaires pour les classes individuelles est évalué par rapport à son complément (toutes les autres classes du modèle) comme s’il s’agissait d’un problème de classification binaire. La prédiction est ensuite effectuée en exécutant ces classifieurs binaires et en choisissant la prédiction avec le score de confiance le plus élevé.  
+Ce module implémente la méthode One-versus-All, dans laquelle un modèle binaire est créé pour chacune des multiples classes de sortie. Le module évalue chacun de ces modèles binaires pour les classes individuelles par rapport à son complément (toutes les autres classes du modèle) comme s’il s’agissait d’un problème de classification binaire. Le module effectue ensuite une prédiction en exécutant ces classifieurs binaires et en choisissant la prédiction dotée du plus haut score de confiance.  
 
-En résumé, un ensemble de modèles individuels est créé et les résultats sont ensuite fusionnés afin de créer un modèle unique qui prédit toutes les classes. Ainsi, tout classifieur binaire peut être utilisé comme base pour un modèle One-vs-All.  
+En résumé, le module crée un ensemble de modèles individuels et fusionne ensuite les résultats afin de créer un modèle unique qui prédit toutes les classes. Tout classifieur binaire peut être utilisé comme base pour un modèle One-versus-All.  
 
- Par exemple, supposons que vous configurez un modèle de [Machine à vecteurs de support à deux classes](two-class-support-vector-machine.md) et que vous le fournissez en entrée dans le module **One-vs-All Multiclass**. Le module crée des modèles de machine à vecteurs de support à deux classes pour tous les membres de la classe de sortie, puis applique la méthode One-vs-All pour combiner les résultats de toutes les classes.  
+Par exemple, supposons que vous configurez un modèle [Machine à vecteurs de support à deux classes](two-class-support-vector-machine.md) et que vous le fournissez en entrée au module One-vs-All Multiclass. Le module crée des modèles de machine à vecteurs de support à deux classes pour tous les membres de la classe de sortie. Il applique ensuite la méthode One-versus-All pour combiner les résultats de toutes les classes.  
 
-## <a name="how-to-configure-the-one-vs-all-classifier"></a>Comment configurer le classifieur One-vs-All  
+## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Comment configurer le classifieur One-vs-All Multiclass  
 
-Ce module crée un ensemble de modèles de classification binaire pour analyser plusieurs classes. Par conséquent, pour utiliser ce module, vous devez tout d’abord configurer et entraîner un modèle de **classification binaire**. 
+Ce module crée un ensemble de modèles de classification binaire pour analyser plusieurs classes. Pour utiliser ce module, vous devez tout d’abord configurer et entraîner un modèle de *classification binaire*. 
 
-Vous connectez ensuite le modèle binaire au module **One-vs-All Multiclass** et vous entraînez l’ensemble des modèles à l’aide de [Entraîner le modèle](train-model.md) avec un jeu de données d’entraînement étiqueté.
+Vous connectez le modèle binaire au module One-vs-All Multiclass. Ensuite, vous entraînez l’ensemble des modèles en utilisant [Entraîner le modèle](train-model.md) avec un jeu de données d’entraînement étiqueté.
 
-Lorsque vous combinez les modèles, même si le jeu de données d’entraînement peut avoir plusieurs valeurs de classe, **One-vs-All Multiclass** crée plusieurs modèles de classification binaire, optimise l’algorithme pour chaque classe, puis fusionne les modèles.
+Lorsque vous combinez les modèles, le module One-vs-All Multiclass crée plusieurs modèles de classification binaire, optimise l’algorithme pour chaque classe, puis fusionne les modèles. Le module effectue ces tâches même si le jeu de données d’entraînement peut avoir plusieurs valeurs de classe.
 
-1. Ajoutez **One-vs-All Multiclass** à votre pipeline dans le concepteur. Vous pouvez trouver ce module sous Machine Learning - Initialiser, dans la catégorie **Classification**.
+1. Ajoutez le module One-vs-All Multiclass à votre pipeline dans le concepteur. Vous pouvez trouver ce module sous **Machine Learning - Initialiser**, dans la catégorie **Classification**.
 
-    Le classifieur **One-vs-All Multiclass** ne comprend pas de paramètres configurables. Toutes les personnalisations doivent être effectuées dans le modèle de classification binaire fourni comme entrée.
+   Le classifieur One-vs-All Multiclass ne comprend pas de paramètres configurables. Toutes les personnalisations doivent être effectuées dans le modèle de classification binaire fourni comme entrée.
 
 2. Ajoutez un modèle de classification binaire au pipeline et configurez ce modèle. Par exemple, vous pouvez utiliser [Machine à vecteurs de support à deux classes](two-class-support-vector-machine.md) ou [Arbre de décision optimisé à deux classes](two-class-boosted-decision-tree.md).
 
-3. Ajoutez le module [Entraîner le modèle](train-model.md) à votre pipeline, puis connectez le classifieur non entraîné qui correspond à la sortie de **One-vs-All Multiclass**.
+3. Ajoutez le module [Entraîner le modèle](train-model.md) à votre pipeline. Connectez le classifieur non entraîné qui correspond à la sortie du module One-vs-All Multiclass.
 
-4. Sur l’autre entrée de [Entraîner le modèle](train-model.md), connectez un jeu de données d’entraînement étiqueté qui comprend plusieurs valeurs de classe.
+4. Sur l’autre entrée du module [Entraîner le modèle](train-model.md), connectez un jeu de données d’entraînement étiqueté qui comprend plusieurs valeurs de classe.
 
 5. Exécuter le pipeline.
 
@@ -56,7 +56,7 @@ Lorsque vous combinez les modèles, même si le jeu de données d’entraînemen
 
 Une fois l’entraînement terminé, vous pouvez utiliser le modèle pour effectuer des prédictions multiclasses.
 
-Vous pouvez également transmettre le classifieur non entraîné à [Modèle de validation croisée](cross-validate-model.md) pour une validation croisée par rapport à un jeu de données de validation étiqueté.
+Vous pouvez également transmettre le classifieur non entraîné au module [Modèle de validation croisée](cross-validate-model.md) pour une validation croisée par rapport à un jeu de données de validation étiqueté.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

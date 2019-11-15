@@ -1,5 +1,5 @@
 ---
-title: Protection de vos machines et de vos applications dans Azure Security Center | Microsoft Docs
+title: Protéger vos machines et vos applications dans Azure Security Center
 description: Ce document traite des recommandations de Security Center qui peuvent vous aider à protéger vos machines virtuelles, vos ordinateurs, vos applications web et vos environnements App Service.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200773"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686360"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Azure Security Center analyse l’état de la sécurité de vos ressources Azure, de vos serveurs non-Azure et de vos machines virtuelles. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
@@ -30,7 +30,7 @@ Vous pouvez surveiller l’état de sécurité de vos ressources dans le tableau
 
 Vous pouvez consulter une liste de tous les problèmes en sélectionnant **Recommandations**. Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-Pour obtenir la liste complète des recommandations Compute et App services, consultez [Recommandations](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
+Pour obtenir la liste complète des recommandations Compute et App services, consultez [Recommandations](security-center-virtual-machine-protection.md#compute-and-app-recs).
 
 Pour continuer, sélectionnez **Compute et applications** sous **Ressources**, ou dans le menu principal de Security Center.
 ![Tableau de bord Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -42,7 +42,7 @@ Sous **Compute et applications**, figurent les onglets suivants :
 - **Machines virtuelles et ordinateurs** : liste de vos machines virtuelles et ordinateurs, et état actuel de leur sécurité.
 - **Services cloud** : liste des rôles web et de travail contrôlés par Security Center.
 - **App services** : liste de vos environnements App Service et état actuel de leur sécurité.
-- **Conteneurs (préversion)**  : liste de vos conteneurs hébergés sur des machines IaaS Linux et évaluation de la sécurité de leurs configurations de Docker.
+- **Conteneurs** : liste de vos conteneurs et évaluation de la sécurité de leurs configurations.
 - **Ressources Compute (préversion)**  : liste des suggestions pour vos ressources Compute, telles que des clusters Service Fabric et des Event hubs.
 
 Pour continuer, sous **Hygiène de sécurité de la ressource**, sélectionnez **Compute et applications**.
@@ -143,7 +143,7 @@ Cette liste contient trois types d’icônes :
 
 1. Sélectionnez une application web. Une vue récapitulative s’ouvre avec trois onglets :
 
-   - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
+   - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
    - **Évaluations passées** : liste des évaluations effectuées par Security Center et qui ont réussi.
    - **Évaluations non disponibles** : liste des évaluations qui n’ont pas été exécutées en raison d’une erreur ou la recommandation n’est pas pertinente pour l’App Service en question.
 
@@ -153,7 +153,7 @@ Cette liste contient trois types d’icônes :
 
 2. Sélectionnez une suggestion pour voir sa description et la liste des ressources défectueuses, saines et non analysées.
 
-   - La colonne **Évaluations passées** contient la liste des évaluations réussies.  L’état de gravité de ces évaluations est toujours vert.
+   - La colonne **Évaluations passées** contient la liste des évaluations réussies. L’état de gravité de ces évaluations est toujours vert.
 
    - Sélectionnez une évaluation réussie dans la liste pour obtenir une description de l’évaluation et la liste des ressources défectueuses, saines et non analysées. Il existe un onglet pour les ressources défectueuses, mais cette liste est toujours vide car l’évaluation a réussi.
 
@@ -178,7 +178,7 @@ Pour définir de nouveaux groupes identiques afin d’installer automatiquement 
 Si vous souhaitez paramétrer tous les groupes identiques existants pour installer Microsoft Monitoring Agent, dans Azure Policy, accédez à **Correction**, puis appliquez la stratégie existante aux groupes identiques existants.
 
 
-## <a name="compute-and-app-recommendations"></a>Suggestions de calcul et d’applications
+## Suggestions de calcul et d’applications <a name="compute-and-app-recs"></a>
 |Type de ressource|Degré de sécurisation|Recommandation|Description|
 |----|----|----|----|
 |App Service|20|L'application web ne doit pas être accessible via HTTPS|Limitez l’accès des applications web via le protocole HTTPS uniquement.|
@@ -198,7 +198,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 |Ressources de calcul (Batch)|5\.|Activer les journaux de diagnostic dans les comptes Batch|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
 |Ressources de calcul (Event Hub)|5\.|Les journaux de diagnostic doivent être activés dans Event Hub|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
 |Ressources de calcul (Logic Apps)|5\.|Activer les journaux de diagnostic dans Logic Apps|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Service Fabric)|15|Définir la propriété ClusterProtectionLevel sur EncryptAndSign dans Service Fabric|Service Fabric fournit trois niveaux de protection (None, Sign et EncryptAndSign) pour la communication nœud à nœud à l’aide d’un certificat de cluster principal.  Définissez le niveau de protection pour vous assurer que tous les messages de nœud à nœud sont chiffrés et signés numériquement. |
+|Ressources de calcul (Service Fabric)|15|Définir la propriété ClusterProtectionLevel sur EncryptAndSign dans Service Fabric|Service Fabric fournit trois niveaux de protection (None, Sign et EncryptAndSign) pour la communication nœud à nœud à l’aide d’un certificat de cluster principal. Définissez le niveau de protection pour vous assurer que tous les messages de nœud à nœud sont chiffrés et signés numériquement. |
 |Ressources de calcul (Service Bus)|1|Supprimer toutes les règles d'autorisation, sauf RootManageSharedAccessKey de l'espace de noms Service Bus |Les clients Service Bus ne doivent pas utiliser une stratégie d'accès au niveau de l'espace de noms qui donne accès à l'ensemble des files d'attente et rubriques d'un espace de noms. Pour respecter le modèle de sécurité basé sur le privilège minimum, vous devez créer des stratégies d'accès au niveau de l'entité pour les files d'attente et les rubriques afin de limiter l'accès à l'entité spécifique.|
 |Ressources de calcul (Event Hub)|1|Toutes les règles d’autorisation, sauf RootManageSharedAccessKey, doivent être supprimées de l’espace de noms Event Hub|Les clients Event Hub ne doivent pas utiliser une stratégie d'accès au niveau de l'espace de noms qui donne accès à l'ensemble des files d'attente et rubriques d'un espace de noms. Pour respecter le modèle de sécurité basé sur le privilège minimum, vous devez créer des stratégies d'accès au niveau de l'entité pour les files d'attente et les rubriques afin de limiter l'accès à l'entité spécifique.|
 |Ressources de calcul (Event Hub)|5\.|Des règles d’autorisation sur l’entité Event Hub doivent être définies|Auditez des règles d'autorisation sur l'entité Event Hub pour accorder un accès à privilèges minimum.|
@@ -220,7 +220,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 |Ordinateur|15|Ajouter un pare-feu d’applications web| Déployez une solution de pare-feu d’applications web (WAF) pour sécuriser vos applications web. |
 |Ordinateur|30|Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
 |Ordinateur|30|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|
-|Ordinateur|1|Les machines virtuelles doivent être migrées vers de nouvelles ressources AzureRM|Profitez des améliorations apportées à Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d'accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, etc. |
+|Ordinateur|1|Les machines virtuelles doivent être migrées vers de nouvelles ressources AzureRM|Utilisez Azure Resource Manager pour vos machines virtuelles afin de fournir des améliorations de sécurité comme : contrôle d’accès renforcé (RBAC), audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité. |
 |Ordinateur|30|Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
 |Jeu de mise à l’échelle de machine virtuelle |4|Les journaux de diagnostic dans Virtual Machine Scale Sets doivent être activés|Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Cela vous permet de recréer les pistes d’activité à des fins d’investigation. Cela est utile lorsqu’un incident de sécurité se produit, ou quand votre réseau est compromis.|
 |Jeu de mise à l’échelle de machine virtuelle|35|Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées|Corriger les vulnérabilités dans la configuration de la sécurité sur vos groupes de machines virtuelles identiques afin de les protéger des attaques. |

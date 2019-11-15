@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: b014f6015b3e13a603cf3893062bd0463eb110ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488195"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668676"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Démarrage rapide : Connecter des machines à Azure avec Azure Arc pour les serveurs - Portail
 
@@ -27,7 +27,7 @@ Passez en revue les clients pris en charge et la configuration réseau requise d
 
 ## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Générer le script d’installation de l’agent à l’aide du portail Azure
 
-1. Lancez [https://aka.ms/hybridmachineportal ][aka_hybridmachineportal]
+1. Lancer [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
 1. Cliquez sur **+ Ajouter**
 1. Suivez les instructions de l’assistant jusqu’à la fin
 1. La dernière page comporte un script généré que vous pouvez copier (ou télécharger).
@@ -63,9 +63,32 @@ Connectez-vous à chaque nœud et exécutez le script que vous avez généré à
 Pour déconnecter un ordinateur d’Azure Arc pour les serveurs, vous devez effectuer deux étapes.
 
 1. Sélectionnez l’ordinateur dans le [Portail](https://aka.ms/hybridmachineportal), cliquez sur les points de suspension (`...`) et sélectionnez **Supprimer**.
-1. Désinstallez l’agent de la machine.
+1. Désinstallez l’agent de l’ordinateur.
+
+   Sur Windows, vous pouvez utiliser le Panneau de configuration « Applications et fonctionnalités » pour désinstaller l’agent.
+  
+  ![Applications et fonctionnalités](./media/quickstart-onboard/apps-and-features.png)
+
+   Si vous voulez créer un script pour la désinstallation, vous pouvez utiliser l’exemple suivant, qui récupère le **PackageId** et désinstalle l’agent avec `msiexec /X`.
+
+   Regardez sous la clé de Registre `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` et recherchez le **PackageId**. Vous pouvez alors désinstaller l’agent avec `msiexec`.
+
+   L’exemple ci-dessous montre la désinstallation de l’agent.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   Sur Linux, exécutez la commande suivante pour désinstaller l’agent.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Affecter une stratégie à des machines connectées](../../governance/policy/assign-policy-portal.md)
+> [Attribuer une stratégie à des ordinateurs connectés](../../governance/policy/assign-policy-portal.md)

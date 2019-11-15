@@ -11,14 +11,14 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 12c08a95cd43f9f988c98711141b1b1f879e8b3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f95798241084efdb91993a5add52f84a8a6dc1ec
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489379"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814798"
 ---
-# <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Entraîner avec des jeux de données (préversion) dans Azure Machine Learning
+# <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez découvrir les deux façons de consommer des [jeux de données Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) lors des exécutions d’entraînement d’expérience à distance sans vous soucier des chaînes de connexion ou des chemins de données.
@@ -40,7 +40,7 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 * Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), qui inclut le paquet azureml-datasets.
 
 > [!Note]
-> Certaines classes Dataset (préversion) comportent des dépendances sur le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
 ## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Option 1 : Utiliser des jeux de données directement dans les script d’entraînement
 

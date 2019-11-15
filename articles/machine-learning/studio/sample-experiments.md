@@ -1,7 +1,7 @@
 ---
-title: Démarrer rapidement vos expériences avec des exemples
-titleSuffix: Azure Machine Learning Studio
-description: Découvrez comment utiliser les exemples d’expérience de machine learning pour créer des expériences avec Azure AI Gallery et Azure Machine Learning Studio.
+title: Démarrer rapidement des expériences à partir d’exemples
+titleSuffix: ML Studio (classic) Azure
+description: Découvrez comment utiliser les exemples d’expérience de machine learning pour créer des expériences avec Azure AI Gallery et Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa23612070a5b0c1a33c2effb9cd9e533ca5eada
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460383"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670643"
 ---
-# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio à partir des exemples de travail dans la galerie AI Azure
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio (classique) à partir d’exemples d’utilisation disponibles dans Azure AI Gallery
 
 Découvrez comment démarrer avec des exemples d’expérience de la [galerie Azure AI](https://gallery.azure.ai/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
 
-La galerie contient des exemples d’expérience de l’équipe Microsoft Azure Machine Learning Studio, ainsi que des exemples partagés par la communauté Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences.
+La galerie contient des exemples d’expérience fournis par l’équipe Microsoft Azure Machine Learning Studio (classique), ainsi que des exemples partagés par la communauté Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences.
 
 Pour savoir comment utiliser la galerie, regardez la vidéo de 3 minutes [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) issue de la série [Science des données pour les débutants](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -48,20 +48,15 @@ Pour parcourir toutes les expériences :
 
     ![Exemple d'expérience](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > Lorsque vous ouvrez une expérience dans Machine Learning Studio pour la première fois, vous pouvez l’essayer gratuitement ou souscrire un abonnement Azure. [En savoir plus sur les différences entre l’essai gratuit et le service payant de Machine Learning Studio](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Créer une expérience à l’aide d’un exemple en tant que modèle
-Vous pouvez également créer une expérience dans Machine Learning Studio en utilisant un exemple de la galerie comme modèle.
+Vous pouvez également créer une expérience dans la version classique de Machine Learning Studio en utilisant un exemple de la galerie comme modèle.
 
 1. Connectez-vous à [Studio](https://studio.azureml.net) avec les informations d’identification de votre compte Microsoft, puis cliquez sur **Nouveau** pour créer une expérience.
 2. Parcourez les exemples de contenu, puis cliquez sur l’un d’entre eux.
 
-Une expérience est créée dans votre espace de travail Machine Learning Studio à l’aide de l’exemple d’expérience en tant que modèle.
+Une expérience est créée dans votre espace de travail Machine Learning Studio (classique) en utilisant l’exemple d’expérience comme modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Importer des données à partir de diverses sources](import-data.md)
 * [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](r-quickstart.md)
-* [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md)
+* [Déploiement d’un service web Machine Learning](deploy-a-machine-learning-web-service.md)

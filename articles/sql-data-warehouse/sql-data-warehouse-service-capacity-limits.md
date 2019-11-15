@@ -1,5 +1,5 @@
 ---
-title: Limites de capacité - Azure Synapse Analytics (anciennement SQL DW) | Microsoft Docs
+title: Limites de capacité - Azure Synapse Analytics (anciennement SQL DW)
 description: Valeurs maximales autorisées pour les différents composants de SQL Analytics dans Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,25 +10,26 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 702f78f5bae12b2eba6669a344af14f6d1236856
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475804"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645293"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacité Azure Synapse Analytics (anciennement SQL DW)
 
 Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 
 ## <a name="workload-management"></a>Gestion des charges de travail
+
 | Category | Description | Maximale |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour une seule unité de pool SQL (entrepôt de données) | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 9 DW6000c. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple :<br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes maximales |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction de l’unité DWU sélectionnée. DWU600c et unités supérieures prennent en charge un maximum de 1 024 sessions ouvertes. DWU500c et unités inférieures peuvent prendre en charge un maximum de 512 sessions ouvertes simultanées. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
-| [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |128<br/><br/>  Un maximum de 128 requêtes simultanées est exécuté et les requêtes restantes sont mises en file d’attente.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque le paramètre [unité d’entrepôt de données](memory-and-concurrency-limits.md) est inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-and-concurrency-limits.md#concurrency-maximums). |
+| [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |128<br/><br/>  Un maximum de 128 requêtes simultanées est exécuté et les requêtes restantes sont mises en file d’attente.<br/><br/>Le nombre de requêtes simultanées peut diminuer quand les utilisateurs sont affectés à des classes de ressources plus élevées ou quand le paramètre [Data Warehouse Unit]memory-concurrency-limits.md est diminué. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Limites maximales pour les requêtes simultanées]memory-concurrency-limits.md). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To. |
 
 ## <a name="database-objects"></a>Objets de base de données

@@ -1,7 +1,7 @@
 ---
-title: Recycler et déployer un service web
-titleSuffix: Azure Machine Learning Studio
-description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio.
+title: Réentraîner un service web
+titleSuffix: ML Studio (classic) Azure
+description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245092"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684775"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
-Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio. Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
+Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio (classique). Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
 
-Cet article suppose qu’un service web prédictif est déjà déployé. Si vous n’en disposez pas, [découvrez comment déployer un service web Studio](publish-a-machine-learning-web-service.md).
+Cet article suppose qu’un service web prédictif est déjà déployé. Si vous n’en disposez pas, [découvrez comment déployer un service web Studio (classique)](deploy-a-machine-learning-web-service.md).
 
 Pour recycler et déployer un nouveau service web Machine Learning, vous allez suivre ces étapes :
 

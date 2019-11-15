@@ -1,5 +1,5 @@
 ---
-title: Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers ou depuis le stockage Blob Azure à l’aide de Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers le stockage Blob Azure ou depuis le stockage Blob Azure vers des banques de données réceptrices prises en charge.
 author: linda33wj
 manager: craigg
@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: da8b4ebd5cf1e7a57842a116e5d9e21e3c3f7874
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7d17d1ee60f2049dccfb8bc711f3b76bb51689b6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387302"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681355"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -42,8 +42,8 @@ Plus précisément, ce connecteur de stockage Blob prend en charge ce qui suit :
 - La copie d’objets blob à partir d’objets blob de blocs, d’ajout ou de page, et la copie de données uniquement vers des objets blob de blocs.
 - La copie d’objets blob en l’état ou l’analyse ou la génération d’objets blob avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
->[!NOTE]
->Si vous activez l’option _Allow trusted Microsoft services to access this storage account_ (Autoriser les services Microsoft autorisés à accéder à ce compte de stockage) dans les paramètres du pare-feu du Stockage Azure, l’utilisation d’Azure Integration Runtime pour se connecter au stockage Blob échouera avec une erreur d’interdiction, car les fichiers de définition d’application ne sont pas traités en tant que service Microsoft autorisé. Utilisez plutôt le runtime d’intégration auto-hébergé comme moyen de connexion.
+>[!IMPORTANT]
+>Si vous activez l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans les paramètres du pare-feu Stockage Azure et que vous souhaitez utiliser le runtime d’intégration Azure pour vous connecter à votre stockage d’objets blob, vous devez utiliser une [authentification d’identité managée](#managed-identity).
 
 ## <a name="get-started"></a>Prise en main
 
@@ -316,12 +316,9 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
-
-Pour copier des données vers et depuis le stockage d’objets blob au format Parquet, Texte délimité, Avro ou Binaire, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `location` dans le jeu de données basé sur le format :
+Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -329,10 +326,6 @@ Pour copier des données vers et depuis le stockage d’objets blob au format Pa
 | conteneur  | Le conteneur d’objets blob.                                          | OUI      |
 | folderPath | Le chemin d’accès au dossier sous le conteneur donné. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le conteneur donné + folderPath. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
->
-> Le jeu de données de type **AzureBlob** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante, mais il ne fonctionne pas pour le mappage de flux de données. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -361,9 +354,10 @@ Pour copier des données vers et depuis le stockage d’objets blob au format Pa
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour copier des données vers et depuis le stockage d’objets blob au format ORC/JSON, définissez la propriété de type du jeu de données sur **AzureBlob**. Les propriétés suivantes sont prises en charge.
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -414,12 +408,9 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="blob-storage-as-a-source-type"></a>Stockage Blob en tant que type de source
 
-- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données vers et depuis le stockage d’objets blob au **format Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans la source de copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -475,9 +466,10 @@ Pour copier des données vers et depuis le stockage d’objets blob au **format 
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour copier des données depuis le stockage d’objets blob au **format ORC**, définissez le type de source dans l’activité de copie sur **BlobSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -519,21 +511,15 @@ Pour copier des données depuis le stockage d’objets blob au **format ORC**, d
 
 ### <a name="blob-storage-as-a-sink-type"></a>Stockage Blob en tant que type de récepteur
 
-- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
-- Pour copier des données à partir d’autres formats tels que le **format ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données à partir d’un stockage d’objets blob au **format Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans le récepteur de copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour les objets Blob Azure sous les paramètres `storeSettings` dans le récepteur de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **AzureBlobStorageWriteSetting**. | OUI      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, le récepteur de l’activité de copie de type **BlobSink** mentionnée dans la section suivante est toujours prise en charge pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle partir de maintenant, et l’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -570,9 +556,10 @@ Pour copier des données à partir d’un stockage d’objets blob au **format P
 ]
 ```
 
-#### <a name="other-format-sink"></a>Autres formats de récepteur
+#### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
-Pour copier des données vers le stockage d’objets blob au **format ORC**, définissez le type de récepteur dans l’activité de copie sur **BlobSink**. Les propriétés suivantes sont prises en charge dans la section **récepteur**.
+>[!NOTE]
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

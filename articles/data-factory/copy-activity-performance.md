@@ -1,5 +1,5 @@
 ---
-title: Guide sur les performances et la scalabilité de l’activité de copie dans Azure Data Factory | Microsoft Docs
+title: Guide sur les performances et la scalabilité de l’activité de copie dans Azure Data Factory
 description: Découvrez les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory lorsque vous utilisez l’activité de copie.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232347"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678267"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -148,7 +148,7 @@ Pour remplacer cette valeur par défaut, spécifiez comme suit une valeur pour l
 Vous pouvez voir les unités d’intégration de données utilisées pour chaque exécution de copie dans la sortie de l’activité de copie lors de l’analyse d’une exécution d’activité. Pour plus d’informations, consultez [Surveillance de l’activité de copie](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Pour l’instant, un nombre d’unités d’intégration de données supérieur à quatre s’applique uniquement lorsque vous copiez plusieurs fichiers à partir du Stockage Azure, d’Azure Data Lake Storage, d’Amazon S3, de Google Cloud Storage, d’un FTP cloud ou d’un SFTP cloud vers d’autres banques de données cloud.
+> Actuellement, un nombre d’unités d’intégration de données supérieur à quatre s’applique uniquement quand vous copiez plusieurs fichiers à partir du Stockage Blob Azure, d’ADLS Gen1, d’ADLS Gen2, d’Amazon S3, de Google Cloud Storage, d’un FTP cloud, d’un SFTP cloud ou d’un magasin de données relationnelles cloud avec l’option de partition activée (y compris [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) vers d’autres magasins de données cloud.
 
 **Exemple :**
 

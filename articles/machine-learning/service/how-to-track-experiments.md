@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045201"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584526"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques d'exécution. Dans cet article, découvrez comment ajouter du code de journalisation à votre script d’entraînement, soumettre une exécution d’expérience, superviser cette exécution et inspecter les résultats dans Azure Machine Learning.
 
 > [!NOTE]
 > Azure Machine Learning peut aussi consigner des informations provenant d’autres sources pendant l’entraînement, notamment les exécutions du Machine Learning automatisé ou le conteneur Docker qui exécute le travail d’entraînement. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+
+> [!TIP]
+> Les informations contenues dans ce document sont principalement destinées aux scientifiques des données et aux développeurs qui veulent superviser le processus d’entraînement du modèle. Si vous êtes un administrateur intéressé par la supervision de l’utilisation des ressources et des événements d’Azure Machine Learning, comme les quotas, les exécutions d’entraînement réalisées ou les déploiements de modèles terminés, consultez [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="available-metrics-to-track"></a>Métriques pouvant être suivies
 
@@ -261,7 +265,7 @@ print(run.get_portal_url())
    ![Widget de notebook Jupyter pour le Machine Learning automatisé](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Pour afficher d’autres détails sur un pipeline, cliquez sur le pipeline que vous souhaitez explorer dans la table. Les graphiques apparaissent dans une fenêtre contextuelle du Portail Azure.
+Pour afficher d’autres détails sur un pipeline, cliquez sur le pipeline que vous souhaitez explorer dans la table. Les graphiques apparaissent dans une fenêtre contextuelle d’Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 
@@ -273,22 +277,19 @@ L’entraînement et la supervision du modèle se produisent en arrière-plan af
 Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Vous pouvez désormais obtenir toutes les métriques qui ont été consignées dans l’exemple ci-dessus pour déterminer le meilleur modèle.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Voir l’expérience dans le portail Azure ou dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Affichez cette expérience dans votre espace de travail dans [Azure Machine Learning Studio](https://ml.azure.com).
 
-Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Vous pouvez accéder à l’historique de deux manières :
+Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Vous pouvez accéder à l’historique à partir d’[Azure Machine Learning Studio](https://ml.azure.com).
 
-* Obtenez l’URL vers l’exécution directement ```print(run.get_portal_url())```
-* Affichez les détails de l’exécution en envoyant son nom (dans ce cas, ```run```). Cette méthode vous oriente vers le nom de l’expérience, l’ID, le type, l’état, la page de détails, un lien vers le Portail Azure et un lien vers la documentation.
+Accédez à l’onglet Expériences et sélectionnez votre expérience. Vous êtes dirigé vers le tableau de bord d’exécution de l’expérience, sur lequel vous pouvez voir les métriques et graphiques suivis qui sont journalisés pour chaque exécution. Dans ce cas, nous avons consigné MSE et les valeurs alpha.
 
-Le lien pour l’exécution vous amène directement à la page de détails de l’exécution dans le portail Azure. Ici, vous pouvez voir les propriétés, les métriques suivies, les images et les graphiques consignés dans l’expérimentation. Dans ce cas, nous avons consigné MSE et les valeurs alpha.
+  ![Exécution des détails dans Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Détails de l’exécution dans le Portail Azure](./media/how-to-track-experiments/run-details-page.png)
-
-Vous pouvez également afficher les sorties ou les journaux d’activité de l’exécution, ou télécharger la capture instantanée de l’expérimentation que vous avez envoyée afin de pouvoir partager le dossier de l’expérimentation avec d’autres utilisateurs.
+Vous pouvez descendre dans la hiérarchie jusqu’à une exécution spécifique pour en afficher les sorties ou les journaux d’activité ou télécharger la capture instantanée de l’expérience que vous avez envoyée afin de pouvoir partager le dossier de l’expérience avec d’autres utilisateurs.
 
 ### <a name="viewing-charts-in-run-details"></a>Affichage de graphiques dans des détails d’exécution
 
-Il existe différentes manières d’utiliser les API de journalisation pour enregistrer différents types de métriques en cours d’exécution, et les afficher sous forme de graphiques dans le portail Azure. 
+Il existe différentes manières d’utiliser les API de journalisation pour enregistrer différents types de métriques au cours d’une exécution et de les afficher sous forme de graphiques dans Azure Machine Learning Studio.
 
 |Valeur connectée|Exemple de code| Afficher dans le portail|
 |----|----|----|

@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 8418499cc3e094162ac7483aaa6c71e74db95ae1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472969"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815674"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -25,76 +25,95 @@ Cet article vous montre comment utiliser des plages d’adresses IP autorisées 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous travaillez avec des clusters qui utilisent [kubenet][kubenet].  Avec les clusters basés sur [Azure Container Networking Interface (CNI)][cni-networking], vous ne disposez pas de la table de routage nécessaire pour sécuriser l’accès.  Vous devrez créer manuellement la table de routage.  Pour plus d’informations, consultez [Gestion des tables de routage](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
-
 Les plages d’adresses IP autorisées pour le serveur d’API ne fonctionnent que pour les nouveaux clusters AKS que vous créez. Cet article vous montre comment créer un cluster AKS à l’aide d’Azure CLI.
 
 La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
-
-## <a name="limitations"></a>Limites
-
-Les limitations suivantes s’appliquent lorsque vous configurez des plages d’adresses IP autorisées pour le serveur d’API :
-
-* Vous ne pouvez actuellement pas utiliser Azure Dev Spaces, car la communication avec le serveur d’API est également bloquée.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Vue d’ensemble des plages d’adresses IP pour le serveur d’API
 
 Le serveur d’API Kubernetes détermine la façon dont les API Kubernetes sous-jacentes sont exposées. Ce composant fournit l’interaction des outils de gestion, tels que `kubectl` ou le tableau de bord Kubernetes. AKS fournit un maître de cluster monolocataire doté d’un serveur d’API dédié. Par défaut, le serveur d’API reçoit une adresse IP publique, et vous devez contrôler l’accès à l’aide de contrôles d’accès en fonction du rôle (RBAC).
 
-Pour sécuriser l’accès au plan de contrôle AKS/serveur d’API, normalement accessible, vous pouvez activer et utiliser des plages d’adresses IP autorisées. Ces plages d’adresses IP autorisées autorisent uniquement les plages d’adresses IP définies à communiquer avec le serveur d’API. Une demande adressée au serveur d’API depuis une adresse IP qui ne fait pas partie de ces plages d’adresses IP autorisées est bloquée. Vous devez continuer à utiliser RBAC pour autoriser des utilisateurs et les actions qu’ils demandent.
+Pour sécuriser l’accès au plan de contrôle AKS/serveur d’API, normalement accessible, vous pouvez activer et utiliser des plages d’adresses IP autorisées. Ces plages d’adresses IP autorisées autorisent uniquement les plages d’adresses IP définies à communiquer avec le serveur d’API. Une demande adressée au serveur d’API depuis une adresse IP qui ne fait pas partie de ces plages d’adresses IP autorisées est bloquée. Continuez à utiliser RBAC pour autoriser des utilisateurs et les actions qu’ils demandent.
 
 Pour plus d’informations sur le serveur d’API et les autres composants de cluster, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Créer un cluster AKS dont les plages d’adresses IP autorisées du serveur d’API sont activées
 
-Les plages d’adresses IP autorisées pour le serveur d’API ne fonctionnent que pour les nouveaux clusters AKS. Vous ne pouvez pas activer les plages d’adresses IP autorisées dans le cadre de l’opération de création du cluster. Si vous essayez d’activer les plages IP autorisées dans le cadre du processus de création du cluster, les nœuds de cluster ne peuvent pas à accéder au serveur d’API pendant le déploiement, car l’adresse IP de sortie n’est pas définie à ce stade.
+Les plages d’adresses IP autorisées pour le serveur d’API ne fonctionnent que pour les nouveaux clusters AKS. Créez un cluster au moyen de la commande [az aks create][az-aks-create] et spécifiez le paramètre *--api-server-authorized-ip-ranges* pour fournir une liste de plages d’adresses IP autorisées. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux ou IP publiques. Lorsque vous spécifiez une plage CIDR, commencez par la première adresse IP dans la plage. Par exemple, *137.117.106.90/29* est une plage valide, mais assurez-vous que vous spécifiez la première adresse IP dans la plage, par exemple *137.117.106.88/29*.
 
-D’abord, créez un cluster avec la commande [az aks create][az-aks-create]. L’exemple suivant crée un cluster à nœud unique nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*.
+> [!IMPORTANT]
+> Par défaut, votre cluster utilise l’[équilibreur de charge de la référence SKU Standard][standard-sku-lb], vous pouvez utiliser celui-ci pour configurer la passerelle sortante. Lorsque vous activez des plages d’adresses IP autorisées pour le serveur d’API lors de la création du cluster, l’adresse IP publique de votre cluster est également autorisée par défaut en plus des plages que vous indiquez. Si vous spécifiez *""* ou aucune valeur pour *--api-server-authorized-ip-ranges*, les plages d’adresses IP autorisées du serveur d’API sont désactivées.
+
+L’exemple suivant crée un cluster à nœud unique nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*, avec les plages d’adresses IP autorisées du serveur d’API activées. Les plages d’adresses IP autorisées sont *73.140.245.0/24* :
 
 ```azurecli-interactive
-# Create an Azure resource group
-az group create --name myResourceGroup --location eastus
-
-# Create an AKS cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
+    --api-server-authorized-ip-ranges 73.140.245.0/24 \
     --generate-ssh-keys
-
-# Get credentials to access the cluster
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
-
-## <a name="update-cluster-with-authorized-ip-ranges"></a>Mettre à jour un cluster avec des plages d’adresses IP autorisées
-
-Par défaut, votre cluster utilise l’[équilibreur de charge SKU Standard][standard-sku-lb], que vous pouvez utiliser pour configurer la passerelle sortante. Utilisez [az network public-ip list][az-network-public-ip-list] et spécifiez le groupe de ressources de votre cluster AKS, qui commence généralement par *MC_* . Cela a pour effet d’afficher l’adresse IP publique de votre cluster, que vous pouvez autoriser. Utilisez la commande [az aks update][az-aks-update] et spécifiez le paramètre *--api-server-authorized-ip-ranges* pour autoriser l’IP du cluster. Par exemple :
-
-```azurecli-interactive
-RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
-az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSCluster
-```
-
-Pour activer les plages d’adresses IP autorisées du serveur d’API, utilisez la commande [az aks update][az-aks-update] et spécifiez le paramètre *--api-server-authorized-ip-ranges* pour fournir une liste de plages d’adresses IP autorisées. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux ou IP publiques. Lorsque vous spécifiez une plage CIDR, commencez par la première adresse IP dans la plage. Par exemple, *137.117.106.90/29* est une plage valide, mais assurez-vous que vous spécifiez la première adresse IP dans la plage, par exemple *137.117.106.88/29*.
-
-L’exemple suivant active les plages d’adresses IP autorisées pour le serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Les plages d’adresses IP à autoriser sont *172.0.0.0/16* (plage d’adresses des pods/nœuds) et *168.10.0.0/18* (ServiceCidr) :
-
-```azurecli-interactive
-az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --api-server-authorized-ip-ranges 172.0.0.0/16,168.10.0.0/18
 ```
 
 > [!NOTE]
 > Vous devez ajouter ces plages à une liste verte :
 > - Adresse IP publique du pare-feu
-> - CIDR du service
-> - Plage d’adresses des sous-réseaux, avec les nœuds et les pods
 > - Toute plage qui représente les réseaux à partir desquels vous allez administrer le cluster
+> - Si vous utilisez Azure Dev Spaces sur votre cluster AKS, vous devez autoriser des [plages supplémentaires en fonction de votre région][dev-spaces-ranges].
+
+### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Spécifier les adresses IP sortantes pour l’équilibreur de charge de la référence SKU Standard
+
+Lors de la création d’un cluster AKS, si vous indiquez des préfixes ou des adresses IP sortantes pour le cluster, ceux-ci sont également autorisés. Par exemple :
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 1 \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
+    --api-server-authorized-ip-ranges 73.140.245.0/24 \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2> \
+    --generate-ssh-keys
+```
+
+Dans l’exemple ci-dessus, toutes les adresses IP fournies dans le paramètre *--load-balancer-outbound-ip-prefixes* sont autorisées avec les adresses IP du paramètre *--api-server-authorized-ip-ranges*.
+
+Vous pouvez également spécifier le paramètre *--load-balancer-outbound-ip-prefixes* pour autoriser les préfixes des adresses IP sortantes de l’équilibreur de charge.
+
+### <a name="allow-only-the-outbound-public-ip-of-the-standard-sku-load-balancer"></a>Autoriser uniquement l’adresse IP publique sortante de l’équilibreur de charge de la référence SKU Standard
+
+Lorsque vous activez les plages d’adresses IP autorisées du serveur d’API à la création du cluster, l’adresse IP publique sortante pour l’équilibreur de charge de la référence SKU Standard de votre cluster est également autorisée par défaut, en plus des plages que vous indiquez. Pour autoriser uniquement l’adresse IP publique sortante de l’équilibreur de charge de la référence SKU Standard, utilisez *0.0.0.0/32* lors de la spécification du paramètre *--api-server-authorized-ip-ranges*.
+
+Dans l’exemple suivant, seule l’adresse IP publique sortante de l’équilibreur de charge de la référence SKU Standard est autorisée, et vous ne pouvez accéder au serveur d’API qu’à partir des nœuds du cluster.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 1 \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
+    --api-server-authorized-ip-ranges 0.0.0.0/32 \
+    --generate-ssh-keys
+```
+
+## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>Mettre à jour les plages d’adresses IP autorisées du serveur d’API sur un cluster
+
+Pour mettre à jour les plages d’adresses IP autorisées du serveur d’API sur un cluster existant, utilisez la commande [az aks update][az-aks-update] avec les paramètres *--api-server-authorized-ip-ranges*, *--load-balancer-outbound-ip-prefixes*, *--load-balancer-outbound-ips* ou *--load-balancer-outbound-ip-prefixes*.
+
+L’exemple suivant met à jour les plages d’adresses IP autorisées du serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*. La plage d’adresses IP à autoriser est *73.140.245.0/24* :
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --api-server-authorized-ip-ranges  73.140.245.0/24
+```
+
+Vous pouvez également utiliser *0.0.0.0/32* quand vous spécifiez le paramètre *--api-server-authorized-ip-ranges* pour autoriser uniquement l’adresse IP publique de l’équilibreur de charge de la référence SKU Standard.
 
 ## <a name="disable-authorized-ip-ranges"></a>Désactiver les plages d’adresses IP autorisées
 
@@ -115,6 +134,7 @@ Pour plus d’informations, consultez [Concepts de sécurité pour les applicati
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
@@ -125,4 +145,5 @@ Pour plus d’informations, consultez [Concepts de sécurité pour les applicati
 [concepts-security]: concepts-security.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[route-tables]: ../virtual-network/manage-route-table.md
 [standard-sku-lb]: load-balancer-standard.md

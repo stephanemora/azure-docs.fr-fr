@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493505"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796696"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Créer et utiliser un pipeline Azure Machine Learning pour le scoring par lots
 
@@ -480,7 +480,7 @@ Pour exécuter le pipeline à partir du point de terminaison REST, vous avez bes
 
 Pour permettre l’authentification du principal de service, créez une *inscription d’application* dans *Azure Active Directory*. Commencez par générer un secret client, puis accordez au principal de service un *accès en fonction du rôle* à votre espace de travail Machine Learning. Utilisez la classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) pour gérer votre flux d’authentification. 
 
-`InteractiveLoginAuthentication` et `ServicePrincipalAuthentication` héritent de `AbstractAuthentication`. Dans les deux cas, utilisez la fonction `get_authentication_header()` de la même manière pour extraire l’en-tête :
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) et `ServicePrincipalAuthentication` héritent de `AbstractAuthentication`. Dans les deux cas, utilisez la fonction [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) de la même manière pour extraire l’en-tête :
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -522,7 +522,7 @@ RunDetails(published_pipeline_run).show()
 
 Sautez cette section si vous prévoyez de suivre d’autres tutoriels Azure Machine Learning.
 
-### <a name="stop-the-compute-instance"></a>Arrêter l’instance de calcul
+### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

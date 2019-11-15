@@ -1,5 +1,5 @@
 ---
-title: Activité de flux de données dans Azure Data Factory | Microsoft Docs
+title: Activité de flux de données dans Azure Data Factory
 description: Comment exécuter des flux de données à l’intérieur d’un pipeline de fabrique de données.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030513"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679943"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -56,7 +56,7 @@ integrationRuntime | Environnement de calcul sur lequel le flux de données s’
 staging.linkedService | Si vous utilisez une source ou un récepteur SQL DW, le compte de stockage utilisé pour la préproduction de PolyBase | LinkedServiceReference | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
 staging.folderPath | Si vous utilisez une source ou un récepteur SQL DW, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction de PolyBase | Chaîne | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
 
-![Exécuter le flux de données](media/data-flow/activity-data-flow.png "Exécuter le flux de données")
+![Exécuter un flux de données](media/data-flow/activity-data-flow.png "Exécuter un flux de données")
 
 ### <a name="data-flow-integration-runtime"></a>Runtime d’intégration de flux de données
 
@@ -64,7 +64,7 @@ Choisissez le runtime d’intégration à utiliser pour l’exécution de votre 
 
 Pour les exécutions de pipeline, le cluster est un cluster de travail, dont le démarrage prend quelques minutes avant que l’exécution commence. Si aucune durée de vie n’est spécifiée, ce temps de démarrage est nécessaire sur chaque exécution de pipeline. Si vous spécifiez une durée de vie, un pool de clusters à chaud reste actif pendant la durée spécifiée après la dernière exécution, ce qui donne lieu à des temps de démarrage plus courts. Par exemple, si vous avez une durée de vie de 60 minutes et que vous exécutez un flux de données une fois par heure, le pool de clusters reste actif. Pour plus d’informations, consultez [Runtime d’intégration Azure](concepts-integration-runtime.md).
 
-![Runtime d’intégration Azure](media/data-flow/ir-new.png "Runtime d’intégration Azure")
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 > [!NOTE]
 > La sélection du runtime d’intégration dans l’activité de flux de données s’applique uniquement aux *exécutions déclenchées* de votre pipeline. Le débogage de votre pipeline avec des flux de données s’exécute sur le cluster spécifié dans la session de débogage.
@@ -79,19 +79,19 @@ Si vous utilisez Azure SQL Data Warehouse comme récepteur ou source, vous devez
 
 Si votre flux de données utilise des jeux de données paramétrables, définissez les valeurs de paramètre sous l’onglet **Paramètres**.
 
-![Paramètres d’exécution des flux de données](media/data-flow/params.png "Paramètres")
+![Exécuter des paramètres de flux de données](media/data-flow/params.png "Paramètres")
 
 ### <a name="parameterized-data-flows"></a>Flux de données paramétrables
 
 Si votre flux de données est paramétré, définissez les valeurs dynamiques de ses paramètres sous l’onglet **Paramètres**. Vous pouvez utiliser le langage d’expression de pipeline ADF (uniquement pour les types Chaîne) ou le langage d’expression de flux de données pour affecter des valeurs de paramètres littérales ou statiques. Pour plus d’informations, consultez [Paramètres de flux de données](parameters-data-flow.md).
 
-![Exemple de paramètre d’exécution de flux de données](media/data-flow/parameter-example.png "Exemple de paramètre")
+![Exemple d’exécution de paramètres de flux de données](media/data-flow/parameter-example.png "Exemple de paramètres")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Débogage de pipeline de l’activité de flux de données
 
 Pour effectuer une exécution de débogage de pipeline à l’aide d’une activité de flux de données, vous devez passer en mode de débogage de flux de données à l’aide du curseur **Débogage de flux de données** dans la barre supérieure. Le mode débogage vous permet d’exécuter le flux de données sur un cluster Spark actif. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-![Bouton de débogage](media/data-flow/debugbutton.png "Bouton de débogage")
+![Bouton Déboguer](media/data-flow/debugbutton.png "Bouton Déboguer")
 
 Le pipeline de débogage s’exécute sur le cluster de débogage actif, et non sur l’environnement de runtime d’intégration spécifié dans les paramètres d’activité de flux de données. Vous pouvez choisir l’environnement de calcul de débogage lors du démarrage du mode de débogage.
 

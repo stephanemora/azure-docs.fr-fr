@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 462c1fca0ecd706c1bf04ac5a0ef8561321e05bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce49e9e26160017d64d745c9c7ad5402bc3ae2ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474870"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641550"
 ---
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
@@ -27,9 +27,9 @@ ms.locfileid: "73474870"
 1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
 1. Sélectionnez l’onglet **Mes API**.
 1. Sélectionnez l’API à laquelle l’application web doit être autorisée à accéder. Par exemple, *webapi1*.
-1. Sous **AUTORISATION**, développez **demo**, puis sélectionnez les étendues que vous avez définies auparavant. Par exemple, *demo.read* et *demo.write*.
+1. Sous **Autorisation**, développez **demo**, puis sélectionnez les étendues que vous avez définies auparavant. Par exemple, *demo.read* et *demo.write*.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
 1. Sélectionnez **Accorder le consentement administrateur pour (nom de votre locataire)** .
-1. Sélectionnez le compte administrateur actuellement connecté, ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
+1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
 1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour … » apparaît dans **ÉTAT** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **État** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.

@@ -1,5 +1,5 @@
 ---
-title: Configurer un runtime d'intégration auto-hébergé en tant que proxy pour SSIS dans Azure Data Factory | Microsoft Docs
+title: Configurer un runtime d’intégration auto-hébergé en tant que proxy pour SSIS dans Azure Data Factory
 description: Apprenez à configurer un runtime d'intégration auto-hébergé en tant que proxy pour Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684302"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurer un runtime d'intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF
 Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF) avec un runtime d'intégration auto-hébergé configuré en tant que proxy.  Cette fonctionnalité vous permet d'accéder aux données locales sans avoir à [joindre votre instance d'Azure-SSIS IR à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Ceci est particulièrement utile lorsque la stratégie de configuration/stratégie restrictive de votre réseau d'entreprise est trop complexe pour y injecter votre instance d'Azure-SSIS IR.

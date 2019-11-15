@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e3a76abe840a70ba7410855cde1d82ec96c28eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506484"
+ms.locfileid: "73579629"
 ---
 # <a name="audio-content-creation"></a>Création de contenu audio
 
@@ -29,7 +29,7 @@ Ce diagramme montre les étapes nécessaires pour paramétrer et exporter des so
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. La première étape consiste à [créer un compte Azure, inscrire une ressource de reconnaissance vocale et obtenir une clé d’abonnement](#create-a-speech-resource). Une fois que vous disposez d’une clé d’abonnement, vous pouvez l’utiliser pour appeler le Speech Services et accéder à [Création de contenu audio](https://aka.ms/audiocontentcreation).
+1. La première étape consiste à [créer un compte Azure, inscrire une ressource de reconnaissance vocale et obtenir une clé d’abonnement](#create-a-speech-resource). Une fois que vous disposez d’une clé d’abonnement, vous pouvez l’utiliser pour appeler le service Speech et accéder à [Création de contenu audio](https://aka.ms/audiocontentcreation).
 2. [Créez un fichier de réglage audio](#create-an-audio-tuning-file) en utilisant du texte brut ou SSML.
 3. Choisissez la voix et la langue que vous souhaitez paramétrer. Création de contenu audio comprend toutes les [voix de synthèse vocale de Microsoft](language-support.md#text-to-speech). Vous pouvez utiliser une voix standard, neuronale ou votre propre voix personnalisée.
    >[!NOTE]
@@ -43,7 +43,7 @@ Ce diagramme montre les étapes nécessaires pour paramétrer et exporter des so
 
 Suivez ces étapes pour créer une ressource Speech et la connecter à Speech Studio.
 
-1. Suivez ces instructions pour [vous inscrire pour obtenir un compte Azure et créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
+1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
 2. Connectez-vous à [Création de contenu audio](https://aka.ms/audiocontentcreation).
 3. Sélectionnez un projet existant ou cliquez sur **Créer un nouveau**.
 4. Vous pouvez modifier votre abonnement à tout moment avec l’option **Paramètres**, située dans le haut de la section.

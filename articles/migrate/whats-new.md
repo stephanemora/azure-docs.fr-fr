@@ -4,33 +4,56 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/10/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2c3bc596076f3ec4f9d41f0da819ddd386fee63c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811043"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715393"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer des serveurs, applications et données vers le cloud Microsoft Azure. Cet article récapitule les nouvelles fonctionnalités d’Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article récapitule les nouvelles fonctionnalités d’Azure Migrate.
 
 
 
-## <a name="azure-migrate-new-version"></a>Nouvelle version d’Azure Migrate
-
-Une nouvelle version d’Azure Migrate a été publiée en juillet 2019. 
-
-- **Version actuelle (nouvelle)**  : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. 
-- **Version précédente** : les clients utilisant la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), doivent désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure, sélectionnez Tous les services, puis recherchez Azure Migrate. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
+## <a name="update-november-2019"></a>Mise à jour (novembre 2019)
 
 
-## <a name="azure-migrate-features"></a>Fonctionnalités d’Azure Migrate
 
-La nouvelle version d’Azure Migrate offre un certain nombre de nouvelles fonctionnalités :
+Un certain nombre de nouvelles fonctionnalités ont été ajoutées à Azure Migrate :
+
+> [!NOTE]
+> Si vous ne voyez pas encore certaines de ces fonctionnalités dans le portail Azure Migrate, patientez un peu. Elles apparaîtront au cours de la semaine suivante ou un peu plus tard.
+
+- **Évaluation des serveurs physiques**. L’évaluation des serveurs physiques locaux est désormais prise en charge, en plus de la migration du serveur physique qui est déjà prise en charge.
+- **Évaluation basée sur l’importation**. L’évaluation des machines à l’aide des métadonnées et des données de performances fournies dans un fichier CSV est désormais prise en charge.
+- **Découverte des applications** : Azure Migrate prend désormais en charge la découverte au niveau de l’application des applications, des rôles et des fonctionnalités à l’aide de l’appliance Azure Migrate. Ceci est actuellement pris en charge pour les machines virtuelles VMware uniquement et est limité à la détection uniquement (l’évaluation n’est pas actuellement prise en charge). [En savoir plus](how-to-discover-applications.md)
+- **Visualisation des dépendances sans agent** : Vous n’avez plus besoin d’installer explicitement des agents pour la visualisation des dépendances. La visualisation sans agent et basée sur l’agent sont désormais prises en charge.
+- **Bureau virtuel** : Utilisez les outils ISV pour évaluer et migrer une infrastructure de bureau virtuel locale (VDI) vers Windows Virtual Desktop dans Azure.
+- **Application web** : L’assistant Migration Azure App Service, utilisé pour l’évaluation et la migration d’applications web, est désormais intégré à Azure Migrate.
+
+De nouveaux outils d’évaluation et de migration ont été ajoutés à Azure Migrate :
+
+- **Rackware** : Offre de migration cloud.
+- **Movere** : Offre d’évaluation.
+
+[Découvrez plus d’informations ](migrate-services-overview.md) sur l’utilisation des outils et des offres ISV pour l’évaluation et la migration dans Azure Migrate.
+
+## <a name="release-version-july-2019"></a>Mise en production de la version (juillet 2019)
+
+Une version actuelle d’Azure Migrate a été mise en production en juillet 2019. 
+
+- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. 
+- **Version précédente** : les clients utilisant la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), doivent désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services**, recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
+
+
+### <a name="azure-migrate-features"></a>Fonctionnalités d’Azure Migrate
+
+La version actuelle d’Azure Migrate offre un certain nombre de nouvelles fonctionnalités :
 
 
 - **Plateforme de migration unifiée** : Azure Migrate offre désormais un portail unique pour centraliser, gérer et suivre votre parcours de migration vers Azure, avec une expérience de flux de déploiement et de portail améliorée.

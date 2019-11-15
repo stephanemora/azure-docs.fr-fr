@@ -1,7 +1,7 @@
 ---
 title: Utiliser un service web
-titleSuffix: Azure Machine Learning Studio
-description: Une fois qu’un service de machine learning a été déployé à partir d’Azure Machine Learning Studio, le service web RESTful peut être utilisé soit en tant que service de requête-réponse en temps réel, soit en tant que service d’exécution par lot.
+titleSuffix: ML Studio (classic) Azure
+description: Une fois qu’un service de machine learning a été déployé à partir d’Azure Machine Learning Studio (classique), le service web RESTful peut être utilisé soit en tant que service de requête-réponse en temps réel, soit en tant que service d’exécution par lot.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +10,21 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751295"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671436"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio
+# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio (classique)
 
-Une fois que vous avez déployé un modèle prédictif Azure Machine Learning Studio en tant que service Web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
+Une fois que vous avez déployé un modèle prédictif Azure Machine Learning Studio (classique) en tant que service web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
 
-Vous trouverez des informations supplémentaires sur la création et le déploiement d’un service web Machine Learning à l’aide de Machine Learning Studio dans les pages suivantes :
+Vous trouverez des informations supplémentaires sur la création et le déploiement d’un service web Machine Learning à l’aide de Machine Learning Studio (classique) dans les pages suivantes :
 
-* Pour accéder à un didacticiel sur la création d'une expérience dans Machine Learning Studio, consultez [Créer votre première expérience](create-experiment.md).
-* Pour plus d’informations sur le déploiement d’un service web, consultez [Déployer un service web Machine Learning](publish-a-machine-learning-web-service.md).
+* Pour accéder à un didacticiel sur la création d’une expérience dans Machine Learning Studio (classique), voir [Créer votre première expérience](create-experiment.md).
+* Pour plus d’informations sur le déploiement d’un service web, consultez [Déployer un service web Machine Learning](deploy-a-machine-learning-web-service.md).
 * Pour plus d’informations sur Machine Learning en général, consultez le [Centre de documentation Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -32,14 +32,14 @@ Vous trouverez des informations supplémentaires sur la création et le déploie
 ## <a name="overview"></a>Vue d'ensemble
 Grâce au service web Microsoft Azure Machine Learning, une application externe peut communiquer avec le modèle de notation de workflow Machine Learning et ce, en temps réel. Un appel du service web Machine Learning renvoie les résultats d’une prédiction à une application externe. Pour créer cet appel, vous transmettez une clé API créée quand vous déployez une prédiction. Le service web Machine Learning est basé sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
-Microsoft Azure Machine Learning Studio propose deux types de service :
+La version classique d’Azure Machine Learning Studio propose deux types de services :
 
-* Service de requête-réponse (Request-Response Service, RRS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio.
+* Service de requête-réponse (Request-Response Service, RRS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio (classique).
 * Service d’exécution de lot (Batch Execution Service, BES) : service asynchrone qui effectue la notation d’un lot pour les enregistrements de données.
 
-Pour plus d’informations sur les services web Machine Learning, consultez [Déployer un service web Machine Learning](publish-a-machine-learning-web-service.md).
+Pour plus d’informations sur les services web Machine Learning, consultez [Déployer un service web Machine Learning](deploy-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio
+## <a name="get-an-authorization-key"></a>Obtenir une clé d’autorisation
 Quand vous déployez votre expérimentation, les clés API sont générées pour le service web. Vous pouvez récupérer les clés de plusieurs emplacements.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>À partir du portail des services web Microsoft Azure Machine Learning
@@ -61,10 +61,10 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 5. Copiez et enregistrez la **clé primaire**.
 
 ### <a name="classic-web-service"></a>Service web classique
- Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio.
+ Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio (classique).
 
-#### <a name="machine-learning-studio"></a>Machine Learning Studio
-1. Dans Machine Learning Studio, cliquez sur l’option **SERVICES WEB** figurant sur la gauche.
+#### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (classique)
+1. Dans Machine Learning Studio (cliquez), cliquez sur l’option **SERVICES WEB** à gauche.
 2. Cliquez sur un service web. La **clé API** figure sur l’onglet **TABLEAU DE BORD**.
 
 ## <a id="connect"></a>Se connecter à un service web Machine Learning
@@ -103,7 +103,7 @@ Pour vous connecter à un service web Machine Learning, le package NuGet **Micro
 **Pour exécuter l’exemple de code**
 
 1. Publiez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
-2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez **Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio** ci-dessus.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Voir **Générez une clé d’autorisation** ci-dessus.
 3. Affectez l’élément serviceUri avec l’URI de requête.
 
 **Voici à quoi ressemble une requête complète.**
@@ -199,7 +199,7 @@ Pour vous connecter à un service web Machine Learning, utilisez la bibliothèqu
 **Pour exécuter l’exemple de code**
 
 1. Déployer l’exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
-2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez **Obtenir une clé d’autorisation Microsoft Azure Machine Learning Studio** au début de cet article.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Voir la section **Obtenir une clé d’autorisation** au début de cet article.
 3. Affectez l’élément serviceUri avec l’URI de requête.
 
 **Voici à quoi ressemble une requête complète.**

@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : Interroger une base de données Azure SQL à l’aide de l’éditeur de requête | Microsoft Docs'
+title: 'Portail Azure : Interroger avec l’éditeur de requête'
 description: Découvrez comment se connecter à une base de données SQL dans le portail Azure à l’aide de l’éditeur de requête SQL. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: se connecter à la base de données sql, portail azure, portail, éditeur de requête
 services: sql-database
@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/24/2019
+ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827114"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
@@ -46,41 +46,47 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Se connecter avec l’authentification SQL
 
-1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez **mySampleDatabase**.
+1. Accédez au portail Azure pour vous connecter à une base de données SQL. Recherchez et sélectionnez **Base de données SQL**.
 
-2. Dans le menu de gauche, recherchez et sélectionnez **Éditeur de requête (préversion)** . La page **Connexion** apparaît.
+    ![Accéder à la liste de base de données SQL, portail Azure](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. Sélectionnez votre base de données SQL.
+
+    ![Sélectionner une base de données SQL, portail Azure](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. Dans le menu **Base de données SQL**, sélectionnez **Éditeur de requête (préversion)** .
 
     ![rechercher un éditeur de requête](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Dans le menu déroulant **Type d’autorisation**, sélectionnez **Authentification SQL Server**, puis entrez l’ID utilisateur et le mot de passe du compte d’administrateur du serveur utilisé pour créer la base de données.
+4. Dans la page **Connexion**, sous l’étiquette **Authentification SQL Server**, entrez l’ID de **connexion** et le **mot de passe** du compte d’administrateur du serveur utilisé pour créer la base de données. Sélectionnez ensuite **OK**.
 
     ![se connecter](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. Sélectionnez **OK**.
-
-
 ## <a name="connect-using-azure-active-directory"></a>Se connecter avec Azure Active Directory
 
-La configuration d’un administrateur Active Directory vous permet d’utiliser une même identité pour vous connecter au portail Azure et à votre base de données SQL. Suivez les étapes ci-dessous afin de configurer un administrateur AD pour votre serveur SQL Server.
+La configuration d’un administrateur Azure Active Directory (Azure AD) vous permet d’utiliser une même identité pour vous connecter au portail Azure et à votre base de données SQL. Suivez les étapes ci-dessous afin de configurer un administrateur Azure AD pour votre serveur SQL Server.
 
 > [!NOTE]
-> * Les comptes de messagerie (par exemple outlook.com, gmail.com, yahoo.com, etc.) ne sont pas encore pris en charge comme administrateurs AD. Veillez à choisir un utilisateur créé en mode natif dans Azure AD ou fédéré dans Azure AD.
+> * Les comptes de messagerie (par exemple outlook.com, gmail.com, yahoo.com, etc.) ne sont pas encore pris en charge comme administrateurs Azure AD. Veillez à choisir un utilisateur créé en mode natif dans Azure AD ou fédéré dans Azure AD.
 > * La connexion d’un administrateur Azure AD ne fonctionne pas avec les comptes pour lesquels l’authentification à deux facteurs est activée.
 
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez votre serveur SQL server.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Toutes les ressources**.
 
-2. Dans le menu **Paramètres** de votre serveur SQL Server, sélectionnez **Administrateur Active Directory**.
+2. Sélectionnez votre serveur SQL.
 
-3. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Définir l’administrateur**, puis choisissez l’utilisateur ou le groupe destiné à être votre administrateur Active Directory.
+3. Dans le menu **Serveur SQL**, sous **Paramètres**, sélectionnez **Administrateur Active Directory**.
+
+4. Dans la barre d’outils de la page **Administrateur Active Directory**, sélectionnez **Définir l’administrateur**, puis choisissez l’utilisateur ou le groupe destiné à être votre administrateur Azure Active Directory.
 
     ![Sélectionner Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Enregistrer**.
+5. Dans la page **Ajouter un administrateur**, dans la zone de recherche, entrez un utilisateur ou un groupe à rechercher, sélectionnez-le en tant qu’administrateur, puis cliquez sur le bouton **Sélectionner**.
 
-5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)** . La page **Connexion** apparaît. Si vous êtes administrateur AD, à droite, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous êtes connecté.
+6. De retour dans la barre d’outils de la page SQL Server **Administrateur Active Directory**, sélectionnez **Enregistrer**.
 
-6. Sélectionnez **OK**.
+7. Dans le menu **SQL Server**, sélectionnez **Bases de données SQL**, puis sélectionnez votre base de données SQL.
 
+8. Dans le menu **Base de données SQL**, sélectionnez **Éditeur de requête (préversion)** . Dans la page **Connexion**, sous l’étiquette **Authentification Active Directory**, un message s’affiche indiquant que vous vous êtes connecté si vous êtes un administrateur Azure AD. Sélectionnez ensuite le bouton **Continuer en tant que** *\<votre ID d’utilisateur ou de groupe >* .
 
 ## <a name="view-data"></a>Afficher les données
 
@@ -95,7 +101,7 @@ La configuration d’un administrateur Active Directory vous permet d’utiliser
 
 2. Dans la barre d’outils, sélectionnez **Exécuter**, puis passez en revue la sortie dans le volet **Résultats**.
 
-![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## <a name="insert-data"></a>Insertion des données
 
@@ -103,8 +109,8 @@ Exécutez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/libra
 
 1. Remplacez la requête précédente par celle-ci.
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
@@ -113,7 +119,7 @@ Exécutez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/libra
            , [ListPrice]
            , [SellStartDate]
            )
-     VALUES
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'

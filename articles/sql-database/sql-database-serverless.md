@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless| Microsoft Docs
+title: Sans serveur
 description: Cet article décrit le nouveau niveau de calcul serverless et le compare au niveau de calcul provisionné existant
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818273"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 
@@ -174,8 +174,6 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |Nombre minimal de vCores|Dépend du nombre maximal de vCores configuré. Voir [Limites des ressources](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCore|
    |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
-> [!NOTE]
-> Actuellement, l’utilisation de T-SQL pour déplacer une base de données existante dans le niveau serverless ou changer sa taille de calcul n’est pas prise en charge, mais vous pouvez effectuer ces opérations via le portail Azure ou PowerShell.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Créer une base de données dans le niveau de calcul serverless 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
+
+L’exemple suivant crée une base de données dans le niveau de calcul serverless.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Déplacer une base de données du niveau de calcul provisionné vers le niveau de calcul serverless
 
 #### <a name="use-powershell"></a>Utiliser PowerShell
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
+
+L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+Pour plus d’informations, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Déplacer une base de données du niveau de calcul serverless vers le niveau de calcul provisionné
 
@@ -323,6 +343,10 @@ Plus précisément, les coûts de calcul dans cet exemple sont calculés de la f
 |Total de secondes de vCore facturées sur 24 heures||||50 400 secondes de vCore|
 
 Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul facturé sur cette période de 24 heures est le produit du prix unitaire du calcul par le nombre de secondes de vCore facturées : $0.000073/vCore/seconde * 50400 secondes de vCore = $3.68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure Hybrid Benefit et capacité réservée
+
+Les remises liées à Azure Hybrid Benefit et aux capacités réservées ne s’appliquent pas au niveau du calcul serverless.
 
 ## <a name="available-regions"></a>Régions disponibles
 

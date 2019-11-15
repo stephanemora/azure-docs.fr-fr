@@ -1,5 +1,5 @@
 ---
-title: Copier des données locales à l’aide de l’outil Copier les données d’Azure | Microsoft Docs
+title: Copier des données locales avec l’outil d’Azure Copier des données
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server locale vers un stockage d’objets Blob Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
-ms.openlocfilehash: cbefc274e4ebb65f61769a7931dbed305acffe2f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3b9c9371d947b0193f93b8084fbaaf66e3253997
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683547"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

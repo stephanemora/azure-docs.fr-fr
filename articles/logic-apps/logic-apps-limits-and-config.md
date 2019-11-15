@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e2b866ddd888261e7d8817c73952d4830a4f8147
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cd7b8c3de46cb88833f27cbebb7d07f944a711e4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464008"
+ms.locfileid: "73580836"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
-Cet article décrit les limites et les détails de configuration liés à la création et à l’exécution de workflows automatisés avec Azure Logic Apps. Pour Microsoft Flow, consultez [Limites et configuration dans Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+Cet article décrit les limites et les détails de configuration liés à la création et à l’exécution de workflows automatisés avec Azure Logic Apps. Pour Power Automate, consultez [Limites et configuration dans Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -267,7 +267,7 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortants dépendent de la région où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
 
 > [!NOTE]
-> Certains appels de Microsoft Flow, tels que les requêtes **HTTP** et **HTTP + OpenAPI**, passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Microsoft Flow, consultez [Limites and configuration dans Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+> Certains appels de Power Automate, tels que les requêtes **HTTP** et **HTTP + OpenAPI**, passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration dans Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 * Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez votre pare-feu avec *toutes* les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région.
 

@@ -1,5 +1,5 @@
 ---
-title: Exécuter des packages SQL Server Integration Services (SSIS) avec l’utilitaire dtexec compatible Azure | Microsoft Docs
+title: Exécuter des packages SSIS (SQL Server Integration Services) avec l’utilitaire dtexec compatible Azure
 description: Découvrez comment exécuter des packages SQL Server Integration Services (SSIS) avec l’utilitaire dtexec compatible Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 472792351b8b7ab96e055bacd64141840ce7a630
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673551"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Exécuter des packages SQL Server Integration Services avec l’utilitaire dtexec compatible Azure
 Cet article décrit l’utilitaire d’invite de commandes dtexec (AzureDTExec) compatible Azure. Il permet d’exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (IR) dans Azure Data Factory.

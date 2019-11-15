@@ -1,5 +1,5 @@
 ---
-title: Prise en main du flux de données de wrangling dans Azure Data Factory | Microsoft Docs
+title: Prise en main du flux de wrangling data dans Azure Data Factory
 description: Didacticiel sur la façon de préparer des données dans Azure Data Factory à l’aide d’un flux de données de wrangling
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 6de6f6976643360613b7bd44d8cb390c409e33e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ae109045381dba77610dedc5bb95e233b213eee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512034"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682281"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Préparer des données avec un flux de données de wrangling
 

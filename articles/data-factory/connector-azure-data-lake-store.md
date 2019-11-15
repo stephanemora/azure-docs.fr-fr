@@ -1,5 +1,5 @@
 ---
-title: Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide de Data Factory | Microsoft Docs
+title: Copier des données vers ou à partir d’Azure Data Lake Storage Gen1 à l’aide de Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers Azure Data Lake Store ou à partir d’Azure Data Lake Store vers des banques de données réceptrices prises en charge.
 services: data-factory
 author: linda33wj
@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 968e356947e99c3b6c4fe9d5acd2efed264be5b0
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 2aef04c4fe4713b107abe53fe459b7859a9c714e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681273"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -67,22 +67,18 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 
 ### <a name="use-service-principal-authentication"></a>Utiliser une authentification de principal de service
 
-Pour utiliser une authentification du principal de service, inscrivez une entité d’application dans Azure Active Directory et donnez-lui accès à Data Lake Store. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) pour des instructions détaillées. Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
+Pour l’authentification de principal de service, effectuez les étapes suivantes.
 
-- ID de l'application
-- Clé de l'application
-- ID client
+1. Inscrivez une entité d’application dans Azure Active Directory et donnez-lui accès à Data Lake Store. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) pour des instructions détaillées. Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
->[!IMPORTANT]
-> Accordez l’autorisation appropriée au principal de service dans Data Lake Store :
->- **En tant que source** : Dans **Explorateur de données** > **Accès**, accordez au moins l’autorisation **Lecture + Exécution** pour lister et copier les fichiers dans les dossiers et sous-dossiers. Ou, vous pouvez accorder l’autorisation **Lecture** pour copier un seul fichier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Il n’existe aucune exigence sur le contrôle d’accès au niveau du compte (IAM).
->- **En tant que récepteur** : Dans **Explorateur de données** > **Accès**, accordez au moins l’autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez le runtime d’intégration Azure pour effectuer la copie (la source et le récepteur sont tous les deux dans le cloud), dans IAM, attribuez au moins le rôle **Lecteur** pour permettre à Data Factory de détecter la région pour Data Lake Store. Pour éviter ce rôle IAM, vous devez explicitement [créer un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) avec l’emplacement de Data Lake Store. Par exemple, si votre Data Lake Store se trouve dans la région Europe Ouest, créez un runtime d’intégration Azure dont l’emplacement est défini sur « Europe Ouest ». Associez-les dans le service lié Data Lake Store comme indiqué dans l’exemple suivant.
+    - ID de l'application
+    - Clé de l'application
+    - ID client
 
->[!NOTE]
->Pour lister les dossiers à partir de la racine, vous devez définir l’autorisation accordée au principal de service **au niveau racine avec une autorisation « Exécution »** . Cette définition s’avère nécessaire quand vous utilisez :
->- L’**outil Copier des données** pour créer le pipeline de copie.
->- L’**interface utilisateur de Data Factory** pour tester la connexion et parcourir les dossiers lors de la création.
->Si vous avez des questions sur l’octroi d’autorisation au niveau racine, lors de la création, ignorez le test de la connexion et saisissez un chemin d’accès parent avec une autorisation accordée. Ensuite, choisissez de commencer la navigation à partir du chemin d’accès indiqué. L’activité de copie fonctionne tant que le principal du service dispose de l’autorisation appropriée sur les fichiers à copier.
+2. Accordez l’autorisation nécessaire au principal de service. Pour obtenir des exemples sur le fonctionnement des autorisations dans Data Lake Storage Gen1, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+
+    - **En tant que source** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Lecture** pour les fichiers à copier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Il n’existe aucune exigence sur le contrôle d’accès au niveau du compte (IAM).
+    - **En tant que récepteur** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Écriture** pour le dossier récepteur. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez le runtime d’intégration Azure pour effectuer la copie (la source et le récepteur sont tous les deux dans le cloud), dans IAM, attribuez au moins le rôle **Lecteur** pour permettre à Data Factory de détecter la région pour Data Lake Store. Pour éviter ce rôle IAM, vous devez explicitement [créer un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) avec l’emplacement de Data Lake Store. Par exemple, si votre Data Lake Store se trouve dans la région Europe Ouest, créez un runtime d’intégration Azure dont l’emplacement est défini sur « Europe Ouest ». Associez-les dans le service lié Data Lake Store comme indiqué dans l’exemple suivant.
 
 Les propriétés prises en charge sont les suivantes :
 
@@ -122,21 +118,14 @@ Les propriétés prises en charge sont les suivantes :
 
 Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité managée pour l’authentification Data Lake Store, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis ou vers votre Data Lake Store.
 
-Pour utiliser les identités managées afin d’authentifier les ressources Azure :
+Pour utiliser les identités managées afin d’authentifier les ressources Azure, effectuez les étapes suivantes.
 
 1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur ID d’application de l’identité du service générée en même temps que votre fabrique.
-2. Accordez l’accès Data Lake Store à l’identité managée comme vous le feriez pour un principal de service en suivant ces remarques.
 
->[!IMPORTANT]
-> Veillez à accorder l’autorisation appropriée à l’identité managée de la fabrique de données dans Data Lake Store :
->- **En tant que source** : Dans **Explorateur de données** > **Accès**, accordez au moins l’autorisation **Lecture + Exécution** pour lister et copier les fichiers dans les dossiers et sous-dossiers. Ou, vous pouvez accorder l’autorisation **Lecture** pour copier un seul fichier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Il n’existe aucune exigence sur le contrôle d’accès au niveau du compte (IAM).
->- **En tant que récepteur** : Dans **Explorateur de données** > **Accès**, accordez au moins l’autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez le runtime d’intégration Azure pour effectuer la copie (la source et le récepteur sont tous les deux dans le cloud), dans IAM, attribuez au moins le rôle **Lecteur** pour permettre à Data Factory de détecter la région pour Data Lake Store. Pour éviter ce rôle IAM, vous devez explicitement [créer un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) avec l’emplacement de Data Lake Store. Associez-les dans le service lié Data Lake Store comme indiqué dans l’exemple suivant.
+2. Accordez à l’identité managée l’accès à Data Lake Store. Pour obtenir des exemples sur le fonctionnement des autorisations dans Data Lake Storage Gen1, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
->[!NOTE]
->Pour lister les dossiers à partir de la racine, vous devez définir l’autorisation accordée à l’identité managée **au niveau racine avec une autorisation « Exécution »** . Cette définition s’avère nécessaire quand vous utilisez :
->- L’**outil Copier des données** pour créer le pipeline de copie.
->- L’**interface utilisateur de Data Factory** pour tester la connexion et parcourir les dossiers lors de la création.
->Si vous avez des questions sur l’octroi d’autorisation au niveau racine, lors de la création, ignorez le test de la connexion et saisissez un chemin d’accès parent avec une autorisation accordée. Ensuite, choisissez de commencer la navigation à partir du chemin d’accès indiqué. L’activité de copie fonctionne tant que le principal du service dispose de l’autorisation appropriée sur les fichiers à copier.
+    - **En tant que source** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Lecture** pour les fichiers à copier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Il n’existe aucune exigence sur le contrôle d’accès au niveau du compte (IAM).
+    - **En tant que récepteur** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Écriture** pour le dossier récepteur. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez le runtime d’intégration Azure pour effectuer la copie (la source et le récepteur sont tous les deux dans le cloud), dans IAM, attribuez au moins le rôle **Lecteur** pour permettre à Data Factory de détecter la région pour Data Lake Store. Pour éviter ce rôle IAM, vous devez explicitement [créer un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) avec l’emplacement de Data Lake Store. Associez-les dans le service lié Data Lake Store comme indiqué dans l’exemple suivant.
 
 Dans Azure Data Factory, vous n’avez pas besoin de spécifier des propriétés en plus des informations générales Data Lake Store du service lié.
 
@@ -164,12 +153,8 @@ Dans Azure Data Factory, vous n’avez pas besoin de spécifier des propriétés
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous à la section [Jeu de données au format Parquet, Texte délimité, JSON, Avro et Binaire](#format-based-dataset).
-- Pour les autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Jeu de données au format Parquet, Texte délimité, JSON, Avro ou Binaire
-
-Pour copier des données vers et depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge.
 Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `location` du jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
@@ -177,10 +162,6 @@ Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AzureDataLakeStoreLocation**. | OUI      |
 | folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer les dossiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Nom de fichier dans le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-
-> [!NOTE]
->
-> Le jeu de données de type **AzureDataLakeStoreFile** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata à des fins de compatibilité descendante. Mais il n’est pas compatible avec la fonctionnalité de flux de données de mappage. Nous vous recommandons d’utiliser ce nouveau modèle à l’avenir. L’interface utilisateur de création de Data Factory génère ces nouveaux types.
 
 **Exemple :**
 
@@ -208,9 +189,10 @@ Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1
 }
 ```
 
-### <a name="other-format-dataset"></a>Autres formats de jeu de données
+### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
-Pour copier des données depuis et vers Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge :
+>[!NOTE]
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -221,7 +203,6 @@ Pour copier des données depuis et vers Azure Data Lake Store Gen1 au **format O
 | modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
 | format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers dans un format spécifique, les types de format de fichier suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non |
-
 
 >[!TIP]
 >Pour copier tous les fichiers d’un dossier, spécifiez **folderPath** uniquement.<br>Pour copier un seul fichier portant un nom particulier, spécifiez **folderPath** avec la partie dossier et **fileName** avec le nom du fichier.<br>Pour copier un sous-ensemble de fichiers d’un dossier, spécifiez **folderPath** avec la partie dossier et **fileName** avec un filtre de caractères génériques. 
@@ -262,12 +243,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store en tant que source
 
-- Pour copier des données depuis le **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Source au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-source).
-- Pour copier des données depuis d’autres formats tels que les **formats ORC**, reportez-vous à la section [Autres formats de source](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Source au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -278,9 +256,6 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **AzureDataLakeStoreSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Nous vous recommandons d’utiliser ce nouveau modèle à l’avenir. L’interface utilisateur de création de Data Factory génère ces nouveaux types.
 
 **Exemple :**
 
@@ -323,9 +298,10 @@ Pour copier des données depuis les **formats Parquet, Texte délimité, JSON, A
 ]
 ```
 
-#### <a name="other-format-source"></a>Autres formats de source
+#### <a name="legacy-source-model"></a>Modèle source hérité
 
-Pour copier des données depuis Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+>[!NOTE]
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -367,21 +343,15 @@ Pour copier des données depuis Azure Data Lake Store Gen1 au **format ORC**, le
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store en tant que récepteur
 
-- Pour copier des données au **format Parquet, Texte délimité, JSON, Avro ou Binaire**, reportez-vous à la section [Récepteur au format Parquet, Texte délimité, JSON, Avro ou Binaire](#format-based-sink).
-- Pour copier des données vers d’autres formats tels que les **formats ORC/JSON**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Récepteur au format Parquet, Texte délimité, JSON, Avro et binaire
-
-Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format de texte délimité](format-delimited-text.md), [Format Avro](format-avro.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
+Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété de type sous `storeSettings` doit être définie sur **AzureDataLakeStoreWriteSetting**. | OUI      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
-
-> [!NOTE]
-> Pour les formats Parquet et de texte délimité, le récepteur de l’activité de copie de type **AzureDataLakeStoreSink** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Nous vous recommandons d’utiliser ce nouveau modèle à l’avenir. L’interface utilisateur de création de Data Factory génère ces nouveaux types.
 
 **Exemple :**
 
@@ -418,9 +388,10 @@ Pour copier des données aux **formats Parquet, Texte délimité, JSON, Avro et 
 ]
 ```
 
-#### <a name="other-format-sink"></a>Autres formats de récepteur
+#### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
-Pour copier des données vers Azure Data Lake Store Gen1 au **format ORC**, les propriétés suivantes sont prises en charge dans la section **récepteur** :
+>[!NOTE]
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

@@ -1,21 +1,24 @@
 ---
-title: Compétences de recherche cognitive Extraction de document
+title: Compétences de recherche cognitive Extraction de document (préversion)
 titleSuffix: Azure Cognitive Search
-description: Extrait le contenu d’un fichier dans le pipeline d’enrichissement.
+description: Extrait le contenu d’un fichier dans le pipeline d’enrichissement. Cette compétence est actuellement en préversion publique.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510086"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720128"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Compétence cognitive Extraction de document
+
+> [!IMPORTANT] 
+> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 La compétence **Extraction de document** extrait le contenu d’un fichier dans le pipeline d’enrichissement. Cela vous permet de tirer parti de l’étape d’extraction de document qui se produit normalement avant l’exécution des compétences avec des fichiers qui peuvent être générés par d’autres compétences.
 
@@ -61,9 +64,9 @@ L’entrée « file_data » doit être un objet défini comme suit :
 
 Cet objet de référence de fichier peut être généré de 3 manières :
 
- - En définissant le paramètre `allowSkillsetToReadFileData` de votre définition d’indexeur sur la valeur « true ».  Cela permet de créer un chemin d’accès `/document/file_data` qui est un objet représentant les données du fichier d’origine téléchargées à partir de votre source de données BLOB. Ce paramètre s’applique uniquement aux données dans le stockage d’objets BLOB.
+ - En définissant le paramètre `allowSkillsetToReadFileData` de votre définition d’indexeur sur la valeur « true ».  Ceci permet de créer un chemin `/document/file_data` qui est un objet représentant les données du fichier d’origine téléchargées à partir de votre source de données d’objets blob. Ce paramètre s’applique uniquement aux données dans le stockage d’objets BLOB.
 
- - En définissant le paramètre `imageAction` de votre définition d’indexeur sur autre valeur que `none`.  Cela crée un tableau d’images `/document/normalized_images` qui suivent la convention requise pour les entrées de cette compétence, si elles sont transmises individuellement (c’est-à-dire `/document/normalized_images/*`).
+ - En définissant le paramètre `imageAction` de votre définition d’indexeur sur autre valeur que `none`.  Ceci crée un tableau d’images qui suivent la convention nécessaire pour les entrées de cette compétence, si elles sont passées individuellement (c’est-à-dire `/document/normalized_images/*`).
 
  - Avoir une compétence personnalisée renvoie un objet JSON défini exactement comme indiqué ci-dessus.  Le paramètre `$type` doit être défini sur `file` et le paramètre `data` doit être données du tableau d’octets encodé en base 64 du contenu du fichier.
 

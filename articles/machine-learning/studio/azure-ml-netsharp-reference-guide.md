@@ -1,7 +1,7 @@
 ---
-title: Créer des réseaux neuronaux personnalisés avec Net#
-titleSuffix: Azure Machine Learning Studio
-description: Guide de la syntaxe du langage de spécification des réseaux neuronaux Net#. Découvrez comment créer des modèles de réseaux neuronaux personnalisés dans Azure Machine Learning Studio.
+title: Réseaux neuronaux personnalisés Net#
+titleSuffix: ML Studio (classic) Azure
+description: Guide de la syntaxe du langage de spécification des réseaux neuronaux Net#. Découvrez comment créer des modèles de réseau neuronal personnalisés dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751662"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684842"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio (classique)
 
 NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 
 Vous pouvez utiliser une spécification d’architecture Net# dans les contextes suivants :
 
-+ Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning : [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Tous les modules de réseau neuronal dans Microsoft Azure Machine Learning Studio (classique) : [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) et [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Les fonctions de réseau neuronal dans Microsoft ML Server : [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) et [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)pour le langage R, et [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) pour Python.
 
 
@@ -56,7 +56,7 @@ En outre, Net# prend en charge les quatre types de faisceaux de connexions avanc
 
 ## <a name="supported-customizations"></a>Personnalisations prises en charge
 
-L'architecture des modèles de réseau neuronal que vous créez dans Microsoft Azure Machine Learning Studio peut bénéficier d'une personnalisation avancée grâce à Net#. Vous pouvez :
+L’architecture des modèles de réseau neuronal que vous créez dans la version classique de Microsoft Azure Machine Learning Studio peut bénéficier d’une personnalisation avancée grâce à Net#. Vous pouvez :
 
 + créer des couches masquées et contrôler le nombre de nœuds dans chaque couche ;
 + spécifier la façon dont les couches doivent être connectées les unes aux autres ;

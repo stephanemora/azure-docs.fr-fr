@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476941"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818350"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -48,6 +48,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Automation](#automation-limits)
 * [Cache Azure pour Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Recherche cognitive Azure](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database pour MySQL](#azure-database-for-mysql)
@@ -60,7 +61,6 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [Sauvegarde](#backup-limits)
 * [Batch](#batch-limits)
@@ -130,7 +130,7 @@ Pour plus d’informations sur l’API Resource Manager et les limites d’écri
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Limites de machines virtuelles - Azure Resource Manager
-Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure. Les limites qui restent identiques avec Azure Resource Manager ne sont pas répertoriées. Reportez-vous au tableau précédent pour consulter ces limites.
+Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -270,7 +270,7 @@ Pour les limites d’Azure Database pour MySQL, voir [Limitations dans Azure Dat
 ### <a name="azure-database-for-postgresql"></a>Azure Database pour PostgreSQL
 Pour les limites d’Azure Database pour PostgreSQL, voir [Limitations dans Azure Database pour PostgreSQL](postgresql/concepts-limits.md).
 
-### <a name="azure-search-limits"></a>Limites de Recherche Azure
+### <a name="azure-cognitive-search-limits"></a>Limites de Recherche cognitive Azure
 Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
 * **Gratuit** : service mutualisé, partagé avec d’autres abonnés Azure, destiné à des projets d’évaluation et de développement de petite taille.
@@ -285,7 +285,7 @@ Les niveaux tarifaires déterminent la capacité et les limites de votre service
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la taille du document, les requêtes par seconde, les clés, les requêtes et les réponses, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
+Pour plus d’informations sur les limites à un niveau plus précis, notamment la taille des documents, les requêtes par seconde, les clés, les requêtes et les réponses, consultez [Limites du service dans Recherche cognitive Azure](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Limites de Media Services
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

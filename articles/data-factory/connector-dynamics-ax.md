@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Dynamics AX en utilisant Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Dynamics AX en utilisant Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Dynamics CRM vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 39c03058970a412a9bc312f99c239377898e5073
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 07edc284c29ca209ee20e5de390e8126993f4ce3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681019"
 ---
-# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory (préversion)
+# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier les données d’une source Dynamics AX. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
 
@@ -175,9 +175,9 @@ Pour copier des données de Dynamics AX, définissez le type **source** de l’a
 ```
 
 
-## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

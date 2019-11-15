@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506532"
+ms.locfileid: "73579703"
 ---
 # <a name="custom-commands-preview"></a>Commandes personnalisées (préversion)
 
 Les [assistants vocaux](voice-assistants.md) écoutent les utilisateurs et réagissent en prenant une mesure, souvent en parlant. Ils utilisent la [reconnaissance vocale](speech-to-text.md) pour transcrire la parole de l’utilisateur, puis agissent sur la compréhension du langage naturel du texte. Cette action comprend fréquemment une parole de l’assistant générée à l’aide de la [synthèse vocale](text-to-speech.md). Les appareils se connectent aux assistants avec l’objet `DialogServiceConnector` du kit de développement logiciel (SDK) Speech.
 
-**Commandes personnalisées (préversion)** est une solution rationalisée permettant de créer un assistant vocal. Elle propose une expérience de création unifiée, un modèle d’hébergement automatique et une complexité relativement inférieure par rapport aux autres options de création d’assistant, comme [Direct Line Speech](direct-line-speech.md). Cette simplification, toutefois, s’accompagne d’une réduction de la flexibilité. Ainsi, la solution Commandes personnalisées (préversion) est la plus adaptée à la réalisation de tâches ou aux scénarios de commande et de contrôle.
+**Commandes personnalisées (préversion)** est une solution rationalisée permettant de créer un assistant vocal. Elle propose une expérience de création unifiée, un modèle d’hébergement automatique et une complexité relativement inférieure par rapport aux autres options de création d’assistant, comme [Direct Line Speech](direct-line-speech.md). Cette simplification, toutefois, s’accompagne d’une réduction de la flexibilité. Ainsi, la solution Commandes personnalisées (préversion) est la plus adaptée à la réalisation de tâches ou aux scénarios de commande et de contrôle. Il est particulièrement bien adapté pour les appareils IoT et sans périphérique de contrôle.
 
 Pour une interaction et une intégration conversationelles complexes avec d’autres solutions, telles que [Virtual Assistant Solution et Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) il est recommandé d’utiliser Direct Line Speech.
 

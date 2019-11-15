@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a30fcd0ec7e53c78876596baf787639e81c638db
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101978"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795024"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs Docker Language Understanding 
 
@@ -64,12 +64,9 @@ Vous trouverez ce paramètre aux emplacements suivants :
 * Portail Azure : Vue d’ensemble **Cognitive Services**, étiquetée `Endpoint`
 * Portail LUIS : Page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison), dans le cadre de l’URI de point de terminaison.
 
-N’oubliez pas d’inclure le routage `luis/v2.0` dans l’URL, comme indiqué dans le tableau suivant :
-
-
-|Obligatoire| Nom | Type de données | Description |
-|--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+| Obligatoire | Nom | Type de données | Description |
+|----------|------|-----------|-------------|
+| OUI      | `Billing` | string | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](luis-container-howto.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -79,7 +76,7 @@ N’oubliez pas d’inclure le routage `luis/v2.0` dans l’URL, comme indiqué 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d’identification du proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -109,8 +106,6 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 * Ces exemples utilisent le répertoire du lecteur `C:` pour éviter tout conflit d’autorisation sur Windows. Si vous devez utiliser un répertoire spécifique en tant que répertoire d’entrée, vous devrez peut-être accorder au docker une autorisation de service. 
 * Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs docker.
 * Si vous utilisez un autre système d’exploitation, utilisez la console et/ou le terminal approprié, la syntaxe de dossier pour les montages et le caractère de continuation de ligne pour votre système. Dans ces exemples, une console Windows avec un caractère de continuation de ligne `^` est censée être utilisée. Le conteneur étant un système d’exploitation Linux, le montage cible utilise une syntaxe de dossier de type Linux.
-
-N’oubliez pas d’inclure le routage `luis/v2.0` dans l’URL, comme indiqué dans le tableau suivant.
 
 Remplacez {_argument_name_} par vos propres valeurs :
 

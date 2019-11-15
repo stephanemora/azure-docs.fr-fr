@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488409"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818930"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -35,7 +35,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | Entités externes | sans limite |
 | [Intentions][intents]|500 par application : 499 intentions personnalisées et l’intention _Aucune_ obligatoire.<br>L’application [dispatch](https://aka.ms/dispatch-tool) a 500 sources de dispatch correspondantes.|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
-| [Entités + rôles issus de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.|
+| [Entités + rôles issus de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.<br>Les sous-composants peuvent être imbriqués jusqu’à 5 niveaux.|
 |Modèle en tant que fonctionnalité| Nombre maximum de modèles pouvant être utilisés en tant que descripteur (fonctionnalité) sur un modèle spécifique pour avoir 10 modèles. Nombre maximum de listes d’expressions utilisées en tant que descripteur (fonctionnalité) sur un modèle spécifique pour avoir 10 listes d’expressions.|
 | [Préversion - Entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
@@ -74,7 +74,7 @@ N’utilisez pas les caractères suivants dans les noms suivants.
 
 |Object|Exclure des caractères|
 |--|--|
-|Noms d’intention, d’entité et de rôle|`:`<br>`$`|
+|Noms d’intention, d’entité et de rôle|`:`<br>`$` <br> `&`|
 |Nom de version|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Utilisation de la clé

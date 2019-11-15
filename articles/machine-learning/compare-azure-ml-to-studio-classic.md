@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 44fe7d4e51e50cdb3d1f1ed598f760113fb623bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490153"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716681"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>En quoi Azure Machine Learning est différent de ML Studio (classique)
 
@@ -37,10 +37,10 @@ Voici une comparaison rapide.
 
 ||  Concepteur Azure Machine Learning|Studio (classique) |
 |---| --- | --- |
-||Le concepteur est en préversion, Azure Machine Learning est en GA|Disponibilité générale (GA) | 
+||Le concepteur est en préversion, Azure Machine Learning est en disponibilité générale|Disponibilité générale (GA) | 
 |Interface de glisser-déposer| OUI | OUI|
 |Expérience| Mise à l’échelle avec cible de calcul|Mise à l’échelle (limite de données d’entraînement de 10 Go) | 
-|Modules pour l’interface|  Nombreux modules populaires|Divers |
+|Modules pour l’interface| [Nombreux modules populaires](algorithm-module-reference/module-reference.md) | Divers |
 |Cibles de calcul d’entraînement| Calcul AML (GPU/processeur)|Cible de calcul propriétaire, processeur uniquement|
 |Inférence des cibles de calcul| Azure Kubernetes Service pour l’inférence en temps réel <br/>Calcul AML pour l’inférence par lot|Format de service web propriétaire, non personnalisable | 
 |Pipeline ML| Création de pipeline <br/> Pipeline publié <br/> Point de terminaison de pipeline <br/> [En savoir plus sur le pipeline ML](service/concept-ml-pipelines.md)|Non pris en charge | 
@@ -48,7 +48,7 @@ Voici une comparaison rapide.
 |Modèle| Format standard, différent, dépend du travail d’entraînement|Format propriétaire non portable.| 
 |Apprentissage automatisé des modèles|Pas encore dans le concepteur, mais possible via l’interface et les Kits de développement logiciel (SDK).| Non | 
 
-## <a name="get-started-with-azure-machine-learning-designer"></a>Prise en main du concepteur Azure Machine Learning
+## <a name="get-started-with-azure-machine-learning"></a>Prise en main d’Azure Machine Learning
 
 Les ressources suivantes peuvent vous aider dans la prise en main d’Azure Machine Learning
 
@@ -56,12 +56,11 @@ Les ressources suivantes peuvent vous aider dans la prise en main d’Azure Mach
 
 - [Créez votre premier pipeline de concepteur](service/tutorial-designer-automobile-price-train-score.md) pour prédire des tarifs automatiques.
 
-
-![Exemple de concepteur Azure Machine Learning](service/media/concept-ml-pipelines/visual-design-surface.gif)
+![Exemple de concepteur Azure Machine Learning](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Outre les fonctionnalités glisser-déplacer dans le concepteur, Azure Machine Learning propose d’autres outils :  
+En plus des fonctionnalités de glisser-déplacer dans le concepteur, Azure Machine Learning a d’autres outils :  
   + [Utiliser des notebooks Python pour entraîner et déployer des modèles ML](./service/tutorial-1st-experiment-sdk-setup.md)
   + [Utiliser R Markdown pour entraîner et déployer des modèles ML](./service/tutorial-1st-r-experiment.md) 
   + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](./service/tutorial-designer-automobile-price-train-score.md) 

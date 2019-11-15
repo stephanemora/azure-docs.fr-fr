@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Google AdWords à l’aide d’Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Google AdWords à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Google AdWords vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 212f1bcc7bc2bb91a402461209dad4dc288106ad
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cc620e4dd7a84a85fb8d7bc8466a7a3fd116416e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090336"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680942"
 ---
-# <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Google AdWords. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!IMPORTANT]
-> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -55,7 +52,7 @@ Les propriétés prises en charge pour le service lié Google AdWords sont les s
 | developerToken | Jeton de développeur associé au compte de gestionnaire que vous utilisez pour accorder l’accès à l’API AdWords.  Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
 | authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont les suivantes : **ServiceAuthentication**, **UserAuthentication** | OUI |
 | refreshToken | Jeton d’actualisation obtenu depuis Google pour autoriser l’accès à AdWords pour UserAuthentication. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Non |
-| clientId | Id client de l’application google utilisée pour acquérir le jeton d’actualisation. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Non |
+| clientId | ID client de l’application Google utilisé pour acquérir le jeton d’actualisation. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Non |
 | clientSecret | Clé secrète client de l’application google utilisée pour acquérir le jeton d’actualisation. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Non |
 | email | ID d’e-mail du compte de service utilisé pour ServiceAuthentication et qui ne peut être utilisé que sur un runtime d’intégration auto-hébergé.  | Non |
 | keyFilePath | Chemin complet du fichier de clé .p12 utilisé pour authentifier l’adresse e-mail du compte de service et qui ne peut être utilisé que sur un runtime d’intégration auto-hébergé.  | Non |

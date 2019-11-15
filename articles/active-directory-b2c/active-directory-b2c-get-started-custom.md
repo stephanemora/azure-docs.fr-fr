@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8ce4565a2df3ad5f144508010265c1029a6856d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468865"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643623"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Vous ne devez inscrire ces deux applications dans votre locataire Azure AD B2C q
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
 
-Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur l’expérience en préversion](https://aka.ms/b2cappregintro).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
@@ -151,7 +151,7 @@ Maintenant, accordez des autorisations à l’étendue de l’API que vous avez 
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre locataire)** .
 1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
 1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **ÉTAT** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **État** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.
 
 * * *
 

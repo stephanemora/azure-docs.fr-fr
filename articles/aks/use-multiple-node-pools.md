@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472457"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662596"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -33,19 +33,20 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 
 * Vous ne pouvez pas supprimer le pool de nœuds par défaut (premier).
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
+* Le cluster AKS doit utiliser l’équilibreur de charge de la référence SKU Standard pour utiliser plusieurs pools de nœuds, la fonctionnalité n’est pas prise en charge avec les équilibreurs de charge de la référence SKU De base.
+* Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
 * Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
 * Le nom d’un pool de nœuds doit commencer par une lettre minuscule et ne peut contenir que des caractères alphanumériques. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
 * Le cluster AKS peut avoir un maximum de huit pools de nœuds.
 * Le cluster AKS peut avoir un maximum de 400 nœuds dans ces huit pools de nœuds.
 * Tous les pools de nœuds doivent résider dans le même sous-réseau.
-* Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.10* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 > [!NOTE]
-> La référence SKU d’équilibreur de charge *De base* n’est pas prise en charge en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard*.
+> La référence SKU d’équilibreur de charge *De base* n’est pas prise en charge en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -547,20 +548,7 @@ Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour co
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Après l’inscription, déployez un modèle Azure Resource Manager selon les instructions [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et en ajoutant la propriété de valeur booléenne suivante, « enableNodePublicIP » sur agentPoolProfiles. Définissez-la sur `true` car, par défaut, elle est définie sur `false`. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+Après l’inscription, déployez un modèle Azure Resource Manager selon les mêmes instructions décrites [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et ajoutez la propriété de valeur booléenne `enableNodePublicIP` à agentPoolProfiles. Définissez la valeur sur `true` car, par défaut, elle est définie sur `false`. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

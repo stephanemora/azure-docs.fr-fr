@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472824"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605091"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -72,9 +72,9 @@ En cas de défaillance d’une zone, les nœuds peuvent être rééquilibrés ma
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Créer un cluster AKS sur plusieurs zones de disponibilité
 
-Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle AKS de votre cluster sont également répartis entre les zones dans la configuration la plus élevée disponible lorsque vous créez un cluster en spécifiant le paramètre `--zones`.
+Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle AKS de votre cluster sont également répartis entre les zones, dans la configuration la plus disponible qui soit lorsque vous définissez le paramètre `--zones` au moment de la création du cluster.
 
-Si vous ne définissez aucune zone pour le pool d'agents par défaut lorsque vous créez un cluster AKS, les composants du plan de contrôle AKS de votre cluster n'utiliseront aucune zone de disponibilité. Vous pouvez ajouter des pools de nœuds supplémentaires en utilisant la commande [az aks nodepool add][az-aks-nodepool-add], puis spécifier `--zones` pour ces nouveaux nœuds d’agents, mais les composants du plan de contrôle ne tiendront pas compte des zones de disponibilité. Vous ne pouvez ni modifier la prise en compte des zones d’un pool de nœuds ni les composants du plan de contrôle AKS une fois ces éléments déployés.
+Si vous ne définissez aucune zone pour le pool d'agents par défaut lorsque vous créez un cluster AKS, les composants du plan de contrôle AKS de votre cluster n'utiliseront aucune zone de disponibilité. Vous pouvez ajouter des pools de nœuds supplémentaires en utilisant la commande [az aks nodepool add][az-aks-nodepool-add], puis spécifier `--zones` pour ces nouveaux nœuds, mais les composants du plan de contrôle ne tiendront pas compte des zones de disponibilité. Vous ne pouvez ni modifier la prise en compte des zones d’un pool de nœuds ni les composants du plan de contrôle AKS une fois ces éléments déployés.
 
 L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*. Les composants du plan de contrôle AKS sont également répartis entre les zones dans la configuration la plus élevée possible puisqu'ils sont définis dans le cadre du processus de création du cluster.
 

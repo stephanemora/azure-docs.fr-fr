@@ -1,5 +1,5 @@
 ---
-title: Migrer des charges de travail SSIS locales vers SSIS dans Azure Data Factory | Microsoft Docs
+title: Migrer des charges de travail SSIS locales vers SSIS dans Azure Data Factory
 description: Migrez des charges de travail SSIS locales vers SSIS dans ADF.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 3bf5ddebd59c95d00d0d3270f0e8e1a2d29b379a
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684414"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrer des charges de travail SSIS locales vers SSIS dans ADF
 

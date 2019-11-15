@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir de sources Microsoft Access à l’aide de Azure Data Factory | Microsoft Docs
+title: Copier des données à partir de sources Microsoft Access à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données à partir de sources Microsoft Access vers des banques de données réceptrices prises en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: f01607e6b7dbe5f126d240a51219a6829ff5aaf6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e587621cd420fab564ec4fa09ea131d0ff16fcdd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090067"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680695"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données Microsoft Access à l’aide de Azure Data Factory
 

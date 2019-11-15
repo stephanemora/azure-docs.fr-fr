@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 11/04/2019
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582452"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Didacticiel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans ce tutoriel, vous utilisez le machine learning automatisé d’Azure Machine Learning pour créer un modèle de régression permettant de prédire les prix des courses de taxi à New York. Ce processus accepte les données d'apprentissage et les paramètres de configuration, et itère automatiquement via des combinaisons de méthodes et de modèles de normalisation/standardisation de fonctionnalités et des paramètres hyperparamètres afin d'obtenir le meilleur modèle.
 
@@ -891,14 +892,15 @@ Pour entraîner automatiquement un modèle, effectuez les étapes suivantes :
 
 ### <a name="define-training-settings"></a>Définir les paramètres d’entraînement
 
-Définissez les paramètres du modèle et de l’expérience pour l’entraînement. Affichez la liste complète des [paramètres](how-to-configure-auto-train.md). La soumission de l’expérience avec ces paramètres par défaut peut prendre entre 5 et 10 min, mais si vous souhaitez raccourcir la durée d’exécution, diminuez le paramètre `iterations`.
+Définissez les paramètres du modèle et de l’expérience pour l’entraînement. Affichez la liste complète des [paramètres](how-to-configure-auto-train.md). La soumission de l’expérience avec ces paramètres par défaut peut prendre entre 5 et 20 min, mais si vous souhaitez raccourcir la durée d’exécution, diminuez le paramètre `experiment_timeout_minutes`.
 
 |Propriété| Valeur dans ce didacticiel |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite de temps (en minutes) pour chaque itération. Diminuez cette valeur afin de réduire le runtime total.|
-|**iterations**|20|Nombre d’itérations. Dans chaque itération, un nouveau modèle Machine Learning est entraîné avec vos données. Il s’agit de la valeur principale qui influe sur le runtime total.|
+|**experiment_timeout_minutes**|20|Durée maximale en minutes pendant laquelle toutes les itérations combinées peuvent être effectuées avant que l’expérience ne se termine.|
+|**enable_early_stopping**|True|Marquez pour permettre une fin anticipée si le score ne s’améliore pas à terme.|
 |**primary_metric**| spearman_correlation | Métrique que vous souhaitez optimiser. Le modèle le mieux adapté est choisi en fonction de cette métrique.|
-|**preprocess**| True | En utilisant **True**, l’expérience peut traiter les données d’entrée au préalable (gestion des données manquantes, conversion du texte en caractères numériques, etc.)|
+|**featurization**| auto | En utilisant **auto**, l’expérience peut traiter les données d’entrée au préalable (gestion des données manquantes, conversion du texte en caractères numériques, etc.)|
 |**verbosity**| logging.INFO | Contrôle le niveau de journalisation.|
 |**n_cross_validations**|5\.|Nombre de divisions de validation croisée à effectuer lorsque les données de validation ne sont pas spécifiées.|
 
@@ -907,9 +909,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1061,12 +1064,7 @@ Sautez cette section si vous prévoyez d’exécuter d’autres tutoriels Azure 
 
 ### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 
-Si vous avez utilisé un serveur de notebook cloud, arrêtez la machine virtuelle lorsque vous ne l’utilisez pas afin de réduire les coûts.
-
-1. Dans votre espace de travail, sélectionnez **Machines virtuelles Notebook**.
-1. Sélectionnez la machine virtuelle dans la liste.
-1. Sélectionnez **Arrêter**.
-1. Quand vous êtes prêt à utiliser à nouveau le serveur, sélectionnez **Démarrer**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Tout supprimer
 

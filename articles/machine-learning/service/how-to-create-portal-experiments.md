@@ -1,7 +1,7 @@
 ---
-title: Utiliser l’interface de ML automatisé d’Azure pour entraîner et déployer des modèles
+title: Créer et déployer des modèles ML automatisés
 titleSuffix: Azure Machine Learning
-description: Créez, gérez et déployez des expériences de Machine Learning automatisé dans la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion).
+description: Créez, gérez et déployez des expériences de Machine Learning automatisé dans Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,18 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 11/04/2019
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350556"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818485"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
- Dans cet article, vous allez apprendre à créer, explorer et déployer des expériences de Machine Learning automatisé dans la page d’accueil de l’espace de travail Azure Machine Learning, sans la moindre ligne de code. Le Machine Learning automatisé automatise le processus de sélection de l'algorithme le plus adapté à vos données, et vous permet de générer rapidement un modèle Machine Learning. [Apprenez-en davantage sur Machine Learning automatisé](concept-automated-ml.md).
+ Dans cet article, vous allez apprendre à créer, explorer et déployer des expériences Machine Learning automatisé dans Azure Machine Learning Studio, sans la moindre ligne de code. Le Machine Learning automatisé automatise le processus de sélection de l'algorithme le plus adapté à vos données, et vous permet de générer rapidement un modèle Machine Learning. [Apprenez-en davantage sur Machine Learning automatisé](concept-automated-ml.md).
 
  Si vous préférez une expérience basée sur du code, vous pouvez également [configurer vos expériences Machine Learning dans Python](how-to-configure-auto-train.md) avec le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -28,55 +29,38 @@ ms.locfileid: "71350556"
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Un espace de travail Azure Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning avec un type **Édition Entreprise**. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).  Pour mettre à niveau un espace de travail existant vers Édition Entreprise, consultez [Mise à jour vers Édition Entreprise](how-to-manage-workspace.md#upgrade).
 
 ## <a name="get-started"></a>Prise en main
 
-1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/workspaceportal/). 
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Sélectionnez votre abonnement et votre espace de travail. 
 
 1. Accédez au volet gauche. Sélectionnez **Automated ML** (ML automatisé) sous la section **Author** (Auteur).
 
-[![Volet de navigation du portail Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[![Volet de navigation d’Azure Machine Learning Studio](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
- S’il s’agit de vos premières expériences, l’écran **Get started** (Démarrer) s’affiche. 
+ S’il s’agit de votre première expérience, vous verrez une liste vide et des liens vers la documentation. 
 
-Sinon, votre tableau de bord **Machine Learning automatisé** s’affiche, offrant une vue d’ensemble de toutes vos expériences Machine Learning automatisé, dont celles créées avec le kit SDK. Là, vous pouvez filtrer et explorer vos exécutions par date, nom d'expérience et état d’exécution.
+Dans le cas contraire, vous verrez une liste de vos expériences récentes Machine Learning automatisé, y compris celles créées avec le kit de développement logiciel (SDK). 
 
 ## <a name="create-and-run-experiment"></a>Créer et exécuter une expérience
 
-1. Sélectionnez **Create Experiment** (Créer une expérience) et remplissez le formulaire.
+1. Sélectionnez **Créer une expérience** et remplissez le formulaire.
 
-1. Entrez un nom d’expérience unique.
-
-1. Sélectionnez un calcul pour le profilage de données et le travail de formation. Vos calculs existants sont disponibles dans la liste déroulante. Pour créer un calcul, suivez les instructions de l’étape 4.
-
-1. Sélectionnez **Créer un nouveau calcul** afin de configurer votre contexte de calcul pour cette expérience.
-
-    Champ|Description
-    ---|---
-    Nom du calcul| Entrez un nom unique qui identifie votre contexte de calcul.
-    Taille de la machine virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.
-    Nœuds min./max. (dans les paramètres avancés)| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds. Entrez le nombre maximal de nœuds pour votre calcul. La valeur par défaut est de 6 nœuds pour un calcul AML.
-    
-    Sélectionnez **Create** (Créer). La création d’un calcul peut prendre quelques minutes.
-
-    >[!NOTE]
-    > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d’informations, consultez la section sur le [profilage des données](#profile)).
-
-1. Sélectionnez un jeu de données de votre conteneur de stockage ou créez-en un en chargeant un fichier de votre ordinateur local sur le conteneur. La préversion publique prend uniquement en charge les chargements de fichiers locaux et les comptes de stockage d’objets blob Azure.
+1. Sélectionnez un jeu de données à partir de votre conteneur de stockage ou créez un nouveau jeu de données. Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL Web, de magasins de données ou de Azure Open Datasets. 
 
     >[!Important]
     > Configuration requise pour les données de formation :
     >* Les données doivent être sous forme tabulaire.
     >* La valeur que vous souhaitez prédire (colonne cible) doit être présente dans les données.
 
-    1. Pour créer un jeu de données à partir d’un fichier sur votre ordinateur local, sélectionnez **Browse** (Parcourir), puis sélectionnez le fichier. 
+    1. Pour créer un jeu de données à partir d’un fichier sur votre ordinateur local, sélectionnez **Parcourir**, puis sélectionnez le fichier. 
 
     1. Donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
 
-    1. Sélectionnez **Next** (Suivant) pour le charger dans le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou choisissez un conteneur de stockage à utiliser pour l’expérience. 
+    1. Sélectionnez **Suivant** pour le charger dans le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou choisissez un conteneur de stockage à utiliser pour l’expérience. 
 
     1. Vérifiez l’exactitude du formulaire **Settings and preview** (Paramètres et aperçu). Le formulaire est rempli intelligemment en fonction du type de fichier. 
 
@@ -94,25 +78,51 @@ Sinon, votre tableau de bord **Machine Learning automatisé** s’affiche, offra
             
         Sélectionnez **Next** (Suivant).
 
-1. Sélectionnez le type de travail de formation : classification, régression ou prévisions.
+    1. Le formulaire **Confirmer les détails** est un résumé des informations précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**. Vous avez également la possibilité de profiler votre jeu de données à l’aide d’un calcul activé pour le profilage. En savoir plus sur le [profilage des données](#profile).
 
-1. Sélectionnez la colonne cible ; il s’agit de la colonne sur laquelle vous voulez effectuer des prédictions.
+        Sélectionnez **Suivant**.
+1. Sélectionnez votre jeu de données récemment créé une fois qu’il apparaît. Vous pouvez également afficher un aperçu du jeu de données et des exemples de statistiques. 
 
-1. Pour les prévisions :
-    1. Sélectionnez la colonne d'heure : cette colonne contient les données d'heure à utiliser.
+1. Dans le formulaire **Configurer l’exécution**, entrez un nom d’expérience unique.
 
-    1. Sélectionnez l'horizon de prévision : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
+1. Sélectionnez une colonne cible ; il s’agit de la colonne sur laquelle vous voulez effectuer des prédictions.
 
-1. (Facultatif) Paramètres avancés : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
+1. Sélectionnez un calcul pour le profilage de données et le travail de formation. Vos calculs existants sont disponibles dans la liste déroulante. Pour créer un calcul, suivez les instructions de l’étape 7.
 
-    Paramètres avancés|Description
+1. Sélectionnez **Créer un nouveau calcul** afin de configurer votre contexte de calcul pour cette expérience.
+
+    Champ|Description
+    ---|---
+    Nom du calcul| Entrez un nom unique qui identifie votre contexte de calcul.
+    Taille de la machine virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.
+    Nœuds min./max. (dans les paramètres avancés)| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds. Entrez le nombre maximal de nœuds pour votre calcul. La valeur par défaut est de 6 nœuds pour un calcul AML.
+    
+    Sélectionnez **Create** (Créer). La création d’un calcul peut prendre quelques minutes.
+
+    >[!NOTE]
+    > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d’informations, consultez la section sur le [profilage des données](#profile)).
+
+    Sélectionnez **Suivant**.
+
+1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez le type de tâche : classification, régression ou prévision. Pour plus d’informations, consultez [Guide pratique pour définir des types de tâches](how-to-define-task-type.md).
+
+    1. Pour la classification, vous pouvez également activer l’apprentissage profond qui est utilisé pour la caractérisation du texte.
+
+    1. Pour les prévisions :
+        1. Sélectionnez la colonne d'heure : cette colonne contient les données d'heure à utiliser.
+
+        1. Sélectionnez l'horizon de prévision : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
+
+1. (Facultatif) Configurations supplémentaires : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
+
+    Configurations supplémentaires|Description
     ------|------
     Métrique principale| Métrique principale utilisée pour évaluer votre modèle. [En savoir plus sur les métriques du modèle](how-to-configure-auto-train.md#explore-model-metrics).
-    Critères de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Délai du travail de formation (minutes)*  : Délai d'exécution du travail de formation.  <br> *Nombre maximal d’itérations* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
-    Prétraitement| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. [En savoir plus le prétraitement](#preprocess).
-    Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](how-to-configure-auto-train.md).
-    Accès concurrentiel| Sélectionnez les limites de cœurs multiples à utiliser lors d'un calcul multicœur.
+    Caractérisation automatique| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. [En savoir plus le prétraitement](#preprocess).
     Algorithme bloqué| Sélectionnez les algorithmes que vous souhaitez exclure du travail de formation.
+    Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
+    Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](how-to-configure-auto-train.md).
+    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. <br> *Nombre maximal de cœurs par itération* : Sélectionnez les limites de cœurs multiples à utiliser lors d'un calcul multicœur.
 
 <a name="profile"></a>
 
@@ -160,19 +170,22 @@ Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avan
 
 ## <a name="run-experiment-and-view-results"></a>Exécuter une expérience et afficher les résultats
 
-Sélectionnez **Démarrer** pour exécuter votre expérience. Le processus de préparation de l'expérience prend quelques minutes.
+Sélectionnez **Démarrer** pour exécuter votre expérience. Le processus de préparation de l’expérience peut prendre jusqu’à 10 minutes. Les travaux de formation peuvent prendre 2 à 3 minutes supplémentaires pour que chaque pipeline se termine.
 
 ### <a name="view-experiment-details"></a>Afficher les détails de l'expérience
 
-Une fois la phase de préparation de l’expérience terminée, vous voyez l’écran Détails de l’exécution qui commence à se remplir. Cet écran vous donne une liste complète des modèles créés. Par défaut, le modèle qui obtient la valeur la plus élevée d’après la métrique choisie figure en haut de la liste. À mesure que le travail de formation essaie plus de modèles, ceux-ci sont ajoutés à la liste d’itérations et au graphique. Utilisez le graphique des itérations pour une comparaison rapide des métriques des modèles déjà produits.
+>[!NOTE]
+> Cliquez régulièrement sur **Actualiser** pour afficher l’état de l’exécution. 
 
-Dans le cadre des travaux de formation, l'exécution de chaque pipeline peut nécessiter un certain temps.
+L’écran **Détails de l’exécution** ouvre l’onglet **Détails**. Cet écran vous montre un résumé de l’exécution de l’expérience, y compris l’**état de l’exécution**. 
+
+L’onglet **Modèles** contient une liste des modèles créés affichés selon leur score de métrique. Par défaut, le modèle qui obtient la valeur la plus élevée d’après la métrique choisie figure en haut de la liste. À mesure que le travail de formation essaie plus de modèles, ceux-ci sont ajoutés à la liste. Utilisez cela pour obtenir une comparaison rapide des métriques des modèles déjà produits.
 
 [![Tableau de bord des détails de l’exécution](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Afficher les détails de l'exécution de formation
 
-Explorez les modèles de sortie pour afficher les détails de l’exécution, tels que les métriques de performances et les graphiques de distribution. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
+Explorez les modèles terminés pour voir les détails de l’exécution de la formation, par exemple l’exécution des métriques sous l’onglet **Détails du modèle** ou les graphiques de performances sous l’onglet **Visualisations**. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
 
 [![Détails de l’itération](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
@@ -184,28 +197,29 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
 
 1. Vous disposez de plusieurs options pour le déploiement. 
 
-    + Option 1 : Pour déployer le meilleur modèle selon les critères de métrique que vous avez définis, sélectionnez Déployer le meilleur modèle dans la page Détails de l’exécution.
+    + Option 1 : Pour déployer le meilleur modèle selon les critères de métrique que vous avez définis, sélectionnez Déployer le meilleur modèle dans l’onglet Détails.
 
-    + Option 2 : Pour déployer une itération de modèle spécifique à partir de cette expérience, explorez le modèle pour ouvrir sa page Détails de l’exécution, puis sélectionnez Déployer le modèle.
+    + Option 2 : Pour déployer une itération de modèle spécifique à partir de cette expérience, explorez le modèle pour ouvrir son onglet Détails du modèle, puis sélectionnez Déployer le modèle.
 
 1. Renseignez le volet **Deploy Model** (Déployer le modèle).
 
     Champ| Valeur
     ----|----
-    Nom du déploiement| Entrez un nom unique pour votre déploiement.
-    Description du déploiement| Entrez une description pour mieux identifier le but de ce déploiement.
-    Script de scoring| Générez automatiquement ou chargez votre propre fichier de scoring. [En savoir plus sur le script de scoring](how-to-deploy-and-where.md#script)
-    Script d’environnement| Générez automatiquement ou chargez votre propre fichier d’environnement.
+    Nom| Entrez un nom unique pour votre déploiement.
+    Description| Entrez une description pour mieux identifier le but de ce déploiement.
+    Type de calcul| Sélectionnez le type de point de terminaison que vous voulez déployer : *Azure Kubernetes Service (AKS)* ou *Azure Container Instance (ACI)* .
+    Nom| *S’applique uniquement à AKS :* Sélectionnez le nom du cluster AKS sur lequel vous voulez effectuer le déploiement.
+    Activer l’authentification | Sélectionnez cette option pour l’authentification basée sur des jetons ou sur des clés.
+    Utiliser les ressources d’un déploiement personnalisé| Activez cette fonctionnalité si vous voulez télécharger votre propre script de scoring et votre propre fichier d’environnement. [Découvrez plus d’informations sur les scripts de scoring](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > Les noms de fichiers sont limités à 32 caractères et doivent commencer et se terminer par des caractères alphanumériques. Ils peuvent inclure des tirets, des traits de soulignement, des points et des caractères alphanumériques. Les espaces ne sont pas autorisés.
 
+    Le menu *Avancé* offre des fonctionnalités de déploiement par défaut, comme la [collecte de données](how-to-enable-app-insights.md) et des paramètres d’utilisation des ressources. Si vous souhaitez remplacer ces valeurs par défaut, faites-le dans ce menu.
+
 1. Sélectionnez **Déployer**. Le déploiement peut prendre environ 20 minutes.
 
-    Le message suivant s’affiche une fois le déploiement terminé.
-
-    ![Déploiement terminé](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
-
-Vous disposez maintenant d’un service web opérationnel pour générer des prédictions !
+Vous disposez maintenant d’un service web opérationnel pour générer des prédictions ! Vous pouvez tester les prédictions en interrogeant le service à partir du [support intégré à Azure Machine Learning de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

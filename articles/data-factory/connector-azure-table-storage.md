@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données vers et à partir du stockage Table Azure à l’aide de Data Factory
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers le stockage Table Azure ou du stockage Table Azure vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 30685e59f6f8318c66a8500f33e8200743e487aa
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9960c8cba2f1b9eb8c427163d02ecb337ef5ddfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009882"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681133"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

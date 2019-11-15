@@ -1,5 +1,5 @@
 ---
-title: Réglage des performances avec un index columnstore cluster ordonné Azure SQL Data Warehouse | Microsoft Docs
+title: Réglage des performances avec un index columstore cluster ordonné
 description: Recommandations et points à prendre en compte quand vous utilisez un index columnstore cluster ordonné pour améliorer les performances de vos requêtes.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595368"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685993"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Réglage des performances avec un index columstore cluster ordonné  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Dans une table à index columnstore cluster ordonné, les nouvelles données résultant d’opérations DML ou de chargement de données ne sont pas triées automatiquement.  Les utilisateurs peuvent reconstruire l’index columnstore cluster ordonné pour trier toutes les données de la table.  Dans Azure SQL Data Warehouse, la reconstruction de l’index columnstore est une opération hors connexion.  Pour une table partitionnée, la reconstruction est effectuée une partition à la fois.  Les données de la partition en cours de reconstruction sont « hors connexion » et ne sont pas disponibles tant que la reconstruction n’est pas terminée pour cette partition. 
+> Dans une table avec index columnstore cluster ordonnée, les nouvelles données résultant du même lot d’opérations DML ou de chargement de données sont triées dans ce lot : il n’y a pas de tri global de toutes les données de la table.  Les utilisateurs peuvent reconstruire l’index columnstore cluster ordonné pour trier toutes les données de la table.  Dans Azure SQL Data Warehouse, la reconstruction de l’index columnstore est une opération hors connexion.  Pour une table partitionnée, la reconstruction est effectuée une partition à la fois.  Les données de la partition en cours de reconstruction sont « hors connexion » et ne sont pas disponibles tant que la reconstruction n’est pas terminée pour cette partition. 
 
 ## <a name="query-performance"></a>Performances des requêtes
 
@@ -112,12 +113,12 @@ OPTION (MAXDOP 1);
 - Pré-triez les données par la ou les clés de tri avant de les charger dans des tables Azure SQL Data Warehouse.
 
 
-Voici un exemple de distribution de table à index columnstore cluster ordonné sans aucun segment qui se chevauche après l’application des recommandations ci-dessus. La table à index columnstore cluster ordonné est créée dans une base de données DWU1000c par le biais de CTAS à partir d’une table de segments de mémoire de 20 Go utilisant MAXDOP 1 et xlargerc.  L’index columnstore cluster ordonné est ordonné sur une colonne BIGINT sans doublons.  
+Voici un exemple de distribution de table à index columnstore cluster ordonné sans aucun segment qui se chevauche après l’application des recommandations ci-dessus. La table avec index columnstore cluster ordonnée est créée dans une base de données DWU1000c via CTAS à partir d’une table de segments de mémoire de 20 Go avec MAXDOP 1 et xlargerc.  L’index columnstore cluster ordonné est ordonné sur une colonne BIGINT sans doublons.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Créer un index columnstore cluster ordonné sur des tables volumineuses
-La création d’un index columnstore cluster ordonné est une opération hors connexion.  Pour des tables sans partitions, les données ne sont pas accessibles aux utilisateurs tant que le processus de création de l’index columnstore cluster ordonné n’est pas terminé.   Pour des tables partitionnées, dans la mesure où le moteur crée la partition d’index columnstore cluster ordonné par partition, les utilisateurs peuvent quand même accéder aux données dans les partitions pour lesquelles la création de l’index columnstore cluster ordonné n’est pas en cours.   Vous pouvez utiliser cette option pour minimiser le temps d’arrêt lors de la création d’un index columnstore cluster ordonné sur des tables volumineuses : 
+La création d’un index columnstore cluster ordonné est une opération hors connexion.  Pour des tables sans partitions, les données ne sont pas accessibles aux utilisateurs tant que le processus de création de l’index columnstore cluster ordonné n’est pas terminé.   Pour des tables partitionnées, dans la mesure où le moteur crée la partition d’index columnstore cluster ordonné par partition, les utilisateurs peuvent quand même accéder aux données dans les partitions pour lesquelles la création du index columnstore cluster ordonné n’est pas en cours.   Vous pouvez utiliser cette option pour minimiser le temps d’arrêt lors de la création d’un index columnstore cluster ordonné sur des tables volumineuses : 
 
 1.  Créez des partitions sur la grande table cible (appelée Table_A).
 2.  Créez une table d’index columnstore cluster ordonné vide (appelée Table_B) avec la même table et le même schéma de partition que Table A.

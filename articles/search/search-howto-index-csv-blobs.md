@@ -1,7 +1,7 @@
 ---
-title: Indexer des objets blob CSV avec l’indexeur d’objet blob de Recherche cognitive Azure
+title: Indexer des objets blob CSV en utilisant le mode d’analyse delimitedText (préversion)
 titleSuffix: Azure Cognitive Search
-description: Analysez des objets blob CSV dans le Stockage Blob Azure pour la recherche en texte intégral à l’aide d’un index de Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
+description: Extrayez et importez un fichier CSV à partir de Stockage Blob Azure en utilisant le mode d’analyse delimitedText, actuellement en préversion publique.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18d0eb704deba80bf83b5cae0a598f47181700f7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793776"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719236"
 ---
-# <a name="how-to-index-csv-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure 
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Comment indexer des objets blob CSV en utilisant le mode d’analyse delimitedText et des indexeurs d’objets blob dans Recherche cognitive Azure 
 
-> [!Note]
-> Le mode d’analyse delimitedText est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
->
+> [!IMPORTANT] 
+> Le mode d’analyse delimitedText est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 Par défaut, l’[indexeur d’objets blob Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, vous pouvez analyser le texte délimité suivant dans deux documents contenant chacun les champs « id », « datePublished » et « tags » : 
 

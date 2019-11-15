@@ -1,5 +1,5 @@
 ---
-title: Transformation Exists dans le flux de données de mappage Azure Data Factory | Microsoft Docs
+title: Transformation Exists dans le flux de données de mappage Azure Data Factory
 description: Vérifier l’existence de lignes à l’aide de la transformation Exists dans le flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,24 +7,23 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: bfc2a810d34f03fc0f10c486344c6dccec548305
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515122"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676734"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Mappage d’une transformation Exists de flux de données
+# <a name="exists-transformation-in-mapping-data-flow"></a>Transformation Exists dans le flux de données de mappage
 
 La transformation Exists est une transformation de filtrage de lignes qui vérifie si vos données existent dans une autre source ou un autre flux. Le flux de sortie comprend toutes les lignes du flux de gauche qui existent ou non dans le flux de droite. La transformation Exists est similaire à ```SQL WHERE EXISTS``` et ```SQL WHERE NOT EXISTS```.
 
 ## <a name="configuration"></a>Configuration
 
-Choisissez le flux de données dont vous vérifiez l’existence dans la liste déroulante **Flux de droite**.
-
-Indiquez si vous recherchez les données qui existent ou qui n’existent pas avec le paramètre **Type d’existence**.
-
-Choisissez les colonnes clés que vous souhaitez comparer comme conditions d’existence. Par défaut, le flux de données recherche l’équivalence entre une colonne d’un flux et une colonne de l’autre flux. Pour effectuer une comparaison à l’aide d’une valeur de calcul, pointez sur la liste déroulante de la colonne, puis sélectionnez **Colonne calculée**.
+1. Choisissez le flux de données dont vous vérifiez l’existence dans la liste déroulante **Flux de droite**.
+1. Indiquez si vous recherchez les données qui existent ou qui n’existent pas avec le paramètre **Type d’existence**.
+1. Indiquez si vous souhaitez ou non une **expression personnalisée**.
+1. Choisissez les colonnes clés que vous souhaitez comparer comme conditions d’existence. Par défaut, le flux de données recherche l’équivalence entre une colonne d’un flux et une colonne de l’autre flux. Pour effectuer une comparaison à l’aide d’une valeur calculée, pointez sur la liste déroulante de la colonne, puis sélectionnez **Colonne calculée**.
 
 ![Paramètres d’existence](media/data-flow/exists.png "Exists 1")
 
@@ -45,11 +44,11 @@ Pour créer une expression de forme libre qui contient des opérateurs autres qu
 ### <a name="syntax"></a>Syntaxe
 
 ```
-<lefttream>, <rightStream>
+<leftStream>, <rightStream>
     exists(
         <conditionalExpression>,
-        negate: true | <false>,
-        broadcast: 'none' | 'left' | 'right' | 'both'
+        negate: { true | false },
+        broadcast: {'none' | 'left' | 'right' | 'both'}
     ) ~> <existsTransformationName>
 ```
 

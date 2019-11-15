@@ -1,5 +1,5 @@
 ---
-title: Copier des données de/vers SAP Cloud for Customer avec Azure Data Factory | Microsoft Docs
+title: Copier des données vers/à partir de SAP Cloud for Customer avec Azure Data Factory
 description: Découvrez comment utiliser Data Factory pour copier des données de SAP Cloud for Customer vers des magasins de données récepteurs pris en charge (ou) de magasins de données sources pris en charge vers SAP Cloud for Customer.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 53f152eb9b02d7c5a635ba1b9aae8299743dd6e0
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 5c47eead8bc8428f533374b2d4892ed684c1f3c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010482"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680264"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copier des données de SAP Cloud for Customer (C4C) avec Azure Data Factory
 
@@ -219,7 +219,7 @@ Lors de la copie de données de SAP Cloud for Customer, les mappages suivants so
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Single |
+| Edm.Single | Unique |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

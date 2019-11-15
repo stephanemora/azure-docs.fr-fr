@@ -11,28 +11,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 32f67fb94b207735e77583a6db62f7c8703dd991
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202741"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748468"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validation des alertes (fichier de test EICAR) dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
 
 ## <a name="what-are-security-alerts"></a>Que sont les alertes de sécurité ?
 Les alertes sont les notifications que Security Center génère lorsqu'il détecte des menaces sur vos ressources. Il hiérarchise et répertorie les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des suggestions sur la manière dont vous pouvez corriger les problèmes liés à une attaque.
-Pour plus d’informations, consultez [Alertes de sécurité dans Azure Security Center](security-center-alerts-overview.md) et [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md)
+Pour plus d’informations, consultez [Alertes de sécurité dans Security Center](security-center-alerts-overview.md) et [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md)
 
 ## <a name="alert-validation"></a>Validation de l’alerte
 
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
+* [Kubernetes](#validate-kubernetes)
 
-## Valider une alerte sur une machine virtuelle Windows <a name="validate-windows"></a>
+## Valider des alertes sur des machines virtuelles Windows <a name="validate-windows"></a>
 
 Après avoir installé l’agent de Security Center sur votre ordinateur, suivez les étapes ci-dessous depuis l’ordinateur sur lequel vous voulez configurer l’alerte de la ressource attaquée :
 
@@ -41,11 +42,11 @@ Après avoir installé l’agent de Security Center sur votre ordinateur, suivez
 1. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Une alerte similaire à l'[exemple](#alert-validate) ci-dessous doit s'afficher :
 
 > [!NOTE]
-> En examinant cette alerte de test, veillez à ce que la valeur du champ **Arguments Auditing Enabled** (Audit pour arguments activé) soit **true**. S’il est **false**, vous devez activer la ligne de commande d’audit pour arguments. Pour ce faire, utilisez la ligne de commande suivante :
+> En examinant cette alerte de test, veillez à ce que la valeur du champ **Arguments Auditing Enabled** (Audit pour arguments activé) soit **true**. S’il est **false**, vous devez activer la ligne de commande d’audit pour arguments. Pour ce faire, utilisez la commande suivante :
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Valider l’alerte sur une machine virtuelle Linux <a name="validate-linux"></a>
+## Valider des alertes sur des machines virtuelles Linux <a name="validate-linux"></a>
 
 Après avoir installé l’agent de Security Center sur votre ordinateur, suivez les étapes ci-dessous depuis l’ordinateur sur lequel vous voulez configurer l’alerte de la ressource attaquée :
 1. Copiez un fichier exécutable dans un emplacement approprié et renommez-le **. / asc_alerttest_662jfi039n**, par exemple :
@@ -62,12 +63,21 @@ Après avoir installé l’agent de Security Center sur votre ordinateur, suivez
 
 ![Exemple de validation d'alerte](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
-## <a name="see-also"></a>Voir aussi
+
+## Valider des alertes sur Kubernetes<a name="validate-kubernetes"></a>
+
+Si vous utilisez la fonctionnalité de préversion Security Center de l’intégration d’Azure Kubernetes Service, exécutez la commande kubectl suivante pour tester le fonctionnement de vos alertes :
+
+```kubectl get pods --namespace=asc-alerttest-662jfi039n```
+
+Pour plus d’informations sur l’intégration d’Azure Kubernetes Service et Azure Security Center, consultez [cet article](azure-kubernetes-service-integration.md).
+
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté le processus de validation des alertes. Maintenant que vous êtes familiarisé avec la validation, vous pouvez consulter les articles suivants :
 
-* [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center.
-* [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) : découvrez comment gérer des alertes et résoudre les incidents de sécurité dans Security Center.
+* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+* [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) : en savoir plus sur les différents types d’alertes de sécurité.
+* [Guide de résolution des problèmes Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) : découvrez comment résoudre les problèmes courants dans Security Center.
+* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

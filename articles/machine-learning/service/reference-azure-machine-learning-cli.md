@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dcbe535bb92f7755980929956093b0f0121ef41b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476444"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619957"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Utiliser l’extension CLI pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,6 +92,9 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
+
+    > [!TIP]
+    > Cette commande crée un espace de travail d’édition de base. Pour créer un espace de travail d’entreprise, utilisez le commutateur `--sku enterprise` avec la commande `az ml workspace create`. Pour plus d’informations sur les éditions d’Azure Machine Learning, consultez [Présentation d’Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
     Pour plus d’informations, consultez [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 

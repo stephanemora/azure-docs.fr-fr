@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793575"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818578"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -51,13 +51,15 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 | Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |10 |10 |
 | Nombre maximal de champs simples par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
 | Nombre maximal de champs de collection complexe par index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Nombre maximal d’éléments dans toutes les collections complexes par document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Nombre maximal d’éléments dans toutes les collections complexes par document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profondeur maximale des champs complexes |10 |10 |10 |10 |10 |10 |10 |10 |
 | Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Les services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les index. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
+
+<sup>2</sup> Le fait d’avoir un très grand nombre d’éléments dans des collections complexes par document entraîne actuellement une utilisation élevée du stockage. Il s'agit d'un problème connu. En attendant, une limite de 3 000 est une limite supérieure sûre pour tous les niveaux de service. Cette limite est appliquée seulement aux opérations d’indexation qui utilisent la version de l’API en disponibilité générale la plus ancienne qui prend en charge les champs de type complexe (`2019-05-06`). Pour que les clients qui utilisent des versions antérieures de l’API en préversion (qui prennent en charge les champs de type complexe) continuent de fonctionner, nous n’appliquons pas cette limite pour les opérations d’indexation qui utilisent ces versions de l’API en préversion. Notez que les versions de l’API en préversion ne sont pas destinées à être utilisées pour des scénarios de production et que nous recommandons vivement aux clients de passer à la dernière version de l’API en disponibilité générale.
 
 <a name="document-limits"></a>
 
@@ -127,6 +129,9 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 <sup>4</sup> Nombre maximal de 30 compétences par group de compétences.
 
 <sup>5</sup> Les charges de travail de recherche cognitive et d’analyse d’images dans l’indexation d’objets blob Azure ont des durées d’exécution plus courtes que l’indexation de texte standard. L’analyse d’images et le traitement en langage naturel sont gourmands en ressources et consomment une quantité disproportionnée de la puissance de traitement disponible. Leur durée d’exécution a été réduite pour donner aux autres travaux de la file d’attente la possibilité de s’exécuter.  
+
+> [!NOTE]
+> Comme indiqué dans les [limites des index](#index-limits), les indexeurs appliquent également la limite supérieure de 3 000 éléments à toutes les collections complexes par document, en commençant par la dernière version de l’API en disponibilité générale qui prend en charge les types complexes (`2019-05-06`). Cela signifie que si vous avez créé votre indexeur avec une version antérieure de l’API, vous ne serez pas soumis à cette limite. Pour préserver une compatibilité maximale, un indexeur qui a été créé avec une version antérieure de l’API, puis mis à jour avec une version de l’API `2019-05-06` ou ultérieure, sera toujours **exclu** des limites. Les clients doivent être conscients de l’impact négatif dans le cas de collections complexes très grandes (comme indiqué précédemment) et nous recommandons vivement de créer les indexeurs avec la dernière version de l’API en disponibilité générale.
 
 ## <a name="synonym-limits"></a>Limites des synonymes
 

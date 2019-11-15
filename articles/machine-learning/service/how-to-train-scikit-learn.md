@@ -1,5 +1,5 @@
 ---
-title: Entraîner des modèles Machine Learning avec scikit-Learn
+title: Entraîner des modèles Machine Learning scikit-learn
 titleSuffix: Azure Machine Learning
 description: Découvrez comment exécuter vos scripts de formation scikit-Learn à l’échelle de l’entreprise à l’aide de la classe SKlearn estimateur d’Azure Machine Learning. Les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le jeu de données iris de scikit-learn.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec1ea8bac35906969f051a70c44bd6f0685dc942
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489428"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814859"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Que vous soyez en train d’entraîner un modèle Machine Learning scikit-Learn 
 ## <a name="prerequisites"></a>Prérequis
 
 Exécutez ce code sur l’un de ces environnements :
- - Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
+ - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
     - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
     - Dans le dossier des exemples d’entraînement du serveur de notebooks, recherchez un notebook finalisé et développé en accédant à ce répertoire : dossier **how-to-use-azureml > ml-frameworks > scikit-learn > training > train-hyperparameter-tune-deploy-with-sklearn**.

@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir de sources IBM Informix à l’aide de Azure Data Factory | Microsoft Docs
+title: Copier des données à partir de sources IBM Informix à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données à partir de sources IBM Informix vers des banques de données réceptrices prises en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a0b89bb21400de74107e49988395f36a1c897dbd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b5d6543f1d559f26926e9bbb98f10a67e71b5675
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090186"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680778"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des magasins de données IBM Informix à l’aide de Azure Data Factory
 

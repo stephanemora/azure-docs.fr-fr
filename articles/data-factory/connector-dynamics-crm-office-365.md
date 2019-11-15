@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir et vers Dynamics CRM ou Dynamics 365 (Common Data Service) à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données à partir et vers Dynamics CRM ou Dynamics 365 (Common Data Service) à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service) vers des banques de données réceptrices prises en charge ou à partir de banques de données sources prises en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de fabrique de données.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680978"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -74,7 +74,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| Type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
 | serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
 | authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
@@ -117,7 +117,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| Type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
 | hostName | Nom d’hôte du serveur Dynamics local. | OUI |
 | port | Port du serveur Dynamics local. | Non, la valeur par défaut est 443 |
@@ -159,17 +159,12 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Dynamics.
 
-Pour copier des données depuis et vers Dynamics, définissez la propriété de type du jeu de données sur **DynamicsEntity**. Les propriétés suivantes sont prises en charge.
+Pour copier des données depuis et vers Dynamics, les propriétés suivantes sont prises en charge.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
+| Type | La propriété type du jeu de données doit être définie sur **DynamicsEntity**, **DynamicsCrmEntity** ou **CommonDataServiceForAppsEntity**. |OUI |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
-
-> [!IMPORTANT]
->- Quand vous copiez des données à partir de Dynamics, la section « structure » est facultative, mais vivement recommandée dans le jeu de données Dynamics pour garantir un résultat de copie déterministe. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
->- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Le même comportement s’applique aux exécutions de copies s’il n’existe aucune définition de structure explicite. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
->- Lorsque vous copiez des données vers Dynamics, la section « structure » est facultative dans le jeu de données Dynamics. Les colonnes dans lesquelles vous devez copier sont déterminées par le schéma de données sources. Si votre source est un fichier CSV sans en-tête, spécifiez la « structure » dans le jeu de données d’entrée avec le nom de colonne et le type de données. Ils sont mappés aux champs dans le fichier CSV un par un dans l’ordre.
 
 **Exemple :**
 
@@ -178,24 +173,7 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
     "name": "DynamicsDataset",
     "properties": {
         "type": "DynamicsEntity",
-        "structure": [
-            {
-                "name": "accountid",
-                "type": "Guid"
-            },
-            {
-                "name": "name",
-                "type": "String"
-            },
-            {
-                "name": "marketingonly",
-                "type": "Boolean"
-            },
-            {
-                "name": "modifiedon",
-                "type": "Datetime"
-            }
-        ],
+        "schema": [],
         "typeProperties": {
             "entityName": "account"
         },
@@ -213,15 +191,19 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics en tant que type de source
 
-Pour copier des données de Dynamics, définissez le type de source dans l’activité de copie sur **DynamicsSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
+Pour copier des données depuis Dynamics, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **DynamicsSource**, **DynamicsCrmSource** ou **CommonDataServiceForAppsSource**. | OUI |
 | query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
 >La colonne PK sera toujours copiée, même si la projection de colonne que vous avez configurée dans la requête FetchXML ne la contient pas.
+
+> [!IMPORTANT]
+>- Quand vous copiez des données depuis Dynamics, le mappage de colonnes explicite de Dynamics vers le récepteur est facultatif mais vivement recommandé pour garantir un résultat de copie déterministe.
+>- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la liste de colonne source, dans laquelle les colonnes de cas sans valeurs dans les premières lignes seront omises. Le même comportement s’applique aux exécutions de copies en l’absence d’un mappage explicite. Vous pouvez examiner le mappage et y ajouter des colonnes, ce qui sera respecté pendant l’exécution de la copie.
 
 **Exemple :**
 
@@ -277,12 +259,13 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 ### <a name="dynamics-as-a-sink-type"></a>Dynamics comme type de récepteur
 
-Pour copier des données vers Dynamics, définissez le type de récepteur dans l’activité de copie sur **DynamicsSink**. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
+Pour copier des données dans Dynamics, les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
+| Type | La propriété type du récepteur d’activité de copie doit être définie sur **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | OUI |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | OUI |
+| alternateKeyName | Spécifiez le nom de clé de remplacement défini sur votre entité pour exécuter « Upsert ». | Non |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : Laisser inchangées les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : Mettre à jour les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
 

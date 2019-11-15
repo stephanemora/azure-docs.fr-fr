@@ -1,6 +1,6 @@
 ---
-title: Chargement des données de Contoso Retail dans Azure SQL Data Warehouse | Microsoft Docs
-description: Utilisez des commandes PolyBase et T-SQL pour charger deux tables de données Contoso Retail dans Azure SQL Data Warehouse.
+title: Charger les données de Contoso Retail
+description: Utilisez des commandes PolyBase et T-SQL pour charger deux tables de données Contoso Retail dans Azure SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,17 @@ ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d928f2392f204baae6cfdbe864938ef0dee1d6ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67595520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692659"
 ---
-# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Chargement des données de Contoso Retail dans Azure SQL Data Warehouse
+# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Charger des données Contoso Retail dans un entrepôt de données SQL Analytics
 
-Dans ce didacticiel, vous allez apprendre à utiliser des commandes PolyBase et T-SQL pour charger deux tables de données Contoso Retail dans Azure SQL Data Warehouse. 
+Dans ce tutoriel, vous allez apprendre à utiliser des commandes PolyBase et T-SQL pour charger deux tables de données Contoso Retail dans un entrepôt de données SQL Analytics. 
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -28,10 +29,10 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 3. Procéder à des optimisations une fois le chargement terminé
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Pour exécuter ce didacticiel, vous avez besoin d’un compte Azure qui possède déjà un entrepôt de données SQL Data Warehouse. Si vous n’avez pas d’entrepôt de données approvisionné, consultez [Créer un entrepôt de données SQL et définir une règle de pare-feu au niveau du serveur][Create a SQL Data Warehouse].
+Pour suivre ce tutoriel, vous devez utiliser un compte Azure dans lequel un entrepôt de données SQL Analytics est déjà provisionné. Si vous n’avez pas d’entrepôt de données provisionné, consultez [Créer un entrepôt de données SQL et définir une règle de pare-feu au niveau du serveur][Créer un entrepôt de données SQL].
 
 ## <a name="1-configure-the-data-source"></a>1. Configurer la source de données
-PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objet externe sont stockées dans SQL Data Warehouse. Les données sont stockées en externe.
+PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objets externes sont stockées dans votre entrepôt de données SQL Analytics. Les données sont stockées en externe.
 
 ### <a name="11-create-a-credential"></a>1.1. Créer des informations d’identification
 **Ignorez cette étape** si vous chargez les données publiques de Contoso. Vous n’avez pas besoin d’un accès sécurisé aux données publiques, car ces dernières sont accessibles à tous.
@@ -115,7 +116,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Créez les tables externes.
-Exécutez le script suivant pour créer les tables externes DimProduct et FactOnlineSales. Vous essayez ici de définir les noms de colonnes et les types de données, et de les lier à l’emplacement et au format des fichiers de stockage d’objets blob Azure. La définition est stockée dans SQL Data Warehouse et les données se trouvent toujours dans le stockage d’objets blob Azure.
+Exécutez le script suivant pour créer les tables externes DimProduct et FactOnlineSales. Vous essayez ici de définir les noms de colonnes et les types de données, et de les lier à l’emplacement et au format des fichiers de stockage d’objets blob Azure. La définition est stockée dans l’entrepôt de données SQL Analytics et les données sont conservées dans le stockage Azure Storage Blob.
 
 Le paramètre **LOCATION** désigne le dossier qui se situe sous le dossier racine du stockage d’objets blob Azure. Chaque table se trouve dans un dossier spécifique.
 
@@ -264,7 +265,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
+Par défaut, l’entrepôt de données SQL Analytics stocke la table sous forme d’index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes. 
 
@@ -328,7 +329,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Et voilà !
-Vous avez correctement chargé les données publiques dans Azure SQL Data Warehouse. Bon travail !
+Vous avez correctement chargé les données publiques dans l’entrepôt de données SQL Analytics. Bon travail !
 
 Vous pouvez maintenant interroger les tables pour explorer vos données. Exécutez la requête suivante pour connaître le total des ventes par marque :
 
@@ -343,14 +344,14 @@ GROUP BY p.[BrandName]
 ## <a name="next-steps"></a>Étapes suivantes
 Pour charger le jeu de données complet, exécutez l’exemple [Charger l’ensemble de l’entrepôt de données Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) à partir du référentiel d’exemples Microsoft SQL Server.
 
-Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
+Pour obtenir des conseils supplémentaires en matière de développement, consultez [Vue d’ensemble du développement d’un entrepôt de données SQL][Vue d’ensemble du développement SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
+[SQL Analytics data warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
 [Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md

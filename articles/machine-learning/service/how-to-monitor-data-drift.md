@@ -1,7 +1,7 @@
 ---
-title: Détecter une dérive de données (préversion) sur des déploiements AKS
+title: Détecter une dérive de données sur des déploiements Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Détecter une dérive de données sur des modèles Azure Kubernetes Service déployés dans Azure Machine Learning.
+description: Détectez une dérive de données (préversion) sur des modèles Azure Kubernetes Service déployés dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489650"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824251"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -161,14 +161,13 @@ datadrift.disable_schedule()
 
 La configuration du détecteur de dérive de données peut être consultée sous **Modèles** dans l’onglet **Détails** de votre espace de travail sous [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Dérive des données Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)
+[![Dérive des données Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## <a name="view-results-in-your-azure-machine-learning-studio"></a>Consulter les résultats dans Azure Machine Learning Studio
 
 Pour afficher les résultats dans votre espace de travail sous [Azure Machine Learning Studio](https://ml.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Vous pouvez désormais visualiser les métriques de dérive de données sous l’onglet **Dérive des données**. 
 
 [![Dérive des données Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## <a name="receiving-drift-alerts"></a>Réception d’alertes dérive
 
@@ -190,6 +189,8 @@ Lorsque la dérive des données a un impact négatif sur les performances de vot
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un exemple complet de l’utilisation de la dérive de données, consultez le [notebook de dérive de données Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Ce Jupyter Notebook montre comment utiliser un [jeu de données ouvert Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) pour former un modèle afin de prédire la météo, le déployer sur AKS et surveiller la dérive de données. 
+* Pour obtenir un exemple complet de l’utilisation de la dérive de données, consultez le [notebook de dérive de données Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Ce Jupyter Notebook montre comment utiliser un [jeu de données ouvert Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) pour former un modèle afin de prédire la météo, le déployer sur AKS et surveiller la dérive de données. 
+
+* Détectez une dérive de données avec des [superviseurs de jeu de données](how-to-monitor-datasets.md).
 
 * Nous apprécierons toutes vos questions, commentaires ou suggestions dans notre processus de disponibilité générale de la dérive de données. Utilisez le bouton de commentaires sur le produit ci-dessous ! 

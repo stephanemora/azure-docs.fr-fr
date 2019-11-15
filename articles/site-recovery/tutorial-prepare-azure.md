@@ -1,5 +1,5 @@
 ---
-title: Préparer Azure pour la reprise d’activité des machines locales avec Azure Site Recovery
+title: Préparer Azure pour la reprise d’activité locale avec Azure Site Recovery
 description: Découvrez comment préparer Azure pour la récupération d’urgence des machines locales à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 32aa2c8f4c97f247bfcff5fc82a3f810b8005591
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488551"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620592"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Préparer Azure pour la reprise d’activité locale sur Azure
 
 Cet article explique comment préparer les ressources et les composants Azure pour pouvoir configurer la reprise d’activité des machines virtuelles VMware, des machines virtuelles Hyper-V ou des serveurs physiques Windows/Linux locaux sur Azure, à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 

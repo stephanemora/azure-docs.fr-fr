@@ -1,36 +1,38 @@
 ---
-title: Créez des conteneurs et des bases de données Azure Cosmos avec débit en mode Autopilot.
+title: Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot
 description: Découvrez les avantages et les cas d'usage, et apprenez à approvisionner des bases de données et des conteneurs Azure Cosmos en mode Autopilot.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 598dc6394e8be8b3372f4ed61a522454830a22d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510110"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748372"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-with-provisioned-throughput-in-autopilot-mode-preview"></a>Créer des conteneurs et des bases de données Azure Cosmos avec débit approvisionné en mode Autopilot (préversion)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot (Préversion)
 
 Azure Cosmos DB vous permet d'approvisionner le débit de vos conteneurs en mode manuel ou Autopilot. Cet article décrit les avantages et les cas d'usage du mode Autopilot.
 
 > [!NOTE]
-> Le mode Autopilot est actuellement disponible en préversion publique.
+> Le mode Autopilot est actuellement disponible en préversion publique. Pour activer la fonctionnalité Autopilot sur votre compte Azure Cosmos, consultez la section [Activer Autopilot](#enable-autopilot) de cet article. Vous pouvez activer Autopilot uniquement pour les nouvelles bases de données et les conteneurs, elle n’est pas disponible pour les bases de données et les conteneurs existants.
 
 En plus de l'approvisionnement manuel du débit, vous pouvez désormais configurer des conteneurs Azure Cosmos en mode Autopilot. Les conteneurs et bases de données Azure Cosmos configurés en mode Autopilot **procèdent automatiquement et instantanément à la mise à l'échelle du débit approvisionné en fonction des besoins de votre application, sans compromettre les contrats de niveau de service.**
 
 Il n'est plus nécessaire de gérer manuellement le débit approvisionné ou les problèmes de limitation de débit. Les conteneurs Azure Cosmos configurés en mode Autopilot peuvent faire l'objet d'une mise à l'échelle instantanée pour répondre à la charge de travail sans aucun impact sur la disponibilité, la latence, le débit ou les performances de celle-ci. En cas d'utilisation intensive, les conteneurs Azure Cosmos configurés en mode Autopilot peuvent être mis à l'échelle sans affecter les opérations en cours.
 
-Lors de la configuration de conteneurs et de bases de données en mode Autopilot, vous devez spécifier le débit maximal `Tmax` à ne pas dépasser. Les conteneurs peuvent ensuite faire l'objet d'une mise à l'échelle instantanée en fonction des besoins de la charge de travail dans la plage `0.1*Tmax < T < Tmax`. En d'autres termes, les conteneurs et les bases de données sont instantanément mis à l'échelle en fonction des besoins de la charge de travail, à partir de 10 % de la valeur de débit configurée et jusqu'à la valeur maximale spécifiée. Vous pouvez à tout moment modifier le paramètre de débit maximal (Tmax) de la base de données ou du conteneur configurés en mode Autopilot.
+Lors de la configuration de conteneurs et de bases de données en mode Autopilot, vous devez spécifier le débit maximal `Tmax` à ne pas dépasser. Les conteneurs peuvent ensuite faire l'objet d'une mise à l'échelle instantanée en fonction des besoins de la charge de travail dans la plage `0.1*Tmax < T < Tmax`. En d’autres termes, les conteneurs et les bases de données sont instantanément mis à l’échelle en fonction des besoins de la charge de travail, à partir de 10 % de la valeur de débit maximal que vous avez configurée, et jusqu’à la valeur maximale configurée. Vous pouvez à tout moment modifier le paramètre de débit maximal (Tmax) de la base de données ou du conteneur configurés en mode Autopilot.
+
+Pendant la préversion de la fonctionnalité Autopilot, le débit maximal spécifié sur le conteneur ou la base de données permet au système d’être utilisé dans la limite de stockage calculée. Si la limite de stockage est dépassée, le débit maximal est automatiquement ajusté à une valeur supérieure. Lorsque vous utilisez le débit du niveau de la base de données avec le mode Autopilot, le nombre de conteneurs autorisés dans une base de données est calculé comme suit : (0,001 * Débit max.). Par exemple, si vous provisionnez 20 000 unités de requête par seconde en mode Autopilot, la base de données peut comporter 20 conteneurs.
 
 ## <a name="benefits-of-autopilot-mode"></a>Avantages du mode Autopilot
 
 Les conteneurs Azure Cosmos configurés en mode Autopilot présentent les avantages suivants :
 
-* **Simples :** en mode Autopilot, la complexité liée à la gestion manuelle du débit approvisionné (en unités de requête) et de la capacité des différents conteneurs disparaît.
+* **Simple :** en mode Autopilot, la complexité liée à la gestion manuelle du débit approvisionné (en unités de requête) et de la capacité des différents conteneurs disparaît.
 
 * **Évolutifs :** en mode Autopilot, les conteneurs font l'objet d'une mise à l'échelle transparente de la capacité de débit approvisionnée en fonction des besoins. Les connexions client et les applications ne sont pas interrompues, et il n'y a aucun impact sur les contrats de niveau de service existants.
 
@@ -60,11 +62,21 @@ Les solutions aux problèmes précédents requièrent non seulement un temps con
 
 |  | Conteneurs configurés en mode manuel  | Conteneurs configurés en mode Autopilot |
 |---------|---------|---------|
-| **Débit approvisionné** | Approvisionnement manuel | Mise à l'échelle proactive et réactive en fonction des modèles d'utilisation de la charge de travail. |
-| **Limitation du nombre de demandes/opérations (429)**  | Peut intervenir si la consommation dépasse la capacité approvisionnée. | N'interviendra pas.  |
+| **Débit approvisionné** | Approvisionnement manuel | Mise à l’échelle automatique et instantanée en fonction des modèles d’utilisation de la charge de travail. |
+| **Limitation du nombre de demandes/opérations (429)**  | Peut intervenir si la consommation dépasse la capacité approvisionnée. | Ne se produira pas si le débit consommé est compris dans le débit maximal que vous choisissez avec le mode Autopilot.   |
 | **Planification de la capacité** |  Vous devez procéder à une planification initiale de la capacité et approvisionner le débit dont vous avez besoin. |    Vous n'avez pas à vous soucier de la planification de la capacité. Le système prend automatiquement en charge la planification et la gestion de la capacité. |
 | **Tarification** | Approvisionnement manuel en unités de requête (RU) par heure. | Pour les comptes à une seule région d'écriture, le débit utilisé est facturé sur une base horaire, en utilisant le taux d'unités de requête par heure du mode Autopilot. <br/><br/>Pour les comptes à plusieurs régions d'écriture, aucuns frais supplémentaires ne s'appliquent au mode Autopilot. Vous payez le débit utilisé sur une base horaire en utilisant le même taux de RU multimaîtres par heure. |
 | **Idéal pour les types de charges de travail** |  Charges de travail prévisibles et stables|   Charges de travail imprévisibles et variables  |
+
+## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> Activer Autopilot dans le portail Azure
+
+Vous pouvez essayer la fonctionnalité Autopilot dans vos comptes Azure Cosmos en l’activant à partir du portail Azure. Utilisez les étapes suivantes pour activer l’option Autopilot :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
+2. Accédez à votre compte Azure Cosmos et ouvrez l’onglet **Nouvelles fonctionnalités**. Sélectionnez **Auto Pilot** et **Inscrire**, comme illustré dans la capture d’écran suivante :
+
+![Créer un conteneur en mode Autopilot](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Créer une base de données ou un conteneur en mode Autopilot
 
@@ -74,13 +86,13 @@ Vous pouvez configurer les bases de données ou les conteneurs en mode AutoPilot
 
 1. Accédez à votre compte Azure Cosmos et ouvrez l'onglet **Explorateur de données**.
 
-1. Sélectionnez **Nouvelle base de données** et entrez un nom pour votre base de données. Pour l'option **Autopilot**, choisissez **Activé** et spécifiez le débit que la base de données ne pourra pas dépasser en mode Autopilot.
+1. Sélectionnez **Nouveau conteneur**, entrez un nom pour votre conteneur et une clé de partition. Sélectionnez l’option **Autopilot**, puis choisissez le débit maximal que le conteneur ne peut pas dépasser en mode Autopilot.
 
-   ![Créer une base de données en mode Autopilot](./media/provision-throughput-autopilot/create-database-autopilot-mode.png)
+   ![Créer un conteneur en mode Autopilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Sélectionnez **OK**.
 
-Suivez les mêmes étapes pour créer un conteneur avec débit approvisionné en mode Autopilot.
+Suivez les mêmes étapes pour créer une base de données avec débit provisionné en mode Autopilot.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

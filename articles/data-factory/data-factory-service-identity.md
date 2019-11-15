@@ -1,5 +1,5 @@
 ---
-title: Identité managée pour Data Factory | Microsoft Docs
+title: Identité managée pour Data Factory
 description: En savoir plus sur l’identité managée pour Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153421"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822733"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -26,7 +26,7 @@ Cet article vous permet de mieux comprendre ce qu’est l’identité managée p
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Lors de la création d’une fabrique de données, une identité managée est créée en même temps que la fabrique. L’identité managée est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente la fabrique de données en question.
+Lors de la création d’une fabrique de données, une identité managée est créée en même temps que la fabrique. L’identité managée est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente cette fabrique de données.
 
 L’identité managée pour Data Factory bénéficie des fonctionnalités suivantes :
 

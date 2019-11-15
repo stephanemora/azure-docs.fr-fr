@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474292"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602996"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -135,7 +135,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
      Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Vous avez également besoin des privilèges d’administrateur de domaine Active Directory local dans le domaine racine de la forêt. Une fois que cette commande a réussi pour un service proxy, des appels supplémentaires de cette commande réussiront mais ils ne sont pas nécessaires.
 
-      L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants.
+      L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
 
      * Mode d’authentification interactive :
 
@@ -179,7 +179,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 1. Inscrivez la forêt.
    * Vous devez initialiser la forêt Active Directory locale avec les informations d’identification nécessaires pour communiquer avec Azure à l’aide de l’applet de commande PowerShell `Register-AzureADPasswordProtectionForest`. Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Cette étape est exécutée une seule fois par forêt.
 
-      L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants.
+      L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
 
      * Mode d’authentification interactive :
 

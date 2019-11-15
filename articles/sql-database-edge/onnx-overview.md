@@ -4,60 +4,57 @@ description: Dans Azure SQL Database Edge en préversion, le Machine Learning pr
 keywords: déployer sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
-ms.date: 11/04/2019
-ms.openlocfilehash: c4c87f7f6f8735c9a50c61b0e083c77b915e0d98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/07/2019
+ms.openlocfilehash: 976c849f9cb48e1c197f70d10e911216a6a7425c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510646"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822847"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine Learning et IA avec ONNX dans SQL Database Edge en préversion
 
 Dans Azure SQL Database Edge en préversion, le Machine Learning prend en charge les modèles au format [ONNX (Open Neural Network Exchange)](https://onnx.ai/). ONNX est un format ouvert que vous pouvez utiliser pour échanger des modèles entre plusieurs [infrastructures et outils de Machine Learning](https://onnx.ai/supported-tools).
 
-## <a name="supported-tool-kits"></a>Kits d’outils pris en charge
+## <a name="overview"></a>Vue d'ensemble
 
-ONNXMLTools vous permet de convertir des modèles à partir de différents kits d'outils de Machine Learning vers un modèle ONNX. Actuellement, pour les types de données numériques et entrées à une seule colonne, les kits d’outils suivants sont pris en charge :
-
-* [scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-* [Spark ML (expérimental)](https://github.com/onnx/onnxmltools/tree/master/onnxmltools/convert/sparkml)
-* [LightGBM](https://github.com/onnx/onnxmltools)
-* [libsvm](https://github.com/onnx/onnxmltools)
-* [XGBoost](https://github.com/onnx/onnxmltools)
+Pour inférer des modèles de machine learning dans Azure SQL Database Edge, vous devez d’abord obtenir un modèle. Il peut s’agir d’un modèle prééntraîné ou d’un modèle personnalisé entraîné avec le framework de votre choix. Azure SQL Database Edge prend en charge le format ONNX et vous devrez convertir le modèle dans ce format. Il ne doit normalement y avoir aucun impact sur la justesse du modèle et, une fois que vous disposez du modèle ONNX, vous pouvez le déployer dans Azure SQL Database Edge et utiliser le [scoring natif avec la fonction T-SQL PREDICT](/sql/advanced-analytics/sql-native-scoring/).
 
 ## <a name="get-onnx-models"></a>Obtenir des modèles ONNX
 
 Vous pouvez obtenir un modèle au format ONNX de plusieurs façons :
 
-- [ONNX Model Zoo](https://github.com/onnx/models) : Contient plusieurs modèles ONNX pré-formés pour différents types de tâches. Vous pouvez télécharger et utiliser les versions prises en charge par Windows Machine Learning.
+- [ONNX Model Zoo](https://github.com/onnx/models) : Contient de nombreux modèles ONNX préentraînés pour différents types de tâches qui peuvent être téléchargés et sont prêts à être utilisés.
 
-- [Exportation native depuis les infrastructures natives de Machine Learning](https://onnx.ai/supported-tools) : Plusieurs infrastructures de formation prennent en charge la fonctionnalité d’exportation native vers ONNX, ce qui vous permet d’enregistrer votre modèle formé dans une version spécifique au format ONNX. Par exemple, Chainer, Caffee2, et PyTorch. En outre, des services tels que [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service/) et [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) proposent également une exportation ONNX native.
+- [Exportation native depuis les frameworks d’entraînement ML](https://onnx.ai/supported-tools) : Plusieurs frameworks d’entraînement prennent en charge la fonctionnalité d’exportation native vers ONNX, ce qui vous permet d’enregistrer votre modèle entraîné dans une version spécifique du format ONNX, notamment [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer et Caffe2. De plus, les services de création de modèles, comme la [fonctionnalité Machine Learning automatisé dans Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) et le [service Vision personnalisée Azure](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier), permettent l’exportation ONNX.
 
-  - Pour savoir comment former et exporter un modèle ONNX dans le cloud à l’aide de Custom Vision, consultez [Tutoriel : Utiliser un modèle ONNX à partir de Custom Vision avec Windows ML (préversion)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
+- [Convertir des modèles existants](https://github.com/onnx/tutorials#converting-to-onnx-format) : Pour les frameworks qui ne prennent pas en charge l’exportation native, il existe des packages autonomes pour la conversion des modèles au format ONNX. Pour obtenir des exemples et des tutoriels, consultez [Conversion au format ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format). 
 
-- [Convertir des modèles existants à l’aide de WinMLTools](https://docs.microsoft.com/windows/ai/windows-ml/convert-model-winmltools) : Ce package Python permet de convertir les modèles de plusieurs formats d'infrastructure de formation vers ONNX. Vous pouvez spécifier la version ONNX vers laquelle vous souhaitez convertir votre modèle, en fonction des builds de Windows ciblées par votre application. Si vous n’êtes pas familiarisé avec Python, vous pouvez utiliser le [tableau de bord Windows Machine Learning basé sur l’interface utilisateur](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) pour convertir vos modèles.
+### <a name="supported-frameworks"></a>Frameworks pris en charge
 
-> [!IMPORTANT]
-> Toutes les versions ONNX ne sont pas prises en charge par Azure SQL Database Edge. Seul le fait de prédire des types de données numériques via le modèle ONNX est actuellement pris en charge.
+Les convertisseurs ONNX vous permettent de convertir des modèles entraînés de différents frameworks de machine learning au format ONNX. Les convertisseurs les plus répandus sont les suivants : 
 
-Une fois que vous disposez d’un modèle ONNX, vous pouvez le déployer dans Azure SQL Database Edge. Vous pouvez ensuite utiliser le [scoring natif avec la fonction PREDICT T-SQL](/sql/advanced-analytics/sql-native-scoring/).
+* [PyTorch](http://pytorch.org/docs/master/onnx.html)
+* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+* [Keras](https://github.com/onnx/keras-onnx)
+* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+* [CoreML](https://github.com/onnx/onnxmltools)
+
+Pour obtenir la liste complète des frameworks pris en charge, consultez [Conversion au format ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Limites
 
-Actuellement, cette prise en charge est limitée aux modèles avec **types de données numériques** :
+Actuellement, tous les modèles ONNX ne sont pas pris en charge par Azure SQL Database Edge. La prise en charge est limitée aux modèles avec des **types de données numériques** :
 
 - [int et bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
 - [real et float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql)
   
-D’autres types numériques peuvent être convertis vers des types pris en charge à l’aide de CAST et CONVERT [CAST et CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Les autres types numériques peuvent être convertis vers des types pris en charge avec [CAST et CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 Les entrées de modèle doivent être structurées afin que chaque entrée du modèle corresponde à une colonne unique dans une table. Par exemple, si vous utilisez un dataframe pandas pour former un modèle, chaque entrée doit correspondre à une colonne distincte du modèle.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00b7d1cfea4a36b8ba5b78aea344288e11da67cf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474738"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642411"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Didacticiel : Inscrire une application dans Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](tutoria
 
 ## <a name="register-a-web-application"></a>Inscrire une application web
 
-Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [Apprenez-en davantage sur l’expérience en préversion](https://aka.ms/b2cappregintro).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
@@ -101,7 +101,7 @@ Si votre application échange un code contre un jeton, vous devez créer un secr
 1. Sélectionnez **Nouveau secret client**.
 1. Entrez une description pour la clé secrète client dans la zone **Description**. Par exemple, *clientsecret1*.
 1. Sous **Expire**, sélectionnez une durée pendant laquelle le secret est valide, puis sélectionnez **Ajouter**.
-1. Enregistrez la **valeur** du secret. Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
+1. Enregistrez la **Valeur** du secret. Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
 
 * * *
 

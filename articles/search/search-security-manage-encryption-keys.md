@@ -1,26 +1,24 @@
 ---
 title: Chiffrement des données au repos à l’aide de clés gérées par le client dans Azure Key Vault (préversion)
 titleSuffix: Azure Cognitive Search
-description: Complétez le chiffrement côté serveur des index et mappages de synonymes dans Recherche cognitive Azure grâce à des clés que vous créez et gérez dans Azure Key Vault.
+description: Complétez le chiffrement côté serveur des index et mappages de synonymes dans Recherche cognitive Azure grâce à des clés que vous créez et gérez dans Azure Key Vault. Cette fonctionnalité est actuellement disponible en préversion publique.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794350"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721756"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu de Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
-> [!Note]
-> Le chiffrement avec des clés gérées par le client est en préversion et n’a pas été conçu pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Vous pouvez également utiliser la version 8.0-preview du SDK .NET.
->
-> Cette fonctionnalité n’est pas disponible pour les services gratuits. Vous devez utiliser un service de recherche facturable, créé à partir du 01-01-2019. Il n’existe aucune prise en charge sur le portail pour l’instant.
+> [!IMPORTANT] 
+> La prise en charge du chiffrement au repos est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) et le [SDK .NET version 8.0-preview](search-dotnet-sdk-migration-version-9.md) fournissent cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail.
 
 Par défaut, Recherche cognitive Azure chiffre au repos le contenu de l’utilisateur avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes.
 

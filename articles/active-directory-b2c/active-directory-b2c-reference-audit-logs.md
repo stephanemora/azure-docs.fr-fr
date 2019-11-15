@@ -11,12 +11,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475202"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643599"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -123,7 +123,7 @@ Procédez comme suit pour inscrire une application, lui accorder les autorisatio
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
 1. Sélectionnez le compte administrateur actuellement connecté s’il a été attribué au rôle *Administrateur général* ou connectez-vous avec un compte de votre abonné Azure AD B2C à qui le rôle *Administrateur général* a été attribué.
 1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour … » apparaît sous **ÉTAT** pour l’autorisation *AuditLog.Read.All*. La propagation des autorisations peut prendre quelques minutes.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour … » apparaît sous **État** pour l’autorisation *AuditLog.Read.All*. La propagation des autorisations peut prendre quelques minutes.
 
 * * *
 

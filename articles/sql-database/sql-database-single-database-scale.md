@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle des ressources de base de données unique - Azure SQL Database | Microsoft Docs
+title: Mettre à l’échelle les ressources d’une base de données unique
 description: Cet article décrit comment mettre à l’échelle les ressources de calcul et de stockage disponibles d’une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e03c68854d9150c25019fe198fe855a011750844
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2a16735e65201314328d2315479ccc467b9d555e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566554"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820997"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
-Cet article décrit la procédure de mise à l’échelle des ressources de calcul et de stockage disponibles pour une base de données unique dans le niveau de calcul approvisionné. Sinon, le [niveau de calcul serverless (préversion)](sql-database-serverless.md) offre une mise à l’échelle automatique du calcul et facture le calcul utilisé par seconde.
+Cet article décrit la procédure de mise à l’échelle des ressources de calcul et de stockage disponibles pour Azure SQL Database dans le niveau de calcul configuré. Sinon, le [niveau de calcul serverless](sql-database-serverless.md) offre une mise à l’échelle automatique du calcul et facture le calcul utilisé par seconde.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -40,18 +40,18 @@ La vidéo suivante montre la modification dynamique du niveau de service et de l
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impact du changement de niveau de service ou de la remise à l’échelle de la taille de calcul
 
-La modification du niveau de service ou de la taille de calcul d’une base de données unique implique principalement que le service suive les étapes ci-après :
+La modification du niveau de service ou de la taille de calcul implique principalement que le service suive les étapes ci-après :
 
 1. Création d’une instance de calcul pour la base de données  
 
-    Une instance de calcul est créée pour la base de données avec le niveau de service et la taille de calcul demandés. Pour certaines combinaisons de modifications du niveau de service et de la taille de calcul, un réplica de la base de données doit être créé dans la nouvelle instance de calcul, ce qui implique de copier des données et peut avoir une incidence substantielle sur la latence globale. Malgré tout, la base de données reste en ligne pendant cette étape, et les connexions continuent d’être dirigées vers la base de données dans l’instance de calcul d’origine.
+    Une nouvelle instance de calcul est créée pour le niveau de service et la taille de calcul demandés. Pour certaines combinaisons de modifications du niveau de service et de la taille de calcul, un réplica de la base de données doit être créé dans la nouvelle instance de calcul, ce qui implique de copier des données et peut avoir une incidence substantielle sur la latence globale. Malgré tout, la base de données reste en ligne pendant cette étape, et les connexions continuent d’être dirigées vers la base de données dans l’instance de calcul d’origine.
 
 2. Basculement de l’acheminement des connexions vers la nouvelle instance de calcul
 
     Les connexions existantes à la base de données dans l’instance de calcul d’origine sont supprimées. Toutes les nouvelles connexions sont établies vers la base de données de la nouvelle instance de calcul. Pour certaines combinaisons de modifications du niveau de service et de la taille de calcul, les fichiers de base de données sont détachés, puis rattachés pendant ce basculement.  Malgré tout, le basculement peut entraîner une brève interruption de service au cours de laquelle la base de données reste inaccessible pendant moins de 30 secondes, et le plus souvent, pendant quelques secondes seulement. Si des transactions durables sont en cours d’exécution quand des connexions sont supprimées, la durée de cette étape peut prendre plus de temps pour permettre la récupération des transactions abandonnées. La [récupération de base de données accélérée](sql-database-accelerated-database-recovery.md) permet de réduire l’impact de l’abandon des transactions durables.
 
 > [!IMPORTANT]
-> Aucune donnée n’est perdue au cours des étapes du workflow.
+> Aucune donnée n’est perdue au cours des étapes du workflow. Assurez-vous que vous avez implémenté une [logique de nouvelle tentative](sql-database-connectivity-issues.md) dans les applications et les composants qui utilisent Azure SQL Database pendant la modification du niveau de service.
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latence de modification du niveau de service ou de remise à l’échelle de la taille de calcul
 

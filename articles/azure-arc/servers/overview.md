@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0178f27c39c065399208e7fc5afe7352ba4f8e30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488215"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606100"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Qu’est-ce qu’Azure Arc pour les serveurs ?
 
@@ -34,7 +34,7 @@ L’état des ordinateurs sera **Connecté** ou **Déconnecté** en fonction de 
 
 Dans la préversion publique, nous prenons en charge les systèmes suivants :
 
-- Windows Server 2012 R2 et les versions ultérieures
+- Windows Server 2012 R2 et ultérieur
 - Ubuntu 16.04 et 18.04
 
 La préversion publique est conçue à des fins d’évaluation et ne doit pas être utilisée pour gérer des ressources de production critiques.
@@ -83,7 +83,7 @@ Pour plus d’informations sur la configuration de l’agent nécessaire pour ut
 
 ## <a name="register-the-required-resource-providers"></a>Inscrire les fournisseurs de ressources requis
 
-Une fois l’inscription de la « balise de fonctionnalité » approuvée, vous devez inscrire les fournisseurs de ressources requis.
+Pour pouvoir utiliser Azure Arc pour les serveurs, vous devez inscrire les fournisseurs de ressources nécessaires.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

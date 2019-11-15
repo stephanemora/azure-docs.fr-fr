@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476132"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619786"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -88,9 +88,19 @@ Les graphiques de classification binaire (rappel de précision, ROC, obtenir la 
 
 ## <a name="datasets-and-data-preparation"></a>Jeux de données et préparation des données
 
+Il s’agit de problèmes connus pour les jeux de données Azure Machine Learning.
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Échec de la lecture du fichier Parquet à partir de HTTP ou ADLS Gen 2
 
-Il existe un problème connu dans le kit de développement logiciel (SDK) AzureML DataPrep version 1.1.25 qui provoque un échec lors de la création d’un jeu de données en lisant les fichiers Parquet à partir de HTTP ou ADLS Gen 2. Pour résoudre ce problème, effectuez une mise à niveau vers une version supérieure à 1.1.26 ou passez à une version antérieure à 1.1.24.
+Il existe un problème connu dans le kit de développement logiciel (SDK) AzureML DataPrep version 1.1.25 qui provoque un échec lors de la création d’un jeu de données en lisant les fichiers Parquet à partir de HTTP ou ADLS Gen 2. Elle échouera avec `Cannot seek once reading started.`. Pour résoudre ce problème, effectuez une mise à niveau de `azureml-dataprep` vers une version ultérieure à 1.1.26 ou passez à une version antérieure à 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError : mount () a reçu un argument de mot clé inattendu « invocation_id »
+
+Cette erreur se produit si vous avez une version incompatible entre `azureml-core` et `azureml-dataprep`. Si vous voyez cette erreur, mettez à niveau le package `azureml-dataprep` vers une version plus récente (supérieure ou égale à 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -146,15 +156,8 @@ Si ces étapes ne résolvent pas le problème, essayez de redémarrer le cluster
 Si vous voyez une erreur `FailToSendFeather` lors de la lecture de données sur le cluster Azure Databricks, reportez-vous aux solutions suivantes :
 
 * Effectuez une mise à niveau du package `azureml-sdk[automl]` vers la dernière version.
-* Ajoutez la version 1.1.8 ou une version supérieure de `azure-dataprep`.
+* Ajoutez la version 1.1.8 ou une version supérieure de `azureml-dataprep`.
 * Ajoutez la version 0.11 ou une version supérieure de `pyarrow`.
-
-
-## <a name="datasets"></a>Groupes de données
-
-Il s’agit de problèmes connus pour les jeux de données Azure Machine Learning.
-
-+ **Échec de la lecture des fichiers Parquet sur Azure Data Lake Storage Gen2** La lecture des fichiers Parquet à partir des magasins de données Azure Data Lake Storage Gen2 ne fonctionne pas si vous avez installé `azureml-dataprep==1.1.25`. Elle échouera avec `Cannot seek once reading started.`. Si vous voyez cette erreur, vous pouvez installer `azureml-dataprep<=1.1.24` ou installer `azureml-dataprep>=1.1.26`.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -262,3 +265,23 @@ Cette exception doit provenir de vos scripts d’apprentissage. Vous pouvez cons
 
 ### <a name="horovod-is-shutdown"></a>Horovod est arrêté
 Dans la plupart des cas, cette exception signifie qu’une exception sous-jacente dans l’un des processus à entraîné l’arrêt de horovod. Chaque rang dans le travail MPI obtient son propre fichier journal dédié dans Azure ML. Ces journaux sont nommés `70_driver_logs`. Dans le cas d’un apprentissage distribué, les noms de journaux sont suivis du suffixe `_rank` pour faciliter leur différenciation. Pour trouver l’erreur exacte qui a provoqué l’arrêt de horovod, parcourez tous les fichiers journaux et recherchez `Traceback` à la fin des fichiers driver_log. L’un de ces fichiers indiquera l’exception sous-jacente réelle. 
+
+## <a name="labeling-projects-issues"></a>Problèmes d’étiquetage des projets
+
+Problèmes connus avec l’étiquetage des projets.
+
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Seuls des jeux de données créés sur des magasins de données blob peuvent être utilisés
+
+Il s’agit d’une limitation connue de la version actuelle. 
+
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Après la création, le projet affiche le message « Initialisation » pendant une longue période de temps
+
+Actualisez la page manuellement. L’initialisation doit se faire à environ 20 points de données par seconde. L’absence d’actualisation automatique est un problème connu. 
+
+### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>Le cadre englobant ne peut pas être dessiné entièrement jusqu’au bord droit de l’image 
+
+Essayez en redimensionnant la fenêtre du navigateur. Nous cherchons à déterminer la cause de ce comportement. 
+
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>Lors du passage en revue des images, les images récemment étiquetées ne sont pas affichées
+
+Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.

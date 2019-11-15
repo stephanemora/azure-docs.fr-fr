@@ -1,5 +1,5 @@
 ---
-title: Transformation de jointure dans le flux de données de mappage Azure Data Factory | Microsoft Docs
+title: Transformation de jointure dans le flux de données de mappage Azure Data Factory
 description: Combiner les données de deux sources de données à l’aide de la transformation de jointure dans le flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597020"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675911"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
@@ -32,7 +32,7 @@ La jointure externe gauche renvoie toutes les lignes du flux de données gauche 
 
 ### <a name="right-outer"></a>Externe droite
 
-La jointure externe gauche renvoie toutes les lignes du flux de données droite et les enregistrements correspondants du flux de gauche. Si une ligne du flux de droite n’a pas de correspondance, les colonnes de sortie du flux de droite ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de droite.
+La jointure externe droite retourne toutes les lignes du flux de données de droite et les enregistrements correspondants du flux de données de gauche. Si une ligne du flux de droite n’a pas de correspondance, les colonnes de sortie du flux de gauche ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de droite.
 
 ### <a name="full-outer"></a>Externe entière
 
@@ -85,7 +85,7 @@ Lorsque vous testez les transformations de jointure avec l’aperçu des donnée
 
 L’exemple ci-dessous illustre une transformation de jointure nommée `JoinMatchedData`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`.  La condition de jointure est l’expression `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` qui retourne true si les colonnes `hack_license`, `medallion`, `vendor_id` et `pickup_datetime` de chaque flux correspondent. Le `joinType` est `'inner'`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
 
-Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
 
 ![Exemple de jointure](media/data-flow/join-script1.png "Exemple de jointure")
 
@@ -107,7 +107,7 @@ TripData, TripFare
 
 L’exemple ci-dessous illustre une transformation de jointure nommée `CartesianProduct`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`. Cette transformation prend deux flux et retourne le produit cartésien de leurs lignes. La condition de jointure est `true()`, car elle génère un produit cartésien complet. Le `joinType` dans `cross`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
 
-Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
 
 ![Exemple de jointure](media/data-flow/join-script2.png "Exemple de jointure")
 

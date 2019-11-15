@@ -1,23 +1,25 @@
 ---
 title: 'Démarrage rapide : Créer une application dans le portail LUIS'
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide traite de la création d’une application dans le portail LUIS. Créez les composants de base d'une application, les intentions et les entités. Ensuite, testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue. La création d’une application est gratuite et ne nécessite pas d’abonnement Azure.
+description: Dans ce guide de démarrage rapide, vous créez les éléments de base d’une application, les intentions et les entités, et vous les testez avec l’exemple d’énoncé dans le portail LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307728"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669681"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Ce guide de démarrage rapide traite de la génération d’une application dans le [portail LUIS](https://www.luis.ai). Vous commencez par créer les composants de base d’une application, les **intentions**, et les **entités**. Ensuite, vous testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue.
 
@@ -27,9 +29,9 @@ La création d’une application est gratuite et ne nécessite pas d’abonnemen
 
 ## <a name="create-an-app"></a>Créer une application
 
-1. Sélectionnez **Créer une application** dans la barre d’outils contextuelle.
+1. Sélectionnez **+ Créer** dans la barre d’outils contextuelle.
 
-   [![Créer une application dans le portail LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![Créer une application dans le portail LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Dans la fenêtre indépendante, configurez l’application avec les paramètres suivants, puis sélectionnez **Terminé**.
 
@@ -37,8 +39,8 @@ La création d’une application est gratuite et ne nécessite pas d’abonnemen
    |--|--|--|
    |Nom|`myEnglishApp`|Nom d’application LUIS unique<br>required|
    |Culture|**Anglais**|Langue des énoncés des utilisateurs, à savoir **en-us**<br>required|
-   |Description|`App made with LUIS Portal`|Description de l’application<br>facultatif|
-   | | | |
+   |Description (Facultatif)|`App made with LUIS Portal`|Description de l’application<br>facultatif|
+   |Ressource de prédiction (Facultatif) |-  |Ne sélectionnez pas. LUIS vous donne une clé de démarrage à utiliser gratuitement, pour la création et 1 000 requêtes de point de terminaison de prédiction. |
 
    ![Entrer de nouveaux paramètres d’application](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -58,13 +60,11 @@ Les deux différentes _intentions_ de l’application sont alignées sur les int
 
 Pour créer des intentions, procédez comme suit :
 
-1. Une fois l’application créée, la page **Intentions** de la section **Build** est affichée. Sélectionnez **Créer une intention**.
+1. Une fois l’application créée, la page **Intentions** de la section **Build** est affichée. Sélectionnez **Create** (Créer).
 
-   [![Sélectionner le bouton Créer une intention](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Sélectionner Create pour créer une intention](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Entrez le nom de l’intention, `FindForm`, puis sélectionnez **Terminé**.
-
-   ![Entrez le nom de d’intention de FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>Ajouter un exemple d’énoncé
 
@@ -110,13 +110,16 @@ Pour renvoyer le numéro de formulaire dans la réponse de prédiction d’exéc
 
 1. Sélectionnez **Entities** (Entités) dans le menu gauche.
 
-1. Sélectionnez **Create new entity** (Créer une entité) sur la page **Entities** (Entités).
+1. Sélectionnez **Create** dans la page **Entities**.
 
-1. Entrez le nom `Human Resources Form Number`, sélectionnez le type d'entité **Regex** et entrez l’expression régulière `hrf-[0-9]{6}`. Cette entrée correspond aux caractères littéraux, `hrf-`, et autorise précisément 6 chiffres.
+1. Entrez le nom `Human Resources Form Number`, sélectionnez le type d’entité **Regex**, puis sélectionnez **Next**.
 
-   ![Entrez les informations d’entité pour l’entité d’expression régulière](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Créer une entité d’expression régulière](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Sélectionnez **Terminé**.
+1. Entrez l’expression régulière (**RegEx**), `hrf-[0-9]{6}`. Cette entrée correspond aux caractères littéraux, `hrf-`, et autorise précisément 6 chiffres. Sélectionnez ensuite **Create**.
+
+   ![Entrer une expression régulière pour l’entité](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None »
 
@@ -134,11 +137,11 @@ Les exemples d’énoncés de l’intention **None** doivent figurer en dehors d
    |Commande une pizza pour moi|
    |Pingouins dans l’océan|
 
-   Pour cette application de ressources humaines, ces exemples d’énoncés figurent en dehors du domaine. Si votre domaine de ressources humaines inclut des professions liées aux animaux, à l’alimentation ou à la mer, vous devez utiliser d'autres exemples d’énoncés pour l’intention **None** (Aucune).
+   Pour cette application, ces exemples d’énoncés figurent en dehors du domaine. Si votre domaine a trait aux animaux, à la nourriture ou à l’océan, vous devez utiliser d’autres exemples d’énoncés pour l’intention **None** (Aucune).
 
 ## <a name="train-the-app"></a>Effectuer l’apprentissage de l’application
 
-Dans le menu de la partie supérieure droite, sélectionnez **Train** (Former) pour appliquer les changements d’intention et de modèle d’entité à la version actuelle de l’application.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Examiner l’entité d’expression régulière dans les exemples d’énoncés
 
@@ -165,8 +168,6 @@ Utilisez le volet interactif **Test** du portail LUIS pour valider que l’entit
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous avez terminé ce démarrage rapide et si vous ne passez pas au démarrage rapide suivant, sélectionnez **Mes applications** dans le menu de navigation supérieur. Cochez ensuite la case à gauche de l’application dans la liste, puis sélectionnez **Supprimer** dans la barre d’outils contextuelle au-dessus de la liste.
-
-[![Supprimer l’application de la liste Mes applications](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

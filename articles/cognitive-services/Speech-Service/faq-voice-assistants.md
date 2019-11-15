@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 7ad3f932e9a10723d6cc1bae2fc4854c932d4c64
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506528"
+ms.locfileid: "73579665"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Assistants vocaux : Questions fréquentes (FAQ)
 
@@ -29,7 +29,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 
 **Q : Dois-je utiliser la solution Commandes personnalisées (préversion) ou Direct Line Speech ? Quelle est la différence ?**
 
-**R :** [Commandes personnalisées (préversion)](custom-commands.md) est un ensemble d’outils moins complexe permettant de créer et d’héberger facilement un assistant adapté aux scénarios d’achèvement des tâches. [Direct Line Speech](direct-line-speech.md) fournit des fonctionnalités plus riches et plus sophistiquées qui peuvent permettre des scénarios de conversation robustes. Pour plus d’informations, consultez la [comparaison des solutions d’assistant](voice-assistants.md#comparing-assistant-solutions).
+**R :** [Commandes personnalisées (préversion)](custom-commands.md) est un ensemble d’outils moins complexe permettant de créer et d’héberger facilement un assistant adapté aux scénarios d’achèvement des tâches. [Direct Line Speech](direct-line-speech.md) fournit des fonctionnalités plus riches et plus sophistiquées qui peuvent permettre des scénarios de conversation robustes. Pour plus d’informations, consultez la [comparaison des solutions d’assistant](voice-assistants.md#choosing-an-assistant-solution).
 
 **Q : Comment faire pour démarrer ?**
 
@@ -40,6 +40,17 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 * [Connecter un bot au canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Débogage
+
+**Q : Où est le secret de mon canal ?**
+
+**R :** Si vous avez utilisé la préversion de Direct Line Speech ou que vous lisez la documentation associée, vous pouvez vous attendre à trouver une clé secrète sur la page d’inscription du canal Direct Line Speech. La méthode `FromBotSecret` de la fabrique `DialogServiceConfig` v1.7 du SDK Speech attend également cette valeur.
+
+La dernière version de Direct Line Speech simplifie le processus de contact de votre bot à partir d’un appareil. Dans la page d’inscription du canal, la liste déroulante située en haut associe votre inscription du canal Direct Line Speech à une ressource de reconnaissance vocale. Une fois l’association effectuée, le SDK Speech v1.8 inclut une méthode de fabrique `BotFrameworkConfig::FromSubscription` qui configure un `DialogServiceConnector` pour contacter le bot que vous avez associé à votre abonnement.
+
+Si vous migrez néanmoins votre application cliente de v1.7 vers v1.8, `DialogServiceConfig::FromBotSecret` peut continuer à utiliser une valeur non vide et non null pour son paramètre de secret du canal, par exemple le secret précédent que vous avez utilisé. Elle sera tout simplement ignorée lors de l’utilisation d’un abonnement de reconnaissance vocale associé à une inscription de canal plus récente. Notez que la valeur *doit* être non null et non vide, car elle est vérifiée sur l’appareil avant que l’association côté service soit pertinente.
+
+
+Pour obtenir un guide plus détaillé, consultez la [section du tutoriel](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) qui vous guide dans l’inscription du canal.
 
 **Q : J’obtiens une erreur 401 lors de la connexion et rien ne fonctionne. Je sais que ma clé d’abonnement Speech est valide. Que se passe-t-il ?**
 

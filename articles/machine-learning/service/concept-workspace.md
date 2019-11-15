@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497352"
+ms.locfileid: "73580761"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -32,7 +32,7 @@ Le diagramme suivant représente une taxonomie de l’espace de travail :
 
 Le diagramme montre les composants d’un espace de travail suivants :
 
-+ Un espace de travail peut contenir des [instances de calcul Azure Machine Learning](concept-compute-instance.md), des ressources cloud configurées avec l’environnement Python nécessaire pour exécuter Azure Machine Learning.
++ Un espace de travail peut contenir des machines virtuelles de notebooks Azure Machine Learning, des ressources cloud configurées avec l’environnement Python nécessaire pour exécuter Azure Machine Learning.
 + Les [rôles d’utilisateur](how-to-assign-roles.md) vous permettent de partager votre espace de travail avec d’autres utilisateurs, équipes ou projets.
 + Les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-targets) vous permettent d’exécuter vos expériences.
 + Lorsque vous créez l’espace de travail, les [ressources associées](#resources) sont également créées à votre place.
@@ -75,11 +75,8 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Gérer les accès à l’espace de travail    | **&check;**   || |  **&check;**    |
 | Mise à jour vers l’édition Enterprise    | **&check;** |  | |     |
 | Créer et gérer des ressources de calcul    |   | **&check;** | **&check;** |  **&check;**   |
-| Créer une instance de calcul | **&check;**  | **&check;** | **&check;** |     |
+| Créer une machine virtuelle de notebooks |   | **&check;** | |     |
 
-> [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
->Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.
 
 ## <a name='create-workspace'></a> Créer un espace de travail
 
@@ -101,7 +98,7 @@ Vous pouvez [mettre à niveau votre espace de travail depuis l’édition De bas
 Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement plusieurs ressources Azure qui sont utilisées par l’espace de travail :
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Enregistre les conteneurs docker que vous utilisez pendant la formation et lorsque vous déployez un modèle. Pour réduire les coûts, ACR est **chargé en différé** jusqu’à la création des images de déploiement.
-+ [Compte Stockage Azure](https://azure.microsoft.com/services/storage/) : Utilisé comme magasin de données par défaut pour l’espace de travail.  Les notebooks Jupyter utilisés avec votre instance de calcul Azure Machine Learning sont également stockés ici.
++ [Compte Stockage Azure](https://azure.microsoft.com/services/storage/) : Utilisé comme magasin de données par défaut pour l’espace de travail.  Les notebooks Jupyter utilisés avec votre machine virtuelle de notebooks Azure Machine Learning sont également stockés ici.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) : Stocke les informations de supervision concernant les modèles.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) : Stocke les secrets qui sont utilisés par les cibles de calcul, ainsi que d’autres informations sensibles dont a besoin l’espace de travail.
 
