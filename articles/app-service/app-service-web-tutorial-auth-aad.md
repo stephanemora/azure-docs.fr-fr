@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471323"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961954"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-La nouvelle modification ajoute le mappage `revolve` qui appelle `/.auth/me` et définit le jeton d’accès. Il permet de s’assurer que vous avez le jeton d’accès avant d’instancier le contrôleur `todoListCtrl`. De cette façon, tous les appels d’API par le contrôleur incluent le jeton.
+La nouvelle modification ajoute le mappage `resolve` qui appelle `/.auth/me` et définit le jeton d’accès. Il permet de s’assurer que vous avez le jeton d’accès avant d’instancier le contrôleur `todoListCtrl`. De cette façon, tous les appels d’API par le contrôleur incluent le jeton.
 
 ### <a name="deploy-updates-and-test"></a>Déployer des mises à jour et des tests
 

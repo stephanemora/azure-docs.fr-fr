@@ -1,17 +1,14 @@
 ---
 title: Exécuter votre première requête à l’aide de PowerShell
 description: Cet article vous guide tout au long des étapes à suivre pour activer le module Resource Graph pour Azure PowerShell et exécuter votre première requête.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 9e41ca2e7c6d789b3d18fa98c4845118fa6538ef
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622548"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958775"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure PowerShell
 

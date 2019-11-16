@@ -1,17 +1,14 @@
 ---
 title: Créer une affectation avec un modèle Resource Manager
 description: Cet article vous guide pas à pas pour créer une affectation de stratégie à l’aide d’un modèle Resource Manager en vue d’identifier des ressources non conformes.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: 842b29160e3abaea5edc4bfb4f2e1c345e3ffc85
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 0695f0b5993f996ff35296be609d9978f57907f1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254805"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960144"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Resource Manager
 

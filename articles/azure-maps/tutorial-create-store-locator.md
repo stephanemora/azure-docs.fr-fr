@@ -1,22 +1,22 @@
 ---
-title: Créer un localisateur de magasin à l’aide d’Azure Maps | Microsoft Docs
-description: Créez un localisateur de magasin à l’aide d’Azure Maps.
+title: 'Didacticiel : Créer un localisateur de magasin à l’aide d’Azure Maps'
+description: 'Didacticiel : Créez un localisateur de magasin à l’aide d’Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933063"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107089"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Didacticiel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
 Ce tutoriel vous guide tout au long du processus de création d’un localisateur de magasin simple à l’aide d’Azure Maps. Les localisateurs de magasin sont courants. Bon nombre de concepts utilisés dans ce type d’application sont applicables à de nombreux autres types d’application. Mettre à la disposition de ses clients un localisateur de magasin est une nécessité pour la plupart des établissements qui vendent directement aux consommateurs. Ce tutoriel vous montre comment effectuer les opérations suivantes :
     

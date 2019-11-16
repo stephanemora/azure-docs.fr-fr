@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969657"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888901"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Déployer des applications node.js alimentées par Azure Cosmos DB avec DevOps Projects
 
@@ -169,6 +169,6 @@ Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous
 > * Valider les modifications dans Git et les déployer automatiquement dans Azure
 > * Supprimer des ressources
 
-Consultez [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) pour plus d’informations et pour connaître les étapes suivantes.
+Consultez [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) pour plus d’informations et pour connaître les étapes suivantes.
 
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: d0bf023be9c34f449c40ff74ba9e68ea5e197e2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6450169ae2b2d74006eedc66f35338494257594a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615364"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889088"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architecture du modèle de gestion des stocks intelligente IoT pour Azure IoT Central
 
@@ -54,4 +54,4 @@ La plateforme IoT Central offre des options d’extensibilité riches par le bia
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrir comment déployer un [modèle de gestion intelligente d’inventaire](./tutorial-iot-central-smart-inventory-management-pnp.md)
 * En savoir plus sur les [modèles de distribution IoT Central](./overview-iot-central-retail-pnp.md)
-* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../core/overview-iot-central-pnp.md)
+* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)

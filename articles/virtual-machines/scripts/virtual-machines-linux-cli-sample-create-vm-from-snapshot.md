@@ -1,5 +1,5 @@
 ---
-title: Exemples de script Azure CLI - Créer une machine virtuelle à partir d’une capture instantanée | Documents Microsoft
+title: Exemples de script Azure CLI - Créer une machine virtuelle à partir d’une capture instantanée
 description: Exemples de script Azure CLI - Créer une machine virtuelle à partir d’une capture instantanée
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92f56ef06583bbd59509337352e1509b35b449a6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694531"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032600"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Créer une machine virtuelle à partir d’une capture instantanée avec l’interface de ligne de commande
 

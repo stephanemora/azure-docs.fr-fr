@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598899"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832738"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Didacticiel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
@@ -147,7 +147,7 @@ Activez un déclencheur de déploiement continu afin qu’une version soit cré�
 
 Sélectionnez **+ Mise en production** -> **Créer une mise en production** -> **Créer** pour créer manuellement une mise en production. Vous pouvez surveiller la progression de la mise en production dans l’onglet **Mises en production**.
 
-Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3.
+Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Valider et envoyer les modifications, déclencher une mise en production
 
@@ -167,7 +167,7 @@ L’envoi (push) des modifications à Azure DevOps déclenche automatiquement un
 
 Pour vérifier la progression de votre build, basculez vers l’onglet **Builds** de **Team Explorer** dans Visual Studio.  Une fois que vous avez vérifié que la build s’exécute correctement, spécifiez une définition de mise en production assurant le déploiement de votre application sur un cluster.
 
-Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170815.3.
+Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170815.3.
 
 ![Service Fabric Explorer][sfx1]
 

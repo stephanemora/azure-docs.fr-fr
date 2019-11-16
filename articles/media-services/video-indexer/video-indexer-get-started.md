@@ -1,6 +1,6 @@
 ---
 title: S’inscrire à Video Indexer et charger votre première vidéo - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Découvrez comment s’inscrire et charger votre première vidéo à l’aide du portail Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372345"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839554"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Démarrage rapide : Comment s’inscrire et charger votre première vidéo
 

@@ -1,17 +1,14 @@
 ---
 title: Créer et partager une requête dans le portail Azure
 description: Dans ce didacticiel, vous allez apprendre à créer une requête Resource Graph et à la partager avec d'autres personnes sur le portail Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/23/2019
 ms.topic: tutorial
-ms.service: resource-graph
-ms.openlocfilehash: e49cff5a9b9b2c8841b6cc685d4778688c214d26
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622485"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958572"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Didacticiel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
