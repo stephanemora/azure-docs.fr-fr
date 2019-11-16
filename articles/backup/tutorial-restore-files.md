@@ -8,39 +8,41 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 8d23eb5c177464642ffcafec8877fd2649c0d4f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210198"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073996"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
+
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+>
 > * Répertorier et sélectionner des points de récupération
 > * Connecter un point de récupération vers une machine virtuelle
 > * Restaurer des fichiers à partir d’un point de récupération
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
-
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de fichiers et le processus de récupération, vous supprimez une page d’un serveur web. Si vous avez besoin d’une machine virtuelle Linux qui exécute un serveur Web et qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
-
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
+
 Quand Azure lance une sauvegarde, l’extension de sauvegarde sur la machine virtuelle capture un instantané à un point dans le temps. L’extension de sauvegarde est installée sur la machine virtuelle quand la première sauvegarde est demandée. Sauvegarde Azure peut également capturer un instantané du stockage sous-jacent si la machine virtuelle n’est pas en cours d’exécution durant la sauvegarde.
 
 Par défaut, Sauvegarde Azure effectue une sauvegarde cohérente du système de fichiers. Une fois que Sauvegarde Azure a pris l’instantané, les données sont transférées vers le coffre Recovery Services. Pour optimiser l’efficacité, Sauvegarde Azure identifie et transfère uniquement les blocs de données qui ont été modifiés depuis la sauvegarde précédente.
 
 Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
 
-
 ## <a name="delete-a-file-from-a-vm"></a>Supprimer un fichier d’une machine virtuelle
+
 Si vous supprimez ou modifiez accidentellement un fichier, vous pouvez restaurer des fichiers individuels à partir d’un point de récupération. Ce processus vous permet de parcourir les fichiers sauvegardés dans un point de récupération et de restaurer uniquement les fichiers dont vous avez besoin. Dans cet exemple, nous supprimons un fichier d’un serveur web pour illustrer le processus de récupération au niveau du fichier.
 
 1. Pour vous connecter à votre machine virtuelle, obtenez l’adresse IP de votre machine virtuelle à l’aide de la commande [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show) :
@@ -75,8 +77,8 @@ Si vous supprimez ou modifiez accidentellement un fichier, vous pouvez restaurer
     exit
     ```
 
-
 ## <a name="generate-file-recovery-script"></a>Générer un script de récupération de fichier
+
 Pour restaurer vos fichiers, Sauvegarde Azure fournit un script à exécuter sur votre machine virtuelle, qui se connecte à votre point de récupération comme un lecteur local. Vous pouvez parcourir ce lecteur local, restaurer des fichiers sur la machine virtuelle, puis déconnecter le point de récupération. Sauvegarde Azure continue de sauvegarder vos données en fonction de la stratégie affectée à la planification et à la rétention.
 
 1. Pour répertorier les points de récupération de votre machine virtuelle, utilisez [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Dans cet exemple, nous sélectionnons le point de récupération le plus récent pour la machine virtuelle nommée *myVM* et qui est protégée dans *myRecoveryServicesVault*:
@@ -116,8 +118,8 @@ Pour restaurer vos fichiers, Sauvegarde Azure fournit un script à exécuter sur
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
-
 ## <a name="restore-file-to-your-vm"></a>Restaurer un fichier sur votre machine virtuelle
+
 Une fois le script de récupération copié sur votre machine virtuelle, vous pouvez maintenant connecter au point de récupération et restaurer des fichiers.
 
 1. Connectez-vous à votre machine virtuelle avec SSH. Remplacez *publicIpAddress* par l’adresse IP publique de votre machine virtuelle, comme suit :
@@ -146,19 +148,19 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465
-    
+
     Connecting to recovery point using ISCSI service...
-    
+
     Connection succeeded!
-    
+
     Please wait while we attach volumes of the recovery point to this machine...
-    
+
     ************ Volumes of the recovery point and their mount paths on this machine ************
-    
+
     Sr.No.  |  Disk  |  Volume  |  MountPath
-    
+
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
-    
+
     ************ Open File Explorer to browse for files. ************
     ```
 
@@ -168,20 +170,20 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. Dans votre navigateur web, actualisez la page web. Le site web charge désormais la page correctement, comme indiqué dans l’exemple suivant :
+5. Dans votre navigateur web, actualisez la page web. Le site web charge désormais la page correctement, comme indiqué dans l’exemple suivant :
 
     ![Le site web NGINX se charge maintenant correctement](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Fermez la session SSH sur votre machine virtuelle comme suit :
+6. Fermez la session SSH sur votre machine virtuelle comme suit :
 
     ```bash
     exit
     ```
 
-8. Démontez le point de récupération de votre machine virtuelle à l’aide de la commande [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). L’exemple suivant démonte le point de récupération de la machine virtuelle nommée *myVM* dans *myRecoveryServicesVault*.
+7. Démontez le point de récupération de votre machine virtuelle à l’aide de la commande [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). L’exemple suivant démonte le point de récupération de la machine virtuelle nommée *myVM* dans *myRecoveryServicesVault*.
 
     Remplacez *myRecoveryPointName* par le nom de votre point de récupération que vous avez obtenu dans les commandes précédentes :
-    
+
     ```azurecli-interactive
     az backup restore files unmount-rp \
         --resource-group myResourceGroup \
@@ -192,9 +194,11 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez connecté un point de récupération à une machine virtuelle et restauré des fichiers pour un serveur web. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
+>
 > * Répertorier et sélectionner des points de récupération
 > * Connecter un point de récupération vers une machine virtuelle
 > * Restaurer des fichiers à partir d’un point de récupération
@@ -203,4 +207,3 @@ Passez à l’étape suivante du didacticiel pour en savoir plus sur la sauvegar
 
 > [!div class="nextstepaction"]
 > [Sauvegarder Windows Server dans Azure](tutorial-backup-windows-server-to-azure.md)
-

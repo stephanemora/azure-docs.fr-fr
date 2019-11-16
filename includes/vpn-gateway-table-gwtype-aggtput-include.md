@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495696"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075459"
 ---
 |**Génération<br>de passerelle<br>VPN** |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> connexions SSTP** | **P2S<br> connexions IKEv2/OpenVPN** | **Agrégat<br>Référence de débit** | **BGP** | **Redondant interzone** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495696"
 
 * Dans un tunnel unique, un débit maximal de 1 Gbit/s peut être atteint. La référence de débit agrégée indiquée dans le tableau ci-dessus se base sur les mesures de plusieurs tunnels agrégés par le biais d’une passerelle unique. Le test d’évaluation du débit d’agrégat pour une passerelle VPN est S2S + P2S combinés. **Si vous avez un grand nombre de connexions P2S, cela peut avoir un impact négatif sur la connexion S2S à cause des limites de débit.** La référence de débit agrégée n’est pas garantie en raison des conditions de trafic Internet et des comportements de votre application.
 
-* Pour aider nos clients à comprendre les performances relatives des références SKU à l’aide de différents algorithmes, nous avons utilisé les outils disponibles publiquement iPerf et CTSTraffic pour mesurer les performances. Le tableau ci-dessous liste les résultats des tests de performances des références SKU VpnGw de génération 1. Comme vous pouvez le voir, les meilleures performances sont obtenues quand nous utilisons l’algorithme GCMAES256 pour le chiffrement IPsec et pour l’intégrité. Nous obtenons des performances moyennes lors de l’utilisation d’AES256 pour le chiffrement IPsec et de SHA256 pour l’intégrité. Quand nous utilisons DES3 pour le chiffrement IPsec et SHA256 pour l’intégrité, nous obtenons les performances les plus faibles.
+Pour aider nos clients à comprendre les performances relatives des références SKU à l’aide de différents algorithmes, nous avons utilisé les outils disponibles publiquement iPerf et CTSTraffic pour mesurer les performances. Le tableau ci-dessous liste les résultats des tests de performances des références SKU VpnGw de génération 1. Comme vous pouvez le voir, les meilleures performances sont obtenues quand nous utilisons l’algorithme GCMAES256 pour le chiffrement IPsec et pour l’intégrité. Nous obtenons des performances moyennes lors de l’utilisation d’AES256 pour le chiffrement IPsec et de SHA256 pour l’intégrité. Quand nous utilisons DES3 pour le chiffrement IPsec et SHA256 pour l’intégrité, nous obtenons les performances les plus faibles.
 
 |**Génération**|**Référence (SKU)**   | **Algorithmes<br>utilisés** | **Débit<br>observé** | **Paquets par seconde<br>observés** |
 |---           |---       | ---                 | ---            | ---                    |

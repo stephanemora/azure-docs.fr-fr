@@ -8,17 +8,19 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ddbf2e5349a77a45155fafd07da5489d0073b093
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4dcf1e8a0ba9fd7c1e8d02ee8c8307dc63d9e231
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074682"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurer un disque et créer une machine virtuelle récupérée dans Azure
+
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer une machine virtuelle entière à l’aide de l’interface de ligne de commande. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+>
 > * Répertorier et sélectionner des points de récupération
 > * Restaurer un disque à partir d’un point de récupération
 > * Créer une machine virtuelle à partir du disque restauré
@@ -27,23 +29,23 @@ Pour plus d’informations sur l’utilisation de PowerShell pour restaurer un d
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
-
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de machine virtuelle et le processus de récupération, vous créez une machine virtuelle à partir d’un disque à un point de récupération. Si vous avez besoin d’une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
-
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
+
 Quand Azure lance une sauvegarde, l’extension de sauvegarde sur la machine virtuelle capture un instantané à un point dans le temps. L’extension de sauvegarde est installée sur la machine virtuelle quand la première sauvegarde est demandée. Sauvegarde Azure peut également capturer un instantané du stockage sous-jacent si la machine virtuelle n’est pas en cours d’exécution durant la sauvegarde.
 
 Par défaut, Sauvegarde Azure effectue une sauvegarde cohérente du système de fichiers. Une fois que Sauvegarde Azure a pris l’instantané, les données sont transférées vers le coffre Recovery Services. Pour optimiser l’efficacité, Sauvegarde Azure identifie et transfère uniquement les blocs de données qui ont été modifiés depuis la sauvegarde précédente.
 
 Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
 
-
 ## <a name="list-available-recovery-points"></a>Obtenir la liste des points de récupération disponibles
-Pour restaurer un disque, vous sélectionnez un point de récupération en tant que source pour les données de récupération. Étant donné que la stratégie par défaut crée un point de récupération chaque jour et conserve ces derniers pendant 30 jours, vous pouvez conserver un ensemble de points de récupération qui vous permet de sélectionner un point particulier dans le temps pour la récupération. 
+
+Pour restaurer un disque, vous sélectionnez un point de récupération en tant que source pour les données de récupération. Étant donné que la stratégie par défaut crée un point de récupération chaque jour et conserve ces derniers pendant 30 jours, vous pouvez conserver un ensemble de points de récupération qui vous permet de sélectionner un point particulier dans le temps pour la récupération.
 
 Pour afficher la liste des points de récupération disponibles, utilisez [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Le point de récupération **name** est utilisé pour récupérer des disques. Dans ce didacticiel, nous voulons le point de récupération le plus récent disponible. Le paramètre `--query [0].name` sélectionne le nom du point de récupération le plus récent comme suit :
 
@@ -57,8 +59,8 @@ az backup recoverypoint list \
     --output tsv
 ```
 
-
 ## <a name="restore-a-vm-disk"></a>Restaurer un disque de machine virtuelle
+
 Pour restaurer votre disque à partir du point de récupération, vous créez tout d’abord un compte de stockage Azure. Ce compte de stockage permet de stocker le disque restauré. À travers des étapes supplémentaires, le disque restauré est utilisé pour créer une machine virtuelle.
 
 1. Pour créer un compte de stockage, utilisez la commande [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Le nom du compte de stockage doit être écrit entièrement en minuscules et être unique. Remplacez *mystorageaccount* par un nom unique :
@@ -82,11 +84,11 @@ Pour restaurer votre disque à partir du point de récupération, vous créez to
         --rp-name myRecoveryPointName
     ```
 
-
 ## <a name="monitor-the-restore-job"></a>Effectuer le monitoring de la tâche de restauration
+
 Pour effectuer le monitoring de l’état de la tâche de restauration, utilisez [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) :
 
-```azurecli-interactive 
+```azurecli-interactive
 az backup job list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
@@ -105,12 +107,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 Quand les rapports de la tâche de restauration sont à l’*état* *Terminé*, le disque a été restauré sur le compte de stockage.
 
-
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Convertir le disque restauré en disque managé
+
 La tâche de restauration crée un disque non managé. Pour créer une machine virtuelle à partir du disque, celui-ci doit d’abord être converti en disque managé.
 
 1. Obtenez les informations de connexion pour votre compte de stockage avec [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Remplacez *mystorageaccount* par le nom de votre compte de stockage comme suit :
-    
+
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
         --resource-group myResourceGroup \
@@ -143,8 +145,8 @@ La tâche de restauration crée un disque non managé. Pour créer une machine v
         --name mystorageaccount
     ```
 
-
 ## <a name="create-a-vm-from-the-restored-disk"></a>Créer une machine virtuelle à partir du disque restauré
+
 La dernière étape consiste à créer une machine virtuelle à partir du disque managé.
 
 1. Créez une machine virtuelle à partir du disque managé avec [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) comme suit :
@@ -163,11 +165,12 @@ La dernière étape consiste à créer une machine virtuelle à partir du disque
     az vm list --resource-group myResourceGroup --output table
     ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez restauré un disque à partir d’un point de récupération, puis créé une machine virtuelle à partir du disque. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
+>
 > * Répertorier et sélectionner des points de récupération
 > * Restaurer un disque à partir d’un point de récupération
 > * Créer une machine virtuelle à partir du disque restauré
@@ -176,4 +179,3 @@ Passez au didacticiel suivant pour en savoir plus sur la restauration de fichier
 
 > [!div class="nextstepaction"]
 > [Restaurer des fichiers sur une machine virtuelle dans Azure](tutorial-restore-files.md)
-

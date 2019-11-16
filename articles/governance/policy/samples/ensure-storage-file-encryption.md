@@ -1,17 +1,14 @@
 ---
 title: Exemple - Vérifier le chiffrement des fichiers de stockage
 description: Cet exemple de définition de stratégie exige que le chiffrement des fichiers soit activé pour les comptes de stockage.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: e6a9796d7c70bb4e09d4ce1c2cd9be479a06be0d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 0c0bb16d05b733ca7eabd665eab2ffea77de2b99
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980465"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74070045"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>Exemple - Vérifier le chiffrement des fichiers de stockage
 
