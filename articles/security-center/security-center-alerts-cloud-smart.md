@@ -1,5 +1,5 @@
 ---
-title: Corrélation des alertes intelligentes cloud dans Azure Security Center (incidents) | Microsoft Docs
+title: Incidents Azure Security Center – corrélations intelligentes d’alertes
 description: Cette rubrique explique comment la fusion utilise la corrélation des alertes intelligentes cloud pour générer des incidents de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 4c2f084fe03271b29a12aa6906f5e36612d50674
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202690"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686494"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Corrélation des alertes intelligentes cloud dans Azure Security Center (incidents)
 
@@ -30,7 +30,7 @@ L’analytique de fusion constitue le back-end technologique et analytique sur l
 
 L’analytique de fusion combine les connaissances dans le domaine de la sécurité avec l’intelligence artificielle pour analyser les alertes, ce qui permet de découvrir les nouveaux modèles d’attaque à mesure qu’ils apparaissent. 
 
-Security Center s’appuie sur MITRE Attack Matrix pour associer les alertes à leur intention perçue, facilitant la formalisation des connaissances dans le domaine de la sécurité. De plus, en utilisant les informations collectées à chaque étape d’une attaque, Security Center peut écarter les activités qui semblent être des étapes d’une attaque, mais qui ne le sont pas en réalité.  
+Security Center s’appuie sur MITRE Attack Matrix pour associer les alertes à leur intention perçue, facilitant la formalisation des connaissances dans le domaine de la sécurité. De plus, en utilisant les informations collectées à chaque étape d’une attaque, Security Center peut écarter les activités qui semblent être des étapes d’une attaque, mais qui ne le sont pas en réalité.
 
 Étant donné que les attaques se produisent souvent sur différents locataires, Security Center peut combiner des algorithmes d’intelligence artificielle pour analyser les séquences d’attaque signalées dans chaque abonnement. Cette technique identifie les séquences d’alerte comme des modèles d’alerte prédominants au lieu de simplement les associer les unes aux autres incidemment.
 

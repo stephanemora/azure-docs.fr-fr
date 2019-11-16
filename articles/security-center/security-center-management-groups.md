@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201955"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582907"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -168,7 +168,7 @@ Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administ
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>Ajout d’abonnements à un groupe d’administration
+## <a name="adding-subscriptions-to-a-management-group"></a>Ajout d’abonnements à un groupe d’administration
 Vous pouvez ajouter des abonnements au groupe d’administration que vous avez créé. Ces étapes ne sont pas obligatoires pour obtenir une visibilité au niveau locataire ni pour gérer les accès et les stratégies globales.
 
 1. Sous **Groupes d’administration**, sélectionnez un groupe d’administration pour y ajouter votre abonnement.

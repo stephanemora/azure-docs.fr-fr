@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6046ab98e657cd14a2ac883cd32709c9a1b5da57
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886032"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721484"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -34,9 +34,9 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 |Propriété  |Explication  |
 |---------|---------|
 |Nom|Nom unique au sein du groupe de sécurité réseau.|
-|Priorité | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
-|Source ou destination| Tout, ou adresse IP, bloc de routage CIDR (10.0.0.0/24, par exemple), une [balise de service](#service-tags) ou [groupe de sécurité d’application](#application-security-groups) individuel(le). Si vous spécifiez une adresse pour une ressource Azure, spécifiez l’adresse IP privée assignée à la ressource. Les groupes de sécurité réseau sont traités une fois qu’Azure a converti une adresse IP publique en adresse IP privée pour le trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour le trafic sortant. En savoir plus sur les [adresses IP](virtual-network-ip-addresses-overview-arm.md) Azure. En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de [règles de sécurité augmentée](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocole     | TCP, UDP, ICMP ou n’importe lequel.|
+|Priority | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
+|Source ou destination| Tout, ou adresse IP, bloc de routage CIDR (10.0.0.0/24, par exemple), une [balise de service](service-tags-overview.md) ou [groupe de sécurité d’application](#application-security-groups) individuel(le). Si vous spécifiez une adresse pour une ressource Azure, spécifiez l’adresse IP privée assignée à la ressource. Les groupes de sécurité réseau sont traités une fois qu’Azure a converti une adresse IP publique en adresse IP privée pour le trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour le trafic sortant. En savoir plus sur les [adresses IP](virtual-network-ip-addresses-overview-arm.md) Azure. En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de [règles de sécurité augmentée](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|Protocol     | TCP, UDP, ICMP ou n’importe lequel.|
 |Direction| Indique si la règle s’applique au trafic entrant ou sortant.|
 |Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
 |Action     | Autoriser ou refuser        |
@@ -48,60 +48,13 @@ Le nombre de règles de sécurité que vous pouvez créer dans un groupe de séc
 
 ## <a name="augmented-security-rules"></a>Règles de sécurité augmentée
 
-Les règles de sécurité augmentée simplifient la définition de la sécurité pour les réseaux virtuels, ce qui vous permet de définir des stratégies de sécurité réseau plus vastes et plus complexes, avec moins de règles. Vous pouvez combiner plusieurs ports ainsi que des adresses ou plages d’adresses IP explicites dans une seule règle de sécurité facilement compréhensible. Utiliser des règles de sécurité augmentée dans les champs de la source, de la destination et du port d’une règle. Pour simplifier la maintenance de votre définition de règle de sécurité, combinez des règles de sécurité augmentée avec des [balises de service](#service-tags) ou des [groupes de sécurité d’application](#application-security-groups). Le nombre d’adresses, les plages et les ports que vous pouvez spécifier dans une règle sont limités. Pour plus d’informations, consultez [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Les règles de sécurité augmentée simplifient la définition de la sécurité pour les réseaux virtuels, ce qui vous permet de définir des stratégies de sécurité réseau plus vastes et plus complexes, avec moins de règles. Vous pouvez combiner plusieurs ports ainsi que des adresses ou plages d’adresses IP explicites dans une seule règle de sécurité facilement compréhensible. Utiliser des règles de sécurité augmentée dans les champs de la source, de la destination et du port d’une règle. Pour simplifier la maintenance de votre définition de règle de sécurité, combinez des règles de sécurité augmentée avec des [balises de service](service-tags-overview.md) ou des [groupes de sécurité d’application](#application-security-groups). Le nombre d’adresses, les plages et les ports que vous pouvez spécifier dans une règle sont limités. Pour plus d’informations, consultez [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="service-tags"></a>Balises de service
 
-Une balise de service représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité. Vous ne peut pas créer votre propre balise de service, ni spécifier les adresses IP incluses dans une balise. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. 
+Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Elle permet de réduire la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau.
 
-Vous pouvez utiliser les balises de service suivantes dans les [règles de groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). Les balises de service se terminant par un astérisque (par exemple, AzureCloud*) peuvent également être utilisées dans les [règles réseau de Pare-feu Azure](https://docs.microsoft.com/azure/firewall/service-tags). 
-
-* **ApiManagement*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés d’APIM. Si vous spécifiez *ApiManagement* comme valeur, le trafic vers ApiManagement est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante/sortante. 
-* **AppService*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService. Si vous spécifiez *AppService* comme valeur, le trafic vers AppService est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AppService dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AppService.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante vers les serveurs frontaux des applications web.  
-* **AppServiceManagement*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés d’App Service Environment. Si vous spécifiez *AppServiceManagement* comme valeur, le trafic vers AppServiceManagement est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante/sortante. 
-* **AzureActiveDirectory*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureActiveDirectory. Si vous spécifiez *AzureActiveDirectory* comme valeur, le trafic vers AzureActiveDirectory est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité sortante.
-* **AzureActiveDirectoryDomainServices*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés d’Azure Active Directory Domain Services. Si vous spécifiez *AzureActiveDirectoryDomainServices* comme valeur, le trafic vers AzureActiveDirectoryDomainServices est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante/sortante.  
-* **AzureBackup*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du service AzureBackup. Si vous spécifiez *AzureBackup* comme valeur, le trafic vers AzureBackup est autorisé ou refusé. Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureCloud*** (Resource Manager uniquement) : Cette balise désigne l’espace d’adressage IP pour Azure, notamment l’ensemble des [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=41653). Si vous spécifiez *AzureCloud* comme valeur, le trafic est autorisé ou refusé pour les adresses IP publiques Azure. Si vous souhaitez uniquement autoriser l’accès à AzureCloud dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureCloud.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureConnectors*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse des connecteurs Logic Apps pour les connexions de sonde/back-end. Si vous spécifiez *AzureConnectors* comme valeur, le trafic vers AzureConnectors est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureConnectors dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureConnectors.[nom_région]. Cette balise est recommandée pour la règle de sécurité entrante. 
-* **AzureContainerRegistry*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Container Registry. Si vous spécifiez *AzureContainerRegistry* comme valeur, le trafic vers AzureContainerRegistry est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureContainerRegistry dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureContainerRegistry.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureCosmosDB*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Cosmos DB. Si vous spécifiez *AzureCosmosDB* comme valeur, le trafic vers AzureCosmosDB est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureCosmosDB dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureCosmosDB.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureDataLake*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Data Lake. Si vous spécifiez *AzureDataLake* comme valeur, le trafic vers AzureDataLake est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureKeyVault*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Key Vault. Si vous spécifiez *AzureKeyVault* comme valeur, le trafic vers AzureKeyVault est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureKeyVault dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureKeyVault.[nom_région]. Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory**. Cette balise est recommandée pour la règle de sécurité sortante.  
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour le mode classique) : Cette balise par défaut indique l’équilibreur de charge de l’infrastructure d’Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure.
-* **AzureMachineLearning*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureMachineLearning. Si vous spécifiez *AzureMachineLearning* comme valeur, le trafic est autorisé ou refusé à AzureMachineLearning. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **AzureMonitor*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse des métriques personnalisées (points de terminaison GiG), de Log Analytics, d’App Insights et d’AzMon. Si vous spécifiez *AzureMonitor* comme valeur, le trafic vers AzureMonitor est autorisé ou refusé. Pour Log Analytics, cette balise est dotée une dépendance par rapport à la balise **Storage**. Cette balise est recommandée pour la règle de sécurité sortante.
-* **AzurePlatformDNS** (Gestionnaire des ressources uniquement) : Cette balise désigne le serveur DNS, qui est un service d’infrastructure de base. Si vous spécifiez *AzurePlatformDNS* pour sa valeur, vous pouvez désactiver la [prise en compte de la plateforme Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) par défaut pour DNS. Nous vous recommandons de faire preuve de prudence lors de l’utilisation de cette balise. Veillez à passer par une phase de test avant de l’utiliser. 
-* **AzurePlatformIMDS** (Gestionnaire des ressources uniquement) : Cette balise désigne IMDS, qui est un service d’infrastructure de base. Si vous spécifiez *AzurePlatformIMDS* pour sa valeur, vous pouvez désactiver la [prise en compte de la plateforme Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) par défaut pour IMDS. Nous vous recommandons de faire preuve de prudence lors de l’utilisation de cette balise. Veillez à passer par une phase de test avant de l’utiliser. 
-* **AzurePlatformLKM** (Gestionnaire des ressources uniquement) : Cette balise désigne le gestionnaire de licences Windows ou le service de gestion de clés. Si vous spécifiez *AzurePlatformLKM* pour sa valeur, vous pouvez désactiver la [prise en compte de la plateforme Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) par défaut pour la gestion des licences. Nous vous recommandons de faire preuve de prudence lors de l’utilisation de cette balise. Veillez à passer par une phase de test avant de l’utiliser. 
-* **AzureTrafficManager*** (Resource Manager uniquement) : Cette balise désigne l’espace d’adressage IP pour les adresses IP de sondage Azure Traffic Manager. Vous trouverez plus d’informations sur les adresses IP de sondage Traffic Manager dans les [Questions fréquentes (FAQ) sur Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). Cette balise est recommandée pour la règle de sécurité entrante.  
-* **BatchNodeManagement*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés d’Azure Batch. Si vous spécifiez *BatchNodeManagement* pour la valeur, le trafic est autorisé ou refusé, du service Batch vers les nœuds de calcul. Cette balise est recommandée pour la règle de sécurité entrante/sortante. 
-* **CognitiveServicesManagement** (Gestionnaire des ressources uniquement) : Cette balise désigne les préfixes d’adresse du trafic pour Cognitive Services. Si vous spécifiez *CognitiveServicesManagement* pour sa valeur, le trafic vers et depuis CognitiveServicesManagement est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité sortante.  
-* **Dynamics365ForMarketingEmail** (Gestionnaire des ressources uniquement) : Cette balise désigne les préfixes d’adresse du service de messagerie marketing de Dynamics 365. Si vous spécifiez *Dynamics365ForMarketingEmail* pour sa valeur, le trafic vers et depuis Dynamics365ForMarketingEmail est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à Dynamics365ForMarketingEmail dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : Dynamics365ForMarketingEmail.[nom de la région].
-* **EventHub*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure EventHub. Si vous spécifiez *EventHub* comme valeur, le trafic vers EventHub est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à EventHub dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : EventHub.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **GatewayManager** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés des passerelles App/VPN. Si vous spécifiez *GatewayManager* comme valeur, le trafic vers GatewayManager est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante. 
-* **Internet** (Resource Manager) (**INTERNET** pour le mode classique) : Cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible sur les réseaux Internet publics. La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **MicrosoftContainerRegistry*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Microsoft Container Registry. Si vous spécifiez *MicrosoftContainerRegistry* comme valeur, le trafic vers MicrosoftContainerRegistry est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à MicrosoftContainerRegistry dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : MicrosoftContainerRegistry.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **ServiceBus*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du service Azure ServiceBus utilisant le niveau de service Premium. Si vous spécifiez *ServiceBus* comme valeur, le trafic vers ServiceBus est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à ServiceBus dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : ServiceBus.[nom_région]. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **ServiceFabric*** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service ServiceFabric. Si vous spécifiez *ServiceFabric* comme valeur, le trafic vers ServiceFabric est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **Sql*** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse des services Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse. Si vous spécifiez *Sql* pour la valeur, le trafic vers Sql est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à Sql dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : Sql.[nom_région]. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **SqlManagement** *(Resource Manager uniquement) : cette balise désigne les préfixes d’adresse du trafic de gestion pour les déploiements dédiés de SQL. Si vous spécifiez *SqlManagement* comme valeur, le trafic vers SqlManagement est autorisé ou refusé. Cette balise est recommandée pour la règle de sécurité entrante/sortante. 
-* **Stockage*** (Resource Manager uniquement) : Cette balise désigne l’espace d’adressage IP pour le service Stockage Azure. Si vous spécifiez *Storage* pour la valeur, le trafic est autorisé ou refusé vers le stockage. Si vous souhaitez uniquement autoriser l’accès au stockage dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : Stockage.[nom_région]. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. Cette balise est recommandée pour la règle de sécurité sortante. 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour le mode classique) : cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) et les préfixes d’adresse utilisés sur les [routes définies par l’utilisateur](virtual-networks-udr-overview.md). N’oubliez pas que cette balise peut contenir une route par défaut. 
-
-> [!NOTE]
-> Les balises des services Azure indiquent les préfixes d’adresse du cloud spécifique utilisé. 
-
-> [!NOTE]
-> Si vous implémentez un [point de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md) pour un service, par exemple Stockage Azure ou Azure SQL Database, Azure ajoute un [itinéraire](virtual-networks-udr-overview.md#optional-default-routes) vers un sous-réseau de réseau virtuel pour le service. Les préfixes d’adresse de l’itinéraire sont les mêmes préfixes d’adresse ou plages CIDR que pour la balise de service correspondante.
-
-### <a name="service-tags-in-on-premises"></a>Balises de service en local  
-Vous pouvez télécharger et intégrer à un pare-feu local la liste des balises de service, avec les informations de préfixe, dans les publications hebdomadaires suivantes pour les clouds ci-après : [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Administration américaine](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062) et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
-
-Vous pouvez également récupérer cette information programmatiquement à l’aide de l’**API Découverte des balises de service** (préversion publique) - [REST](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell) et [Azure CLI](https://aka.ms/discoveryapi_cli). 
-
-> [!NOTE]
-> Les publications hebdomadaires suivantes (ancienne version) pour les clouds Azure [Public](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [Chine](https://www.microsoft.com/en-us/download/details.aspx?id=42064) et [Allemagne](https://www.microsoft.com/en-us/download/details.aspx?id=54770) seront dépréciées d’ici le 30 juin 2020. Démarrez à l’aide des publications mises à jour, comme décrit ci-dessus. 
+Pour plus d’informations, consultez [Balises de Service Azure](service-tags-overview.md). 
 
 ## <a name="default-security-rules"></a>Règles de sécurité par défaut
 
@@ -111,19 +64,19 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priority|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Quelconque|AUTORISER|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priority|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Quelconque|AUTORISER|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priority|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Quelconque|Deny|
 
@@ -131,23 +84,23 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Quelconque | AUTORISER |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Quelconque | AUTORISER |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Quelconque | Deny |
 
-Dans les colonnes **Source** et **Destination**, *VirtualNetwork*, *AzureLoadBalancer* et *Internet* sont des [balises de service](#service-tags), non des adresses IP. Dans la colonne de protocole, **Any** (N’importe lequel) englobe TCP, UDP et ICMP. Lorsque vous créez une règle, vous pouvez spécifier TCP, UDP, ICMP ou Any (N’importe lequel). *0.0.0.0/0* dans les colonnes **Source** et **Destination** représente toutes les adresses. Les clients, tels que le portail Azure, Azure CLI ou Powershell peuvent utiliser « * » ou « any » pour cette expression.
+Dans les colonnes **Source** et **Destination**, *VirtualNetwork*, *AzureLoadBalancer* et *Internet* sont des [balises de service](service-tags-overview.md), non des adresses IP. Dans la colonne de protocole, **Any** (N’importe lequel) englobe TCP, UDP et ICMP. Lorsque vous créez une règle, vous pouvez spécifier TCP, UDP, ICMP ou Any (N’importe lequel). *0.0.0.0/0* dans les colonnes **Source** et **Destination** représente toutes les adresses. Les clients, tels que le portail Azure, Azure CLI ou Powershell peuvent utiliser « * » ou « any » pour cette expression.
  
 Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée.
 
@@ -163,7 +116,7 @@ Dans l’image précédente, *NIC1* et *NIC2* sont membres du groupe de sécurit
 
 Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs web. Étant donné que le trafic entrant à partir d’internet est refusé par la règle de sécurité par défaut [DenyAllInbound](#denyallinbound), aucune règle supplémentaire n’est nécessaire pour les groupes de sécurité d’application *AsgLogic* ou *AsgDb*.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | AUTORISER |
 
@@ -171,7 +124,7 @@ Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs
 
 Étant donné que la règle de sécurité par défaut [AllowVNetInBound](#allowvnetinbound) autorise toutes les communications entre les ressources dans le même réseau virtuel, cette règle est nécessaire pour refuser le trafic à partir de toutes les ressources.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Quelconque | Deny |
 
@@ -179,7 +132,7 @@ Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs
 
 Cette règle autorise le trafic du groupe de sécurité d’application *AsgLogic* vers le groupe de sécurité d’application *AsgDb*. Cette règle est prioritaire par rapport à la règle *Deny-Database-All*. Par conséquent, cette règle est traitée avant la règle *Deny-Database-All*, c’est pourquoi le trafic en provenance du groupe de sécurité d’application *AsgLogic* est autorisé, tandis que tout autre trafic est bloqué.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priority|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | AUTORISER |
 
@@ -222,6 +175,13 @@ Pour le trafic sortant, Azure traite d’abord les règles dans un groupe de sé
 - **VM2** : L’ensemble du trafic est envoyé au sous-réseau via l’interface réseau puisque l’interface réseau attachée à *VM2* ne dispose pas d’un groupe de sécurité réseau associé. Les règles dans *NSG1* sont traitées.
 - **VM3** : Si *NSG2* présente une règle de sécurité qui refuse le trafic par le port 80, le trafic est refusé. Si *NSG2* a une règle de sécurité qui autorise le trafic par le port 80, le port 80 autorise le trafic sortant vers internet, étant donné qu’un groupe de sécurité réseau n’est pas associé à *Subnet2*.
 - **VM4** : L’ensemble du trafic réseau est autorisé depuis *VM4*, car aucun groupe de sécurité réseau n’est associé à *Subnet3* ou à l’interface réseau associée à la machine virtuelle.
+
+
+### <a name="intra-subnet-traffic"></a>Trafic intra-sous-réseau
+
+Il est important de noter que les règles de sécurité dans un groupe de sécurité réseau (NSG) associé à un sous-réseau peuvent perturber la connectivité entre les machines virtuelles (VM) qui le composent. Par exemple, si une règle est ajoutée à *NSG1* qui refuse tout le trafic entrant et sortant, *VM1* et *VM2* ne seront plus en mesure de communiquer entre elles. Une autre règle doit être ajoutée spécifiquement pour l’autoriser. 
+
+
 
 Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-network-interface.md#view-effective-security-rules) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. Le Flux IP vous indique si la communication est autorisée ou refusée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
 

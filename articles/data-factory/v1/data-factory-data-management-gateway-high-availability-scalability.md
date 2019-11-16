@@ -1,5 +1,5 @@
 ---
-title: Haute disponibilité avec la passerelle de gestion des données dans Azure Data Factory | Microsoft Docs
+title: Haute disponibilité avec la passerelle de gestion des données dans Azure Data Factory
 description: Cet article explique comment augmenter le nombre d’instances (scale out) d’une passerelle de gestion des données en ajoutant des nœuds et comment augmenter la taille des instances (scale up) en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60488636"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682695"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 33b4ed3974c3e4e88e5d74ff31a3b8008ab565e9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656916"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585077"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Utiliser le Bureau à distance pour les machines virtuelles Linux dans un labo de classe dans Azure Lab Services
 Cet article explique comment les étudiants peuvent se connecter à une machine virtuelle Linux d’un labo en utilisant RDP/SSH. 
@@ -32,7 +32,7 @@ Un formateur doit activer la fonctionnalité de connexion du Bureau à distance 
 Les étudiants peuvent se connecter via RDP à leurs machines virtuelles Linux après que le propriétaire du labo (enseignant) a **publié** le modèle de machine virtuelle avec les packages RDP et GUI installés. Voici la procédure à suivre : 
 
 1. Lorsqu’un étudiant se connecte directement au portail Labs (`https://labs.azure.com`) ou à l'aide d'un lien d’inscription (`https://labs.azure.com/register/<registrationCode>`), une vignette correspondant à chaque lab auquel l'étudiant a accès s'affiche. 
-2. Sur la vignette, sélectionnez **Démarrer** si la machine virtuelle est arrêtée. 
+2. Sur la vignette, basculez le bouton pour démarrer la machine virtuelle si elle est en état arrêté. 
 3. Sélectionnez **Connecter**. Deux options de connexion à la machine virtuelle vous sont proposées : **SSH** et **Bureau à distance**.
 
     ![Machine virtuelle d'étudiant - options de connexion](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)

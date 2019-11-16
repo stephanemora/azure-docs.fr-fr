@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide d’une activité de diffusion en continu Hadoop - Azure | Microsoft Docs
+title: Transformer des données à l’aide d’une activité de diffusion en continu Hadoop – Azure
 description: Découvrez comment vous pouvez utiliser l’activité de diffusion en continu Hadoop dans une fabrique de données Azure pour transformer les données en exécutant des programmes de diffusion en continu Hadoop sur votre cluster HDInsight propre/à la demande.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139546"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667500"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
