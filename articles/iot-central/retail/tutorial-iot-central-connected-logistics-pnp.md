@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d55eca3df8897650f78a6bd85b649349c806e95
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 17d429444b81746a5c5082b8310c5208bc35f3d2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615265"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889035"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Didacticiel : Déployer et découvrir un modèle d’application logistique connectée
 
@@ -25,7 +25,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * examiner l’application 
 
 ## <a name="prerequisites"></a>Prérequis
-* Aucune configuration spécifique n’est requise pour déployer cette application
+* Aucune configuration requise spécifique n’est requise pour déployer cette application
 * Il est recommandé d’avoir un abonnement Azure, mais vous pouvez essayer sans
 
 ## <a name="create-connected-logistics-application-template"></a>Créer un modèle d’application logistique connectée
@@ -109,4 +109,4 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [concept de logistique connectée](./architecture-connected-logistics-pnp.md)
 * En savoir plus sur d’autres [modèles de distribution IoT Central](./overview-iot-central-retail-pnp.md)
-* En savoir plus sur [Vue d’ensemble d’IoT Central](../core/overview-iot-central-pnp.md)
+* En savoir plus sur [Vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)

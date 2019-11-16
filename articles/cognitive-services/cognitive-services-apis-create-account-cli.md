@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595315"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887910"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Créer une ressource Cognitive Services avec Azure CLI
 
@@ -76,7 +76,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 ### <a name="multi-service"></a>Multiservice
 
-| de diffusion en continu                    | Type                      |
+| Service                    | Type                      |
 |----------------------------|---------------------------|
 | Plusieurs services. Pour plus d’informations, consultez la page sur la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/).            | `CognitiveServices`     |
 
@@ -86,7 +86,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 ### <a name="vision"></a>Vision
 
-| de diffusion en continu                    | Type                      |
+| Service                    | Type                      |
 |----------------------------|---------------------------|
 | Vision par ordinateur            | `ComputerVision`          |
 | Custom Vision - Prédiction | `CustomVision.Prediction` |
@@ -97,7 +97,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 ### <a name="search"></a>Recherche
 
-| de diffusion en continu            | Type                  |
+| Service            | Type                  |
 |--------------------|-----------------------|
 | Suggestion automatique Bing   | `Bing.Autosuggest.v7` |
 | Recherche personnalisée Bing | `Bing.CustomSearch`   |
@@ -107,14 +107,14 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 ### <a name="speech"></a>Speech
 
-| de diffusion en continu            | Type                 |
+| Service            | Type                 |
 |--------------------|----------------------|
 | Services Speech    | `SpeechServices`     |
 | Reconnaissance vocale | `SpeakerRecognition` |
 
 ### <a name="language"></a>Langage
 
-| de diffusion en continu            | Type                |
+| Service            | Type                |
 |--------------------|---------------------|
 | Compréhension de formulaire | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +124,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 ### <a name="decision"></a>Décision
 
-| de diffusion en continu           | Type               |
+| Service           | Type               |
 |-------------------|--------------------|
 | Le détecteur d’anomalies  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -179,7 +179,7 @@ Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de tra
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obtenir le rapport d’utilisation des quotas actuel pour votre ressource
 
-Utilisez la commande [az cognitiveservices account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) afin d’obtenir le rapport d’utilisation pour votre ressource Cognitive Service.
+Utilisez la commande [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) afin d’obtenir le rapport d’utilisation pour votre ressource Cognitive Service.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \

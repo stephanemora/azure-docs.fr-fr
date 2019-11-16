@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 8360db3e31899dc7ca0a2b502d0036358f0858d6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d72636265ff3ac654faba91d1420b502b35d3192
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615229"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888994"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Didacticiel : Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central
 
@@ -25,7 +25,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Examiner l’application 
 
 ## <a name="prerequisites"></a>Prérequis
-* Aucune configuration spécifique n’est requise pour déployer cette application
+* Aucune configuration requise spécifique n’est requise pour déployer cette application
 * Il est recommandé d’avoir un abonnement Azure, mais vous pouvez essayer sans
 
 ## <a name="create-smart-inventory-management-application-template"></a>Créer un modèle d’application de gestion intelligente des stocks
@@ -109,4 +109,4 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la gestion intelligente des stocks[concept de gestion intelligente des stocks](./architecture-smart-inventory-management-pnp.md)
 * En savoir plus sur d’autres [modèles de distribution IoT Central](./overview-iot-central-retail-pnp.md)
-* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../core/overview-iot-central-pnp.md)
+* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)

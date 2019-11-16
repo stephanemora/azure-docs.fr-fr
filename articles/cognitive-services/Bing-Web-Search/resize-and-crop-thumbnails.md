@@ -1,7 +1,7 @@
 ---
 title: Redimensionner et rogner les images miniatures - API Recherche Web Bing
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment redimensionner et rogner les miniatures fournies par les API Recherche Bing.
+description: Certaines réponses des API Recherche Bing incluent des URL vers les images miniatures affichées par Bing, que vous pouvez redimensionner et rogner, et qui peuvent contenir des paramètres de requête.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881796"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110642"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionner et rogner les images miniatures
 

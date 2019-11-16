@@ -1,17 +1,14 @@
 ---
 title: Exemple - Appliquer un modèle de similitude
 description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de similitude pour les conventions de nommage.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 1bffa76c77fccd1f0ae9e724cf09597a289ca5a6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 34013753c18ad3b84a29b04fead9ea83aeb03d7b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980524"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076303"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Exemple - Appliquer le modèle de similitude pour les conventions de nommage
 

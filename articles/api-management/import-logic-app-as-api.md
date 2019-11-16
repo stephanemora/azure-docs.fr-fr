@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072071"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108398"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importer une application logique en tant qu’API
 
@@ -59,7 +59,7 @@ Dans cet article, vous apprendrez comment :
 
 7. Sélectionnez **Create** (Créer).
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>Tester l’API importée dans le portail Azure
+## <a name="test-the-api-in-the-azure-portal"></a>Tester l’API dans le portail Azure
 
 Les opérations peuvent être directement appelées depuis le portail Azure, qui permet d’afficher et de tester les opérations d’une API.
 
@@ -72,22 +72,6 @@ Les opérations peuvent être directement appelées depuis le portail Azure, qui
 4. Appuyez sur **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.
-
-## <a name="call-operation"></a>Appel d’une opération à partir du portail des développeurs
-
-Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API.
-
-1. Sélectionnez l’API que vous avez créée à l’étape « Importer et publier une API de serveur principal ».
-2. Appuyez sur **Portail des développeurs**.
-
-    Le site « Portail des développeurs » s’ouvre.
-
-3. Sélectionnez l’**API** que vous avez créée.
-4. Cliquez sur l’opération que vous souhaitez tester.
-5. Appuyez sur **Essayer**.
-6. Appuyez sur **Envoyer**.
-
-    Après l’appel d’une opération, le portail des développeurs affiche le **statut de réponse**, les **en-têtes de réponse**, et tout **contenu de la réponse**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

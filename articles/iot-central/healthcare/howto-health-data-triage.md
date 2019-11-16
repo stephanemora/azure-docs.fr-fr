@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499939"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123246"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Didacticiel : Créer un tableau de bord des fournisseurs Power BI
 
@@ -91,7 +91,7 @@ Pour connecter votre application logique à Azure Event Hubs, vous pouvez suivre
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Diffuser des données vers Power BI à partir de votre application logique
 L'étape suivante consistera à analyser les données provenant de votre hub d'événements pour les diffuser dans les jeux de données Power BI que vous avez créés précédemment.
 
-1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
+1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
 
 **Données de télémétrie du dispositif Smart Vitals Patch**
 

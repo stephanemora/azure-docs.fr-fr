@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747478"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091091"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Sauvegarder et restaurer des partages de fichiers Azure
 
@@ -195,13 +195,13 @@ Pour reprendre la protection du partage de fichiers, accédez à l’élément d
 
    ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Suppression des données de sauvegarde
+### <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
 Vous pouvez supprimer la sauvegarde d’un partage de fichiers lors du travail d’arrêt de la sauvegarde, ou à tout moment après avoir arrêté la protection. Il peut même être préférable d’attendre plusieurs jours ou semaines avant de supprimer les points de récupération. Contrairement à la restauration des points de récupération, lors de la suppression des données de sauvegarde, vous ne pouvez pas choisir des points de récupération spécifiques à supprimer. Si vous choisissez de supprimer vos données de sauvegarde, vous supprimerez tous les points de récupération associés à l’élément.
 
 La procédure suivante suppose que le travail de sauvegarde de la machine virtuelle a été arrêté. Les options Reprendre la sauvegarde et Supprimer les données de sauvegarde sont accessibles dans le tableau de bord de l’élément de sauvegarde seulement lorsque le travail de sauvegarde a été arrêté. Cliquez sur Supprimer les données de sauvegarde et tapez le nom du partage de fichiers pour confirmer la suppression. Vous pouvez, si vous le souhaitez, indiquer une Raison pour la suppression ou un Commentaire.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les partages de fichiers Azure, consultez les références suivantes
 

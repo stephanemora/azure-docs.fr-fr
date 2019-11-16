@@ -1,17 +1,14 @@
 ---
 title: Exemple - Images de machine virtuelle approuvées
 description: Pour cet exemple de définition de stratégie, seules les images personnalisées approuvées doivent être déployées dans votre environnement.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 34a3cf54879dcf6fc25fab50bcbabde28fff653a
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: f8b5911cfa7700ef14dfac610ab4533c57f22e76
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980841"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076476"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>Exemple - Images de machines virtuelles approuvées
 
@@ -120,7 +117,7 @@ Les scripts de déploiement et de suppression utilisent les commandes suivantes.
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Supprime une affectation Azure Policy existante. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Supprime une définition Azure Policy existante. |
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -215,7 +212,7 @@ Il existe plusieurs outils permettant d’interagir avec l’API REST Resource M
 
 ### <a name="rest-api-explanation"></a>Explication de l’API REST
 
-| de diffusion en continu | Groupe | Opération | Notes |
+| Service | Groupe | Opération | Notes |
 |---|---|---|---|
 | Gestion des ressources | Définitions de stratégies | [Créer](/rest/api/resources/policydefinitions/createorupdate) | Crée une définition Azure Policy au niveau d’un abonnement. Alternative : [Créer au niveau du groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestion des ressources | Affectations de stratégies | [Créer](/rest/api/resources/policyassignments/create) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |

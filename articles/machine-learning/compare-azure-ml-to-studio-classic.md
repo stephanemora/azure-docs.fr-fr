@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716681"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084757"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>En quoi Azure Machine Learning est différent de ML Studio (classique)
 
 Cet article compare les caractéristiques, les fonctionnalités et l’interface d’Azure Machine Learning à ML Studio (classique). 
 
 ## <a name="about-ml-studio-classic"></a>À propos de ML Studio (classique)
-[ML Studio (classique)](/studio/what-is-ml-studio.md) est un espace de travail visuel collaboratif par glisser-déplacer dans lequel vous pouvez générer, tester et déployer des solutions de Machine Learning sans avoir à écrire du code. Il s’appuie sur des algorithmes de machine learning et des modules de traitement des données prédéfinis et préconfigurés, mais aussi sur une plateforme de calcul propriétaire.
+[ML Studio (classique)](studio/what-is-ml-studio.md) est un espace de travail visuel collaboratif par glisser-déplacer dans lequel vous pouvez générer, tester et déployer des solutions de Machine Learning sans avoir à écrire du code. Il s’appuie sur des algorithmes de machine learning et des modules de traitement des données prédéfinis et préconfigurés, mais aussi sur une plateforme de calcul propriétaire.
 
 ## <a name="about-azure-machine-learning"></a>À propos d'Azure Machine Learning
 
-[Azure Machine Learning](/service/overview-what-is-azure-ml.md) propose également une interface web appelée le concepteur (préversion) **et** plusieurs Kits de développement logiciel (SDK) et interface CLI pour préparer rapidement les données, entraîner et déployer des modèles Machine Learning. Avec Azure Machine Learning, vous bénéficiez d’une mise à l’échelle, d’une prise en charge de plusieurs infrastructures, de fonctionnalités de ML avancées, telles que le Machine Learning automatisé et la prise en charge de pipeline.
+[Azure Machine Learning](service/overview-what-is-azure-ml.md) propose également une interface web appelée le concepteur (préversion) **et** plusieurs Kits de développement logiciel (SDK) et interface CLI pour préparer rapidement les données, entraîner et déployer des modèles Machine Learning. Avec Azure Machine Learning, vous bénéficiez d’une mise à l’échelle, d’une prise en charge de plusieurs infrastructures, de fonctionnalités de ML avancées, telles que le Machine Learning automatisé et la prise en charge de pipeline.
 
 Le concepteur Azure Machine Learning offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio (classique), le concepteur utilise vos propres ressources de calcul, est évolutif, et est entièrement intégré à Azure Machine Learning.  
 
