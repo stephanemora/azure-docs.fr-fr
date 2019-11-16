@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/09/2019
-ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/14/2019
+ms.openlocfilehash: 3ab3164db7702566e62b2eedf2a9a03e9f7fb55c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553823"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109118"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour l’évaluation
 
@@ -33,7 +33,7 @@ Pour activer la surveillance pour votre machine virtuelle Azure :
 
 1. Sur la page **Insights (préversion)** , sélectionnez **Essayer maintenant**.
 
-    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 1. Dans la page **Intégration des insights de Azure Monitor**, si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  
 
@@ -62,7 +62,7 @@ Pour activer la surveillance pour un groupe de machines virtuelles identiques :
 
     La liste présélectionne l’espace de travail par défaut et l’emplacement où la machine virtuelle est déployée dans l’abonnement. 
 
-    ![Activer Azure Monitor pour machines virtuelles pour un groupe de machines virtuelles identiques](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Activer Azure Monitor pour machines virtuelles pour un groupe de machines virtuelles identiques](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal.png)
 
     >[!NOTE]
     >Pour créer un espace de travail Log Analytics pour stocker les données de surveillance du groupe de machines virtuelles identiques, consultez [Créer un espace de travail Log Analytics](../learn/quick-create-workspace.md). Votre espace de travail Log Analytics doit appartenir à l’une des [régions prises en charge](vminsights-enable-overview.md#log-analytics).
@@ -78,6 +78,5 @@ Une fois que vous avez activé la supervision, 10 minutes peuvent s’écouler a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure Monitor](vminsights-health.md). 
 * Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles](vminsights-maps.md). 
 * Pour identifier les goulots d’étranglement, l’utilisation globale et les performances de votre machine virtuelle, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).

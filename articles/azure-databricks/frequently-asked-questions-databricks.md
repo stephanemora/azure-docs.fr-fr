@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601804"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129325"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -34,7 +34,7 @@ Procédez comme suit :
 1. Attribuez les autorisations nécessaires au principal de service dans Data Lake Storage.
 1. Pour accéder à un fichier dans Data Lake Storage, utilisez les informations d’identification du principal de service dans Notebook.
 
-Pour plus d’informations, consultez [Utiliser Azure Data Lake Storage avec Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
+Pour plus d’informations, consultez [Utiliser Azure Data Lake Storage avec Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## <a name="fix-common-problems"></a>Correction des problèmes courants
 

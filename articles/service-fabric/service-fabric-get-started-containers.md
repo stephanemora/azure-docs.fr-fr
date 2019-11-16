@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650681"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838252"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 
@@ -267,7 +267,7 @@ Configurez un port de l’hôte utilisé pour communiquer avec le conteneur. La 
 
 ## <a name="configure-container-repository-authentication"></a>Configurer l’authentification des référentiels de conteneur
 
-Pour découvrir comment configurer différents types d’authentification pour le téléchargement d’images de conteneur, voir [Authentification des référentiels de conteneur](configure-container-repository-credentials.md).
+Pour configurer différents types d'authentification afin de télécharger des images conteneur, consultez [Authentification des référentiels de conteneur](configure-container-repository-credentials.md).
 
 ## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
 Windows prend en charge deux modes d’isolation pour les conteneurs : Processus et Hyper-V. Avec le mode d’isolation Processus, tous les conteneurs s’exécutant sur le même hôte partagent le noyau avec l’hôte. Avec le mode d’isolation Hyper-V, les noyaux sont isolés entre chaque conteneur Hyper-V et l’hôte du conteneur. Le mode d’isolation est défini dans l’élément `ContainerHostPolicies` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. Le mode par défaut est le mode d’isolation des processus sur les hôtes Windows Server. Sur les hôtes Windows 10, seul le mode d’isolation Hyper-V est pris en charge. Le conteneur s’exécute donc en mode d’isolation Hyper-V, quel que soit son paramètre de mode d’isolation. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
@@ -331,15 +331,15 @@ Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble
 ## <a name="deploy-the-container-application"></a>Déployer l’application de conteneur
 Enregistrez toutes les modifications et générez l’application. Pour publier votre application, cliquez avec le bouton droit de la souris sur **MyFirstContainer** dans l’Explorateur de solutions, puis sélectionnez **Publier**.
 
-Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster. Par exemple : « containercluster.westus2.cloudapp.azure.com:19000 ». Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
+Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster. Par exemple : `containercluster.westus2.cloudapp.azure.com:19000`. Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
 
 Cliquez sur **Publier**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Service Fabric. Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/, puis suivez le déploiement d’application. L’application se déploie mais se trouve dans un état d’erreur jusqu’à ce que l’image soit téléchargée sur les nœuds du cluster (ce qui peut prendre du temps, selon la taille de l’image) : ![Error][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Service Fabric. Ouvrez un navigateur et accédez à `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/`, puis suivez le déploiement d’application. L’application se déploie mais se trouve dans un état d’erreur jusqu’à ce que l’image soit téléchargée sur les nœuds du cluster (ce qui peut prendre du temps, selon la taille de l’image) : ![Error][1]
 
 L’application est prête lorsqu’elle est à l’état ```Ready``` : ![Prête][2]
 
-Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:8081. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Ouvrez un navigateur et accédez à `http://containercluster.westus2.cloudapp.azure.com:8081`. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

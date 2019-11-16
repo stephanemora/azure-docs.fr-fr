@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807821"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092145"
 ---
 # <a name="azure-sql-database-features"></a>Fonctionnalités d’Azure SQL Database
 
@@ -124,7 +124,7 @@ La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont 
 | Rétention des sauvegardes | Oui. 7 jours par défaut, maximum 35 jours. | Oui. 7 jours par défaut, maximum 35 jours. |
 | [Service de migration de données (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | OUI | OUI |
 | Accès au système de fichiers | Non. Utilisez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) pour accéder à des données et les charger à partir d'un Stockage Blob Azure en alternative. | Non. Utilisez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) pour accéder à des données et les charger à partir d'un Stockage Blob Azure en alternative. |
-| [Géorestauration](sql-database-recovery-using-backups.md#geo-restore) | Oui - tous les niveaux de service autres que hyperscale | Oui - à l'aide d'[Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
+| [Géorestauration](sql-database-recovery-using-backups.md#geo-restore) | Oui - tous les niveaux de service autres que hyperscale | Oui - tous les niveaux de service autres que hyperscale |
 | [Architecture Hyperscale](sql-database-service-tier-hyperscale.md) | OUI | Non |
 | [Conservation de sauvegardes à long terme - LTR](sql-database-long-term-retention.md) | Oui, conserver les sauvegardes automatiques jusqu'à 10 ans. | Pas encore. Utilisez les `COPY_ONLY` [sauvegardes manuelles](sql-database-managed-instance-transact-sql-information.md#backup) en guise de solution de contournement temporaire. |
 | Mettre en pause/reprendre | Oui, dans un [modèle serverless](sql-database-serverless.md) | Non | 

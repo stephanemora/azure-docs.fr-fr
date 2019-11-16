@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802260"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891460"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
 
@@ -54,9 +54,9 @@ Exécutez des applications d’entreprise dans Azure sur les systèmes d’explo
 
 ## <a name="backup-oracle-workloads"></a>Sauvegarde des charges de travail Oracle
 
-* Sauvegardez vos machines virtuelles Oracle à l’aide du service [Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-overview).
+* Sauvegardez vos machines virtuelles Oracle à l’aide du service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-* Sauvegardez votre base de données Oracle à l’aide d’Oracle RMAN et, si vous le souhaitez, utilisez [blobfuse pour Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) pour monter un [compte de stockage Blob Azure hautement redondant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) et y stocker vos sauvegardes RMAN en bénéficiant d’une résilience accrue.
+* Sauvegardez votre base de données Oracle à l’aide d’Oracle RMAN et, si vous le souhaitez, utilisez [blobfuse pour Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) pour monter un [compte de stockage Blob Azure hautement redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) et y stocker vos sauvegardes RMAN en bénéficiant d’une résilience accrue.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Intégration d’Azure avec OCI (préversion)
 

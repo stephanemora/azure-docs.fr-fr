@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852038"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942170"
 ---
 # <a name="supported-account-types"></a>Types de comptes pris en charge
 
@@ -41,7 +41,7 @@ Dans le cloud public Microsoft Azure, la plupart des types d’applications peuv
   - Avec leur compte Microsoft professionnel, scolaire ou personnel.
   - Avec un compte Microsoft personnel uniquement.
     > [!NOTE]
-    > Actuellement, la plateforme d’identité Microsoft prend en charge les comptes Microsoft personnels uniquement par inscription d’une application pour des **comptes Microsoft professionnels ou scolaires**, puis limite la connexion dans le code de l’application en spécifiant une autorité Azure AD lors de la création de l’application, par exemple `https://login.onmicrosoftonline.com/consumers`.
+    > Actuellement, la plateforme d’identité Microsoft prend en charge les comptes Microsoft personnels uniquement par inscription d’une application pour des **comptes Microsoft professionnels ou scolaires**, puis limite la connexion dans le code de l’application en spécifiant une autorité Azure AD lors de la création de l’application, par exemple `https://login.microsoftonline.com/consumers`.
 
 - Si vous écrivez une entreprise B2C (Business to Customer), vous pouvez également connecter les utilisateurs avec leurs identités sociales en utilisant Azure AD B2C.
 

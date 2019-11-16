@@ -1,5 +1,5 @@
 ---
-title: 'Configurer Global Reach - ExpressRoute : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute : Configurer Global Reach'
 description: Cet article vous aide à associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux locaux et d’activer Global Reach.
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 76de7a8854a58deb924cbbe3177ad5a7b5fd57a2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748169"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083466"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurer ExpressRoute Global Reach
 

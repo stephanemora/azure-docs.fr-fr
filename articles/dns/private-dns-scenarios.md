@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 747fe891bf4d6bd042e689107cd87680795eb82b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3ac4db3a2d98e761183360c268d23efcc313cf09
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959328"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048501"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scénarios Azure DNS Private Zones
 
@@ -31,7 +31,7 @@ Ce scénario est le cas le plus courant où vous devez associer une zone privée
 
 Le schéma suivant présente une version simple de ce scénario, où il existe seulement deux réseaux virtuels : A et B. A est désigné en tant que réseau virtuel d’inscription et B en tant que réseau virtuel de résolution. L’objectif est que les deux réseaux virtuels partagent une même zone contoso.com. Lorsque la zone est créée et quand les réseaux virtuels d’inscription et de résolution sont associés à la zone, Azure enregistre automatiquement les enregistrements DNS des machines virtuelles (VNETA-VM1 et VNETA-VM2) à partir du réseau virtuel A. Vous pouvez également ajouter manuellement des enregistrements DNS dans la zone pour les machines virtuelles dans le réseau virtuel de résolution B. Avec cette configuration, vous pourrez observer le comportement suivant pour les requêtes DNS directes et inverses :
 * Une requête DNS de VNETB-VM1 dans le réseau virtuel de résolution B, pour VNETA-VM1.contoso.com, reçoit une réponse DNS contenant l’adresse IP privée de VNETA-VM1.
-* Une requête DNS inverse (PTR) de VNETB-VM2 dans le réseau virtuel de résolution B, pour 10.1.0.1, reçoit une réponse DNS contenant le nom de domaine complet VNETB-VM1.contoso.com. Cela s’explique par le fait que l’étendue des requêtes DNS inverses est le même réseau virtuel. 
+* Une requête DNS inverse (PTR) de VNETB-VM2 dans le réseau virtuel de résolution B, pour 10.1.0.1, reçoit une réponse DNS contenant le nom de domaine complet VNETB-VM1.contoso.com.  
 * Une requête DNS inverse (PTR) de VNETB-VM3 dans le réseau virtuel de résolution B, pour 10.0.0.1, reçoit NXDOMAIN. Cela s’explique par le fait que l’étendue des requêtes DNS inverses est uniquement le même réseau virtuel. 
 
 

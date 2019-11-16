@@ -11,17 +11,17 @@ author: dalechen
 manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
-ms.date: 01/25/2019
-ms.openlocfilehash: dc58e495256bff9521eb6567736700f5ffcd6e4f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: ffbe52bfcef3f32a12e97d37c39a2199cefe72ce
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822472"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082459"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Résoudre des problèmes de connexion à Azure SQL Database
 
-Si la connexion à Azure SQL Database échoue, vous recevez des [messages d’erreur](sql-database-develop-error-messages.md). Cet article est une rubrique centralisée qui vous permet de résoudre les problèmes de connectivité Azure SQL Database. Il présente les [causes courantes](#cause) des problèmes de connexion, vous recommande un [outil de dépannage](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) qui vous permet d’identifier le problème, et fournit les étapes de dépannage permettant de résoudre les [erreurs temporaires](#troubleshoot-transient-errors) et les [erreurs persistantes ou non temporaires](#troubleshoot-persistent-errors). 
+Si la connexion à Azure SQL Database échoue, vous recevez des [messages d’erreur](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). Cet article est une rubrique centralisée qui vous permet de résoudre les problèmes de connectivité Azure SQL Database. Il présente les [causes courantes](#cause) des problèmes de connexion, vous recommande un [outil de dépannage](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) qui vous permet d’identifier le problème, et fournit les étapes de dépannage permettant de résoudre les [erreurs temporaires](#troubleshoot-transient-errors) et les [erreurs persistantes ou non temporaires](#troubleshoot-persistent-errors).
 
 Si vous rencontrez des problèmes de connexion, essayez de suivre les étapes de dépannage décrites dans cet article.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -56,8 +56,6 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 
 > [!NOTE]
 > Ce message d’erreur est généralement temporaire (de courte durée).
-> 
-> 
 
 Cette erreur se produit lorsque la base de données est déplacée (ou reconfigurée) et que votre application perd sa connexion à la base de données. Les événements de reconfiguration de la base de données sont liés à un événement planifié (par exemple, une mise à niveau logicielle) ou à un événement non planifié (par exemple, un arrêt de processus ou un équilibrage de charge). La plupart des événements de reconfiguration sont généralement de courte durée et se terminent en l’espace de 60 secondes maximum. Cependant, ces événements peuvent parfois prendre plus de temps, par exemple lorsqu’une transaction volumineuse entraîne une récupération de longue durée.
 
@@ -69,6 +67,7 @@ Cette erreur se produit lorsque la base de données est déplacée (ou reconfigu
 4. Si les problèmes de connectivité persistent ou si la durée pendant laquelle votre application rencontre une erreur dépasse les 60 secondes ou si plusieurs occurrences de l’erreur s’affichent dans un jour donné, créez une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Résoudre les erreurs persistantes
+
 Si l’application échoue de façon permanente à se connecter à Azure SQL Database, cela indique généralement un problème avec l’un des éléments suivants :
 
 * Configuration du pare-feu. Le pare-feu Azure SQL Database ou côté client bloque les connexions à Azure SQL Database.
@@ -76,17 +75,14 @@ Si l’application échoue de façon permanente à se connecter à Azure SQL Dat
 * Erreur utilisateur : par exemple, paramètres de connexion saisis de façon incorrecte, comme le nom du serveur dans la chaîne de connexion.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
-1. Configurez les [règles de pare-feu](sql-database-configure-firewall-settings.md) pour autoriser l’adresse IP du client. Définissez une règle de pare-feu avec une plage d’adresses IP allant de 0.0.0.0 à 255.255.255.255 à des fins de test temporaire. Cette opération ouvrira le serveur à toutes les adresses IP. Si elle résout votre problème de connectivité, supprimez cette règle et créez une règle de pare-feu pour une adresse ou une plage d’adresses IP correctement bornée. 
+
+1. Configurez les [règles de pare-feu](sql-database-configure-firewall-settings.md) pour autoriser l’adresse IP du client. Définissez une règle de pare-feu avec une plage d’adresses IP allant de 0.0.0.0 à 255.255.255.255 à des fins de test temporaire. Cette opération ouvrira le serveur à toutes les adresses IP. Si elle résout votre problème de connectivité, supprimez cette règle et créez une règle de pare-feu pour une adresse ou une plage d’adresses IP correctement bornée.
 2. Sur tous les pare-feu situés entre le client et Internet, assurez-vous que le port 1433 est ouvert pour les connexions sortantes. Consultez les pages [Configurer le pare-feu Windows de façon à autoriser l’accès à SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) et [Ports et protocoles requis pour l’identité hybride](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) pour connaître les pointeurs supplémentaires liés aux ports supplémentaires que vous devez ouvrir pour l’authentification Azure Active Directory.
 3. Vérifiez votre chaîne de connexion et d’autres paramètres de connexion. Consultez la section Chaîne de connexion dans la [rubrique concernant les problèmes de connectivité](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Restauration à la suite d’une panne](sql-database-disaster-recovery.md) pour connaître les étapes de restauration vers une nouvelle zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Rechercher dans la documentation de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
-* [Voir les dernières mises à jour du service Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>Ressources supplémentaires
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 * [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-

@@ -11,12 +11,12 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685327"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133166"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 
@@ -215,4 +215,4 @@ Lorsque vous démarrez une opération de mise à l’échelle, le système arrê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la gestion des performances, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md) et [Limites de mémoire et de concurrence]memory-concurrency-limits.md).
+Pour en savoir plus sur la gestion des performances, consultez [Classes de ressources pour la gestion de la charge de travail](resource-classes-for-workload-management.md) et [Limites de mémoire et de concurrence](memory-concurrency-limits.md).

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d06c9f5db0d709bec5b94ce107c6f6894dc191
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954683"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074184"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -31,7 +31,6 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 - Si l’installation push échoue, vérifiez si l’agent DPM est déjà présent. Si c’est le cas, désinstallez l’agent et recommencez l’installation
 - [Assurez-vous qu’aucun autre processus ou logiciel antivirus n’interfère avec la sauvegarde Azure](https://aka.ms/AA4nyr4)<br>
 - Vérifiez que le service SQL Agent est en cours d'exécution et défini sur automatique dans le serveur MAB<br>
-
 
 ## <a name="invalid-vault-credentials-provided"></a>Informations d’identification du coffre fournies non valides
 
@@ -63,7 +62,6 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | --- | --- | --- |
 | Sauvegarde | Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent. DPM a rencontré une erreur à partir de VMware alors qu’il essayait de récupérer des informations de suivi des modifications. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Réinitialisez le processus CTK sur VMware pour les machines virtuelles affectées.</li> <li>Vérifiez que le disque indépendant n’est pas en place sur VMware.</li> <li>Arrêtez la protection pour les machines virtuelles affectées et redémarrez-la avec le bouton **Actualiser**. </li><li>Exécutez une vérification de cohérence pour les machines virtuelles affectées.</li></ol>|
 
-
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>L’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur le serveur
 
 | Opération | Détails de l’erreur | Solution de contournement |
@@ -85,7 +83,6 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Azure Backup Agent n'a pas pu se connecter au service Sauvegarde Azure (ID : 100050) | Azure Backup Agent n’a pas pu se connecter au service Sauvegarde Azure. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit** : <br>1. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges : **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Une fenêtre Internet Explorer s’ouvre. <br/> 2. Accédez à **Outils** > **Options Internet** > **Connexions** > **Paramètres réseau**. <br/> 3. Modifiez les paramètres pour utiliser un serveur proxy. Fournissez ensuite les détails du serveur proxy.<br/> 4. Si votre machine a un accès à Internet limité, assurez-vous que les paramètres du pare-feu sur la machine ou le proxy autorisent ces [URL](backup-configure-vault.md#verify-internet-access) et cette [adresse IP](backup-configure-vault.md#verify-internet-access).|
 | L’installation d’Azure Backup Agent a échoué | L’installation de Microsoft Azure Recovery Services a échoué. Toutes les modifications apportées par l’installation de Microsoft Azure Recovery Services au système ont été restaurées. (ID : 4024) | Installez l’agent Azure manuellement.
 
-
 ## <a name="configuring-protection-group"></a>Configuration du groupe de protection
 
 | Opération | Détails de l’erreur | Solution de contournement |
@@ -105,7 +102,6 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Sauvegarde | L’option permettant de reprotéger une machine virtuelle VMware sur un nouveau serveur de sauvegarde Microsoft Azure ne s’affiche pas comme pouvant être ajoutée. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
 | Sauvegarde | Erreur lors de l’accès aux dossiers/fichiers partagés. | Essayez de modifier les paramètres d’antivirus comme indiqué dans l’article TechNet [Exécution d’un logiciel antivirus sur le serveur DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 
-
 ## <a name="change-passphrase"></a>Modification de la phrase secrète
 
 | Opération | Détails de l’erreur | Solution de contournement |
@@ -113,18 +109,15 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Modification de la phrase secrète |Le code PIN de sécurité saisi est incorrect. Entrez le code PIN de sécurité correct pour exécuter cette opération. |**Cause :**<br/> Cette erreur se produit lorsque vous entrez un code PIN de sécurité non valide ou qui a expiré lors d’une opération critique (par exemple, la modification d’un mot de passe). <br/>**Action recommandée :**<br/> Pour exécuter l’opération, vous devez entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure, puis recherchez le coffre Recovery Services. Ensuite, accédez à **Paramètres** > **Propriétés** > **Générer un code PIN de sécurité**. Utilisez ce code PIN pour modifier la phrase secrète. |
 | Modification de la phrase secrète |L’opération a échoué. ID : 120002 |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés ou lorsque vous tentez de modifier la phrase secrète sur une version non prise en charge.<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez d’abord mettre à jour l’agent de sauvegarde vers la version minimale (la version 2.0.9052). Vous devez également mettre à jour le serveur de sauvegarde Azure vers la version update 1 au minimum, puis entrer le code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure, puis recherchez le coffre Recovery Services. Ensuite, accédez à **Paramètres** > **Propriétés** > **Générer un code PIN de sécurité**. Utilisez ce code PIN pour modifier la phrase secrète. |
 
-
 ## <a name="configure-email-notifications"></a>Configurer les notifications par e-mail
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | Configuration des notifications par e-mail à l’aide d’un compte Office 365 |ID d'erreur : 2013| **Cause :**<br> Tentative d’utiliser le compte Office 365 <br>**Action recommandée :**<ol><li> La première chose à vérifier est que l’option permettant d’autoriser un relais anonyme sur un connecteur de réception pour votre serveur DPM est configurée sur Exchange. Pour plus d’informations sur cette configuration, consultez [Autoriser le relais anonyme sur un connecteur de réception](https://technet.microsoft.com/library/bb232021.aspx) sur TechNet.</li> <li> Si vous ne pouvez pas utiliser un relais SMTP interne et devez effectuer la configuration à l’aide de votre serveur Office 365, vous pouvez configurer IIS en tant que relais. Configurez le serveur DPM pour [relayer SMTP vers O365 en utilisant IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT :** veillez à utiliser le format user\@domain.com et *non pas* le format domaine\utilisateur.<br><br><li>Faites en sorte que DPM utilise le nom du serveur local en guise de serveur SMTP, port 587. Ensuite, faites-lui utiliser l’adresse e-mail d’utilisateur dont doivent provenir les e-mails.<li> Le nom d’utilisateur et le mot de passe dans la page d’installation de DPM SMTP doivent correspondre à un compte de domaine rattaché au domaine où se trouve DPM. </li><br> **REMARQUE** : lorsque vous changez l'adresse du serveur SMTP, une fois les modifications effectuées, fermez la zone des paramètres, puis rouvrez-la pour vérifier qu'elle reflète la nouvelle valeur.  Se limiter à changer et à tester ne suffit pas toujours pour que les nouveaux paramètres soient pris en compte. C’est pourquoi effectuer un test de cette façon est une bonne pratique.<br><br>Au cours de ce processus, vous pouvez à tout moment supprimer ces paramètres en fermant la console DPM et en modifiant les clés de Registre suivantes : **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Supprimer les clés SMTPPassword et SMTPUserName**. Vous pouvez les rajouter à l’interface utilisateur quand vous la relancez.
 
-
 ## <a name="common-issues"></a>Problèmes courants
 
 Cette section décrit les erreurs courantes que vous pouvez rencontrer lors de l’utilisation du serveur de sauvegarde Azure.
-
 
 ### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
 

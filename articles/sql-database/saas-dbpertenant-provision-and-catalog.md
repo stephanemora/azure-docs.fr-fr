@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822206"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132105"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous allez apprendre à provisionner et à cataloguer des mod�
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> 
+>
 > * Provisionner un nouveau locataire
 > * Provisionner un lot de locataires supplémentaires
 
@@ -39,17 +39,17 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 Dans une application SaaS multilocataire appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et la base de données dans laquelle sont stockées leurs données. Ce modèle s’applique chaque fois que les données de client sont réparties sur plusieurs bases de données.
 
-Chaque client est identifié par une clé dans le catalogue, qui est mappée à l’emplacement de sa base de données. Dans le cas de l’application Wingtip Tickets, la clé est formée à partir du hachage du nom du locataire. Cette méthode permet à l’application de créer la clé à partir du nom de locataire qui est dans l’URL de l’application. Vous pouvez utiliser d’autres schémas de clé de locataire.  
+Chaque client est identifié par une clé dans le catalogue, qui est mappée à l’emplacement de sa base de données. Dans le cas de l’application Wingtip Tickets, la clé est formée à partir du hachage du nom du locataire. Cette méthode permet à l’application de créer la clé à partir du nom de locataire qui est dans l’URL de l’application. Vous pouvez utiliser d’autres schémas de clé de locataire.
 
 Le catalogue permet de modifier le nom ou l’emplacement de la base de données avec un impact minimal sur l’application. Dans un modèle de base de données multilocataire, cette fonctionnalité facilite également le déplacement des locataires entre les différentes bases de données. Le catalogue peut également être utilisé pour indiquer si un locataire ou une base de données est hors connexion pour maintenance ou dans le cadre d’autres opérations. Cette fonctionnalité est décrite dans le [tutoriel sur la restauration d’un locataire unique](saas-dbpertenant-restore-single-tenant.md).
 
-Le catalogue peut aussi stocker d’autres métadonnées de locataire ou de base de données, telles que la version du schéma, le plan de service ou les contrats de niveau de service (SLA) proposés aux locataires. Il peut également stocker d’autres informations sur la gestion des applications, le support client ou DevOps. 
+Le catalogue peut aussi stocker d’autres métadonnées de locataire ou de base de données, telles que la version du schéma, le plan de service ou les contrats de niveau de service (SLA) proposés aux locataires. Il peut également stocker d’autres informations sur la gestion des applications, le support client ou DevOps.
 
-Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données. Dans l’exemple d’application SaaS Wingtip Tickets où chaque locataire dispose de sa propre base de données, le catalogue est utilisé pour permettre les requêtes entre locataires, comme l’explique le [tutoriel sur la création de rapports ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestion des tâches entre différentes bases de données est expliquée dans le tutoriel sur la [gestion des schémas](saas-tenancy-schema-management.md) et le tutoriel sur [l’analyse des données locataires](saas-tenancy-tenant-analytics.md). 
+Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données. Dans l’exemple d’application SaaS Wingtip Tickets où chaque locataire dispose de sa propre base de données, le catalogue est utilisé pour permettre les requêtes entre locataires, comme l’explique le [tutoriel sur la création de rapports ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestion des tâches entre différentes bases de données est expliquée dans le tutoriel sur la [gestion des schémas](saas-tenancy-schema-management.md) et le tutoriel sur [l’analyse des données locataires](saas-tenancy-tenant-analytics.md).
 
-Dans les exemples d’applications SaaS Wingtip Tickets, le catalogue est implémenté à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md). La bibliothèque EDCL est disponible dans Java et dans le .NET Framework. La bibliothèque EDCL permet à une application de créer, gérer et utiliser une carte de partitions reposant sur des bases de données. 
+Dans les exemples d’applications SaaS Wingtip Tickets, le catalogue est implémenté à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md). La bibliothèque EDCL est disponible dans Java et dans le .NET Framework. La bibliothèque EDCL permet à une application de créer, gérer et utiliser une carte de partitions reposant sur des bases de données.
 
-Une carte de partitions contient une liste de partitions (bases de données) et le mappage entre les clés (locataires) et les partitions. Les fonctions de la bibliothèque EDCL sont utilisées pendant le provisionnement des locataires pour créer les entrées de la carte des partitions. Elles sont utilisées par les applications au moment de l’exécution, pour se connecter à la base de données appropriée. La bibliothèque EDCL met en cache les informations de connexion pour réduire le trafic vers la base de données de catalogue et booster les performances de l’application. 
+Une carte de partitions contient une liste de partitions (bases de données) et le mappage entre les clés (locataires) et les partitions. Les fonctions de la bibliothèque EDCL sont utilisées pendant le provisionnement des locataires pour créer les entrées de la carte des partitions. Elles sont utilisées par les applications au moment de l’exécution, pour se connecter à la base de données appropriée. La bibliothèque EDCL met en cache les informations de connexion pour réduire le trafic vers la base de données de catalogue et booster les performances de l’application.
 
 > [!IMPORTANT]
 > Les données de mappage sont accessibles dans la base de données du catalogue. Cependant, *vous ne devez pas les modifier*. Pour modifier les données de mappage, vous devez uniquement utiliser des API Elastic Database Client Library. La manipulation directe des données de mappage risque d’endommager le catalogue et n’est donc pas prise en charge.
@@ -57,15 +57,15 @@ Une carte de partitions contient une liste de partitions (bases de données) et 
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Présentation du modèle d’approvisionnement SaaS
 
-Lors de l’ajout d’un nouveau locataire dans une application SaaS qui utilise un modèle de base de données monolocataire, vous devez provisionner une nouvelle base de données locataire. La base de données doit être créée dans l’emplacement et le niveau de service adaptés. Elle doit également être initialisée avec le schéma et les données de référence appropriés. De plus, elle doit être inscrite dans le catalogue sous la clé de locataire appropriée. 
+Lors de l’ajout d’un nouveau locataire dans une application SaaS qui utilise un modèle de base de données monolocataire, vous devez provisionner une nouvelle base de données locataire. La base de données doit être créée dans l’emplacement et le niveau de service adaptés. Elle doit également être initialisée avec le schéma et les données de référence appropriés. De plus, elle doit être inscrite dans le catalogue sous la clé de locataire appropriée.
 
-Il existe plusieurs méthodes pour configurer le provisionnement des bases de données. Vous pouvez exécuter des scripts SQL, déployer un fichier bacpac ou copier une base de données de modèle. 
+Il existe plusieurs méthodes pour configurer le provisionnement des bases de données. Vous pouvez exécuter des scripts SQL, déployer un fichier bacpac ou copier une base de données de modèle.
 
-La configuration des bases de données doit faire partie de votre stratégie de gestion des schémas. Vous devez faire en sorte que les nouvelles bases de données soient provisionnées à l’aide du schéma le plus récent. Cette condition est expliquée dans le [tutoriel sur la gestion des schémas](saas-tenancy-schema-management.md). 
+La configuration des bases de données doit faire partie de votre stratégie de gestion des schémas. Vous devez faire en sorte que les nouvelles bases de données soient provisionnées à l’aide du schéma le plus récent. Cette condition est expliquée dans le [tutoriel sur la gestion des schémas](saas-tenancy-schema-management.md).
 
-L’application Wingtip Tickets, qui comporte une base de données par locataire, provisionne les nouveaux locataires en copiant la base de données de modèle nommée _basetenantdb_, qui est déployée sur le serveur de catalogue. Le provisionnement peut être intégré à l’application dans le cadre d’un abonnement. Il est également possible d’effectuer un provisionnement hors connexion, à l’aide de scripts. Ce tutoriel décrit le processus de provisionnement à l’aide de PowerShell. 
+L’application Wingtip Tickets, qui comporte une base de données par locataire, provisionne les nouveaux locataires en copiant la base de données de modèle nommée _basetenantdb_, qui est déployée sur le serveur de catalogue. Le provisionnement peut être intégré à l’application dans le cadre d’un abonnement. Il est également possible d’effectuer un provisionnement hors connexion, à l’aide de scripts. Ce tutoriel décrit le processus de provisionnement à l’aide de PowerShell.
 
-Les scripts de provisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données de locataire dans un pool élastique. La base de données de locataire est créée dans le serveur du locataire mappé sur l’alias DNS _newtenant_. Cet alias conserve une référence au serveur utilisé pour provisionner de nouveaux locataires et est mis à jour pour pointer vers un serveur de locataire de récupération dans les didacticiels consacrés à la récupération d’urgence ([DR using georestore](saas-dbpertenant-dr-geo-restore.md) (La récupération d’urgence à l’aide de la géorestauration), [DR using georeplication](saas-dbpertenant-dr-geo-replication.md)) (la récupération d’urgence à l’aide de la géoréplication). Ensuite, les scripts initialisent la base de données avec les informations du locataire, et l’inscrivent dans la carte de partitions du catalogue. Les bases de données des locataires portent le nom de leur locataire. Ce schéma de nommage ne constitue pas un élément essentiel du modèle. Le catalogue mappe la clé de locataire dans le nom de la base de données, ce qui permet d’utiliser n’importe quelle convention de nommage. 
+Les scripts de provisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données de locataire dans un pool élastique. La base de données de locataire est créée dans le serveur du locataire mappé sur l’alias DNS _newtenant_. Cet alias conserve une référence au serveur utilisé pour provisionner de nouveaux locataires et est mis à jour pour pointer vers un serveur de locataire de récupération dans les didacticiels consacrés à la récupération d’urgence ([DR using georestore](saas-dbpertenant-dr-geo-restore.md) (La récupération d’urgence à l’aide de la géorestauration), [DR using georeplication](saas-dbpertenant-dr-geo-replication.md)) (la récupération d’urgence à l’aide de la géoréplication). Ensuite, les scripts initialisent la base de données avec les informations du locataire, et l’inscrivent dans la carte de partitions du catalogue. Les bases de données des locataires portent le nom de leur locataire. Ce schéma de nommage ne constitue pas un élément essentiel du modèle. Le catalogue mappe la clé de locataire dans le nom de la base de données, ce qui permet d’utiliser n’importe quelle convention de nommage.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
@@ -95,7 +95,7 @@ Pour comprendre comment l’application Wingtip Tickets implémente le provision
 
 
 
-Tracez l’exécution du script à l’aide des options du menu **Débogage**. Appuyez sur F10 et F11 pour effectuer un pas à pas principal des fonctions appelées. Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Tracez l’exécution du script à l’aide des options du menu **Débogage**. Appuyez sur F10 et F11 pour effectuer un pas à pas principal des fonctions appelées. Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 Il n’est pas nécessaire de suivre explicitement ce flux de travail, qui explique comment déboguer le script.
@@ -156,7 +156,7 @@ Voici d’autres modèles de provisionnement non inclus dans ce tutoriel :
 
 **Pré-approvisionnement des bases de données** : Le modèle de pré-approvisionnement exploite le fait que les bases de données d’un pool élastique n’ajoutent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
 
-**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence. 
+**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence.
 
 Avec le modèle de provisionnement automatique, une application cliente ou un script envoie une demande de provisionnement à une file d’attente pour qu’elle soit traitée par le service de provisionnement. Il interroge ensuite le service afin de déterminer la complétion. Si le préprovisionnement est utilisé, les demandes sont traitées rapidement. Le service provisionne une base de données de remplacement en arrière-plan.
 
@@ -166,7 +166,7 @@ Avec le modèle de provisionnement automatique, une application cliente ou un sc
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> 
+>
 > * Provisionner un nouveau locataire
 > * Provisionner un lot de locataires supplémentaires
 > * Parcourir les étapes du provisionnement des locataires et de leur inscription dans le catalogue
@@ -177,4 +177,4 @@ Essayez le [didacticiel Surveillance des performances](saas-dbpertenant-performa
 
 * Autres [tutoriels reposant sur les applications SaaS Wingtip Tickets comportant une base de données par locataire](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)
-* [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Déboguer les scripts dans l’ISE Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

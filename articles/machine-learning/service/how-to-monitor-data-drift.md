@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824251"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111879"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Avec Azure Machine Learning, vous pouvez surveiller les entrées d’un modèle 
 + Envoi par e-mail d’alertes de dérive de données.
 
 > [!Note]
-> Ce service est en préversion et limité en termes d’options de configuration. Consultez notre [documentation d’API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) et nos [Notes de publication](azure-machine-learning-release-notes.md) pour plus d’informations et des mises à jour. 
+> Ce service est en préversion et limité en termes d’options de configuration. Consultez notre [documentation d’API](https://docs.microsoft.com/python/api/azureml-datadrift/) et nos [Notes de publication](azure-machine-learning-release-notes.md) pour plus d’informations et des mises à jour. 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Supervision de la dérive des données dans Azure Machine Learning
 
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Soumettre une exécution DataDriftDetector
 
-Avec l’objet `DataDriftDetector` configuré, vous pouvez soumettre une [exécution de dérive de données](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) à une date donnée pour le modèle. Dans le cadre de l’exécution, activez les alertes du DataDriftDetector en définissant le paramètre `drift_threshold`. Si le coefficient [datadrift_coefficient](#metrics) est supérieur au `drift_threshold` donné, un email est envoyé.
+Avec l’objet `DataDriftDetector` configuré, vous pouvez soumettre une [exécution de dérive de données](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) à une date donnée pour le modèle. Dans le cadre de l’exécution, activez les alertes du DataDriftDetector en définissant le paramètre `drift_threshold`. Si le coefficient [datadrift_coefficient](#visualize-drift-metrics) est supérieur au `drift_threshold` donné, un email est envoyé.
 
 ```python
 # adhoc run today

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577063"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887750"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -234,7 +234,7 @@ L'**instance de rôle cloud** peut être utile pour les scénarios dans lesquels
 
 Vous pouvez vouloir remplacer la valeur de l'instance de rôle cloud si votre application est en cours d’exécution dans un environnement conteneurisé où le simple fait de connaître le serveur en question peut ne pas suffire à localiser un problème donné.
 
-Pour plus d’informations sur la substitution de la propriété nom du rôle cloud avec des initialiseurs de télémétrie, consultez [Ajouter des propriétés : ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Pour plus d’informations sur la substitution de la propriété nom du rôle cloud avec des initialiseurs de télémétrie, consultez [Ajouter des propriétés : ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/11/2019
+ms.openlocfilehash: f2a33f96f77678e02c5b72c36563781e7d7ac334
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477130"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928280"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Procédure d’activation d’Azure Monitor pour les conteneurs
 
@@ -42,6 +42,13 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 * Les métriques Prometheus ne sont pas collectées par défaut. Avant de [configurer l’agent](container-insights-prometheus-integration.md) pour les collecter, il est important de consulter la [documentation](https://prometheus.io/) Prometheus pour comprendre ce que vous pouvez définir.
+
+## <a name="supported-configurations"></a>Configurations prises en charge
+
+Les éléments suivants sont officiellement pris en charge avec Azure Monitor pour les conteneurs.
+
+- Environnements : Kubernetes local, Moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Les versions de Kubernetes et de la stratégie de support sont les mêmes que celles [prises en charge par AKS](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
 

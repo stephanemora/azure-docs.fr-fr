@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510946"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108748"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Utilisation du package SQL Database DAC et des tâches Stream Analytics avec Azure SQL Database Edge
 
@@ -37,7 +37,7 @@ Azure SQL Database Edge expose deux paramètres facultatifs via l’option des *
 |Champ | Description |
 |------|-------------|
 | SQLPackage | URI Stockage Blob Azure du fichier *.zip contenant le package DAC SQL Database.
-| ASAJobInfo | URI Stockage Blob Azure de la tâche ASA Edge. Pour plus d’informations sur la publication de la tâche ASA Edge, consultez [Publication d’une tâche ASA Edge pour SQL Database Edge]().
+| ASAJobInfo | URI Stockage Blob Azure de la tâche ASA Edge. Pour plus d’informations sur la publication de la tâche ASA Edge, consultez [Publication d’une tâche ASA Edge pour SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Utilisation de packages DAC SQL Database avec SQL Database Edge
 
@@ -178,5 +178,5 @@ Pour déployer la tâche de diffusion en continu dans le module SQL Database Edg
 
 - Pour plus d’informations sur la tarification et la disponibilité, consultez [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Demandez à activer Azure SQL Database Edge pour votre abonnement.
-- Pour commencer, consultez les procédures suivantes :
+- Pour commencer, consultez les procédures suivantes :
   - [Déployer SQL Database Edge via le Portail Azure](deploy-portal.md)

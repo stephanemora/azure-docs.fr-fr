@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515570"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084695"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -39,7 +39,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 1. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Entrez ou sélectionnez des valeurs pour les paramètres suivants, puis cliquez sur **Créer** :
-   - **Nom** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
+   - **Nom** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
    - **Espace d’adressage** : l’espace d’adressage d’un réseau virtuel est composé d’une ou de plusieurs plages d’adresses ne se chevauchant pas et spécifiées dans la notation CIDR. La plage d’adresses que vous définissez peut être publique ou privée (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
      - 224.0.0.0/4 (multidiffusion)
      - 255.255.255.255/32 (diffusion)

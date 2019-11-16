@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b88983b4941143e5323ee795908cb332bdd79817
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678417"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075560"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -52,20 +52,7 @@ Pour copier des données d’une source vers un récepteur, le service qui exéc
 
 Vous pouvez utiliser l’activité de copie pour copier des fichiers tels quels entre deux magasins de données basés sur des fichiers. Dans ce cas, les données sont copiées efficacement sans sérialisation ni désérialisation.
 
-L’activité de copie peut également lire et écrire dans les fichiers dans les formats suivants :
-- Texte
-- JSON
-- Avro
-- ORC
-- Parquet
-
-L’activité de copie peut compresser et décompresser les fichiers avec les codecs suivants : 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-Pour plus d’informations, voir [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 

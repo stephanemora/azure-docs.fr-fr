@@ -8,22 +8,22 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ea1d4020aa9be23b4839690ae0b386d35bce8a23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b22e6b806f76189134ec63c83d48f48bf95587
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498888"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889762"
 ---
 # <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Conseils sur la reprise d’activité pour Azure Data Lake Analytics
 
 Azure Data Lake Analytics est un service de travaux d’analyse à la demande, qui simplifie les Big Data. Au lieu de déployer, de configurer et d’optimiser le matériel, vous écrivez des requêtes pour transformer vos données et en extraire des informations pertinentes. Le service d’analyse peut traiter les travaux instantanément, quelle qu’en soit l’échelle, en définissant le compteur sur la puissance requise. Vous payez les travaux uniquement lorsque ceux-ci sont exécutés, ce qui rend le service économique. Cet article vous donne des conseils sur la façon de protéger vos travaux contre les rares pannes ou suppressions accidentelles qui peuvent se produire à l’échelle d’une région.
 
-## <a name="disaster-recovery-guidance"></a>Conseils de reprise d’activité après sinistre
+## <a name="disaster-recovery-guidance"></a>Guide de récupération d’urgence
 
 Si vous utilisez Azure Data Lake Analytics, il est primordial de préparer votre propre plan de reprise d’activité. Cet article vous conseille sur l’élaboration d’un plan de reprise d’activité. Ces ressources complémentaires peuvent aussi vous aider à créer votre propre plan :
 - [Défaillances et reprise d’activité après sinistre pour les applications Azure](/azure/architecture/reliability/disaster-recovery)
-- [Guide technique de la résilience Azure](/azure/architecture/reliability)
+- [Guide technique de la résilience Azure](/azure/architecture/checklist/resiliency-per-service)
 
 ## <a name="best-practices-and-scenario-guidance"></a>Bonnes pratiques et conseils
 

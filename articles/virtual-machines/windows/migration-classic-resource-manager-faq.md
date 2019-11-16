@@ -1,5 +1,5 @@
 ---
-title: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager | Microsoft Docs
+title: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager
 description: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 5c2a592ba9eee94166cdaf1e27c171df0c33338f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f6cd0fc3601575c75e060013ef965054679e8e2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089300"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033291"
 ---
+# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Questions fréquemment posées sur la migration du modèle classique vers le modèle Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

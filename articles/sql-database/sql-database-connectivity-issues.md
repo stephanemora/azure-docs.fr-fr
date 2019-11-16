@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826812"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082492"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
 
@@ -30,7 +30,7 @@ Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les e
 
 Une erreur temporaire s’explique par une cause sous-jacente qui se résout d’elle-même en peu de temps. Les erreurs temporaires surviennent de temps en temps lorsque le système Azure réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. La plupart de ces événements de reconfiguration se terminent en moins de 60 secondes. Durant cette reconfiguration, vous pouvez rencontrer des problèmes de connectivité avec SQL Database. Les applications qui se connectent à SQL Database doivent être conçues de sorte à s’attendre à de telles erreurs temporaires. Pour les gérer, implémentez une logique de nouvelle tentative dans leur code au lieu de les exposer aux utilisateurs comme des erreurs d’application.
 
-Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException**. Comparez la propriété **Number** à la liste des erreurs temporaires mentionnées au début de l’article [Codes d’erreur SQL pour les applications clientes SQL Database](sql-database-develop-error-messages.md).
+Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException**. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 

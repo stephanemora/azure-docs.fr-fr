@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498648"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838910"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -112,7 +112,7 @@ dc.services.visualstudio.com | Chargez les journaux d’applications utilisés p
 *.servicebus.windows.net | Communication entre l’appliance et le service Azure Migrate.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connectez-vous aux URL du service Azure Migrate.
 *.blob.core.windows.net | Chargez des données dans des comptes de stockage.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Utilisé pour les mises à jour de l’appliance Azure Migrate.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Utilisé pour les mises à jour de l’appliance Azure Migrate.
 
 ## <a name="assessment-port-requirements"></a>Évaluation - Exigences relatives aux ports
 
@@ -127,12 +127,12 @@ La visualisation des dépendances vous permet de visualiser les dépendances ent
 
 - **Visualisation des dépendances sans agent** : Cette option est actuellement en préversion. Il n’est pas nécessaire d’installer des agents sur les machines.
     - Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit. Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines selon un intervalle d’interrogation de cinq minutes.
-    - Les données suivantes sont collectées :
+    - Les données suivantes sont collectées :
         - Connexions TCP
         - Noms des processus ayant des connexions actives
         - Noms des applications installées exécutant les processus ci-dessus
         - Non. de connexions détectées à chaque intervalle d’interrogation
-- **Visualisation des dépendances basée sur les agents** : Pour utiliser la visualisation des dépendances basée sur les agents, vous devez télécharger et installer les agents suivants sur chaque machine locale que vous souhaitez analyser.
+- **Visualisation des dépendances basée sur les agents** : Pour utiliser la visualisation des dépendances basée sur les agents, vous devez télécharger et installer les agents suivants sur chaque machine locale que vous souhaitez analyser.
     - Microsoft Monitoring Agent (MMA) doit être installé sur chaque machine. [En savoir plus](how-to-create-group-machine-dependencies.md#install-the-mma) sur l’installation de l’agent MMA.
     - Le programme Dependency Agent doit être installé sur chaque machine. [En savoir plus](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) sur l’installation de l’agent de dépendances.
     - En outre, si certaines de vos machines sont dépourvues de connexion Internet, vous devez télécharger et installer la passerelle Log Analytics sur ces machines.
@@ -215,7 +215,7 @@ dc.services.visualstudio.com | Chargez les journaux d’applications utilisés p
 *.servicebus.windows.net | Communication entre l’appliance et le service Azure Migrate.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connectez-vous aux URL du service Azure Migrate.
 *.blob.core.windows.net | Chargez des données dans des comptes de stockage.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Utilisé pour les mises à jour de l’appliance Azure Migrate.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Utilisé pour les mises à jour de l’appliance Azure Migrate.
 
 
 ## <a name="agentless-migration-port-requirements"></a>Migration sans agent - Exigences relatives aux ports

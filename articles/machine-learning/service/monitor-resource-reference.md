@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684917"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929518"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Machine Learning
 
@@ -128,7 +128,7 @@ Les tableaux suivants listent les métriques de plateforme collectées pour Azur
 
 **Modèle**
 
-| Modèle | Unité | Description |
+| Métrique | Unité | Description |
 | ----- | ----- | ----- |
 | Déploiements de modèles ayant échoué | Count | Nombre de déploiements de modèles ayant échoué. |
 | Déploiements de modèles commencés | Count | Nombre de déploiements de modèles ayant commencé. |

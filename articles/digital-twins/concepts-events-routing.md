@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949263"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889703"
 ---
 # <a name="routing-events-and-messages"></a>Routage des événements et des messages
 
@@ -31,7 +31,9 @@ Les utilisateurs peuvent spécifier un ou plusieurs points de sortie pour envoye
 
 [![Routage des événements Azure Digital Twins](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Le routage vers Event Hubs conserve l’ordre dans lequel les messages de télémétrie sont envoyés. Ainsi, ces derniers arrivent au point de terminaison dans l’ordre dans lequel ils ont été initialement reçus. Event Grid et Service Bus ne garantissent pas que les points de terminaison recevront les événements dans l’ordre dans lequel ils se sont produits. Toutefois, le schéma d’événement comprend un horodatage que vous pouvez utiliser pour identifier l’ordre une fois les événements arrivés au point de terminaison.
+Le routage vers Event Hubs conserve l’ordre dans lequel les messages de télémétrie sont envoyés. Ainsi, ces derniers arrivent au point de terminaison dans l’ordre dans lequel ils ont été initialement reçus. 
+
+Event Grid et Service Bus ne garantissent pas que les points de terminaison recevront les événements dans l’ordre dans lequel ils se sont produits. Toutefois, le schéma d’événement comprend un horodatage que vous pouvez utiliser pour identifier l’ordre une fois les événements arrivés au point de terminaison.
 
 ## <a name="route-implementation"></a>Implémentation du routage
 

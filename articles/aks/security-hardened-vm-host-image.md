@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202980"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885647"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Durcissement de la sécurité des hôtes de machines virtuelles AKS 
 
@@ -30,7 +30,7 @@ L’objectif du système d’exploitation hôte avec une sécurité durcie est d
 
 * AKS fournit un système d’exploitation hôte à sécurité optimisée par défaut. Il n’existe actuellement aucune option pour sélectionner un autre système d’exploitation. 
 
-* Azure applique des correctifs quotidiens (y compris des correctifs de sécurité) aux hôtes de machines virtuelles AKS. Certains de ces correctifs nécessitent un redémarrage et d’autres non. Vous êtes responsable de la planification des redémarrages nécessaires des hôtes de machines virtuelles AKS. Pour obtenir des conseils sur l’automatisation des mises à jour correctives AKS, consultez l’[application de correctifs pour les nœuds AKS](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* Azure applique des correctifs quotidiens (y compris des correctifs de sécurité) aux hôtes de machines virtuelles AKS. Certains de ces correctifs nécessitent un redémarrage et d’autres non. Vous êtes responsable de la planification des redémarrages nécessaires des hôtes de machines virtuelles AKS. Pour obtenir des conseils sur l’automatisation des mises à jour correctives AKS, consultez l’[application de correctifs pour les nœuds AKS](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 Vous trouverez ci-dessous un résumé du travail de durcissement de la sécurité d’image qui est implémenté dans AKS-Engine pour générer le système d’exploitation hôte à sécurité optimisée. Ce travail a été mis en œuvre [dans ce projet GitHub](https://github.com/Azure/aks-engine/projects/7).  
 

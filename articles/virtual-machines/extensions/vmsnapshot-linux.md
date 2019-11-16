@@ -1,5 +1,5 @@
 ---
-title: Extension Linux de capture instantanée de machine virtuelle pour la Sauvegarde Azure | Microsoft Docs
+title: Extension Linux de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 description: À partir de la Sauvegarde Azure, prendre une sauvegarde cohérente des applications de la machine virtuelle par l’intermédiaire de l’extension de capture instantanée de machine virtuelle.
 services: backup, virtual-machines-linux
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705846"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072924"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extension Linux de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 

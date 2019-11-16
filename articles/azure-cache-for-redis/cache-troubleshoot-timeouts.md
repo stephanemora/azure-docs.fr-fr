@@ -1,25 +1,17 @@
 ---
-title: Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis | Microsoft Docs
+title: Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 description: Découvrir comment résoudre les problèmes courants de dépassement de délai d’expiration avec Azure Cache pour Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826350"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121370"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 

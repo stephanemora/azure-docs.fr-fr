@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595201"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889784"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -47,8 +47,8 @@ Parmi les autres options de redondance de Stockage Azure, citons le stockage red
 
 Il est important de concevoir votre application à des fins de haute disponibilité dès le départ. Pour obtenir des conseils sur la conception de votre application et la planification de la reprise d’activité, consultez ces ressources Azure :
 
-* [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/) : vue d’ensemble des concepts clés de l’architecture des applications hautement disponibles dans Azure.
-* [Liste de contrôle de disponibilité](https://docs.microsoft.com/azure/architecture/checklist/availability) : liste de contrôle pour vérifier que votre application implémente les bonnes pratiques de conception pour la haute disponibilité.
+* [Conception d’applications résilientes pour Azure](/azure/architecture/checklist/resiliency-per-service) : vue d’ensemble des concepts clés de l’architecture des applications hautement disponibles dans Azure.
+* [Liste de contrôle de disponibilité](/azure/architecture/checklist/resiliency-per-service) : liste de contrôle pour vérifier que votre application implémente les bonnes pratiques de conception pour la haute disponibilité.
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md) : guide de conception pour créer des applications tirant parti de RA-GRS.
 * [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations. 
 

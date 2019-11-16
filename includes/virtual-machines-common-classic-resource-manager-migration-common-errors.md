@@ -4,14 +4,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177041"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005752"
 ---
-# <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erreurs courantes lors de la migration de Classic vers Azure Resource Manager
 Cet article répertorie les erreurs les plus courantes et leur atténuation lors la migration de ressources IaaS du modèle de déploiement Azure Classic vers la pile Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
@@ -170,7 +169,7 @@ $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>D’Azure CLI
 
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]

@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: bdf0f64bf24f77d54a8fed8714a0cc7c3de814b1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a7a1b088868add308f128c5a51d8cce4339c637c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210468"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091723"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
+
 Les batteries de serveurs SharePoint peuvent être sauvegardées sur Microsoft Azure à l’aide du serveur de sauvegarde Azure et ce, de la même façon que d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. Le serveur de sauvegarde Azure vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de délai de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour bénéficier d’une conservation à long terme économique.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versions SharePoint prises en charge et scénarios de protection associés
+
 Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Protection et récupération |
@@ -26,35 +28,44 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn | Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
+
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md) pour la protection des charges de travail.
 
 ### <a name="protection-agent"></a>Agent de protection
+
 L’agent Sauvegarde Azure doit être installé sur le serveur qui exécute SharePoint, ceux qui exécutent SQL Server et tous ceux qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). Le serveur de sauvegarde Azure n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
 
 ### <a name="sharepoint-farm"></a>Batterie de serveurs SharePoint
+
 Pour chaque tranche de 10 millions d’éléments dans la batterie de serveurs, l’espace disponible doit être de 2 Go minimum sur le volume hébergeant le dossier du serveur de sauvegarde Azure. Cet espace est nécessaire pour la génération du catalogue. Pour permettre au serveur de sauvegarde Azure de restaurer des éléments spécifiques (collections de sites, sites, listes, bibliothèques de documents, dossiers, documents et éléments de liste), la génération du catalogue crée une liste de toutes les URL contenues dans chaque base de données de contenu. Vous pouvez afficher la liste des URL dans le volet des éléments récupérables de la zone de tâches **Récupération** de la console administrateur du serveur de sauvegarde Azure.
 
 ### <a name="sql-server"></a>SQL Server
+
 Le serveur de sauvegarde Azure exécute un compte LocalSystem. Pour sauvegarder les bases de données SQL Server, ce serveur nécessite les privilèges d’administrateur système sur ce compte pour le serveur qui exécute SQL Server. Définissez NT AUTHORITY\SYSTEM sur *sysadmin* sur le serveur qui exécute SQL Server avant de le sauvegarder.
 
 Si la batterie de serveurs SharePoint contient des bases de données SQL Server configurées avec des alias SQL Server, installez les composants clients SQL Server sur le serveur web frontal que le serveur de sauvegarde Azure doit protéger.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
+
 Bien que les performances dépendent de nombreux facteurs, comme la taille de la batterie de serveurs SharePoint, tenez compte du fait qu’un seul serveur de sauvegarde peut protéger une batterie de serveurs SharePoint de 25 To.
 
 ### <a name="whats-not-supported"></a>Ce qui n'est pas pris en charge
+
 * Un serveur de sauvegarde Azure qui protège une batterie de serveurs SharePoint ne protège pas les index de recherche ni les bases de données de service d’application. Vous devrez configurer la protection de ces bases de données séparément.
 * Le serveur de sauvegarde Azure ne fournit aucune sauvegarde des bases de données SQL Server SharePoint hébergées sur des partages de type SOFS (Scale-out File Server).
 
 ## <a name="configure-sharepoint-protection"></a>Configuration de la protection SharePoint
+
 Avant d’utiliser le serveur de sauvegarde Azure pour protéger SharePoint, vous devez configurer le service SharePoint VSS Writer (service WSS Writer) à l’aide de l’exécutable **ConfigureSharePoint.exe**.
 
 L’exécutable **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d’installation du serveur de sauvegarde Azure]\bin sur le serveur web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Configuration du service SharePoint VSS Writer
+
 1. Sur le serveur WFE, à l’invite de commandes, accédez à [Emplacement d’installation du serveur de sauvegarde Azure]\bin\
 2. Entrez ConfigureSharePoint -EnableSharePointProtection
 3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
@@ -67,9 +78,11 @@ L’exécutable **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d�
 >
 
 ## <a name="back-up-a-sharepoint-farm-by-using-mabs"></a>Sauvegarde d’une batterie de serveurs SharePoint à l’aide du serveur de sauvegarde Azure
+
 Une fois que vous avez configuré le serveur de sauvegarde Azure et la batterie de serveurs SharePoint comme expliqué ci-dessus, SharePoint peut être protégé par ce serveur.
 
 ### <a name="to-protect-a-sharepoint-farm"></a>Protection d’une batterie de serveurs SharePoint
+
 1. Dans l’onglet **Protection** de la console administrateur du serveur de sauvegarde Azure, cliquez sur **Nouveau**.
     ![Onglet Nouvelle protection](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. Dans la page **Sélectionner le type de groupe de protection** de l’Assistant **Créer un groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**.
@@ -138,6 +151,7 @@ Une fois que vous avez configuré le serveur de sauvegarde Azure et la batterie
     ![Résumé](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Restauration d’un élément SharePoint à partir du disque à l’aide du serveur de sauvegarde Azure
+
 Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a été supprimé accidentellement et doit être récupéré.
 ![MABS SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -199,6 +213,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restauration d’une base de données SharePoint à partir d’Azure à l'aide de DPM
+
 1. Pour récupérer une base de données de contenu SharePoint, parcourez les différents points de récupération (comme indiqué ci-dessus), puis sélectionnez le point de récupération à restaurer.
 
     ![MABS SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)

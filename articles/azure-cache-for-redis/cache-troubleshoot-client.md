@@ -1,25 +1,17 @@
 ---
-title: Résoudre les problèmes du client Redis | Microsoft Docs
+title: Résoudre les problèmes côté client liés à Azure Cache pour Redis
 description: Découvrir comment résoudre les problèmes courants côté client liés à Azure Cache pour Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 51039d7e586e598d443af737bcd7567fb59e1d63
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795249"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122623"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Résoudre les problèmes côté client liés à Azure Cache pour Redis
 

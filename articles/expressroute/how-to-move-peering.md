@@ -1,5 +1,5 @@
 ---
-title: Déplacer un peering public vers le peering Microsoft | Microsoft Docs
+title: 'Azure ExpressRoute : Déplacer un peering public vers le peering Microsoft'
 description: Cet article explique comment déplacer votre peering public vers le peering Microsoft sur ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5581e2a5c2fe2ee5e154870f7ffc2ab1c3c0f3b4
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f9ed841d347d99a2208971d164bbd7b9044e3b09
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592124"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031603"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un peering public vers le peering Microsoft
 
@@ -50,14 +50,14 @@ Si la couche 3 est gérée par vous-même, les informations suivantes sont requ
 * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.<br>
 * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR sur lesquels le numéro AS et les préfixes sont inscrits.
 
-* **Facultatif** - ASN du client : Si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.<br>
+* **Facultatif** - ASN du client : si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.<br>
 * **Facultatif** : hachage MD5 si vous choisissez d’en utiliser un.
 
 Vous trouverez des instructions détaillées pour activer le peering Microsoft dans les articles suivants :
 
-* [Créer l’appairage Microsoft à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#msft)<br>
-* [Créer l’appairage Microsoft à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#msft)<br>
-* [Créer l’appairage Microsoft à l’aide de l’interface de ligne de commande Azure](howto-routing-cli.md#msft)
+* [Créer le peering Microsoft à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#msft)<br>
+* [Créer le peering Microsoft à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#msft)<br>
+* [Créer le peering Microsoft à l’aide de l’interface de ligne de commande Azure](howto-routing-cli.md#msft)
 
 ## <a name="validate"></a>2. Vérifier que le peering Microsoft est activé
 
@@ -75,17 +75,17 @@ Par défaut, le peering Microsoft ne publie pas de préfixes tant qu’un filtre
 
 Configurez les filtres de routes à l’aide des articles suivants :
 
-* [Configurer des filtres de routes pour l’appairage Microsoft à l’aide du portail Azure](how-to-routefilter-portal.md)<br>
-* [Configurer des filtres de routes pour l’appairage Microsoft à l’aide d’Azure PowerShell](how-to-routefilter-powershell.md)<br>
-* [Configurer des filtres de routes pour l’appairage Microsoft à l’aide de l’interface de ligne de commande Azure](how-to-routefilter-cli.md)
+* [Configurer des filtres de routes pour le peering Microsoft à l’aide du portail Azure](how-to-routefilter-portal.md)<br>
+* [Configurer des filtres de routes pour le peering Microsoft à l’aide d’Azure PowerShell](how-to-routefilter-powershell.md)<br>
+* [Configurer des filtres de routes pour le peering Microsoft à l’aide de l’interface de ligne de commande Azure](how-to-routefilter-cli.md)
 
 ## <a name="delete"></a>4. Supprimer le peering public
 
 Après avoir vérifié que le peering Microsoft est configuré et que les préfixes que vous souhaitez utiliser sont correctement publiés sur le peering Microsoft, vous pouvez supprimer le peering public. Pour supprimer le peering public, utilisez l’un des articles suivants :
 
-* [Supprimer un appairage public Azure à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Supprimer un appairage public Azure à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Supprimer un appairage public Azure à l’aide de l’interface de ligne de commande](howto-routing-cli.md#deletepublic)
+* [Supprimer un peering public Azure à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
+* [Supprimer un peering public Azure à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
+* [Supprimer un peering public Azure à l’aide de l’interface de ligne de commande](howto-routing-cli.md#deletepublic)
   
 ## <a name="view"></a>5. Afficher les peerings
   

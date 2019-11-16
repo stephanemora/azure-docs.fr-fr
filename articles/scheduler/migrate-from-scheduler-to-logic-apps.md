@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695498"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890173"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrer des travaux Azure Scheduler vers Azure Logic Apps
 
@@ -198,7 +198,7 @@ Pour en savoir plus sur la gestion des exceptions, consultez [Gérer les erreurs
 <a name="retire-date"></a>
 
 **Q** : Quand Azure Scheduler sera-t-il mis hors service ? <br>
-**R** : La mise hors service d’Azure Scheduler est prévue pour le 31 décembre 2019. Pour connaître les mesures importantes à prendre avant cette date et accéder à une chronologie détaillée, voir [Date de suppression du Scheduler repoussée au 31 décembre 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). Pour des mises à jour générales, voir [Mises à jour Azure – Planificateur](https://azure.microsoft.com/updates/?product=scheduler).
+**R** : La mise hors service d’Azure Scheduler est prévue pour le 31 décembre 2019. Pour connaître les mesures importantes à prendre avant cette date et accéder à une chronologie détaillée, voir [Date de suppression du Scheduler repoussée au 31 décembre 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Pour des mises à jour générales, voir [Mises à jour Azure – Planificateur](https://azure.microsoft.com/updates/?product=scheduler).
 
 **Q** : Que deviendront mes travaux et collections de travaux après la mise hors service ? <br>
 **R** : L’ensemble des travaux et des collections de travaux Scheduler seront arrêtés et supprimés du système.

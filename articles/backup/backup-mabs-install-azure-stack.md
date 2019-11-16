@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747294"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012933"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -124,7 +124,7 @@ Pour modifier le paramètre de réplication du stockage :
 
 ## <a name="download-azure-backup-server-installer"></a>Télécharger le programme d’installation du serveur de sauvegarde Azure
 
-Il existe deux façons de télécharger le programme d’installation du serveur de sauvegarde Azure. Vous pouvez télécharger le programme d’installation du serveur de sauvegarde Azure depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55269). Vous pouvez également télécharger le programme d’installation du serveur de sauvegarde Azure au moment de configurer un coffre Recovery Services. Les étapes suivantes vous guident tout au long du téléchargement du programme d’installation à partir du portail Azure, au moment de la configuration d’un coffre Recovery Services.
+Il existe deux façons de télécharger le programme d’installation du serveur de sauvegarde Azure. Vous pouvez télécharger le programme d’installation du serveur de sauvegarde Azure depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). Vous pouvez également télécharger le programme d’installation du serveur de sauvegarde Azure au moment de configurer un coffre Recovery Services. Les étapes suivantes vous guident tout au long du téléchargement du programme d’installation à partir du portail Azure, au moment de la configuration d’un coffre Recovery Services.
 
 1. Depuis votre machine virtuelle Azure Stack, [connectez-vous à votre abonnement Azure dans le portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Tous les services**.

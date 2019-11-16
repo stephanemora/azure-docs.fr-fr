@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825606"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084823"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique  
+
 ## <a name="overview"></a>Vue d'ensemble
 Si vous devez extraire le contenu texte de vos fichiers vidéo et générer un texte numérique modifiable et pouvant faire l’objet d’une recherche, vous devez utiliser Azure Media Analytics OCR (reconnaissance optique de caractères). Ce processeur multimédia Azure détecte le contenu texte de vos fichiers vidéo et génère les fichiers texte à utiliser. La reconnaissance optique de caractères vous permet d’automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
 

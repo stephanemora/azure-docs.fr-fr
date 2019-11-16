@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535035"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887253"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
 
@@ -225,7 +225,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Demandes ayant échoué (requests/failed)
 
-Nombre de requêtes de serveur suivies qui ont été marquées comme ayant *échoué*. Par défaut, le SDK Application Insights marque automatiquement chaque requête de serveur qui renvoie le code de réponse HTTP 5xx ou 4xx comme une requête ayant échoué. Vous pouvez personnaliser cette logique en modifiant la propriété *success* (réussite) de l'élément de télémétrie de requête dans un [initialisateur de télémétrie personnalisé](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Nombre de requêtes de serveur suivies qui ont été marquées comme ayant *échoué*. Par défaut, le SDK Application Insights marque automatiquement chaque requête de serveur qui renvoie le code de réponse HTTP 5xx ou 4xx comme une requête ayant échoué. Vous pouvez personnaliser cette logique en modifiant la propriété *success* (réussite) de l'élément de télémétrie de requête dans un [initialisateur de télémétrie personnalisé](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|

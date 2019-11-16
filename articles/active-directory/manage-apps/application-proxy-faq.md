@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955405"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832212"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -95,7 +95,7 @@ La méthode PrincipalsAllowedToDelegateToAccount est utilisée lorsque les serve
 Si les serveurs du connecteur et le compte de service de l’application web se trouvent dans le même domaine, vous pouvez utiliser Utilisateurs et ordinateurs Active Directory pour configurer les paramètres de délégation sur chacun des comptes d’ordinateur du connecteur, ce qui leur permet de déléguer au SPN cible.
 
 Si les serveurs du connecteur et le compte de service de l’application web se trouvent dans des domaines différents, la délégation basée sur les ressources est utilisée. Les autorisations de délégation sont configurées sur le serveur web cible et le compte de service de l’application web. Cette méthode de délégation contrainte est relativement nouvelle. Elle a été introduite dans Windows Server 2012, qui prend en charge la délégation interdomaines en permettant au propriétaire de la ressource (service web) de contrôler la machine et les comptes de service qui peuvent déléguer. Il n’y a pas d’interface utilisateur pour faciliter cette configuration. Vous devez donc utiliser PowerShell.
-Pour plus d’informations, consultez le livre blanc [Understanding Kerberos Constrained Delegation with Application Proxy](http://aka.ms/kcdpaper) (Présentation de la délégation contrainte Kerberos avec le proxy d’application).
+Pour plus d’informations, consultez le livre blanc [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper) (Présentation de la délégation contrainte Kerberos avec le proxy d’application).
 
 ## <a name="pass-through-authentication"></a>Authentification directe
 

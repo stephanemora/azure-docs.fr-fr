@@ -8,12 +8,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: a46dbb95aaceb388d9a96eb066c6dda06c89b0a7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37f284f9a3dfe06e4d306b8d56a63d4b18d6cc2e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098301"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012085"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 
@@ -97,17 +97,17 @@ Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il peu
 
 Le serveur de sauvegarde Azure peut protéger les données dans les applications en cluster suivantes :
 
--   Serveurs de fichiers
+- Serveurs de fichiers
 
--   SQL Server
+- SQL Server
 
--   Hyper-V : si vous protégez un cluster Hyper-V en utilisant l’agent de protection MABS avec montée en charge, vous ne pouvez pas ajouter de protection secondaire pour les charges de travail Hyper-V protégées.
+- Hyper-V : si vous protégez un cluster Hyper-V en utilisant l’agent de protection MABS avec montée en charge, vous ne pouvez pas ajouter de protection secondaire pour les charges de travail Hyper-V protégées.
 
-    Si vous exécutez Hyper-V sur Windows Server 2008 R2, veillez à installer la mise à jour décrite dans l’article de la Base de connaissances [975354](https://support.microsoft.com/en-us/kb/975354).
-    Si vous exécutez Hyper-V sur Windows Server 2008 R2 dans une configuration de cluster, veillez à installer SP2 et KB [971394](https://support.microsoft.com/en-us/kb/971394).
+    Si vous exécutez Hyper-V sur Windows Server 2008 R2, veillez à installer la mise à jour décrite dans l’article de la Base de connaissances [975354](https://support.microsoft.com/kb/975354).
+    Si vous exécutez Hyper-V sur Windows Server 2008 R2 dans une configuration de cluster, veillez à installer SP2 et KB [971394](https://support.microsoft.com/kb/971394).
 
--   Exchange Server : le serveur de sauvegarde Azure peut protéger des clusters de disques non partagés pour les versions d’Exchange Server prises en charge (réplication continue en cluster) et peut également protéger Exchange Server configuré pour la réplication continue locale.
+- Exchange Server : le serveur de sauvegarde Azure peut protéger des clusters de disques non partagés pour les versions d’Exchange Server prises en charge (réplication continue en cluster) et peut également protéger Exchange Server configuré pour la réplication continue locale.
 
--   SQL Server : le serveur de sauvegarde Azure ne prend en charge la sauvegarde des bases de données SQL Server hébergées sur des volumes partagés de cluster.
+- SQL Server : le serveur de sauvegarde Azure ne prend en charge la sauvegarde des bases de données SQL Server hébergées sur des volumes partagés de cluster.
 
 Le serveur de sauvegarde Azure peut protéger les charges de travail de cluster qui se trouvent dans le même domaine que le serveur MABS, et dans un domaine enfant ou approuvé. Si vous voulez protéger des sources de données dans des domaines ou des groupes de travail non approuvés, utilisez NTLM ou l’authentification par certificat pour un serveur unique, ou l’authentification par certificat uniquement pour un cluster.

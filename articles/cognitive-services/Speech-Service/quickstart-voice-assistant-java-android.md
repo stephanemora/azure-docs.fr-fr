@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506210"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111795"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Créer un assistant vocal dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech
 
@@ -30,9 +30,9 @@ Cette application est basée sur le package Maven 3 du SDK Speech et sur Android
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement Azure pour les services Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
-* Un bot existant configuré avec le [canal Direct Line Speech ](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 ou version ultérieure
+- Clé d’abonnement Azure pour les services Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
+- Un bot existant configuré avec le [canal Direct Line Speech ](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Android Studio](https://developer.android.com/studio/) v3.3 ou version ultérieure
 
     > [!NOTE]
     > Reportez-vous à [la liste des régions prises en charge pour les assistants vocaux](regions.md#voice-assistants) et vérifiez que vos ressources sont déployées dans une de ces régions.
@@ -96,9 +96,9 @@ Ensuite, remplacez le contenu du fichier `activity_main.xml` par le code suivant
 
 Ce fichier XML définit une interface utilisateur simple pour interagir avec votre bot.
 
-* L’élément `button` initie une interaction et appelle la méthode `onBotButtonClicked` lorsque vous cliquez dessus.
-* L’élément `recoText` affiche les résultats de la reconnaissance vocale à mesure que vous parlez à votre bot.
-* L’élément `activityText` affiche la charge utile JSON pour l’activité Bot Framework la plus récente de votre bot.
+- L’élément `button` initie une interaction et appelle la méthode `onBotButtonClicked` lorsque vous cliquez dessus.
+- L’élément `recoText` affiche les résultats de la reconnaissance vocale à mesure que vous parlez à votre bot.
+- L’élément `activityText` affiche la charge utile JSON pour l’activité Bot Framework la plus récente de votre bot.
 
 Le texte et la représentation graphique de votre interface utilisateur doivent maintenant ressembler à ce qui suit :
 

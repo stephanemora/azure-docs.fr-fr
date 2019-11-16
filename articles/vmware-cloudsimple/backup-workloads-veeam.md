@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430855"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891398"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sauvegarder des machines virtuelles de charge de travail sur le cloud privé CloudSimple à l’aide de Veeam B&R
 
@@ -194,7 +194,7 @@ Connectez votre réseau virtuel au cloud privé en suivant les instructions de [
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configurer le stockage d’objets blob Azure pour la conservation des données à long terme
 
-1. Créez un compte de stockage à usage général (GPv2) de type standard et un conteneur d’objets blob, comme indiqué dans la vidéo de Mircosoft [Prise en main du stockage Azure](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
+1. Créez un compte de stockage à usage général (GPv2) de type standard et un conteneur d’objets blob, comme indiqué dans la vidéo de Mircosoft [Prise en main du stockage Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Créez un conteneur de stockage Azure, comme indiqué dans la référence [Créer un conteneur](https://docs.microsoft.com/rest/api/storageservices/create-container).
 2. Téléchargez `azcopy` l’utilitaire de ligne de commande pour Linux à partir de Microsoft. Vous pouvez utilisez les commandes suivantes dans l’interpréteur de commandes Bash de CentOS 7.5.
 
@@ -290,7 +290,7 @@ Pour annuler l'élévation des privilèges, consultez [Annuler l'élévation des
 * [Connecter un réseau virtuel à un circuit – autre abonnement](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Créer une machine virtuelle Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Joindre un disque de données managées à une machine virtuelle Windows dans le portail Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Prise en main d’un stockage Azure – Vidéo](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Prise en main d’un stockage Azure – Vidéo](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [Créer un conteneur](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Transférer des données avec AzCopy sur Linux](../storage/common/storage-use-azcopy-linux.md)
 

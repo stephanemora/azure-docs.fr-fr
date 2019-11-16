@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817925"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133152"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 
@@ -63,11 +63,11 @@ Le catalogue peut également indiquer si un locataire est hors connexion pour ma
 - Le niveau de service ou l’édition d’une base de données.
 - La version du schéma de base de données.
 - Le nom du locataire et son contrat SLA (contrat de niveau de service).
-- Des informations permettant d’activer la gestion des applications, le service clientèle ou les processus devops.  
+- Des informations permettant d’activer la gestion des applications, le service clientèle ou les processus devops.
 
-Le catalogue peut aussi servir à activer la création de rapport pour plusieurs locataires, la gestion des schémas et l’extraction de données à des fins d’analytique. 
+Le catalogue peut aussi servir à activer la création de rapport pour plusieurs locataires, la gestion des schémas et l’extraction de données à des fins d’analytique.
 
-### <a name="elastic-database-client-library"></a>Bibliothèque cliente de base de données élastique 
+### <a name="elastic-database-client-library"></a>Bibliothèque cliente de base de données élastique
 
 Dans Wingtip, le catalogue est implémenté dans la base de données *tenantcatalog*. La base de données *tenantcatalog* est créée à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](sql-database-elastic-database-client-library.md). La bibliothèque permet à une application de créer, gérer et utiliser une *carte de partitions* reposant sur des bases de données. Une carte de partitions croise la clé du locataire avec sa partition, c’est-à-dire avec sa base de données partitionnée.
 
@@ -108,7 +108,7 @@ Les scripts d’approvisionnement des locataires de ce didacticiel prennent en c
 - Approvisionnement d’un locataire dans une base de données existante partagée avec d’autres locataires.
 - Approvisionnement d’un locataire dans sa propre base de données.
 
-Les données de locataire sont ensuite initialisées et inscrites dans la carte de partitions du catalogue. Dans l’exemple d’application, les bases de données qui contiennent plusieurs locataires reçoivent un nom générique, tel que *tenants1* ou *tenants2*. Les bases de données contenant un seul locataire prennent le nom du locataire. Les conventions de nommage spécifiques utilisées dans l’exemple ne sont pas un élément essentiel du modèle, car l’utilisation d’un catalogue permet d’attribuer n’importe quel nom à la base de données.  
+Les données de locataire sont ensuite initialisées et inscrites dans la carte de partitions du catalogue. Dans l’exemple d’application, les bases de données qui contiennent plusieurs locataires reçoivent un nom générique, tel que *tenants1* ou *tenants2*. Les bases de données contenant un seul locataire prennent le nom du locataire. Les conventions de nommage spécifiques utilisées dans l’exemple ne sont pas un élément essentiel du modèle, car l’utilisation d’un catalogue permet d’attribuer n’importe quel nom à la base de données.
 
 <a name="goto_1_tutorial"/>
 
@@ -132,7 +132,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 - Obtenir les scripts et le code source Wingtip :
     - Les scripts et le code source de l’application de base de données multilocataire Wingtip Tickets SaaS sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB).
-    - Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip. 
+    - Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>Provisionner un locataire dans une base de données *partagée* avec d’autres locataires
 
@@ -144,8 +144,8 @@ Voici des étapes clés du flux de travail de provisionnement :
 
 - **Calculer la clé du nouveau locataire** : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
 - **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
-- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.  
-- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue. 
+- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
+- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue.
 - **Ajouter le nom du locataire à la table des extensions d'un catalogue** : Le nom du lieu est ajouté à la table Tenants dans le catalogue.  Voici comment la base de données de catalogues peut être étendue pour prendre en charge des données supplémentaires spécifiques de l’application.
 - **Ouvrir la page Événements du nouveau locataire** : La page des événements *Bushwillow Blues* est ouverte dans le navigateur.
 
@@ -172,7 +172,7 @@ Pour comprendre comment l’application Wingtip implémente le provisionnement d
 
 5. Suivez l’exécution du script à l’aide des options du menu **Débogage**, **F10** et **F11**, pour parcourir les fonctions appelées.
 
-Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Provisionner un locataire dans sa *propre* base de données
 
@@ -184,7 +184,7 @@ Voici des étapes clés du flux de travail pendant le suivi de script :
 - **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
 - **Créer une base de données de locataire** : La base de données est créée en copiant la base de données *basetenantdb* à l’aide d’un modèle Resource Manager.  Le nom de la nouvelle base de données est basé sur le nom du locataire.
 - **Ajouter la base de données au catalogue** : La nouvelle base de données de locataire est inscrite sous forme de partition dans le catalogue.
-- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.  
+- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
 - **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données *sequoiasoccer* existante est ajouté au catalogue.
 - **Le nom du locataire est ajouté au catalogue** : Le nom du lieu est ajouté à la table d’extension Tenants dans le catalogue.
 - **Ouvrir la page Événements du nouveau locataire** : La page des événements *Sequoia Soccer* est ouverte dans le navigateur.
@@ -217,7 +217,7 @@ Cet exercice permet d’approvisionner un lot de 17 clients. Nous vous recommand
 
 2. Appuyez sur **F5** pour exécuter le script.
 
-### <a name="verify-the-deployed-set-of-tenants"></a>Vérifier le groupe de locataires déployé 
+### <a name="verify-the-deployed-set-of-tenants"></a>Vérifier le groupe de locataires déployé
 
 À ce stade, vous avez des locataires déployés dans une base de données partagée et des locataires déployés dans leur propre base de données. Vous pouvez utiliser le portail Azure pour inspecter les bases de données créées. Dans le [portail Azure](https://portal.azure.com), ouvrez le serveur **tenants1-mt-\<USER\>** en parcourant la liste des serveurs SQL Server.  La liste des **bases de données SQL** doit inclure la base de données **tenants1** partagée et les bases de données des locataires qui ont leur propre base de données :
 
@@ -227,7 +227,7 @@ Bien que le portail Azure affiche les bases de données de locataire, vous ne po
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Utilisation de la page Hub d’événements Wingtip Tickets
 
-Ouvrez la page Hub d’événements dans le navigateur (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+Ouvrez la page Hub d’événements dans le navigateur (http:events.wingtip-mt.\<USER\>.trafficmanager.net)
 
 #### <a name="using-catalog-database"></a>Utilisation de la base de données de catalogues
 
@@ -245,7 +245,7 @@ La liste complète des locataires et la base de données correspondante à chacu
 3. Cliquez avec le bouton droit sur la vue *TenantsExtended* et choisissez **Sélectionner les 1 000 premières lignes**. Notez le mappage entre le nom de locataire et la base de données pour les différents locataires.
 
     ![Vue ExtendedTenants dans SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## <a name="other-provisioning-patterns"></a>Autres modèles d’approvisionnement
 
 Cette section aborde d’autres modèles de provisionnement intéressants.
@@ -264,7 +264,7 @@ Ce type de service automatique peut être simple ou complexe. Par exemple, le sy
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)
-- [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Déboguer les scripts dans l’ISE Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fa7ee6663aae24451af195de4a8225c7a6b351e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647143"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049172"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,7 +179,7 @@ L’analyse du jeu de données ainsi définie s’affiche dans la liste. Sélect
 
 ### <a name="from-python-sdk"></a>À partir du kit de développement logiciel Python
 
-La [documentation de référence du SDK python sur la dérive des données](https://aka.ms/datadriftapi) fournir des informations complètes sur le sujet. 
+La [documentation de référence du SDK python sur la dérive des données](/python/api/azureml-datadrift/azureml.datadrift) fournir des informations complètes sur le sujet. 
 
 Voici un exemple de création d’une analyse de jeu de données à l’aide du SDK Python
 

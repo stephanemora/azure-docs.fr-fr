@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: c542abe0e778b9204a23ccea0f3617656ba101e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210441"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074301"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
+
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.
 
 Le processus d’amorçage hors connexion de la sauvegarde Azure est étroitement intégré au [service Azure Import/Export](../storage/common/storage-import-export-service.md) qui vous permet de transférer des données vers Azure à l’aide de disques. Si vous devez transférer des téraoctets (To) de données de sauvegarde initiale sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le flux de travail d’amorçage hors connexion pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. Cet article donne une vue d’ensemble des étapes requises pour effectuer ce flux de travail pour System Center DPM et le serveur de sauvegarde Azure.
@@ -25,9 +26,11 @@ Le processus d’amorçage hors connexion de la sauvegarde Azure est étroitemen
 >
 
 ## <a name="overview"></a>Vue d'ensemble
+
 Grâce à la fonction d’amorçage hors connexion de la sauvegarde Azure et à Azure Import/Export, vous pouvez charger facilement les données dans Azure hors connexion à l’aide de disques. Le processus de sauvegarde en mode hors connexion inclut les étapes suivantes :
 
 > [!div class="checklist"]
+>
 > * Les données de sauvegarde, au lieu d’être envoyées sur le réseau, sont écrites dans un *emplacement intermédiaire*
 > * Les données figurant dans l’*emplacement intermédiaire* sont ensuite écrites sur un ou plusieurs disques SATA à l’aide de l’utilitaire *AzureOfflineBackupDiskPrep*
 > * L’utilitaire crée automatiquement une tâche d’importation Azure
@@ -35,15 +38,19 @@ Grâce à la fonction d’amorçage hors connexion de la sauvegarde Azure et à 
 > * Une fois les données de sauvegarde chargées dans Azure, la sauvegarde Azure copie les données de sauvegarde dans le coffre de sauvegarde, et des sauvegardes incrémentielles sont planifiées.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
+
 La sauvegarde en mode hors connexion est prise en charge pour tous les modèles de déploiement de Sauvegarde Azure qui sauvegardent hors site des données locales sur le Microsoft Cloud. Elle inclut ce qui suit
 
 > [!div class="checklist"]
+>
 > * Sauvegarde de fichiers et dossiers avec l’agent Microsoft Azure Recovery Services ou l’agent Sauvegarde Azure.
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Microsoft System Center Data Protection Manager
-> * Sauvegarde de l’ensemble des charges de travail et fichiers avec Serveur Sauvegarde Microsoft Azure <br/>
+> * Sauvegarde de l’ensemble des charges de travail et fichiers avec Serveur Sauvegarde Microsoft Azure
 
 ## <a name="prerequisites"></a>Prérequis
+
 Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flux de travail de sauvegarde en mode hors connexion
+
 * Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) a été créé. Pour en créer un, procédez de la manière décrite dans [cet article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * L’agent Sauvegarde Azure, le serveur de sauvegarde Azure ou Microsoft System Center Data Protection Manager ont été installés sur un client Windows Server ou Windows, selon le besoin, et l’ordinateur est inscrit auprès du coffre Recovery Services. Assurez-vous que seule la [version la plus récente de Sauvegarde Azure](https://go.microsoft.com/fwlink/?linkid=229525) est utilisée.
 * [Téléchargez le fichier des paramètres de publication Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) sur l’ordinateur à partir duquel vous prévoyez de sauvegarder vos données. L’abonnement à partir duquel vous téléchargez le fichier des paramètres de publication peut être différent de celui contenant le coffre Recovery Services. Si votre abonnement figure sur un cloud Azure souverain, utilisez les liens appropriés suivants pour télécharger le fichier de paramètres de publication Azure.
@@ -62,9 +69,11 @@ Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flu
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’*emplacement intermédiaire* vers les disques SATA. Vérifiez que BitLocker est activé sur l'*ordinateur de copie*
 
 ## <a name="workflow"></a>Workflow
+
 Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](../storage/common/storage-import-export-service.md) susmentionnée.
 
 ### <a name="initiate-offline-backup"></a>Lancer la sauvegarde hors connexion
+
 1. Lorsque vous planifiez une sauvegarde, l’écran suivant s’affiche (dans Windows Server, le client Windows ou System Center Data Protection Manager).
 
     ![Écran d’importation](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
@@ -96,6 +105,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
     ![Progression de la sauvegarde](./media/backup-azure-backup-import-export/opbackupnow.png)
 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Préparer des disques SATA et envoyer à Azure
+
 L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA qui sont envoyés au centre de données Azure le plus proche. Cet utilitaire est disponible dans le répertoire d’installation de l’agent Recovery Services dont le chemin d’accès est le suivant :
 
 *\\Microsoft Azure Recovery Services Agent\\Utils\\*
@@ -110,7 +120,6 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
 
      > [!IMPORTANT]
      > Si l’ordinateur source est une machine virtuelle, il est obligatoire d’utiliser un autre serveur physique ou un ordinateur client en tant qu’ordinateur de copie.
-
 
 2. Ouvrez une invite de commande avec élévation de privilèges sur l’ordinateur de copie en utilisant le répertoire de l’utilitaire *AzureOfflineBackupDiskPrep* comme répertoire actuel, puis exécutez la commande suivante :
 
@@ -149,7 +158,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
    > [!IMPORTANT]
    > Chaque tâche d’importation Azure doit avoir un numéro de suivi unique. Assurez-vous que les lecteurs préparés par l’utilitaire sous une tâche d’importation Azure sont expédiés ensemble dans un package unique, et qu’il existe un numéro de suivi unique pour ce package. Ne combinez pas dans un même package des lecteurs préparés dans le cadre de tâches d’importation Azure **différentes**.
 
-5. Lorsque vous disposez des informations de numéro de suivi, accédez à l’ordinateur source qui attend l’achèvement de la tâche d’importation, puis exécutez la commande suivante dans une invite de commandes avec élévation de privilèges en utilisant le répertoire de l’utilitaire *AzureOfflineBackupDiskPrep* en tant que répertoire actif :
+7. Lorsque vous disposez des informations de numéro de suivi, accédez à l’ordinateur source qui attend l’achèvement de la tâche d’importation, puis exécutez la commande suivante dans une invite de commandes avec élévation de privilèges en utilisant le répertoire de l’utilitaire *AzureOfflineBackupDiskPrep* en tant que répertoire actif :
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
@@ -167,11 +176,11 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
 
     ![Entrée des informations d’expédition](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-6. Une fois toutes les informations entrées, révisez attentivement leurs détails et validez-les en tapant *Oui*.
+8. Une fois toutes les informations entrées, révisez attentivement leurs détails et validez-les en tapant *Oui*.
 
     ![Réviser les informations d’expédition](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-7. Une fois la mise à jour des informations d’expédition effectuée, l’utilitaire fournit un emplacement local où stocker les informations d’expédition que vous avez entrées, comme indiqué ci-dessous
+9. Une fois la mise à jour des informations d’expédition effectuée, l’utilitaire fournit un emplacement local où stocker les informations d’expédition que vous avez entrées, comme indiqué ci-dessous
 
     ![Stockage des informations d’expédition](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
@@ -181,25 +190,29 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
 Une fois les étapes ci-dessus accomplies, le centre de données Azure est prêt à recevoir les lecteurs et à les traiter afin de transférer les données de sauvegarde des lecteurs vers le compte de stockage Azure de type classique que vous avez créé.
 
 ### <a name="time-to-process-the-drives"></a>Temps de traitement des lecteurs
+
 Le temps nécessaire au traitement d’une tâche d’importation Azure varie en fonction de différents facteurs, dont l’heure d’expédition, le type de travail, le type et la taille des données copiées, ainsi que la taille des disques fournis. Le service Azure Import/Export n’offre pas de contrat de niveau de service (SLA) mais, une fois les disques reçus, il s’efforce de copier les données de sauvegarde vers votre compte de stockage Azure dans les 7 à 10 jours. La section suivante décrit en détail comment surveiller l’état de la tâche d’importation Azure.
 
 ### <a name="monitoring-azure-import-job-status"></a>Surveillance de l’état de la tâche d’importation Azure
+
 Quand vos lecteurs sont en transit ou se trouvent dans le centre de données Azure en vue de leurs copie vers le compte de stockage, l’agent Sauvegarde Azure, Microsoft System Center Data Protection Manager ou la console du serveur de sauvegarde Azure sur l’ordinateur source affichent l’état de la tâche suivant pour vos sauvegardes planifiées.
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
 Pour vérifier l’état de la tâche d’importation, procédez comme suit.
+
 1. Ouvrez une invite de commandes avec élévation de privilèges sur l’ordinateur source, puis exécutez la commande suivante :
 
      `AzureOfflineBackupDiskPrep.exe u:`
 
-2.  La sortie indique l’état actuel de la tâche d’importation, comme ci-dessous :
+2. La sortie indique l’état actuel de la tâche d’importation, comme ci-dessous :
 
     ![Vérification de l’état de la tâche d’importation](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
 Pour plus d’informations sur les différents états de la tâche d’importation Azure, voir [cet article](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
+
 Une fois le travail d’importation terminé, les données de sauvegarde initiale sont disponibles dans votre compte de stockage. Lors de la sauvegarde planifiée suivante, la sauvegarde Azure copie le contenu des données à partir du compte de stockage vers le coffre Recovery Services, comme ci-dessous :
 
    ![Copie de données vers le coffre Recovery Services](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
@@ -207,5 +220,6 @@ Une fois le travail d’importation terminé, les données de sauvegarde initial
 Lors de la sauvegarde planifiée suivante, Sauvegarde Azure effectue une sauvegarde incrémentielle par-dessus la copie de sauvegarde initiale.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
 * Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) de la sauvegarde Azure pour toute question concernant le flux de travail.

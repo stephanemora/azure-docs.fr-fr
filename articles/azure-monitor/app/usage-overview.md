@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899429"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884826"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
@@ -125,7 +125,7 @@ Pour cette technique, vous joignez des valeurs de propriétés distinctes à tou
 
 Dans le portail Application Insights, filtrez et segmentez vos données sur les valeurs de propriétés, afin de comparer les différentes versions.
 
-Pour ce faire, [configurez un initialiseur de télémétrie](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) :
+Pour ce faire, [configurez un initialiseur de télémétrie](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) :
 
 **Applications ASP.NET**
 

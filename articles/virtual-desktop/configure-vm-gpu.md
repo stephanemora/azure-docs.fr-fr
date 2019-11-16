@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679589"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953952"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -34,9 +34,6 @@ Windows Virtual Desktop prend en charge le rendu et le codage avec accélératio
 * Windows Server 2016 ou version ultérieure
 
 Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
-
->[!NOTE]
->Windows Virtual Desktop prend uniquement en charge le type de groupe d’applications « Bureau » pour les pools d’hôtes prenant en charge le GPU. Les groupes d’applications de type « RemoteApp » ne sont pas pris en charge pour les pools d’hôtes prenant en charge le GPU.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installer des pilotes graphiques pris en charge dans votre machine virtuelle
 

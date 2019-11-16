@@ -7,13 +7,14 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 1e0fb1ccc54ecd32d4184fdafb2f0604ccdfd189
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 55483fd7b42a63e0e8a8073bca194e94eca64182
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601380"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013719"
 ---
+# <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
 Si vous souhaitez commencer à utiliser des disques Ultra, consultez notre article sur le sujet : [Utilisation de disques Ultra Azure](disks-enable-ultra-ssd.md).

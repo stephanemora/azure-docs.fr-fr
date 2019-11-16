@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026583"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907103"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -91,19 +91,22 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 - Japon Est
 - OuJapon Est
 - Gouvernement américain - Virginie
+- Chine orientale 2
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Centre du Canada
 - Centre-USA Ouest
-- USA Ouest
-- USA Ouest 2
-- États-Unis - partie centrale méridionale
-- USA Centre
 - USA Est
 - USA Est 2
+- Centre-Nord des États-Unis
+- États-Unis - partie centrale méridionale
+- USA Centre
+- USA Ouest
+- USA Ouest 2
 - France Centre
 - Europe Ouest
 - Europe Nord
+- Ouest du Royaume-Uni
 - Sud du Royaume-Uni
 - Australie Est
 - Sud-Australie Est
@@ -113,6 +116,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Inde centrale
 - Japon Est
 - Gouvernement américain - Virginie
+- Chine orientale 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Puis-je activer des journaux de flux pour des NSG qui se trouvent dans des régions différentes de mon espace de travail ?
 

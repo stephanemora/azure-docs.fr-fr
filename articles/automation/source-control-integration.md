@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990243"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886527"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
@@ -177,7 +177,7 @@ Si plusieurs personnes modifient les runbooks qui se trouvent dans votre dépôt
 
 Actuellement, il n’existe aucun moyen de mettre à jour le jeton d’accès dans le contrôle de code source à partir du portail. Une fois que votre jeton d’accès personnel a expiré ou a été révoqué, vous pouvez mettre à jour le contrôle de code source avec un nouveau jeton d’accès en procédant de l’une des manières suivantes :
 
-* Via l’[API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Via l’[API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Via la cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Étapes suivantes

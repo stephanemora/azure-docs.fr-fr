@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: f2c6676284e8ed58f1626ab824aa7a7c9c456a31
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494455"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838097"
 ---
-# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Vue d'ensemble : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
+# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Vue d’ensemble : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
 Lorsque vous êtes prêt à automatiser la création et le déploiement de votre application logique, vous pouvez développer la définition de flux de travail sous-jacente de votre application logique en un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Ce modèle définit l’infrastructure, les ressources, les paramètres et d’autres informations pour l’approvisionnement et le déploiement de votre application logique. En définissant des paramètres pour des valeurs qui varient lors du déploiement, opération également appelée *paramétrage*, vous pouvez déployer de façon répétée et cohérente des applications logiques en fonction de différents besoins de déploiement.
 
@@ -324,11 +324,11 @@ Voici les attributs spécifiques de la définition de ressource de votre applica
 
 | Attribut | Obligatoire | Type | Description |
 |-----------|----------|------|-------------|
-| `state` | Oui | Chaîne | État de votre application logique lors du déploiement, où `Enabled` signifie que votre application logique est active et `Disabled` signifie qu’elle est inactive. Par exemple, si vous n’êtes pas prêt à mettre en ligne votre application logique mais souhaitez déployer une version brouillon, vous pouvez utiliser l’option `Disabled`. |
-| `integrationAccount` | Non | Objet | Si votre application logique utilise un compte d’intégration qui stocke des artefacts pour des scénarios interentreprises (B2B), cet objet inclut l’attribut `id` qui spécifie l’ID du compte d’intégration. |
-| `definition` | Oui | Objet | Définition de flux de travail sous-jacent de votre application logique, qui est l’objet qui s’affiche en mode Code et qui est décrit en détail dans la rubrique [Référence de schéma pour le langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). Dans cette définition de flux de travail, l’objet `parameters` déclare des paramètres pour les valeurs à utiliser lors de l’exécution de l’application logique. Pour plus d’informations, voir [Définition et paramètres de flux de travail](#workflow-definition-parameters). <p><p>Pour afficher les attributs dans la définition de flux de travail de votre application logique, passez du « mode Création » au « mode Code » dans le portail Azure ou Visual Studio, ou en vous servant d’un outil tel qu’[Azure Resource Explorer](http://resources.azure.com). |
-| `parameters` | Non | Objet | [Valeurs de paramètre de définition de flux de travail](#workflow-definition-parameters) à utiliser lors de l’exécution d’une application logique. Les définitions de paramètre de ces valeurs apparaissent dans l’[objet de paramètres de votre définition de flux de travail​​](#workflow-definition-parameters). De plus, si votre application logique utilise des [connecteurs managés](../connectors/apis-list.md) pour accéder à d’autres services et systèmes, cet objet inclut un objet `$connections` qui définit les valeurs de connexion à utiliser lors de l’exécution. |
-| `accessControl` | Non | Objet | Utilisé pour spécifier des attributs de sécurité pour votre application logique, tels qu’une restriction d’accès IP aux déclencheurs de demandes ou aux entrées et sorties de l’historique d’exécution. Pour plus d’informations, voir [Accès sécurisé aux applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `state` | OUI | Chaîne | État de votre application logique lors du déploiement, où `Enabled` signifie que votre application logique est active et `Disabled` signifie qu’elle est inactive. Par exemple, si vous n’êtes pas prêt à mettre en ligne votre application logique mais souhaitez déployer une version brouillon, vous pouvez utiliser l’option `Disabled`. |
+| `integrationAccount` | Non | Object | Si votre application logique utilise un compte d’intégration qui stocke des artefacts pour des scénarios interentreprises (B2B), cet objet inclut l’attribut `id` qui spécifie l’ID du compte d’intégration. |
+| `definition` | OUI | Object | Définition de flux de travail sous-jacent de votre application logique, qui est l’objet qui s’affiche en mode Code et qui est décrit en détail dans la rubrique [Référence de schéma pour le langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). Dans cette définition de flux de travail, l’objet `parameters` déclare des paramètres pour les valeurs à utiliser lors de l’exécution de l’application logique. Pour plus d’informations, voir [Définition et paramètres de flux de travail](#workflow-definition-parameters). <p><p>Pour afficher les attributs dans la définition de flux de travail de votre application logique, passez du « mode Création » au « mode Code » dans le portail Azure ou Visual Studio, ou en vous servant d’un outil tel qu’[Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | Non | Object | [Valeurs de paramètre de définition de flux de travail](#workflow-definition-parameters) à utiliser lors de l’exécution d’une application logique. Les définitions de paramètre de ces valeurs apparaissent dans l’[objet de paramètres de votre définition de flux de travail​​](#workflow-definition-parameters). De plus, si votre application logique utilise des [connecteurs managés](../connectors/apis-list.md) pour accéder à d’autres services et systèmes, cet objet inclut un objet `$connections` qui définit les valeurs de connexion à utiliser lors de l’exécution. |
+| `accessControl` | Non | Object | Utilisé pour spécifier des attributs de sécurité pour votre application logique, tels qu’une restriction d’accès IP aux déclencheurs de demandes ou aux entrées et sorties de l’historique d’exécution. Pour plus d’informations, voir [Accès sécurisé aux applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
 Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration et les artefacts de compte d’intégration, voir [Types de ressources Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
@@ -1006,7 +1006,7 @@ L’objet `parameters` de niveau supérieur du modèle déclare ces paramètres 
 
 Pour plus d’informations sur l’utilisation des principaux de service, voir les rubriques suivantes :
 
-* [Créer un principal de service à l’aide du portail Azure ](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Création d’un principal de service à l’aide du portail Azure](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Créer un principal de service Azure à l’aide d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
 * [Créer un principal de service avec un certificat à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 

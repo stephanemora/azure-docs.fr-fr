@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8b9f659098e563a3dc0692530ad798a5c763551f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130329"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133406"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 
@@ -67,7 +67,7 @@ Voici quelques spécifications recommandées pour chaque ordinateur que vous sou
 * Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
 * Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709 ou 1803). Les versions 6.4.654.9590 et ultérieures de Service Fabric prennent également en charge Windows Server 2019 et 1809.
 * [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs
 * Le lecteur d’installation de Service Fabric doit être au format de système de fichiers NTFS.
 
@@ -99,7 +99,7 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 1. L’utilisateur qui crée le cluster doit disposer de privilèges de sécurité de niveau administrateur sur tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster.
 2. L’ordinateur à partir duquel le cluster est créé, ainsi que chaque ordinateur nœud du cluster doit respecter les conditions suivantes :
    * le Kit de développement logiciel (SDK) Service Fabric doit être désinstallé ;
-   * le runtime Service Fabric doit être désinstallé ; 
+   * le runtime Service Fabric doit être désinstallé ;
    * le service pare-feu Windows (mpssvc) doit être activé ;
    * le service Registre distant (remoteregistry) doit être activé ;
    * le partage de fichiers (SMB) doit être activé ;
@@ -137,7 +137,7 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 | FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>Valider l’environnement à l’aide du script TestConfiguration
-Vous trouverez le script TestConfiguration.ps1 dans le package autonome. Il est utilisé comme un outil d’analyse des meilleures pratiques pour valider certains des critères ci-dessus et doit être utilisé comme contrôle de la validité pour vérifier si un cluster peut être déployé dans un environnement donné. En cas de défaillance, consultez la liste sous [Configuration de l’environnement](service-fabric-cluster-standalone-deployment-preparation.md) pour la résolution des problèmes. 
+Vous trouverez le script TestConfiguration.ps1 dans le package autonome. Il est utilisé comme un outil d’analyse des meilleures pratiques pour valider certains des critères ci-dessus et doit être utilisé comme contrôle de la validité pour vérifier si un cluster peut être déployé dans un environnement donné. En cas de défaillance, consultez la liste sous [Configuration de l’environnement](service-fabric-cluster-standalone-deployment-preparation.md) pour la résolution des problèmes.
 
 Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un accès administrateur à tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster. L’ordinateur sur lequel ce script est exécuté ne doit pas nécessairement faire partie du cluster.
 
@@ -160,12 +160,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-Actuellement, ce module de test de configuration ne valide pas la configuration de sécurité. Cette opération doit donc être effectuée de manière indépendante.  
+Actuellement, ce module de test de configuration ne valide pas la configuration de sécurité. Cette opération doit donc être effectuée de manière indépendante.
 
 > [!NOTE]
-> Nous améliorons en permanence ce module afin de le rendre plus fiable. Par conséquent, s’il existe un cas défectueux ou manquant qui, selon vous, n’est pas actuellement détecté par TestConfiguration, faites-le nous savoir via nos [canaux de prise en charge](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
-> 
-> 
+> Nous améliorons en permanence ce module afin de le rendre plus fiable. Par conséquent, s’il existe un cas défectueux ou manquant qui, selon vous, n’est pas actuellement détecté par TestConfiguration, faites-le nous savoir via nos [canaux de prise en charge](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un cluster autonome s’exécutant sur Windows Server](service-fabric-cluster-creation-for-windows-server.md)

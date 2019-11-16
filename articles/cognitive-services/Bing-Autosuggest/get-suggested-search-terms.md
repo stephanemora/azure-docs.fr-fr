@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce que la Suggestion automatique Bing ?
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser l’API Suggestion automatique Bing.
+description: L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 13606fa5a58106575648a39e5074507f5d3bf471
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405371"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072869"
 ---
 # <a name="what-is-bing-autosuggest"></a>Qu’est-ce que la Suggestion automatique Bing ?
 

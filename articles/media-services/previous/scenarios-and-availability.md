@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991429"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083209"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -212,7 +212,6 @@ Media Analytics est une collection de composants visuels et vocaux qui aident le
 |Détecteur de mouvement Azure Media|PRÉVERSION|Tous|
 |Azure Media OCR|PRÉVERSION|Tous|
 |Azure Media Redactor|PRÉVERSION|Tous|
-|Azure Media Stabilizer|PRÉVERSION|Tous|
 |Miniatures vidéo Azure Media|PRÉVERSION|Tous|
 |Azure Media Indexer 2|PRÉVERSION|Tout sauf la région de Chine et du gouvernement fédéral|
 

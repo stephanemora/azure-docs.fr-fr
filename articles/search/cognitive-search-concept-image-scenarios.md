@@ -1,5 +1,5 @@
 ---
-title: Traiter et extraire du texte d’images dans un pipeline d’enrichissement
+title: Extraire du texte à partir des images
 titleSuffix: Azure Cognitive Search
 description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines Recherche cognitive Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787734"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113857"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 

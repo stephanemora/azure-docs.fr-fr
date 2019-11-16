@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 018a0405215d084962f6c107a607c8f82fae2500
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686672"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132005"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -254,7 +254,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Ce code appelle les fonctions [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) et [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) de ContainerURL sans utiliser une instance [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter). Pour simplifier les choses dans ce démarrage rapide, ce code suppose que votre compte de stockage a été créé et qu’il est activé. Dans le code de production, utilisez une instance Aborter pour ajouter une fonctionnalité de délai d’expiration.
+Ce code appelle les fonctions [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) et [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) de ContainerURL sans utiliser une instance [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter). Pour simplifier les choses dans ce démarrage rapide, ce code suppose que votre compte de stockage a été créé et qu’il est activé. Dans le code de production, utilisez une instance Aborter pour ajouter une fonctionnalité de délai d’expiration.
 
 ### <a name="list-blobs"></a>Liste des objets blob
 
@@ -290,7 +290,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Ce code appelle la fonction [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) dans une boucle afin de garantir que tous les segments sont récupérés. Pour chaque segment, il effectue une itération sur la liste des éléments blob qu’il contient et met à jour la liste **Fichiers**.
+Ce code appelle la fonction [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) dans une boucle afin de garantir que tous les segments sont récupérés. Pour chaque segment, il effectue une itération sur la liste des éléments blob qu’il contient et met à jour la liste **Fichiers**.
 
 ### <a name="upload-blobs"></a>Charger des objets blob
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Ce code connecte le bouton **Sélectionner et charger des fichiers** à l’élément `file-input` masqué. De cette façon, l’événement `click` de bouton déclenche l’événement `click` de l’entrée de fichier et affiche le sélecteur de fichiers. Une fois que vous sélectionnez les fichiers et fermé la boîte de dialogue, l’événement `input` se produit et la fonction `uploadFiles` est appelée. Cette fonction appelle la fonction [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) de navigateur uniquement pour chaque fichier que vous avez sélectionné. Chaque appel retourne une Promesse qui est ajoutée à une liste afin de toutes les attendre en même temps, entraînant le chargement des fichiers en parallèle.
+Ce code connecte le bouton **Sélectionner et charger des fichiers** à l’élément `file-input` masqué. De cette façon, l’événement `click` de bouton déclenche l’événement `click` de l’entrée de fichier et affiche le sélecteur de fichiers. Une fois que vous sélectionnez les fichiers et fermé la boîte de dialogue, l’événement `input` se produit et la fonction `uploadFiles` est appelée. Cette fonction appelle la fonction [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) de navigateur uniquement pour chaque fichier que vous avez sélectionné. Chaque appel retourne une Promesse qui est ajoutée à une liste afin de toutes les attendre en même temps, entraînant le chargement des fichiers en parallèle.
 
 ### <a name="delete-blobs"></a>Suppression d’objets blob
 

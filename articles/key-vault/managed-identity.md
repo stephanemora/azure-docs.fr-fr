@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720248"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837493"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fournir une authentification Key Vault avec une identité managée
 
@@ -34,7 +34,7 @@ Pour suivre ce guide, vous avez besoin des ressources suivantes.
    - [Créer un coffre de clés avec Azure PowerShell](quick-create-powershell.md)
    - [Créer un coffre de clés avec le portail Azure](quick-create-portal.md).
 - Une application App Service existante à laquelle accorder l’accès au coffre de clés. Vous pouvez en créer une rapidement en suivant les étapes décrites dans la [documentation App Service](../app-service/overview.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Vous pouvez également utiliser le [portail Azure](http://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Vous pouvez également utiliser le [portail Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Ajout d’une identité attribuée par le système 

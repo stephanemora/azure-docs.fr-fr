@@ -14,14 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306732"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082995"
 ---
-[!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+# <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
+Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
+
+> [!NOTE]
+> Bash et PowerShell utilisent le même partage de fichiers. Un seul partage de fichiers peut être associé à un montage automatique dans Cloud Shell.
+
+## <a name="create-new-storage"></a>Créer un stockage
+
+Lorsque vous utilisez des paramètres de base et sélectionnez uniquement un abonnement, Cloud Shell crée trois ressources pour vous dans la région prise en charge la plus proche de vous :
+* Groupe de ressources : `cloud-shell-storage-<region>`
+* Compte de stockage : `cs<uniqueGuid>`
+* Partage de fichiers : `cs-<user>-<domain>-com-<uniqueGuid>`
+
+![Paramètre d’abonnement](media/persisting-shell-storage/basic-storage.png)
+
+Le partage de fichiers est monté comme un `clouddrive` dans votre répertoire `$Home`. Cette opération n’a lieu qu’une seule fois, car le partage de fichiers est automatiquement monté dans les sessions suivantes. 
+
+> [!NOTE]
+> Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
+
+Le partage de fichiers contient également une image de 5 Go. Automatiquement créée pour vous, celle-ci conserve les données dans votre répertoire `$Home`. Cela vaut pour Bash et PowerShell.
+
+## <a name="use-existing-resources"></a>Utiliser les ressources existantes
+
+L’option Avancé vous permet d’associer des ressources existantes. Lorsque vous sélectionnez une région Cloud Shell, vous devez également choisir un compte de stockage de sauvegarde dans cette région. Par exemple, si votre région affectée est USA Ouest, vous devez alors associer un partage de fichiers qui se trouve également dans USA Ouest.
+
+Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). 
+
+> [!NOTE]
+> Il est recommandé d’utiliser des comptes de stockage GRS ou ZRS afin d’offrir une résilience supplémentaire pour votre partage de fichiers de sauvegarde. Le type de redondance dépend de vos objectifs et de votre budget. [En savoir plus sur les options de réplication pour les comptes de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+
+![Paramètre Groupe de ressources](media/persisting-shell-storage/advanced-storage.png)
+
+### <a name="supported-storage-regions"></a>Régions de stockage prises en charge
+Les comptes de stockage Azure associées doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.
+
+Les machines Cloud Shell existent dans les régions suivantes :
+
+|Domaine|Région|
+|---|---|
+|Amérique|USA Est, USA Centre Sud, USA Ouest|
+|Europe|Europe Nord, Europe Ouest|
+|Asie-Pacifique|Inde Centre, Asie Sud-Est|
+
+## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restreindre la création de ressources avec une stratégie de ressource Azure
+Les comptes de stockage que vous créez dans Cloud Shell sont identifiés à l’aide de la balise `ms-resource-usage:azure-cloud-shell`. Si vous souhaitez interdire aux utilisateurs de créer des comptes de stockage par le biais de Cloud Shell, créez une [stratégie de ressource Azure pour les balises](../azure-policy/json-samples.md) déclenchée par cette balise spécifique.
+
+
 
 ## <a name="how-cloud-shell-storage-works"></a>Fonctionnement du stockage Cloud Shell 
 Cloud Shell conserve les fichiers à l’aide des deux méthodes suivantes : 

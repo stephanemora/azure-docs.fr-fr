@@ -1,6 +1,6 @@
 ---
 title: Examiner la sortie de Video Indexer Azure Media Services générée par l’API v2
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Cette rubrique examine la sortie de Video Indexer générée par l’API v2.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839536"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
 

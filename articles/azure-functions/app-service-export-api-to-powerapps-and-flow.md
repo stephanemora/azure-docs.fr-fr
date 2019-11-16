@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087691"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082844"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportation d’une API hébergée sur Azure vers PowerApps et Microsoft Flow
 
@@ -30,7 +30,7 @@ De même, les développeurs qui souhaitent exposer leurs API plus largement au s
 Avant d’exporter une API, vous devez décrire l’API en utilisant une définition OpenAPI (anciennement appelée un fichier [Swagger](https://swagger.io/)). Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées. PowerApps et Microsoft Flow peuvent créer des connecteurs personnalisés pour toute définition OpenAPI 2.0. Azure Functions et Azure App Service prennent en charge la création, l’hébergement et la gestion des définitions OpenAPI. Pour plus d’informations, consultez [Héberger une API RESTful avec CORS dans Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
-> Vous pouvez également créer des connecteurs personnalisés dans l’interface utilisateur de PowerApps et de Microsoft Flow, sans utiliser de définition OpenAPI. Pour plus d’informations, consultez [S’inscrire et utiliser un connecteur personnalisé (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) et [S’inscrire et utiliser un connecteur personnalisé (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
+> Vous pouvez également créer des connecteurs personnalisés dans l’interface utilisateur de PowerApps et de Microsoft Flow, sans utiliser de définition OpenAPI. Pour plus d’informations, consultez [S’inscrire et utiliser un connecteur personnalisé (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) et [S’inscrire et utiliser un connecteur personnalisé (Microsoft Flow)](/power-automate/developer/register-custom-api).
 
 Pour exporter la définition de l’API, effectuez les opérations suivantes :
 
@@ -127,7 +127,7 @@ Pour importer la définition de l’API dans PowerApps et Microsoft Flow, suivez
 
 7. Cliquez sur **Créer un connecteur** en haut de la page.
 
-Vous pouvez désormais vous connecter au connecteur personnalisé dans PowerApps et Microsoft Flow. Pour plus d’informations sur la création de connecteurs dans les portails PowerApps et Microsoft Flow, consultez [Inscrire votre connecteur personnalisé (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) et [Inscrire votre connecteur personnalisé (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
+Vous pouvez désormais vous connecter au connecteur personnalisé dans PowerApps et Microsoft Flow. Pour plus d’informations sur la création de connecteurs dans les portails PowerApps et Microsoft Flow, consultez [Inscrire votre connecteur personnalisé (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) et [Inscrire votre connecteur personnalisé (Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector).
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>Spécification du type d’authentification
@@ -158,7 +158,7 @@ Quand vous utilisez Azure AD, vous avez besoin de deux inscriptions d’applicat
 
 - Pour configurer l’inscription pour le connecteur, suivez les étapes de la section [Ajout d’une application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). L’inscription doit disposer d’un accès délégué à votre API et de l’URL de réponse `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-Pour plus d’informations, consultez les exemples d’inscription Azure AD pour [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) et [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). Ces exemples utilisent Azure Resource Manager comme API ; substituez votre API si vous suivez les étapes.
+Pour plus d’informations, consultez les exemples d’inscription Azure AD pour [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) et [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Ces exemples utilisent Azure Resource Manager comme API ; substituez votre API si vous suivez les étapes.
 
 Les valeurs de configuration suivantes sont requises :
 - **ID client** : ID client de l’inscription Azure AD de votre connecteur

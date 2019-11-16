@@ -3,7 +3,7 @@ title: Rapports d’activité d’audit dans le portail Azure Active Directory |
 description: Présentation des rapports d’activité d’audit dans le portail Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186292"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008543"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -42,7 +42,6 @@ Cet article présente une vue d’ensemble du rapport d’audit.
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
 * Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapports** ou **Administrateur général**
-* En outre, tous les utilisateurs (non-administrateurs) peuvent voir leurs propres activités d’audit
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
@@ -59,26 +58,26 @@ Un journal d’audit inclut un mode Liste par défaut, qui indique :
 - la cible
 - l’initiateur/intervenant d’une activité (qui)
 
-![Journaux d’audit](./media/concept-audit-logs/listview.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/listview.png "Journaux d’audit")
 
-Vous pouvez personnaliser la vue sous forme de liste en cliquant sur **Colonnes** dans la barre d’outils.
+Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la barre d’outils.
 
-![Journaux d’audit](./media/concept-audit-logs/columns.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/columns.png "Journaux d’audit")
 
-Cela vous permet d’afficher des champs supplémentaires ou de supprimer des champs qui sont déjà affichés.
+Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des champs qui sont déjà affichés.
 
-![Journaux d’audit](./media/concept-audit-logs/columnselect.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/columnselect.png "Journaux d’audit")
 
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
-![Journaux d’audit](./media/concept-audit-logs/details.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/details.png "Journaux d’audit")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
 
 Vous pouvez filtrer les données d’audit des champs suivants :
 
-- de diffusion en continu
+- Service
 - Category
 - Activité
 - Statut
@@ -86,7 +85,7 @@ Vous pouvez filtrer les données d’audit des champs suivants :
 - Initié par (intervenant)
 - Plage de dates
 
-![Journaux d’audit](./media/concept-audit-logs/filter.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/filter.png "Journaux d’audit")
 
 Le filtre **Service** vous permet de sélectionner les services suivants dans une liste déroulante :
 
@@ -151,7 +150,7 @@ Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une 
 
 Vous pouvez également télécharger les données filtrées, jusqu’à 250 000 enregistrements, en sélectionnant le bouton **Télécharger**. Vous pouvez télécharger les journaux d’activité au format CSV ou JSON. Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).
 
-![Journaux d’audit](./media/concept-audit-logs/download.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/download.png "Journaux d’audit")
 
 ## <a name="audit-logs-shortcuts"></a>Raccourcis de journaux d’audit
 
@@ -182,11 +181,11 @@ Les rapports d’audit basés sur les utilisateurs et les groupes vous permetten
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’activités d’audit** dans la section **Activité** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
 
-![Journaux d’audit](./media/concept-audit-logs/users.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/users.png "Journaux d’audit")
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’activité d’audit** dans la section **Activité** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
 
-![Journaux d’audit](./media/concept-audit-logs/groups.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/groups.png "Journaux d’audit")
 
 ### <a name="enterprise-applications-audit-logs"></a>Journaux d’audit d’applications d’entreprise
 
@@ -200,7 +199,7 @@ Les rapports d’audit basés sur les applications vous permettent d’obtenir d
 
 Si vous souhaitez consulter les données d’audit associées à vos applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** du panneau **Applications d’entreprise**. Dans ce point d’entrée, **Applications d’entreprise** est présélectionné comme **Type d'application**.
 
-![Journaux d’audit](./media/concept-audit-logs/enterpriseapplications.png "Journaux d’activité d’Audit")
+![Journaux d’audit](./media/concept-audit-logs/enterpriseapplications.png "Journaux d’audit")
 
 ## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
 

@@ -3,7 +3,7 @@ title: Détection des événements à risque dans Azure Active Directory | Micr
 description: Cet article offre une présentation détaillée des détections des événements à risque.
 services: active-directory
 keywords: azure active directory identity protection, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127320"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014478"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Détections des événements à risque dans Azure Active Directory
 

@@ -7,14 +7,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2850fab3a5639673008a7433db48911ced832401
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954878"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091118"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
+
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
 
 * sauvegarder leurs données selon des planifications qui correspondent le mieux aux besoins de l’organisation ;
@@ -24,6 +25,7 @@ Les clients Azure Backup et System Center Data Protection Manager peuvent effect
 Cet article explique comment les clients peuvent mettre en place des stratégies de sauvegarde et de rétention. Les clients qui utilisent des bandes pour répondre à leurs besoins de rétention à long terme disposent désormais d’une alternative puissante et viable grâce à cette fonctionnalité. La fonctionnalité est activée dans la dernière version d’Azure Backup (disponible [ici](https://aka.ms/azurebackup_agent)). Les clients System Center DPM doivent passer, au minimum, à DPM 2012 R2 UR5 avant d’utiliser DPM avec le service de Sauvegarde Azure.
 
 ## <a name="what-is-the-backup-schedule"></a>Qu’est-ce que la planification de sauvegarde ?
+
 La planification de sauvegarde indique la fréquence de l'opération de sauvegarde. Par exemple, les paramètres dans l’écran suivant indiquent que les sauvegardes sont effectuées tous les jours à 18 h 00 et à minuit.
 
 ![Planification quotidienne](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -33,6 +35,7 @@ Les clients peuvent également planifier une sauvegarde hebdomadaire. Par exempl
 ![Planification hebdomadaire](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
 ## <a name="what-is-the-retention-policy"></a>Qu’est-ce que la stratégie de rétention ?
+
 La stratégie de rétention spécifie la durée de stockage de la sauvegarde. Au lieu de simplement spécifier une même stratégie pour tous les points de sauvegarde, les clients peuvent spécifier différentes stratégies de rétention en fonction du moment où est effectuée la sauvegarde. Par exemple, le point de sauvegarde effectué quotidiennement, qui sert de point de récupération opérationnel, est conservé pendant 90 jours. Le point de sauvegarde effectué à la fin de chaque trimestre à des fins d’audit est conservé pendant une durée plus longue.
 
 ![Stratégie de rétention](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
@@ -40,6 +43,7 @@ La stratégie de rétention spécifie la durée de stockage de la sauvegarde. Au
 Le nombre total de « points de rétention » spécifié dans cette stratégie est 90 (points quotidiens) + 40 (un par trimestre pendant 10 ans) = 130.
 
 ## <a name="example--putting-both-together"></a>Exemple – Combinaison des deux
+
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Stratégie de rétention quotidienne** : Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
@@ -61,11 +65,13 @@ Le nombre total de points de récupération est 56.
 >
 
 ## <a name="advanced-configuration"></a>Configuration avancée
+
 En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible.
 
 ![Modifier](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur la Sauvegarde Azure, consultez :
 
 * [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)

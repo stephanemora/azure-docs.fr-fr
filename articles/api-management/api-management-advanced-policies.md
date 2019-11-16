@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 225f26ac2133f45fe7eba9e39d64d0cfe9e20766
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219553"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885306"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -917,7 +917,7 @@ La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector
 
 * La stratégie ajoute une trace personnalisée à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi. 
 * La stratégie crée des données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) dans Application Insights, quand l’intégration à [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic. 
-* La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de diagnostic](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.  
+* La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de diagnostic](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.  
 
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -946,7 +946,7 @@ La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector
 | ------- | ------------- | -------- |
 | trace   | Élément racine. | OUI      |
 | message | Chaîne ou expression à journaliser. | OUI |
-| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | Non |
+| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | Non |
 
 ### <a name="attributes"></a>Attributs
 

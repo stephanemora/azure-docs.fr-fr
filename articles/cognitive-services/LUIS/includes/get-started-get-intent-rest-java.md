@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: afa2dc950efe4c03b41afbd6090d9bf29ac5a798
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499696"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125477"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -107,7 +107,7 @@ Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) 
 
 1. Remplacez les valeurs suivantes :
 
-    * `YOUR-KEY` avec votre clé de démarrage
+    * `YOUR-KEY` par votre clé de démarrage
     * `YOUR-ENDPOINT` avec votre point de terminaison, par exemple, `westus2.api.cognitive.microsoft.com`
 
 
@@ -183,4 +183,4 @@ Lorsque vous aurez fini de suivre ce guide de démarrage rapide, supprimez le fi
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Ajouter des énoncés et entraîner avec Java](../luis-get-started-java-add-utterance.md)
+> [Ajouter des énoncés et entraîner avec Java](../get-started-get-model-rest-apis.md)

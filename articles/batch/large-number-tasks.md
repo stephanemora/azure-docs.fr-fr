@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094019"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132756"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
 
@@ -37,7 +37,7 @@ La taille maximale de la collection de tâches qu’il est possible d’ajouter 
 
     * [API REST](/rest/api/batchservice/task/addcollection)
     * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
+    * [API Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   Lorsque vous utilisez ces API, vous devez fournir une logique permettant de diviser le nombre de tâches afin de respecter la limite et de gérer les erreurs et nouvelles tentatives si l’ajout de tâches échoue. Si une collection de tâches est trop volumineuse, la requête génère une erreur et doit être retentée avec une collection contenant moins de tâches.
 

@@ -1,17 +1,14 @@
 ---
 title: Découvrir Azure Policy pour Azure Kubernetes Service
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer les clusters sur Azure Kubernetes Service.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480908"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959799"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -158,7 +155,7 @@ Le module complémentaire contacte Azure Policy toutes les cinq minutes pour v�
 > [!NOTE]
 > Bien qu’un _administrateur de cluster_ puisse être autorisé à accéder à l’espace de noms _azure-policy_, les modifications de l’espace de noms ne sont ni recommandées ni prises en charge. Toute modification manuelle apportée est perdue lors du cycle d’actualisation.
 
-Toutes les cinq minutes, le module complémentaire demande une analyse complète du cluster. Après la collecte des détails de l’analyse complète et des évaluations en temps réel par Gatekeeper des tentatives de modification du cluster, le module complémentaire envoie les résultats à Azure Policy pour qu’ils soient inclus aux [détails de conformité](../how-to/get-compliance-data.md) comme toute affectation Azure Policy. Seuls les résultats des affectations de stratégie actives sont renvoyés au cours du cycle d’audit.
+Toutes les cinq minutes, le module complémentaire demande une analyse complète du cluster. Après la collecte des détails de l’analyse complète et les évaluations en temps réel faites par Gatekeeper des tentatives de modification du cluster, le module complémentaire renvoie les résultats à Azure Policy pour les inclure dans les [détails de conformité](../how-to/get-compliance-data.md) comme toute affectation Azure Policy. Seuls les résultats des affectations de stratégie actives sont renvoyés au cours du cycle d’audit.
 
 ## <a name="policy-language"></a>Langage de stratégie
 
@@ -233,13 +230,13 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, uti
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Données de diagnostic collectées par le module complémentaire Azure Policy
 
-Le module complémentaire Azure Policy pour Kubernetes collecte un nombre limité de données de diagnostics de cluster. Ces données de diagnostic sont des données techniques vitales concernant les logiciels et le niveau de performance. Elles sont utilisées comme suit :
+Le module complémentaire Azure Policy pour Kubernetes collecte une quantité limitée de données de diagnostics de cluster. Ces données de diagnostic sont des données techniques vitales concernant les logiciels et le niveau de performance. Elles sont utilisées comme suit :
 
 - Tenir à jour le module complémentaire Azure Policy
 - Maintenir la sécurité, la fiabilité et le niveau de performance du module complémentaire Azure Policy
 - Améliorer le module complémentaire Azure Policy à travers l’analyse globale de son utilisation
 
-Les informations collectées par le module complémentaire ne sont pas des données personnelles. Les détails suivants sont actuellement collectés :
+Les informations collectées par le module complémentaire ne sont pas des données personnelles. Les détails suivants sont actuellement recueillis :
 
 - Version de l’agent du module complémentaire Azure Policy
 - Type de cluster

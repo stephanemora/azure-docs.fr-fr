@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821362"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009097"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajustement manuel des performances de requêtes dans Azure SQL Database
 
@@ -253,7 +253,7 @@ Si vous utilisez une architecture de scale-out dans Azure SQL Database, il peut 
 
 Pour les applications qui accèdent aux données sous la forme de requêtes ad hoc, fréquentes et à volume élevé, une grande partie du temps de réponse est passée sur la communication réseau entre la couche Application et la couche Azure SQL Database. Même lorsque l’application et Azure SQL Database résident dans le même centre de données, la latence du réseau entre les deux peut être accrue par un nombre élevé d’opérations d’accès aux données. Pour réduire les boucles réseau requises par les opérations d’accès aux données, envisagez d’utiliser l’option pour traiter par lot les requêtes ad hoc, ou pour les compiler en tant que procédures stockées. Si vous traitez par lot les requêtes ad hoc, vous pouvez envoyer en une fois plusieurs requêtes dans un seul lot à Azure SQL Database. Si vous compilez les requêtes ad hoc dans une procédure stockée, vous pouvez obtenir des résultats similaires à ceux du traitement par lot. L’utilisation d’une procédure stockée vous permet également d’augmenter les possibilités de mise en cache des plans de requête dans Azure SQL Database pour les exécutions suivantes de la même procédure stockée.
 
-Certaines applications sont gourmandes en écriture. Il est parfois possible de réduire la charge d’E/S totale sur une base de données en effectuant des écritures par lots. Souvent, cela est aussi simple que d’utiliser des transactions explicites au lieu des transactions de validation automatique dans les procédures stockées et les lots ad hoc. Vous trouverez une évaluation des différentes techniques utilisables à la page [Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Faites des essais avec votre propre charge de travail afin d’identifier le modèle approprié pour le traitement par lot. Assurez-vous de tenir compte du fait que les modèles peuvent présenter des garanties de cohérence transactionnelle légèrement différentes. L’identification de la charge de travail adaptée pour la réduction de l’utilisation des ressources nécessite de trouver le bon équilibre entre cohérence et performances.
+Certaines applications sont gourmandes en écriture. Il est parfois possible de réduire la charge d’E/S totale sur une base de données en effectuant des écritures par lots. Souvent, cela est aussi simple que d’utiliser des transactions explicites au lieu des transactions de validation automatique dans les procédures stockées et les lots ad hoc. Vous trouverez une évaluation des différentes techniques utilisables à la page [Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL](sql-database-use-batching-to-improve-performance.md). Faites des essais avec votre propre charge de travail afin d’identifier le modèle approprié pour le traitement par lot. Assurez-vous de tenir compte du fait que les modèles peuvent présenter des garanties de cohérence transactionnelle légèrement différentes. L’identification de la charge de travail adaptée pour la réduction de l’utilisation des ressources nécessite de trouver le bon équilibre entre cohérence et performances.
 
 ### <a name="application-tier-caching"></a>Mise en cache de la couche Application
 

@@ -7,38 +7,37 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 46d9f33dedff5a5682385b9cb22cf310581eefde
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: f15606c83c221e4591a2a1f6a71fc7141bdf3daf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466859"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074965"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
 Cet article explique comment sauvegarder des machines virtuelles Hyper-V à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
+
 MABS peut sauvegarder des machines virtuelles exécutées sur des serveurs hôtes Hyper-V dans les scénarios suivants :
 
--   **Machines virtuelles avec stockage local ou direct** : sauvegardez des machines virtuelles hébergées sur des serveurs autonomes hôtes Hyper-V disposant d’un stockage en attachement direct ou local. Par exemple : un disque dur, un appareil de réseau SAN (Storage Area Network) ou un dispositif de stockage NAS (Network Attached Storage). L’agent de protection du serveur MABS doit être installé sur tous les hôtes.
+- **Machines virtuelles avec stockage local ou direct** : sauvegardez des machines virtuelles hébergées sur des serveurs autonomes hôtes Hyper-V disposant d’un stockage en attachement direct ou local. Par exemple : un disque dur, un appareil de réseau SAN (Storage Area Network) ou un dispositif de stockage NAS (Network Attached Storage). L’agent de protection du serveur MABS doit être installé sur tous les hôtes.
 
--   **Machines virtuelles dans un cluster avec stockage CSV** : sauvegardez des machines virtuelles hébergées sur un cluster Hyper-V avec un stockage sur un volume partagé de cluster (CSV). L’agent de protection du serveur MABS est installé sur chaque nœud du cluster.
-
-
+- **Machines virtuelles dans un cluster avec stockage CSV** : sauvegardez des machines virtuelles hébergées sur un cluster Hyper-V avec un stockage sur un volume partagé de cluster (CSV). L’agent de protection du serveur MABS est installé sur chaque nœud du cluster.
 
 ## <a name="host-versus-guest-backup"></a>Sauvegarde des hôtes et des invités
+
 Le serveur MABS peut effectuer une sauvegarde de machines virtuelles Hyper-V au niveau de l’hôte ou de l’invité. Au niveau de l’hôte, l’agent de protection du serveur MABS est installé sur le cluster ou le serveur hôte Hyper-V. Il protège l’ensemble des machines virtuelles et les fichiers de données en cours d’exécution sur cet hôte.   Au niveau de l’invité, l’agent est installé sur chaque machine virtuelle. Il protège la charge de travail présente sur cette machine.
 
 Ces deux méthodes présentent des avantages et des inconvénients :
 
--   Les sauvegardes au niveau de l’hôte sont flexibles, car elles fonctionnent indépendamment du type de système d’exploitation exécuté sur les ordinateurs invités et ne nécessitent pas l’installation de l’agent de protection MABS sur chaque machine virtuelle. Si vous déployez une sauvegarde au niveau de l’hôte, vous récupérez un ordinateur virtuel dans son ensemble, ou encore des fichiers et dossiers (récupération au niveau de l’élément).
+- Les sauvegardes au niveau de l’hôte sont flexibles, car elles fonctionnent indépendamment du type de système d’exploitation exécuté sur les ordinateurs invités et ne nécessitent pas l’installation de l’agent de protection MABS sur chaque machine virtuelle. Si vous déployez une sauvegarde au niveau de l’hôte, vous récupérez un ordinateur virtuel dans son ensemble, ou encore des fichiers et dossiers (récupération au niveau de l’élément).
 
--   La sauvegarde au niveau de l’invité se révèle utile pour protéger des charges de travail spécifiques en cours d’exécution sur une machine virtuelle. Au niveau de l’hôte, vous pouvez récupérer une machine virtuelle dans son ensemble ou des fichiers spécifiques. Toutefois, cette récupération n’est pas assurée dans le contexte d’une application spécifique. Par exemple, pour récupérer des éléments SharePoint spécifiques à partir d’une machine virtuelle sauvegardée, vous devez effectuer une sauvegarde de cette machine virtuelle au niveau de l’invité. Utilisez la sauvegarde au niveau de l’invité pour protéger les données stockées sur des disques directs. Le transfert direct permet à la machine virtuelle d’accéder directement au dispositif de stockage. Il ne stocke pas les données de volume virtuel dans un fichier de disque dur virtuel.
-
-
+- La sauvegarde au niveau de l’invité se révèle utile pour protéger des charges de travail spécifiques en cours d’exécution sur une machine virtuelle. Au niveau de l’hôte, vous pouvez récupérer une machine virtuelle dans son ensemble ou des fichiers spécifiques. Toutefois, cette récupération n’est pas assurée dans le contexte d’une application spécifique. Par exemple, pour récupérer des éléments SharePoint spécifiques à partir d’une machine virtuelle sauvegardée, vous devez effectuer une sauvegarde de cette machine virtuelle au niveau de l’invité. Utilisez la sauvegarde au niveau de l’invité pour protéger les données stockées sur des disques directs. Le transfert direct permet à la machine virtuelle d’accéder directement au dispositif de stockage. Il ne stocke pas les données de volume virtuel dans un fichier de disque dur virtuel.
 
 ## <a name="how-the-backup-process-works"></a>Fonctionnement du processus de sauvegarde
+
 Le serveur MABS effectue la sauvegarde avec VSS comme suit. Les étapes de cette description sont numérotées pour plus de clarté.
 
 1. Le moteur de synchronisation basé sur des blocs du serveur MABS effectue une copie initiale de la machine virtuelle protégée et s’assure que la copie de la machine virtuelle est complète et cohérente.
@@ -61,8 +60,8 @@ Le serveur MABS effectue la sauvegarde avec VSS comme suit. Les étapes de cette
 >
 >À compter de Windows Server 2016, les disques durs virtuels Hyper-V disposent d’un suivi des modifications intégré, connu sous le nom de « suivi de modifications durables » ou RCT. MABS utilise la fonctionnalité RCT (suivi des modifications natif d’Hyper-V), qui limite le nombre de longues vérifications de cohérence nécessaires dans des scénarios comme des plantages sur une machine virtuelle. RCT offre une meilleure résilience que le suivi des modifications proposé par les sauvegardes sur instantané VSS. MABS v3 optimise encore davantage la consommation de réseau et de stockage en transférant seulement les données modifiées pendant les vérifications de cohérence.
 
-
 ## <a name="backup-prerequisites"></a>Prérequis pour la sauvegarde
+
 Voici les prérequis pour la sauvegarde des machines virtuelles Hyper-V avec MABS :
 
 |Configuration requise|Détails|
@@ -87,16 +86,13 @@ Voici les prérequis pour la sauvegarde des machines virtuelles Hyper-V avec MAB
 
 4. Dans la page **Sélectionner les membres du groupe**, sélectionnez les machines virtuelles que vous souhaitez protéger à partir des serveurs hôtes Hyper-V sur lesquels elles se trouvent. Nous vous recommandons de placer toutes les machines virtuelles avec la même stratégie de protection dans un groupe de protection. Pour utiliser efficacement l’espace, activez la colocation. La colocation vous permet de localiser des données à partir de différents groupes de protection sur le même stockage sur disque ou sur bande, afin que plusieurs sources de données aient un seul réplica et un seul volume des points de récupération.
 
-5. Dans la page **Sélectionner la méthode de protection des données**, indiquez le nom d’un groupe de protection. Sélectionnez **Je souhaite une protection à court terme à l’aide de Disque** et **Je voudrais une protection en ligne** si vous souhaitez sauvegarder des données sur Azure à l’aide du service Sauvegarde Azure. 
-
+5. Dans la page **Sélectionner la méthode de protection des données**, indiquez le nom d’un groupe de protection. Sélectionnez **Je souhaite une protection à court terme à l’aide de Disque** et **Je voudrais une protection en ligne** si vous souhaitez sauvegarder des données sur Azure à l’aide du service Sauvegarde Azure.
 
 6. Dans **Spécifier les objectifs à court terme** > **Durée de conservation**, spécifiez la durée pendant laquelle vous souhaitez conserver les données de disque. Dans **Fréquence de synchronisation**, spécifiez la fréquence à laquelle les sauvegardes incrémentielles des données doivent s’exécuter. Au lieu de sélectionner un intervalle pour les sauvegardes incrémentielles, vous pouvez également activer **Juste avant un point de récupération**. Quand ce paramètre est activé, MABS exécute une sauvegarde complète rapide juste avant chaque point de récupération planifié.
 
     > [!NOTE]
     >
     >Si vous protégez des charges de travail d’application, les points de récupération sont créés selon la fréquence de synchronisation, à condition que l’application prenne en charge les sauvegardes incrémentielles. Si ce n’est pas le cas, MABS exécute une sauvegarde complète rapide à la place d’une sauvegarde incrémentielle et crée des points de récupération conformément à la planification de la sauvegarde rapide.
-
-    
 
 7. Dans la page **Vérifier l’allocation de disque**, vérifiez l’espace disque de pool de stockage alloué pour le groupe de protection.
 
@@ -109,9 +105,10 @@ Voici les prérequis pour la sauvegarde des machines virtuelles Hyper-V avec MAB
     Une fois le groupe de protection créé, la réplication initiale des données se produit selon la méthode que vous avez sélectionnée. Après la réplication initiale, chaque sauvegarde a lieu conformément aux paramètres du groupe de protection. Si vous avez besoin de récupérer des données sauvegardées, notez les points suivants :
 
 ## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Sauvegarder des machines virtuelles configurées pour la migration dynamique
+
 Lorsque des machines virtuelles sont impliquées dans la migration dynamique, MABS continue de les protéger tant que l’agent de protection MABS est installé sur l’hôte Hyper-V. La façon dont MABS protège les machines virtuelles dépend du type de migration dynamique impliquée.
 
-**Migration dynamique au sein d’un cluster** : lorsqu’une machine virtuelle est migrée au sein d’un cluster, MABS détecte la migration et sauvegarde la machine virtuelle du nouveau nœud de cluster sans nécessiter l’intervention de l’utilisateur. Étant donné que l’emplacement de stockage n’a pas changé, MABS poursuit les sauvegardes complètes rapides. 
+**Migration dynamique au sein d’un cluster** : lorsqu’une machine virtuelle est migrée au sein d’un cluster, MABS détecte la migration et sauvegarde la machine virtuelle du nouveau nœud de cluster sans nécessiter l’intervention de l’utilisateur. Étant donné que l’emplacement de stockage n’a pas changé, MABS poursuit les sauvegardes complètes rapides.
 
 **Migration dynamique hors du cluster** : lorsqu’une machine virtuelle est migrée entre des serveurs autonomes, des clusters différents ou entre un serveur autonome et un cluster, MABS détecte la migration et peut sauvegarder la machine virtuelle sans intervention de l’utilisateur.
 
@@ -131,7 +128,6 @@ Voici les conditions requises pour assurer la protection lors de la migration dy
 
 Notez les éléments suivants pour la sauvegarde pendant la migration dynamique :
 
-
 - Si une migration dynamique transfère le stockage, MABS effectue une vérification de cohérence complète de la machine virtuelle, puis poursuit les sauvegardes complètes rapides. En cas de migration dynamique du stockage, Hyper-V réorganise le disque dur virtuel (VHD) ou VHDX, ce qui entraîne un pic unique dans la taille des données de sauvegarde MABS.
 
 - Sur l’ordinateur hôte de l’ordinateur virtuel, activez le montage automatique pour activer la protection virtuelle et désactivez le déchargement TCP Chimney.
@@ -140,7 +136,7 @@ Notez les éléments suivants pour la sauvegarde pendant la migration dynamique�
 
     1. Accédez à **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
     2. Créez une valeur DWORD 32 bits : DpmVmmHelperServicePort, et écrivez le numéro de port mis à jour dans le cadre de la clé de Registre.
-    3.  Ouvrez ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, puis remplacez le numéro de port 6070 par le nouveau port. Par exemple : ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
+    3. Ouvrez ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, puis remplacez le numéro de port 6070 par le nouveau port. Par exemple : ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
     4. Redémarrez le service d’assistance DPM-VMM et redémarrez le service DPM.
 
 ### <a name="set-up-protection-for-live-migration"></a>Configurer la protection pour la migration dynamique
@@ -173,7 +169,6 @@ Pour configurer la protection pour la migration dynamique :
 
    4. Ouvrez le fichier .xml que cette requête retourne et vérifiez que le champ *VMMIdentifier* contient une valeur.
 
-
 ### <a name="run-manual-migration"></a>Exécuter une migration manuelle
 
 Une fois que vous avez effectué les étapes décrites dans les sections précédentes et que la tâche de gestionnaire de résumé MABS est terminée, la migration est activée. Par défaut, cette tâche démarre à minuit et s’exécute tous les matins. Si vous souhaitez exécuter une migration manuelle pour vérifier que tout fonctionne comme prévu, procédez comme suit :
@@ -185,7 +180,6 @@ Une fois que vous avez effectué les étapes décrites dans les sections précé
 3. Dans SQL Server Management Studio, développez **SQL Server Agent**, puis **Travaux**. Cliquez avec le bouton droit sur l’ID **ScheduleID** que vous avez noté, puis sélectionnez **Démarrer le travail à l’étape**.
 
 Les performances de sauvegarde sont affectées lors de l’exécution du travail. La taille et l’échelle de votre déploiement déterminent le temps nécessaire pour terminer le travail.
-
 
 ## <a name="back-up-replica-virtual-machines"></a>Sauvegarder des machines virtuelles de réplication
 
@@ -223,12 +217,12 @@ Lorsque vous pouvez récupérer une machine virtuelle sauvegardée, vous utilise
 
 4. Dans l’écran **Sélectionner le type de récupération**, sélectionnez l’emplacement où vous souhaitez restaurer les données, puis cliquez sur **Suivant**.
 
-    -   **Récupérer sur l’instance d’origine** : Lorsque vous récupérez sur l’instance d’origine, le disque dur virtuel d’origine est supprimé. MABS récupère le disque dur virtuel et d’autres fichiers de configuration à l’emplacement d’origine à l’aide de l’enregistreur VSS Hyper-V. À la fin du processus de récupération, les machines virtuelles sont toujours hautement disponibles.
+    - **Récupérer sur l’instance d’origine** : Lorsque vous récupérez sur l’instance d’origine, le disque dur virtuel d’origine est supprimé. MABS récupère le disque dur virtuel et d’autres fichiers de configuration à l’emplacement d’origine à l’aide de l’enregistreur VSS Hyper-V. À la fin du processus de récupération, les machines virtuelles sont toujours hautement disponibles.
         Le groupe de ressources doit être présent pour la récupération. S’il n’est pas disponible, effectuez la récupération à un autre emplacement, puis rendez la machine virtuelle hautement disponible.
 
-    -   **Récupérer l’ordinateur virtuel sur n’importe quel hôte** : MABS prend en charge un emplacement de récupération secondaire, qui permet de récupérer sans interruption une machine virtuelle Hyper-V protégée sur un hôte Hyper-V différent, quelle que soit l’architecture du processeur. Les machines virtuelles Hyper-V récupérées sur un nœud de cluster ne sont pas hautement disponibles. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
+    - **Récupérer l’ordinateur virtuel sur n’importe quel hôte** : MABS prend en charge un emplacement de récupération secondaire, qui permet de récupérer sans interruption une machine virtuelle Hyper-V protégée sur un hôte Hyper-V différent, quelle que soit l’architecture du processeur. Les machines virtuelles Hyper-V récupérées sur un nœud de cluster ne sont pas hautement disponibles. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
 
-    -   **Copier dans un dossier réseau** : MABS prend en charge la récupération au niveau de l’élément, qui vous permet d’effectuer une récupération au niveau de l’élément de fichiers, dossiers, volumes et disques durs virtuels (VHD) à partir d’une sauvegarde au niveau de l’hôte de machines virtuelles Hyper-V vers un partage réseau ou un volume sur un serveur protégé par MABS. Il n’est pas nécessaire d’installer l’agent de protection MABS à l’intérieur de l’invité pour effectuer une récupération au niveau de l’élément. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
+    - **Copier dans un dossier réseau** : MABS prend en charge la récupération au niveau de l’élément, qui vous permet d’effectuer une récupération au niveau de l’élément de fichiers, dossiers, volumes et disques durs virtuels (VHD) à partir d’une sauvegarde au niveau de l’hôte de machines virtuelles Hyper-V vers un partage réseau ou un volume sur un serveur protégé par MABS. Il n’est pas nécessaire d’installer l’agent de protection MABS à l’intérieur de l’invité pour effectuer une récupération au niveau de l’élément. Si vous choisissez cette option, l’Assistant Récupération vous présente un écran supplémentaire pour identifier la destination et le chemin de destination.
 
 5. Dans **Spécifier les options de récupération**, configurez les options de récupération, puis cliquez sur **Suivant** :
 
@@ -240,6 +234,6 @@ Lorsque vous pouvez récupérer une machine virtuelle sauvegardée, vous utilise
 
 7. L’écran **État de la récupération** fournit des informations sur le travail de récupération.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Récupérer des données à partir d’un serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)

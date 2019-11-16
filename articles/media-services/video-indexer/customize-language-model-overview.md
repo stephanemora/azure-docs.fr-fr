@@ -1,6 +1,6 @@
 ---
 title: Personnaliser un modèle de langue dans Video Indexer - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Cet article donne une vue d’ensemble d’un modèle de langue dans Video Indexer et explique comment le personnaliser.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 516ecd8842e7b673201cc640b283c081a02d2b2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799558"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838314"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Personnaliser un modèle de langue avec Video Indexer
 

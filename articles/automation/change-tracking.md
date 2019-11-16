@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959958"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886799"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -80,7 +80,7 @@ Azure Security Center a ajouté le contrôle d’intégrité des fichiers (FIM) 
 Si vous avez déjà activé FIM et que vous souhaitez essayer la solution complète de suivi des modifications, vous devez effectuer les étapes suivantes. Vos paramètres ne sont pas supprimés par ce processus.
 
 > [!NOTE]
-> L’activation de la solution complète de suivi des modifications peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Tarification d’Automation](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> L’activation de la solution complète de suivi des modifications peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Supprimez la solution de surveillance en accédant à l’espace de travail et en la recherchant dans la [liste des solutions de surveillance installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur Supprimer, comme indiqué dans [Supprimer une solution de surveillance](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).

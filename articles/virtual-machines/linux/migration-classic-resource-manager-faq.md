@@ -1,5 +1,5 @@
 ---
-title: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager | Microsoft Docs
+title: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager
 description: Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: d30b556ec648837725a51485c333d3590a64e660
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05d98674ad046ffdb5056bf76c5616b26e5021ff
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082677"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035738"
 ---
+# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Questions fréquemment posées sur la migration du modèle classique vers le modèle Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e39f83b2ed715afbfff69770c151cfc4d527105d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808425"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132263"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
 
-Cette section explique comment configurer une machine virtuelle Windows hébergée sur Azure, afin qu’elle puisse être gérée et déployée à distance avec PowerShell.  Pour activer la communication à distance PowerShell, la machine virtuelle cible doit exposer un point de terminaison HTTPS de gestion à distance de Windows (WinRM).  Pour plus d’informations sur la communication à distance PowerShell, consultez [Exécution des commandes à distance](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Pour plus d’informations sur WinRM, consultez [Gestion à distance de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
+Cette section explique comment configurer une machine virtuelle Windows hébergée sur Azure, afin qu’elle puisse être gérée et déployée à distance avec PowerShell.  Pour activer la communication à distance PowerShell, la machine virtuelle cible doit exposer un point de terminaison HTTPS de gestion à distance de Windows (WinRM).  Pour plus d’informations sur la communication à distance PowerShell, consultez [Exécution des commandes à distance](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Pour plus d’informations sur WinRM, consultez [Gestion à distance de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Si vous avez créé une machine virtuelle en utilisant l’une des approches Azure « classiques » : le portail Azure Service Manager ou la méthode déconseillée de l’[API Gestion des services Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), elle est alors automatiquement configurée avec un point de terminaison WinRM.  Toutefois, si vous créez une machine virtuelle en utilisant l’une des approches Azure « modernes » suivantes, votre machine virtuelle ne sera *pas* configurée pour WinRM via HTTPS.  
+Si vous avez créé une machine virtuelle en utilisant l’une des approches Azure « classiques » : le portail Azure Service Manager ou la méthode déconseillée de l’[API Gestion des services Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), elle est alors automatiquement configurée avec un point de terminaison WinRM.  Toutefois, si vous créez une machine virtuelle en utilisant l’une des approches Azure « modernes » suivantes, votre machine virtuelle ne sera *pas* configurée pour WinRM via HTTPS.
 
 - À l’aide du [Portail Azure portal](https://portal.azure.com/), généralement à partir d’une base approuvée, comme décrit dans la section [Créer un disque dur virtuel compatible avec Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Utilisation de modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
@@ -34,9 +34,9 @@ En revanche, en général, les machines virtuelles Linux sont gérées à distan
 
 Le point de terminaison WinRM pour une machine virtuelle Windows peut être configuré à deux étapes différentes de son développement :
 
-- Pendant sa création : lors du déploiement d’une machine virtuelle sur un disque dur virtuel existant.  Il s’agit de l’approche privilégiée pour les nouvelles offres.  Cette approche nécessite la création d’un certificat Azure, à l’aide des modèles Azure Resource Manager fournis, et d’exécuter des scripts PowerShell personnalisés. 
-- Après le déploiement : sur une machine virtuelle existante hébergée sur Azure.  Utilisez cette approche si vous avez déjà déployé une solution de machine virtuelle sur Azure et que vous devez activer la gestion à distance de Windows sur celle-ci.  Cette approche nécessite des modifications manuelles dans le Portail Azure et l’exécution d’un script sur la machine virtuelle cible. 
+- Pendant sa création : lors du déploiement d’une machine virtuelle sur un disque dur virtuel existant.  Il s’agit de l’approche privilégiée pour les nouvelles offres.  Cette approche nécessite la création d’un certificat Azure, à l’aide des modèles Azure Resource Manager fournis, et d’exécuter des scripts PowerShell personnalisés.
+- Après le déploiement : sur une machine virtuelle existante hébergée sur Azure.  Utilisez cette approche si vous avez déjà déployé une solution de machine virtuelle sur Azure et que vous devez activer la gestion à distance de Windows sur celle-ci.  Cette approche nécessite des modifications manuelles dans le Portail Azure et l’exécution d’un script sur la machine virtuelle cible.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous créez une machine virtuelle, vous pouvez activer WinRM pendant le [déploiement de votre machine virtuelle à partir de ses disques durs virtuels](./cpp-deploy-vm-vhd.md).  Sinon, WinRM peut être activée dans une machine virtuelle existante  
+Si vous créez une machine virtuelle, vous pouvez activer WinRM pendant le [déploiement de votre machine virtuelle à partir de ses disques durs virtuels](./cpp-deploy-vm-vhd.md).  Sinon, WinRM peut être activée dans une machine virtuelle existante

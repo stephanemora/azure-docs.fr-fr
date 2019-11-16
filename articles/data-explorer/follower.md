@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828384"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083187"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utiliser une base de données d’abonné pour joindre des bases de données dans Azure Data Explorer
 
@@ -242,7 +242,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Gérer les principaux
 
-Lors de l’attachement d’une base de données, spécifiez le **type de modification des principaux par défaut**. Le type par défaut conserve la collection de bases de données du responsable des [principaux autorisés](/azure/kusto/management/access-control/index.md#authorization)
+Lors de l’attachement d’une base de données, spécifiez le **type de modification des principaux par défaut**. Le type par défaut conserve la collection de bases de données du responsable des [principaux autorisés](/azure/kusto/management/access-control/index#authorization)
 
 |**Type** |**Description**  |
 |---------|---------|
@@ -250,7 +250,7 @@ Lors de l’attachement d’une base de données, spécifiez le **type de modifi
 |**Replace**   |    Aucun héritage des principaux de la base de données d’origine. De nouveaux principaux doivent être créés pour la base de données attachée. Au moins un principal doit être ajouté pour bloquer l’héritage du principal.     |
 |**Aucun**   |   Les principaux de la base de données attachée incluent uniquement les principaux de la base de données d’origine sans principaux supplémentaires.      |
 
-Pour plus d’informations sur l’utilisation des commandes de contrôle pour configurer les principaux autorisés, consultez [Commandes de contrôle pour la gestion du cluster de l’abonné](/azure/kusto/management/cluster-follower.md).
+Pour plus d’informations sur l’utilisation des commandes de contrôle pour configurer les principaux autorisés, consultez [Commandes de contrôle pour la gestion du cluster de l’abonné](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Gérer les autorisations
 
@@ -258,7 +258,7 @@ La gestion de l’autorisation de base de données en lecture seule est identiqu
 
 ### <a name="configure-caching-policy"></a>Configurer la stratégie de mise en cache
 
-L’administrateur de base de données d’abonné peut modifier la [stratégie de mise en cache](/azure/kusto/management/cache-policy) de la base de données attachée ou de l’une de ses tables sur le cluster hôte. Le type par défaut conserve la collection de bases de données du responsable et les stratégies de mise en cache au niveau de la table. Vous pouvez, par exemple, disposer d’une stratégie de mise en cache de 30 jours sur la base de données du responsable pour exécuter des rapports mensuels et d’une stratégie de mise en cache de trois jours sur la base de données de l’abonné pour interroger uniquement les données récentes pour la résolution des problèmes. Pour plus d’informations sur l’utilisation des commandes de contrôle pour configurer la stratégie de mise en cache sur la table ou la base de données de l’abonné, consultez [Commandes de contrôle pour la gestion du cluster de l’abonné](/azure/kusto/management/cluster-follower.md).
+L’administrateur de base de données d’abonné peut modifier la [stratégie de mise en cache](/azure/kusto/management/cache-policy) de la base de données attachée ou de l’une de ses tables sur le cluster hôte. Le type par défaut conserve la collection de bases de données du responsable et les stratégies de mise en cache au niveau de la table. Vous pouvez, par exemple, disposer d’une stratégie de mise en cache de 30 jours sur la base de données du responsable pour exécuter des rapports mensuels et d’une stratégie de mise en cache de trois jours sur la base de données de l’abonné pour interroger uniquement les données récentes pour la résolution des problèmes. Pour plus d’informations sur l’utilisation des commandes de contrôle pour configurer la stratégie de mise en cache sur la table ou la base de données de l’abonné, consultez [Commandes de contrôle pour la gestion du cluster de l’abonné](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limites
 
@@ -270,4 +270,4 @@ L’administrateur de base de données d’abonné peut modifier la [stratégie 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la configuration du cluster d’abonné, consultez [Commandes de contrôle pour la gestion d’un cluster d’abonné](/azure/kusto/management/cluster-follower.md).
+* Pour plus d’informations sur la configuration du cluster d’abonné, consultez [Commandes de contrôle pour la gestion d’un cluster d’abonné](/azure/kusto/management/cluster-follower).

@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892861"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132741"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Démarrage rapide : Utiliser le kit SDK Recherche Web Bing pour Node.js
 
@@ -111,4 +111,4 @@ Lorsque vous avez terminé ce projet, veillez à supprimer votre clé d’abonne
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Référence du SDK Node Azure](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)
+* [Référence du SDK Node Azure](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
