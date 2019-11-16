@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 6e218f33bdc33708cef0c94eb85298abf2b8927c
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316625"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961892"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -32,7 +32,6 @@ ms.locfileid: "71316625"
 > * [Language Understanding (LUIS)][lu-containers]
 > * [API Speech Service][sp-containers]
 > * [Analyse de texte][ta-containers]
-<!-- > * [Translator Text][tt-containers] -->
 
 **Q : Existe-t-il des différences entre le cloud Cognitive Services et les conteneurs Cognitive Services ?**
 
@@ -115,7 +114,6 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [API Speech Service][sp-containers-billing]
 * [Analyse de texte][ta-containers-billing]
-<!-- * [Translator Text][tt-containers-billing] -->
 
 > [!IMPORTANT]
 > Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft.
@@ -143,7 +141,6 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [API Speech Service][sp-containers-recommendations]
 * [Analyse de texte][ta-containers-recommendations]
-<!-- * [Translator Text][tt-containers-recommendations] -->
  
 **Q : Ces conteneurs sont-ils actuellement pris en charge sur Windows ?**
 
@@ -174,7 +171,6 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-containers]: ../speech-service/speech-container-howto.md
 [ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
 
 [ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
 [cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
@@ -183,7 +179,6 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
 [lu-containers-billing]: ../luis/luis-container-howto.md#billing
 [sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
 [ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
-<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
 
 [ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
 [cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
@@ -192,4 +187,3 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
 [lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
 [sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
 [ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
-<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

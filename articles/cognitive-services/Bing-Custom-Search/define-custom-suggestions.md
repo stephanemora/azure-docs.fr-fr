@@ -1,7 +1,7 @@
 ---
 title: Définir les suggestions personnalisées de la Suggestion automatique - Recherche personnalisée Bing
 titleSuffix: Azure Cognitive Services
-description: Décrit comment configurer la Suggestion automatique avec des suggestions personnalisées
+description: La suggestion automatique personnalisée retourne une liste de suggestions de chaînes de requête qui correspondent à votre recherche.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405108"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072804"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 

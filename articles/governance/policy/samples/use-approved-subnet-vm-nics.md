@@ -1,17 +1,14 @@
 ---
 title: Exemple - Utiliser un sous-réseau approuvé pour les cartes réseau de machine virtuelle
 description: Cet exemple de définition de stratégie exige que les interfaces réseau utilisent un sous-réseau approuvé.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: eec463c4f547f99d598747364bbfe952e762e292
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 912dbae5fe22e68604502055fe3c5b369e26e5c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254665"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069751"
 ---
 # <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Exemple - Utiliser un sous-réseau approuvé pour les interfaces réseau de machine virtuelle
 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: bcd1fff61e1612cc3361548527e5ed13affa3ba5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509273"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092258"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Didacticiel : Effectuer l’apprentissage de votre premier modèle et le déployer dans R avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Pour ce tutoriel, placez un modèle de régression logistique sur vos données c
 Un script d’apprentissage appelé `accidents.R` vous est fourni dans le même répertoire que ce tutoriel. Notez les détails suivants **dans le script d’apprentissage** qui permettent de tirer parti du service Azure ML pour l’apprentissage :
 
 * Le script d’apprentissage prend un argument `-d` pour rechercher le répertoire qui contient les données d’apprentissage. Quand vous définissez et soumettez votre travail ultérieurement, vous pointez vers le magasin de données pour cet argument. Azure ML monte le dossier de stockage sur le cluster distant pour le travail d’apprentissage.
-* Le script d’apprentissage journalise la précision finale sous forme de métrique dans l’enregistrement d’exécution dans Azure ML à l’aide de `log_metric_to_run()`. Le SDK Azure ML fournit un ensemble d’API de journalisation pour la journalisation de diverses métriques pendant les exécutions d’apprentissage. Ces métriques sont enregistrées et conservées dans l’enregistrement d’exécution de l’expérience. Les métriques sont ensuite accessibles à tout moment ou peuvent être affichées dans la page des détails de l’exécution de [Azure Machine Learning Studio](http://ml.azure.com). Consultez la [référence](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) pour obtenir l’ensemble complet des méthodes de journalisation `log_*()`.
+* Le script d’apprentissage journalise la précision finale sous forme de métrique dans l’enregistrement d’exécution dans Azure ML à l’aide de `log_metric_to_run()`. Le SDK Azure ML fournit un ensemble d’API de journalisation pour la journalisation de diverses métriques pendant les exécutions d’apprentissage. Ces métriques sont enregistrées et conservées dans l’enregistrement d’exécution de l’expérience. Les métriques sont ensuite accessibles à tout moment ou peuvent être affichées dans la page des détails de l’exécution de [Azure Machine Learning Studio](https://ml.azure.com). Consultez la [référence](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) pour obtenir l’ensemble complet des méthodes de journalisation `log_*()`.
 * Le script d’entraînement enregistre votre modèle dans un répertoire nommé **outputs**. Le dossier `./outputs` bénéficie d’un traitement spécial de la part d’Azure ML. Au cours de l’apprentissage, les fichiers écrits dans `./outputs` sont automatiquement chargés dans votre enregistrement d’exécution par Azure ML et conservés en tant qu’artefacts. En enregistrant le modèle entraîné dans `./outputs`, vous pouvez accéder à votre fichier de modèle et le récupérer même lorsque l’exécution est terminée et que vous n’avez plus accès à votre environnement de formation à distance.
 
 ### <a name="create-an-estimator"></a>Créer un estimateur
@@ -269,7 +269,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Déployer en tant que service web
 
-Avec votre modèle, vous pouvez prédire le risque de décès lors d’une collision. Utilisez Azure ML pour déployer votre modèle en tant que service de prédiction. Dans ce tutoriel, vous allez déployer le service web dans [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI).
+Avec votre modèle, vous pouvez prédire le risque de décès lors d’une collision. Utilisez Azure ML pour déployer votre modèle en tant que service de prédiction. Dans ce tutoriel, vous allez déployer le service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### <a name="register-the-model"></a>Inscrire le modèle
 
@@ -353,17 +353,17 @@ aci_service$scoring_uri
 Supprimez les ressources une fois que vous n’en avez plus besoin. Ne supprimez pas les ressources que vous envisagez de réutiliser. 
 
 Supprimez le service web :
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Supprimez le modèle inscrit :
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Supprimez le cluster de calcul :
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

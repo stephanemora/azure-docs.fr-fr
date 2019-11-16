@@ -1,7 +1,7 @@
 ---
-title: Référence du kit de développement logiciel (SDK) Lecteur immersif
+title: Référence du kit de développement logiciel (SDK) du lecteur immersif
 titleSuffix: Azure Cognitive Services
-description: Référence correspondant au kit de développement logiciel (SDK) du lecteur immersif
+description: Le kit de développement logiciel (SDK) du lecteur immersif est une bibliothèque JavaScript qui vous permet d’intégrer le lecteur immersif à votre application.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388109"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903106"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guide de référence du SDK du Lecteur immersif
 
 Le kit de développement logiciel (SDK) du lecteur immersif est une bibliothèque JavaScript qui vous permet d’intégrer le lecteur immersif à votre application.
 
-# <a name="functions"></a>Fonctions
+## <a name="functions"></a>Fonctions
 
 Le SDK expose les fonctions suivantes :
 

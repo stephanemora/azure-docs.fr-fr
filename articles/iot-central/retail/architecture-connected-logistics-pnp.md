@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1940f02fdf9badcf99ef85a2ab02ac9099cc1775
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 797488632f04af9a170f05590154e50310570b28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615377"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890717"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Architecture du modèle d’application de logistique connectée IoT Central
 
@@ -42,9 +42,9 @@ Les passerelles peuvent également agir comme balises IoT avec leurs fonctionnal
 Azure IoT Central est une plateforme de développement de solutions qui simplifie la connectivité, la configuration et la gestion des appareils IoT. La plateforme réduit considérablement la charge et les coûts liés à la gestion des appareils IoT, aux opérations et aux développements connexes. Les clients et partenaires peuvent créer des solutions d’entreprise de bout en bout pour obtenir une boucle de retour numérique en logistique.
 
 ## <a name="business-insights--actions-via-data-egress"></a>Perspectives d'affaires et actions via la sortie de données 
-La plateforme IoT Central offre des options d’extensibilité riches par le biais de l’exportation continue des données (CDE) et des API. Les perspectives d'affaires basées sur le traitement des données de télémétrie ou la télémétrie brute sont généralement exportées vers une application métier choisie. Cela peut être réalisé par webhook, Service Bus, Event Hub ou stockage d’objets Blob pour créer, former et déployer des modèles Machine Learning et enrichir les informations.
+La plateforme IoT Central offre des options d’extensibilité riches par le biais de l’exportation continue des données (CDE) et des API. Les perspectives d’affaires basées sur le traitement des données de télémétrie ou la télémétrie brute sont généralement exportées vers une application métier choisie. Cela peut être réalisé par webhook, Service Bus, Event Hub ou stockage d’objets Blob pour créer, former et déployer des modèles Machine Learning et enrichir les informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment déployer un [modèle de solution logistique connectée](./tutorial-iot-central-connected-logistics-pnp.md)
 * En savoir plus sur les [modèles de distribution IoT Central](./overview-iot-central-retail-pnp.md)
-* Pour plus d’informations sur IoT Central, voir la [vue d’ensemble d’IoT Central](../core/overview-iot-central-pnp.md)
+* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)

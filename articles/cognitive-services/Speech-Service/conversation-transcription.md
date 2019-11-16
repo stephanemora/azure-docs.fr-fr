@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce que la transcription de conversation (préversion) ? - Service Speech
 titleSuffix: Azure Cognitive Services
-description: La transcription de conversation est une solution de reconnaissance vocale qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé « diarization ») pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation permet d’inclure pour tout le monde dans les conversations, comme les participants sourds et malentendants.
+description: La transcription de conversation est une solution de reconnaissance vocale qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé « diarization ») pour fournir une transcription en temps réel et/ou asynchrone de toute conversation.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608009"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075844"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Qu’est-ce que la transcription de conversation (préversion) ?
 

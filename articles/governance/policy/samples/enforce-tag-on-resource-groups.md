@@ -1,17 +1,14 @@
 ---
 title: Exemple - Forcer l’application d’une balise et d’une valeur sur les groupes de ressources
 description: Cet exemple de définition de stratégie exige une étiquette et une valeur sur un groupe de ressources.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255779"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076276"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
 
@@ -119,7 +116,7 @@ Les scripts de déploiement et de suppression utilisent les commandes suivantes.
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Supprime une affectation Azure Policy existante. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Supprime une définition Azure Policy existante. |
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -215,7 +212,7 @@ Il existe plusieurs outils permettant d’interagir avec l’API REST Resource M
 
 ### <a name="rest-api-explanation"></a>Explication de l’API REST
 
-| de diffusion en continu | Groupe | Opération | Notes |
+| Service | Groupe | Opération | Notes |
 |---|---|---|---|
 | Gestion des ressources | Définitions de stratégies | [Créer](/rest/api/resources/policydefinitions/createorupdate) | Crée une définition Azure Policy au niveau d’un abonnement. Alternative : [Créer au niveau du groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestion des ressources | Affectations de stratégies | [Créer](/rest/api/resources/policyassignments/create) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |

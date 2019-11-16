@@ -1,22 +1,22 @@
 ---
-title: Implémenter l’analytique spatiale IoT avec Azure Maps | Microsoft Docs
-description: Intégrez IoT Hub à des API du service Azure Maps.
+title: 'Didacticiel : Implémenter l’analytique spatiale IoT avec Azure Maps'
+description: 'Didacticiel : Intégrez IoT Hub à des API du service Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933199"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107041"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implémenter l’analytique spatiale IoT avec Azure Maps
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Didacticiel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
 Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. Par exemple, dans les applications de gestion de flotte, de suivi de ressources, de mobilité et de ville intelligente. Ce tutoriel explore le modèle de solution permettant d’utiliser des API Azure Maps sur des événements pertinents capturés par IoT Hub à l’aide du modèle d’abonnement aux événements fourni par Event Grid.
 

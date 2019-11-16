@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487597"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013496"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entités et leur objectif dans LUIS
 
@@ -91,11 +91,11 @@ Choisissez l’entité en fonction de la façon dont les données doivent être 
 
 |Type d’entité|Objectif|
 |--|--|
-|[**Issue de l’apprentissage automatique**](#composite-entity)|Regroupement parent d’entités, quel que soit le type d’entité. Les entités apprises par la machine apprennent à partir du contexte dans l’énoncé. Cela rend la variation du placement dans les exemples d’énoncés significative. |
-|[**Liste**](#list-entity)|Liste d’éléments et de leurs synonymes extraits avec une **correspondance exacte du texte**.|
-|[**Pattern.any**](#patternany-entity)|Entité dont la fin est difficile à déterminer. |
-|[**Prédéfinie**](#prebuilt-entity)|Déjà entraînée à extraire un type spécifique de données comme une URL ou un e-mail. Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet.|
-|[**Expression régulière**](#regular-expression-entity)|Utilise l’expression régulière pour une **correspondance exacte du texte**.|
+|[**Issue de l’apprentissage automatique**](tutorial-machine-learned-entity.md)|Regroupement parent d’entités, quel que soit le type d’entité. Les entités apprises par la machine apprennent à partir du contexte dans l’énoncé. Cela rend la variation du placement dans les exemples d’énoncés significative. |
+|[**Liste**](reference-entity-list.md)|Liste d’éléments et de leurs synonymes extraits avec une **correspondance exacte du texte**.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|Entité dont la fin est difficile à déterminer. |
+|[**Prédéfinie**](luis-reference-prebuilt-entities.md)|Déjà entraînée à extraire un type spécifique de données comme une URL ou un e-mail. Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet.|
+|[**Expression régulière**](reference-entity-regular-expression.md)|Utilise l’expression régulière pour une **correspondance exacte du texte**.|
 
 ### <a name="entity-role-defines-context"></a>Contexte défini par le rôle de l’entité
 

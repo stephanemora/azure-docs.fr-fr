@@ -1,17 +1,14 @@
 ---
 title: Créer un nouvel environnement à partir d’un exemple de blueprint
 description: Utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu'à deux groupes de ressources et configure une attribution de rôle pour chacun.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
-ms.service: blueprints
-ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980719"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960265"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Didacticiel : Créer un nouvel environnement à partir d’un exemple de blueprint
 

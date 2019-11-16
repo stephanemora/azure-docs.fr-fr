@@ -3,16 +3,16 @@ title: 'Didacticiel : Visualiser des données Azure Data Explorer dans Power BI'
 description: Dans ce tutoriel, vous découvrez comment vous connecter à l’Explorateur de données Azure avec Power BI et comment visualiser vos données.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049878"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037354"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Didacticiel : Visualiser des données Azure Data Explorer dans Power BI
 
@@ -85,7 +85,7 @@ Vous vous connectez maintenant à l’Explorateur de données Azure dans Power B
 
     ![Obtention des données](media/visualize-power-bi/get-data-more.png)
 
-1. Recherchez *Azure Data Explorer*, sélectionnez **Azure Data Explorer (bêta)**, puis **Se connecter**.
+1. Recherchez *Azure Data Explorer*, sélectionnez **Azure Data Explorer (bêta)** , puis **Se connecter**.
 
     ![Rechercher et obtenir des données](media/visualize-power-bi/search-get-data.png)
 
@@ -219,7 +219,7 @@ Si vous ne souhaitez pas conserver le rapport que vous avez créé, supprimez si
 
 1. Sous **Mon espace de travail**, faites défiler jusqu’à **RAPPORTS** et recherchez **storm-events**.
 
-1. Sélectionnez les points de suspension (**...**) en regard de **storm-events**, puis sélectionnez **SUPPRIMER**.
+1. Sélectionnez les points de suspension ( **...** ) en regard de **storm-events**, puis sélectionnez **SUPPRIMER**.
 
     ![Supprimer un rapport](media/visualize-power-bi/remove-report.png)
 
