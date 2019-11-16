@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590681"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -72,6 +72,13 @@ Les [disques managés](../articles/virtual-machines/windows/managed-disks-overvi
 > Le nombre de domaines d’erreur des groupes à haute disponibilité gérés varie selon la région : de deux à trois par région. Le tableau suivant présente le nombre de domaines d’erreur par région
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+> Remarque : Dans certaines circonstances, il peut arriver que deux machines virtuelles appartenant au même AvailabilitySet partagent le même FaultDomain. Pour confirmer cela, accédez à votre AvailabilitySet et vérifiez la colonne « Domaine d’erreur ».
+> Ce comportement peut être observé lorsque la séquence suivante s’est produite lors du déploiement des machines virtuelles :
+> - Déployer la première machine virtuelle
+> - Arrêtez/libérez la première machine virtuelle
+> - Déployez la deuxième machine virtuelle Dans ces circonstances, le disque du système d’exploitation de la deuxième machine virtuelle peut être créé sur le même domaine d’erreur que la première, et la deuxième machine virtuelle atterrira également sur le même FaultDomain. 
+> Pour éviter ce problème, il est recommandé de ne pas arrêter/libérer la machine virtuelle entre ses déploiements.
 
 Si vous prévoyez d’utiliser des machines virtuelles avec des disques non managés, suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

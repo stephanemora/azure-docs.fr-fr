@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c04f578e73b81000fa605283a4afa4103655bcf4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826980"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643660"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Pour autoriser la connexion des utilisateurs avec un compte Microsoft, vous deve
 1. Sélectionnez **Certificats et secrets**.
 1. Cliquez sur **Nouveau secret client**.
 1. Entrez une **Description** pour le secret, par exemple *Clé secrète client d’application MSA*, puis cliquez sur **Ajouter**.
-1. Enregistrez le mot de passe de l’application affiché dans la colonne **VALEUR**. Vous utiliserez cette valeur dans la section suivante.
+1. Enregistrez le mot de passe de l’application affiché dans la colonne **Valeur**. Vous utiliserez cette valeur dans la section suivante.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 

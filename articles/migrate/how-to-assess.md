@@ -6,24 +6,24 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: d176e6276d69cd3465aa4943efa86ea1e6b0736d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8d13222ec05fc97fa591ac67d636a1f8c5c88845
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810172"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715858"
 ---
 # <a name="add-assessment-tools"></a>Ajouter des outils d’évaluation
 
 Cet article explique comment ajouter des outils d’évaluation dans [Azure Migrate](migrate-overview.md).
 
-Azure Migrate fournit un hub d’outils pour l’évaluation et la migration vers Azure. Il comprend des outils natifs, des outils fournis par d’autres services Azure et des offres tierces de fournisseurs de logiciels indépendants (ISV).
+Azure Migrate fournit un hub d’outils pour l’évaluation et la migration vers Azure. Celui-ci comprend des outils Azure Migrate ainsi que d’autres outils et des offres d’ISV (fournisseurs de logiciels indépendants).
 
 Si vous souhaitez ajouter un outil d’évaluation et que vous n’avez pas encore de projet Azure Migrate, suivez cet [article](how-to-add-tool-first-time.md).
 
-## <a name="selecting-an-isv-tool"></a>Sélection d’un outil de ISV
+## <a name="select-a-tool"></a>Sélectionner un outil
 
-Si vous choisissez un [outil de ISV](migrate-services-overview.md#isv-integration) pour l’évaluation, vous pouvez commencer par obtenir une licence ou vous inscrire à un essai gratuit, conformément à la stratégie de ISV. Dans chaque outil, il existe une option permettant de se connecter à Azure Migrate. Suivez les instructions et la documentation de l’outil pour connecter l’espace de travail de l’outil avec Azure Migrate. 
+Si vous choisissez un outil non-Azure Migrate pour l’évaluation, commencez par obtenir une licence ou inscrivez-vous à un essai gratuit, conformément à la stratégie de l’outil. Les outils disposent d’une option permettant de se connecter à Azure Migrate. Suivez les instructions et la documentation pour connecter l’outil à Azure Migrate. [En savoir plus ](migrate-services-overview.md)sur les outils.
 
 
 ## <a name="select-an-assessment-scenario"></a>Sélectionnez un scénario d’évaluation
@@ -47,11 +47,8 @@ Si vous choisissez un [outil de ISV](migrate-services-overview.md#isv-integratio
 
 3. Dans **Azure Migrate**, sélectionnez l’outil d’évaluation que vous souhaitez utiliser.
 
-    
-    ![Outils d’évaluation](./media/how-to-assess/assess-tool.png)
-
     - Si vous utilisez Azure Migrate Server Assessment, vous pouvez configurer, exécuter et afficher les évaluations directement dans le projet Azure Migrate.
-    - Si vous utilisez un outil d’évaluation tiers, accédez au lien fourni pour le site de l’outil et exécutez l’évaluation conformément aux instructions fournies.
+    - Si vous utilisez un outil d’évaluation différent, accédez au lien fourni pour son site et exécutez l’évaluation conformément aux instructions fournies.
 
 
 ## <a name="select-a-database-assessment-tool"></a>Sélectionnez un outil d’évaluation de base de données
@@ -72,4 +69,4 @@ Si vous choisissez un [outil de ISV](migrate-services-overview.md#isv-integratio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez une évaluation avec Azure Migrate Server Assessment pour les machines virtuelles [Hyper-V](tutorial-prepare-hyper-v.md) ou [VMware](tutorial-prepare-vmware.md).
+Essayez une évaluation avec Azure Migrate Server Assessment pour les machines virtuelles [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md) ou les [serveur physiques](tutorial-prepare-physical.md).

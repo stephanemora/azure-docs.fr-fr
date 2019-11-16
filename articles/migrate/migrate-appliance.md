@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231133"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685098"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -129,7 +129,7 @@ Détails de l’hôte par machine virtuelle | ((HostSystem)container).VM
 > [!NOTE]
 > Les métadonnées découvertes par l'appliance Azure Migrate sont utilisées pour vous aider à adapter la taille de vos applications lors de leur migration vers Azure, ainsi qu'à effectuer les analyses d'adéquation Azure, les analyses de dépendance des applications et la planification des coûts. Microsoft n’utilise pas ces données dans le cadre d’un audit de conformité des licences.
 
-Voici les données de performances des machines virtuelles VMware que l’appliance collecte et envoie à Azure.
+Voici les données de performances des machines virtuelles Hyper-V que l’appliance collecte et envoie à Azure.
 
 **Classe du compteur de performances** | **Compteur** | **Évaluation de l'impact**
 --- | --- | ---

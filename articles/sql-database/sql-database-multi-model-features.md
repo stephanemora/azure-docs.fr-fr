@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités multimodèles d’Azure SQL Database | Microsoft Docs
+title: Fonctionnalités multimodèles
 description: Azure SQL Database vous permet d’utiliser plusieurs modèles de données dans la même base de données.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2e8519fa8d96b7fe016b9da4ba84ce481a57d94e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567127"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802815"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Fonctionnalités multimodèles d’Azure SQL Database
 
@@ -29,7 +29,7 @@ Envisagez d’utiliser les fonctionnalités multimodèles d’Azure SQL Database
 - Vous disposez d’informations ou de structures qui sont mieux adaptées aux modèles NoSQL et vous ne souhaitez pas utiliser de bases de données NoSQL distinctes.
 - Une majorité de vos données est appropriée pour le modèle relationnel, et vous avez besoin de modéliser certaines parties de vos données dans le style NoSQL.
 - Vous souhaitez tirer parti des nombreux langages Transact-SQL pour interroger et analyser à la fois les données relationnelles et les données NoSQL et les intégrer dans un large éventail d’outils et applications qui utilisent le langage SQL.
-- Vous souhaitez appliquer les fonctionnalités de base de données comme les [technologies en mémoire](sql-database-in-memory.md) pour améliorer les performances de votre analyse ou le traitement de vos structures de données NoSQL : utilisez [la réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) ou les [réplicas lisibles](sql-database-read-scale-out.md) pour créer une copie de vos données sur l’autre emplacement et décharger certaines charges de travail analytiques à partir de la base de données primaire.
+- Vous souhaitez appliquer les fonctionnalités de base de données comme les [technologies en mémoire](sql-database-in-memory.md) pour améliorer les performances de votre analytique ou le traitement de vos structures de données NoSQL : utilisez la [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) ou les [réplicas en lecture](sql-database-read-scale-out.md) pour créer une copie de vos données sur l’autre emplacement et décharger certaines charges de travail analytiques à partir de la base de données primaire.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -68,7 +68,7 @@ Il n’est rien qu’une base de données de graphe puisse accomplir qui ne puis
 
 Azure SQL Database vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON.
 
-JSON est un format de données largement répandu, utilisé pour l’échange de données dans des applications mobiles et web modernes. JSON est également utilisé pour stocker des données semi-structurées dans des fichiers journaux ou des bases de données NoSQL, par exemple [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). De nombreux services web REST retournent des résultats au format de texte JSON, ou acceptent des données au format JSON. La plupart des services Azure tels que [Recherche Azure](https://azure.microsoft.com/services/search/), [Stockage Azure](https://azure.microsoft.com/services/storage/) et [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ont des points de terminaison REST qui renvoient ou utilisent des données JSON.
+JSON est un format de données largement répandu, utilisé pour l’échange de données dans des applications mobiles et web modernes. JSON est également utilisé pour stocker des données semi-structurées dans des fichiers journaux ou des bases de données NoSQL, par exemple [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). De nombreux services web REST retournent des résultats au format de texte JSON, ou acceptent des données au format JSON. La plupart des services Azure tels que [Recherche cognitive Azure](https://azure.microsoft.com/services/search/), [Stockage Azure](https://azure.microsoft.com/services/storage/) et [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ont des points de terminaison REST qui renvoient ou utilisent des données JSON.
 
 Azure SQL Database vous permet de travailler facilement avec des données JSON, et d’intégrer votre base de données avec des services modernes. Azure SQL Database offre les fonctions suivantes pour manipuler des données JSON :
 

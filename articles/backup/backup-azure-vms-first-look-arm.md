@@ -1,18 +1,18 @@
 ---
-title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle avec le service Sauvegarde Azure
-description: Découvrir comment sauvegarder une machine virtuelle Azure avec le service Sauvegarde Azure
+title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle grâce à Sauvegarde Azure
+description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639775"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747238"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -20,8 +20,6 @@ Cet article explique comment sauvegarder des machines virtuelles Azure avec le s
 
 - Une seule machine virtuelle Azure : les instructions de cet article décrivent comment sauvegarder une machine virtuelle Azure directement à partir des paramètres de la machine virtuelle.
 - Plusieurs machines virtuelles Azure : vous pouvez configurer un coffre Recovery Services et configurer la sauvegarde pour plusieurs machines virtuelles Azure. Pour ce scénario, suivez les instructions contenues dans [cet article](backup-azure-arm-vms-prepare.md).
-
-
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -36,7 +34,6 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 - Une fois que l’agent est installé et que vous activez la sauvegarde, Sauvegarde Azure installe l’extension de sauvegarde sur l’agent. L’extension est mise à jour et corrigée sans aucune intervention de l’utilisateur.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Sauvegarder à partir des paramètres de la machine virtuelle Azure
-
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Tous les services**, puis tapez **Machines virtuelles** dans le filtre. Cliquez ensuite sur **Machines virtuelles**.
@@ -69,11 +66,9 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
     - Tant que la sauvegarde initiale n’est pas terminée, la zone **État de la dernière sauvegarde** indique **Avertissement (Sauvegarde initiale en attente)** .
     - Pour savoir quand la prochaine sauvegarde planifiée va s’exécuter, cliquez sur le nom de la stratégie de sauvegarde.
 
-
 > [!NOTE]
 > Pour stocker l’instantané, le service Sauvegarde Azure crée un groupe de ressources distinct (autre que le groupe de ressources de la machine virtuelle). Son nom est au format **AzureBackupRG_géographie_numéro** (par exemple, AzureBackupRG_northeurope_1). Les données dans ce groupe de ressources sont conservées pendant la durée en jours spécifiée dans la section « Conserver l’instantané de récupération instantanée » de la stratégie Sauvegarde de machines virtuelles Azure. L’application d’un verrou à ce groupe de ressources peut entraîner des échecs de sauvegarde.<br>
 Ce groupe de ressources doit également être exclu des restrictions de nom/étiquette, car une stratégie de restriction peut y empêcher la création de collections de points de ressources, entraînant de nouveau des échecs de sauvegarde.
-
 
 ## <a name="run-a-backup-immediately"></a>Exécuter une sauvegarde immédiatement
 
@@ -86,9 +81,6 @@ Ce groupe de ressources doit également être exclu des restrictions de nom/éti
     ![Jour de fin de la conservation de la sauvegarde](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Les notifications du portail vous informent que le travail de sauvegarde a été déclenché. Pour suivre la progression de la sauvegarde, cliquez sur **Afficher tous les travaux**.
-
-
-
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Sauvegarder à partir du coffre Recovery Services
 
