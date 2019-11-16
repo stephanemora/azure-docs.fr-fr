@@ -1,5 +1,5 @@
 ---
-title: Préparation de l’environnement cible en vue de la réplication VMware sur Azure | Microsoft Docs
+title: Préparer la cible de réplication d’une machine virtuelle VMware dans Azure Site Recovery
 description: Cet article décrit comment préparer votre environnement cible Azure en vue d’une réplication de machines virtuelles VMware sur Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723789"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693173"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Préparer l’environnement cible pour la récupération d’urgence des machines virtuelles VMware ou serveurs physiques vers Azure
 
@@ -22,7 +22,7 @@ Cet article décrit comment préparer votre environnement cible Azure avant de c
 ## <a name="prerequisites"></a>Prérequis
 
 L’article suppose que :
-- Vous avez créé un coffre Recovery Services sur le [portail Azure](https://portal.azure.com "portail Azure") pour protéger vos machines sources.
+- Vous avez créé un coffre Recovery Services sur le [Portail Azure](https://portal.azure.com "Portail Azure") pour protéger vos machines sources.
 - Vous avez configuré votre environnement local pour répliquer les [machines virtuelles VMware](vmware-azure-set-up-source.md) ou [serveurs physiques](physical-azure-set-up-source.md) sources sur Azure.
 
 ## <a name="prepare-target"></a>Préparer la cible

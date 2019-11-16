@@ -1,5 +1,5 @@
 ---
-title: Configuration d’une machine virtuelle hôte de session – Azure
+title: Détecter un problème sur un hôte de la session Windows Virtual Desktop – Azure
 description: Guide pratique pour résoudre les problèmes pendant la configuration de machines virtuelles hôte de session Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330822"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607394"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
