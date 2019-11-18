@@ -17,6 +17,8 @@
   items:
     - name: Support pour les conteneurs
       href: cognitive-services-container-support.md
+    - name: Étiquettes des images conteneur
+      href: ./containers/container-image-tags.md
     - name: Questions fréquentes (FAQ) sur les conteneurs
       href: ./containers/container-faq.md
     - name: Recettes de conteneur

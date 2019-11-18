@@ -171,6 +171,8 @@
           displayName: 'roles, import'
         - name: Utiliser des modèles prédéfinis
           href: howto-add-prebuilt-models.md
+        - name: Étiqueter une entité dans un énoncé
+          href: label-entity-example-utterance.md
         - name: Avec des API REST
           items:
             - name: Générer une application par programmation à l’aide de Node.js
@@ -188,8 +190,8 @@
         - name: Utilisation du tableau de bord
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: Ajouter une liste d’expressions
-          displayName: 'synonym, interchange'
+        - name: Ajouter un descripteur
+          displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
         - name: Réviser les énoncés de point de terminaison
           displayName: active learning

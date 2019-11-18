@@ -223,8 +223,6 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Superviser les indexeurs
           href: search-howto-monitor-indexers.md
-        - name: Résolution des problèmes courants
-          href: search-indexer-troubleshooting.md
     - name: Enrichir avec l’intelligence artificielle
       items:
         - name: Attacher une ressource Cognitive Services
@@ -249,7 +247,7 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: Exemple - Conteneurs
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
-        - name: Conseils de dépannage
+        - name: Conseils de conception
           href: cognitive-search-concept-troubleshooting.md
         - name: Liens vers la documentation
           href: cognitive-search-resources-documentation.md
@@ -261,8 +259,6 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Se connecter avec Power BI
               href: knowledge-store-connect-power-bi.md
-        - name: Résoudre les problèmes d’enrichissement
-          href: cognitive-search-common-errors-warnings.md
     - name: Interroger des documents
       items:
         - name: Types de requêtes et composition
@@ -307,6 +303,12 @@
           href: search-manage-powershell.md
         - name: Superviser l’activité et la journalisation
           href: search-monitor-usage.md
+    - name: Résolution des problèmes
+      items:
+        - name: Problèmes de l’indexeur
+          href: search-indexer-troubleshooting.md
+        - name: Erreurs et avertissements de l’indexeur
+          href: cognitive-search-common-errors-warnings.md
 - name: Informations de référence
   items:
     - name: D’Azure CLI

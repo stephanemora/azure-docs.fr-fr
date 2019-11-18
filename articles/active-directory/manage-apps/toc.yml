@@ -70,10 +70,10 @@
               href: end-user-experiences.md
     - name: Provisionnement d’application (SCIM)
       items:
-        - name: Provisionnement automatique pour les applications prenant en charge SCIM
-          href: use-scim-to-provision-users-and-groups.md
         - name: Planifier un déploiement d’attribution automatique d’utilisateurs
           href: plan-auto-user-provisioning.md
+        - name: Provisionnement manuel ou automatique
+          href: application-provisioning-config-how-to.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Proxy d’application
@@ -227,28 +227,40 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Provisionnement d’application (SCIM)
       items:
-        - name: Configurer l'approvisionnement de l'utilisateur
+        - name: Configurer le provisionnement d’applications
           items:
-            - name: Provisionnement manuel ou automatique
-              href: application-provisioning-config-how-to.md
             - name: Configurer le provisionnement d’utilisateurs automatique
               href: configure-automatic-user-provisioning-portal.md
+            - name: Utiliser SCIM pour le provisionnement automatique
+              href: use-scim-to-provision-users-and-groups.md
             - name: Personnaliser des mappages d’attributs
               href: Customize-application-attributes.md
+            - name: Écrire des expressions pour les mappages d’attributs
+              href: functions-for-customizing-application-data.md
             - name: Étendue des utilisateurs ou des groupes à provisionner
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorer la suppression pour les utilisateurs hors limites
               href: skip-out-of-scope-deletions.md
             - name: Superviser les performances et l’état de provisionnement
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Créer des rapports sur le provisionnement automatique d’utilisateurs
+            - name: Créer un rapport sur le provisionnement d’applications
               href: check-status-user-account-provisioning.md
             - name: Exporter et importer votre configuration
               href: export-import-provisioning-configuration.md
+            - name: Automatiser la configuration avec MS Graph
+              href: application-provisioning-configure-api.md
         - name: Résoudre les problèmes de provisionnement d’utilisateurs
           items:
-            - name: Résoudre les problèmes de provisionnement d’utilisateurs
+            - name: Résoudre les problèmes de provisionnement d’applications
               href: application-provisioning-config-problem.md
+            - name: État de la quarantaine
+              href: application-provisioning-quarantine-status.md
+            - name: Journaux d’approvisionnement
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Synchroniser un attribut pour le mappage - application de galerie
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Provisionnement très lent - application de galerie
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Problème d’autorisation (impossible d’enregistrer les informations d’identification de l’administrateur)
               href: application-provisioning-config-problem-storage-limit.md
             - name: Les utilisateurs ne sont pas provisionnés
