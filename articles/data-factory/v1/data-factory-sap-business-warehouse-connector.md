@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c928ad1fc9a8d6206c1b7e47591b17b6ae05ee4b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 47bc2db8730ebdedd180646d2fb86b642bbc631d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839882"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666038"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -47,7 +47,7 @@ Pour activer la connectivité à l’instance SAP BW, installez les composants s
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **REST API**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -64,10 +64,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | string | OUI
+server | Nom du serveur sur lequel réside l’instance SAP BW. | string | OUI
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI
-userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
 password | Mot de passe pour l’utilisateur. | string | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | string | OUI
 encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non

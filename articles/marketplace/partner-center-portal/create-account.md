@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: beaca02807f3ee33022854f17150d8eeff1568ac
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695607"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811930"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -26,7 +27,7 @@ Pour publier des offres sur la [Place de marché Azure](https://azuremarketplace
 Pour créer un compte sur l’Espace partenaires, vérifiez que vous disposez :
 
 - D’une autorisation pour signer les accords juridiques au nom de votre société.
-- De la raison sociale légale de votre entreprise, de son adresse et de l’interlocuteur principal (il peut s’agir de vous).
+- De la raison sociale de votre entreprise, de son adresse et de l’interlocuteur principal (il peut s’agir de vous).
 
 Nous vérifierons ces informations lors du processus de création de compte.
 

@@ -1,5 +1,5 @@
 ---
-title: Créer et planifier des pipelines et des activités à la chaîne dans Data Factory | Microsoft Docs
+title: Créer et planifier des pipelines et des activités à la chaîne dans Data Factory
 description: Apprenez à créer un pipeline de données dans Azure Data Factory pour déplacer et transformer des données. Créez un flux de travail piloté par les données pour produire des informations prêtes à l’emploi.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 54d9c875ca0117304dbd686f9a8fa6060b275994
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140055"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682738"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

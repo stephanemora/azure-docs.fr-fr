@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2aa2ed6fe4d8218737c42bb3d76084c5d677623f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a221d55d942e6140c12f2ebfb64428b8ec7be74b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826945"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643576"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 
 1. Sélectionnez **Inscription**. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
-1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **valeur** du secret pour l’utiliser dans une étape ultérieure.
+1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fcad7d3d0cc45f0cfdc0d6523d5fdbc8f573fe2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735615"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576990"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Couverture de la mobilité Azure Maps
 
@@ -56,8 +56,8 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 |--------|---------|
 | Australie      | <p>Adélaïde, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, Nouvelle-Galles du Sud, Perth, Rockhampton, Queensland du Sud-Est, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Chine | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Pékin, Guangzhou, Shenzhen, Zhengzhou</P>| 
-| Hong Kong (R.A.S.) | Hong Kong (R.A.S.)|
-| Macao (R.A.S.) | Macao (R.A.S.)|
+| Hong Kong (R.A.S.) | Hong Kong (R.A.S.)*|
+| Macao R.A.S. | Macao (R.A.S.)*|
 | Inde | Ahmedabad, Bangalore, Delhi, Bombay, Mysore|
 | Indonésie | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japon | Préfecture de Shizuoka, Tokyo, Wakkanai, préfecture de Yamanashi |
@@ -108,7 +108,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Norvège | Norvège* | 
 | Pologne | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyn, Cracovie, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świnoujście, Szczecin, Tricity, Varsovie, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragance, Coimbra, Funchal, Leiria, Lisbonne, Portimão, Porto|
-| République de Malte | Malte* | 
+| Malte | Malte* | 
 | Roumanie | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucarest, Buzau, Cluj-Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea-Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
 | Russie  | Rostov-sur-le-Don, Volgograd, Iekaterinbourg, Kazan, Kirov, Krasnodar, Moscou, Naltchik, Nijni Novgorod, Novossibirsk, Noïabrsk, Omsk, Perm, Saint-Pétersbourg, Tver, Tomsk |
 | Serbie  | Belgrade, Kragujevac, Niš, Novi Sad, Valjevo, Subotica | 

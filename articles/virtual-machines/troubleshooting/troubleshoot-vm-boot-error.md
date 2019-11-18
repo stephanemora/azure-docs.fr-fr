@@ -1,10 +1,10 @@
 ---
-title: Erreur de démarrage de machine virtuelle Azure
+title: Démarrage de la machine virtuelle Linux sur Grub Rescue
 description: Le démarrage de la machine virtuelle a échoué, car celle-ci est entrée dans une console de secours
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 29242b802dbbff4218506422293082a495c4d21e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685132"
 ---
-# <a name="vm-boot-error"></a>Erreur de démarrage de machine virtuelle
+# <a name="linux-vm-boots-to-grub-rescue"></a>Démarrage de la machine virtuelle Linux sur Grub Rescue
 
 Nous avons détecté que votre machine virtuelle est entrée dans une console de secours. Ce problème se produit lorsque le noyau de votre machine virtuelle Linux a été modifié (lors d’une mise à niveau du noyau, par exemple), empêchant la machine virtuelle de démarrer correctement en raison d’erreurs qui se produisent au niveau du noyau lors du démarrage. Au cours du processus de démarrage, lorsque le chargeur de démarrage tente de localiser le noyau Linux pour lui transférer le contrôle du démarrage, la machine virtuelle entre dans une console de secours si le transfert échoue.
 

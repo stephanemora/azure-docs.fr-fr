@@ -4,15 +4,16 @@ description: Configurez la gestion des prospects dans Marketo pour les clients d
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 9470a593f5db564689a0b26601a201874c215aa2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812133"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurer la gestion des prospects dans Marketo
 
@@ -55,7 +56,7 @@ Cet article explique comment configurer votre système CRM Marketo de manière �
     **Autre façon d'interpréter ces valeurs**
 
     - L'ID du serveur se trouve dans l'URL de votre instance Marketo, par exemple, « `serverID.marketo.com` ».
-    - Procurez-vous l'ID Munching de votre abonnement en accédant au menu Admin > Munchkin, champ « ID du compte Munchkin », ou en consultant la première partie du sous-domaine hôte de l'API REST Marketo : `https://{Munchkin ID}.mktorest.com`.
+    - Procurez-vous l’ID Munching de votre abonnement en accédant au menu Admin > Munchkin, champ « ID du compte Munchkin », ou en consultant la première partie du sous-domaine hôte de l’API REST Marketo : `https://{Munchkin ID}.mktorest.com`.
     - L'ID du formulaire correspond à l'ID du formulaire Code incorporé que vous avez créé à l'étape 7 pour diriger les prospects depuis notre place de marché.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configurer votre offre pour envoyer des prospects à Marketo

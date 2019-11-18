@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4b746a245fc1ee2b0d3532bfabc973f513c7661
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950370"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748296"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -177,7 +177,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 La plage de *RoutingWeight* est de 0 à 32000. La valeur par défaut est 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurer ExpressRoute FastPath 
-Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre circuit ExpressRoute se trouve sur [ExpressRoute Direct](expressroute-erdirect-about.md) et votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore les performances de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel. 
+Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre circuit ExpressRoute se trouve sur [ExpressRoute Direct](expressroute-erdirect-about.md) et que votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore le niveau de performance de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel. 
 
 > [!NOTE] 
 > Si vous disposez d’une connexion de réseau virtuel sans avoir activé FastPath, vous devez supprimer la connexion de réseau virtuel et créez-en une. 

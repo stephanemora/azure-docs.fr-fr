@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: d99bf2a41bc82722fd31c1835f34f913163ce55b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 00f6e763006cbb8e5a2724536664291e0381e42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088207"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749655"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure PowerShell
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, vous devrez peut-être appliquer la procédure de résolution de problèmes directement sur le disque. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure PowerShell pour connecter le disque à une autre machine virtuelle Windows et corriger les éventuelles erreurs, puis réparer votre machine virtuelle d’origine. 
@@ -25,7 +25,7 @@ Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrag
 > [!Important]
 > Les scripts dans cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Disque managé](../windows/managed-disks-overview.md). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Nous pouvons maintenant utiliser Azure PowerShell et changer le disque de système d’exploitation pour une machine virtuelle. Il n’est désormais plus nécessaire de supprimer et de recréer la machine virtuelle.
@@ -40,7 +40,7 @@ Le processus de résolution de problème se présente comme suit :
 6. Démonter et détacher le disque à partir de la machine virtuelle de récupération.
 7. Changer le disque de système d’exploitation pour la machine virtuelle affectée.
 
-Vous pouvez utiliser les scripts de récupération de machine virtuelle pour automatiser les étapes 1, 2, 3, 4, 6 et 7. Pour obtenir de la documentation et des instructions supplémentaires, consultez [Scripts de récupération de machine virtuelle pour la machine virtuelle Gestionnaire des ressources](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+Vous pouvez utiliser les commandes de réparation de machine virtuelle pour automatiser les étapes 1, 2, 3, 4, 6 et 7. Pour obtenir plus de documentation et d’instructions, consultez [Réparer une machine virtuelle Windows à l’aide des commandes de réparation de machine virtuelle Azure](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Vérifiez que la [dernière version d’Azure PowerShell](/powershell/azure/overview) est installée et connectez-vous à votre abonnement :
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64716135"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748204"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de PowerShell
 
@@ -23,9 +23,9 @@ Cet article explique comment créer et gérer la configuration du routage d’un
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interface de ligne de commande Azure](howto-routing-cli.md)
-> * [Vidéo - Homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
 
@@ -46,11 +46,11 @@ Vous pouvez configurer un, deux ou les trois peerings (privé Azure, public Azur
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="msft"></a>Homologation Microsoft
+## <a name="msft"></a>Peering Microsoft
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering Microsoft pour un circuit ExpressRoute.
 
@@ -121,6 +121,13 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
      * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
      * Un hachage MD5 si vous choisissez d’en utiliser un.
 
+> [!IMPORTANT]
+> Microsoft vérifie si les « préfixes publics publiés » et « ASN pairs » (ou « ASN client ») spécifiés vous sont attribués dans le registre de routage Internet. Si vous obtenez les préfixes publics d’une autre entité et si l’affectation n’est pas enregistrée avec le registre de routage, la validation automatique ne se termine pas et nécessite une validation manuelle. Si la validation automatique échoue, vous verrez « AdvertisedPublicPrefixesState » comme « Validation requise » sur la sortie de « Get-AzExpressRouteCircuitPeeringConfig » (voir la commande « Pour obtenir des détails sur le Peering Microsoft » ci-dessous). 
+> 
+> Si vous voyez le message « Validation requise », collectez le ou les documents qui affichent les préfixes publics qui sont attribués à votre organisation par l’entité répertoriée comme propriétaire des préfixes dans le registre de routage et soumettez ces documents pour la validation manuelle en ouvrant un ticket de support comme indiqué ci-dessous. 
+> 
+>
+
    Utilisez l’exemple suivant afin de configurer le peering Microsoft pour votre circuit :
 
    ```azurepowershell-interactive
@@ -131,7 +138,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-### <a name="getmsft"></a>Pour obtenir des détails sur l’homologation Microsoft
+### <a name="getmsft"></a>Pour obtenir des détails sur le peering Microsoft
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
@@ -141,7 +148,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updatemsft"></a>Pour mettre à jour la configuration d’homologation Microsoft
+### <a name="updatemsft"></a>Pour mettre à jour la configuration de peering Microsoft
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant :
 
@@ -153,7 +160,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
+### <a name="deletemsft"></a>Pour supprimer le peering Microsoft
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’applet de commande suivante :
 
@@ -163,7 +170,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="private"></a>Homologation privée Azure
+## <a name="private"></a>Peering privé Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
@@ -263,7 +270,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    > 
    >
 
-### <a name="getprivate"></a>Pour obtenir les détails d’une homologation privée Azure
+### <a name="getprivate"></a>Pour obtenir les détails d’un peering privé Azure
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
@@ -273,7 +280,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updateprivate"></a>Pour mettre à jour la configuration d’homologation privée Azure
+### <a name="updateprivate"></a>Pour mettre à jour la configuration de peering privé Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 100 à 500.
 
@@ -283,7 +290,7 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deleteprivate"></a>Pour supprimer une homologation privée Azure
+### <a name="deleteprivate"></a>Pour supprimer un peering privé Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
@@ -298,7 +305,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRo
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="public"></a>Homologation publique Azure
+## <a name="public"></a>Peering public Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering public Azure pour un circuit ExpressRoute.
 
@@ -404,7 +411,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    > 
    >
 
-### <a name="getpublic"></a>Pour obtenir les détails d’une homologation publique Azure
+### <a name="getpublic"></a>Pour obtenir les détails d’un peering public Azure
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
@@ -414,7 +421,7 @@ Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet 
   Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="updatepublic"></a>Pour mettre à jour la configuration d’homologation publique Azure
+### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
@@ -424,7 +431,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletepublic"></a>Pour supprimer une homologation publique Azure
+### <a name="deletepublic"></a>Pour supprimer un peering public Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817205"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575611"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -45,13 +45,9 @@ Les métriques temps réel sont actuellement prises en charge pour les applicati
 
 4. [Sécurisez le canal de contrôle](#secure-the-control-channel) si vous utilisez des données sensibles comme des noms de clients dans vos filtres.
 
-### <a name="nodejs"></a>Node.js
-
-Pour utiliser les métriques temps réel avec Node.js, vous devez mettre à jour vers la version 1.30 ou ultérieure du Kit de développement logiciel (SDK). Les métriques temps réel sont désactivées par défaut dans le Kit de développement logiciel (SDK) Node.js. Pour activer les métriques temps réel, ajoutez `setSendLiveMetrics(true)` à vos [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) lorsque vous initialisez le Kit de développement logiciel (SDK).
-
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 
-Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs. 
+Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>En quoi les flux de métriques temps réel diffèrent-ils de Metrics Explorer et d’Analytique ?
 
@@ -68,7 +64,7 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 
 (Disponible avec ASP.NET, ASP.NET Core et Azure Functions (v2).)
 
-Vous pouvez surveiller un KPI personnalisé en temps réel en appliquant des filtres arbitraires sur les données de télémétrie Application Insights à partir du portail. Cliquez sur la commande de filtre qui s’affiche lorsque vous passez la souris sur un graphique. Le graphique suivant indique un KPI de nombre de demandes personnalisé avec des filtres sur les attributs d’URL et de durée. Vérifiez vos filtres grâce à la section Vue d’ensemble du flux qui affiche un flux en temps réel de télémétrie correspondant aux critères que vous avez spécifiés. 
+Vous pouvez surveiller un KPI personnalisé en temps réel en appliquant des filtres arbitraires sur les données de télémétrie Application Insights à partir du portail. Cliquez sur la commande de filtre qui s’affiche lorsque vous passez la souris sur un graphique. Le graphique suivant indique un KPI de nombre de demandes personnalisé avec des filtres sur les attributs d’URL et de durée. Vérifiez vos filtres grâce à la section Vue d’ensemble du flux qui affiche un flux en temps réel de télémétrie correspondant aux critères que vous avez spécifiés.
 
 ![Indicateur de performance clé (KPI) de demande personnalisé](./media/live-stream/live-stream-filteredMetric.png)
 
@@ -100,14 +96,6 @@ Consultez les informations détaillées d’un élément dans le flux temps rée
 Si vous voulez surveiller une instance de rôle serveur spécifique, vous pouvez appliquer un filtre par serveur.
 
 ![Échecs dynamiques échantillonnés](./media/live-stream/live-stream-filter.png)
-
-## <a name="sdk-requirements"></a>Configuration requise du Kit de développement logiciel (SDK)
-
-### <a name="net"></a>.NET
-Le flux de métriques temps réel personnalisé est disponible avec la version 2.4.0-beta2 ou plus récente du [Kit de développement logiciel (SDK) Application Insights pour le web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). N’oubliez pas de sélectionner l’option « Inclure la version préliminaire » dans le gestionnaire de package NuGet.
-
-### <a name="nodejs"></a>Node.js
-Le flux de métriques temps réel est disponible avec la version 1.3.0 ou plus récente du [SDK Application Insights pour Node.js](https://npmjs.com/package/applicationinsights). N’oubliez pas d’utiliser `setSendLiveMetrics(true)` lors de la configuration du SDK dans votre code.
 
 ## <a name="secure-the-control-channel"></a>Sécuriser le canal de contrôle
 Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète en plus de la clé d’instrumentation.
@@ -165,7 +153,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Applications de fonction Azure
 
-Pour Azure Function Apps (v2), la sécurisation du canal avec une clé API peut se faire avec une variable d’environnement. 
+Pour les applications de fonction Azure (v2), la sécurisation du canal avec une clé API peut se faire avec une variable d’environnement.
 
 Créez une clé API à partir de votre ressource Application Insights et accédez à **Paramètres d’application** pour votre application de fonction. Sélectionnez **Ajouter un nouveau paramètre** et entrez le nom `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` et une valeur qui correspond à votre clé API.
 
@@ -193,11 +181,30 @@ Toutefois, si vous connaissez et faites confiance à tous les serveurs connecté
 >Nous vous recommandons vivement de configurer le canal authentifié avant d’entrer des informations potentiellement sensibles comme un ID client dans les critères de filtre.
 >
 
+## <a name="supported-features-table"></a>Tableau des fonctionnalités prises en charge
+
+| Langage                         | Métriques de base       | Mesures de performances | Filtrage personnalisé    | Exemple de télémétrie    | UC fractionnée par processus |
+|----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
+| .NET                             | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures)  |
+| .NET Core (cible=. NET Framework)| Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures)  |
+| .NET Core (cible=. NET Core)     | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge*          | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | **Non pris en charge**    |
+| Azure Functions v2               | Pris en charge           | Pris en charge           | Pris en charge           | Pris en charge           | **Non pris en charge**    |
+| Java                             | Pris en charge (V2.0.0 et versions ultérieures) | Pris en charge (V2.0.0 et versions ultérieures) | **Non pris en charge**   | **Non pris en charge**   | **Non pris en charge**    |
+| Node.js                          | Pris en charge (V1.3.0 et versions ultérieures) | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**   | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**    |
+
+Les métriques de base incluent les requêtes, les dépendances et le taux d’exceptions. Les métriques du niveau de performance (compteurs de performances) incluent la mémoire et l’UC. L’exemple de télémétrie montre un flux d’informations détaillées pour les demandes et les dépendances ayant échoué, les exceptions, les événements et les traces.
+
+ \* La prise en charge de PerfCounters varie légèrement entre les versions de .NET Core qui ne ciblent pas le .NET Framework :
+
+- Les métriques PerfCounters sont prises en charge lors de l’exécution dans Azure App Service pour Windows. (Kit de développement logiciel [SDK] AspNetCore version 2.4.1 ou ultérieure)
+- Les PerfCounters sont pris en charge lorsque l’application s’exécute sur n’importe quel ordinateur Windows (machine virtuelle, service cloud ou ordinateur local, etc.) [Kit de développement logiciel (SDK) AspNetCore version 2.7.1 ou ultérieure], mais pour les applications ciblant .NET Core 2.0 ou une version ultérieure.
+- Les PerfCounters sont pris en charge lorsque l’application s’exécute n’importe où (Linux, Windows, App Service pour Linux, conteneurs, etc.) dans la dernière version bêta (c.-à-d. le Kit de développement logiciel [SDK] AspNetCore version 2.8.0-beta1 ou ultérieure), mais pour les applications ciblant .NET Core 2.0 ou une version ultérieure.
+
+Les métriques temps réel sont désactivées par défaut dans le Kit de développement logiciel (SDK) Node.js. Pour activer les métriques temps réel, ajoutez `setSendLiveMetrics(true)` à vos [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) lorsque vous initialisez le Kit de développement logiciel (SDK).
+
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Pas de données ? Si votre application est dans un réseau protégé : Le flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](../../azure-monitor/app/ip-addresses.md) sont ouvertes dans votre pare-feu.
-
-
+Pas de données ? Si votre application est dans un réseau protégé : Le Flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](../../azure-monitor/app/ip-addresses.md) sont ouvertes dans votre pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)

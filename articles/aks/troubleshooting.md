@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517076"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604724"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -34,9 +34,9 @@ Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un clu
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens un erreur insufficientSubnetSize quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
-En cas d’utilisation d’Azure CNI (mise en réseau avancée), AKS préalloue les adresses IP en fonction des « max-pods » par nœud configuré. Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 110. Sur la base du nombre maximal de pods configurés, la taille de sous-réseau devrait être supérieure au « produit du nombre de nœuds et du nombre maximal de pods par nœud ». L’équation de base suivante en donne un aperçu :
+En cas d’utilisation d’Azure CNI (mise en réseau avancée), AKS alloue les adresses IP en fonction des « max-pods » par nœud configuré. Sur la base du nombre maximal de pods configurés, la taille de sous-réseau doit être supérieure au produit du nombre de nœuds et au paramètre du nombre maximal de pods par nœud. L’équation suivante en donne un aperçu :
 
-Taille du sous-réseau > nombre de nœuds dans le cluster (en tenant compte des besoins futurs de mise à l’échelle) * nombre maximum de pods par nœud.
+Taille du sous-réseau > nombre de nœuds dans le cluster (en tenant compte des besoins futurs de mise à l’échelle) * nombre maximum de pods par ensemble de nœuds.
 
 Pour plus d’informations, consultez [Planifier l’adressage IP pour votre cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 

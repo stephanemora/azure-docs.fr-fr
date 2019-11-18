@@ -2,19 +2,17 @@
 title: 'Modifier un circuit ExpressRoute : PowerShell : Azure Classic | Microsoft Docs'
 description: Cet article vous montre les étapes nécessaires à la vérification de l’état, à la mise à jour, à la suppression et au déprovisionnement du circuit de votre modèle de déploiement classique ExpressRoute.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: ganesr
-ms.reviewer: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 7468338e7bc39128564e71831abe61bb1714ff72
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.date: 11/05/2019
+ms.author: cherylmc
+ms.openlocfilehash: 9f1c05b85fac6dd0168d9c2b2944326800e90493
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849244"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643681"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modifier un circuit ExpressRoute à l’aide de PowerShell (Azure Classic)
 
@@ -35,39 +33,18 @@ Cet article vous montre les étapes nécessaires à la vérification de l’éta
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Installez les dernières versions des modules PowerShell Azure Service Management (SM) et du module ExpressRoute.  Si vous utilisez l’exemple suivant, sachez que le numéro de version (dans cet exemple, 5.1.1) évoluera au fur et à mesure de la publication de nouvelles versions des cmdlets.
+Installez les dernières versions des modules PowerShell Azure Service Management (SM) et du module ExpressRoute. Vous ne pouvez pas utiliser l’environnement Azure CloudShell pour exécuter des modules SM.
 
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Pour plus d’informations sur Azure PowerShell, et notamment une aide détaillée pour configurer son ordinateur de façon à pouvoir utiliser les modules Azure PowerShell, voir [Bien démarrer avec les cmdlets Azure PowerShell](/powershell/azure/overview).
-
-Pour vous connecter à votre compte Azure, utilisez l’exemple suivant :
-
-1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+1. Suivez les instructions de l’article [Installation du module Service Management](/powershell/azure/servicemanagement/install-azure-ps) pour installer le module Azure Service Management. Si le module Az ou RM est déjà installé, assurez-vous d’utiliser « -AllowClobber ».
+2. Importez les modules installés. Lorsque vous utilisez l’exemple suivant, ajustez le chemin d’accès pour refléter l’emplacement de vos modules PowerShell installés.
 
    ```powershell
-   Connect-AzAccount
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-2. Vérifiez les abonnements associés au compte.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.
+3. Pour vous connecter à votre compte Azure, ouvrez votre console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour vous aider à vous connecter à l’aide du module Service Management :
 
    ```powershell
    Add-AzureAccount

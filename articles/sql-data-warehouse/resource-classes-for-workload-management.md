@@ -1,5 +1,5 @@
 ---
-title: Classes de ressources pour la gestion des charges de travail dans Azure SQL Data Warehouse | Microsoft Docs
+title: Classes de ressources pour la gestion des charges de travail
 description: Conseils d’utilisation des classes de ressources pour gérer la concurrence et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035077"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685931"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
 
@@ -35,7 +36,7 @@ Il existe deux types de classes de ressources :
 
 Les classes de ressources utilisent des emplacements de concurrence pour mesurer la consommation des ressources.  Les [emplacements de concurrence](#concurrency-slots) sont expliqués plus loin dans cet article.
 
-- Pour afficher l’utilisation des ressources pour les classes de ressources, consultez [Limites de mémoire et de concurrence](memory-and-concurrency-limits.md#concurrency-maximums).
+- Pour afficher l’utilisation des ressources pour les classes de ressources, consultez [Limites de mémoire et de concurrence]memory-concurrency-limits.md).
 - Pour ajuster la classe de ressources, vous pouvez exécuter la requête sous un autre utilisateur ou modifier l’appartenance [de l’utilisateur actuel à une classe de ressources](#change-a-users-resource-class).
 
 ### <a name="static-resource-classes"></a>Classes de ressources statiques
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Pour plus d’informations sur la façon dont des classes de ressources plus élevées peuvent améliorer la qualité des index cluster columnstore, voir [Optimiser la qualité du rowgroup pour columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

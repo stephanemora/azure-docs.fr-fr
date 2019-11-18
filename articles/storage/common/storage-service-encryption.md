@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a15d450d033c04c59f6981a887689f1fc08919f1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958847"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795693"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
@@ -74,7 +74,7 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 
 Pour révoquer l’accès aux clés managées par le client sur le compte de stockage, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les données dans le compte de stockage, car la clé de chiffrement n’est pas accessible au Stockage Azure.
 
-Les clés managées par le client ne sont pas prises en charge pour des [disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Les clés managées par le client sont également disponibles pour les disques managés Azure en tant que préversion publique : elles fonctionnent un peu différemment pour ces derniers que pour le reste du stockage. Pour plus d’informations, consultez notre [article sur le sujet](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
 
 Pour savoir comment utiliser des clés managées par le client avec le Stockage Azure, consultez un de ces articles :
 
@@ -122,7 +122,7 @@ Les opérations de stockage d’objets blob suivantes prennent en charge l’env
 - [Put Block](/rest/api/storageservices/put-block)
 - [Put Block from URL](/rest/api/storageservices/put-block-from-url)
 - [Put Page](/rest/api/storageservices/put-page)
-- [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+- [Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url)
 - [Append Block](/rest/api/storageservices/append-block)
 - [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)

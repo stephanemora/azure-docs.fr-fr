@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555348"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795717"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Vue d’ensemble des Insights dans Azure Monitor
 Les Insights offrent une expérience de surveillance personnalisée pour des applications et services spécifiques. Ils stockent des données sur la [plateforme de données Azure Monitor](../platform/data-platform.md) et exploitent d’autres fonctionnalités d’analyse et d’alerte d’Azure Monitor, mais peuvent également collecter des données supplémentaires et offrir une expérience utilisateur unique sur le portail Azure. Vous pouvez accéder aux informations à partir de la section **Insights** du menu du Azure Monitor du portail Azure.
@@ -46,6 +46,11 @@ Azure Monitor pour machines virtuelles surveille les machines virtuelles et grou
 Voir [Qu’est-ce qu’Azure Monitor pour machines virtuelles ?](vminsights-overview.md)
 
 ![Azure Monitor pour machines virtuelles](media/insights-overview/vm-insights.png)
+
+## <a name="azure-monitor-for-network-preview"></a>Azure Monitor pour réseau (préversion)
+Azure Monitor pour réseau fournit une vue complète de l’intégrité et des mesures pour toutes vos ressources réseau. La fonctionnalité de recherche avancée vous aide à identifier les dépendances de ressources, par l’activation de scénarios tels que l’identification des ressources qui hébergent votre site Web, en recherchant simplement le nom de votre site Web.
+
+![Azure Monitor pour réseaux](media/insights-overview/network-insights.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez-en davantage sur la [plateforme de données Azure Monitor](../platform/data-platform.md).

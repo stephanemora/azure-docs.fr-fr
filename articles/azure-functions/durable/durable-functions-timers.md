@@ -7,39 +7,39 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087039"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614641"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Minuteurs dans Fonctions durables (Azure Functions)
 
 [Fonctions durables](durable-functions-overview.md) fournit *des minuteurs durables* à utiliser dans les fonctions de l’orchestrateur pour implémenter des retards ou configurer des délais d’expiration sur des actions asynchrones. Les minuteurs durables doivent être utilisés dans les fonctions de l’orchestrateur à la place de `Thread.Sleep` et `Task.Delay` (C#) ou `setTimeout()` et `setInterval()` (JavaScript).
 
-Vous pouvez créer un minuteur durable en appelant la méthode [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) de [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) en .NET, ou la méthode `createTimer` de `DurableOrchestrationContext` en JavaScript. La méthode retourne une tâche qui reprend à une date et une heure spécifiées.
+Vous créez un minuteur durable en appelant la méthode `CreateTimer` (.NET) ou la méthode `createTimer` (JavaScript) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). La méthode retourne une tâche qui se termine à une date et une heure spécifiées.
 
 ## <a name="timer-limitations"></a>Limitations des minuteurs
 
-Lorsque vous créez un minuteur qui expire à 16:30, l’infrastructure des tâches durables sous-jacent empile un message qui est uniquement visible à 16:30. Durant l’exécution dans le plan de consommation d’Azure Functions, le nouveau message visible du minuteur garantit que l’application de fonction est activée sur une machine virtuelle appropriée.
+Lorsque vous créez un minuteur qui expire à 16:30, l’infrastructure des tâches durables sous-jacent empile un message qui devient uniquement visible à 16:30. Durant l’exécution dans le plan de consommation d’Azure Functions, le message de minuteur nouvellement visible garantit que l’application de fonction est activée sur une machine virtuelle appropriée.
 
 > [!NOTE]
-> * En raison des limitations du stockage Azure, les minuteurs durables ne peuvent pas dépasser 7 jours. Nous travaillons actuellement sur une [demande de fonctionnalité pour étendre les minuteurs à plus de 7 jours](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Utilisez toujours [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) au lieu de `DateTime.UtcNow` en .NET et `currentUtcDateTime` au lieu de `Date.now` ou `Date.UTC` en JavaScript comme indiqué dans les exemples ci-dessous pour le calcul d’une échéance relative d’un minuteur durable.
+> * Les minuteurs durables sont actuellement limités à 7 jours. Si des délais plus longs sont nécessaires, ils peuvent être simulés à l’aide des API de minuteur dans une boucle `while`.
+> * Utilisez toujours `CurrentUtcDateTime` au lieu de `DateTime.UtcNow` en .NET ou `currentUtcDateTime` au lieu de `Date.now` ou de `Date.UTC` en JavaScript lors du calcul de l’heure de déclenchement pour les minuteurs durables. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
 
 ## <a name="usage-for-delay"></a>Utilisation des retards
 
-L’exemple suivant montre comment utiliser des minuteurs durables pour retarder une exécution. Dans cet exemple, une notification de facturation est émise tous les jours pendant dix jours.
+L’exemple suivant montre comment utiliser des minuteurs durables pour retarder une exécution. Dans cet exemple, une notification de facturation est émise tous les jours pendant 10 jours.
 
 ### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     for (int i = 0; i < 10; i++)
     {
@@ -50,7 +50,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+> [!NOTE]
+> L’exemple C# précédent cible Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```js
 const df = require("durable-functions");
@@ -78,7 +81,7 @@ Cet exemple montre comment utiliser des minuteurs durables pour implémenter des
 ```csharp
 [FunctionName("TryGetQuote")]
 public static async Task<bool> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -104,7 +107,10 @@ public static async Task<bool> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+> [!NOTE]
+> L’exemple C# précédent cible Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```js
 const df = require("durable-functions");
@@ -131,11 +137,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Utilisez `CancellationTokenSource` pour annuler un minuteur durable (C#) ou appelez `cancel()` sur le `TimerTask` retourné (JavaScript) si votre code n’attendra pas qu’il se termine. Dans le framework des tâches durables, une orchestration ne passe à l’état « terminé » que quand toutes les tâches en attente sont terminées ou annulées.
+> Utilisez `CancellationTokenSource` pour annuler un minuteur durable (.NET) ou appelez `cancel()` sur le `TimerTask` retourné (JavaScript) si votre code n’attendra pas qu’il se termine. Dans le framework des tâches durables, une orchestration ne passe à l’état « terminé » que quand toutes les tâches en attente sont terminées ou annulées.
 
-Ce mécanisme ne termine pas réellement l’exécution des fonctions d’activité en cours. Il permet simplement à la fonction de l’orchestrateur d’ignorer le résultat et de continuer. Si votre application de fonction utilise le plan de consommation, vous serez toujours facturé pour le temps consacré et la mémoire consommée par la fonction d’activité abandonnée. Par défaut, les fonctions exécutées dans le plan de consommation ont un délai d’expiration de cinq minutes. Si cette limite est dépassée, l’hôte d’Azure Functions est recyclé pour arrêter toute exécution en cours et éviter toute facturation supplémentaire. Le [délai d’expiration des fonctions est configurable](../functions-host-json.md#functiontimeout).
+Ce mécanisme d’annulation ne termine pas la fonction d’activité en cours ni les exécutions de sous-orchestrations. Il permet simplement à la fonction de l’orchestrateur d’ignorer le résultat et de continuer. Si votre application de fonction utilise le plan de consommation, vous serez toujours facturé pour le temps consacré et la mémoire consommée par la fonction d’activité abandonnée. Par défaut, les fonctions exécutées dans le plan de consommation ont un délai d’expiration de cinq minutes. Si cette limite est dépassée, l’hôte d’Azure Functions est recyclé pour arrêter toute exécution en cours et éviter toute facturation supplémentaire. Le [délai d’expiration des fonctions est configurable](../functions-host-json.md#functiontimeout).
 
-Pour obtenir un exemple plus détaillé d’implémentation de délais d’expiration dans les fonctions de l’orchestrateur, consultez la procédure pas à pas [Interaction humaine et délais d’expiration - Vérification par téléphone](durable-functions-phone-verification.md).
+Pour obtenir un exemple plus détaillé d’implémentation de délais d’expiration dans les fonctions de l’orchestrateur, consultez l’article [Interaction humaine et délais d’expiration – Vérification par téléphone](durable-functions-phone-verification.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

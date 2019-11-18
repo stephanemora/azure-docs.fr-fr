@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4cc0201b8ac61c54aadcc59b549877238b95e54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574462"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Connecteurs personnalisés dans Logic Apps
 
-Sans écrire de code, vous pouvez créer des flux de travail et des applications avec [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Microsoft Flow](https://flow.microsoft.com) et [PowerApps](https://powerapps.microsoft.com). Pour vous aider à intégrer vos apps, données et processus métier, ces services offrent [environ 200 connecteurs](https://docs.microsoft.com/connectors/) pour les produits et services Microsoft, mais aussi pour d’autres services comme GitHub, Salesforce, Twitter, etc.
+Sans écrire de code, vous pouvez créer des flux de travail et des applications avec [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Power Automate](https://flow.microsoft.com) et [Power Apps](https://powerapps.microsoft.com). Pour vous aider à intégrer vos apps, données et processus métier, ces services offrent [environ 200 connecteurs](https://docs.microsoft.com/connectors/) pour les produits et services Microsoft, mais aussi pour d’autres services comme GitHub, Salesforce, Twitter, etc.
 
 Cependant, il se peut que vous souhaitiez dans certains cas appeler des API, des services et des systèmes qui ne sont pas disponibles en tant que connecteurs créés au préalable. Pour prendre en charge des scénarios plus personnalisés, vous pouvez créer des *connecteurs personnalisés* avec leurs propres déclencheurs et actions. Le site de documentation des connecteurs propose des didacticiels de base et avancés complets sur les connecteurs personnalisés. Vous pouvez commencer par la [vue d’ensemble du connecteur personnalisé](https://docs.microsoft.com/connectors/custom-connectors/), mais également accéder directement à ces rubriques pour plus d’informations sur un domaine spécifique :
 

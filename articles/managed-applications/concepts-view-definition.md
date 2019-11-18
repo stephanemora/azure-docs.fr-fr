@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: ff96bddef1b34f5a8bf743ccaaccba2da01534dc
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b23e844cb550a98328951bc6efae3c5039ff73bf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335091"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607534"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefact de définition de vue dans les applications managées Azure
 
@@ -26,7 +26,7 @@ L’artefact de définition de vue doit être nommé **viewDefinition.json** et 
 
 ## <a name="view-definition-schema"></a>Schéma de définition de vue
 
-Le fichier **viewDefinition.json** présente une seule propriété `views` de niveau supérieur, qui est un tableau de vues. Chaque vue s'affiche dans l'interface utilisateur de l'application managée sous forme d'élément de menu distinct dans la table des matières. Chaque vue possède une propriété `kind` qui définit le type de vue. Elle doit être définie sur l’une des valeurs suivantes : [Vue d’ensemble](#overview), [Métriques](#metrics), [Ressources personnalisées](#custom-resources). Pour plus d’informations, consultez le [schéma JSON actuel pour viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+Le fichier **viewDefinition.json** présente une seule propriété `views` de niveau supérieur, qui est un tableau de vues. Chaque vue s'affiche dans l'interface utilisateur de l'application managée sous forme d'élément de menu distinct dans la table des matières. Chaque vue possède une propriété `kind` qui définit le type de vue. Elle doit être définie sur l’une des valeurs suivantes : [Vue d’ensemble](#overview), [Métriques](#metrics), [Ressources personnalisées](#custom-resources), [Associations](#associations). Pour plus d’informations, consultez le [schéma JSON actuel pour viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Exemple de schéma JSON pour la définition de vue :
 
@@ -79,10 +79,6 @@ Exemple de schéma JSON pour la définition de vue :
                 "createUIDefinition": { },
                 "commands": [
                     {
-                        "displayName": "Custom Test Action",
-                        "path": "testAction"
-                    },
-                    {
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
@@ -95,10 +91,18 @@ Exemple de schéma JSON pour la définition de vue :
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test association resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { }
+            }
         }
     ]
 }
-
 ```
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -203,12 +207,9 @@ Dans cette vue, vous pouvez effectuer des opérations GET, PUT, DELETE et POST p
         "displayName": "Test custom resource type",
         "version": "1.0.0",
         "resourceType": "testCustomResource",
+        "icon": "Polychromatic.ResourceList",
         "createUIDefinition": { },
         "commands": [
-            {
-                "displayName": "Custom Test Action",
-                "path": "testAction"
-            },
             {
                 "displayName": "Custom Context Action",
                 "path": "testCustomResource/testContextAction",
@@ -230,6 +231,7 @@ Dans cette vue, vous pouvez effectuer des opérations GET, PUT, DELETE et POST p
 |displayName|OUI|Titre affiché de la vue. Le titre doit être **unique** pour chaque vue CustomResources de votre fichier **viewDefinition.json**.|
 |version|Non|Version de la plateforme utilisée pour afficher la vue.|
 |resourceType|OUI|Type de ressource personnalisé. Doit correspondre à un type de ressource personnalisé **unique** de votre fournisseur personnalisé.|
+|icon|Non|Icône de l’affichage. La liste des exemples d’icônes est définie dans [Schéma JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Non|Créez le schéma de définition d’interface utilisateur pour créer une commande de ressource personnalisée. Pour une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md)|
 |commandes|Non|Pour le tableau de boutons de barre d’outils supplémentaires de la page Ressources personnalisées, consultez [commandes](#commands).|
 |colonnes|Non|Tableau de colonnes de la ressource personnalisée. S'il n'est pas défini, la colonne `name` s'affiche par défaut. La colonne doit contenir `"key"` et `"displayName"`. Pour la clé, indiquez la clé de la propriété à afficher dans une vue. Si elle est imbriquée, utilisez un point en tant que séparateur, par exemple, `"key": "name"` ou `"key": "properties.property1"`. Pour le nom d’affichage, indiquez le nom complet de la propriété à afficher dans une vue. Vous pouvez également fournir une propriété `"optional"`. Lorsqu'elle est définie sur true, la colonne est masquée dans une vue par défaut.|
@@ -256,9 +258,36 @@ Les commandes correspondent à un tableau de boutons de barre d’outils supplé
 |Propriété|Obligatoire|Description|
 |---------|---------|---------|
 |displayName|OUI|Nom affiché du bouton de commande.|
-|chemin d’accès|OUI|Nom de l'action du fournisseur personnalisé. L’action doit être définie dans **mainTemplate.json**.|
-|icon|Non|Icône du bouton de commande. La liste des icônes prises en charge est définie dans [Schéma JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|path|OUI|Nom de l'action du fournisseur personnalisé. L’action doit être définie dans **mainTemplate.json**.|
+|icon|Non|Icône du bouton de commande. La liste des exemples d’icônes est définie dans [Schéma JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Non|Créez le schéma de définition d’interface utilisateur pour la commande. Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).|
+
+## <a name="associations"></a>Associations
+
+`"kind": "Associations"`
+
+Vous pouvez définir plusieurs vues de ce type. Cette vue vous permet de lier des ressources existantes à l’application managée par le biais du fournisseur personnalisé que vous avez défini dans **mainTemplate.json**. Pour une introduction aux fournisseurs personnalisés, consultez [Présentation de la préversion d’Azure Custom Providers](custom-providers-overview.md).
+
+Dans cette vue, vous pouvez étendre les ressources Azure existantes en fonction du `targetResourceType`. Lorsqu’une ressource est sélectionnée, elle crée une requête d’intégration au fournisseur personnalisé **public**, qui peut appliquer un effet secondaire à la ressource. 
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test association resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { }
+    }
+}
+```
+
+|Propriété|Obligatoire|Description|
+|---------|---------|---------|
+|displayName|OUI|Titre affiché de la vue. Le titre doit être **unique** pour chaque vue Associations de votre fichier **viewDefinition.json**.|
+|version|Non|Version de la plateforme utilisée pour afficher la vue.|
+|targetResourceType|OUI|Le type de ressource cible. Il s’agit du type de ressource qui sera affiché pour l’intégration des ressources.|
+|createUIDefinition|Non|Créez le schéma de définition d’interface utilisateur pour créer une commande de ressource d’association. Pour une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md)|
 
 ## <a name="looking-for-help"></a>Besoin d’aide
 

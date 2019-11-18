@@ -1,23 +1,23 @@
 ---
-title: Sauvegarde Azure pour SQL Server s’exécutant dans une machine virtuelle Azure
-description: Inscrire Sauvegarde Azure pour SQL Server s'exécutant sur une machine virtuelle Azure
+title: Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
+description: Dans cet article, découvrez comment inscrire Sauvegarde Azure dans SQL Server s’exécutant sur une machine virtuelle Azure.
 services: backup
-author: swatisachdeva
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: vijayts
-ms.openlocfilehash: 25f23078af67b2f80f39faab975cbec54721c560
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: dacurwin
+ms.openlocfilehash: 77492454e2519c98cadfb6819c850c4830015b59
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871897"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748964"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
-Sauvegarde Azure, entre autres offres, prend en charge pour la sauvegarde des charges de travail telles que SQL Server s’exécutant sur des machines virtuelles Azure. L'application SQL s'exécutant dans une machine virtuelle Azure, le service Sauvegarde a besoin d’autorisations pour accéder à l’application et récupérer les informations nécessaires.
+Sauvegarde Azure, entre autres offres, prend en charge la sauvegarde des charges de travail telles que SQL Server s’exécutant sur des machines virtuelles Azure. L’application SQL s’exécutant dans une machine virtuelle Azure, le service de sauvegarde a besoin d’autorisations pour accéder à l’application et récupérer les informations nécessaires.
 Pour ce faire, Sauvegarde Azure installe l'extension **AzureBackupWindowsWorkload** sur la machine virtuelle dans laquelle le serveur SQL Server est en cours d’exécution, lors du processus d’inscription déclenché par l’utilisateur.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -30,7 +30,7 @@ Sauvegarde Azure prend en charge les balises de groupe de sécurité réseau, le
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Les schémas d'extensions et les valeurs des propriétés correspondent aux valeurs de configuration (paramètres d’exécution) que le service transmet à l'API CRP. Ces valeurs de configuration sont utilisées lors de l’inscription et de la mise à niveau. L'extension **AzureBackupWindowsWorkload** utilise également ce schéma. Le schéma est prédéfini ; un nouveau paramètre peut être ajouté dans le champ objectStr
+Les schémas d'extensions et les valeurs des propriétés correspondent aux valeurs de configuration (paramètres d’exécution) que le service transmet à l'API CRP. Ces valeurs de configuration sont utilisées lors de l’inscription et de la mise à niveau. L’extension **AzureBackupWindowsWorkload** utilise également ce schéma. Le schéma est prédéfini ; un nouveau paramètre peut être ajouté dans le champ objectStr
 
   ```json
       "runtimeSettings": [{
@@ -93,26 +93,23 @@ objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5
 commandStartTimeUTCTicks | "636967192566036845"  | string
 vmType  | "microsoft.compute/virtualmachines"  | string
 objectStr <br/> (protectedSettings) | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ==" | string
-logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string
-statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string
-
+logsBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw> | string
+statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw> | string
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
 Nous vous recommandons d'ajouter l'extension AzureBackupWindowsWorkload à une machine virtuelle en activant la sauvegarde SQL Server sur la machine virtuelle. Pour ce faire, vous pouvez utiliser le [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) conçu pour automatiser la sauvegarde sur une machine virtuelle SQL Server.
 
-
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
 Pour ce faire, vous devez inscrire la machine virtuelle Azure qui contient l’application SQL avec un coffre Recovery Services. Lors de l’inscription, l'extension AzureBackupWindowsWorkload est installée sur la machine virtuelle. Utilisez la cmdlet  [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) pour inscrire la machine virtuelle.
- 
+
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
- 
-La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’état est défini sur **inscrit**.
 
+La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’état est défini sur **inscrit**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

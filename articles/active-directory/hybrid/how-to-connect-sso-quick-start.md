@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176823"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603409"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -185,6 +185,14 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 
 Assurez-vous que la machine utilisant le système macOS est jointe à AD. Les instructions pour joindre à AD votre appareil macOS sortent du cadre de cet article.
 
+#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basé sur Chromium (toutes les plateformes)
+
+Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
+
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basé sur Chromium (macOS et autres plateformes non-Windows)
+
+En ce qui concerne Microsoft Edge basé sur Chromium sur Mac OS et les autres plateformes non-Windows, consultez la [liste de stratégies du site Microsoft Edge basé sur Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) afin d’obtenir plus d’informations sur l’ajout de l’URL Azure AD pour l’authentification intégrée à votre liste verte.
+
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 
 Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
@@ -197,7 +205,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
-L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
+L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. Pour la prochaine version de Microsoft Edge basé sur Chromium, elle ne fonctionnera pas en mode InPrivate et Guest de par sa conception.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 

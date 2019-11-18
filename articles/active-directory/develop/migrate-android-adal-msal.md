@@ -16,12 +16,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d06c84e6afcabb19c985d242679d6db8616a62e2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678833"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667886"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guide de migration ADAL vers MSAL pour Android
 
@@ -29,45 +29,42 @@ Cet article souligne les changements que vous devez apporter pour migrer une app
 
 ## <a name="difference-highlights"></a>Principales différences
 
-ADAL fonctionne avec le point de terminaison Azure Active Directory v1.0. Microsoft Authentication Library (MSAL) fonctionne avec la plateforme d’identités Microsoft, anciennement connue comme point de terminaison Azure Active Directory v2.0.
+ADAL fonctionne avec le point de terminaison Azure Active Directory v1.0. Microsoft Authentication Library (MSAL) fonctionne avec la plateforme d’identités Microsoft, anciennement connue comme point de terminaison Azure Active Directory v2.0. La plateforme d’identités Microsoft diffère d’Azure Active Directory v1.0 des manières suivantes :
 
-La plateforme d’identités Microsoft diffère d’Azure Active Directory v1.0 des manières suivantes :
-
-- Elle prend en charge à la fois :
+Prend en charge :
   - Identité organisationnelle (Azure Active Directory).
-  - Identités non organisationnelles telles que Outlook.com, Xbox Live, etc.
-  - (B2C uniquement) Connexion fédérée avec Google, Facebook, Twitter et Amazon.
+  - Identités non organisationnelles telles que Outlook.com, Xbox Live, etc
+  - (B2C uniquement) Connexion fédérée avec Google, Facebook, Twitter et Amazon
 
 - Ses normes sont compatibles avec :
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-L’API publique MSAL introduit des changements d’usage importants, notamment les suivants :
+L’API publique MSAL introduit des changements importants, notamment les suivants :
 
-- Nouveau modèle pour l’accès aux jetons :
+- Un nouveau modèle pour l’accès aux jetons :
   - ADAL fournit l’accès aux jetons par le biais d’`AuthenticationContext`, qui représente le serveur. MSAL fournit l’accès aux jetons par le biais de `PublicClientApplication`, qui représente le client. Les développeurs de clients n’ont pas besoin de créer une instance `PublicClientApplication` pour chaque autorité avec laquelle ils ont besoin d’interagir. Une seule configuration `PublicClientApplication` est nécessaire.
   - Prise en charge de la demande de jetons d’accès à l’aide d’étendues en plus des identificateurs de ressources.
-  - Prise en charge d’un consentement incrémentiel. Les développeurs peuvent demander des étendues, notamment celles qui ne sont pas incluses lors de l’inscription d’application.
-  - Validation des autorités -> autorités connues
-      * Les autorités ne sont plus validées au moment de l’exécution ; il incombe plutôt au développeur de déclarer la liste des « autorités connues » pendant le développement.
+  - Prise en charge d’un consentement incrémentiel. Les développeurs peuvent demander des étendues à mesure que l’utilisateur accède à de plus en plus de fonctionnalités dans l’application, y compris celles qui ne sont pas incluses lors de l’inscription de l’application.
+  - Les autorités ne sont plus validées à l’exécution. Au lieu de cela, il incombe au développeur de déclarer la liste des « autorités connues » pendant le développement.
 - Changements d’API de jeton :
-  - Dans ADAL, `AcquireToken` tente d’abord d’effectuer une demande silencieuse, puis après avoir échoué, effectue une demande interactive. Ce comportement fait que certains développeurs s’appuient uniquement sur `AcquireToken`, ce qui implique parfois qu’une interaction utilisateur se produit à un moment inattendu. MSAL oblige les développeurs à déterminer délibérément le moment auquel l’utilisateur reçoit une invite d’interface utilisateur.
+  - Dans ADAL, `AcquireToken()` effectue d’abord une requête silencieuse. En cas d’échec, il effectue une requête interactive. Ce comportement a conduit certains développeurs à ne compter que sur `AcquireToken`, ce qui a eu pour conséquence que l’utilisateur a parfois été invité de manière inattendue à fournir des informations d’identification. MSAL oblige les développeurs à déterminer délibérément le moment auquel l’utilisateur reçoit une invite d’interface utilisateur.
     - `AcquireTokenSilent` aboutit toujours à une demande silencieuse qui réussit ou échoue.
-    - `AcquireToken` aboutit toujours à une demande interactive (utilisateur invité avec l’interface utilisateur).
-- MSAL prend en charge une interaction avec l’interface utilisateur pour la connexion à partir d’un navigateur par défaut ou d’une vue web incorporée :
+    - `AcquireToken` aboutit toujours à une demande qui invite l’utilisateur via l’interface utilisateur.
+- MSAL prend en charge une connexion à partir d’un navigateur par défaut ou d’un affichage web incorporé :
   - Par défaut, le navigateur par défaut sur l’appareil est utilisé. Cela permet à MSAL d’utiliser l’état d’authentification (cookies) éventuellement déjà présent pour un ou plusieurs comptes connectés. Si aucun état d’authentification n’est présent, l’authentification au cours de l’autorisation par le biais de MSAL entraîne la création d’un état d’authentification (cookies) en faveur d’autres applications web qui seront utilisées dans le même navigateur.
 - Nouveau modèle d’exception :
-  - Les exceptions sont plus claires sur le type d’exception qui s’est produit et sur ce que le développeur doit faire pour le résoudre.
+  - Les exceptions définissent plus clairement le type d’erreur qui s’est produit et sur ce que le développeur doit faire pour la résoudre.
 - MSAL prend en charge les objets de paramètre pour les appels `AcquireToken` et `AcquireTokenSilent`.
 - MSAL prend en charge la configuration déclarative pour :
-  - ID client, URI de redirection
+  - ID client, URI de redirection.
   - Navigateur incorporé plutôt que par défaut
   - Autorités
   - Paramètres HTTP,comme le délai de lecture et de connexion
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>Votre inscription d’application et votre migration vers MSAL
 
-Aucun changement n’est nécessaire pour que votre inscription d’application existante utilise MSAL. Si vous voulez tirer parti du consentement incrémentiel/progressif, vous devez éventuellement examiner l’inscription pour identifier les étendues spécifiques à demander de façon incrémentielle. Plus d’informations sur les étendues et le consentement incrémentiel sont données ci-après.
+Vous n’avez pas besoin de modifier l’inscription de votre application existante pour utiliser MSAL. Si vous voulez tirer parti du consentement incrémentiel/progressif, vous devez éventuellement examiner l’inscription pour identifier les étendues spécifiques à demander de façon incrémentielle. Plus d’informations sur les étendues et le consentement incrémentiel sont données ci-après.
 
 Dans votre inscription d’application dans le portail, vous voyez un onglet **Autorisations d’API**. Celui-ci fournit la liste des API et autorisations (étendues) auxquelles votre application est actuellement configurée pour demander l’accès. Il présente également la liste des noms d’étendue associés à chaque autorisation d’API.
 
@@ -98,12 +95,12 @@ Si vous utilisez actuellement ADAL et que vous n’avez pas besoin d’utiliser 
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Authentifier et demander des autorisations uniquement si elles sont nécessaires
 
-Pour tirer parti du consentement incrémentiel, vous devez dresser la liste des autorisations (étendues) que votre application utilise à partir de votre inscription d’application, puis les organiser en deux listes selon :
+Pour tirer parti du consentement incrémentiel, dressez la liste des autorisations (étendues) que votre application utilise à partir de votre inscription d’application et organisez-les en deux listes selon :
 
 - Les étendues à demander lors de la première interaction de l’utilisateur avec votre application pendant la connexion.
 - Les autorisations associées à une fonctionnalité importante de votre application que vous devrez également expliquer à l’utilisateur.
 
-Une fois que vous avez organisé les étendues, vous devez organiser chaque liste selon la ressource (API) pour laquelle vous voulez demander un jeton, ainsi que toutes les autres étendues que vous voulez que l’utilisateur autorise en même temps.
+Une fois que vous avez organisé les étendues, organisez chaque liste selon la ressource (API) pour laquelle vous voulez demander un jeton, ainsi que toutes les autres étendues que vous voulez que l’utilisateur autorise en même temps.
 
 L’objet des paramètres utilisé pour effectuer votre demande à MSAL prend en charge :
 
@@ -134,8 +131,8 @@ MSAL n’a pas d’indicateur permettant d’activer ou de désactiver la valida
 Si vous tentez d’utiliser une autorité qui n’est pas connue de Microsoft et qui n’est pas incluse dans votre configuration, vous obtenez un `UnknownAuthorityException`.
 
 ### <a name="logging"></a>Journalisation
-Vous pouvez maintenant configurer la journalisation de façon déclarative dans le cadre de votre configuration, comme ci-dessous.
- 
+Vous pouvez maintenant configurer la journalisation de façon déclarative dans le cadre de votre configuration, comme suit :
+
  ```
  "logging": {
     "pii_enabled": false,

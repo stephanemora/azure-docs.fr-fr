@@ -1,23 +1,20 @@
 ---
 title: Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions | Microsoft Docs
 description: Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions, fonctions, architecture sans serveur, infrastructure sous forme code, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: ff5b104c9fa1bedf1f710c06761b6449b20bbf05
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263197"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575948"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -28,9 +25,6 @@ Pour en savoir plus sur la création de modèles, voir [Création de modèles Az
 Pour des exemples de modèles, consultez :
 - [Function app on Consumption plan] (Application de fonction dans le plan Consommation)
 - [Function app on Azure App Service plan] (Application de fonction dans le plan Azure App Service)
-
-> [!NOTE]
-> Le plan Premium pour l’hébergement d’Azure Functions est actuellement en préversion. Pour plus d’informations, voir [Plan Premium Azure Functions](functions-premium-plan.md).
 
 ## <a name="required-resources"></a>Ressources nécessaires
 
@@ -314,7 +308,7 @@ Sous Linux, l’application de fonction doit avoir son paramètre `kind` défini
 
 ## <a name="deploy-on-premium-plan"></a>Déployer sur un plan Premium
 
-Le plan Premium offre la même mise à l’échelle que le plan Consommation, mais inclut des ressources dédiées et des fonctionnalités supplémentaires. Pour plus d’informations, voir [Plan Premium Azure Functions (préversion)](./functions-premium-plan.md).
+Le plan Premium offre la même mise à l’échelle que le plan Consommation, mais inclut des ressources dédiées et des fonctionnalités supplémentaires. Pour plus d’informations, consultez [Plan Premium Azure Functions](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Créer un plan Premium
 

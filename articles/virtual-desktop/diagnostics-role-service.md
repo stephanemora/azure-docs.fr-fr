@@ -1,18 +1,18 @@
 ---
-title: Identifier les problèmes relatifs à la fonctionnalité de diagnostic de Windows Virtual Desktop - Azure
-description: Décrit la fonctionnalité de diagnostic de Windows Virtual Desktop et son utilisation.
+title: Problèmes de diagnostic de Windows Virtual Desktop – Azure
+description: Comment utiliser la fonctionnalité de diagnostic de Windows Virtual Desktop pour diagnostiquer des problèmes.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840146"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606859"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifier et diagnostiquer les problèmes
 

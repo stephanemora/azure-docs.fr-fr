@@ -8,17 +8,21 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302066"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614498"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
+
 Pour permettre un bon fonctionnement du [modèle d’exécution fiable](durable-functions-checkpointing-and-replay.md) de Durable Functions, les orchestrations doivent être déterministes, ce qui représente un point supplémentaire à prendre en compte au moment du déploiement des mises à jour. Quand un déploiement contient des changements apportés aux signatures de fonction d’activité ou à la logique d’orchestrateur, les instances d’orchestration actives cessent de fonctionner correctement. Cette situation est particulièrement problématique pour les instances d’orchestration de longue durée, qui peuvent représenter des heures ou des jours de travail.
 
 Pour éviter ces problèmes, vous devez retarder votre déploiement jusqu’à ce que toutes les instances d’orchestration aient fini de s’exécuter, ou vous devez vérifier que toutes les instances d’orchestration en cours d’exécution utilisent les versions existantes de vos fonctions. Pour plus d’informations sur la gestion de versions, consultez [Gestion de versions dans Durable Functions](durable-functions-versioning.md).
+
+> [!NOTE]
+> Cet article fournit des conseils concernant les applications de fonctions ciblant Durable Functions 1.x. Il n’a pas encore été mis à jour pour tenir compte des modifications introduites dans Durable Functions 2.x. Pour en savoir plus sur les différences entre les versions d’extension, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 Le tableau suivant compare les trois stratégies principales qui permettent d’effectuer un déploiement sans temps d’arrêt pour Durable Functions : 
 
@@ -29,6 +33,7 @@ Le tableau suivant compare les trois stratégies principales qui permettent d’
 | **[Routage d’applications](#application-routing)** | Système qui n’a pas de périodes pendant lesquelles les orchestrations ne sont pas exécutées, par exemple les systèmes ayant des orchestrations de plus de 24 heures ou dont les orchestrations se chevauchent fréquemment. | Prend en charge les nouvelles versions des systèmes dont les orchestrations s’exécutent en permanence et comportent des changements cassants. | Nécessite un routeur d’applications intelligent.<br/>Peut atteindre la limite du nombre d’applications de fonction autorisées par votre abonnement (100 par défaut). |
 
 ## <a name="versioning"></a>Contrôle de version
+
 Définissez de nouvelles versions de vos fonctions, et laissez les anciennes versions dans votre application de fonction. Comme vous pouvez le voir sur le diagramme, la version d’une fonction devient partie intégrante de son nom. Dans la mesure où les versions précédentes des fonctions sont conservées, les instances d’orchestration actives peuvent continuer à les référencer. Pendant ce temps, les demandes de nouvelles instances d’orchestration appellent la dernière version, que votre fonction cliente d’orchestration peut référencer à partir d’un paramètre d’application.
 
 ![Stratégie de gestion de versions](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ Le diagramme ci-dessous illustre la configuration décrite pour les emplacements
 
 Les fragments JSON suivants sont des exemples de paramètres de chaîne de connexion dans le fichier host.json.
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

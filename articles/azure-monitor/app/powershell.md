@@ -1,23 +1,18 @@
 ---
 title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
 description: Automatisez la création et la gestion des ressources, des alertes et des tests de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 7ac5d933406af10307ba3312a8f609bfde2413fc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/17/2019
+ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514389"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621936"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 
@@ -255,10 +250,70 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 Pour définir la conservation des données sur 365 jours à l’aide du modèle ci-dessus, exécutez :
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
+```
+
+Le script suivant peut également être utilisé pour modifier la rétention. Copiez ce script pour l’enregistrer en tant que `Set-ApplicationInsightsRetention.ps1`.
+
+```PS
+Param(
+    [Parameter(Mandatory = $True)]
+    [string]$SubscriptionId,
+
+    [Parameter(Mandatory = $True)]
+    [string]$ResourceGroupName,
+
+    [Parameter(Mandatory = $True)]
+    [string]$Name,
+
+    [Parameter(Mandatory = $True)]
+    [string]$RetentionInDays
+)
+$ErrorActionPreference = 'Stop'
+if (-not (Get-Module Az.Accounts)) {
+    Import-Module Az.Accounts
+}
+$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+if (-not $azProfile.Accounts.Count) {
+    Write-Error "Ensure you have logged in before calling this function."    
+}
+$currentAzureContext = Get-AzContext
+$profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azProfile)
+$token = $profileClient.AcquireAccessToken($currentAzureContext.Tenant.TenantId)
+$UserToken = $token.AccessToken
+$RequestUri = "https://management.azure.com/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Insights/components/$($Name)?api-version=2015-05-01"
+$Headers = @{
+    "Authorization"         = "Bearer $UserToken"
+    "x-ms-client-tenant-id" = $currentAzureContext.Tenant.TenantId
+}
+## Get Component object via ARM
+$GetResponse = Invoke-RestMethod -Method "GET" -Uri $RequestUri -Headers $Headers 
+
+## Update RetentionInDays property
+if($($GetResponse.properties | Get-Member "RetentionInDays"))
+{
+    $GetResponse.properties.RetentionInDays = $RetentionInDays
+}
+else
+{
+    $GetResponse.properties | Add-Member -Type NoteProperty -Name "RetentionInDays" -Value $RetentionInDays
+}
+## Upsert Component object via ARM
+$PutResponse = Invoke-RestMethod -Method "PUT" -Uri "$($RequestUri)" -Headers $Headers -Body $($GetResponse | ConvertTo-Json) -ContentType "application/json"
+$PutResponse
+```
+
+Ce script peut être alors utilisé comme suit  :
+
+```PS
+Set-ApplicationInsightsRetention `
+        [-SubscriptionId] <String> `
+        [-ResourceGroupName] <String> `
+        [-Name] <String> `
+        [-RetentionInDays <Int>]
 ```
 
 ## <a name="set-the-daily-cap"></a>Définir le plafond quotidien

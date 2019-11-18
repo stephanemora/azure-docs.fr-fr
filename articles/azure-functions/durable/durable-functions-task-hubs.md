@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b42294fdcf60add8496116bd1f83bf64f54a5f63
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734321"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614719"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tâches dans Fonctions durables (Azure Functions)
 
@@ -33,24 +33,15 @@ Un hub de tâches se compose des ressources de stockage suivantes :
 * Une table d’historique.
 * Une table d’instances.
 * Un conteneur de stockage comprenant un ou plusieurs objets blob de bail.
+* Un conteneur de stockage contenant des charges utiles volumineuses de messages, le cas échéant.
 
-Toutes ces ressources sont automatiquement créées dans le compte Stockage Azure par défaut lorsque des fonctions d’orchestrateur ou d’activité sont exécutées ou planifiées pour l’être. L’article [Performances et mise à l’échelle](durable-functions-perf-and-scale.md) explique comment ces ressources sont utilisées.
+Toutes ces ressources sont automatiquement créées dans le compte Stockage Azure par défaut lorsque des fonctions d’orchestrateur, d’entité ou d’activité sont exécutées ou planifiées pour l’être. L’article [Performances et mise à l’échelle](durable-functions-perf-and-scale.md) explique comment ces ressources sont utilisées.
 
 ## <a name="task-hub-names"></a>Noms de hub de tâches
 
 Les hubs de tâches sont identifiés à l’aide d’un nom qui est déclaré dans le fichier *host.json*, comme indiqué dans l’exemple suivant :
 
-### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub"
-  }
-}
-```
-
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -63,9 +54,19 @@ Les hubs de tâches sont identifiés à l’aide d’un nom qui est déclaré da
 }
 ```
 
-Les hubs de tâches peuvent également être configurés à l’aide de paramètres d’application, comme indiqué dans l’exemple de fichier suivant *host.json* :
-
 ### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub"
+  }
+}
+```
+
+Les hubs de tâches peuvent également être configurés à l’aide de paramètres d’application, comme indiqué dans l’exemple de fichier `host.json` suivant :
+
+### <a name="hostjson-functions-10"></a>host.json (Functions 1.0)
 
 ```json
 {
@@ -75,7 +76,7 @@ Les hubs de tâches peuvent également être configurés à l’aide de paramèt
 }
 ```
 
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -99,7 +100,7 @@ Le nom du hub de tâches est défini sur la valeur du paramètre d’application
 }
 ```
 
-Voici un exemple C# précompilé montrant comment écrire une fonction qui utilise [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) pour travailler avec un hub de tâches configuré comme un paramètre d’application :
+Le code suivant est un exemple C# précompilé montrant comment écrire une fonction qui utilise la [liaison client d’orchestration](durable-functions-bindings.md#orchestration-client) pour travailler avec un hub de tâches configuré comme un paramètre d’application :
 
 ### <a name="c"></a>C#
 
@@ -107,7 +108,7 @@ Voici un exemple C# précompilé montrant comment écrire une fonction qui utili
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
@@ -121,9 +122,13 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+> [!NOTE]
+> L’exemple C# précédent porte sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
 ### <a name="javascript"></a>JavaScript
 
 La propriété de hub de tâches dans le fichier `function.json` est définie par le biais du paramètre d’application :
+
 ```json
 {
     "name": "input",
@@ -133,12 +138,19 @@ La propriété de hub de tâches dans le fichier `function.json` est définie pa
 }
 ```
 
-Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom par défaut est **DurableFunctionsHub**.
+Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, un nom de hub de tâches par défaut sera utilisé comme indiqué dans le tableau suivant :
+
+| Version d’extension durable | Nom du hub de tâches par défaut |
+| - | - |
+| 2.x | Lorsqu’il est déployé dans Azure, le nom du hub de tâches est dérivé du nom de l’_application de fonction_. En cas d’exécution en dehors d’Azure, le nom du hub de tâches par défaut est `TestHubName`. |
+| 1.x | Le nom du hub de tâches par défaut pour tous les environnements est `DurableFunctionsHub`. |
+
+Pour en savoir plus sur les différences entre les versions d’extension, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 > [!NOTE]
-> Le nom permet de différencier les hubs de tâches les uns des autres lorsqu’ils sont plusieurs dans un compte de stockage partagé. Si plusieurs applications de fonction partagent un compte de stockage partagé, vous devez configurer explicitement des noms différents pour chaque hub de tâches dans les fichiers *host.json*. Dans le cas contraire, les applications de fonction seront en concurrence les unes avec les autres pour les messages, ce qui pourrait entraîner un comportement inhabituel.
+> Le nom permet de différencier les hubs de tâches les uns des autres lorsqu’ils sont plusieurs dans un compte de stockage partagé. Si plusieurs applications de fonction partagent un compte de stockage partagé, vous devez configurer explicitement des noms différents pour chaque hub de tâches dans les fichiers *host.json*. Dans le cas contraire, les applications de fonction seront en concurrence les unes avec les autres pour les messages, ce qui pourrait entraîner un comportement inhabituel, y compris des orchestrations qui se retrouveraient inopinément « bloquées » dans l’état `Pending` ou `Running`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez comment gérer les versions](durable-functions-versioning.md)
+> [Découvrez comment gérer le contrôle de version des orchestrations](durable-functions-versioning.md)

@@ -1,6 +1,6 @@
 ---
-title: Gérer et surveiller l’importance de la charge de travail dans Azure SQL Data Warehouse | Microsoft Docs
-description: Découvrez comment gérer et surveiller l’importance du niveau de la demande.
+title: Gérer et superviser l’importance de la charge de travail
+description: Découvrez comment gérer et surveiller l’importance du niveau de la demande dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 30afe1805748012b0a137c865c799580f79d31d8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692714"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gérer et surveiller l’importance de la charge de travail dans Azure SQL Data Warehouse
 

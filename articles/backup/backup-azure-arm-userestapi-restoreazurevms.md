@@ -1,25 +1,25 @@
 ---
 title: 'Sauvegarde Azure : Restaurer des machines virtuelles Azure avec l’API REST'
-description: Gérer les opérations de restauration de la sauvegarde de machines virtuelles Azure avec l’API REST
+description: Dans cet article, découvrez comment gérer les opérations de restauration de la sauvegarde de machines virtuelles Azure à l’aide de l’API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
-keywords: API REST ; sauvegarde de machines virtuelles Azure ; restauration de machines virtuelles Azure ;
+keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954903"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747521"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
-Après la sauvegarde d’une machine virtuelle Azure avec la Sauvegarde Azure, il est possible de restaurer soit la totalité de cette machine virtuelle, soit des disques ou des fichiers à partir de la même copie de sauvegarde. Cet article explique comment restaurer une machine virtuelle Azure ou des disques avec l’API REST.
+Après la sauvegarde d’une machine virtuelle Azure à l’aide de Sauvegarde Azure, il est possible de restaurer soit la totalité de cette machine virtuelle, soit des disques ou des fichiers à partir de la même copie de sauvegarde. Cet article explique comment restaurer une machine virtuelle Azure ou des disques avec l’API REST.
 
 Quelle que soit l’opération de restauration, il faut commencer par identifier le point de récupération pertinent.
 

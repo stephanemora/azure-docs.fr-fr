@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 1df671cf6ff71b53c5bb7ba9c23f123e56777356
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 080dd91b2ab6792debfae3a3ccc97b0927015de4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580151"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Activer la connexion du navigateur sur les machines virtuelles du labo 
 
@@ -26,8 +26,6 @@ DevTest Labs s’intègre à [Azure Bastion](https://docs.microsoft.com/azure/
 
 En tant que propriétaire d’un labo, vous pouvez activer l’accès à toutes les machines virtuelles du labo via un navigateur. Vous n’avez pas besoin d’un client, d’un agent ou d’un logiciel supplémentaire. Azure Bastion fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique. Pour plus d’informations, consultez la page [Présentation d’Azure Bastion](../bastion/bastion-overview.md).
 
-> [!NOTE]
-> L’activer la connexion du navigateur sur les machines virtuelles du labo est en préversion.
 
 Cet article vous indique comment activer la connexion du navigateur sur les machines virtuelles du labo.
 
@@ -44,7 +42,8 @@ Pour découvrir comment connecter votre labo à un réseau virtuel configuré su
 1. Dans la liste de labos, sélectionnez *votre labo*. 
 
     > [!NOTE]
-    > Azure Bastion est actuellement proposé en préversion. Elle se limite aux régions suivantes : Usa West, USA Est, Europe Ouest, USA Centre Sud, Australie Est et Japon Est. Créez donc un labo dans l’une de ces régions s’il n’est pas dans l’une d’entre elles. 
+    > Azure Bastion est généralement disponible dans les régions suivantes : Usa West, USA Est, Europe Ouest, USA Centre Sud, Australie Est et Japon Est. Créez donc un labo dans l’une de ces régions s’il n’est pas dans l’une d’entre elles. 
+    
 1. Sélectionnez **Configuration et stratégies** dans la section **Paramètres** du menu à gauche. 
 1. Sélectionner **Réseaux virtuels**.
 1. Sélectionnez **Ajouter** depuis la barre d’outils. 

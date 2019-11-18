@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: bc37c7cb11b973f89695b5631ec9569ff6b94608
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 11/05/2019
+ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803910"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606753"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne d'Oracle vers Azure DB pour PostgreSQL - Serveur unique.
 
@@ -26,7 +26,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 Azure Database Migration Service prend en charge la connexion à :
 
-- Oracle versions 10g, 11c et 12c.
+- Oracle versions 10g, 11g et 12c.
 - Oracle Enterprise, Standard, Express et Personal Edition.
 
 Azure Database Migration Service ne prend pas en charge la connexion aux bases de données de conteneur mutualisées.
@@ -63,7 +63,7 @@ De plus, les colonnes BLOB/CLOB vides sont mappées sur NULL dans la cible.
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
-- Les clients doivent utiliser SYSDB pour se connecter à Oracle.
+- Les clients doivent utiliser SYSDBA pour se connecter à Oracle.
 - Les modifications de données résultant d’opérations de partition/sous-partition (ADD, DROP, EXCHANGE et TRUNCATE) ne sont pas migrées et peuvent entraîner les erreurs suivantes :
   - Pour les opérations ADD, les mises à jour et les suppressions ayant trait aux données ajoutées peuvent renvoyer un avertissement « 0 lignes affectées ».
   - Pour les opérations DROP et TRUNCATE, les nouvelles insertions peuvent entraîner des erreurs de « doublons ».

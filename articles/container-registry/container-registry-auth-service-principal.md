@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262870"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681825"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -65,13 +65,13 @@ Chaque valeur correspond à un GUID sous la forme `xxxxxxxx-xxxx-xxxx-xxxx-xxxxx
 
 ### <a name="use-credentials-with-azure-services"></a>Utiliser les informations d’identification avec les services Azure
 
-Vous pouvez utiliser les informations d’identification du principal de service à partir de n’importe quel service Azure capable de s’authentifier auprès d’un registre de conteneurs Azure.  Utilisez les informations d’identification du principal de service à la place des informations d’identification d’administrateur du Registre pour un large éventail de scénarios.
+Vous pouvez utiliser les informations d’identification du principal de service à partir de n’importe quel service Azure qui s’authentifie auprès d’un registre de conteneurs Azure.  Utilisez les informations d’identification du principal de service à la place des informations d’identification d’administrateur du Registre pour un large éventail de scénarios.
 
 Par exemple, utilisez les informations d’identification pour extraire une image d’un registre de conteneurs Azure vers [Azure Container Instances](container-registry-auth-aci.md).
 
 ### <a name="use-with-docker-login"></a>Utiliser avec la connexion Docker
 
-Vous pouvez également exécuter `docker login` à l’aide d’un principal de service. Dans l’exemple suivant, l’ID d’application du principal de service est transmis dans la variable d'environnement `$SP_APP_ID`, et le mot de passe dans la variable `$SP_PASSWD`. Pour connaître les meilleures pratiques de gestion des informations d'identification Docker, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+Vous pouvez exécuter `docker login` à l’aide d’un principal de service. Dans l’exemple suivant, l’ID d’application du principal de service est transmis dans la variable d'environnement `$SP_APP_ID`, et le mot de passe dans la variable `$SP_PASSWD`. Pour connaître les meilleures pratiques de gestion des informations d'identification Docker, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -79,6 +79,26 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 Une fois connecté, Docker met en cache les informations d’identification.
+
+### <a name="use-with-certificate"></a>Utiliser avec un certificat
+
+Si vous avez ajouté un certificat à votre principal de service, vous pouvez vous connecter à l’interface de ligne de commande Azure à l’aide de l’authentification basée sur un certificat, puis utiliser la commande [az acr login][az-acr-login] pour accéder à un registre. L’utilisation d’un certificat comme clé secrète au lieu d’un mot de passe fournit une sécurité supplémentaire lorsque vous utilisez la CLI. 
+
+Un certificat auto-signé peut être créé lorsque vous [créez un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli). Vous pouvez également ajouter un ou plusieurs certificats à un principal de service existant. Par exemple, si vous utilisez l’un des scripts de cet article pour créer ou mettre à jour un principal de service ayant des droits d’extraction ou de transmission d’images à partir d’un registre, ajoutez un certificat à l’aide de la commande [az ad sp credential reset][az-ad-sp-credential-reset].
+
+Pour utiliser le principal du service avec un certificat pour [se connecter à Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), le certificat doit être au format PEM et inclure la clé privée. Si votre certificat n’est pas au format requis, utilisez un outil tel que `openssl` pour le convertir. Lorsque vous exécutez [az login][az-login] pour vous connecter à l’interface CLI à l’aide du principal de service, fournissez également l’ID d’application du principal de service et l’ID de locataire Active Directory. L’exemple suivant illustre ces valeurs en tant que variables d’environnement :
+
+```azurecli
+az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
+```
+
+Ensuite, exécutez [az acr login][az-acr-login] pour vous authentifier auprès du registre :
+
+```azurecli
+az acr login --name myregistry
+```
+
+L’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier votre session auprès du registre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -92,3 +112,5 @@ Une fois connecté, Docker met en cache les informations d’identification.
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-login]: /cli/azure/reference-index#az-login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]

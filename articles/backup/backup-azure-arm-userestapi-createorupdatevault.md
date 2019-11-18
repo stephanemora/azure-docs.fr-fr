@@ -1,6 +1,6 @@
 ---
 title: 'Sauvegarde Azure : Créer des coffres Recovery Services à l’aide de l’API REST'
-description: gérer les opérations de sauvegarde et de restauration des machines virtuelles Azure avec une API REST
+description: Dans cet article, découvrez comment gérer les opérations de sauvegarde et de restauration de Sauvegarde de machines virtuelles Azure à l’aide de l’API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: f60a675b87d989f12ac3e6181f580b8acffa640b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688711"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747566"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
 
@@ -46,7 +46,7 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|etag     |         |   Chaîne      |  eTag facultatif       |
+|eTag     |         |   Chaîne      |  eTag facultatif       |
 |location     |  true       |Chaîne         |   Emplacement des ressources      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifie l’identificateur système unique de chaque ressource Azure.     |

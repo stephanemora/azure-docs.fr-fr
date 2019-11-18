@@ -1,5 +1,5 @@
 ---
-title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop - Azure
+title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop – Azure
 description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947580"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606869"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop
 

@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838916"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574616"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -49,16 +49,7 @@ Par défaut, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps v
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#trigger---c-example)
-* [Script C# (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-examples)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Déclencheur - exemple C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP. Notez que la valeur renvoyée est utilisée pour la liaison de sortie, mais qu’aucun attribut de valeur renvoyée n’est requis.
 
@@ -82,7 +73,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
@@ -158,73 +149,7 @@ public class Person {
 }
 ```
 
-### <a name="trigger---f-example"></a>Déclencheur - exemple F#
-
-L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
-
-Voici le fichier *function.json* :
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "res",
-      "type": "http",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-La section [configuration](#trigger---configuration) décrit ces propriétés.
-
-Voici le code F# :
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-
-let Run(req: HttpRequestMessage) =
-    async {
-        let q =
-            req.GetQueryNameValuePairs()
-                |> Seq.tryFind (fun kv -> kv.Key = "name")
-        match q with
-        | Some kv ->
-            return req.CreateResponse(HttpStatusCode.OK, "Hello " + kv.Value)
-        | None ->
-            let! data = Async.AwaitTask(req.Content.ReadAsAsync<obj>())
-            try
-                return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
-            with e ->
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-    } |> Async.StartAsTask
-```
-
-Vous avez besoin d’un fichier `project.json` qui utilise NuGet pour référencer les assemblys `FSharp.Interop.Dynamic` et `Dynamitey`, comme indiqué dans l’exemple suivant :
-
-```json
-{
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
-    }
-  }
-}
-```
-
-### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
@@ -273,7 +198,7 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
@@ -329,12 +254,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-examples"></a>Déclencheur : exemples Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
-* [Lire un paramètre de la chaîne de requête](#read-parameter-from-the-query-string-java)
-* [Lire le corps d’une demande POST](#read-body-from-a-post-request-java)
-* [Lire un paramètre d’une route](#read-parameter-from-a-route-java)
-* [Lire le corps POJO d’une demande POST](#read-pojo-body-from-a-post-request-java)
+* [Lire un paramètre de la chaîne de requête](#read-parameter-from-the-query-string)
+* [Lire le corps d’une demande POST](#read-body-from-a-post-request)
+* [Lire un paramètre d’une route](#read-parameter-from-a-route)
+* [Lire le corps POJO d’une demande POST](#read-pojo-body-from-a-post-request)
 
 Les exemples suivants montrent une liaison du déclencheur HTTP dans un fichier *function.json* et les [fonctions Java](functions-reference-java.md) respectives qui utilisent la liaison. 
 
@@ -359,46 +284,46 @@ Voici le fichier *function.json* :
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string-java"></a>Lire un paramètre de la chaîne de requête (Java)  
+#### <a name="read-parameter-from-the-query-string"></a>Lire un paramètre de la chaîne de requête
 
 Cet exemple lit un paramètre nommé ```id``` dans la chaîne de requête et l’utilise pour générer un document JSON retourné au client, avec le type de contenu ```application/json```. 
 
 ```java
-    @FunctionName("TriggerStringGet")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+@FunctionName("TriggerStringGet")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.GET}, 
+            authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<String>> request,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("GET parameters are: " + request.getQueryParameters());
 
-        // Get named parameter
-        String id = request.getQueryParameters().getOrDefault("id", "");
+    // Get named parameter
+    String id = request.getQueryParameters().getOrDefault("id", "");
 
-        // Convert and display
-        if (id.isEmpty()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final String name = "fake_name";
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
-                                         "\"description\": \"" + name + "\"}";
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(jsonDocument)
-                          .build();
-        }
+    // Convert and display
+    if (id.isEmpty()) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final String name = "fake_name";
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                        "\"description\": \"" + name + "\"}";
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(jsonDocument)
+                        .build();
     }
+}
 ```
 
-#### <a name="read-body-from-a-post-request-java"></a>Lire le corps d’une demande POST (Java)  
+#### <a name="read-body-from-a-post-request"></a>Lire le corps d’une demande POST
 
 Cet exemple lit le corps d’une demande POST, par exemple une ```String```, et l’utilise pour générer un document JSON retourné au client, avec le type de contenu ```application/json```.
 
@@ -434,45 +359,45 @@ Cet exemple lit le corps d’une demande POST, par exemple une ```String```, et 
     }
 ```
 
-#### <a name="read-parameter-from-a-route-java"></a>Lire un paramètre d’une route (Java)  
+#### <a name="read-parameter-from-a-route"></a>Lire un paramètre d’une route
 
 Cet exemple lit un paramètre obligatoire, nommé ```id```, et un paramètre facultatif ```name``` dans le chemin de route, et les utilise pour générer un document JSON retourné au client, avec le type de contenu ```application/json```. T
 
 ```java
-    @FunctionName("TriggerStringRoute")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
-              authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
-            HttpRequestMessage<Optional<String>> request,
-            @BindingName("id") String id,
-            @BindingName("name") String name,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("Route parameters are: " + id);
+@FunctionName("TriggerStringRoute")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.GET}, 
+            authLevel = AuthorizationLevel.ANONYMOUS,
+            route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+        HttpRequestMessage<Optional<String>> request,
+        @BindingName("id") String id,
+        @BindingName("name") String name,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("Route parameters are: " + id);
 
-        // Convert and display
-        if (id == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
-                                         "\"description\": \"" + name + "\"}";
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(jsonDocument)
-                          .build();
-        }
+    // Convert and display
+    if (id == null) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                        "\"description\": \"" + name + "\"}";
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(jsonDocument)
+                        .build();
     }
+}
 ```
 
-#### <a name="read-pojo-body-from-a-post-request-java"></a>Lire le corps POJO d’une demande POST (Java)  
+#### <a name="read-pojo-body-from-a-post-request"></a>Lire le corps POJO d’une demande POST
 
 Voici le code de la classe ```ToDoItem```, référencée dans cet exemple :
 
@@ -507,40 +432,46 @@ public class ToDoItem {
 Cet exemple lit le corps d’une demande POST. Le corps de la demande est automatiquement désérialisé dans un objet ```ToDoItem``` et est retourné au client, avec le type de contenu ```application/json```. Le paramètre ```ToDoItem``` est sérialisé par le runtime Functions, car il est attribué à la propriété ```body``` de la classe ```HttpMessageResponse.Builder```.
 
 ```java
-    @FunctionName("TriggerPojoPost")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<ToDoItem>> request,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+@FunctionName("TriggerPojoPost")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.POST}, 
+            authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<ToDoItem>> request,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("Request body is: " + request.getBody().orElse(null));
 
-        // Check request body
-        if (!request.getBody().isPresent()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final ToDoItem body = request.getBody().get();
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(body)
-                          .build();
-        }
+    // Check request body
+    if (!request.getBody().isPresent()) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final ToDoItem body = request.getBody().get();
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(body)
+                        .build();
     }
+}
 ```
+
+---
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
-Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md) et Java, l’attribut `HttpTrigger` est disponible pour configurer la fonction.
 
-Vous pouvez définir le niveau d’autorisation et des méthodes HTTP autorisées dans les paramètres de constructeur d’attribut. Il existe des propriétés pour le type et le d’itinéraire webhook. Pour plus d’informations sur ces paramètres, consultez [Déclencheur - configuration](#trigger---configuration). Voici un attribut `HttpTrigger` dans une signature de méthode :
+Vous pouvez définir le niveau d’autorisation et des méthodes HTTP autorisées dans les paramètres de constructeur d’attribut, le type webhook et un modèle de routage. Pour plus d’informations sur ces paramètres, consultez [Déclencheur - configuration](#trigger---configuration).
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Cet exemple montre comment utiliser l’attribut [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs).
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -551,7 +482,39 @@ public static Task<IActionResult> Run(
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
+Pour obtenir un exemple complet, consultez l’[exemple de déclencheur](#trigger---example).
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les attributs ne sont pas pris en charge par le script C#.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Cet exemple montre comment utiliser l’attribut [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java).
+
+```java
+@FunctionName("HttpTriggerJava")
+public HttpResponseMessage<String> HttpTrigger(
+        @HttpTrigger(name = "req",
+                     methods = {"get"},
+                     authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<String> request,
+        final ExecutionContext context) {
+
+    ...
+}
+```
+
+Pour obtenir un exemple complet, consultez l’[exemple de déclencheur](#trigger---example).
+
+---
 
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
@@ -569,15 +532,13 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
-Pour les fonctions C# et F #, vous pouvez déclarer le type de votre entrée de déclenchement en tant que `HttpRequest` ou type personnalisé. Si vous choisissez `HttpRequest`, vous obtenez un accès complet à l’objet de la requête. Pour un type personnalisé, le runtime tente d’analyser le corps de la requête JSON pour définir les propriétés de l’objet.
-
-Dans le cas des fonctions JavaScript, le runtime Functions fournit le corps de requête plutôt que l’objet de requête. Pour plus d’informations, consultez l’[exemple de déclencheur JavaScript](#trigger---javascript-example).
+Le type d’entrée du déclencheur est déclaré comme étant `HttpRequest` ou un type personnalisé. Si vous choisissez `HttpRequest`, vous obtenez un accès complet à l’objet de la requête. Pour un type personnalisé, le runtime tente d’analyser le corps de la requête JSON pour définir les propriétés de l’objet.
 
 ### <a name="customize-the-http-endpoint"></a>Personnaliser le point de terminaison HTTP
 
 Par défaut, quand vous créez une fonction pour un déclencheur HTTP, la fonction est adressable avec une route de la forme :
 
-    http://<yourapp>.azurewebsites.net/api/<funcname>
+    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 
 Vous pouvez personnaliser cet itinéraire en utilisant la propriété facultative `route` sur la liaison d’entrée du déclencheur HTTP. Par exemple, le fichier *function.json* suivant définit une propriété `route` pour un déclencheur HTTP :
 
@@ -603,52 +564,116 @@ Vous pouvez personnaliser cet itinéraire en utilisant la propriété facultativ
 Avec cette configuration, la fonction est désormais adressable avec l’itinéraire suivant au lieu de l’itinéraire d’origine.
 
 ```
-http://<yourapp>.azurewebsites.net/api/products/electronics/357
+http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Cela permet au code de la fonction de prendre en charge deux paramètres dans l’adresse, _category_ et _id_. Vous pouvez utiliser les [contraintes d’itinéraire des API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) de votre choix avec vos paramètres. Le code de la fonction C# suivant utilise les deux paramètres.
+Cela permet au code de la fonction de prendre en charge deux paramètres dans l’adresse, _category_ et _id_.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Vous pouvez utiliser les [contraintes d’itinéraire des API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) de votre choix avec vos paramètres. Le code de la fonction C# suivant utilise les deux paramètres.
 
 ```csharp
-public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+
+public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
 {
-    if (id == null)
-    {
-        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
-    }
-    else
-    {
-        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
-    }
-    
-    // -----
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
 }
 ```
 
-Voici le code de la fonction Node.js qui utilise les mêmes paramètres d’itinéraire.
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Vous pouvez utiliser les [contraintes d’itinéraire des API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) de votre choix avec vos paramètres. Le code de la fonction C# suivant utilise les deux paramètres.
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+
+public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
+{
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Dans Node, le runtime Functions fournit le corps de la demande à partir de l’objet `context`. Pour plus d’informations, consultez l’[exemple de déclencheur JavaScript](#trigger---example).
+
+L’exemple suivant vous indique comment lire les paramètres de routage à partir de `context.bindingData`.
 
 ```javascript
 module.exports = function (context, req) {
 
     var category = context.bindingData.category;
     var id = context.bindingData.id;
+    var message = `Category: ${category}, ID: ${id}`;
 
-    if (!id) {
-        context.res = {
-            // status defaults to 200 */
-            body: "All " + category + " items were requested."
-        };
-    }
-    else {
-        context.res = {
-            // status defaults to 200 */
-            body: category + " item with id = " + id + " was requested."
-        };
+    context.res = {
+        body: message;
     }
 
     context.done();
 }
 ```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Le contexte d’exécution de la fonction est exposé par le biais d’un paramètre déclaré comme en tant que `func.HttpRequest`. Cette instance permet à une fonction d’accéder à des paramètres d’acheminement des données, des valeurs de chaîne de requête et des méthodes qui vous permettent de retourner des réponses HTTP.
+
+Une fois définis, les paramètres d’acheminement sont disponibles pour la fonction en appelant la méthode `route_params`.
+
+```python
+import logging
+
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    category = req.route_params.get('category')
+    id = req.route_params.get('id')
+    message = f"Category: {category}, ID: {id}"
+
+    return func.HttpResponse(message)
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Le contexte d’exécution de la fonction correspond à des propriétés déclarées dans l’attribut `HttpTrigger`. L’attribut vous permet de définir des paramètres d’acheminement, des niveaux d’autorisation, des verbes HTTP et l’instance de requête entrante.
+
+Les paramètres d’acheminement sont définis par l’intermédiaire de l’attribut `HttpTrigger`.
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerJava {
+    public HttpResponseMessage<String> HttpTrigger(
+            @HttpTrigger(name = "req",
+                         methods = {"get"},
+                         authLevel = AuthorizationLevel.FUNCTION,
+                         route = "products/{category:alpha}/{id:int}") HttpRequestMessage<String> request,
+            @BindingName("category") String category,
+            @BindingName("id") int id,
+            final ExecutionContext context) {
+
+        String message = String.format("Category  %s, ID: %d", category, id);
+        return request.createResponseBuilder(HttpStatus.OK).body(message).build();
+    }
+}
+```
+
+---
 
 Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous pouvez également personnaliser ou supprimer le préfixe avec la propriété `http.routePrefix` dans votre fichier [host.json](functions-host-json.md). L’exemple suivant supprime le préfixe d’itinéraire *api* en sélectionnant une chaîne vide pour le préfixe dans le fichier *host.json*.
 
@@ -666,7 +691,41 @@ S votre application de fonction utilise [Authentification d’App Service/Autori
 
 Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime de Functions 2.x. Elle n’est actuellement également disponible que pour les langages .NET.
 
-Dans les langages .NET, ces informations sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Les informations relatives aux clients authentifiés sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkObjectResult();
+}
+```
+
+Le ClaimsPrincipal peut aussi simplement être inclus comme paramètre supplémentaire dans la signature de fonction :
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les informations relatives aux clients authentifiés sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
 
 ```csharp
 using System.Net;
@@ -696,8 +755,21 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     // ...
     return;
 }
-
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
+---
 
 ### <a name="authorization-keys"></a>Clés d’autorisation
 
@@ -785,12 +857,6 @@ La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et l
 
 Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 
-## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
-
-Le fichier [host.json](functions-host-json.md) contient les paramètres qui contrôlent le comportement du déclencheur HTTP.
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
-
 ## <a name="output"></a>Output
 
 Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si une liaison de sortie HTTP n’est pas fournie, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x.
@@ -803,13 +869,50 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |---------|---------|
 | **type** |Cette propriété doit être définie sur `http`. |
 | **direction** | Cette propriété doit être définie sur `out`. |
-|**name** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
+| **name** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
 Pour envoyer une réponse HTTP, utilisez les modèles de réponse standard du langage. Dans un script C# ou C#, choisissez le type de retour de fonction `IActionResult` ou `Task<IActionResult>`. En C#, aucun attribut de valeur renvoyée n’est requis.
 
 Par obtenir des exemples de réponse, consultez [l’exemple de déclencheur](#trigger---example).
+
+## <a name="hostjson-settings"></a>Paramètres host.json
+
+Cette section décrit les paramètres de configuration globale disponibles pour cette liaison dans la version 2.x. L’exemple de fichier host.json ci-dessous contient uniquement les paramètres de la version 2.x pour cette liaison. Pour plus d’informations sur les paramètres de configuration globale dans la version 2.x, consultez les [informations de référence sur le fichier host.json pour Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md#http).
+
+```json
+{
+    "extensions": {
+        "http": {
+            "routePrefix": "api",
+            "maxOutstandingRequests": 200,
+            "maxConcurrentRequests": 100,
+            "dynamicThrottlesEnabled": true,
+            "hsts": {
+                "isEnabled": true,
+                "maxAge": "10"
+            },
+            "customHeaders": {
+                "X-Content-Type-Options": "nosniff"
+            }
+        }
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+| customHeaders|Aucun|Vous permet de définir des en-têtes personnalisés dans la réponse HTTP. L’exemple précédent ajoute l’en-tête `X-Content-Type-Options` à la réponse pour éviter la détection du type de contenu. |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|Lorsqu’il est activé, ce paramètre provoque la vérification périodique des compteurs de performance système, comme les connexions/les threads/les processus/la mémoire/le processeur, etc., par le pipeline de traitement des requêtes. Si l’un de ces compteurs dépasse un seuil supérieur intégré (80 %), les requêtes sont rejetées avec une réponse 429 (trop de demandes) jusqu’à ce qu’un niveau normal soit retrouvé.<br/><sup>\*</sup>La valeur par défaut d’un plan de consommation est `true`. La valeur par défaut dans un plan dédié est `false`.|
+|hsts|non activé|Lorsque `isEnabled` est défini sur `true`, le [comportement HTTP Strict Transport Security (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) est appliqué, comme défini dans la [classe `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). L’exemple ci-dessus définit également la propriété [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) sur 10 jours. |
+|maxConcurrentRequests|100<sup>\*</sup>|Nombre maximal de fonctions HTTP exécutées en parallèle. Ce paramètre vous permet de contrôler la concurrence, et ainsi facilite la gestion de l’utilisation des ressources. Par exemple, vous pouvez disposer d’une fonction HTTP qui utilise de nombreuses ressources système (mémoire/processeur/sockets) et qui provoque par conséquent des situations où la concurrence est trop élevée. Vous pouvez également avoir une fonction qui effectue des requête vers un service tiers, et qui émet à ce titre des appels dont le débit doit être limité. Dans ces cas, il peut être pertinent d’appliquer une limitation. <br/><sup>*</sup>La valeur par défaut pour un plan de consommation est 100. La valeur par défaut pour un plan dédié est illimitée (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|Nombre maximal de requêtes en attente qui ont lieu à un moment donné. La limite inclut les requêtes qui sont en file d’attente, mais dont l’exécution n’a pas démarré, ainsi que les exécutions en cours. Toutes les requêtes entrantes au-delà de cette limite sont rejetées avec une réponse 429 « Trop occupé ». Ainsi, les appelants peuvent appliquer des stratégies temporelles de nouvelle tentative et vous êtes en mesure de contrôler les latences maximales de requêtes. Ce paramètre contrôle uniquement la mise en file d’attente qui se produit dans le chemin d’accès d’exécution de l’hôte de script. Les autres files d’attente, telles que la file d’attente des requêtes ASP.NET, sont toujours actives et ne sont pas concernées par ce paramètre. <br/><sup>\*</sup>\La valeur par défaut pour un plan de consommation est 200. La valeur par défaut pour un plan dédié est illimitée (`-1`).|
+|routePrefix|api|Préfixe d’itinéraire qui s’applique à tous les itinéraires. Utilisez une chaîne vide pour supprimer le préfixe par défaut. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

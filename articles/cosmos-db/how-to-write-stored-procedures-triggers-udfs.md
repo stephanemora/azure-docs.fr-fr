@@ -4,14 +4,14 @@ description: Découvrez comment écrire des procédures stockées, des déclench
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092833"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606254"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -21,6 +21,9 @@ Pour appeler une procédure stockée, un déclencheur, une fonction définie par
 
 > [!NOTE]
 > Pour les conteneurs partitionnés, lorsque vous exécutez une procédure stockée, vous devez fournir une valeur de clé de partition dans les options de requête. Les procédures stockées se limitent toujours à une clé de partition. Les éléments qui ont une valeur de clé de partition différente ne seront pas visibles dans la procédure stockée. Cela s’applique également aux déclencheurs.
+
+> [!Tip]
+> Cosmos prend en charge le déploiement de conteneurs avec des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur. Pour plus d’informations, consultez [Créer un conteneur Azure Cosmos DB avec des fonctionnalités côté serveur.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>Comment écrire des procédures stockées
 
