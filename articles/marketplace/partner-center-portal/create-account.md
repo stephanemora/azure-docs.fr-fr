@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811930"
+ms.locfileid: "73838759"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -137,7 +137,7 @@ Une fois connecté, suivez les étapes suivantes pour terminer la configuration 
 
 1. Dans l’Espace partenaires, sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main**, puis entrez votre adresse e-mail professionnelle.
 2. Renseignez les détails sur la page de votre profil d’éditeur.
-3. Lisez les conditions générales de [l’Accord de l’éditeur de la Place de marché Microsoft](http://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
+3. Lisez les conditions générales de [l’Accord de l’éditeur de la Place de marché Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
     >[!Important]
     >*Vous devez être autorisé à agir au nom de votre entreprise pour accepter ces conditions.*
