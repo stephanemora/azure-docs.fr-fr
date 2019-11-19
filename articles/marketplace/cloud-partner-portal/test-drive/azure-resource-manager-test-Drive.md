@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827548"
+ms.locfileid: "73838078"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -208,7 +208,7 @@ Assurez-vous que vous concaténez les chaînes de votre paramètre/variable (\'c
 
 Par exemple, la plupart des noms de ressources ne peuvent pas commencer par un chiffre, mais la fonction de chaîne unique peut retourner une chaîne commençant par un chiffre. Par conséquent, si vous utilisez une sortie de chaîne unique brute, vos déploiements échoueront. 
 
-Vous trouverez des informations supplémentaires sur les règles et les restrictions d’affectation de noms de ressources dans [cet article](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Vous trouverez des informations supplémentaires sur les règles et les restrictions d’affectation de noms de ressources dans [cet article](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="deployment-location"></a>Emplacement de déploiement
 

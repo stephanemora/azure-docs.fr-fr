@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 13f751b472b3443ba50be5d54ab08e015d1a8f5a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a618a2cb976c90174125e54af645123c6b0a9dcd
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824891"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905030"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -117,7 +117,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * Si vous utilisez Standard Load Balancer, sélectionnez ** Ports haute disponibilité**
+  * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
   * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
     * TCP 32<strong>&lt;nr&gt;</strong>
     * TCP 33<strong>&lt;nr&gt;</strong>
@@ -250,9 +250,8 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
 
-> [!TIP]
-> Lorsque des machines virtuelles sans adresses IP publiques sont placées dans le pool principal de l’équilibreur de charge standard interne, les machines virtuelles ne disposent pas d’une connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée.  
-> Si votre scénario requiert des connexions sortantes vers des points de terminaison publics, consultez [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) (Connectivité des points de terminaison publics pour les machines virtuelles utilisant Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP) pour obtenir des conseils et des considérations sur la façon d’obtenir une connectivité sortante aux points de terminaison publics.
+> [!Note]
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).

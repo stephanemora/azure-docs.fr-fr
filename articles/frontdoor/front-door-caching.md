@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962920"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839219"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Mise en cache avec Azure Front Door Service
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée.
@@ -82,7 +82,7 @@ Si une demande prend en charge la compression gzip et Brotli, la compression Bro
 Quand une demande portant sur un élément multimédia spécifie une compression et qu’il en résulte une absence dans le cache, Front Door compresse l’élément multimédia directement sur le serveur POP. Ensuite, le fichier compressé est servi à partir du cache. L’élément qui en résulte est retourné avec un encodage de transfert : segmenté.
 
 ## <a name="query-string-behavior"></a>Comportement des chaînes de requête
-Avec Front Door, vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple : http://www.contoso.com/content.mov?field1=value1&field2=value2. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance.
+Avec Front Door, vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple : `http://www.contoso.com/content.mov?field1=value1&field2=value2`. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance.
 - **Ignorer les chaînes de requête** : Mode par défaut. Dans ce mode, Front Door transmet les chaînes de requête du demandeur au backend à la première demande et met en cache l’élément multimédia. Toutes les demandes suivantes portant sur l’élément multimédia, qui sont traitées par l’environnement de porte d’entrée, ignorent les chaînes de requête tant que l’élément multimédia mis en cache n’est pas arrivé à expiration.
 
 - **Mettre en cache chaque URL unique** : dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du backend à une demande pour `www.example.ashx?q=test1` est mise en cache dans l’environnement de porte d’entrée et retournée pour les mises en cache suivantes avec la même chaîne de requête. Une demande pour `www.example.ashx?q=test2` est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
