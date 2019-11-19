@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286259"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903701"
 ---
-Les galeries Shared Image Gallery vous permettent de partager des images à l’aise du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Toutefois, si vous souhaitez partager à grande échelle des images hors de votre locataire Azure, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application, vous pouvez activer des scénarios de partage plus complexes, comme : 
+Toutefois, si vous souhaitez partager à grande échelle des images hors de votre locataire Azure, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application, vous pouvez activer des scénarios de partage plus complexes, comme : 
 
 * la gestion d’images partagées lorsqu’une entreprise en acquiert une autre, ou la répartition de l’infrastructure Azure entre plusieurs locataires distincts. 
 * Les partenaires Azure gèrent l’infrastructure Azure pour le compte de leurs clients. Les images sont personnalisées au sein du locataire des partenaires, mais les déploiements d’infrastructure s’effectuent dans celui du client. 

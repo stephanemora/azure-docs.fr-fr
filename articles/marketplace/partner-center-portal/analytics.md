@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813189"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075522"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
-Découvrez comment accéder aux rapports analytiques dans Microsoft Partner Center pour surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché. En tant que partenaire, vous pouvez surveiller vos listes d'offres à l'aide de la visualisation des données et de graphiques d'insights pris en charge par l'Espace partenaires et trouver des moyens d’optimiser vos ventes. Les outils d’analyse améliorés vous permettent d’agir sur les résultats des performances et de maintenir de meilleures relations avec vos clients et revendeurs. 
+Découvrez comment accéder aux rapports analytiques dans Microsoft Partner Center pour surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché. En tant que partenaire, vous pouvez surveiller vos listes d'offres à l'aide de la visualisation des données et de graphiques d'insights pris en charge par l'Espace partenaires et trouver des moyens d’optimiser vos ventes. Les outils d’analyse améliorés vous permettent d’agir sur les résultats des performances et de maintenir de meilleures relations avec vos clients et revendeurs.
 
 Pour accéder aux outils d'analyse de l'Espace partenaires, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous Place de marché commerciale.
 
@@ -141,7 +141,7 @@ Le graphique **Commandes par type de licence de Place de marché** affiche un no
 - **facturé via Azure** : Microsoft facture les clients pour votre compte lorsque vous choisissez de [vendre votre offre via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) avec ce type de licence. Les modes de paiement incluent le paiement à l’utilisation par carte de crédit ou facturation d'entreprise.
 - **BYOL (apportez votre propre licence)**  : Microsoft ne facture rien aux clients qui utilisent ce type d'offre de Place de marché. Répertorié en tant que **[Obtenez-en une maintenant (gratuit)](./create-new-saas-offer.md#get-it-now-free)** dans la Place de marché.
 - **Gratuit** : Microsoft ne facture rien aux clients qui utilisent ce type d'offre de Place de marché. Répertorié en tant que **[Version d’évaluation gratuite](./create-new-saas-offer.md##free-trial-listing)** dans la Place de marché.
-- **Microsoft en tant que revendeur** : Représente des offres vendues par des revendeurs Microsoft dans le cadre du **[programme Fournisseur de solutions cloud (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Microsoft en tant que revendeur** : Représente des offres vendues par des revendeurs Microsoft dans le cadre du **[programme Fournisseur de solutions cloud (CSP)](./create-new-saas-offer.md)** .
 
 ![Commandes par type de licence du menu Analyser de l'Espace partenaires](./media/analyze-license-type.png)
 

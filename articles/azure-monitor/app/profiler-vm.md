@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899997"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031009"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiler des applications web s’exécutant sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques avec Application Insights Profiler
 
@@ -89,15 +89,15 @@ Nous n’avons pas encore trouvé le moyen de définir l’application Insights 
 
     ![Vérification de l’installation de l’extension Diagnostics Azure pour Windows][wadextension]
 
-1. Recherchez l’extension VM Diagnostics pour votre machine virtuelle. Développez votre groupe de ressources, Microsoft.Compute virtualMachines, le nom de votre machine virtuelle et ses extensions.  
+2. Recherchez l’extension VM Diagnostics pour votre machine virtuelle. Accédez à [https://resources.azure.com](https://resources.azure.com). Développez votre groupe de ressources, Microsoft.Compute virtualMachines, le nom de votre machine virtuelle et ses extensions.  
 
     ![Accédez à la configuration de Diagnostics Azure pour Windows dans Azure Resource Explorer][azureresourceexplorer]
 
-1. Ajoutez le récepteur Application Insights Profiler sur le nœud SinksConfig sous WadCfg. Si vous n’avez pas déjà une section SinksConfig, vous devrez peut-être en ajouter une. Assurez-vous de spécifier l’iKey Application Insights appropriée dans vos paramètres. Vous devrez basculer du mode Explorateur au mode Lecture/Écriture situé dans le coin supérieur droit, puis appuyer sur le bouton bleu « Modifier ».
+3. Ajoutez le récepteur Application Insights Profiler sur le nœud SinksConfig sous WadCfg. Si vous n’avez pas déjà une section SinksConfig, vous devrez peut-être en ajouter une. Assurez-vous de spécifier l’iKey Application Insights appropriée dans vos paramètres. Vous devrez basculer du mode Explorateur au mode Lecture/Écriture situé dans le coin supérieur droit, puis appuyer sur le bouton bleu « Modifier ».
 
     ![Ajouter le récepteur d’Application Insights Profiler][resourceexplorersinksconfig]
 
-1. Lorsque vous avez terminé la modification de la configuration, appuyez sur « Put » (« Placer »). Si cette opération ne réussit pas, une coche verte s’affiche au milieu de l’écran.
+4. Lorsque vous avez terminé la modification de la configuration, appuyez sur « Put » (« Placer »). Si cette opération ne réussit pas, une coche verte s’affiche au milieu de l’écran.
 
     ![Envoyer une requête PUT pour appliquer les modifications][resourceexplorerput]
 

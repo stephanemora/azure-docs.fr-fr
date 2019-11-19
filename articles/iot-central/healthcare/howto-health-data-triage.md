@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123246"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132283"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Didacticiel : Créer un tableau de bord des fournisseurs Power BI
 
@@ -51,7 +51,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Un compte de service Power BI. Si vous n'en avez pas encore, vous pouvez [créer un compte d'essai gratuit pour le service Power BI](https://app.powerbi.com/). Si vous n'avez encore jamais utilisé Power BI, n'hésitez pas à consulter [Prise en main de Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurer une exportation continue des données vers Azure Event Hubs
-Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
+Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Créer un jeu de données de streaming Power BI
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686171"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132963"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
@@ -20,9 +20,6 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez le service [
 
 > [!NOTE]
 > Vous pouvez uniquement répliquer vers un site secondaire lorsque vos hôtes Hyper-V sont gérés dans des clouds VMM.
-
-> [!WARNING]
-> Notez que la prise en charge par ASR de la configuration SCVMM dans un compte sera bientôt dépréciée. Par conséquent, nous vous recommandons de lire les informations sur la [Dépréciation](scvmm-site-recovery-deprecation.md) avant de continuer.
 
 
 ## <a name="host-servers"></a>Serveurs hôtes

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240300"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129856"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -54,7 +54,7 @@ Voici la configuration minimale requise pour une fonctionnalité Runbook Worker 
 |Python-ctypes | Python 2.x est requis |
 |PAM | Modules d’authentification enfichable|
 | **Package facultatif** | **Description** | **Version minimum**|
-| PowerShell Core | Pour exécuter des Runbooks PowerShell, PowerShell doit être installé. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) pour savoir comment l’installer.  | 6.0.0 |
+| PowerShell Core | Pour exécuter des Runbooks PowerShell, PowerShell doit être installé. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour savoir comment l’installer.  | 6.0.0 |
 
 ### <a name="installation"></a>Installation
 
@@ -106,7 +106,7 @@ Les types de Runbook suivants fonctionnent sur un Worker hybride Linux :
 * PowerShell
 
   > [!NOTE]
-  > Les Runbooks PowerShell ont besoin que PowerShell Core soit installé sur l’ordinateur Linux. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) pour connaître la procédure d’installation.
+  > Les Runbooks PowerShell ont besoin que PowerShell Core soit installé sur l’ordinateur Linux. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour connaître la procédure d’installation.
 
 Les types de Runbooks suivants ne fonctionnent pas sur un Worker hybride Linux :
 

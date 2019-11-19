@@ -8,12 +8,12 @@ author: cijothomas
 ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899858"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884712"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -534,7 +534,7 @@ Suivez [ces](https://docs.microsoft.com/azure/azure-functions/functions-monitori
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
-* La meilleure façon d’y parvenir consiste à écrire un [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Les initialiseurs étant assurés d’être exécutés avant les processeurs de télémétrie (échantillonnage compris), toutes les techniques d’échantillonnage ignorent cet élément des considérations d’échantillonnage.
+* La meilleure façon d’y parvenir consiste à écrire un [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Les initialiseurs étant assurés d’être exécutés avant les processeurs de télémétrie (échantillonnage compris), toutes les techniques d’échantillonnage ignorent cet élément des considérations d’échantillonnage.
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

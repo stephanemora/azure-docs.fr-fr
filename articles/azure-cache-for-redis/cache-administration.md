@@ -1,25 +1,17 @@
 ---
-title: Guide pratique pour administrer le Cache Azure pour Redis | Microsoft Docs
+title: Guide pratique pour administrer le Cache Azure pour Redis
 description: Découvrez comment effectuer des tâches d’administration comme le redémarrage et la planification de mises à jour pour le Cache Azure pour Redis.
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756616"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122541"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.

@@ -1,7 +1,7 @@
 ---
 title: Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio et C#
 titleSuffix: Azure Cognitive Services
-description: Connectez-vous à Recherche d’actualités Bing sur une application web ASP.NET Core.
+description: La Recherche d’actualités Bing permet à des applications et services d’exploiter toute la puissance d’un moteur de recherche sans publicité à l’échelle du web.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203416"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111502"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutoriel : Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio et C#
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Didacticiel : Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio et C#
 
 La Recherche d’actualités Bing permet à des applications et services d’exploiter toute la puissance d’un moteur de recherche sans publicité à l’échelle du web. Elle fait partie des services de recherche disponibles avec Cognitive Services.
 

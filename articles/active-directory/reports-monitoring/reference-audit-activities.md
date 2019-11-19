@@ -3,7 +3,7 @@ title: Référence sur l’activité d’audit Azure Active Directory (Azure AD)
 description: Obtenez une vue d’ensemble des activités d’audit pouvant être enregistrées dans vos journaux d’audit dans Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007750"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304273"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901322"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Ajouter un artefact à une machine virtuelle
 Lors de la création d'une machine virtuelle, vous pouvez y ajouter des artefacts existants. Ces artefacts peuvent provenir du [référentiel Git public de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou de votre propre référentiel Git. Cet article explique comment ajouter des artefacts sur le portail Azure et à l'aide d'Azure PowerShell. 
@@ -90,7 +90,7 @@ param
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d'informations sur les artefacts, consultez les articles suivants :
+Consultez les articles suivants relatifs aux artefacts :
 
 - [Spécifier des artefacts obligatoires pour votre labo](devtest-lab-mandatory-artifacts.md)
 - [Créer des artefacts personnalisés](devtest-lab-artifact-author.md)
-- [Ajouter un référentiel d'artefacts à un labo](devtest-lab-artifact-author.md)
+- [Ajouter un dépôt d’artefacts à un labo](devtest-lab-artifact-author.md)
 - [Diagnostiquer les échecs d’artefact](devtest-lab-troubleshoot-artifact-failure.md)

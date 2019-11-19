@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603472"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081559"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 (préversion)
 
@@ -88,7 +88,7 @@ Pour cibler des groupes d’appareils spécifiques pour activer le fournisseur d
 
 ### <a name="enable-with-a-provisioning-package"></a>Activer avec un package d’approvisionnement
 
-Pour les appareils non gérés par Intune, un package d’approvisionnement peut être installé pour activer la fonctionnalité. L’application Windows Configuration Designer peut être installée à partir du [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
+Pour les appareils non gérés par Intune, un package d’approvisionnement peut être installé pour activer la fonctionnalité. L’application Windows Configuration Designer peut être installée à partir du [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
 1. Lancez Windows Configuration Designer.
 1. Sélectionnez **Fichier** > **Nouveau projet**.

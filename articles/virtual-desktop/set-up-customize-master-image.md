@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330842"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013142"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -70,7 +70,7 @@ Si vos utilisateurs ont besoin d’accéder à certaines applications métier, n
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur du profil utilisateur (FSLogix)
 
-Pour inclure le conteneur FSLogix dans l’image, suivez les instructions de l’article [Créer un conteneur de profil pour un pool d’hôtes à l’aide d’un partage de fichiers](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+Pour inclure le conteneur FSLogix dans l’image, suivez les instructions de l’article [Créer un conteneur de profil pour un pool d’hôtes à l’aide d’un partage de fichiers](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurer Windows Defender
 
@@ -101,28 +101,6 @@ Exécutez cette commande pour spécifier une mise en page de démarrage pour les
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>Configurer des stratégies de délai d’expiration de session
-
-Des stratégies de session à distance peuvent être appliquées au niveau d’une stratégie de groupe dans la mesure où toutes les machines virtuelles au sein d’un pool d’hôtes font partie du même groupe de sécurité.
-
-Pour configurer des stratégies de session à distance :
-
-1. Accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Limites de durée de session**.
-2. Dans le volet situé à droite, sélectionnez la stratégie **Définir la limite de temps pour les sessions de services Bureau à distance actives mais dormantes**.
-3. Une fois que la fenêtre modale s’affiche, modifiez l’option de stratégie de **Non configuré** à **Activé** pour activer la stratégie.
-4. Dans le menu déroulant sous l’option de stratégie, définissez la durée sur **3 heures**.
-
-Vous pouvez également configurer manuellement des stratégies de session à distance en exécutant les commandes suivantes :
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Configurer la redirection de fuseau horaire

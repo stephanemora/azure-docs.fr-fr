@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: f01758c70e52f96fcd22a94e9b83f910cbf200c9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035867"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123471"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoriser l’accès à Azure Event Hubs
 Chaque fois que vous publiez ou utilisez des événements/données à partir d'un hub d'événements, votre client tente d'accéder aux ressources Event Hubs. Chaque demande adressée à une ressource sécurisée doit être autorisée afin que le service puisse vérifier que le client dispose des autorisations requises pour publier/utiliser les données. 
@@ -28,7 +28,7 @@ Pour plus d'informations sur l'authentification à l'aide d'Azure AD, consultez 
 - [Authentifier les requêtes adressées à Azure Event Hubs à l'aide d'Azure Active Directory](authenticate-application.md)
 - [Autoriser l'accès aux ressources Event Hubs à l'aide d'Azure Active Directory](authorize-access-azure-active-directory.md)
 
-## <a name="share-access-signatures"></a>Signatures d'accès partagé 
+## <a name="shared-access-signatures"></a>Signatures d’accès partagé 
 Les signatures d'accès partagé (SAP) des ressources Event Hubs fournissent un accès délégué limité aux ressources Event Hubs. L'ajout de contraintes sur l'intervalle de temps pour lequel la signature est valide ou sur les autorisations qu'elle accorde offre une certaine souplesse en matière de gestion des ressources. Pour plus d'informations, consultez [S'authentifier à l'aide de signatures d'accès partagé (SAP)](authenticate-shared-access-signature.md). 
 
 Le fait d'autoriser des utilisateurs ou des applications à l'aide d'un jeton OAuth 2.0 renvoyé par Azure AD confère une sécurité et une facilité d'utilisation supérieures à ce qu'offrent les signatures d'accès partagé. Avec Azure AD, il n'est pas nécessaire de stocker les jetons d'accès avec votre code et de risquer d'éventuelles failles de sécurité. Vous pouvez continuer à utiliser des signatures d'accès partagé pour accorder un accès affiné aux ressources Event Hubs. Mais sachez qu'Azure AD offre des fonctionnalités similaires qui ne nécessitent aucune gestion des jetons SAS ni aucune révocation des signatures d'accès partagé compromises. 
@@ -42,7 +42,7 @@ Pour plus d'informations sur l'autorisation à l'aide de SAS, consultez [Autoris
 - Consultez les articles suivants :
     - [Authentifier les requêtes adressées à Azure Event Hubs à partir d'une application à l'aide d'Azure Active Directory](authenticate-application.md)
     - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)
-    - [Authentifier les demandes adressées à Azure Event Hubs à l'aide de signatures d'accès partagé](authenticate-shared-access-signature.md)
-    - [Autoriser l'accès aux ressources Event Hubs avec Azure Active Directory](authorize-access-azure-active-directory.md)
-    - [Autoriser l'accès aux ressources Event Hubs avec des signatures d'accès partagé](authorize-access-shared-access-signature.md)
+    - [Authentifier les requêtes adressées à Azure Event Hubs à l’aide de signatures d’accès partagé](authenticate-shared-access-signature.md)
+    - [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé](authorize-access-shared-access-signature.md)
 

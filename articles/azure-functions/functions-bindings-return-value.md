@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086422"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074404"
 ---
 # <a name="using-the-azure-function-return-value"></a>Utilisation de la valeur de retour Azure Functions
 
@@ -29,15 +29,7 @@ S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un
 
 En C# et dans les scripts C#, les autres méthodes pour envoyer des données à une liaison de sortie sont les paramètres `out` et les [objets collecteurs](functions-reference-csharp.md#writing-multiple-output-values).
 
-Consultez l’exemple spécifique à un langage montrant l’utilisation de la valeur de retour :
-
-* [C#](#c-example)
-* [Script C# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>Exemple en code C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Voici du code C# qui utilise la valeur de retour pour une liaison de sortie, suivie d’un exemple asynchrone :
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>Exemple de script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 Voici la liaison de sortie dans le fichier *function.json* :
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>Exemple F#
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 Voici la liaison de sortie dans le fichier *function.json* :
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>Exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Voici la liaison de sortie dans le fichier *function.json* :
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Voici la liaison de sortie dans le fichier *function.json* :
 
@@ -163,6 +155,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Trouver et supprimer les disques managés et non managés Azure non attachés | Microsoft Docs
+title: Trouver et supprimer les disques managés et non managés Azure non attachés
 description: Comment rechercher et supprimer les disques (disques durs virtuels/objets blob de pages) managés et non managés Azure non attachés à l’aide d’Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0de0e68bb8419894386641c827bdbc40ed142d3f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2973d2589be05426a13d16870d0b0fe1a5be9213
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698685"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023061"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Trouver et supprimer les disques managés et non managés Azure non attachés
 

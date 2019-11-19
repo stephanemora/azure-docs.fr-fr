@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: bee3e24739aa560a43960143d1a18c30ec1ce160
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819453"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884782"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -124,7 +124,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Initialiseur de télémétrie
 
-Si vous avez besoin d’une alternative plus flexible que `DisableIpMasking` pour enregistrer tout ou partie des adresses IP, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) pour copier tout ou partie de l’adresse IP dans un champ personnalisé. 
+Si vous avez besoin d’une alternative plus flexible que `DisableIpMasking` pour enregistrer tout ou partie des adresses IP, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) pour copier tout ou partie de l’adresse IP dans un champ personnalisé. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cbee6bfcca3ddb356abe9dceab2fca07c152b07
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702424"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961804"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Comment autoriser les applications clientes natives à interagir avec des applications de proxy
 
@@ -70,7 +70,7 @@ Maintenant que vous avez inscrit votre application native, vous pouvez lui donne
 1. Sélectionnez **Ajouter une autorisation**. La page **Demander des autorisations d’API** apparaît.
 1. Sous le paramètre **Sélectionner une API**, choisissez **API utilisées par mon organisation**. Une liste s’affiche, affichant les applications de votre annuaire qui exposent des API.
 1. Saisissez du texte dans la zone de recherche ou faites défiler la page pour trouver l’application proxy que vous avez publiée à [l’étape 1 : Publiez votre application proxy](#step-1-publish-your-proxy-application), puis sélectionnez l’application proxy.
-1. Dans le titre **Quel type d'autorisation votre application nécessite-t-elle ?** , sélectionnez le type d’autorisation. Si votre application native doit accéder à l’API de l’application proxy en tant qu’utilisateur connecté, choisissez **Autorisations déléguées**. Si votre application native s’exécute en tant que service en arrière-plan ou démon sans aucun utilisateur connecté, sélectionnez **Autorisations de l’application**.
+1. Dans le titre **Quel type d'autorisation votre application nécessite-t-elle ?** , sélectionnez le type d’autorisation. Si votre application native doit accéder à l’API de l’application proxy en tant qu’utilisateur connecté, choisissez **Autorisations déléguées**.
 1. Dans l’en-tête **Sélectionner les autorisations**, choisissez l’autorisation voulue, puis cliquez sur **Ajout d’autorisations**. La page **Autorisations des API** de votre application native affiche désormais l’application proxy et l’API d’autorisation que vous avez ajoutées.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Étape 4 : Modifier la bibliothèque d’authentification Active Directory
