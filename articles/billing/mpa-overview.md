@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 9c6c28ef296f3b1346fd82641d8c557a500273d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 6bb0f3ea1b4e3bf17ed3bf26b838da8f2a694673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376686"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898546"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft
 
 Un compte de facturation est créé lorsque vous vous inscrivez pour utiliser Azure. Votre compte de facturation vous permet de gérer vos factures et paiements, et d’effectuer un suivi des coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, vous pouvez vous être inscrit à Azure pour vos projets personnels. Vous pouvez aussi accéder à Azure dans le cadre d’un Contrat Entreprise de votre organisation, d’un Contrat Client Microsoft ou d’un Contrat Partenaire Microsoft. Pour chacun de ces scénarios, vous disposez d’un compte de facturation distinct.
 
-Cet article concerne les comptes de facturation associés aux Contrats Partenaire Microsoft. Ces comptes sont créés pour permettre aux fournisseurs de solutions Cloud (ou CSP) de gérer la facturation de leurs clients dans la nouvelle expérience de commerce. La nouvelle expérience est disponible uniquement pour les partenaires ayant au moins un client qui a accepté un Contrat Client Microsoft (MCA) et qui possède un plan Azure. [Vérifiez si vous avez accès à un Contrat Partenaire Microsoft](#check-access-to-a-microsoft-partner-agreement).
+Cet article concerne les comptes de facturation associés aux Contrats Partenaire Microsoft. Ces comptes sont créés pour permettre aux fournisseurs de solutions Cloud (ou CSP) de gérer la facturation de leurs clients dans la nouvelle expérience de commerce. La nouvelle expérience est uniquement disponible pour les partenaires ayant au moins un client qui a accepté un Contrat client Microsoft et qui possède un plan Azure. [Vérifiez si vous avez accès à un Contrat Partenaire Microsoft](#check-access-to-a-microsoft-partner-agreement). Le [plan Azure](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) permet aux clients d'accéder aux services Azure aux tarifs Paiement à l'utilisation en vertu d'un Contrat client Microsoft.
 
 ## <a name="your-billing-account"></a>Votre compte de facturation
 
@@ -35,7 +35,7 @@ Les utilisateurs qui ont le rôle **Administrateur général** ou **Agent d’ad
 
 ## <a name="billing-profiles"></a>Profils de facturation
 
-Utilisez un profil de facturation pour gérer vos factures dans une devise. Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture inclut les frais dans la devise du profil de facturation pour tous les abonnements Azure et les autres achats du mois précédent. 
+Utilisez un profil de facturation pour gérer vos factures dans une devise. Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture inclut les frais dans la devise du profil de facturation pour tous les abonnements Azure et les autres achats du mois précédent.
 
 Vous pouvez afficher la facture et télécharger les documents associés, comme le fichier d’utilisation et la grille tarifaire, dans le portail Azure. Pour plus d’informations, consultez [Télécharger les factures pour un Contrat Partenaire Microsoft](billing-download-azure-invoice.md).
 
@@ -45,11 +45,11 @@ Vous pouvez afficher la facture et télécharger les documents associés, comme 
 
 ## <a name="customers"></a>Clients
 
-Vous pouvez voir et gérer les clients qui ont accepté un Contrat Client Microsoft et qui ont un plan Azure dans le portail Azure. Vous pouvez aussi voir les frais et les transactions, ainsi que créer et gérer les abonnements Azure pour ces clients. 
+Vous pouvez voir et gérer les clients qui ont accepté un Contrat Client Microsoft et qui ont un plan Azure dans le portail Azure. Vous pouvez aussi voir les frais et les transactions, ainsi que créer et gérer les abonnements Azure pour ces clients.
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Activer la stratégie pour avoir une meilleure visibilité du coût
 
-Appliquez la stratégie pour contrôler si les utilisateurs dans l’organisation des clients peuvent voir et analyser le coût aux tarifs du paiement à l’utilisation pour leur consommation d’Azure. Par défaut, la stratégie est désactivée et les utilisateurs ne peuvent pas voir le coût. Quand cette stratégie est activée, les utilisateurs qui disposent d’un accès [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) approprié sur un abonnement peuvent voir et analyser le coût de l’abonnement. 
+Appliquez la stratégie pour contrôler si les utilisateurs dans l’organisation des clients peuvent voir et analyser le coût aux tarifs du paiement à l’utilisation pour leur consommation d’Azure. Par défaut, la stratégie est désactivée et les utilisateurs ne peuvent pas voir le coût. Quand cette stratégie est activée, les utilisateurs qui disposent d’un accès [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) approprié sur un abonnement peuvent voir et analyser le coût de l’abonnement.
 
 Pour activer la stratégie :
 
@@ -60,7 +60,7 @@ Pour activer la stratégie :
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/mpa-overview/search-cmb.png)
 
 1. Sélectionnez **Clients** dans la partie gauche, puis sélectionnez un client dans la liste.
-   
+
    ![Capture d’écran montrant la sélection d’un client](./media/mpa-overview/mpa-customers.png)
 
 1. Sélectionnez **Stratégies** dans la partie gauche.

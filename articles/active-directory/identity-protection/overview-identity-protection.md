@@ -1,0 +1,104 @@
+---
+title: Présentation d’Azure Active Directory Identity Protection
+description: Détectez, corrigez, examinez et analysez les risques avec Azure AD Identity Protection
+services: active-directory
+ms.service: active-directory
+ms.subservice: identity-protection
+ms.topic: overview
+ms.date: 10/18/2019
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887699"
+---
+# <a name="what-is-azure-active-directory-identity-protection"></a>Présentation d’Azure Active Directory Identity Protection
+
+Identity Protection est un outil qui permet aux organisations d'accomplir trois tâches principales :
+
+- Automatiser la détection et la correction des risques liés à l'identité
+- Examiner les risques à l'aide des données disponibles sur le portail
+- Exporter les données de détection des risques vers des utilitaires tiers pour une analyse plus approfondie
+
+Pour protéger vos utilisateurs, Identity Protection s'appuie sur les connaissances acquises par Microsoft au niveau des organisations avec Azure AD, de l'espace grand public avec les comptes Microsoft et des jeux avec Xbox. Microsoft analyse 6 500 milliards de signaux par jour pour identifier les menaces et protéger les clients.
+
+Les signaux générés par Identity Protection et transmis à celui-ci peuvent également être transmis à des outils tels que l'Accès conditionnel pour prendre des décisions en matière d'accès, ou renvoyés à un outil SIEM (Security Information and Event Management) pour un examen plus approfondi en fonction des stratégies appliquées par votre organisation.
+
+## <a name="why-is-automation-important"></a>Pourquoi l'automatisation est-elle importante ?
+
+Dans son [billet de blog d'octobre 2018](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Eight-essentials-for-hybrid-identity-3-Securing-your-identity/ba-p/275843), Alex Weinert, qui dirige l'équipe Identity Security and Protection de Microsoft, explique pourquoi l'automatisation est si importante pour gérer le volume des événements :
+
+> Chaque jour, nos systèmes d'apprentissage automatique et heuristiques fournissent des scores de risque pour 18 milliards de tentatives de connexion correspondant à plus de 800 millions de comptes distincts, dont 300 millions relèvent de manière perceptible d'adversaires (entités telles que des auteurs malveillants et des pirates informatiques).
+>
+> L'an dernier, lors de la conférence Ignite, j'ai évoqué les trois principales attaques auxquelles nos systèmes d'identité sont confrontés. Voici le volume récent de ces attaques
+>   
+>   - **Attaque par rejeu** : 4,6 milliards d'attaques détectées en mai 2018
+>   - **Pulvérisation de mots de passe** : 350 000 en avril 2018
+>   - **Hameçonnage** : ces attaques sont difficiles à quantifier, mais nous avons observé 23 millions d'événements à risque en mars 2018, dont beaucoup étaient liés au hameçonnage
+
+## <a name="risk-detection-and-remediation"></a>Détection d'événements à risque et solutions pour y remédier
+
+Identity Protection identifie les risques selon les classifications suivantes :
+
+| Type de détection des risques | Description |
+| --- | --- |
+| Voyage inhabituel | Connexion à partir d'un emplacement inhabituel par rapport aux dernières connexions de l'utilisateur |
+| Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
+| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l'utilisateur concerné |
+| Adresse IP liée à un programme malveillant | Connexion à partir d'une adresse IP liée à un programme malveillant |
+| Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fait l’objet d’une fuite |
+| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d'attaque connu |
+
+Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
+
+Les signaux de risque peuvent déclencher des mesures correctives (par exemple en obligeant les utilisateurs à utiliser Azure Multi-Factor Authentication ou à réinitialiser leur mot de passe à l'aide de la réinitialisation de mot de passe en libre-service) ou bloquer les utilisateurs jusqu'à ce qu'un administrateur intervienne.
+
+## <a name="risk-investigation"></a>Examen des risques
+
+Les administrateurs peuvent examiner les détections et prendre des mesures manuelles si nécessaire. Les administrateurs utilisent trois rapports clés pour les examens dans Identity Protection :
+
+- Utilisateurs à risque
+- Connexions risquées
+- Détections de risques
+
+Vous trouverez des informations supplémentaires dans l'article [Procédure : Examiner les risques](howto-identity-protection-investigate-risk.md).
+
+## <a name="exporting-risk-data"></a>Exportation des données liées aux risques
+
+Les données d'Identity Protection peuvent être exportées vers d'autres outils à des fins d'archivage, d'examen et de mise en corrélation. Les API basées sur Microsoft Graph permettent aux organisations de collecter ces données pour un traitement ultérieur dans un outil tel que SIEM. Pour plus d'informations sur l'accès à l'API Identity Protection, consultez l'article [Prise en main d'Azure Active Directory Identity Protection et de Microsoft Graph](howto-identity-protection-graph-api.md).
+
+Pour en savoir plus sur l'intégration des informations d'Identity Protection dans Azure Sentinel, consultez l'article [Connecter des données depuis Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
+
+## <a name="permissions"></a>Autorisations
+
+Identity Protection exige que les utilisateurs disposent d'une des autorisations d'accès suivantes : Lecteur de sécurité, Opérateur de sécurité, Administrateur de la sécurité, Lecteur général ou Administrateur général.
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
+
+| Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | OUI | Non | Non |
+| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | OUI | Non | Non |
+| Rapports de sécurité | Vue d'ensemble | OUI | Non | Non |
+| Rapports de sécurité | Utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
+| Rapports de sécurité | Connexions risquées | Accès total | Informations limitées | Informations limitées |
+| Rapports de sécurité | Détections de risques | Accès total | Informations limitées | Non |
+| Notifications | Alertes Utilisateurs à risque détectés | OUI | Non | Non |
+| Notifications | Synthèse hebdomadaire | OUI | Non | Non |
+| | Stratégie d'inscription MFA | OUI | Non | Non |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [vue d’ensemble de la sécurité](concept-identity-protection-security-overview.md)
+
+- [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md)
+
+- [Stratégies disponibles pour atténuer les risques](concept-identity-protection-policies.md)

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543019"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052171"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -44,7 +44,7 @@ Tout d’abord, Microsoft annule la réservation existante et rembourse le monta
 
 ### <a name="enterprise-agreement-customers"></a>Clients titulaires d’un contrat entreprise
 
-Pour les échanges et les remboursements, l’argent est ajouté à l’engagement financier éventuellement utilisé pour l’achat d’origine. Toutes les factures de dépassement depuis les achats d’origine sont rouvertes et réévaluées pour que l’engagement monétaire soit utilisé. Si la période de l’engagement financier au cours de laquelle la réservation a été achetée n’est plus active, le crédit est ajouté à la période actuelle de l’engagement financier rattaché à votre contrat entreprise.
+Pour les échanges et les remboursements, l’argent est ajouté à l’engagement financier éventuellement utilisé pour l’achat d’origine. Toutes les factures de dépassement depuis les achats d’origine sont rouvertes et réévaluées pour que l’engagement monétaire soit utilisé. Si la période de l’engagement financier au cours de laquelle la réservation a été achetée n’est plus active, le crédit est ajouté à la période actuelle de l’engagement financier rattaché à votre contrat entreprise. Le crédit est valable 90 jours à compter de la date du remboursement. Tout crédit inutilisé expire au bout de 90 jours.
 
 Si l’achat d’origine a été effectué en tant que dépassement, Microsoft émet une note de crédit.
 

@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380751"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150048"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> La [plateforme des identités Microsoft](v2-overview.md) est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées.
+> Si vous devez activer la connexion pour des comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de terminaison de la Plateforme d'identités Microsoft](azure-ad-endpoint-comparison.md)* .
+> Ce guide de démarrage rapide concerne l'ancien point de terminaison Azure AD v1.0. Nous vous recommandons d'utiliser le point de terminaison v2.0 pour les nouveaux projets. Pour plus d’informations, consultez [ce tutoriel JavaScript SPA](tutorial-v2-javascript-spa.md) ainsi que [cet article](active-directory-v2-limitations.md), qui expliquent ce que sont les *points de terminaison de la plateforme d’identité Microsoft*.
 
 Azure Active Directory (Azure AD) simplifie l’ajout d’appels API OAuth de connexion, de déconnexion et de sécurisation à vos applications à page unique. Il permet à votre application d’authentifier les utilisateurs avec leurs comptes Windows Server Active Directory et de consommer une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
 
@@ -45,9 +50,6 @@ Pour générer l’application fonctionnelle complète, vous devez :
 1. Inscrire votre application auprès d’Azure AD.
 2. Installer la bibliothèque ADAL et configurer l’application à page unique.
 3. Utilisez la bibliothèque ADAL pour sécuriser les pages dans l’application à page unique.
-
-> [!NOTE]
-> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)* . Pour plus d’informations, consultez [ce tutoriel JavaScript SPA](tutorial-v2-javascript-spa.md) ainsi que [cet article](active-directory-v2-limitations.md), qui expliquent ce que sont les *points de terminaison de la plateforme d’identité Microsoft*. 
 
 ## <a name="prerequisites"></a>Prérequis
 
