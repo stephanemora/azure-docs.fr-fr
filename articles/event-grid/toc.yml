@@ -27,6 +27,8 @@
           href: custom-event-quickstart-powershell.md
         - name: Portail
           href: custom-event-quickstart-portal.md
+    - name: Azure Functions en tant que gestionnaire d’événements
+      href: custom-event-to-function.md
     - name: Stockage de file d’attente en tant que gestionnaire d’événements
       href: custom-event-to-queue-storage.md
     - name: Event Hubs en tant que gestionnaire d’événements
@@ -111,6 +113,8 @@
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
+    - name: Sécuriser un WebHook avec AAD
+      href: secure-webhook-delivery.md
     - name: Lettres mortes et nouvelle tentative
       href: manage-event-delivery.md
     - name: Filtrer les événements

@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: Ingérer les données sans utiliser de code
+    - name: Ingérer et interroger des données de supervision
       href: ingest-data-no-code.md
     - name: "Visualiser des données dans Power\_BI"
       href: visualize-power-bi.md

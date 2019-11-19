@@ -714,9 +714,9 @@
             - name: Exemple MLlib avancé
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
-        - name: ML automatisé
+        - name: AutoML
           items:
-            - name: Présentation de ML automatisé
+            - name: Vue d’ensemble d’AutoML
               href: /azure/databricks/applications/machine-learning/automl/index
               maintainContext: true
             - name: Hyperopt
@@ -920,7 +920,7 @@
             - name: Pipeline d’échantillon tumoral/normal
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
-            - name: Annotation de variantes avec Pipe Tansformer
+            - name: Annotation de variantes avec Pipe Transformer
               href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
               maintainContext: true
             - name: Méthodes d’annotation de variantes
@@ -1256,7 +1256,7 @@
             - name: Définir le niveau de journalisation de l’exécuteur
               href: /azure/databricks/kb/execution/set-executor-log-level
               maintainContext: true
-            - name: La tâche sérialisée est trop volumineuse
+            - name: Tâche sérialisée trop grande
               href: /azure/databricks/kb/execution/spark-serialized-task-is-too-large
               maintainContext: true
         - name: Tâches
@@ -1609,6 +1609,12 @@
               items:
                 - name: Versions du runtime prises en charge
                   href: /azure/databricks/release-notes/runtime/supported
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.2"
+                  href: /azure/databricks/release-notes/runtime/6.2
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.2 ML"
+                  href: /azure/databricks/release-notes/runtime/6.2ml
                   maintainContext: true
                 - name: "Databricks Runtime\_6.1"
                   href: /azure/databricks/release-notes/runtime/6.1

@@ -672,6 +672,8 @@
               href: mongodb-readpreference.md
             - name: Durée de vie  - MongoDB
               href: mongodb-time-to-live.md
+            - name: Changer les flux
+              href: mongodb-change-streams.md
             - name: Gérer l’indexation des données
               href: mongodb-indexing.md
             - name: Stocker et gérer Spring Data

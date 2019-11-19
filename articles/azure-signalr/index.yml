@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation des services Azure SignalR
+title: Documentation Azure SignalR Service
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: 'Documentation des services Azure SignalR - Tutoriels, informations de référence sur les API'
-  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
+  title: Documentation - Azure SignalR Service
+  description: Créez et mettez à l’échelle en temps réel des applications web facilement en mode serveur ou serverless. Basé sur WebSocket prenant en charge un large éventail de langages et de frameworks.
   services: azure-signalr
   author: v-chmccl
   manager: wesmc

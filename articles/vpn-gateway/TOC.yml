@@ -133,11 +133,13 @@
             - name: Créer et installer les fichiers de configuration du client VPN
               href: point-to-site-vpn-client-configuration-radius.md
             - name: Intégrer l’authentification RADIUS VPN P2S avec le serveur NPS
-              href: vpn-gateway-radiuis-mfa-nsp.md
+              href: vpn-gateway-radius-mfa-nsp.md
         - name: Authentification Azure AD
           items:
             - name: Configurer un locataire
               href: openvpn-azure-ad-tenant.md
+            - name: Configurer l’authentification multifacteur (MFA)
+              href: openvpn-azure-ad-mfa.md
             - name: Configurer un client VPN
               href: openvpn-azure-ad-client.md
         - name: OpenVPN

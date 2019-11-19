@@ -331,6 +331,14 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Définitions de stratégies
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: Kit SDK Azure pour Python
+      items:
+        - name: Stratégie
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+        - name: Client de stratégie
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+        - name: Policy Insights
+          href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
         - name: Événements

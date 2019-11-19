@@ -62,6 +62,8 @@
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
             - name: D’Azure CLI
               href: ./ag/tutorial-restrict-web-traffic-cli.md
+        - name: Migrer une stratégie WAF
+          href: ./ag/migrate-policy.md
         - name: Personnaliser les règles de pare-feu d’application web
           items:
             - name: Portail Azure

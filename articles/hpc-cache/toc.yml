@@ -40,6 +40,8 @@
   items:
     - name: Ouverture d’un ticket de support
       href: hpc-cache-support-ticket.md
+    - name: Contourner les paramètres de pare-feu de compte de stockage Blob
+      href: hpc-cache-blob-firewall-fix.md
     - name: Récupérer après une panne régionale
       href: hpc-region-recovery.md
     - name: Utiliser Azure NetApp Files avec Azure HPC Cache
