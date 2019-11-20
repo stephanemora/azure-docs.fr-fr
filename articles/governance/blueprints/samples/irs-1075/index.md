@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint IRS 1075 - Vue d’ensemble
 description: Vue d’ensemble de l’exemple de blueprint IRS 1075. Cet exemple de blueprint aide les clients à évaluer des contrôles IRS 1075 spécifiques.
-ms.date: 08/07/2019
+ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: ef15960fe1c356d6c92ef765bca77441b0fd40c4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032155"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210183"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint IRS 1075
 

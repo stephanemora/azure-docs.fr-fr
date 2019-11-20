@@ -183,6 +183,8 @@
           href: storage-sync-files-troubleshoot.md
         - name: Résoudre les problèmes de suppression Azure Files
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: récupérer un compte de stockage supprimé
+          href: storage-how-to-recover-deleted-account.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell
