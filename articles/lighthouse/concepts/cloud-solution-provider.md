@@ -1,24 +1,20 @@
 ---
 title: Considérations sur le programme des fournisseurs de solutions cloud
 description: Pour les partenaires CSP, la gestion des ressources déléguées Azure permet d’améliorer la sécurité et le contrôle en activant des autorisations précises.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550299"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132514"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud
 
 Si vous êtes un partenaire [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/csp-overview), vous pouvez déjà accéder aux abonnements Azure créés pour vos clients par le biais du programme Fournisseur de solutions cloud en utilisant la fonctionnalité [Administrer au nom de](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Cet accès vous permet de prendre en charge, de configurer et de gérer directement les abonnements de vos clients.
 
-Avec Azure Lighthouse, vous pouvez utiliser la gestion des ressources déléguées Azure avec la fonctionnalité Administrer au nom de. Cela contribue à améliorer la sécurité et réduit l’accès inutile en autorisant des autorisations plus granulaires pour vos utilisateurs. Cela permet également une plus grande efficacité et une plus grande scalabilité, car vos utilisateurs peuvent travailler sur plusieurs abonnements client à l’aide d’une seule connexion dans votre locataire.
+Avec [Azure Lighthouse](../overview.md), vous pouvez utiliser la gestion des ressources déléguées Azure avec la fonctionnalité Administrer au nom de. Cela contribue à améliorer la sécurité et réduit l’accès inutile en autorisant des autorisations plus granulaires pour vos utilisateurs. Cela permet également une plus grande efficacité et une plus grande scalabilité, car vos utilisateurs peuvent travailler sur plusieurs abonnements client à l’aide d’une seule connexion dans votre locataire.
 
 > [!TIP]
 > Pour optimiser la protection des ressources de clients, veillez à consulter et suivre nos [pratiques de sécurité recommandées](recommended-security-practices.md) ainsi que les [conditions de sécurité du partenaire](https://docs.microsoft.com/partner-center/partner-security-requirements).
@@ -36,6 +32,11 @@ La gestion des ressources déléguées Azure vous permet d’affecter des groupe
 L’intégration d’un abonnement que vous avez créé par le biais du programme Fournisseur de solutions cloud suit les étapes décrites dans [Intégrer un abonnement à la gestion des ressources déléguées Azure](../how-to/onboard-customer.md). Tout utilisateur auquel le rôle Agent d’administration est attribué dans votre locataire peut effectuer cette intégration.
 
 ![Gestion des locataires à l’aide du mécanisme Administrer au nom de et de la gestion des ressources déléguées Azure](../media/csp-2.jpg)
+
+> [!NOTE]
+> La page [**Mes clients** du portail Azure](../how-to/view-manage-customers.md) comprend désormais une section **Fournisseur de solutions cloud (préversion)** , qui affiche des informations de facturation et des ressources pour les clients CSP qui ont [signé le contrat client Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) et sont sous le plan Azure. Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](https://docs.microsoft.com/azure/billing/mpa-overview).
+>
+> Des clients CSP peuvent apparaître dans cette section, qu’ils aient ou non été intégrés pour la gestion des ressources déléguées Azure. Si c'est le cas, ils apparaîtront également dans la section **Clients**, comme décrit dans [Voir et gérer les clients et les ressources déléguées](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

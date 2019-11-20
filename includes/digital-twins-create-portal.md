@@ -7,20 +7,30 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 11/12/2019
 ms.custom: include file
-ms.openlocfilehash: 7b2df437833f270a6e102257693426f4cc65b9d2
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 4ed5be09d952d4d64c269e3eaf698ad7a74fffdd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949744"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014115"
 ---
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le volet de gauche, sélectionnez **Créer une ressource**. Recherchez **digital twins**, puis sélectionnez **Digital Twins**. Sélectionnez **Créer** pour commencer le processus de déploiement.
+1. Sélectionnez la barre latérale, puis **+ Créer une ressource**. 
+
+   [![Développer la barre latérale, puis sélectionnez + Créer une ressource](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+
+1. Recherchez **Digital Twins**, puis sélectionnez **Digital Twins**. 
 
    [![Sélections pour la création d’une instance Digital Twins](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+
+   Vous pouvez également sélectionner **Internet des objets**, puis **Digital Twins (version préliminaire)** .
+
+1. Sélectionnez **Créer** pour commencer le processus de déploiement.
+
+   [![Créer et confirmer le déploiement de la ressource](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
 
 1. Dans le volet **Digital Twins**, entrez les informations suivantes :
    * **Nom de la ressource** : créez un nom unique pour votre instance Digital Twins.
@@ -32,10 +42,18 @@ ms.locfileid: "71949744"
 
 1. Vérifiez les informations de votre instance Digital Twins et sélectionnez **Créer**. La création de votre instance Digital Twins peut prendre quelques minutes. Vous pouvez suivre la progression dans le volet **Notifications**.
 
-1. Ouvrez le volet **Vue d’ensemble** de votre instance Digital Twins. Notez le lien sous **API de gestion**.
+1. Ouvrez le volet **Vue d’ensemble** de votre instance Digital Twins. Notez le lien sous **API de gestion**. L’URL de l’**API de gestion** respecte le format suivant : 
+   
+   ```URL
+   https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger
+   ```
+   
+   Cette URL vous renvoie à la documentation de l’API REST d’Azure Digital Twins qui correspond à votre instance. Pour savoir comment lire et utiliser la documentation de cette API, consultez la section [Comment utiliser Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md). Copiez et modifiez l’URL de l’**API de gestion** pour qu’elle respecte le format suivant : 
+    
+   ```URL
+   https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/
+   ```
+    
+   Votre application se servira de l’URL modifiée comme de l’URL de base pour accéder à votre instance. Copiez cette URL modifiée dans un fichier temporaire. Vous en aurez besoin dans la prochaine section.
 
-   L’URL de l’**API de gestion** respecte le format suivant : `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Cette URL vous renvoie à la documentation de l’API REST d’Azure Digital Twins qui correspond à votre instance. Pour savoir comment lire et utiliser la documentation de cette API, consultez la section [Comment utiliser Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md).
-
-    Modifiez l’URL de l’**API de gestion** pour qu’elle respecte le format suivant : `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Votre application se servira de l’URL modifiée comme de l’URL de base pour accéder à votre instance. Copiez cette URL modifiée dans un fichier temporaire. Vous en aurez besoin dans la prochaine section.
-
-    [![API de gestion](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
+   [![Vue d’ensemble de l'API de gestion](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

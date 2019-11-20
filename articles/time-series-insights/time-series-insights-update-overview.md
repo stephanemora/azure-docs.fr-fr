@@ -1,6 +1,6 @@
 ---
-title: 'Vue d’ensemble : Préversion d’Azure Time Series Insights | Microsoft Docs'
-description: Vue d’ensemble de la préversion d’Azure Time Series Insights.
+title: 'Vue d’ensemble : Qu’est-ce qu’Azure Time Series Insights (préversion) ? - Azure Time Series Insights | Microsoft Docs'
+description: Découvrez les améliorations clés d'Azure Time Series Insights (préversion).
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05f4c64adad184e761e2b5a01b8c033c024dbc49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cde846152ff183db857b8a0549fafd24700ffff9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585266"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014739"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Qu’est-ce qu’Azure Time Series Insights (préversion) ?
 

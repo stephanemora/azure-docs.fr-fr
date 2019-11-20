@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9751435636519100ea13fd850508c99faeb87a92
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721611"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133266"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Démarrage rapide : Lancer une application Java Spring en utilisant Azure CLI
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 ## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres de préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services de la préversion publique ne sont pas destinés à une utilisation de production.  Pour en savoir plus sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus, [lisez notre documentation sur Azure Cloud Shell](../cloud-shell/overview.md).
@@ -41,7 +41,7 @@ Pour suivre ce guide de démarrage rapide :
 1. [Installez Git](https://git-scm.com/)
 2. [Installez JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Installez Maven 3.0 ou ultérieur](https://maven.apache.org/download.cgi)
-4. [Installez Azure CLI version 2.0.67 ou ultérieure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installez Azure CLI 2.0.67 ou version ultérieure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Installez l’extension Azure CLI
@@ -146,7 +146,16 @@ Enfin, interrogez l’application de **passerelle** pour obtenir son adresse IP 
 az spring-cloud app show --name gateway | grep url
 ```
 
-Accédez à l’URL fournie par la commande précédente pour voir l’application PiggyMetrics en cours d’exécution.
+Accédez à l’URL fournie par la commande précédente pour exécuter l’application PiggyMetrics.
+    ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+Vous pouvez également accéder au Portail Azure pour trouver l’URL. 
+1. Accéder au service
+1. Sélectionner **Applications**
+1. Sélectionner **passerelle**
+
+    ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Recherchez l’URL sur la page **Vue d’ensemble de la passerelle**  ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

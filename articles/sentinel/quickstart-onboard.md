@@ -1,37 +1,42 @@
 ---
-title: Intégrer Azure Sentinel| Microsoft Docs
-description: Découvrez comment collecter des données dans Azure Sentinel.
+title: 'Démarrage rapide : Intégration dans Azure Sentinel'
+description: Découvrez comment collecter des données dans Azure Sentinel grâce à ce guide de démarrage rapide.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316808"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133101"
 ---
-# <a name="on-board-azure-sentinel"></a>Intégrer Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
-
-
-Dans ce guide de démarrage rapide, vous allez apprendre à intégrer Azure Sentinel. 
+Dans ce guide de démarrage rapide, apprenez à intégrer Azure Sentinel. 
 
 Pour intégrer Azure Sentinel, vous devez d’abord activer Azure Sentinel, puis vous connecter à vos sources de données. Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, disponibles par défaut et offrant une intégration en temps réel, y compris les solutions Microsoft Threat Protection, les sources Microsoft 365, dont Office 365, Azure AD, Azure ATP et Microsoft Cloud App Security, etc. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel.  
 
 Après avoir connecté vos sources de données, opérez votre choix dans une galerie de classeurs créés par des experts, qui mettent en avant des insights sur la base de vos données. Vous pouvez aisément adapter ces classeurs à vos besoins.
 
+>[!NOTE] 
+> [La tarification Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) est basée sur la quantité de données ingérées dans l’espace de travail Azure Monitor Log Analytics associé. Certains des connecteurs de données suivants ne sont pas facturés pour l’ingestion. Toutefois, certains frais sont associés lorsque vous générez tout type d’alerte en utilisant les données ingérées stockées dans l'espace de travail Log Analytics. Ces frais seront facturés selon la [tarification Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/). 
+  > - Activité Azure (journal d'activité pour les opérations Azure)
+  > - Azure Active Directory Identity Protection (pour les locataires avec licences AAD P2)
+  > - Azure Information Protection
+  > - Azure Advanced Threat Protection (alertes)
+  > - Azure Security Center (alertes)
+  > - Microsoft Cloud App Security (alertes uniquement)
+  > - Microsoft Defender Advanced Threat Protection (surveillance des alertes des agents)
+  > - Office 365 (journaux Exchange et SharePoint)
+>
+> Les journaux d’audit Azure AD/Office 365 ne sont pas gratuits et proposés en tant que niveau Premium. L’ingestion de ces données est donc facturée par Go. 
+  
 
 ## <a name="global-prerequisites"></a>Conditions préalables globales
 

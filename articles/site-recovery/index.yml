@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentation Azure Site Recovery
-summary: Utilisez Azure Site Recovery pour la reprise d’activité après sinistre des machines locales et des charges de travail dans Azure et des machines virtuelles Azure dans une région Azure secondaire. Avec une réplication sur Azure en place, vous pouvez orchestrer le basculement en cas de panne et continuer à accéder aux charges de travail et aux applications dans Azure. Quand l’emplacement principal est à nouveau disponible, vous pouvez effectuer une restauration automatique si besoin.
+summary: Utilisez Azure Site Recovery pour la reprise d’activité après sinistre des charges de travail locales et les machines virtuelles Azure.
 metadata:
   title: Documentation Azure Site Recovery
-  description: Utilisez Azure Site Recovery pour la reprise d’activité après sinistre des machines locales et des charges de travail dans Azure et des machines virtuelles Azure dans une région Azure secondaire. Avec une réplication sur Azure en place, vous pouvez orchestrer le basculement en cas de panne et continuer à accéder aux charges de travail et aux applications dans Azure. Quand l’emplacement principal est à nouveau disponible, vous pouvez effectuer une restauration automatique si besoin.
+  description: Configurez la reprise d’activité après sinistre dans Azure pour les charges de travail locales et les machines virtuelles Azure.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001093"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186585"
 landingContent:
 - title: À propos de Site Recovery
   linkLists:
@@ -73,7 +73,7 @@ landingContent:
     links:
     - text: Architecture de la reprise d’activité VMware
       url: ./vmware-azure-architecture.md
-    - text: Vue d’ensemble de la reprise d’activité VMware
+    - text: Présentation de la récupération d’urgence VMware
       url: ./vmware-azure-about-disaster-recovery.md
     - text: Questions courantes sur la reprise d’activité VMware
       url: ./vmware-azure-common-questions.md

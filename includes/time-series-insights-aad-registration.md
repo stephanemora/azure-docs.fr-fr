@@ -8,25 +8,17 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.date: 11/14/2019
+ms.openlocfilehash: fa6921f8c4309f17cbd63e242a5416e7e81bb6c3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990201"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133458"
 ---
-> [!IMPORTANT]
-> * Le nouveau panneau **Azure Active Directory** > **Inscriptions d’applications** remplace l’ancien panneau **Azure Active Directory** > **Inscriptions d’applications (héritées)** depuis mai 2019.
-> * Les inscriptions créées ou affichées dans le panneau hérité apparaissent automatiquement dans le nouveau panneau.
-> * Pour obtenir des informations complètes sur la migration vers la nouvelle expérience d’inscription d’applications Azure, lisez le [Guide d’entraînement pour les inscriptions d’applications Azure](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) et le [Guide de démarrage rapide d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
 1. Dans le [portail Azure](https://ms.portal.azure.com/), sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription**.
 
    [![Nouvelle inscription d’application dans Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > Le nouveau panneau d’inscription d’applications Azure Active Directory vous permet de filtrer les applications affichées en sélectionnant **Applications possédées**.
 
     Votre application est répertoriée ici une fois que vous l’enregistrez.
 
@@ -47,7 +39,7 @@ ms.locfileid: "72990201"
         * Pour les applications hébergées dans un environnement de développement local, sélectionnez **Client public (mobile et bureau)** . Veillez à définir **Type de client par défaut** sur Oui.
         * Pour les applications à page unique hébergées sur Azure App Service, sélectionnez **Web**.
 
-    1. Activez le flux d’octroi implicite en cochant les **jetons d’ID**.
+    1. Activez le flux d’octroi implicite en cochant les **Jeton d'accès** ou **Jetons d'ID**.
 
    [![Créer une nouvelle clé secrète client](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 

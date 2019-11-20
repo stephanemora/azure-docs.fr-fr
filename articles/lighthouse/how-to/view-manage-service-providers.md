@@ -1,18 +1,14 @@
 ---
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286596"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132181"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
@@ -50,6 +46,12 @@ Pour déléguer des abonnements ou des groupes de ressources :
 Un client peut ajouter une nouvelle offre de fournisseur de services à partir de la page **Offres de fournisseur** en sélectionnant **Ajouter une offre**. Le fournisseur de services doit avoir publié une offre pour ce client. Le client peut ensuite sélectionner cette offre dans l’écran **Offres privées**, puis choisir **Créer**.
 
 Si le client souhaite supprimer une offre de fournisseur de services, il peut sélectionner l’icône Corbeille sur la ligne de cette offre. Après confirmation de la suppression, ce fournisseur de services n’a plus accès aux ressources du client qui étaient précédemment déléguées pour cette offre.
+
+## <a name="update-service-provider-offers"></a>Mettre à jour les offres de fournisseur de services
+
+Une fois qu’un client a ajouté une offre, un fournisseur de services peut publier une version mise à jour de cette même offre sur la place de marché Microsoft Azure. Par exemple, ils souhaiteront peut-être ajouter une nouvelle définition de rôle. Si une nouvelle version de l’offre a été publiée, la page **Offres du fournisseur** comprend une icône de « mise à jour » dans la ligne de l'offre en question. Le client peut alors sélectionner cette icône pour voir les différences entre la version actuelle de l'offre et la nouvelle. 
+
+Après examen des les modifications, le client peut décider de mettre à jour vers la nouvelle version. Dès qu’il le fait, les autorisations et autres paramètres spécifiés dans la nouvelle version s’appliquent à tous les abonnements et/ou groupes de ressources qui ont été délégués pour cette offre.
 
 ## <a name="view-delegations"></a>Afficher les délégations
 

@@ -1,18 +1,14 @@
 ---
 title: Publier une offre de services managés sur la Place de marché Azure
 description: Découvrez comment publier une offre de service managé qui intègre des clients à la gestion des ressources déléguées Azure.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615462"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131292"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -81,10 +77,10 @@ Enfin, ajoutez une ou plusieurs entrées **Autorisation** à votre plan. Les aut
 
 Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vous pouvez ensuite sélectionner **Nouvelle autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et définitions de rôles.
 
-  - **ID d’objet Azure AD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme indiqué dans la définition de rôle) sur les ressources de votre client.
-  - **Nom d’affichage d’objet Azure AD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
-  - **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez les [Rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) et [Prise en charge des rôles pour la gestion des ressources déléguées Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
+- **ID d’objet Azure AD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme indiqué dans la définition de rôle) sur les ressources de votre client.
+- **Nom d’affichage d’objet Azure AD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
+- **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez les [Rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) et [Prise en charge des rôles pour la gestion des ressources déléguées Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
 
 > [!TIP]
 > Dans la plupart des cas, vous affectez des autorisations à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
@@ -141,64 +137,19 @@ Une fois que vous avez ajouté ces informations, sélectionnez **Enregistrer**.
 
 Lorsque vous avez terminé chacune des sections, l’étape suivante consiste à publier l’offre sur la Place de marché Azure. Sélectionnez le bouton **Publier** pour démarrer le processus de mise en ligne de votre offre. Pour plus d’informations sur ce processus, voir [Publier des offres sur la Place de marché Microsoft Azure et AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
+Vous pouvez [publier une version mise à jour de votre offre](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) à tout moment. Par exemple, vous pouvez souhaiter ajouter une nouvelle définition de rôle à une offre publiée précédemment. Dans ce cas, les clients qui ont déjà ajouté l’offre voient s’afficher une icône sur la page [**Fournisseurs de services**](view-manage-service-providers.md) du Portail Azure, ce qui leur permet de savoir qu’une mise à jour est disponible. Chaque client pourra [passer en revue les modifications](view-manage-service-providers.md#update-service-provider-offers) et décider s’il souhaite effectuer la mise à jour vers la nouvelle version. 
+
 ## <a name="the-customer-onboarding-process"></a>Processus d’intégration des clients
 
-Lorsqu’un client ajoute votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources) qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure. Si un utilisateur du locataire du client ne parvient pas à effectuer cette délégation, il ne dispose probablement pas du rôle Propriétaire pour l’abonnement. Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, l’utilisateur peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+Une fois qu’un client a ajouté votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources), qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure.
 
-Pour qu’un abonnement (ou des groupes de ressources au sein d’un abonnement) puisse être intégré, l’intégration de l’abonnement doit être autorisée via une inscription manuelle du fournisseur de ressources **Microsoft.ManagedServices**. Un utilisateur figurant dans le locataire du client et doté du rôle Contributeur ou Propriétaire peut le faire en suivant les étapes décrites dans [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+> [!IMPORTANT]
+> La délégation doit être effectuée par un compte non invité dans le locataire client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
-Le client peut alors confirmer que l’abonnement est prêt à être intégré de l’une des manières suivantes.
+Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes de ressources d’un abonnement), le fournisseur de ressources **Microsoft.ManagedServices** sera inscrit pour cet abonnement, et les utilisateurs de votre locataire pourront accéder aux ressources déléguées conformément aux autorisations de votre offre.
 
-### <a name="azure-portal"></a>Portail Azure
-
-1. Dans le Portail Azure, sélectionnez l’abonnement.
-1. Sélectionnez **Fournisseurs de ressources**.
-1. Vérifiez que **Microsoft.ManagedServices** apparaît comme **Inscrit**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Vous devriez obtenir des résultats similaires à ceci :
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>D’Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Vous devriez obtenir des résultats similaires à ceci :
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> À ce stade, les abonnements (ou les groupes de ressources d’un abonnement) ne peuvent pas être délégués si l’abonnement utilise Azure Databricks. De même, si un abonnement (ou des groupes de ressources d’un abonnement) a déjà été délégué, il est actuellement impossible de créer des espaces de travail Databricks dans cet abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

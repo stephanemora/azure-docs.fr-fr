@@ -1,14 +1,14 @@
 ---
-title: Créer une stratégie pour auditer les ressources à l’aide du portail - Azure Policy
+title: Créer une stratégie pour auditer des ressources avec le portail
 description: Cet article vous guide à travers les étapes de création d’une définition de stratégie pour identifier les ressources non conformes.
 ms.date: 12/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: e517173c74cd3fd37b50d327d32b668422428315
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ef89ea43ff3179877c0ac636083ed68946b6cc91
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960171"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128914"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes
 

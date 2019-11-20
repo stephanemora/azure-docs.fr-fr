@@ -798,12 +798,14 @@
               items:
                 - name: Vue d’ensemble de l’activation de la supervision
                   href: insights/container-insights-onboard.md
-                - name: Activer pour un nouveau cluster
+                - name: Activer pour un nouveau cluster AKS
                   href: insights/container-insights-enable-new-cluster.md
-                - name: Activer pour un cluster existant
+                - name: Activer pour un cluster AKS existant
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Activer pour un cluster hybride
                   href: insights/container-insights-hybrid-setup.md
+                - name: Activer pour Azure Red Hat OpenShift
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: Correspondances de régions
                   href: insights/container-insights-region-mapping.md
             - name: Analyser les performances

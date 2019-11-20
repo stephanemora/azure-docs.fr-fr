@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747088"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073974"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 
@@ -106,18 +106,18 @@ Configurez la sauvegarde de la façon suivante :
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 
-Les sauvegardes s’exécutent conformément à la planification spécifiée dans la stratégie de sauvegarde. Vous pouvez également effectuer une sauvegarde ad hoc :
+Les sauvegardes s’exécutent conformément à la planification spécifiée dans la stratégie de sauvegarde. Vous pouvez également exécuter une sauvegarde à la demande :
 
-- La première tâche de sauvegarde, la sauvegarde initiale, crée un point de récupération complet.
+- Le premier travail de sauvegarde initiale crée un point de récupération complet.
 - Après cette sauvegarde initiale, chaque travail de sauvegarde crée des points de récupération incrémentielle.
 - Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
 
-Pour exécuter une sauvegarde ad hoc, vous utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Pour exécuter une sauvegarde à la demande, vous utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - Vous spécifiez un conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Chaque machine virtuelle à sauvegarder est traitée comme un élément. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Exécutez un travail de sauvegarde ad hoc de la façon suivante :
+Exécutez un travail de sauvegarde à la demande comme suit :
 
 1. Spécifiez le conteneur, obtenez des informations de machine virtuelle et exécutez la sauvegarde.
 

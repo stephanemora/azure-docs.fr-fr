@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentation Azure Migrate
-summary: Utilisez Azure Migrate pour migrer vers le cloud Azure. Azure Migrate offre un hub central pour la découverte, l’évaluation et la migration des charges de travail locales vers Azure. Le hub fournit des outils Azure Migrate, ainsi que des outils intégrés d’éditeurs de logiciels indépendants (ISV).
+summary: Azure Migrate offre un hub central d’outils pour la découverte, l’évaluation et la migration des charges de travail locales vers Azure.
 metadata:
   title: Documentation Azure Migrate
-  description: Utilisez Azure Migrate pour migrer vers le cloud Azure. Azure Migrate offre un hub central pour la découverte, l’évaluation et la migration des charges de travail locales vers Azure. Le hub fournit des outils Azure Migrate, ainsi que des outils intégrés d’éditeurs de logiciels indépendants (ISV).
+  description: Utilisez Azure Migrate pour migrer les charges de travail locales vers Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: e49bfdefe08b3a8f4598e809fd44b57f3f93de67
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001139"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74185850"
 landingContent:
 - title: À propos d’Azure Migrate
   linkLists:
@@ -35,6 +35,10 @@ landingContent:
       url: ./tutorial-prepare-vmware.md
     - text: Évaluer les machines virtuelles Hyper-V avec Server Assessment
       url: ./tutorial-prepare-hyper-v.md
+    - text: Évaluer les serveurs physiques avec Server Assessment
+      url: ./tutorial-prepare-physical.md
+    - text: Évaluer les serveurs à l’aide de données importées
+      url: tutorial-assess-import.md
     - text: Migrer les machines virtuelles VMware avec Server Migration
       url: ./server-migrate-overview.md
     - text: Migrer les machines virtuelles Hyper-V avec Server Migration
@@ -52,13 +56,19 @@ landingContent:
     - text: Passer en revue le tableau de prise en charge Azure Migrate
       url: migrate-support-matrix.md
     - text: Passer en revue le tableau de prise en charge VMware
-      url: migrate-support-matrix-vmware.md
+      url: ./migrate-support-matrix-vmware.md
     - text: Passer en revue le tableau de prise en charge Hyper-V
-      url: migrate-support-matrix-hyper-v.md
+      url: ./migrate-support-matrix-hyper-v.md
+    - text: Passer en revue le tableau de prise en charge des serveurs physiques
+      url: ./migrate-support-matrix-physical.md
 - title: gérer
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Ajouter des outils d’évaluation
+      url: ./how-to-assess.md
+    - text: Découvrir l’inventaire des applications
+      url: ./how-to-discover-applications.md
     - text: Ajouter des outils de migration
       url: ./how-to-migrate.md
     - text: Adapter l’évaluation VMware
@@ -71,9 +81,9 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: Architecture de la migration basée sur agent VMware
+    - text: Découvrir la migration basée sur agent physique/VMware
       url: ./agent-based-migration-architecture.md
-    - text: Architecture de la migration Hyper-V
+    - text: Découvrir la migration Hyper-V
       url: ./hyper-v-migration-architecture.md
     - text: Découvrir les évaluations
       url: ./concepts-assessment-calculation.md

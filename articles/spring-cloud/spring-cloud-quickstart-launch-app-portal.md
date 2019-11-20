@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721575"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133229"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 ## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres de préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à être utilisés en production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus, [lisez notre documentation sur Azure Cloud Shell](../cloud-shell/overview.md).
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. Dans un navigateur web, ouvrez [ce lien vers Azure Spring Cloud dans le portail Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Sélectionnez **Azure Spring Cloud** pour accéder à la page de vue d’ensemble. Sélectionnez le bouton **Créer** pour commencer.
-
-1. Remplissez le formulaire en tenant compte des instructions suivantes :
+1. Remplissez le formulaire sur la page **Créer** Azure Spring Cloud.  Tenez compte des recommandations suivantes :
     - Nom du service : Spécifiez le nom de votre instance de service.  Le nom doit comporter entre 4 et 32 caractères, et contenir uniquement des lettres minuscules, des chiffres et des traits d’union.  Le premier caractère du nom du service doit être une lettre, et le dernier doit être une lettre ou un chiffre.
     - Abonnement : Sélectionnez l’abonnement à facturer pour cette ressource.  Vérifiez que cet abonnement a été ajouté à notre liste verte pour Azure Spring Cloud.
     - Groupe de ressources : Une bonne pratique consiste à créer des groupes de ressources pour les nouvelles ressources.
     - Localisation : Sélectionnez l’emplacement de votre instance de service. Les emplacements actuellement pris en charge sont USA Est, USA Ouest 2, Europe Ouest et Asie Sud-Est.
-    
+
+1. Cliquez sur **Vérifier et créer**.
+
+1. Vérifiez vos spécifications, puis cliquez sur **Créer**.
+
 Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiement terminé, la page **Vue d’ensemble** de l’instance de service apparaît.
 
 ## <a name="set-up-your-configuration-server"></a>Configurer votre serveur de configuration
@@ -72,7 +74,7 @@ Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiem
 
 1. Dans la section **Référentiel par défaut**, définissez **URI** sur « https\://github.com/Azure-Samples/piggymetrics », définissez **LABEL** (ÉTIQUETTE) sur « config », puis sélectionnez **Appliquer** pour enregistrer vos modifications.
 
-    ![Capture d’écran du portail ASC](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Générer et déployer des applications de microservices
 
