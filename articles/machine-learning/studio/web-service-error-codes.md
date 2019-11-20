@@ -51,7 +51,7 @@ Cette classe d’erreurs indique qu’un des arguments fournis est non valide. I
 | InvalidBlobExtension | La référence d’objet blob {0} présente une extension de fichier manquante ou non valide. Les extensions de fichier prises en charge pour ce type de sortie sont les suivantes : « {1} ». |
 | InvalidInputNames | Les noms d’entrée de service indiqués dans la requête ne sont pas valides : {0}. Mappez les données d’entrée sur les entrées appropriées de service, puis réessayez. |
 | InvalidOutputOverrideName | Le nom de remplacement de sortie {0} n’est pas valide. Ce service ne présente aucun nœud de sortie portant ce nom. Communiquez un nom approprié de nœud de sortie de remplacement (contenu sensible à la casse). |
-| InvalidQueryParameter | Le paramètre de requête « {0} » n’est pas valide. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/]({1}) |
+| InvalidQueryParameter | Le paramètre de requête « {0} » n’est pas valide. {1} |
 | MissingInputBlobInformation | Informations manquantes sur l’objet blob de stockage Azure. Fournissez une chaîne de connexion valide et un chemin d’accès relatif ou un URI, puis réessayez. |
 | MissingJobId | Aucun ID de travail fourni. Un ID de travail est renvoyé lors de la première soumission d’un travail. Vérifiez qu’il s’agit de l’ID de travail approprié, puis réessayez. |
 | MissingKeys | Aucune clé fournie, ou les clés primaire ou secondaire ne sont pas fournies. |
