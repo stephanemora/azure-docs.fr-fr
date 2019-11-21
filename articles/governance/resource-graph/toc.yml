@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: Vue d’ensemble d’Azure Resource Graph
+    - name: "Qu’est-ce qu’Azure Resource Graph\_?"
       displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
 - name: Démarrages rapides
