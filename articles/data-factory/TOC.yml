@@ -448,12 +448,12 @@
           href: control-flow-get-metadata-activity.md
         - name: Activité Condition si
           href: control-flow-if-condition-activity.md
-        - name: Activité Switch
-          href: control-flow-switch-activity.md
         - name: Activité de recherche
           href: control-flow-lookup-activity.md
         - name: Définir une activité variable
           href: control-flow-set-variable-activity.md
+        - name: Activité Switch
+          href: control-flow-switch-activity.md
         - name: Activité jusqu’à
           href: control-flow-until-activity.md
         - name: Activité de validation
