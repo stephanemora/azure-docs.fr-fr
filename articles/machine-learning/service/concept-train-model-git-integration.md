@@ -1,7 +1,7 @@
 ---
 title: Intégration de Git pour Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment Azure Machine Learning intègre un dépôt Git local.
+description: Découvrez comment Azure Machine Learning intègre un dépôt Git local. Lors de l’envoi d’une exécution d’entraînement à partir d’un répertoire local, qui est un dépôt Git, les informations relatives au dépôt, à la branche et à la validation actuelle sont suivies dans le cadre de l’exécution.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: db96663ef3d901546e1b32362a9eb9c9ae09dd21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377374"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756009"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -26,15 +26,15 @@ ms.locfileid: "72377374"
 
 Lorsque vous soumettez une exécution d’entraînement à partir du kit SDK Python ou de l’interface CLI de Machine Learning, les fichiers nécessaires à l’entraînement du modèle sont chargés dans votre espace de travail. Si la commande `git` est disponible dans votre environnement de développement, le processus de chargement l’utilise pour vérifier si les fichiers sont stockés dans un dépôt Git. Si tel est le cas, les informations de votre dépôt Git sont également chargées lors de l’exécution d’entraînement. Ces informations sont stockées dans les propriétés suivantes pour l’exécution d’entraînement :
 
-| Propriété | Description |
-| ----- | ----- |
-| `azureml.git.repository_uri` | URI à partir duquel votre dépôt a été cloné. |
-| `mlflow.source.git.repoURL` | URI à partir duquel votre dépôt a été cloné. |
-| `azureml.git.branch` | Branche active lorsque l’exécution a été envoyée. |
-| `mlflow.source.git.branch` | Branche active lorsque l’exécution a été envoyée. |
-| `azureml.git.commit` | Hachage de validation du code qui a été envoyé pour l’exécution. |
-| `mlflow.source.git.commit` | Hachage de validation du code qui a été envoyé pour l’exécution. |
-| `azureml.git.dirty` | `True`, si l’intégrité de la validation est compromise ; sinon, `false`. |
+| Propriété | Commande Git utilisée pour récupérer la valeur | Description |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | URI à partir duquel votre dépôt a été cloné. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | URI à partir duquel votre dépôt a été cloné. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | Branche active lorsque l’exécution a été envoyée. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | Branche active lorsque l’exécution a été envoyée. |
+| `azureml.git.commit` | `git rev-parse HEAD` | Hachage de validation du code qui a été envoyé pour l’exécution. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | Hachage de validation du code qui a été envoyé pour l’exécution. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, si l’intégrité de la validation/branche est compromise ; sinon, `false`. |
 
 Ces informations sont envoyées pour les exécutions qui utilisent un estimateur, un pipeline Machine Learning ou une exécution de script.
 
@@ -50,6 +50,8 @@ Les informations Git sont stockées dans les propriétés d’une exécution d�
 1. Sélectionnez __Expériences__, puis sélectionnez l’une de vos expériences.
 1. Sélectionnez l’une des exécutions dans la colonne __NUMÉRO D’EXÉCUTION__.
 1. Sélectionnez __Journaux__, puis développez les entrées __logs__ et __azureml__. Sélectionnez le lien qui commence par __###\_azure__.
+
+    ![Entrée ###_azure dans le portail](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 Les informations journalisées contiennent du texte similaire au code JSON suivant :
 
@@ -90,5 +92,4 @@ Pour plus d’informations, consultez la documentation de référence [az ml run
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour une procédure pas à pas montrant comment entraîner avec Azure Machine Learning dans Visual Studio Code, consultez [Tutoriel : Former des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).
-* Pour une procédure détaillée sur la modification, l’exécution et le débogage de code localement, consultez le [didacticiel Python Hello World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Configurer et utiliser des cibles de calcul pour l’entraînement de modèles](how-to-set-up-training-targets.md)

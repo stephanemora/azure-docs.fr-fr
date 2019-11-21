@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: ef46c1a631a79dd1c50b2bf7d263538298de233f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333434"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598220"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
@@ -54,16 +54,26 @@ Visitez la page [Tarification](https://azure.microsoft.com/pricing/details/netwo
 ### <a name="which-regions-is-network-watcher-available-in"></a>Dans quelles régions Network Watcher est-il disponible ?
 Vous pouvez consulter la disponibilité régionale la plus récente sur la [page de disponibilité des services Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
+### <a name="what-are-resource-limits-on-network-watcher"></a>Quelles sont les limites des ressources sur Network Watcher ?
+Consultez la page [Limites du service](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) pour connaître toutes les limites.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Pourquoi une seule instance de Network Watcher est-elle autorisée par région ?
+Network Watcher n’a besoin d’être activé qu’une seule fois au niveau d’un abonnement pour que ses fonctionnalités soient utilisables ; il ne s’agit pas d’une limite de service.
+
 ## <a name="nsg-flow-logs"></a>Journaux de flux NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>Que font les journaux de flux NSG ?
 Les ressources réseau Azure peuvent être combinées et gérées via les [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview). Les journaux de flux NSG vous permettent de consigner les informations de flux à 5 tuples concernant tout le trafic via vos groupes de sécurité réseau. Les journaux de flux bruts sont écrits dans un compte de stockage Azure à partir duquel ils peuvent être traités, analysés, interrogés ou exportés en fonction des besoins.
 
-### <a name="are-there-caveats-for-using-nsg-flow-logs"></a>Existe-t-il des mises en garde liées à l’utilisation des journaux de flux NSG ?
+### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>Existe-t-il des mises en garde liées à l’utilisation des journaux de flux NSG ?
 Il n’existe pas de prérequis à l’utilisation des journaux de flux NSG. Toutefois, deux limitations s’appliquent
 - **Aucun point de terminaison de service ne doit être présent sur votre réseau virtuel** : Les journaux de flux NSG sont émis à partir d’agents sur vos machines virtuelles vers des comptes de stockage. Toutefois, aujourd’hui, vous pouvez émettre des journaux directement seulement vers des comptes de stockage et vous ne pouvez pas utiliser un point de terminaison de service ajouté à votre réseau virtuel.
 
-Vous pouvez résoudre ce problème deux façons :
+- **Le compte de stockage ne doit pas être protégé par un pare-feu** : En raison de limitations internes, les comptes de stockage doivent être accessibles via l’Internet public pour que les journaux de flux NSG puissent les utiliser. Le trafic sera toujours routé via Azure en interne et vous ne serez pas confronté à des frais de sortie supplémentaires.
+
+Consultez les deux questions suivantes pour obtenir des instructions sur la façon de contourner ces problèmes. Ces deux limitations sont supposées être traitées d’ici à janvier 2020.
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>Comment utiliser les Journaux de flux NSG avec des point de terminaison de service ?
 
 *Option 1 : Reconfigurer les journaux de flux NSG pour émettre vers le compte de stockage Azure sans point de terminaison de réseau virtuel*
 
@@ -88,8 +98,7 @@ Vous pouvez consulter les journaux de stockage au bout de quelques minutes. Vous
 
 Si les points de terminaison de service Microsoft.Storage sont indispensables, vous devez désactiver les Journaux de flux NSG.
 
-
-- **Les comptes de stockage ne doivent pas être protégés par un pare-feu** : En raison de limitations internes, les comptes de stockage doivent être accessibles via l’Internet public pour que les journaux de flux NSG puissent les utiliser. Le trafic sera toujours routé via Azure en interne et vous ne serez pas confronté à des frais de sortie supplémentaires.
+### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>Comment désactiver le pare-feu sur mon compte de stockage ?
 
 Ce problème est résolu en autorisant « Tous les réseaux » à accéder au compte de stockage :
 
@@ -97,8 +106,6 @@ Ce problème est résolu en autorisant « Tous les réseaux » à accéder au 
 * Accédez au compte de stockage en tapant le nom du compte de stockage dans la recherche globale sur le portail.
 * Dans la section **PARAMÈTRES**, sélectionnez **Pare-feu et réseaux virtuels**.
 * Sélectionnez **Tous les réseaux**, puis enregistrez. Si cette option est déjà sélectionnée, aucune modification n’est nécessaire.  
-
-Ces deux limitations sont supposées être traitées d’ici à janvier 2020.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Quelle est la différence entre les versions 1 et 2 des journaux de flux ?
 La version 2 des journaux de flux introduit le concept d’*état de flux* et stocke des informations sur les octets et les paquets transmis. [En savoir plus](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

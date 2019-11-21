@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 514248446798e8c806252707cc5b332a7d1a4f87
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518197"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965175"
 ---
-# <a name="reserved-public-ipv6-address-prefix"></a>Préfixe d’adresses IPv6 publiques réservées
+# <a name="reserved-public-ipv6-address-prefix-preview"></a>Préfixe d’adresses IPv6 publiques réservées (préversion)
 
 Dans Azure, les machines virtuelles et les réseaux virtuels (VNet) à double pile (IPv4+IPv6) sont sécurisés par défaut, puisqu’ils n’ont pas de connectivité Internet. Vous pouvez facilement ajouter une connectivité Internet IPv6 à vos équilibreurs de charge Azure et à vos machines virtuelles avec des adresses IPv6 publiques que vous obtenez à partir d’Azure.
 
@@ -29,6 +29,9 @@ Toutes les adresses IP publiques que vous réservez sont associées à une régi
 > Faites attention à ne pas supprimer accidentellement vos adresses IP publiques. La suppression d’une adresse IP publique entraîne sa suppression de votre abonnement, et vous ne pourrez pas la récupérer (même avec l’aide du support Azure).
 
 En plus de réserver des adresses IPv6 individuelles, vous pouvez réserver des plages contiguës d’adresses IPv6 Azure (appelées préfixes IP) pour votre utilisation.  À l’instar des adresses IP individuelles, les préfixes réservés sont associés à une région Azure de votre choix et à votre abonnement Azure. La réservation d’une plage d’adresses contiguë et prévisible a de nombreuses utilisations. Par exemple, vous pouvez grandement simplifier la *mise en liste verte*, par votre entreprise et vos clients, des adresses IP de vos applications hébergées par Azure, car vos plages d’adresses IP statiques peuvent être facilement programmées dans des pare-feu locaux.  Vous pouvez créer des adresses IP publiques à partir de votre préfixe IP en fonction des besoins et, quand vous supprimez ces adresses IP publiques, elles sont *retournées* à votre plage réservée afin que vous puissiez les réutiliser ultérieurement. Toutes les adresses IP de votre préfixe IP sont réservées à votre usage exclusif jusqu’à ce que vous supprimiez votre préfixe.
+
+> [!Important]
+> Le protocole IPv6 pour réseau virtuel Azure est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="ipv6-prefix-sizes"></a>Tailles de préfixe IPv6
 Les tailles de préfixe IP public suivantes sont disponibles :
@@ -43,7 +46,7 @@ La taille de préfixe est spécifiée en tant que taille de masque CIDR (Classle
 Pour connaître les coûts associés à l’utilisation des adresses IP publiques Azure (adresses IP individuelles et plages d’adresses IP), consultez [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## <a name="limitations"></a>Limites
-IPv6 est pris en charge sur les adresses IP publiques de base uniquement avec l’allocation « dynamique », ce qui signifie que l’adresse IPv6 changera si vous supprimez et redéployez votre application (machines virtuelles ou équilibreurs de charge) dans Azure. Seules les adresses IP publiques IPv6 standard prennent en charge à la fois l’allocation dynamique et l’allocation statique (réservée).
+IPv6 est pris en charge sur les adresses IP publiques de base uniquement avec l’allocation « dynamique », ce qui signifie que l’adresse IPv6 changera si vous supprimez et redéployez votre application (machines virtuelles ou équilibreurs de charge) dans Azure. La prise en charge de l’allocation statique (réservée) par l’adresse IP publique standard IPv6 via les équilibrages de charge internes standard peut également prendre en charge l’allocation dynamique à partir du sous-réseau auquel elles sont affectées.  
 
 Nous vous recommandons d’utiliser des adresses IP publiques standard et des équilibreurs de charge standard pour vos applications IPv6.
 

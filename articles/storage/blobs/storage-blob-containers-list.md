@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803375"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598122"
 ---
 # <a name="list-blob-containers-with-net"></a>Répertoriez les conteneurs d’objets BLOB avec .NET
 
@@ -40,9 +40,9 @@ Dans votre code, vérifiez la valeur du jeton de continuation pour déterminer s
 
 Pour filtrer la liste des conteneurs, spécifiez une chaîne pour le paramètre `prefix`. La chaîne de préfixe peut inclure un ou plusieurs caractères. Le stockage Azure retourne alors uniquement les conteneurs dont les noms commencent par ce préfixe.
 
-### <a name="return-container-metadata"></a>Définissez les métadonnées de conteneur
+### <a name="return-metadata"></a>Retourner les métadonnées
 
-Pour retourner les métadonnées de conteneur avec les résultats, spécifiez la valeur des **métadonnées** pour l’énumération [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails). Le stockage Azure comprend des métadonnées avec chaque conteneur retourné. vous n’avez donc pas besoin d’appeler également l’une des méthodes **FetchAttributes** pour récupérer les métadonnées du conteneur.
+Pour retourner les métadonnées de conteneur avec les résultats, spécifiez la valeur de **Metadata** pour l’énumération [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails). Le stockage Azure comprend des métadonnées avec chaque conteneur retourné. vous n’avez donc pas besoin d’appeler également l’une des méthodes **FetchAttributes** pour récupérer les métadonnées du conteneur.
 
 ## <a name="example-list-containers"></a>Exemple : Répertorier les conteneurs
 

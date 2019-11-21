@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063850"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099718"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -30,6 +30,8 @@ Le diagramme suivant illustre la relation entre les éléments :
 ## <a name="predicates"></a>Prédicats
 
 L’élément **Predicate** définit une validation de base pour vérifier la valeur d’un type de revendication et retourne `true` ou `false`. La validation est effectuée en utilisant un élément **Method** et un ensemble d’éléments **Parameter** pertinents à la méthode. Par exemple, un prédicat peut vérifier si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés, ou si une valeur de revendication de chaîne contient un jeu de caractères. L’élément **UserHelpText** fournit un message d’erreur présenté aux utilisateurs si la vérification échoue. La valeur de l’élément **UserHelpText** peut être localisée à l’aide de la [personnalisation de la langue](localization.md).
+
+L’élément **Predicates** doit apparaître directement après l’élément **ClaimsSchema** dans l’élément [BuildingBlocks](buildingblocks.md).
 
 L’élément **Predicates** contient l’élément suivant :
 
@@ -111,6 +113,8 @@ L’exemple suivant montre une méthode `IsDateRange` avec les paramètres `Mini
 ## <a name="predicatevalidations"></a>PredicateValidations
 
 Alors que les prédicats définissent la validation à effectuer par rapport à un type de revendication, les **PredicateValidations** regroupent un ensemble de prédicats pour former une validation de l’entrée utilisateur qui peut être appliquée à un type de revendication. Chaque élément **PredicateValidation** contient un ensemble d’éléments **PredicateGroup** qui contiennent un ensemble d’éléments **PredicateReference** qui pointe vers un **Predicate**. Pour que la validation réussisse, la valeur de la revendication doit réussir tous les tests des prédicats qui se trouvent sous tous les éléments **PredicateGroup** avec leur ensemble d’éléments **PredicateReference**.
+
+L’élément **PredicatesValidations** doit apparaître directement après l’élément **Predicates** dans l’élément [BuildingBlocks](buildingblocks.md).
 
 ```XML
 <PredicateValidations>
@@ -194,7 +198,7 @@ Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les
 - **Lowercase** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient une lettre minuscule.
 - **Uppercase** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient une lettre majuscule.
 - **Number** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient un chiffre.
-- **Symbol** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient l’un des symboles suivants `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Symbol** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient l’un des caractères symboles.
 - **PIN** à l’aide de la méthode `MatchesRegex` valide le fait que le mot de passe contient uniquement des chiffres.
 - **AllowedAADCharacters** à l’aide de la méthode `MatchesRegex` valide le fait que le mot de passe fourni contenait uniquement des caractère non valides.
 - **DisallowedWhitespace** à l’aide de la méthode `MatchesRegex` valide le fait que le mot de passe ne commence pas ou ne se termine pas par un espace.
@@ -233,7 +237,7 @@ Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 

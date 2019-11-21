@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f30174f6271a3aa85ecf277531b34ff932644e3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518153"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596356"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -28,7 +28,7 @@ Les administrateurs déploient généralement des plateformes VDI (Virtual Deskt
 
 Il existe deux types principaux de bureaux virtuels :
 
-- Persistant
+- Persistante
 - Non persistant
 
 Les versions persistantes utilisent une image de bureau unique pour chaque utilisateur ou pool d’utilisateurs. Ces bureaux uniques peuvent être personnalisés et enregistrés pour une utilisation ultérieure. 
@@ -87,4 +87,4 @@ Lors du déploiement d’une infrastructure VDI non persistante, les administrat
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Configuration de la jonction Azure AD Hybride pour les appareils Windows joints à un domaine et qui sont fédérés à l’aide d’ADFS](manage-stale-devices.md)
+[Configuration de la jonction Azure AD Hybride pour un environnement fédéré](hybrid-azuread-join-federated-domains.md)

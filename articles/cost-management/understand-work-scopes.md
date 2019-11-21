@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374481"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597079"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -132,6 +132,7 @@ Les comptes de facturation Contrat client Microsoft présentent les étendues su
 
 Contrairement aux étendues de facturation EA, les comptes de facturation de contrat client _sont_ liés à un répertoire unique et ne peuvent pas posséder des abonnements sur plusieurs annuaires Azure AD.
 
+Les étendues de facturation de Contrat client ne s’appliquent pas aux partenaires. Les autorisations et rôles des partenaires sont décrits dans [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
 Les étendues de facturation de contrat client prennent en charge les rôles suivants :
 
@@ -159,7 +160,21 @@ Une fois l’intégration AWS terminée, consultez la section [Installer et conf
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Étendues Fournisseur de solutions cloud (CSP)
 
-Les partenaires CSP ne sont actuellement pas pris en charge dans Cost Management. À la place, vous pouvez utiliser l’[Espace partenaires](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Les étendues suivantes sont prises en charge pour les CSP ayant des clients sous Contrat client Microsoft :
+
+- **Compte de facturation** : représente un contrat client pour plusieurs produits et services Microsoft. En pratique, les comptes de facturation de contrat client ne sont pas identiques aux inscriptions EA. Les inscriptions EA sont plus proches des profils de facturation.
+
+    Type de ressource : `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Profil de facturation** : définit les abonnements inclus dans une facture. Les profils de facturation sont l’équivalent fonctionnel d’une inscription EA, car il s’agit de l’étendue dans laquelle les factures sont générées. De même, les achats qui ne sont pas basés sur l’utilisation (par exemple Place de marché et réservations), sont uniquement disponibles dans cette étendue.
+
+    Type de ressource : `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Client**  : représente un groupe d’abonnements associés à un client spécifique qui est intégré à un Contrat client Microsoft par un partenaire.
+
+Seuls les utilisateurs ayant les rôles *Administrateur général* et *Agent d’administration* peuvent gérer et voir les coûts pour les comptes de facturation, les profils de facturation et les clients directement dans le locataire Azure du partenaire. Pour plus d’informations sur les rôles de l’espace Partenaires, consultez [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
+
+Azure Cost Management prend en charge uniquement les clients partenaires CSP si ces clients disposent d’un Contrat client Microsoft. Pour les clients pris en charge par CSP, qui ne sont pas encore sous Contrat client Microsoft, consultez l’[Espace partenaires](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Passer d’une étendue à l’autre dans Cost Management
 

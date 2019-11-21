@@ -7,16 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553701"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
-
-
 
 Il y a dérive de schéma quand les métadonnées de vos sources sont fréquemment mises à jour. Des champs, colonnes et types peuvent être ajoutés, supprimés ou modifiés à la volée. Sans gestion de la dérive de schéma, votre flux de données devient vulnérable aux modifications apportées aux sources de données en amont. En cas de modification des colonnes et des champs entrants, les modèles ETL types échouent, car ils sont généralement liés à ces noms de source.
 
@@ -31,6 +29,8 @@ Azure Data Factory prend en charge en mode natif des schémas flexibles qui pass
 Vous devez prendre une décision relative à l’architecture de votre flux de données pour accepter la dérive de schéma dans celui-ci. Lorsque vous effectuez cette opération, vous pouvez vous protéger contre les modifications de schéma à partir des sources. Toutefois, vous perdez alors la liaison anticipée de vos colonnes et types tout au long de votre flux de données. Azure Data Factory traite les flux d’une dérive de schéma en tant que flux de la liaison tardive. Ainsi, quand vous générez vos transformations, les noms des colonnes dérivées ne sont pas disponibles dans les vues de schéma dans le flux.
 
 ## <a name="schema-drift-in-source"></a>Dérive de schéma dans la source
+
+Les colonnes entrant dans votre flux de données à partir de la définition de votre source sont définies comme étant « dérivées » lorsqu’elles ne sont pas présentes dans la projection de votre source. Vous pouvez voir la projection de votre source sous l’onglet Projection dans la transformation de la source. Lorsque vous sélectionnez un jeu de données pour votre source, le fichier de définition d’application (ADF) prend automatiquement le schéma du jeu de données et crée un projet à partir de cette définition de schéma du jeu de données.
 
 Dans une transformation de source, la dérive de schéma est définie sous forme de colonnes de lecture qui ne sont pas définies dans votre schéma de jeu de données. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation de la source.
 

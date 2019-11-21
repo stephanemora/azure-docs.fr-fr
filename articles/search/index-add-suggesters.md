@@ -1,13 +1,13 @@
 ---
-title: Ajouter des requêtes prédictives à un index - Recherche Azure
-description: Activez les actions de requête prédictives dans Recherche Azure en créant des suggesteurs et en formulant des requêtes qui appellent des termes de requête de suggestion automatique ou d’autocomplétion.
-ms.date: 09/30/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Ajouter des requêtes type-ahead à un index
+titleSuffix: Azure Cognitive Search
+description: Activez les actions de requête type-ahead dans la Recherche cognitive Azure en créant des suggesteurs et en formulant des requêtes qui appellent des termes de requête de suggestion automatique ou d’autocomplétion.
+manager: nitinme
 author: Brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,24 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d3f934bea5df821e51a4747170af4f7efd1eaacc
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a312068d5c8c574e7b069263cf37e3b855810e4b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828294"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790102"
 ---
-# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des suggesteurs à un index pour des requêtes prédictives dans Recherche Azure
+# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-cognitive-search"></a>Ajouter des suggesteurs à un index pour des requêtes type-ahead dans la Recherche cognitive Azure
 
-Dans Recherche Azure, la fonctionnalité « search-as-you-type » ou prédictive repose sur un **suggesteur** que vous ajoutez à un [index de recherche](search-what-is-an-index.md). Il s’agit d’une liste à un ou plusieurs champs où vous souhaitez activer la requête prédictive.
+Dans la Recherche cognitive Azure, la fonctionnalité « search-as-you-type » (recherche au fur et à mesure de la frappe) ou type-ahead repose sur une structure de **suggesteur** que vous ajoutez à un [index de recherche](search-what-is-an-index.md). Il s’agit d’une liste à un ou plusieurs champs où vous souhaitez activer la requête prédictive.
 
 Un suggesteur prend en charge deux variantes prédictives : l'*autocomplétion* qui complète le terme ou l’expression que vous entrez, et les *suggestions* qui renvoient une courte liste de documents correspondants.  
 
 La capture d’écran suivante, extraite de l'exemple [Créer votre première application en C#](tutorial-csharp-type-ahead-and-suggestions.md), illustre les requêtes prédictives. L'autocomplétion anticipe ce que l’utilisateur peut entrer dans la zone de recherche. L’entrée indique « tw », dont l'autocomplétion se termine par « in » pour donner « twin » en tant que terme de recherche potentiel. Les suggestions s'affichent dans la liste déroulante. Pour les suggestions, vous pouvez faire apparaître n’importe quelle partie d’un document qui décrit le mieux le résultat. Dans cet exemple, les suggestions correspondent à des noms d’hôtels. 
 
-![Comparaison visuelle des requêtes autocomplétées et suggérées](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Comparaison visuelle des requêtes autocomplétées et suggérées")
+![Comparaison visuelle des requêtes de saisie semi-automatique et suggérées](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Comparaison visuelle des requêtes de saisie semi-automatique et suggérées")
 
-Pour implémenter ces comportements dans Recherche Azure, il existe un composant de requête et d’index. 
+Pour implémenter ces comportements dans la Recherche cognitive Azure, il existe un composant de requête et d’index. 
 
 + Dans l’index, ajoutez un suggesteur à un index. Vous pouvez utiliser le portail, l'[API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) ou le [kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). La suite de cet article se concentre sur la création d’un suggesteur. 
 
@@ -54,7 +54,7 @@ Pour créer un suggesteur, ajoutez-en un à un schéma d’index. Vous pouvez di
 
 La création de la définition de champs est le moment idéal pour créer un suggesteur.
 
-L'API ne vous autorise pas à créer un suggesteur à l’aide de champs préexistants. Le texte prédictif est créé pendant l’indexation, lorsque des termes partiels combinant deux caractères ou plus sont tokenisés avec des termes entiers. Les champs existants étant déjà tokenisés, vous devez recréer l'index pour les ajouter à un suggesteur. Pour plus d’informations sur la réindexation, consultez [Comment régénérer un index Recherche Azure](search-howto-reindex.md).
+L'API ne vous autorise pas à créer un suggesteur à l’aide de champs préexistants. Le texte prédictif est créé pendant l’indexation, lorsque des termes partiels combinant deux caractères ou plus sont tokenisés avec des termes entiers. Les champs existants étant déjà tokenisés, vous devez recréer l'index pour les ajouter à un suggesteur. Pour plus d’informations sur la réindexation, consultez [Guide pratique pour regénérer un index Recherche cognitive Azure](search-howto-reindex.md).
 
 ### <a name="create-using-the-rest-api"></a>À l’aide de l’API REST
 
@@ -113,7 +113,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### <a name="analyzer-restrictions-for-sourcefields-in-a-suggester"></a>Restrictions de l’analyseur pour sourceFields dans un suggesteur
 
-Recherche Azure analyse le contenu des champs pour permettre l’interrogation des termes individuels. Les générateurs de suggestions requièrent l’indexation des préfixes en plus des termes complets, ce qui nécessite une analyse supplémentaire sur les champs sources. Les configurations de l’analyseur personnalisé peuvent combiner les différents générateurs de jetons et filtres, souvent de manière à produire les préfixes requis pour des suggestions impossibles. Dès lors, Recherche Azure empêche les champs avec des analyseurs personnalisés d’être inclus dans un suggesteur.
+La Recherche cognitive Azure analyse le contenu des champs pour permettre l’interrogation des termes individuels. Les générateurs de suggestions requièrent l’indexation des préfixes en plus des termes complets, ce qui nécessite une analyse supplémentaire sur les champs sources. Les configurations de l’analyseur personnalisé peuvent combiner les différents générateurs de jetons et filtres, souvent de manière à produire les préfixes requis pour des suggestions impossibles. Dès lors, la Recherche cognitive Azure empêche les champs dotés d’analyseurs personnalisés d’être inclus dans un suggesteur.
 
 > [!NOTE] 
 >  S'il vous faut contourner la limitation ci-dessus, utilisez deux champs distincts pour le même contenu. Ceci permettra à l’un des champs d’avoir un suggesteur et à l'autre d'être configuré avec une configuration d’analyseur personnalisée.
@@ -140,7 +140,7 @@ Si un suggesteur n’est pas défini dans l’index, tout appel à l'autocomplé
 
 ## <a name="sample-code"></a>Exemple de code
 
-+ L'exemple [Créer votre première application en C#](tutorial-csharp-type-ahead-and-suggestions.md) illustre une construction de suggesteur, des requêtes suggérées, l'autocomplétion et la navigation par facettes. Cet exemple de code s'exécute dans un service Recherche Azure de bac à sable et utilise un index préchargé. Vous n’avez plus qu’à appuyer sur F5 pour exécuter l'application. Aucun abonnement ou connexion n’est nécessaire.
++ L'exemple [Créer votre première application en C#](tutorial-csharp-type-ahead-and-suggestions.md) illustre une construction de suggesteur, des requêtes suggérées, l'autocomplétion et la navigation par facettes. Cet exemple de code s’exécute dans un service Recherche cognitive Azure de bac à sable et utilise un index des hôtels préchargé. Vous n’avez plus qu’à appuyer sur F5 pour exécuter l’application. Aucun abonnement ou connexion n’est nécessaire.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) correspond à un précédent exemple contenant du code C# et Java. Il illustre une construction de suggesteur, des requêtes suggérées, l'autocomplétion et la navigation par facettes. Cet exemple de code utilise les exemples de données hébergées [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). 
 

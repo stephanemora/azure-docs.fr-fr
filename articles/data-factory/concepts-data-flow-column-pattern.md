@@ -1,61 +1,74 @@
 ---
-title: Modèles de colonne dans les flux de données de mappage Azure Data Factory
-description: Créer des modèles de transformation de données généralisés à l’aide de modèles de colonnes Azure Data Factory dans des flux de données de mappage
+title: Modèles de colonne dans le flux de données de mappage Azure Data Factory
+description: Créer des modèles de transformation de données généralisés avec des modèles de colonne dans les flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/21/2019
+ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388023"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789943"
 ---
-# <a name="mapping-data-flows-column-patterns"></a>Modèles de colonne de flux de données de mappage
+# <a name="using-column-patterns-in-mapping-data-flow"></a>Utilisation de modèles de colonne dans les flux de données de mappage
 
+Plusieurs transformations de flux de données de mappage vous permettent de référencer des colonnes de modèles, en fonction des modèles plutôt que des noms de colonnes codés en dur. Cette correspondance est connue sous le nom de *modèles de colonne*. Vous pouvez définir des modèles pour faire correspondre des colonnes en fonction du nom, du type de données, du flux ou de la position au lieu de demander des noms de champ précis. Il existe deux scénarios dans lesquels les modèles de colonne sont utiles :
 
+* Si les champs source entrants sont souvent modifiés, comme dans le cas de modifications de colonnes dans les fichiers texte ou les bases de données NoSQL. Ce scénario est appelé [dérive de schéma](concepts-data-flow-schema-drift.md).
+* Si vous souhaitez effectuer une opération commune sur un grand groupe de colonnes. Par exemple, si vous voulez caster en double chaque colonne contenant « total » dans son nom de colonne.
 
-Plusieurs transformations de flux de données Azure Data Factory supportent le concept de « Modèles de colonne » afin que vous puissiez créer des colonnes modèles basées sur des modèles et non pas sur des noms de colonne codés en dur. Vous pouvez utiliser cette fonctionnalité dans le Générateur d’expressions pour définir des modèles afin de faire correspondre les colonnes dans le cadre de la transformation au lieu d’exiger des noms de champs spécifiques exacts. Les modèles sont utiles si les champs source entrants sont souvent modifiés, notamment dans le cas de modifications de colonnes dans les fichiers texte ou les bases de données NoSQL. Cette condition est parfois désignée sous le nom de « dérive de schéma ».
+Les modèles de colonne sont actuellement disponibles dans les transformations de colonne dérivée, d’agrégation, de sélection et de récepteur.
 
-Cette gestion de « schéma flexible » se trouve actuellement dans la colonne dérivée et les transformations d’agrégation, ainsi que les transformations de sélection et de récepteur comme « mappage basé sur des règles ».
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modèles de colonne dans une colonne dérivée et une agrégation
+
+Pour ajouter un modèle de colonne dans une colonne dérivée, ou l’onglet Agrégats d’une transformation d’agrégation, cliquez sur l’icône représentant un signe plus, à droite d’une colonne existante. Sélectionnez **Ajouter un modèle de colonne**. 
+
+![modèles de colonne](media/data-flow/columnpattern.png "Modèles de colonne")
+
+Utilisez le [Générateur d’expressions](concepts-data-flow-expression-builder.md) pour entrer la condition de correspondance. Créez une expression booléenne qui correspond aux colonnes basées sur le `name`, `type`, `stream` et `position` de la colonne. Le modèle affecte toute colonne, dérivée ou définie, où la condition retourne la valeur true.
+
+Les deux zones d’expression sous la condition de correspondance indiquent les nouveaux noms et les valeurs des colonnes affectées. Utilisez `$$` pour référencer la valeur existante du champ correspondant. La zone d’expression de gauche définit le nom, et la zone d’expression de droite précise la valeur.
 
 ![modèles de colonne](media/data-flow/columnpattern2.png "Modèles de colonne")
 
-## <a name="column-patterns"></a>Modèles de colonne
-Les modèles de colonne sont utiles pour traiter à la fois les scénarios de dérive de schéma et les scénarios généraux. Cela est pratique lorsque vous n’êtes pas en mesure de connaître précisément le nom de chaque colonne. Vous pouvez faire correspondre un modèle avec le nom de colonne et le type de données de la colonne et construire une expression pour la transformation qui exécutera cette opération sur n’importe quel champ du flux de données qui correspond à vos modèles `name` & `type`.
+Le modèle de colonne ci-dessus associe chaque colonne de type double et crée une colonne d’agrégation par correspondance. Le nom de la nouvelle colonne correspond au nom de la colonne correspondante, concaténée avec « _total ». La valeur de la nouvelle colonne est la somme agrégée et arrondie de la valeur double existante.
 
-Lorsque vous ajoutez une expression à une transformation qui accepte des modèles, choisissez « Ajouter un modèle de colonne ». Modèles de colonne permet de faire correspondre les modèles des colonnes de dérive de schéma.
+Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter**, ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
 
-Lors de la construction de modèles de colonnes de modèle, utilisez `$$` dans l’expression pour représenter une référence à chaque champ correspondant du flux de données entrant.
+![modèles de colonne](media/data-flow/columnpattern3.png "Modèles de colonne")
 
-Si vous choisissez d’utiliser l’une des fonctions d’expression régulière du Générateur d’expressions, vous pouvez ensuite utiliser $1, $2, $3... pour référencer les sous-modèles correspondant à votre expression régulière.
+## <a name="rule-based-mapping-in-select-and-sink"></a>Mappage basé sur les règles dans la sélection et le récepteur
 
-L’utilisation de SUM avec une série de champs entrants constitue un exemple de scénario de modèle de colonne. Les calculs agrégés des calculs de SUM résident dans la transformation agrégée. Vous pouvez ensuite utiliser SUM sur chaque correspondance des types de champs qui correspondent à « integer », puis utiliser $$ pour référencer chaque correspondance dans votre expression.
+Lorsque vous mappez des colonnes dans les transformations de source et de sélection, vous pouvez ajouter au choix un mappage fixe ou des mappages basés sur les règles. Si vous connaissez le schéma de vos données et que vous vous attendez à ce que des colonnes spécifiques du jeu de données source correspondent toujours à des noms statiques spécifiques, utilisez le mappage fixe. Si vous utilisez des schémas flexibles, utilisez le mappage basé sur les règles pour créer une correspondance de modèle en fonction de `name`, `type`, `stream` et `position` des colonnes. Vous pouvez réaliser n’importe quelle combinaison de mappage fixe et basé sur des règles. 
 
-## <a name="match-columns"></a>Colonnes de correspondance
-![types de modèles de colonne](media/data-flow/pattern2.png "Types de modèles")
+Pour ajouter un mappage basé sur les règles, cliquez sur **Ajouter un mappage** et sélectionnez **Mappage basé sur les règles**.
 
-Pour créer des modèles basés sur des colonnes, vous pouvez faire correspondre le nom de colonne, le type, le flux ou la position et utiliser n’importe quelle combinaison de ceux-ci avec les fonctions d’expression et les expressions régulières.
+![Mappage basé sur les règles](media/data-flow/rule2.png "Mappage basé sur des règles")
 
-![position de colonne](media/data-flow/position.png "Position de colonne")
+Dans la zone d’expression de gauche, entrez votre condition de correspondance booléenne. Dans la zone d’expression de droite, indiquez ce à quoi la colonne correspondante sera mappée. Utilisez `$$` pour référencer le nom existant du champ correspondant.
 
-## <a name="rule-based-mapping"></a>Mappage basé sur des règles
-Lorsque vous mappez des colonnes dans les transformations Source et Sélection, vous avez la possibilité de choisir « Mappage fixe » ou « Mappage basé sur les règles ». Lorsque vous connaissez le schéma de vos données et que vous vous attendez à des colonnes spécifiques du jeu de données source qui correspondent toujours à des noms statiques spécifiques, vous pouvez utiliser le mappage fixe. Toutefois, lorsque vous travaillez avec des schémas flexibles, utilisez le mappage basé sur les règles. Vous serez en mesure de créer une correspondance de modèle à l’aide des règles décrites ci-dessus.
+Si vous cliquez sur l’icône du chevron pointant vers le bas, vous pouvez spécifier une condition de mappage regex.
 
-![mappage basé sur des règles](media/data-flow/rule2.png "Mappage basé sur des règles")
+Cliquez sur l’icône des lunettes, à côté d’un mappage basé sur les règles, pour voir les colonnes définies qui sont mises en correspondance et ce à quoi elles sont mappées.
 
-Construisez vos règles à l’aide du générateur d’expressions. Vos expressions retournent une valeur booléenne pour faire correspondre les colonnes (true) ou les exclure (false).
+![Mappage basé sur les règles](media/data-flow/rule1.png "Mappage basé sur des règles")
 
-## <a name="pattern-matching-special-columns"></a>Critères spéciaux pour les colonnes spéciales
+Dans l’exemple ci-dessus, deux mappages basés sur les règles sont créés. La première règle prend toutes les colonnes qui ne sont pas nommées « Movie » et les mappe à leurs valeurs existantes. La deuxième utilise regex pour faire correspondre toutes les colonnes qui commencent par « Movie » et les mappe à la colonne « movieId ».
 
-* `$$` désigne le nom de chaque correspondance au moment de la conception en mode débogage et au moment de l’exécution
+Si votre règle génère plusieurs mappages identiques, activez **Ignorer les entrées en double** ou **Ignorer les sorties en double** pour éviter les doublons.
+
+## <a name="pattern-matching-expression-values"></a>Valeurs des expressions de critères spéciaux
+
+* `$$` correspond au nom ou à la valeur de chaque correspondance au moment de l’exécution
 * `name` représente le nom de chaque colonne entrante
 * `type` représente le type de données de chaque colonne entrante
 * `stream` représente le nom associé à chaque flux ou transformation dans votre flux
 * `position` est la position ordinale des colonnes dans votre flux de données
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur le [langage d’expression](https://aka.ms/dataflowexpressions) du flux de données de mappage ADF pour les transformations de données
-* Utiliser des modèles de colonne dans la [Transformation du récepteur](data-flow-sink.md) et [Transformation de sélection](data-flow-select.md) avec un mappage basé sur des règles
+* En savoir plus sur le [langage d’expression](data-flow-expression-functions.md) du flux de données de mappage pour les transformations de données
+* Utiliser des modèles de colonne dans la [transformation de récepteur](data-flow-sink.md) et la [transformation de sélection](data-flow-select.md) avec un mappage basé sur les règles

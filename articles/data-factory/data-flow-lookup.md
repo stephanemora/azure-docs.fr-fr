@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387867"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596570"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformation de recherche de flux de données de mappage Azure Data Factory
 
@@ -29,6 +29,20 @@ La transformation de recherche effectue une action équivalente à celle d’une
 
 Après votre transformation de recherche, vous pouvez utiliser d’autres transformations afin d’inspecter les résultats de chaque ligne de correspondance à l’aide de la fonction d’expression `isMatch()` pour effectuer des choix supplémentaires dans votre logique selon que la recherche a généré une correspondance de ligne ou non.
 
+![Modèle de recherche](media/data-flow/lookup111.png "Modèle de recherche")
+
+Après avoir utilisé la transformation de recherche, vous pouvez ajouter un fractionnement de la transformation de fractionnement conditionnel sur la fonction ```isMatch()```. Dans l’exemple ci-dessus, les lignes correspondantes passent par le flux principal, et les lignes sans correspondance transitent par le flux ```NoMatch```.
+
+## <a name="first-or-last-value"></a>Première ou dernière valeur
+
+Si vous obtenez plusieurs correspondances à partir de votre recherche, vous pouvez réduire les nombreuses lignes mises en correspondance par la sélection de la première ou de la dernière correspondance. Vous pouvez effectuer cette opération au moyen d’une transformation d’agrégation après votre recherche.
+
+Dans ce cas, une transformation d’agrégation nommée ```PickFirst``` est utilisée pour choisir la première valeur à partir des correspondances de recherche.
+
+![Agrégat de recherche](media/data-flow/lookup333.png "Agrégat de recherche")
+
+![Rechercher en premier](media/data-flow/lookup444.png "Rechercher en premier")
+
 ## <a name="optimizations"></a>Optimisations
 
 Dans Data Factory, les flux de données s’exécutent dans des environnements à grande échelle Spark. Si votre jeu de données peut tenir dans l’espace mémoire de nœud Worder, nous pouvons optimiser les performances de vos recherches.
@@ -45,4 +59,5 @@ Vous pouvez également spécifier le partitionnement de vos données en sélecti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les transformations [Join](data-flow-join.md) et [Exists](data-flow-exists.md) effectuent des tâches similaires dans les flux de données de mappage ADF. Examinons maintenant ces transformations.
+* Les transformations [Join](data-flow-join.md) et [Exists](data-flow-exists.md) effectuent des tâches similaires dans les flux de données de mappage ADF. Examinons maintenant ces transformations.
+* Utiliser un [Fractionnement conditionnel](data-flow-conditional-split.md) avec ```isMatch()``` pour fractionner des lignes sur des valeurs correspondantes et non correspondantes
