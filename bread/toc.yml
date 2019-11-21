@@ -187,19 +187,19 @@
             - name: IoT Central
               tocHref: /azure/iot-central/core/
               topicHref: /azure/iot-central/core/
-            - name: IoT Central (préversion)
+            - name: IoT Central (fonctionnalités en préversion)
               tocHref: /azure/iot-central/preview/
               topicHref: /azure/iot-central/preview/
-            - name: IoT Central pour le secteur de l’énergie
+            - name: IoT Central pour l’énergie (fonctionnalités en préversion)
               tocHref: /azure/iot-central/energy/
               topicHref: /azure/iot-central/energy/
-            - name: IoT Central pour le secteur public
+            - name: IoT Central pour le secteur public (fonctionnalités en préversion)
               tocHref: /azure/iot-central/government/
               topicHref: /azure/iot-central/government/
-            - name: IoT Central pour la santé
+            - name: IoT Central pour la santé (fonctionnalités en préversion)
               tocHref: /azure/iot-central/healthcare/
               topicHref: /azure/iot-central/healthcare/
-            - name: IoT Central pour la vente au détail
+            - name: IoT Central pour la vente (fonctionnalités en préversion)
               tocHref: /azure/iot-central/retail/
               topicHref: /azure/iot-central/retail/
         - name: IoT Edge

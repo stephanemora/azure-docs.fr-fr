@@ -62,6 +62,8 @@
               href: threat-modeling-tool-releases-71604081.md
             - name: "Version mise à jour de Threat Modeling Tool\_ 7.1.60702.1 - 02 juillet\_2019"
               href: threat-modeling-tool-releases-71607021.md
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.61015.1 - 16 octobre\_2019"
+              href: threat-modeling-tool-releases-71610151.md
         - name: Corrections
           href: threat-modeling-tool-mitigations.md
           items:

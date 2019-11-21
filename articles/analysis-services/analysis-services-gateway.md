@@ -4,15 +4,15 @@ description: Une passerelle locale est nécessaire si votre serveur Analysis Ser
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294939"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146851"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 
@@ -50,7 +50,7 @@ Lors de l’installation d’un environnement Azure Analysis Services, il est im
 
 La passerelle crée une connexion sortante vers Azure Service Bus. Elle communique sur les ports sortants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354.  La passerelle ne nécessite pas de ports entrants.
 
-Il vous faudra peut-être mettre sur liste approuvée les adresses IP pour votre région de données dans votre pare-feu. Vous pouvez télécharger la [liste d’adresses IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Cette liste est actualisée chaque semaine. Les adresses IP répertoriées dans la liste d’adresses IP de centre de données Azure sont en notation CIDR. Pour plus d’informations, voir [Routage interdomaine sans classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Il vous faudra peut-être inclure les adresses IP pour votre région de données dans votre pare-feu. Vous pouvez télécharger la [liste d’adresses IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Cette liste est actualisée chaque semaine. Les adresses IP répertoriées dans la liste d’adresses IP de centre de données Azure sont en notation CIDR. Pour plus d’informations, voir [Routage interdomaine sans classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Voici les noms de domaine complets utilisés par la passerelle.
 

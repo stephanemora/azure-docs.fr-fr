@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477318"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062945"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -43,24 +43,26 @@ Pour tester les étapes de ce didacticiel, nous recommandons l’utilisation d�
 Pour ajouter une application de la galerie à votre locataire Azure AD :
 
 1. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
-1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**.
-1. Le volet **Toutes les applications** s’ouvre pour afficher un échantillon aléatoire des applications de votre locataire Azure AD. Sélectionnez **Nouvelle application** en haut du volet **Toutes les applications** pour ajouter une application de galerie à votre locataire.
+
+2. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**. Le volet **Toutes les applications** s’ouvre et affiche un échantillon aléatoire des applications de votre locataire Azure AD.
+
+3. Pour ajouter une application de galerie à votre locataire, sélectionnez **Nouvelle application**. 
 
     ![Sélectionner Nouvelle application pour ajouter une application de galerie à votre locataire](media/add-application-portal/new-application.png)
 
-1. Dans le volet **Catégories**, sous la zone **Applications principales**, apparaissent des icônes qui sont un échantillon aléatoire des applications de la galerie. Pour voir plus d’applications, vous pouvez sélectionner **Afficher plus**, mais nous ne recommandons pas d’effectuer des recherches de cette façon, car il existe des milliers d’applications dans la galerie.
+ 4. Basculez vers la nouvelle expérience de la galerie (préversion) : dans la bannière en haut de la page **Ajouter une application**, sélectionnez le lien **Cliquez ici pour essayer la Galerie d’applications nouvelle et améliorée**.
 
-    ![Rechercher une application par nom ou par catégorie](media/add-application-portal/categories.png)
+5. Le volet **Parcourir la galerie Azure AD (préversion)** s’ouvre et affiche des vignettes pour les plateformes cloud, les applications locales et les applications principales. Notez que les applications listées dans la section **Applications principales** ont des icônes indiquant si elles prennent en charge l’authentification unique fédérée et le provisionnement.
 
-1. Pour rechercher une application, tapez le nom de l’application que vous souhaitez ajouter sous **Ajouter à partir de la galerie**. Sélectionnez l’application à partir des résultats, puis sélectionnez **Ajouter**. L’exemple suivant montre le formulaire **Ajouter une application** qui apparaît après la recherche de github.com.
+    ![Rechercher une application par nom ou par catégorie](media/add-application-portal/browse-gallery.png)
 
-    ![Montre comment ajouter une application à partir de la galerie](media/add-application-portal/add-an-application.png)
+6. Vous pouvez parcourir la galerie de l’application que vous souhaitez ajouter ou rechercher l’application en entrant son nom dans la zone de recherche. Ensuite, sélectionnez l’application dans les résultats. Dans le formulaire, vous pouvez modifier le nom de l’application afin qu’il corresponde aux besoins de votre organisation. Dans cet exemple, nous avons changé le nom en **GitHub-test**.
 
-1. Dans le formulaire spécifique à l’application, vous pouvez modifier les informations de propriété. Par exemple, vous pouvez modifier le nom de l’application afin qu’il corresponde aux besoins de votre organisation. Cet exemple utilise le nom **GitHub-test**.
-1. Quand vous avez terminé de modifier les propriétés, sélectionnez **Ajouter**.
-1. Une page de démarrage s’affiche avec les options de configuration de l’application pour votre organisation.
+    ![Montre comment ajouter une application à partir de la galerie](media/add-application-portal/create-application.png)
 
-Vous avez terminé l’ajout de votre application. Faites une pause si vous le souhaitez. Les sections suivantes vous montrent comment modifier le logo et d’autres propriétés pour votre application.
+7. Sélectionnez **Create** (Créer). Une page de démarrage s’affiche avec les options de configuration de l’application pour votre organisation.
+
+Vous avez terminé l’ajout de votre application. Les sections suivantes vous montrent comment modifier le logo et d’autres propriétés pour votre application.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Trouver votre application de locataire Azure AD
 
@@ -81,17 +83,17 @@ Maintenant que vous avez trouvé l’application, vous pouvez l’ouvrir et conf
 Pour modifier les propriétés de l’application :
 
 1. Sélectionnez l’application pour l’ouvrir.
-1. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés pour la modification.
+2. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés pour la modification.
 
     ![Montre l’écran Propriétés et les propriétés modifiables de l’application](media/add-application-portal/edit-properties.png)
 
-1. Prenez un moment pour comprendre les options de connexion. Les options déterminent la façon dont les utilisateurs qui sont assignés ou non assignés à l’application peuvent s’y connecter. De plus, les options déterminent si un utilisateur peut voir l’application dans le volet d’accès.
+3. Prenez un moment pour comprendre les options de connexion. Les options déterminent la façon dont les utilisateurs qui sont assignés ou non assignés à l’application peuvent s’y connecter. De plus, les options déterminent si un utilisateur peut voir l’application dans le volet d’accès.
 
     - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
     - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
-    - **Visible par l’utilisateur** détermine si les utilisateurs assignés à une application peuvent la voir dans le volet d’accès et le lanceur d’applications O365.
+    - **Visible par les utilisateurs** détermine si les utilisateurs assignés à une application peuvent la voir dans le volet d’accès et le lanceur d’applications O365.
 
-1. Utilisez les tableaux suivants pour vous aider à choisir les meilleures options en fonction de vos besoins.
+4. Utilisez les tableaux suivants pour vous aider à choisir les meilleures options en fonction de vos besoins.
 
    - Comportement pour les utilisateurs **assignés** :
 
@@ -131,13 +133,16 @@ Pour utiliser un logo personnalisé :
 1. Étant donné que vous avez déjà trouvé votre application, sélectionnez-la.
 1. Dans le volet gauche, sélectionnez **Propriétés**.
 1. Téléchargez le logo.
-1. Quand vous avez terminé, Sélectionnez **Enregistrer**.
+1. Quand vous avez terminé, Sélectionnez **Enregistrer**. 
 
     ![Montre comment changer le logo de la page Propriétés de l’application](media/add-application-portal/change-logo.png)
 
+   > [!NOTE]
+   > La miniature affichée dans ce volet **Propriétés** n’est pas mise à jour immédiatement. Vous pouvez fermer et rouvrir les propriétés pour afficher l’icône mise à jour.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez ajouté l’application à votre organisation Azure AD, [choisissez une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que vous voulez utiliser et reportez-vous à l’article approprié ci-dessous :
+Maintenant que vous avez ajouté l’application à votre organisation Azure AD, [choisissez une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que vous souhaitez utiliser et reportez-vous à l’article approprié ci-dessous :
 
 - [Configurer l’authentification unique SAML](configure-single-sign-on-non-gallery-applications.md)
 - [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)

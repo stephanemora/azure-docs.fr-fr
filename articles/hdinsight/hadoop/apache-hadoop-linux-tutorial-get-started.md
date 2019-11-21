@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer des clusters Apache Hadoop Resource Manager - Azure HDInsight'
+title: 'Démarrage rapide : Apache Hadoop et Resource Manager – Azure HDInsight'
 description: Dans ce guide de démarrage rapide, vous créez un cluster Apache Hadoop dans Azure HDInsight avec un modèle Resource Manager
 keywords: prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6c4ff1df0ec56339721b3cdab9bb62b0ee8ba94f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067669"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044798"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Démarrage rapide : Créer un cluster Apache Hadoop dans Azure HDInsight avec un modèle Resource Manager
 
@@ -50,7 +50,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
     > [!NOTE]  
     > Les valeurs saisies doivent être uniques et suivre les instructions d’affectation de noms. Le modèle n’effectue pas de contrôles de validation. Si les valeurs saisies sont déjà utilisées ou ne suivent pas les instructions, vous obtiendrez une erreur après avoir envoyé le modèle.  
 
-    ![Bien démarrer avec HDInsight Linux – Modèle Resource Manager sur le portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Déployer un cluster Hadoop dans HDInsight à l’aide du Portail Azure et d’un modèle de gestionnaire de groupes de ressources")
+    ![HDInsight Linux démarre le modèle Resource Manager sur le portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Déployer un cluster Hadoop dans HDInsight à l’aide du portail Azure et d’un modèle de gestionnaire de groupes de ressources")
 
 3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis sélectionnez **Acheter**. Vous recevez une notification indiquant que votre déploiement est en cours.  La création d’un cluster prend environ 20 minutes.
 
@@ -70,7 +70,7 @@ Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être su
 
 1. Revenez à l’onglet du navigateur dans lequel se trouve le portail Azure. Vous devez être sur la page de vue d’ensemble du cluster. Sélectionnez **Supprimer** si vous souhaitez seulement supprimer le cluster, mais conserver le compte de stockage par défaut.
 
-    ![HDInsight - Supprimer un cluster du portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight - Supprimer un cluster du portail")
+    ![Suppression d’un cluster HDInsight du portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Suppression d’un cluster HDInsight du portail")
 
 2. Si vous souhaitez supprimer le cluster ainsi que le compte de stockage par défaut, sélectionnez le nom du groupe de ressources (encadré dans la capture d’écran précédente) pour ouvrir la page du groupe de ressources.
 

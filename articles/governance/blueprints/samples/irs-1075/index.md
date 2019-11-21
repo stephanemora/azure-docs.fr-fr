@@ -3,12 +3,12 @@ title: Exemple de blueprint IRS 1075 - Vue d’ensemble
 description: Vue d’ensemble de l’exemple de blueprint IRS 1075. Cet exemple de blueprint aide les clients à évaluer des contrôles IRS 1075 spécifiques.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210183"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267374"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint IRS 1075
 
@@ -23,7 +23,8 @@ La section sur la correspondance des contrôles fournit des détails sur les str
 Vous venez de parcourir une vue d’ensemble de l’exemple de blueprint IRS 1075. Continuez avec les articles suivants pour découvrir les correspondances de contrôles et la manière de déployer cet exemple :
 
 > [!div class="nextstepaction"]
-> [Blueprint IRS 1075 - Correspondance des contrôles](./control-mapping.md)
+> [Blueprint IRS 1075 - Correspondance des contrôles](./control-mapping.md)
+> [Blueprint IRS 1075 - Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

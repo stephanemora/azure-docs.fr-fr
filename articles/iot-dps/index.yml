@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentation relative au service Azure IoT Hub Device Provisioning
 metadata:
-  title: 'Documentation relative au service Azure IoT Hub Device Provisioning - Didacticiels, Référence d’API'
+  title: Documentation relative au service Azure IoT Hub Device Provisioning
   description: 'Azure IoT Hub Device Provisioning Service - Tutoriels, guides de démarrage rapides, guides pratiques et informations de référence sur les API'
   author: nberdy
   ms.service: iot-dps
@@ -11,7 +11,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et évolutive. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
+  description: 'Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui permet le provisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi provisionner des millions d’appareils de façon sécurisée et scalable. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
 sections:
   - title: "Démarrages en 5\_minutes"
     items:

@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Créer un domaine managé avancé
       href: tutorial-create-instance-advanced.md
+    - name: Créer une approbation de forêt (préversion)
+      href: tutorial-create-forest-trust.md
 - name: Exemples
   items:
     - name: Créer un domaine managé avec Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Scénarios de déploiement courants
       href: scenarios.md
+    - name: Forêts et approbations
+      items:
+        - name: Forêts de ressources
+          href: concepts-resource-forest.md
+        - name: Approbations de forêts
+          href: concepts-forest-trust.md
     - name: "Fonctionnement de la synchronisation Azure AD\_DS"
       href: synchronization.md
     - name: Fonctionnement de la synchronisation de hachage de mot de passe

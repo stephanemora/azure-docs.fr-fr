@@ -112,14 +112,6 @@
               items:
                 - name: Bien démarrer avec l’audit de SQL Database
                   href: sql-database-auditing.md
-        - name: Sécurité du réseau
-          items:
-            - name: Points de terminaison du service Réseau virtuel
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Points de terminaison du service Réseau virtuel - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Private Link
-              href: sql-database-private-endpoint-overview.md
         - name: Gestion de la sécurité
           items:
             - name: Advanced Data Security
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: Sécurité d’une base de données unique
           items:
+            - name: Contrôles d’accès réseau
+              href: sql-database-networkaccess-overview.md
+            - name: Pare-feu basé sur IP
+              href: sql-database-firewall-configure.md
+            - name: Règles de pare-feu de réseau virtuel
+              items:
+                - name: Points de terminaison de réseau virtuel
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Points de terminaison de réseau virtuel - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Private Link
+              href: sql-database-private-endpoint-overview.md
             - name: Format de journal d’audit
               href: sql-database-audit-log-format.md
             - name: Accès conditionnel
               href: sql-database-conditional-access.md
-            - name: Règles de pare-feu IP au niveau du serveur
-              items:
-                - name: Créer et gérer
-                  href: sql-database-firewall-configure.md
         - name: Sécurité de l’instance gérée
           items:
             - name: Sécuriser les points de terminaison publics
