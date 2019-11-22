@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086165"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Didacticiel : Intégration d’Azure Active Directory à Zoho
 
@@ -130,15 +131,15 @@ Pour configurer l’authentification unique Azure AD avec Zoho, effectuez les �
 
 2. Accédez à **Control panel**.
    
-    ![Panneau de configuration](./media/zoho-mail-tutorial/ic789607.png "Panneau de configuration")
+    ![Panneau de configuration](./media/zoho-mail-tutorial/ic789607.png "Control panel")
 
 3. Cliquez sur l’onglet **SAML Authentication** .
    
-    ![Authentification SAML](./media/zoho-mail-tutorial/ic789608.png "Authentification SAML")
+    ![Authentification SAML](./media/zoho-mail-tutorial/ic789608.png "Authentification SAML")
 
 4. Dans la section **SAML Authentication Details** , procédez comme suit :
    
-    ![Détails d’authentification SAML](./media/zoho-mail-tutorial/ic789609.png "Détails d’authentification SAML")
+    ![Détails de l’authentification SAML](./media/zoho-mail-tutorial/ic789609.png "SAML Authentication Details")
    
     a. Dans la zone de texte **URL de connexion**, collez l’**URL de connexion** que vous avez copiée dans le portail Azure.
    
@@ -249,5 +250,5 @@ Le fait de cliquer sur la vignette Zoho dans le panneau d’accès doit vous con
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

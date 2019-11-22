@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0730dd89a61b046f73e7e39c8226e66700b3494
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af5021d3a8bed48003f38f01c3d61eac4bdd96b0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101645"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Didacticiel : Intégration d’Azure Active Directory à GitHub
 
@@ -232,17 +233,17 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 3. Cliquez sur **Invite member**.
 
-    ![Inviter des utilisateurs](./media/github-tutorial/tutorial_github_config_github_09.png "inviter des utilisateurs")
+    ![Inviter des utilisateurs](./media/github-tutorial/tutorial_github_config_github_09.png "Inviter des utilisateurs")
 
 4. Dans la boîte de dialogue **Invite member**, procédez comme suit :
 
     a. Dans la zone de texte **E-mail** , tapez l’adresse de messagerie du compte de Britta Simon.
 
-    ![Inviter des personnes](./media/github-tutorial/tutorial_github_config_github_10.png "inviter des personnes")
+    ![Inviter des personnes](./media/github-tutorial/tutorial_github_config_github_10.png "Inviter des personnes")
 
     b. Cliquez sur **Send Invitation**.
 
-    ![Inviter des personnes](./media/github-tutorial/tutorial_github_config_github_11.png "inviter des personnes")
+    ![Inviter des personnes](./media/github-tutorial/tutorial_github_config_github_11.png "Inviter des personnes")
 
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
@@ -259,4 +260,4 @@ Quand vous cliquez sur la vignette GitHub dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

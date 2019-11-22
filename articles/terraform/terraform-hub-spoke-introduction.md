@@ -1,22 +1,19 @@
 ---
-title: Créer une topologie de réseau hybride hub-and-spoke avec Terraform dans Azure
+title: Tutoriel - Créer une topologie de réseau hybride hub-and-spoke dans Azure avec Terraform
 description: Tutoriel illustrant la création d’une architecture de référence d’un réseau hybride entier dans Azure, à l’aide de Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, hub and spoke, hub-and-spoke, réseaux, réseaux hybrides, devops, machine virtuelle, azure, vnet peering, appairage de réseaux virtuels, appliance virtuelle réseau
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173443"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969411"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Didacticiel : Créer une topologie de réseau hybride hub-and-spoke avec Terraform dans Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Didacticiel : Créer une topologie de réseau hybride hub-and-spoke dans Azure avec Terraform
 
 Cette série de tutoriels explique comment utiliser Terraform pour implémenter une [topologie de réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) dans Azure. 
 
@@ -49,7 +46,7 @@ Dans la topologie hub-and-spoke, le hub est un réseau virtuel. Le réseau virtu
 Une topologie de réseau hub-and-spoke permet d’isoler les charges de travail tout en partageant des services communs. Ces services incluent l’identité et la sécurité. Le hub est un réseau virtuel qui agit comme un point de connexion central pour un réseau local. Les rayons sont des réseaux virtuels qui s’associent au hub. Les services partagés sont déployés dans le hub tandis que les charges de travail individuelles le sont à l’intérieur des réseaux spoke. Voici quelques avantages de la topologie de réseau hub-and-spoke :
 
 - **Réduction des coûts** par la centralisation des services dans un emplacement unique pouvant être partagé par plusieurs charges de travail. Ces charges de travail comportent des appliances virtuelles réseau et des serveurs DNS.
-- **Surmonter les limites des abonnements** en appairant les réseaux virtuels de différents abonnements avec le hub central.
+- **Surmonter les limites des abonnements** en effectuant le peering des réseaux virtuels de différents abonnements avec le hub central.
 - **Séparation des préoccupations** entre le service informatique central (SecOps, InfraOps) et les charges de travail (DevOps).
 
 ## <a name="typical-uses-for-the-hub-and-spoke-architecture"></a>Utilisations courantes de l’architecture hub-and-spoke
@@ -75,7 +72,7 @@ Voici quelques utilisations courantes d’une architecture hub-and-spoke :
 
 - **Réseaux virtuels spokes**. Les membres spokes peuvent servir à isoler les charges de travail dans leurs propres réseaux virtuels, qui sont alors gérées séparément des autres membres spokes. Chaque charge de travail peut inclure plusieurs niveaux, avec plusieurs sous-réseaux connectés à l’aide d’équilibreurs de charge Azure. 
 
-- **Appairage de réseaux virtuels**. Deux réseaux virtuels pouvant être connectés au moyen d’une connexion de peering. Les connexions de peering sont des connexions non transitives et à faible latence entre des réseaux virtuels. Une fois appairés, les réseaux virtuels échangent du trafic à l’aide de la dorsale principale d’Azure, sans avoir besoin de routeur. Dans une topologie de réseau hub-and-spoke, le peering de réseaux virtuels est utilisé pour connecter le hub à chaque membre spoke. Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions.
+- **Peering de réseaux virtuels**. Deux réseaux virtuels pouvant être connectés au moyen d’une connexion de peering. Les connexions de peering sont des connexions non transitives et à faible latence entre des réseaux virtuels. Une fois appairés, les réseaux virtuels échangent du trafic à l’aide de la dorsale principale d’Azure, sans avoir besoin de routeur. Dans une topologie de réseau hub-and-spoke, le peering de réseaux virtuels est utilisé pour connecter le hub à chaque membre spoke. Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 

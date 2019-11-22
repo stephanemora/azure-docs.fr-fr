@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105382"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
 
@@ -132,15 +133,15 @@ Pour configurer l’authentification unique Azure AD auprès de Clarizen, effect
 
 1. Cliquez sur votre nom d’utilisateur, puis sur **Settings** (Paramètres).
 
-    ![Sélection de l’option « Settings » (Paramètres) sous votre nom d’utilisateur](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings") (Paramètres)
+    ![Sélection de l’option « Settings » (Paramètres) sous votre nom d’utilisateur](./media/clarizen-tutorial/tutorial_clarizen_001.png "Paramètres")
 
 1. Cliquez sur l’onglet **Global Settings** (Paramètres globaux). En regard de la zone **Federated Authentication** (Authentification fédérée), cliquez sur **edit** (modifier).
 
-    ![Onglet « Global Settings » (Paramètres globaux)](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings") (Paramètres globaux)
+    ![Onglet « Global Settings »](./media/clarizen-tutorial/tutorial_clarizen_002.png "Paramètres globaux")
 
 1. Dans la boîte de dialogue **Federated Authentication** (Authentification fédérée), procédez comme suit :
 
-    ![Boîte de dialogue « Federated Authentication » (Authentification fédérée)](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication") (Authentification fédérée)
+    ![Boîte de dialogue « Federated Authentication »](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
     a. Sélectionnez **Activer l'authentification fédérée**.
 
@@ -217,15 +218,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez
 
 2. Cliquez sur **People**.
 
-    ![Sélection de l’option « People » (Contacts)](./media/clarizen-tutorial/create_aaduser_001.png "People") (Contacts)
+    ![Clic sur « People »](./media/clarizen-tutorial/create_aaduser_001.png "Personnes")
 
 3. Cliquez sur **Invite User**.
 
-    ![Bouton « Invite User » (Inviter un utilisateur)](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users") (Inviter un utilisateur)
+    ![Bouton « Invite User »](./media/clarizen-tutorial/create_aaduser_002.png "Inviter des utilisateurs")
 
 1. Dans la boîte de dialogue **Invite People** (Inviter un contact), procédez comme suit :
 
-    ![Boîte de dialogue « Invite People » (Inviter un contact)](./media/clarizen-tutorial/create_aaduser_003.png "Invite People") (Inviter un contact)
+    ![Boîte de dialogue « Invite People »](./media/clarizen-tutorial/create_aaduser_003.png "Inviter des personnes")
 
     a. Dans la zone **Email** (E-mail), tapez l’adresse e-mail du compte de Britta Simon.
 
@@ -247,4 +248,4 @@ Quand vous cliquez sur la vignette Clarizen dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

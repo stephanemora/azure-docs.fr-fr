@@ -114,6 +114,8 @@
           href: serial-console-grub-single-user-mode.md
         - name: Console série NMI/SysRq
           href: serial-console-nmi-sysrq.md
+        - name: Configuration proactive du Grub de la console série
+          href: serial-console-grub-proactive-configuration.md
     - name: Console série pour Windows
       href: serial-console-windows.md
       items:
@@ -125,8 +127,6 @@
       href: serial-console-power-options.md
     - name: Erreurs courantes liées à la console série
       href: serial-console-errors.md
-    - name: Configuration proactive du Grub de la console série
-      href: serial-console-grub-proactive-configuration.md
 - name: Erreurs lors de la suppression des ressources de stockage
   href: storage-resource-deletion-errors.md
 - name: Erreurs lors de la suppression des ressources de stockage classiques

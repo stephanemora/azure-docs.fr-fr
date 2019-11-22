@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7f5e003a058cd94e6e4a4440c512217c387fda3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102350"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d'Azure Active Directory à FM:Systems
 
@@ -187,11 +188,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Cliquez sur **Create new user**.
    
-    ![Créer un nouvel utilisateur](./media/fm-systems-tutorial/ic795906.png "Créer un nouvel utilisateur")
+    ![Créer un utilisateur](./media/fm-systems-tutorial/ic795906.png "Create new user")
 
 4. Dans la section **Create User** , procédez comme suit :
    
-    ![Créer un utilisateur](./media/fm-systems-tutorial/ic795907.png "Créer un utilisateur")
+    ![Create User](./media/fm-systems-tutorial/ic795907.png "Create User") (Créer un utilisateur)
    
     a. Entrez les valeurs appropriées dans les champs **Nom d’utilisateur**, **Mot de passe**, **Confirmer le mot de passe**, **Adresse e-mail** et **Numéro d’employé** d’un compte Azure Active Directory valide que vous souhaitez approvisionner.
    
@@ -209,5 +210,5 @@ Quand vous cliquez sur la vignette FM:Systems dans le volet d’accès, vous dev
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

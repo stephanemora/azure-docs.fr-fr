@@ -1,5 +1,5 @@
 ---
-title: Créer une tâche Azure Stream Analytics à l’aide de Visual Studio
+title: Créer une tâche Azure Stream Analytics avec Visual Studio
 description: Ce démarrage rapide vous explique comment créer une tâche Stream Analytics, configurer des entrées et des sorties, et définir une requête avec Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: eb3b25387df33f8d366a088f9fa63e0dc96290bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 834447d15336fcd6d56f2979113aaef7e22ecb8f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173251"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934311"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio
 

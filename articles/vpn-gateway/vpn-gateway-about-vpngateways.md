@@ -1,19 +1,19 @@
 ---
-title: Passerelle VPN Azure | Microsoft Docs
+title: À propos de la passerelle VPN Azure
 description: En savoir plus sur les passerelles VPN et la façon dont vous pouvez les utiliser pour vous connecter à des réseaux virtuels Azure. Y compris les solutions de réseau virtuel à réseau virtuel et IPsec/IKE site à site entre locaux, ainsi que les VPN point à site.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495714"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075431"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -53,7 +53,10 @@ Le tableau suivant peut vous aider à déterminer la meilleure option de connect
 
 ## <a name="gwsku"></a>SKU de passerelle
 
-Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour plus d’informations sur les références SKU de passerelle, notamment les fonctionnalités prises en charge, la production et le développement-test, et les étapes de configuration, consultez l’article [Paramètres de la passerelle VPN - Références SKU de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour plus d’informations sur les références SKU héritées, consultez [Utilisation de références SKU héritées](vpn-gateway-about-skus-legacy.md).
+Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service.
+
+* Pour plus d’informations sur les références SKU de passerelle, notamment les fonctionnalités prises en charge, la production et le développement-test, et les étapes de configuration, consultez l’article [Paramètres de la passerelle VPN - Références SKU de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* Pour plus d’informations sur les références SKU héritées, consultez [Utilisation de références SKU héritées](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
 
@@ -92,7 +95,6 @@ Ce type de connexion est une variante de la connexion site à site. Vous créez 
 Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel.
 
 Contrairement aux connexions S2S, les connexions P2S ne nécessitent pas d’adresse IP publique locale ni de périphérique VPN. Les connexions P2S peuvent être utilisées avec des connexions S2S via la même passerelle VPN, dans la mesure où toutes les exigences de configuration des deux types de connexion sont compatibles. Pour plus d’informations sur les connexions point à site, consultez [À propos des VPN point à site](point-to-site-about.md).
-
 
 ![Exemple de connexion de point à site de passerelle VPN Azure](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

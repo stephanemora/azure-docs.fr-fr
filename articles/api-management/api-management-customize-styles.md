@@ -1,5 +1,5 @@
 ---
-title: Personnaliser le style des pages du portail des développeurs Gestion des API Azure | Microsoft Docs
+title: Personnaliser le style des pages du portail des développeurs hérité Gestion des API Azure | Microsoft Docs
 description: Suivez les étapes de ce démarrage rapide pour personnaliser le style des éléments du portail des développeurs Gestion des API Azure.
 services: api-management
 documentationcenter: ''
@@ -11,30 +11,30 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 047e724fe3e1c2e4738e5964326bf7719281f4af
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 779d1228393cdc88f88820d8a335cb2e32424c14
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073707"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176866"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personnaliser le style des pages du portail des développeurs
 
-Il existe essentiellement trois manières courantes de personnaliser le portail des développeurs dans la Gestion des API Azure :
+Les trois façons les plus courantes de personnaliser le portail des développeurs dans la Gestion des API Azure sont les suivantes :
  
 * [Modifier le contenu des pages statiques et des éléments de mise en page](api-management-modify-content-layout.md)
 * Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs (procédure expliquée dans ce guide)
 * [Modifier les modèles utilisés pour les pages générées par le portail](api-management-developer-portal-templates.md) (par exemple, documents API, produits, authentification des utilisateurs.)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Personnaliser le style des éléments des pages du portail des **développeurs**
-> * Afficher votre modification
+Dans cet article, vous allez apprendre à personnaliser le style des éléments des pages du portail des **développeurs** hérité et à afficher vos modifications.
 
 ![Personnaliser le style](./media/modify-developer-portal-style/developer_portal.png)
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,12 +42,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 + Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
 ## <a name="customize-the-developer-portal"></a>Personnaliser le portail des développeurs
 
 1. Sélectionnez **Vue d’ensemble**.
-2. Cliquez sur le bouton **Portail des développeurs** en haut de la fenêtre **Vue d’ensemble**. Vous pouvez également cliquer sur le lien **URL du portail des développeurs**.
+2. Cliquez sur le bouton **Portail des développeurs (hérité)** en haut de la fenêtre **Vue d’ensemble**.
 3. Sur le côté supérieur gauche de l’écran, une icône composée de deux pinceaux apparaît. Placez le curseur de la souris au-dessus de cette icône pour ouvrir le menu de personnalisation du portail.
 
     ![Personnaliser le style](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -77,11 +75,5 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 2. Vous pouvez voir la modification que vous avez apportée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Personnaliser le style des éléments des pages du portail des **développeurs**
-> * Afficher votre modification
 
 Nous vous recommandons également d’apprendre à [personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).

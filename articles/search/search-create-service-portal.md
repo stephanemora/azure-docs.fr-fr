@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail'
+title: 'Démarrage rapide : Créer un service de recherche dans le portail'
 titleSuffix: Azure Cognitive Search
 description: Provisionnez une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792437"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112118"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
 La Recherche cognitive Azure est une ressource autonome utilisée pour ajouter une expérience utilisateur de recherche à des applications personnalisées. Bien que la Recherche cognitive Azure s’intègre facilement à d’autres services Azure, vous pouvez également l’utiliser en tant que composant autonome. De même, vous pouvez l’intégrer à des applications situées sur des serveurs réseau, ou à des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Dans cet article, découvrez comment créer une ressource Recherche cognitive Azure dans le [portail Azure](https://portal.azure.com/).
+Dans cet article, découvrez comment créer une ressource dans le [portail Azure](https://portal.azure.com/).
 
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -37,24 +37,26 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 2. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
 3. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
 
-![Accéder à une ressource Recherche cognitive Azure](./media/search-create-service-portal/find-search3.png "Chemin de navigation vers la Recherche cognitive Azure")
+![Créer une ressource dans le portail](./media/search-create-service-portal/find-search3.png "Créer une ressource dans le portail")
 
-## <a name="select-a-subscription"></a>Sélectionner un abonnement
+## <a name="choose-a-subscription"></a>Sélectionnez un abonnement
 
-Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. La Recherche cognitive Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB afin d’effectuer l’indexation via des [*indexeurs*](search-indexer-overview.md), mais uniquement pour les services du même abonnement.
+La première étape consiste à définir l’ID d’abonnement et le groupe de ressources. Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. La Recherche cognitive Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB afin d’effectuer l’indexation via des [*indexeurs*](search-indexer-overview.md), mais uniquement pour les services du même abonnement.
 
 ## <a name="set-a-resource-group"></a>Définir un groupe de ressources
 
-Un groupe de ressources est nécessaire et utile pour gérer les ressources, y compris la gestion des coûts. Un groupe de ressources peut se composer d’un service ou de plusieurs services utilisés ensemble. Par exemple, si vous utilisez la Recherche cognitive Azure pour indexer une base de données Azure Cosmos DB, vous pouvez associer les deux services au sein du même groupe de ressources à des fins de gestion. 
+Un groupe de ressources est nécessaire et utile pour gérer la totalité des ressources, y compris les coûts. Un groupe de ressources peut se composer d’un service ou de plusieurs services utilisés ensemble. Par exemple, si vous utilisez la Recherche cognitive Azure pour indexer une base de données Azure Cosmos DB, vous pouvez associer les deux services au sein du même groupe de ressources à des fins de gestion. 
 
 Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes de ressources existants sont remplis de ressources utilisées dans des solutions non liées, créez un groupe de ressources uniquement pour votre ressource Recherche cognitive Azure. 
 
-Lorsque vous utilisez le service, vous pouvez effectuer le suivi des coûts actuels et prévus (comme indiqué dans la capture d’écran) ou faire défiler vers le haut pour afficher les frais des différentes ressources.
+![Créer un groupe de ressources](./media/search-create-service-portal/new-resource-group.png "Création d’un groupe de ressources")
+
+Au fil du temps, vous pouvez effectuer le suivi des coûts actuels et prévus (comme indiqué dans la capture d’écran) ou faire défiler vers le haut pour afficher les frais des différentes ressources. La capture d’écran suivante montre le type d’informations relatives aux coûts que vous pouvez voir lorsque vous combinez plusieurs ressources dans un groupe.
 
 ![Gérer les coûts au niveau du groupe de ressources](./media/search-create-service-portal/resource-group-cost-management.png "Gérer les coûts au niveau du groupe de ressources")
 
 > [!TIP]
-> La suppression d’un groupe de ressources supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
+> Les groupes de ressources simplifient le nettoyage, car la suppression d’un groupe supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
 
 ## <a name="name-the-service"></a>Nommer le service
 
@@ -77,7 +79,7 @@ En tant que service Azure, la Recherche cognitive Azure peut être hébergée da
 
 Vous pouvez réduire ou éviter les frais de bande passante en choisissant le même emplacement pour plusieurs services. Par exemple, si vous indexez des données fournies par un autre service Azure (Stockage Azure, Azure Cosmos DB, Azure SQL Database), la création de votre service Recherche cognitive Azure dans la même région évite les frais de bande passante (il n’existe aucun frais pour les données sortantes quand les services se trouvent dans la même région).
 
-De plus, si vous utilisez des enrichissements IA pour la recherche cognitive, créez votre service dans la même région que votre ressource Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
+De plus, si vous utilisez des enrichissements IA, créez votre service dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
 
 > [!Note]
 > Inde Centre est actuellement indisponible pour les nouveaux services. Pour les services déjà dans la région Inde Centre, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. La restriction appliquée à cette région est temporaire et ne concerne que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
@@ -104,9 +106,9 @@ Votre service est déployé en quelques minutes. Vous pouvez superviser la progr
 
 Si vous n’utilisez pas le portail, l’accès programmatique à votre nouveau service nécessite de spécifier le point de terminaison d’URL et une clé d’API d’authentification.
 
-1. Dans la page Vue d’ensemble du service, recherchez et copiez le point de terminaison d’URL sur le côté droit de la page.
+1. Dans la page **Vue d’ensemble**, recherchez et copiez le point de terminaison d’URL sur le côté droit de la page.
 
-2. Dans le volet de navigation gauche, sélectionnez **Clés**, puis copiez une des clés d’administrateur (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service.
+2. Dans la page **Clés**, copiez l’une des clés d’administration (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service. Les clés de requête, quant à elles, fournissent un accès en lecture seule au contenu indexé.
 
    ![Page Vue d’ensemble du service avec le point de terminaison d’URL](./media/search-create-service-portal/get-url-key.png "Point de terminaison d’URL et autres détails du service")
 
@@ -151,7 +153,7 @@ Il n’est pas nécessaire de disposer d’un second service pour la haute dispo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir provisionné un service Recherche cognitive Azure, vous pouvez rester sur le portail pour créer votre premier index.
+Après avoir approvisionné un service, vous pouvez rester dans le portail et créer votre premier index.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Créer un index de Recherche cognitive Azure dans le portail](search-get-started-portal.md)

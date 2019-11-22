@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618789"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172326"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
@@ -101,7 +101,7 @@ Les domaines managés par Azure AD DS sont gérés avec les mêmes outils d’ad
 
 Pour installer les outils d’administration Active Directory sur une machine virtuelle jointe au domaine, effectuez les étapes suivantes :
 
-1. Le **Gestionnaire de serveur** doit s’ouvrir par défaut quand vous vous connectez à la machine virtuelle. Si ce n’est pas le cas, dans le menu **Démarrer**, sélectionnez **Gestionnaire de serveur**.
+1. Si **Gestionnaire de serveur** ne s’ouvre pas par défaut lorsque vous vous connectez à la machine virtuelle, sélectionnez le menu **Démarrer**, puis choisissez **Gestionnaire de serveur**.
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.
@@ -131,13 +131,15 @@ Une fois les outils d’administration installés, voyons comment les utiliser p
 
 1. Pour voir les utilisateurs et les groupes appartenant au domaine managé Azure AD DS, sélectionnez le conteneur **Utilisateurs AADDC**. Les comptes d’utilisateur et les groupes de votre locataire Azure AD sont listés dans ce conteneur.
 
-    Dans l’exemple de sortie suivant, un compte d’utilisateur nommé *contosoadmin* et un groupe pour *Administrateurs AAD DC* figurent dans ce conteneur.
+    Dans l’exemple de sortie suivant, un compte d’utilisateur nommé *Contoso Admin* et un groupe pour *Administrateurs AAD DC* figurent dans ce conteneur.
 
     ![Afficher la liste des utilisateurs du domaine Azure AD DS dans le Centre d’administration Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Pour voir les ordinateurs qui sont joints au domaine managé Azure AD DS, sélectionnez le conteneur **Ordinateurs AADDC**. Une entrée pour la machine virtuelle actuelle, par exemple *myVM* figure dans la liste. Les comptes d’ordinateurs pour tous les ordinateurs joints au domaine managé Azure AD DS sont stockés dans ce conteneur *Ordinateurs AADDC*.
 
-Les actions courantes du Centre d’administration Active Directory, comme la réinitialisation du mot de passe d’un compte d’utilisateur ou la gestion de l’appartenance à un groupe, sont disponibles. Vous pouvez également utiliser le *Module Active Directory pour Windows PowerShell*, qui est installé dans le cadre des outils d’administration, pour gérer les actions courantes dans votre domaine managé Azure AD DS.
+Les actions courantes du Centre d’administration Active Directory, comme la réinitialisation du mot de passe d’un compte d’utilisateur ou la gestion de l’appartenance à un groupe, sont disponibles. Ces actions fonctionnent seulement pour les utilisateurs et les groupes créés directement dans le domaine managé Azure AD DS. Les informations d’identité ne sont synchronisées que *depuis* Azure AD vers Azure AD DS. Il n’y a pas de mise à jour depuis Azure AD DS vers Azure AD. Vous ne pouvez pas changer les mots de passe ou l’appartenance à un groupe managé pour les utilisateurs synchronisés à partir d’Azure AD et obtenir la synchronisation de ces modifications.
+
+Vous pouvez également utiliser le *Module Active Directory pour Windows PowerShell*, qui est installé dans le cadre des outils d’administration, pour gérer les actions courantes dans votre domaine managé Azure AD DS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

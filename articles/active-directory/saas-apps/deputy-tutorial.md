@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104248"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Didacticiel : Intégration d'Azure Active Directory à Deputy
 
@@ -258,7 +259,7 @@ Pour se connecter à Deputy, les utilisateurs d’Azure AD doivent être approvi
 
 3. Cliquez sur le bouton **Add People** (Ajouter des personnes), puis cliquez sur **Add a single person** (Ajouter une seule personne).
    
-    ![Ajouter des personnes](./media/deputy-tutorial/tutorial_deputy_002.png "ajouter des personnes")
+    ![Ajouter des personnes](./media/deputy-tutorial/tutorial_deputy_002.png "Ajouter des personnes")
 
 4. Effectuez les opérations suivantes, puis cliquez sur **Save & Invite** (Enregistrer et inviter).
    
@@ -286,5 +287,5 @@ Lorsque vous cliquez sur la vignette Deputy dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

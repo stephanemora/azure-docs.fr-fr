@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: 692062b29bd22cb5b37cc6371f2908adcdb4b29d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d7821014dc950f2bbb0b96f83536268e90c695a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67176812"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818633"
 ---
-Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md).
+Le moyen le plus simple de créer un compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md).
 
 Il est également possible de créer un compte de stockage Azure avec [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md) ou [Azure CLI](../articles/storage/common/storage-azure-cli.md).
 

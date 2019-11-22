@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un index de recherche en C# à l’aide du kit SDK .NET'
+title: 'Démarrage rapide : Créer un index de recherche en C# à l’aide de .NET'
 titleSuffix: Azure Cognitive Search
 description: Explique comment créer un index, charger des données et exécuter des requêtes en C# à l’aide du kit SDK .NET pour la Recherche cognitive Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792821"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112027"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en C# à l’aide du kit SDK .NET
 > [!div class="op_single_selector"]

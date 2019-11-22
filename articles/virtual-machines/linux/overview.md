@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des machines virtuelles Linux dans Azure | Microsoft Docs
+title: Vue d’ensemble des machines virtuelles Linux dans Azure
 description: Décrit les services de calcul, de stockage et de mise en réseau Azure à l’aide de machines virtuelles Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082420"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035355"
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une collection croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.

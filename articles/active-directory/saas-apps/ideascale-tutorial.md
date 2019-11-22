@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100795"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Didacticiel : Intégration d’Azure Active Directory avec IdeaScale
 
@@ -137,19 +138,19 @@ Pour configurer l’authentification unique Azure AD avec IdeaScale, effectuez 
 
 2. Accédez à **Community Settings**.
 
-    ![Community Settings](./media/ideascale-tutorial/ic790847.png "Community Settings")
+    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png "Community Settings")
 
 3. Accédez à **Security \> Single Signon Settings**.
 
-    ![Single Signon Settings](./media/ideascale-tutorial/ic790848.png "Single Signon Settings")
+    ![Paramètres de l’authentification unique](./media/ideascale-tutorial/ic790848.png "Paramètres de l’authentification unique")
 
 4. Pour **Single-Signon Type**, sélectionnez **SAML 2.0**.
 
-    ![Single Signon Type](./media/ideascale-tutorial/ic790849.png "Single Signon Type")
+    ![Type d’authentification unique](./media/ideascale-tutorial/ic790849.png "Type d’authentification unique")
 
 5. Dans la page de boîte de dialogue **Paramètres de l’authentification unique** , procédez comme suit :
 
-    ![Single Signon Settings](./media/ideascale-tutorial/ic790850.png "Single Signon Settings")
+    ![Paramètres de l’authentification unique](./media/ideascale-tutorial/ic790850.png "Paramètres de l’authentification unique")
 
     a. Dans la zone de texte **SAML IdP Entity ID** (Identificateur d’entité du fournisseur d’identité SAML), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.
 
@@ -220,17 +221,17 @@ Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous deve
 
 2. Accédez à **Community Settings**.
 
-    ![Community Settings](./media/ideascale-tutorial/ic790847.png "Community Settings")
+    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png "Community Settings")
 
 3. Accédez à **Basic Settings \> Member Management**.
 
 4. Cliquez sur **Add Member**.
 
-    ![Member Management](./media/ideascale-tutorial/ic790852.png "Member Management")
+    ![Gestion des membres](./media/ideascale-tutorial/ic790852.png "Gestion des membres")
 
 5. Dans la section Add New Member, procédez comme suit :
 
-    ![Add New Member](./media/ideascale-tutorial/ic790853.png "Add New Member")
+    ![Ajouter un nouvel membre](./media/ideascale-tutorial/ic790853.png "Ajouter un nouvel membre")
 
     a. Dans la zone de texte **Email Addresses**, tapez l’adresse e-mail d’un compte Azure AD valide que vous souhaitez provisionner.
 
@@ -254,5 +255,5 @@ Le fait de cliquer sur la vignette IdeaScale dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

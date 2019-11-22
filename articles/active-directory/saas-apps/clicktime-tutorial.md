@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b14b060cc37f94e51ceb902f8b4158120d4d02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233ddde25645cbdd9073011eeec2a20e42c8e9a8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105291"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Didacticiel : Intégration d'Azure Active Directory à ClickTime
 
@@ -136,7 +137,7 @@ Pour configurer l’authentification unique Azure AD avec ClickTime, effectuez l
 
 1. Dans la section de configuration **Single Sign-On Preferences** , procédez comme suit :
    
-    ![Security Settings](./media/clicktime-tutorial/tic777280.png "Security Settings")
+    ![Paramètres de sécurité](./media/clicktime-tutorial/tic777280.png "Security Settings")
    
     a.  Sélectionnez **Autoriser** la connexion à l’aide de l’authentification unique (SSO) avec **Azure AD**.
    
@@ -215,7 +216,7 @@ Dans le cas de ClickTime, l’approvisionnement est une tâche manuelle.
 
 1. Cliquez sur **Add Person**.
    
-    ![Add Person](./media/clicktime-tutorial/tic777283.png "Add Person")
+    ![Ajouter une personne](./media/clicktime-tutorial/tic777283.png "Add Person")
 
 1. Dans la section New Person, procédez comme suit :
    
@@ -242,5 +243,5 @@ Quand vous cliquez sur la vignette ClickTime dans le volet d’accès, vous deve
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

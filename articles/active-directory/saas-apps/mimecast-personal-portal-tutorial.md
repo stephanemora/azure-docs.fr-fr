@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097396"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutoriel : Intégration d’Azure Active Directory avec Mimecast Personal Portal
 
@@ -158,11 +159,11 @@ Pour configurer l’authentification unique Azure AD avec Mimecast Personal Port
 
 2. Accédez à **Services \> Application**.
    
-    ![Applications](./media/mimecast-personal-portal-tutorial/ic794998.png "Applications")
+    ![Applications](./media/mimecast-personal-portal-tutorial/ic794998.png "APPLICATIONS")
 
 3. Cliquez sur **Authentication Profiles**.
    
-    ![Profils d’authentification](./media/mimecast-personal-portal-tutorial/ic794999.png "Profils d’authentification")
+    ![Profils d’authentification](./media/mimecast-personal-portal-tutorial/ic794999.png "Authentication Profiles")
 
 4. Cliquez sur **New Authentication Profile**.
    
@@ -170,7 +171,7 @@ Pour configurer l’authentification unique Azure AD avec Mimecast Personal Port
 
 5. Dans la section **Authentication Profile** , procédez comme suit :
    
-    ![Profil d’authentification](./media/mimecast-personal-portal-tutorial/ic795001.png "Profil d’authentification")
+    ![Profil d’authentification](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile")
    
     a. Dans la zone de texte **Description** , indiquez un nom pour votre configuration.
    
@@ -253,19 +254,19 @@ Vous devez enregistrer un domaine avant de pouvoir créer des utilisateurs.
 
 2. Accédez à **Directories \> Internal**.
    
-    ![Répertoires](./media/mimecast-personal-portal-tutorial/ic795003.png "Répertoires")
+    ![Directories](./media/mimecast-personal-portal-tutorial/ic795003.png "Répertoires")
 
 3. Cliquez sur **Register New Domain**.
    
-    ![Enregistrer un nouveau domaine](./media/mimecast-personal-portal-tutorial/ic795004.png "Enregistrer un nouveau domaine")
+    ![Inscrire un nouveau domaine](./media/mimecast-personal-portal-tutorial/ic795004.png "Register New Domain")
 
 4. Après avoir créé votre domaine, cliquez sur **New Address**.
    
-    ![Nouvelle adresse](./media/mimecast-personal-portal-tutorial/ic795005.png "Nouvelle adresse")
+    ![Nouvelle adresse](./media/mimecast-personal-portal-tutorial/ic795005.png "New Address")
 
 5. Dans la boîte de dialogue Nouvelle Adresse, procédez comme suit pour un compte Azure AD valide que vous souhaitez approvisionner :
    
-    ![Enregistrer](./media/mimecast-personal-portal-tutorial/ic795006.png "enregistrer")
+    ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Enregistrer")
    
     a. Dans la zone de texte **Adresse e-mail**, tapez l’**adresse e-mail** de l’utilisateur sous la forme **BrittaSimon\@contoso.com**.
     
@@ -290,5 +291,5 @@ Quand vous cliquez sur la vignette Mimecast Personal Portal dans le panneau d’
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

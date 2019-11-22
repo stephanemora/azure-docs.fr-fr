@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105736"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Didacticiel : Intégration d’Azure Active Directory à Central Desktop
 
@@ -140,11 +141,11 @@ Pour configurer l’authentification unique Azure AD avec Central Desktop, effec
 
 2. Accédez à **Settings**. Sélectionnez **Advanced**, puis **Single Sign On**.
 
-    ![Setup - Advanced](./media/central-desktop-tutorial/ic769563.png "Setup - Advanced")
+    ![Paramétrage - Avancé](./media/central-desktop-tutorial/ic769563.png "Paramétrage - Avancé")
 
 3. Dans la page **Single Sign On Settings**, effectuez les étapes suivantes :
 
-    ![Single sign-on settings](./media/central-desktop-tutorial/ic769564.png "Single Sign On Settings")
+    ![Paramètres d’authentification unique](./media/central-desktop-tutorial/ic769564.png "Single Sign On Settings")
 
     a. Sélectionnez **Activer l’authentification unique SAMLv2**.
 
@@ -156,7 +157,7 @@ Pour configurer l’authentification unique Azure AD avec Central Desktop, effec
 
 4. Dans la section **Message Signature Verification Method**, effectuez les étapes suivantes :
 
-    ![Message Signature Verification Method](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+    ![Méthode de vérification de la signature du message](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
     
     a. Sélectionnez **Certificate**.
 
@@ -236,11 +237,11 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être prov
 
 3. Dans la zone de texte **Email Address of New Members**, tapez un compte Azure AD à provisionner, puis sélectionnez **Next**.
 
-    ![Email addresses of new members](./media/central-desktop-tutorial/ic781052.png "Email addresses of new members")
+    ![Adresses e-mail des nouveaux membres](./media/central-desktop-tutorial/ic781052.png "Adresses e-mail des nouveaux membres")
 
 4. Sélectionnez **Add Internal member(s)** .
 
-    ![Add internal member](./media/central-desktop-tutorial/ic781053.png "Add internal member")
+    ![Ajouter un membre interne](./media/central-desktop-tutorial/ic781053.png "Ajouter un membre interne")
   
    > [!NOTE]
    > Les utilisateurs que vous ajoutez reçoivent un e-mail contenant un lien de confirmation pour l’activation de leur compte.
@@ -257,4 +258,4 @@ Le fait de cliquer sur la vignette Central Desktop dans le volet d’accès doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

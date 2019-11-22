@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 468d55b2b96979658bc8f3e226da36dc4af1c174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 463a8981689614d96100e03965117c9344aa5d50
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097951"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Didacticiel : Intégration d'Azure Active Directory à LogicMonitor
 
@@ -136,11 +137,11 @@ Pour configurer l’authentification unique Azure AD auprès de LogicMonitor, ef
 
 3. Dans la barre de navigation située à gauche, cliquez sur **Single Sign On**
 
-    ![Authentification unique](./media/logicmonitor-tutorial/ic790053.png "Authentification unique")
+    ![Authentification unique](./media/logicmonitor-tutorial/ic790053.png "Single Sign on")
 
 4. Dans la section **Single Sign-On SSO settings** , procédez comme suit :
 
-    ![Paramètres d’authentification unique](./media/logicmonitor-tutorial/ic790054.png "paramètres d’authentification unique")
+    ![Paramètres d’authentification unique](./media/logicmonitor-tutorial/ic790054.png "Paramètres d’authentification unique")
 
     a. Sélectionnez **Enable Single Sign-On**.
 
@@ -211,7 +212,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, ils doivent être 
 
 2. Dans le menu situé en haut, cliquez sur **Settings**, puis sur **Roles and Users**.
 
-    ![Rôles et utilisateurs](./media/logicmonitor-tutorial/ic790056.png "Rôles et utilisateurs")
+    ![Rôles et utilisateurs](./media/logicmonitor-tutorial/ic790056.png "Roles and Users")
 
 3. Cliquez sur **Add**.
 
@@ -240,5 +241,5 @@ Le fait de cliquer sur la vignette LogicMonitor dans le volet d’accès doit vo
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

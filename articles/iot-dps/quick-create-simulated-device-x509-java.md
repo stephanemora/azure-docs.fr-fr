@@ -1,23 +1,23 @@
 ---
-title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java | Microsoft Docs
+title: 'Démarrage rapide : Provisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java'
 description: 'Démarrage rapide Azure : Créer et approvisionner un appareil X.509 simulé à l’aide du Kit de développement logiciel (SDK) d’appareil Java pour le service IoT Hub Device Provisioning. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb7df108492d73e79b7f456a4c64063a2c6943de
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105996"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904827"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Ces étapes indiquent comment simuler un appareil X.509 sur votre ordinateur de développement exécutant le système d’exploitation Windows et comment utiliser l’exemple de code pour connecter cet appareil simulé au service Device Provisioning et à votre IoT hub. 
@@ -73,7 +73,7 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-2. Entrez **N** pour _Do you want to input common name_ (Voulez-vous saisir le nom commun ?). Copiez dans le Presse-papiers la sortie de `Client Cert`, de *-----BEGIN CERTIFICATE-----* à *-----END CERTIFICATE-----*.
+2. Entrez **N** pour _Do you want to input common name_ (Voulez-vous saisir le nom commun ?). Copiez dans le Presse-papiers la sortie de `Client Cert`, de *-----BEGIN CERTIFICATE-----* à *-----END CERTIFICATE-----* .
 
    ![Générateur de certificats individuels](./media/java-quick-create-simulated-device-x509/individual.png)
 

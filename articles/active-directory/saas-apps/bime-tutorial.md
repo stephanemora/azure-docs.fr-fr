@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106255"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Didacticiel : Intégration d'Azure Active Directory à Bime
 
@@ -136,11 +137,11 @@ Pour configurer l’authentification unique Azure AD avec Bime, effectuez les é
 
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Account**.
   
-    ![Administrateur](./media/bime-tutorial/ic775558.png "Administrateur")
+    ![Administrateur](./media/bime-tutorial/ic775558.png "Admin")
 
 3. Dans la page de configuration du compte, procédez comme suit :
   
-    ![Configurer l’authentification unique](./media/bime-tutorial/ic775559.png "Configurer l’authentification unique")
+    ![Configurer l’authentification unique](./media/bime-tutorial/ic775559.png "Configurer l'authentification unique")
 
     a. Sélectionnez **Activer l’authentification SAML**.
 
@@ -211,7 +212,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les
 
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Users**.
 
-    ![Administrateur](./media/bime-tutorial/ic775561.png "Administrateur")
+    ![Administrateur](./media/bime-tutorial/ic775561.png "Admin")
 
 3. Dans la **Users List**, cliquez sur **Add New User** (« + »).
 
@@ -219,7 +220,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les
 
 4. Dans la page de boîte de dialogue **User Details** , procédez comme suit :
 
-    ![Détails de l’utilisateur](./media/bime-tutorial/ic775563.png "Détails de l’utilisateur")
+    ![Détails de l’utilisateur](./media/bime-tutorial/ic775563.png "User Details")
 
     a. Dans la zone de texte **First name**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
@@ -244,5 +245,5 @@ Quand vous cliquez sur la vignette Bime dans le volet d’accès, vous devez êt
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

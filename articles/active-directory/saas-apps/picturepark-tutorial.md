@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094455"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory à Picturepark
 
@@ -117,7 +117,7 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
     | |
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Picturepark](https://picturepark.com/about/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Picturepark](https://picturepark.com/company/picturepark-customer-support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
@@ -144,15 +144,15 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
 
 2. Dans la barre d’outils située en haut, cliquez sur **Administrative tools**, puis sur **Management Console**.
    
-    ![Console de gestion](./media/picturepark-tutorial/ic795062.png "Console de gestion")
+    ![Console de gestion](./media/picturepark-tutorial/ic795062.png "Management Console")
 
 3. Cliquez sur **Authentication**, puis sur **Identity providers**.
    
-    ![Authentication](./media/picturepark-tutorial/ic795063.png "Authentication")
+    ![Authentification](./media/picturepark-tutorial/ic795063.png "Authentication")
 
 4. Dans la section **Identity provider configuration** , procédez comme suit :
    
-    ![Configuration du fournisseur d’identité](./media/picturepark-tutorial/ic795064.png "Configuration du fournisseur d’identité")
+    ![Configuration du fournisseur d’identité](./media/picturepark-tutorial/ic795064.png "Identity provider configuration")
    
     a. Cliquez sur **Add**.
   
@@ -234,11 +234,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Picturepark, vous de
 
 1. Dans l’onglet **Users overview**, cliquez sur **New**.
    
-    ![Gestion des utilisateurs](./media/picturepark-tutorial/ic795068.png "gestion des utilisateurs")
+    ![Gestion des utilisateurs](./media/picturepark-tutorial/ic795068.png "User Management")
 
 1. Dans la boîte de dialogue **Créer un utilisateur**, procédez comme suit pour un utilisateur Azure Active Directory valide que vous souhaitez approvisionner :
    
-    ![Créer un utilisateur](./media/picturepark-tutorial/ic795069.png "Créer un utilisateur")
+    ![Create User](./media/picturepark-tutorial/ic795069.png "Create User") (Créer un utilisateur)
    
     a. Dans la zone de texte **Email Address** (Adresse e-mail), entrez l’**adresse e-mail** de l’utilisateur `BrittaSimon@contoso.com`.  
    
@@ -276,5 +276,5 @@ Le fait de cliquer sur la vignette Picturepark dans le panneau d’accès doit v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

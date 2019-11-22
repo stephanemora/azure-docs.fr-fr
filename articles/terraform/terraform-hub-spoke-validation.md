@@ -1,22 +1,19 @@
 ---
-title: Valider un réseau hub-and-spoke avec Terraform dans Azure
+title: Tutoriel - Valider un réseau hub-and-spoke dans Azure avec Terraform
 description: Didacticiel pour valider une topologie de réseau hub-and-spoke avec tous les réseaux virtuels connectés entre eux.
-services: terraform
-ms.service: azure
-keywords: terraform, hub-and-spoke, réseaux, réseaux hybrides, devops, machine virtuelle, azure, vnet peering,
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169717"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969332"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Didacticiel : Valider un réseau hub-and-spoke avec Terraform dans Azure
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Didacticiel : Valider un réseau hub-and-spoke dans Azure avec Terraform
 
 Dans cet article, vous alles exécuter les fichiers Terraform créés dans l’article précédent de cette série. Le résultat est une validation de la connectivité entre les réseaux virtuels de démonstration.
 
@@ -39,7 +36,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 ## <a name="verify-your-configuration"></a>Vérifier votre configuration
 
-Après avoir rempli les [conditions préalables](#prerequisites), vérifiez que les fichiers de configuration appropriés sont présents.
+Après avoir rempli les [prérequis](#prerequisites), vérifiez que les fichiers de configuration appropriés sont présents.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 

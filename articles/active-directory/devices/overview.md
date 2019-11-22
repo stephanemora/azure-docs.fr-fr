@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851769"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175047"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -30,7 +30,7 @@ Pour protéger ces ressources, le personnel informatique doit tout d’abord gé
 - Vos utilisateurs ont accès aux ressources de votre organisation dont ils ont besoin. 
 - Votre personnel informatique obtient les contrôles nécessaires pour sécuriser votre organisation.
 
-La gestion des identités d’appareils est à la base de [l’accès conditionnel en fonction des appareils](../conditional-access/require-managed-devices.md). Avec les stratégies d’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement soit exclusivement réservé aux appareils gérés.
+La gestion des identités d’appareils est à la base de [l’accès conditionnel basé sur les appareils](../conditional-access/require-managed-devices.md). Avec les stratégies d’accès conditionnel basé sur les appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement soit possible seulement avec des appareils managés.
 
 ## <a name="getting-devices-in-azure-ad"></a>Obtenir des appareils dans Azure AD
 
@@ -94,4 +94,4 @@ La gestion des identités d’appareils dans Azure AD vous permet de :
 - En savoir plus sur les [appareils joints à Azure AD](concept-azure-ad-join.md)
 - En savoir plus sur les [appareils hybrides joints à Azure AD](concept-azure-ad-join-hybrid.md)
 - Pour obtenir une vue d’ensemble de la gestion des identités dans le portail Azure, consultez [Gestion des identités d’appareils via le portail Azure](device-management-azure-portal.md).
-- Pour en savoir plus sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Pour plus d’informations sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../conditional-access/require-managed-devices.md).

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757359"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044054"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
@@ -68,6 +68,6 @@ Vous pouvez également passer aux étapes suivantes pour apprendre à utiliser l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser les API de modération dans votre application.
-- Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou le [démarrage rapide C#](image-moderation-quickstart-dotnet.md) pour rechercher dans des images d’éventuels contenus pour adultes ou choquants à l’aide de balises, d’indices de confiance et d’autres informations extraites.
-- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou le [démarrage rapide C#](text-moderation-quickstart-dotnet.md) pour rechercher dans un texte des termes vulgaires, la classification de texte indésirable assistée par ordinateur (préversion) et des données personnelles.
+- Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou suivez le [guide de démarrage rapide du SDK .NET](dotnet-sdk-quickstart.md) pour analyser des images et détecter tout contenu potentiellement pour adultes ou choquant à l’aide d’étiquettes, d’indices de confiance et d’autres informations extraites.
+- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou le [guide de démarrage rapide du SDK .NET](dotnet-sdk-quickstart.md) pour rechercher dans un texte des termes vulgaires, du texte indésirable (fonctionnalité de classification de texte assistée par ordinateur, en préversion) et des données personnelles.
 - Implémentez la modération de vidéo. Suivez le [guide de modération vidéo pour C# ](video-moderation-api.md) afin d'analyser des vidéos et détecter tout contenu potentiellement pour adultes et choquant. 

@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091792"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
 
@@ -156,11 +157,11 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, ef
 
 2. Cliquez sur l’onglet **Trust** .
    
-    ![Trust](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
+    ![Approbation](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
 
 3. Dans la section Gestion des approbations, sous **Fournisseur de services local**, procédez comme suit :
 
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
+    ![Gestion des approbations](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gestion des approbations")
    
     a. Cliquez sur **Modifier**.
 
@@ -178,7 +179,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, ef
 
 4. Une fois les paramètres **Fournisseur de services local** enregistrés, procédez comme suit pour obtenir l’URL de réponse :
    
-    ![Obtenir les métadonnées](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obtenir les métadonnées")
+    ![Obtenir les métadonnées](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Get Metadata")
 
     a. Téléchargez le fichier de métadonnées SAP Cloud Platform en cliquant sur **Obtenir les métadonnées**.
 
@@ -188,7 +189,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, ef
 
 5. Cliquez sur l’onglet **Trusted Identity Provider**, puis sur **Add Trusted Identity Provider**.
    
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
+    ![Gestion des approbations](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Gestion des approbations")
    
     >[!NOTE]
     >Pour gérer la liste de fournisseurs d’identité approuvés, vous devrez avoir choisi le type de configuration Custom dans la section Local Service Provider. Pour le type de configuration Default, vous disposez d’une approbation non modifiable et implicite au SAP ID Service. Pour None, vous n’avez aucun paramètre d’approbation.
@@ -197,7 +198,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, ef
 
 6. Cliquez sur l’onglet **General**, puis sur **Browse** pour charger le fichier de métadonnées que vous avez téléchargé.
     
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Trust Management")
+    ![Gestion des approbations](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Gestion des approbations")
     
     >[!NOTE]
     >Après avoir téléchargé le fichier de métadonnées, les valeurs de **Authentification unique**, **URL de déconnexion unique** et de **Certificat de signature** sont remplies automatiquement.
@@ -320,5 +321,5 @@ Lorsque vous cliquez sur la vignette SAP Cloud Platform dans le volet d’accès
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

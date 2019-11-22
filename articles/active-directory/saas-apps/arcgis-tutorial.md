@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db56cd7551ef8179aeff575fdd1f2578cbee74ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106706"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Online
 
@@ -128,7 +129,7 @@ Pour configurer l’authentification unique Azure AD avec ArcGIS Online, effectu
 
 2. Cliquez sur **Edit Settings** (Modifier les paramètres).
 
-    ![Modifier les paramètres](./media/arcgis-tutorial/ic784742.png "Modifier les paramètres")
+    ![Modifier les paramètres](./media/arcgis-tutorial/ic784742.png "Edit Settings")
 
 3. Cliquez sur **Sécurité**.
 
@@ -140,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec ArcGIS Online, effectu
 
 5. Dans la page de configuration **Set Identity Provider** , procédez comme suit :
 
-    ![Définir le fournisseur d’identité](./media/arcgis-tutorial/ic784745.png "Définir le fournisseur d’identité")
+    ![Définir le fournisseur d’identité](./media/arcgis-tutorial/ic784745.png "Set Identity Provider")
 
     a. Dans la zone de texte **Name** (Nom), tapez le nom de votre organisation.
 
@@ -212,7 +213,7 @@ Pour ArcGIS Online, cette attribution s’effectue manuellement.
 
 2. Cliquez sur **Invite Members** (Inviter des membres).
    
-    ![Inviter des membres](./media/arcgis-tutorial/ic784747.png "Inviter des membres")
+    ![Inviter des membres](./media/arcgis-tutorial/ic784747.png "Invite Members")
 
 3. Sélectionnez **Add members automatically without sending an email** (Ajouter des membres automatiquement sans envoyer d’e-mail), puis cliquez sur **Next** (Suivant).
    
@@ -220,7 +221,7 @@ Pour ArcGIS Online, cette attribution s’effectue manuellement.
 
 4. Dans la page de boîte de dialogue **Members** , procédez comme suit :
    
-     ![Ajouter et vérifier](./media/arcgis-tutorial/ic784749.png "Ajouter et vérifier")
+     ![Ajouter et vérifier](./media/arcgis-tutorial/ic784749.png "Add And Review")
     
      a. Entrez **l’adresse e-mail**, le **prénom** et le **nom** d’un compte Azure AD valide que vous voulez attribuer.
   
@@ -244,5 +245,5 @@ Le fait de cliquer sur la vignette ArcGIS Online dans le panneau d’accès doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 710bb8cba7fbbe4bc9b9fdc52b0767c96f97fe72
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177682"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808847"
 ---
 ## <a name="create-base-resources"></a>Créer les ressources de base
 
-Avant de pouvoir configurer le routage des messages, vous devez créer un hub IoT, un compte de stockage et une file d’attente Service Bus. Ces ressources peuvent être créées en utilisant l’un des quatre articles disponibles pour la partie 1 de ce tutoriel : Azure CLI, Azure PowerShell, le portail Azure ou un modèle Azure Resource Manager.
+Avant de pouvoir configurer le routage des messages, vous devez créer un hub IoT, un compte de stockage et une file d’attente Service Bus. Ces ressources peuvent être créées en utilisant l’un des quatre articles disponibles pour la première partie de ce tutoriel : le portail Azure, un modèle Azure Resource Manager, l’interface Azure CLI ou Azure PowerShell.
 
 Utilisez le même groupe de ressources et le même emplacement pour toutes les ressources. À la fin du processus, vous pouvez supprimer toutes les ressources en une seule fois en supprimant le groupe de ressources.
 
-Les sections suivantes décrivent les étapes à effectuer.
+Vous trouverez ci-dessous un récapitulatif des étapes à effectuer dans les sections suivantes : 
 
 1. Créez un [groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md).
 

@@ -7,12 +7,12 @@ ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329735"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082819"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
@@ -91,7 +91,7 @@ Vous pouvez [réexaminer le message de file d’attente de stockage](#query-the-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure Functions avec Python, voir le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Pour obtenir des exemples de projets Functions complets en Python, consultez les [exemples Functions en Python](/samples/browse/?products=azure-functions&languages=python). 
+Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure Functions avec Python, voir le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Pour obtenir des exemples de projets Functions complets en Python, consultez les [exemples Functions en Python](/samples/browse/?products=azure-functions&languages=python). Pour en savoir plus sur le prix, consultez la [page de tarification des fonctions](https://azure.microsoft.com/pricing/details/functions/) et l’article [Estimation du coût d’un plan Consommation](functions-consumption-costs.md).
 
 Ensuite, vous devez activer la supervision Application Insights pour votre application de fonction :
 

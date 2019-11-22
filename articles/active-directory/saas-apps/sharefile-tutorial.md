@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091007"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -151,7 +152,7 @@ Pour configurer l’authentification unique Azure AD avec Citrix ShareFile, proc
 
 3. Dans le volet de navigation de gauche, sélectionnez **Configure Single Sign-On**.
    
-    ![Compte d’administration](./media/sharefile-tutorial/ic773627.png "Compte d’administration")
+    ![Administration des comptes](./media/sharefile-tutorial/ic773627.png "Administration des comptes")
 
 4. Dans la page de boîte de dialogue **Single Sign-On/ SAML 2.0 Configuration** sous **Basic Settings**, procédez comme suit :
    
@@ -230,7 +231,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Citrix ShareFile, vo
 
 2. Cliquez sur **Manage Users \> Manage Users Home \> + Create Employee**.
    
-    ![Create Employee](./media/sharefile-tutorial/IC781050.png "Create Employee")
+    ![Créer un employé](./media/sharefile-tutorial/IC781050.png "Créer un employé")
 
 3. Dans la section **Basic Information**, procédez comme suit :
    
@@ -259,5 +260,5 @@ Le fait de cliquer sur la vignette Citrix ShareFile dans le panneau d’accès d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

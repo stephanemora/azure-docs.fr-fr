@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 098dc5e2ab7d4b9533f58e03557db533eaa49a90
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264363"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931278"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
@@ -38,7 +38,7 @@ Avant toute chose, vous avez besoin d’un jeu de données d’entraînement dan
 
 Pour entraîner un modèle Form Recognizer à l’aide des documents de votre conteneur d’objets blob Azure, appelez l’API **Train (Entraîner)** en exécutant la commande cURL suivante. Avant d’exécuter la commande, apportez les modifications suivantes :
 
-1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
+1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 1. Remplacez `<SAS URL>` par l’URL de signature d’accès partagé (SAS) du conteur de stockage Azure Blob. Pour récupérer l’URL SAS, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
@@ -93,7 +93,7 @@ Notez la valeur `"modelId"`. Vous en aurez besoin dans les étapes suivantes.
 
 À présent, vous allez analyser un document et en extraire des tables et des paires clé-valeur. Appelez l’API **Model - Analyze (Modèle - Analyser)** en exécutant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
-1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
+1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à la section précédente.
 1. Remplacez `<path to your form>` par le chemin d’accès du fichier de votre formulaire (par exemple, C:\temp\file.pdf). Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Test** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Remplacez `<file type>` par le type de fichier. Types pris en charge : `application/pdf`, `image/jpeg`, `image/png`.

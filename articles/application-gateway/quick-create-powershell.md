@@ -1,21 +1,22 @@
 ---
-title: Démarrage rapide - Diriger le trafic web avec Azure Application Gateway - Azure PowerShell | Microsoft Docs
+title: 'Démarrage rapide : Diriger le trafic web à l’aide de PowerShell'
+titleSuffix: Azure Application Gateway
 description: Découvrez comment utiliser Azure PowerShell pour créer une passerelle d’application Azure qui dirige le trafic web vers les machines virtuelles d’un pool backend.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a55f602833cacd27cd82adafd888c67c544564c2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d5b0ebc2d1b64dd4be677c38de30af7f7a954637
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359978"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075099"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure PowerShell
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway à l’aide d’Azure PowerShell
 
 Ce guide de démarrage rapide vous montre comment utiliser Azure PowerShell pour créer rapidement une passerelle d’application.  Après avoir créé la passerelle d’application, vous la testez pour vous assurer qu’elle fonctionne correctement. Avec Azure Application Gateway, vous dirigez le trafic web de votre application vers des ressources spécifiques en affectant des écouteurs à des ports, en créant des règles et en ajoutant des ressources à un pool de back-ends. Par souci de simplicité, cet article utilise une configuration simple avec une adresse IP frontale publique, un écouteur de base pour héberger un site unique sur cette instance Application Gateway, deux machines virtuelles utilisées pour le pool principal et une règle d’acheminement de requête simple.
 

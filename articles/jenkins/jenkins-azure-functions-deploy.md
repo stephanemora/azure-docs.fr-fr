@@ -7,15 +7,15 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
-ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 10/23/2019
+ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815741"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882036"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Effectuer un déploiement sur Azure Functions à l’aide du plug-in Azure Functions Jenkins
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Effectuer un déploiement sur Azure Functions à l’aide du plug-in Azure Functions Jenkins
 
 [Azure Functions](/azure/azure-functions/) est un service de calcul sans serveur. À l’aide d’Azure Functions, vous pouvez exécuter du code à la demande sans provisionner ou gérer d’infrastructure. Ce tutoriel montre comment déployer une fonction Java sur Azure Functions à l’aide du plug-in Azure Functions.
 

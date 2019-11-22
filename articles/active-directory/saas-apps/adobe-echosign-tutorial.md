@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107330"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Sign
 
@@ -155,9 +156,9 @@ Pour configurer l’authentification unique Azure AD avec Adobe Sign, effectuez
 
 1. Dans la section **SAML Settings** (Paramètres SAML), procédez comme suit :
   
-   ![Capture d’écran des paramètres SAML](./media/adobe-echosign-tutorial/ic789521.png "Paramètres SAML")
+   ![Capture d’écran des paramètres SAML](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
-   ![Capture d’écran des paramètres SAML](./media/adobe-echosign-tutorial/ic789522.png "Paramètres SAML")
+   ![Capture d’écran des paramètres SAML](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings")
 
    a. Sous **Mode SAML**, sélectionnez **SAML obligatoire**.
    
@@ -241,7 +242,7 @@ Pour pouvoir se connecter à Adobe Sign, les utilisateurs d’Azure AD doivent 
    
 3. Dans la section **Create New User** (Créer un utilisateur), procédez comme suit :
    
-    ![Capture d’écran de la section Créer un utilisateur](./media/adobe-echosign-tutorial/ic789525.png "Créer un utilisateur")
+    ![Capture d’écran de la section Créer un utilisateur](./media/adobe-echosign-tutorial/ic789525.png "Create User")
    
     a. Tapez l’**Adresse e-mail**, le **Prénom** et le **Nom** d’un compte Azure AD valide que vous souhaitez provisionner dans les zones de texte correspondantes.
    
@@ -262,5 +263,5 @@ Le fait de cliquer sur la vignette Adobe Sign dans le panneau d’accès doit vo
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

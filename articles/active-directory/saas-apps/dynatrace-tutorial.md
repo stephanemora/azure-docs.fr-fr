@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db69cfbf86cf9f33b84273b9e4da6696897467d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377301"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Dynatrace
 
@@ -48,7 +48,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Dynatrace prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 > [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+> L’identificateur de cette application est une valeur de chaîne fixe. Une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-dynatrace-from-the-gallery"></a>Ajout de Dynatrace à partir de la galerie
 
@@ -68,10 +68,10 @@ Configurez et testez l’authentification unique Azure AD avec Dynatrace pour un
 Pour configurer et tester l’authentification unique Azure AD avec Dynatrace, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Dynatrace](#configure-dynatrace-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Dynatrace](#create-dynatrace-test-user)** pour disposer dans Dynatrace d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
+    * **[Créer un utilisateur de test Dynatrace](#create-dynatrace-test-user)** pour disposer dans Dynatrace d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -84,15 +84,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section  **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le  **fournisseur d’identité**  et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton  **Enregistrer** .
+1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes pour configurer l’application en mode lancement par le **fournisseur de services** :
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://sso.dynatrace.com/`
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**. Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
+
+1. Dans la section **Certificat de signature SAML**, sélectionnez le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**. Effectuez ensuite les tâches suivantes :
+
+    ![Modifier le certificat de signature SAML](common/edit-certificate.png)
+
+    a. Le paramètre **Option de signature** est prérempli. Vérifiez les paramètres selon votre organisation.
+
+    b. Cliquez sur **Enregistrer**.
+
+    ![Option de signature Communifire](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
 1. Dans la section **Configurer Dynatrace**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
@@ -124,31 +134,30 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-dynatrace-sso"></a>Configurer l’authentification unique Dynatrace
 
-Pour configurer l’authentification unique côté **Dynatrace**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Dynatrace](https://www.dynatrace.com/services-support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Dynatrace**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Dynatrace](https://www.dynatrace.com/services-support/). Celle-ci configure ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-dynatrace-test-user"></a>Créer un utilisateur de test Dynatrace
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans Dynatrace. Dynatrace prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Dynatrace, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans Dynatrace. Dynatrace prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Dynatrace, il en est créé un après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Dynatrace dans le volet d’accès, vous devez être connecté automatiquement à l’application Dynatrace pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Dynatrace dans le volet d’accès, vous devez être connecté automatiquement à l’application Dynatrace, pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer Dynatrace avec Azure AD](https://aad.portal.azure.com/)
-

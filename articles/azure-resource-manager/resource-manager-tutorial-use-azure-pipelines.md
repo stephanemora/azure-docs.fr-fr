@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597259"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052199"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Didacticiel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -223,7 +223,7 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Ouvrez le groupe de ressources. Son nom correspond à ce que vous avez spécifié dans le fichier YAML du pipeline.  Vous devriez voir un compte de stockage créé.  Le nom du compte de stockage commence par **store** (stocker).
 1. Sélectionnez le nom du compte de stockage pour l’ouvrir.
-1. Sélectionner **Propriétés**. Notez que le **SKU** est **Standard_LRS**.
+1. Sélectionner **Propriétés**. Notez que le paramètre **Réplication** a pour valeur **Stockage localement redondant (LRS)** .
 
     ![Azure Resource Manager, Azure DevOps, Azure Pipelines, vérification du portail](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ Lorsque vous mettez à jour le modèle et transmettez les modifications dans le 
 
     Une fois la branche principale du référentiel distant mise à jour, le pipeline redéclenché.
 
-Pour vérifier les modifications, vous pouvez examiner la référence (SKU) du compte de stockage.  Veuillez consulter la section [Vérifier le déploiement](#verify-the-deployment).
+Pour vérifier les modifications, vous pouvez examiner la propriété Réplication du compte de stockage.  Veuillez consulter la section [Vérifier le déploiement](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

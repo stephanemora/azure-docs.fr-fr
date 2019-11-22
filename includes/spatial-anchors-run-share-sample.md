@@ -4,14 +4,35 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903925"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882310"
 ---
-## <a name="set-up-your-device-in-unity"></a>Configurer votre appareil dans Unity
+## <a name="androidtabandroid"></a>[Android](#tab/Android)
+
+L’exemple Android Java prend en charge le partage entre appareils.
+Ouvrez le fichier `SharedActivity.java` se trouvant dans le dossier d’exemples d’Android Studio. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="iostabios"></a>[iOS](#tab/iOS)
+
+L’exemple iOS Objective-C prend en charge le partage entre appareils.
+Ouvrez le fichier `SharedDemoViewController.m` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+
+Les exemples Xamarin Android et iOS prennent en charge le partage entre appareils.
+Ouvrez le fichier `AccountDetails.cs` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `AnchorSharingServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unitytabunity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -45,10 +66,7 @@ Sous **Scenes In Build** (Scènes dans la build), assurez-vous que toutes les sc
 
 Assurez-vous que la case **Export Project** (Exporter le projet) n’est pas cochée. Sélectionnez **Build And Run** (Générer et exécuter). Vous êtes invité à enregistrer votre fichier `.apk`. Vous pouvez choisir n’importe quel nom pour celui-ci.
 
-Une fois que l’application démarre, dans la boîte de dialogue **Choisir une démonstration**, utilisez les flèches gauche et droite pour sélectionner l’option **LocalShare**, puis appuyez sur **Aller !** . Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée).
-
-Le premier scénario vous permet de créer une ancre qui peut être localisée par la suite sur le même appareil ou un autre.
-Si vous avez déjà exécuté l’application sur le même appareil ou un autre, le deuxième scénario vous permet de localiser les ancres partagées antérieurement. Après avoir choisi votre scénario, l’application vous guide avec des instructions supplémentaires pour les tâches à effectuer. Par exemple, vous serez invité à déplacer votre appareil pour collecter des informations sur l’environnement. Par la suite vous allez placer une ancre dans le monde, attendre qu’elle enregistre et ainsi de suite.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### <a name="deploy-to-an-ios-device"></a>Déployer sur un appareil iOS
 
@@ -58,9 +76,6 @@ Sous **Scenes In Build** (Scènes dans la build), assurez-vous que toutes les sc
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Une fois que l’application démarre, dans la boîte de dialogue **Choisir une démonstration**, utilisez les flèches gauche et droite pour sélectionner l’option **LocalShare**, puis appuyez sur **Aller !** . Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée).
-
-Le premier scénario vous permet de créer une ancre qui peut être localisée par la suite sur le même appareil ou un autre.
-Si vous avez déjà exécuté l’application sur le même appareil ou un autre, le deuxième scénario vous permet de localiser les ancres partagées antérieurement. Après avoir choisi votre scénario, l’application vous guide avec des instructions supplémentaires pour les tâches à effectuer. Par exemple, vous serez invité à déplacer votre appareil pour collecter des informations sur l’environnement. Par la suite vous allez placer une ancre dans le monde, attendre qu’elle enregistre et ainsi de suite.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 Dans Xcode, arrêtez l’application en sélectionnant **Stop**.

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096631"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à Mozy Enterprise
 
@@ -129,11 +130,11 @@ Pour configurer l’authentification unique Azure AD avec Mozy Enterprise, proc�
 
 2. Dans la section **Configuration**, cliquez sur **Authentication Policy**.
    
-    ![Stratégie d’authentification](./media/mozy-enterprise-tutorial/ic777314.png "Stratégie d’authentification")
+    ![Stratégie d’authentification](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
 
 3. Dans la section **Authentication Policy** , procédez comme suit :
    
-    ![Stratégie d’authentification](./media/mozy-enterprise-tutorial/ic777315.png "Stratégie d’authentification")
+    ![Stratégie d’authentification](./media/mozy-enterprise-tutorial/ic777315.png "Authentication Policy")
    
     a. Sélectionnez **Directory Service** comme **Provider**.
    
@@ -222,7 +223,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mozy Enterprise, vou
     
 3. Dans la boîte de dialogue New User, procédez comme suit :
    
-    ![Ajouter des utilisateurs](./media/mozy-enterprise-tutorial/ic777318.png "ajouter des utilisateurs")
+    ![Ajout d’utilisateurs](./media/mozy-enterprise-tutorial/ic777318.png "Ajouter des utilisateurs")
    
     a. Dans la liste **Choose a Group** , sélectionnez un groupe.
    
@@ -251,5 +252,5 @@ Le fait de cliquer sur la vignette Mozy Enterprise dans le panneau d’accès do
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

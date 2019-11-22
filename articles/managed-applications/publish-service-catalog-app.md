@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528999"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053836"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Créer et publier une définition d’application gérée
 
@@ -87,7 +87,7 @@ Enregistrez le fichier mainTemplate.json.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Définition de votre expérience de création à l’aide de CreateUiDefinition.json
 
-En tant qu’éditeur, vous définissez votre expérience de création à l’aide du fichier **createUiDefinition.json**, qui génère l’interface pour les utilisateurs qui créent des applications managées. Vous définissez la manière dont les utilisateurs fournissent une entrée pour chaque paramètre à l’aide des [éléments de contrôle] (create-uidefinition-elements.md), notamment les listes déroulantes, les zones de texte et les zones de mot de passe.
+En tant qu’éditeur, vous définissez votre expérience de création à l’aide du fichier **createUiDefinition.json**, qui génère l’interface pour les utilisateurs qui créent des applications managées. Vous définissez la manière dont les utilisateurs fournissent une entrée pour chaque paramètre à l’aide d’[éléments de contrôle](create-uidefinition-elements.md), notamment les listes déroulantes, les zones de texte et les zones de mot de passe.
 
 Créez un fichier **createUiDefinition.json** (ce nom doit respecter la casse).
 

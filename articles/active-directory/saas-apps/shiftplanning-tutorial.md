@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090959"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Didacticiel : Intégration d’Azure Active Directory à Humanity
 
@@ -132,14 +133,14 @@ Pour configurer l’authentification unique Azure AD avec Humanity, effectuez l
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
 
-    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Administrateur")
+    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. Sous **Integration**, cliquez sur **Single Sign-On**.
 
-    ![Authentification unique](./media/shiftplanning-tutorial/iC786620.png "Authentification unique")
+    ![Authentification unique](./media/shiftplanning-tutorial/iC786620.png "Single Sign on")
 
 4. Dans la section **Single Sign-On** , procédez comme suit :
 
-    ![Authentification unique](./media/shiftplanning-tutorial/iC786905.png "Authentification unique")
+    ![Authentification unique](./media/shiftplanning-tutorial/iC786905.png "Single Sign on")
 
     a. Sélectionnez **SAML Enabled**.
 
@@ -214,19 +215,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous deve
 
 2. Cliquez sur **Admin**.
 
-    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Administrateur")
+    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
 3. Cliquez sur **Staff**.
 
-    ![Staff](./media/shiftplanning-tutorial/ic786623.png "Staff")
+    ![Personnel](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
 4. Sous **Actions**, cliquez sur **Ajouter des employés**.
 
-    ![Add Employees](./media/shiftplanning-tutorial/iC786624.png "Add Employees")
+    ![Ajouter des employés](./media/shiftplanning-tutorial/iC786624.png "Add employees")
 
 5. Dans la section **Add employees** , procédez comme suit :
 
-    ![Save Employees](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
+    ![Enregistrer des employés](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
 
     a. Indiquez dans les zones de texte correspondantes le **prénom**, le **nom** et **l’e-mail** du compte AAD valide que vous souhaitez approvisionner.
 
@@ -247,4 +248,4 @@ Le fait de cliquer sur la vignette Humanity dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

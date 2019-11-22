@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
+title: 'Didacticiel : Analyser les données Azure HDInsight Apache Spark avec Power BI'
 description: Didacticiel - Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035693"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241357"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
 
@@ -78,11 +78,11 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 
 2. Sous l'onglet **Accueil**, accédez à **Obtenir les données** > **Autres...**
 
-    ![Obtenir des données dans Power BI Desktop à partir d’HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtenir des données dans Power BI à partir d’Apache Spark BI")
+    ![Obtenir des données dans Power BI Desktop à partir de HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtenir des données dans Power BI à partir d’Apache Spark BI")
 
 3. Entrez `Spark` dans la zone de recherche, sélectionnez **Azure HDInsight Spark**, puis choisissez **Se connecter**.
 
-    ![Obtenir des données dans Power BI à partir d’Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtenir des données dans Power BI à partir Apache Spark BI")
+    ![Obtenir des données dans Power BI à partir d’Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtenir des données dans Power BI à partir d’Apache Spark BI")
 
 4. Entrez l'URL de votre cluster (sous la forme `mysparkcluster.azurehdinsight.net`) dans la zone de texte **Serveur**.
 
@@ -108,13 +108,13 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 
         Le diagramme a l’aspect suivant :
 
-        ![somme du graphique en aires](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "somme du graphique en aires")
+        ![somme de graphique en aires](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "somme de graphique en aires")
 
         Par défaut, la visualisation affiche la somme des valeurs des champs **ActualTemp** et **TargetTemp**. Sélectionnez la flèche bas en regard d'**ActualTemp** et **TragetTemp** dans le volet Visualisations ; vous pouvez voir que **Somme** est sélectionné.
 
     3. Cliquez sur la flèche bas en regard d'**ActualTemp** et **TragetTemp** dans le volet Visualisations ; sélectionnez **Moyenne** pour obtenir une moyenne des températures réelle et cible de chaque bâtiment.
 
-        ![moyenne des valeurs](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "moyenne des valeurs")
+        ![moyenne de valeurs](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "moyenne de valeurs")
 
         La visualisation de vos données sera semblable à celle illustrée dans la capture d’écran. Déplacez le curseur sur la visualisation pour obtenir des info-bulles contenant des données pertinentes.
 
@@ -134,7 +134,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Sélectionnez l’espace de travail sur lequel vous souhaiter publier vos jeu de données et rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
 
-    ![Sélectionner l’espace de travail sur lequel publier le jeu de données et le rapport](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Sélectionner l’espace de travail sur lequel publier le jeu de données et le rapport") 
+    ![Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports") 
 
 1. Une fois la publication réussie, cliquez sur **Ouvrir 'BuildingTemperature.pbix' dans Power BI**.
 
@@ -154,7 +154,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Dans le volet gauche, accédez à **Espace de travail** > **Mon espace de travail** > **RAPPORTS**, puis cliquez sur **BuildingTemperature**.
 
-    ![Rapport répertorié sous Rapports dans le volet gauche](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport répertorié sous Rapports dans le volet gauche")
+    ![Rapport figurant sous rapports dans le volet de gauche](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport figurant sous rapports dans le volet de gauche")
 
     Vous devez également voir **BuildingTemperature** sous **JEUX DE DONNÉES** dans le volet gauche.
 

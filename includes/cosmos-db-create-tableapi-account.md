@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: b9c585e460dd2ed650de2b3a90b33c1d30eec43e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0747862158462089fa2696823ad6659259cc5c09
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67176811"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818610"
 ---
-Pour obtenir des instructions sur la création d’un compte d’API de table Azure Cosmos DB, consultez [Create a Table API account](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) (Créer un compte d’API de table).
+Pour obtenir des instructions sur la création d’un compte d’API Table Azure Cosmos DB, consultez [Créer un compte de base de données](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).

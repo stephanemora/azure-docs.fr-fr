@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562499"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933469"
 ---
 Sélectionnez **Build**. Dans la boîte de dialogue qui s’ouvre, sélectionnez un dossier de destination pour exporter le projet Xcode.
 
@@ -33,7 +33,7 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Si l’erreur `library not found for -lPods-Unity-iPhone` s’affiche, vous avez probablement ouvert le fichier `.xcodeproj` à la place de `.xcworkspace`. 
+> Si vous rencontrez des problèmes avec CocoaPod après la mise à niveau vers macOS Catalina (10.15), consultez ces [étapes de dépannage](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015).
 
 Sélectionnez le nœud racine **Unity-iPhone** pour voir les paramètres du projet, puis sélectionnez l’onglet **General**.
 
@@ -50,3 +50,6 @@ Connectez l’appareil iOS au Mac et définissez le **schéma actif** sur votre 
 Sélectionnez **Build and then run the current scheme**.
 
 ![Déployer et exécuter](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> Si l’erreur `library not found for -lPods-Unity-iPhone` s’affiche, vous avez probablement ouvert le fichier `.xcodeproj` à la place de `.xcworkspace`.

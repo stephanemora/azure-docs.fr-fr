@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka - Azure HDInsight '
+title: 'Didacticiel : API de producteur et de consommateur Apache Kafka – Azure HDInsight'
 description: Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Dans ce didacticiel, vous allez apprendre à utiliser ces API avec Kafka sur HDInsight à partir d’une application Java.
 author: dhgoelmsft
 ms.author: dhgoel
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446412"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242010"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -59,9 +59,9 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -112,7 +112,7 @@ Dans ce code, le consommateur est configuré pour procéder à la lecture à par
 
 ### <a name="runjava"></a>Run.java
 
-Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fournit une interface de ligne de commande qui exécute le code producteur ou consommateur. Vous devez fournir les informations relatives à l’hôte de répartition Kafka en tant que paramètre. Vous pouvez également inclure une valeur d’ID de groupe, utilisée par le processus consommateur. Si vous créez plusieurs instances de consommateur à l’aide du même ID de groupe, ces dernières équilibrent la charge lors de la lecture à partir de la rubrique.
+Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fournit une interface de ligne de commande qui exécute le code producteur ou consommateur. Vous devez fournir les informations relatives à l’hôte de répartition Kafka en tant que paramètre. Vous pouvez également inclure une valeur d’ID de groupe, utilisée par le processus consommateur. Si vous créez plusieurs instances de consommateur en utilisant le même ID de groupe, elles équilibrent la charge de lecture à partir de la rubrique.
 
 ## <a name="build-and-deploy-the-example"></a>Générer et déployer l’exemple
 
@@ -140,47 +140,48 @@ Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Installez [jq](https://stedolan.github.io/jq/), un processeur JSON en ligne de commande. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
+1. Installez [jq](https://stedolan.github.io/jq/), un processeur JSON en ligne de commande. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Définissez les variables d’environnement. Remplacez `PASSWORD` et `CLUSTERNAME` par le mot de passe de connexion du cluster et le nom du cluster respectivement, puis entrez la commande :
+1. Configurez une variable de mot de passe. Remplacez `PASSWORD` par le mot de passe de connexion du cluster, puis entrez la commande :
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, la stocke dans une variable, puis affiche le nom avec la casse correcte et le nom que vous avez fourni précédemment. Entrez la commande suivante :
+1. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.  
 
-5. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez la commande suivante :
+1. Pour obtenir les hôtes du répartiteur Kafka, utilisez les commandes suivantes :
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-6. Pour créer la rubrique Kafka, `myTest`, entrez la commande suivante :
+    > [!Note]  
+    > Cette commande nécessite un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez cette commande à partir d’un ordinateur qui peut accéder à Ambari.
+
+1. Pour créer la rubrique Kafka, `myTest`, entrez la commande suivante :
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. Pour exécuter le producteur et écrire des données dans la rubrique, utilisez la commande suivante :
+1. Pour exécuter le producteur et écrire des données dans la rubrique, utilisez la commande suivante :
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Une fois que le producteur a terminé, utilisez la commande suivante pour lire à partir de la rubrique :
+1. Une fois que le producteur a terminé, utilisez la commande suivante pour lire à partir de la rubrique :
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -188,7 +189,7 @@ Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
 
     Les enregistrements lus et le nombre d’enregistrements s’affichent.
 
-9. Utilisez __Ctrl + C__ pour quitter le consommateur.
+1. Utilisez __Ctrl + C__ pour quitter le consommateur.
 
 ### <a name="multiple-consumers"></a>Consommateurs multiples
 
@@ -217,7 +218,7 @@ La consommation par les clients au sein du même groupe est gérée par le biais
 > [!IMPORTANT]  
 > Il ne peut pas y avoir plus d’instances de consommateurs dans un groupe de consommateurs que de partitions. Dans cet exemple, un groupe de consommateurs peut contenir jusqu’à huit consommateurs puisque c’est le nombre de partitions de la rubrique. Vous pouvez également disposer de plusieurs groupes de consommateurs, chacun ne dépassant pas huit consommateurs.
 
-Les enregistrements stockés dans Kafka sont stockés dans l’ordre de réception dans une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.
+Les enregistrements stockés dans Kafka le sont dans l’ordre de réception au sein d’une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

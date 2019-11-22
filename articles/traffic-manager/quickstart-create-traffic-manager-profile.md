@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications à l’aide du portail Azure
+title: 'Démarrage rapide : Créer un profil pour la haute disponibilité des applications - Portail Azure - Azure Traffic Manager'
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224665"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032696"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une application web déployée dans deux régions Azure différentes (*USA Est* et *Europe Ouest*). Chacune servira de point de terminaison principal et de point de terminaison de basculement à Traffic Manager.
 
@@ -71,7 +71,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
     | Resource group | Sélectionnez *myResourceGroupTM1*.|
     | Location |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
@@ -88,7 +88,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Nom | Entrez *myPrimaryEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **USA Est**. |
-    | Priorité | Sélectionnez **1**. Tout le trafic se dirige vers ce point de terminaison quand il est sain. |
+    | Priority | Sélectionnez **1**. Tout le trafic se dirige vers ce point de terminaison quand il est sain. |
 
     ![Capture d’écran montrant à quel endroit vous ajoutez un point de terminaison à votre profil Traffic Manager.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
 
@@ -101,7 +101,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Nom | Entrez *myFailoverEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **Europe Ouest**. |
-    | Priorité | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |
+    | Priority | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |
 
 7. Sélectionnez **OK**.
 

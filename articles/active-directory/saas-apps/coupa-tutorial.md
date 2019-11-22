@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 031a88bb8a8832fbe7acb124436cce6aaeb02e21
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104546"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 
@@ -146,11 +147,11 @@ Pour configurer l’authentification unique Azure AD avec Coupa, effectuez les �
 
 2. Accédez à **Setup \> Security controls**.
 
-    ![Security Controls](./media/coupa-tutorial/ic791900.png "Security Controls")
+    ![Contrôles de sécurité](./media/coupa-tutorial/ic791900.png "Security Controls")
 
 3. Dans la section **Log in using Coupa credentials** , procédez comme suit :
 
-    ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
+    ![Métadonnées SP Coupa](./media/coupa-tutorial/ic791901.png "Métadonnées SP Coupa")
 
     a. Sélectionnez **Log in using SAML**.
 
@@ -225,11 +226,11 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
 
 3. Cliquez sur **Créer**.
 
-    ![Create Users](./media/coupa-tutorial/ic791909.png "Create Users")
+    ![Créer des utilisateurs](./media/coupa-tutorial/ic791909.png "Créer des utilisateurs")
 
 4. Dans la section **User Create** , procédez comme suit :
 
-    ![Détails de l’utilisateur](./media/coupa-tutorial/ic791910.png "Détails de l’utilisateur")
+    ![Détails de l’utilisateur](./media/coupa-tutorial/ic791910.png "User Details")
 
     a. Tapez l’ID de connexion, le prénom, le nom, l’ID d’authentification unique et l’adresse électronique d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte **Login**, **First name**, **Last Name**, **Single Sign-On ID** et **Email**.
 
@@ -254,5 +255,5 @@ Quand vous cliquez sur la vignette Coupa dans le volet d’accès, vous devez ê
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219af24aceea9291e34a9854d230b5dc6bd85fdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0753a061b698adb3c79ccde6856799c8928cd9f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107572"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Didacticiel : Intégration d'Azure Active Directory à 15Five
 
@@ -191,7 +192,7 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
 2. Accédez à **Manage Company**.
 
-    ![Gérer l’entreprise](./media/15five-tutorial/ic784675.png "Gérer l’entreprise")
+    ![Gérer la société](./media/15five-tutorial/ic784675.png "Manage Company")
 
 3. Accédez à **People (Personnes) \> Add PEOPLE (Ajouter des personnes)** .
 
@@ -199,7 +200,7 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
 4. Dans la section **Add New Person** (Ajouter une nouvelle personne), effectuez les étapes suivantes :
 
-    ![Ajouter une nouvelle personne](./media/15five-tutorial/ic784677.png "Ajouter une nouvelle personne")
+    ![Ajouter une nouvelle personne](./media/15five-tutorial/ic784677.png "Add New Person")
 
     a. Tapez le **prénom**, le **nom**, la **fonction** et **l’adresse de messagerie** du compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
 
@@ -220,4 +221,4 @@ Quand vous cliquez sur la vignette 15Five dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

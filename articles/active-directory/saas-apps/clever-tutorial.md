@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 999f947170528c1ae89a1cf44f714e96af7bddbf
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9c06953f84339da2a27155b721b050d9d33e2363
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136916"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Didacticiel : Intégration d’Azure Active Directory à Clever
 
@@ -154,14 +155,14 @@ Pour configurer l’authentification unique Azure AD avec Clever, effectuez les
 
 1. Dans la barre d’outils, cliquez sur **Instant Login**.
 
-    ![Instant Login](./media/clever-tutorial/ic798984.png "Instant Login")
+    ![Connexion instantanée](./media/clever-tutorial/ic798984.png "Instant Login")
 
     > [!NOTE]
     > Avant de pouvoir tester l’authentification unique, vous devez contacter l[’équipe du support Clever Client](https://clever.com/about/contact/) pour activer l’authentification unique Office 365 dans le back end.
 
 1. Dans la page **Instant Login** , procédez comme suit :
     
-      ![Instant Login](./media/clever-tutorial/ic798985.png "Instant Login")
+      ![Connexion instantanée](./media/clever-tutorial/ic798985.png "Instant Login")
     
       a. Renseignez le champ **Login URL**.
     
@@ -246,5 +247,5 @@ Le fait de cliquer sur la vignette Clever dans le panneau d’accès doit vous c
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

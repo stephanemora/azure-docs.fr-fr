@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102041"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Didacticiel : Intégration d’Azure Active Directory à FreshDesk
 
@@ -169,7 +170,7 @@ Pour configurer l’authentification unique Azure AD avec FreshDesk, effectuez l
 
 2. Sélectionnez l’icône **Settings** (Paramètres) et, dans la section **Security** (Sécurité), procédez comme suit :
 
-    ![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
+    ![Authentification unique](./media/freshdesk-tutorial/IC776770.png "Authentification unique")
   
     a. Pour **Single Sign On (SSO)** , sélectionnez **On**.
 
@@ -245,7 +246,7 @@ Dans le cas de FreshDesk, l’approvisionnement est une tâche manuelle.
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
 
-    ![Administrateur](./media/freshdesk-tutorial/IC776772.png "Administrateur")
+    ![Administrateur](./media/freshdesk-tutorial/IC776772.png "Admin")
 
 3. Dans l’onglet **General Settings**, cliquez sur **Agents**.
   
@@ -253,11 +254,11 @@ Dans le cas de FreshDesk, l’approvisionnement est une tâche manuelle.
 
 4. Cliquez sur **New Agent**.
 
-    ![New Agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
+    ![Nouvel agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
 
 5. Dans la boîte de dialogue Agent Information, procédez comme suit :
 
-    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
+    ![Informations sur l’agent](./media/freshdesk-tutorial/IC776775.png "Informations sur l’agent")
 
     a. Dans la zone de texte **Email** , tapez l’adresse de messagerie Azure AD du compte Azure AD que vous souhaitez approvisionner.
 
@@ -285,5 +286,5 @@ Quand vous cliquez sur la vignette FreshDesk dans le volet d’accès, vous deve
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

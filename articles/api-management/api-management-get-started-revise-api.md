@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: dd591f18ad2abb8603270f4c570c7ef311bdadae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072567"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176780"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utiliser des révisions pour apporter des modifications sans rupture en toute sécurité
 Une fois que votre API est prête et commence à être utilisée par les développeurs, vous devez finir par lui apporter des modifications sans interrompre les appelants de l’API. Il est également utile d’informer les développeurs des modifications apportées. Les **révisions** le permettent dans Gestion des API Azure. Pour plus d’informations, consultez [Versions et révisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) et [Gestion des versions d’API avec la Gestion des API Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -92,10 +92,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 2. Sélectionnez **Portail des développeurs** dans le menu supérieur.
 3. Sélectionnez **API**, puis **API de conférence de démonstration**.
 4. Notez que votre nouvelle opération **test** est désormais disponible.
-5. Sélectionnez **Historique des modifications de l’API** sous le nom de l’API.
+5. Cliquez sur **Journal des modifications** en regard du nom de l’API.
 6. Notez que l’entrée du journal des modifications apparaît dans cette liste.
-
-    ![Portail des développeurs](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

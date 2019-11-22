@@ -1,17 +1,14 @@
 ---
 title: Exemples de requêtes de démarrage
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes de démarrage, notamment compter des ressources ou les trier, par exemple selon une étiquette spécifique.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: ca7fc2ba3e952f93f85c677eb8a8a7322901c7d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622507"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076112"
 ---
 # <a name="starter-resource-graph-queries"></a>Requêtes Resource Graph de démarrage
 
@@ -253,7 +250,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> Même si `=~` autorise la mise en correspondance sans respect de la casse, sachez que l’utilisation de propriétés comme **properties.storageProfile.osDisk.osType** dans la requête nécessite le respect de la casse. Une valeur peut toujours être retournée si la casse de la propriété est incorrecte, mais la totalisation ou le regroupement serait erroné.
+> Même si `=~` autorise la mise en correspondance sans respect de la casse, sachez que l’utilisation de propriétés comme **properties.storageProfile.osDisk.osType** dans la requête nécessite le respect de la casse. Si la casse de la propriété est incorrecte, une valeur null ou incorrecte est retournée et la totalisation ou le regroupement est erroné.
 
 ## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />Afficher les ressources contenant du stockage
 

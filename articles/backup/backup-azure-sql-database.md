@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437822"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162204"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -45,20 +45,10 @@ Avant de commencer, contrôlez les points suivants :
 **Support** | **Détails**
 --- | ---
 **Déploiements pris en charge** | Les machines virtuelles Azure de la Place de marché SQL et les machines virtuelles autres que celles de la Place de marché (sur lesquelles SQL Server est installé manuellement) sont prises en charge.
-**Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE), Australie Centre (AC), Australie Centre 2 (AC) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS), Inde Ouest <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW) <br> US Gov Arizona, US Gov Virginie, US Gov Texas, US DoD Centre, US DoD Est <br> Allemagne Nord, Allemagne Centre-Ouest <br> Suisse Nord, Suisse Ouest
-**Systèmes d’exploitation pris en charge** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux n’est pas actuellement pris en charge.
-**Versions de SQL Server prises en charge** | SQL Server 2017 comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 et Service Packs comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**Versions .NET prises en charge** | .NET Framework 4.5.2 et versions ultérieures installées sur la machine virtuelle
-
-### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Prise en charge pour SQL Server 2008 et SQL Server 2008 R2
-
-Sauvegarde Azure a récemment annoncé la prise en charge des serveurs [EOS SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support), SQL Server 2008 et SQL Server 2008 R2. La solution est actuellement en préversion pour EOS SQL Server et prend en charge de la configuration suivante :
-
-1. SQL Server 2008 et SQL Server 2008 R2 s’exécutant sur Windows 2008 R2 SP1
-2. .NET Framework 4.5.2 et versions ultérieures à installer sur la machine virtuelle
-3. La sauvegarde pour l’ICF et les bases de données miroir n’est pas prise en charge
-
-Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Prenez connaissance des [prérequis](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2.
+**Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE), Australie Centre (AC), Australie Centre 2 (AC) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS), Inde Ouest <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW) <br> US Gov Arizona, US Gov Virginie, US Gov Texas, US DoD Centre, US DoD Est <br> Allemagne Nord, Allemagne Centre-Ouest <br> Suisse Nord, Suisse Ouest <br> France Centre <br> Chine Est, Chine Est 2, Chine Nord, Chine Nord 2
+**Systèmes d’exploitation pris en charge** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux n’est pas actuellement pris en charge.
+**Versions de SQL Server prises en charge** | SQL Server 2019, SQL Server 2017 comme indiqué dans la [page Rechercher le cycle de vie des produits](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 et différents SP comme indiqué dans la [page Rechercher le cycle de vie des produits](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versions .NET prises en charge** | .NET Framework 4.5.2 ou ultérieur installé sur la machine virtuelle
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 

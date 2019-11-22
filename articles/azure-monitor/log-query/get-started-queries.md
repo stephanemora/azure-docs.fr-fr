@@ -1,34 +1,23 @@
 ---
 title: Bien démarrer avec les requêtes de journal dans Azure Monitor | Microsoft Docs
 description: Cet article fournit un tutoriel pour commencer à écrire des requêtes de journal dans Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: tutorial
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076756"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933041"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
-
-> [!NOTE]
-> Vous devez terminer [Bien démarrer avec l’analytique des journaux d’activité Azure Monitor](get-started-portal.md) avant de suivre ce tutoriel.
-
 > [!NOTE]
 > Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://portal.loganalytics.io/demo), qui comporte de nombreux exemples de données.
-
 
 Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
 
@@ -42,6 +31,10 @@ Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal da
 
 Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md).<br>
 Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
+
+Suivez une version vidéo de ce tutoriel ci-dessous :
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Écriture d’une nouvelle requête
 Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.

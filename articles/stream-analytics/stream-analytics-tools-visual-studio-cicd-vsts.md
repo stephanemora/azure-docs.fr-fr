@@ -1,5 +1,5 @@
 ---
-title: Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure DevOps
+title: Déployer des travaux Azure Stream Analytics avec CI/CD et Azure DevOps
 description: Cet article décrit le déploiement d’un travail Stream Analytics avec CI/CD à l’aide d’Azure DevOps Services.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727585"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925082"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
 Ce tutoriel explique comment configurer l’intégration et le déploiement continus pour un travail Azure Stream Analytics à l’aide d’Azure Pipelines. 
@@ -117,7 +117,7 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
     
     |**Paramètre**  |**Valeur suggérée**  |
     |---------|---------|
-    |Abonnement  |  Choisissez votre abonnement.   |
+    |Subscription  |  Choisissez votre abonnement.   |
     |Action  |  Créer ou mettre à jour un groupe de ressources   |
     |Groupe de ressources  |  Entrez un nom de groupe de ressources.   |
     |Modèle  | [Chemin d’accès de votre solution]\bin\Debug\Deploy\\[Nom de votre projet].JobTemplate.json   |

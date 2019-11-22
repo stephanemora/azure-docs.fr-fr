@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097339"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Didacticiel : Intégration d’Azure Active Directory à Mimecast Admin Console
 
@@ -139,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec Mimecast Admin Console
 
 3. Cliquez sur **Authentication Profiles**.
 
-    ![Profils d’authentification](./media/mimecast-admin-console-tutorial/ic794999.png "Profils d’authentification")
+    ![Profils d’authentification](./media/mimecast-admin-console-tutorial/ic794999.png "Authentication Profiles")
     
 4. Cliquez sur **New Authentication Profile**.
 
@@ -147,7 +148,7 @@ Pour configurer l’authentification unique Azure AD avec Mimecast Admin Console
 
 5. Dans la section **Authentication Profile** , procédez comme suit :
 
-    ![Profil d’authentification](./media/mimecast-admin-console-tutorial/ic795015.png "Profil d’authentification")
+    ![Profil d’authentification](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile")
     
     a. Dans la zone de texte **Description** , indiquez un nom pour votre configuration.
     
@@ -233,19 +234,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mimecast Admin Conso
 
 2. Accédez à **Directories \> Internal**.
    
-    ![Répertoires](./media/mimecast-admin-console-tutorial/ic795003.png "Répertoires")
+    ![Directories](./media/mimecast-admin-console-tutorial/ic795003.png "Répertoires")
 
 3. Cliquez sur **Register New Domain**.
    
-    ![Enregistrer un nouveau domaine](./media/mimecast-admin-console-tutorial/ic795004.png "Enregistrer un nouveau domaine")
+    ![Inscrire un nouveau domaine](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain")
 
 4. Après avoir créé votre domaine, cliquez sur **New Address**.
    
-    ![Nouvelle adresse](./media/mimecast-admin-console-tutorial/ic795005.png "Nouvelle adresse")
+    ![Nouvelle adresse](./media/mimecast-admin-console-tutorial/ic795005.png "New Address")
 
 5. Dans la boîte de dialogue New Address, procédez comme suit :
    
-    ![Enregistrer](./media/mimecast-admin-console-tutorial/ic795006.png "enregistrer")
+    ![Save](./media/mimecast-admin-console-tutorial/ic795006.png "Enregistrer")
    
     a. Tapez l’adresse e-mail, le nom global, le mot de passe et sa confirmation pour un compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Email Address**, **Global Name**, **Password** et **Confirm Password**.
 
@@ -266,5 +267,5 @@ Quand vous cliquez sur la vignette Mimecast Admin Console dans le panneau d’ac
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

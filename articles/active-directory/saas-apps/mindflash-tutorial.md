@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 97e38c62da74444f1f229f12e42d98e75a6e5073
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097198"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Didacticiel : Intégration d'Azure Active Directory à Mindflash
 
@@ -190,13 +191,13 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous deve
 
 1. Accédez à **Gérer les utilisateurs**.
    
-    ![Gestion des utilisateurs](./media/mindflash-tutorial/ic787140.png "Gestion des utilisateurs")
+    ![Gérer les utilisateurs](./media/mindflash-tutorial/ic787140.png "Manage Users")
 
 1. Cliquez sur **Add Users**, puis sur **New**.
 
 1. Dans la section **Ajouter de nouveaux utilisateurs**, appliquez la procédure ci-après pour un compte Azure AD valide que vous souhaitez approvisionner :
    
-    ![Ajouter de nouveaux utilisateurs](./media/mindflash-tutorial/ic787141.png "Ajouter de nouveaux utilisateurs")
+    ![Ajouter de nouveaux utilisateurs](./media/mindflash-tutorial/ic787141.png "Add New Users")
    
     a. Dans la zone de texte **Prénom**, entrez le **prénom** de l’utilisateur. Ici, il s’agit de **Britta**.
 
@@ -222,5 +223,5 @@ Le fait de cliquer sur la vignette Mindflash dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

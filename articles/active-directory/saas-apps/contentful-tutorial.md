@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ffad0656169c49268eac6aa4a107f3445cba614
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599722"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968673"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Contentful
 
@@ -48,18 +48,18 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Contentful prend en charge le provisionnement d’utilisateur **juste-à-temps**
 
 > [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+> L’identificateur de cette application est une valeur de chaîne fixe. Une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-contentful-from-the-gallery"></a>Ajout de Contentful à partir de la galerie
 
 Pour configurer l’intégration de Contentful à Azure AD, vous devez ajouter Contentful à partir de la galerie à votre liste d’applications SaaS managées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Contentful** dans la zone de recherche.
-1. Sélectionnez **Contentful** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Sélectionnez **Contentful** dans les résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-contentful"></a>Configurer et tester l’authentification unique Azure AD pour Contentful
 
@@ -84,30 +84,30 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous voulez configurer l’application en mode lancé par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://be.contentful.com/sso/<organization_id>/consume`
+    - Dans la zone de texte **URL de réponse**, copiez l’URL ACS (Assertion Consumer Service) à partir de la page de configuration de l’authentification unique dans Contentful. Elle se présente comme suit : `https://be.contentful.com/sso/<organization_id>/consume`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous voulez configurer l’application en mode lancé par le **fournisseur de services** :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://be.contentful.com/sso/<organization_id>/login`
+    - Dans la zone de texte **URL de connexion**, copiez la même URL ACS (Assertion Consumer Service). Elle se présente comme suit : `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support client Contentful](mailto:support@contentful.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles en copiant l’URL ACS (Assertion Consumer Service) à partir de la page de configuration de l’authentification unique dans Contentful.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificateraw.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer Contentful**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Contentful**, copiez l’URL de connexion pour configurer l’authentification unique Contentful.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+    ![Copier les URL de configuration](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `B.Simon`.  
@@ -129,13 +129,22 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de la page.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de la page.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-contentful-sso"></a>Configurer l’authentification unique Contentful
 
-Pour configurer l’authentification unique côté **Contentful**, vous devez envoyer le **certificat (brut)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Contentful](mailto:support@contentful.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Effectuez les étapes suivantes pour configurer l’authentification unique côté **Contentful**.
+
+1. Dans [Contentful](https://app.contentful.com), accédez à la page de configuration de l’authentification unique dans **Organization Settings** (Paramètres de l’organisation).
+1. Cliquez sur **Set up SSO** (Configurer l’authentification unique).
+1. Copiez et collez l’URL de connexion à partir de la section **Configurer Contentful** dans Azure AD.
+1. Copiez et collez le certificat à partir du fichier de certificat base64 que vous avez téléchargé à partir d’Azure AD.
+1. Configurez un nom SSO pour la connexion lancée par le fournisseur de service.
+1. Cliquez sur **Enable SSO** (Activer l’authentification unique).
+
+Si cela ne fonctionne pas, contactez l’[équipe de support technique Contentful](mailto:support@contentful.com).
 
 ### <a name="create-contentful-test-user"></a>Créer un utilisateur de test Contentful
 
@@ -149,7 +158,7 @@ Quand vous cliquez sur la vignette Contentful dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

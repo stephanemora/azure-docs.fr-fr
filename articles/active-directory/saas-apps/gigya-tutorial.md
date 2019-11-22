@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9925e11325c87598f90af1b677246eca805e6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101702"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Didacticiel : Intégration d’Azure Active Directory à Gigya
 
@@ -131,7 +132,7 @@ Pour configurer l’authentification unique Azure AD avec Gigya, effectuez les 
 
 2. Accédez à **Settings \> SAML Login**, puis cliquez sur le bouton **Add**.
    
-    ![Connexion SAML](./media/gigya-tutorial/ic789532.png "Connexion SAML")
+    ![Connexion SAML](./media/gigya-tutorial/ic789532.png "SAML login")
 
 3. Dans la section **SAML Login** , procédez comme suit :
    
@@ -210,7 +211,7 @@ Pour se connecter à Gigya, les utilisateurs d’Azure AD doivent être approvis
 
 2. Accédez à **Admin \> Manage Users**, puis cliquez sur **Invite Users**.
    
-    ![Gestion des utilisateurs](./media/gigya-tutorial/ic789535.png "Gestion des utilisateurs")
+    ![Gérer les utilisateurs](./media/gigya-tutorial/ic789535.png "Manage Users")
 
 3. Dans la boîte de dialogue Invite Users, procédez comme suit :
    
@@ -236,5 +237,5 @@ Quand vous cliquez sur la vignette Gigya dans le volet d’accès, vous devez ê
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

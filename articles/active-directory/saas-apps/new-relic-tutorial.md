@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096269"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Didacticiel : Intégration d’Azure Active Directory à New Relic
 
@@ -128,11 +129,11 @@ Pour configurer l’authentification unique Azure AD avec New Relic, procédez 
 
 2. Dans le menu situé en haut, cliquez sur **Account Settings**.
    
-    ![Paramètres de compte](./media/new-relic-tutorial/ic797036.png "Paramètres de compte")
+    ![Paramètres du compte](./media/new-relic-tutorial/ic797036.png "Account Settings")
 
 3. Cliquez sur l’onglet **Security and authentication**, puis sur l’onglet **Single sign on**.
    
-    ![Authentification unique](./media/new-relic-tutorial/ic797037.png "Authentification unique")
+    ![Authentification unique](./media/new-relic-tutorial/ic797037.png "Single Sign on")
 
 4. Dans la page de boîte de dialogue SAML, procédez comme suit :
    
@@ -207,15 +208,15 @@ Pour se connecter à New Relic, les utilisateurs d’Azure Active Directory doiv
 
 2. Dans le menu situé en haut, cliquez sur **Account Settings**.
    
-    ![Paramètres de compte](./media/new-relic-tutorial/ic797040.png "Paramètres de compte")
+    ![Paramètres du compte](./media/new-relic-tutorial/ic797040.png "Account Settings")
 
 3. Dans le volet **Account** situé sur le côté gauche, cliquez sur **Summary**, puis sur **Add user**.
    
-    ![Paramètres de compte](./media/new-relic-tutorial/ic797041.png "Paramètres de compte")
+    ![Paramètres du compte](./media/new-relic-tutorial/ic797041.png "Account Settings")
 
 4. Dans la boîte de dialogue **Active users** , procédez comme suit :
    
-    ![Utilisateurs actifs](./media/new-relic-tutorial/ic797042.png "Utilisateurs actifs")
+    ![Utilisateurs actifs](./media/new-relic-tutorial/ic797042.png "Active users")
    
     a. Dans la zone de texte **Email** , tapez l’adresse de messagerie d’un utilisateur Azure Active Directory valide à approvisionner.
 
@@ -239,5 +240,5 @@ Le fait de cliquer sur la vignette New Relic dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

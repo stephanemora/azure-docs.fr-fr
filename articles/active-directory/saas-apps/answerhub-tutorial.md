@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227495"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
 
@@ -144,7 +145,7 @@ Dans cette section, vous allez configurer l’authentification unique pour Answe
 
 4. Sous l’onglet **IDP Config** (Configurer le fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Onglet Users & Groups](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Onglet Users & Groups](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
     a. Dans la zone **IDP Login URL** (URL de connexion du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
   
@@ -189,7 +190,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Sélectionnez **Créer**.
+    d. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -254,5 +255,5 @@ Quand vous sélectionnez la vignette AnswerHub dans le volet d’accès, vous de
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

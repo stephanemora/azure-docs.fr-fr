@@ -1,19 +1,19 @@
 ---
 title: 'Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Didacticiel - Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: f256adfd1fc970512cad5fb93ec235fc27a50373
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446396"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817749"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight
 
@@ -61,9 +61,9 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -72,7 +72,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
 
     * `maven-compiler-plugin`: permet de définir la version Java utilisée par le projet à la version 8. Java 8 est la version requise par HDInsight 3.6.
-    * `maven-shade-plugin`: permet de générer un fichier uber jar qui contient cette application, ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, afin que vous puissiez exécuter directement le fichier JAR sans spécifier la classe principale.
+    * `maven-shade-plugin`: permet de générer un fichier uber jar qui contient cette application, ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, si bien que vous pouvez exécuter directement le fichier Jar sans spécifier la classe principale.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -159,31 +159,30 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     sudo apt -y install jq
     ```
 
-3. Définissez les variables d’environnement. Remplacez `PASSWORD` et `CLUSTERNAME` par le mot de passe de connexion du cluster et le nom du cluster respectivement, puis entrez la commande :
+3. Configurez une variable de mot de passe. Remplacez `PASSWORD` par le mot de passe de connexion du cluster, puis entrez la commande :
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, la stocke dans une variable, puis affiche le nom avec la casse correcte et le nom que vous avez fourni précédemment. Entrez la commande suivante :
-
+4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
+    > [!Note]  
+    > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.  
 
 5. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
-    export KAFKABROKERS=`curl -sS -u admin:$password -G \
-    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
+
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
+
+> [!Note]  
+> Ces commandes nécessitent un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez ces commandes à partir d’un ordinateur qui peut accéder à Ambari. 
 
 6. Pour créer les rubriques utilisées par l’opération de diffusion en continu, utilisez les commandes suivantes :
 
@@ -231,7 +230,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     Les paramètres `--property` indiquent au consommateur de console qu’il faut imprimer la clé (mot) et le nombre (valeur). Ce paramètre configure également le désérialiseur à utiliser lors de la lecture de ces valeurs à partir de Kafka.
 
     Le résultat ressemble au texte suivant :
-   
+
         dwarfs  13635
         ago     13664
         snow    13636

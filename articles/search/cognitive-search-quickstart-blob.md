@@ -1,5 +1,5 @@
 ---
-title: Créer un ensemble de compétences cognitives dans le portail Azure
+title: 'Démarrage rapide : Créer un ensemble de compétences dans le portail Azure'
 titleSuffix: Azure Cognitive Search
 description: Utilisez l’Assistant Importation de données pour ajouter des compétences cognitives à un pipeline d’indexation. Les compétences cognitives incluent l’OCR (reconnaissance optique de caractères) et le traitement en langage naturel.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 14d2751f55f3df26277b1210b9201eed61409c6b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792077"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113355"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Démarrage rapide : Créer un ensemble de compétences cognitives pour la Recherche cognitive Azure dans le portail Azure
 

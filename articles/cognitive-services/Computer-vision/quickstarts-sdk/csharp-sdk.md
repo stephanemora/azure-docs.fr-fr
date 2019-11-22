@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 27884d83b9ca828a81922d27fe958334665e664a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 45cf376d54ef9f2e77acb2ece9529af640938853
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719532"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931773"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour .NET
 
@@ -108,7 +108,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
 > [!NOTE]
-> Ce guide de démarrage rapide part du principe que vous avez [créé une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé Vision par ordinateur, nommée `COMPUTER_VISION_SUBSCRIPTION_KEY`.
+> Ce guide de démarrage rapide suppose que vous avez [créé des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison Vision par ordinateur nommées `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 Dans une nouvelle méthode, instanciez un client avec votre point de terminaison et la clé. Créez un objet [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) à l’aide de votre clé, puis utilisez-le avec votre point de terminaison pour créer un objet [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet).
 
@@ -199,7 +199,7 @@ Le code suivant imprime les attributs de couleur détectés dans l’image, comm
 
 ### <a name="get-domain-specific-content"></a>Obtenir le contenu spécifique à un domaine
 
-La Vision par ordinateur peut utiliser un modèle spécialisé pour effectuer une analyse approfondie des images. Pour plus d’informations, consultez [Contenu spécifique à un domaine](../concept-detecting-domain-content.md). 
+La Vision par ordinateur peut utiliser des modèles spécialisés pour effectuer une analyse approfondie des images. Pour plus d’informations, consultez [Contenu spécifique à un domaine](../concept-detecting-domain-content.md). 
 
 Le code suivant analyse des données relatives aux célébrités détectées dans l’image.
 
