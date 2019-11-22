@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: Vue d’ensemble d’Azure Blueprint
+    - name: Qu’est-ce qu’Azure Blueprint ?
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
 - name: Démarrages rapides
