@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications avec Azure PowerShell
+title: 'Démarrage rapide : Créer un profil pour assurer une haute disponibilité à vos applications – Azure PowerShell – Azure Traffic Manager'
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: allensu
-ms.openlocfilehash: ce05d594555095c061e43df2464b906138811448
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b1a0040c3cf6d517b19445be689dcc786334325
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051118"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038846"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Démarrage rapide : Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications web avec Azure PowerShell
 

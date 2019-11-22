@@ -156,7 +156,7 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Publier des routes personnalisées vers des clients P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
+    - name: Créer une passerelle redondante interzone
       href: create-zone-redundant-vnet-gateway.md
     - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md

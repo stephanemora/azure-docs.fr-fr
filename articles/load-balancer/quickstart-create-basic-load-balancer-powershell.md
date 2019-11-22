@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un équilibrage de charge de base - Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: Ce démarrage rapide montre comment créer un équilibreur de charge de base à l’aide de PowerShell
+titleSuffix: Azure Load Balancer
+description: Avec ce démarrage rapide, créez un équilibreur de charge de base à l’aide de PowerShell.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0743c1aff07014e83d72c43bdf85ad2d36f31d0a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075984"
 ---
-# <a name="get-started"></a>Démarrage rapide : Créer un équilibreur de charge public à l’aide d’Azure PowerShell
+# <a name="get-started"></a>Démarrage rapide : Créer un équilibreur de charge public à l’aide d’Azure PowerShell
 
 Ce démarrage rapide vous montre comment créer un équilibreur de charge de base à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles.
 

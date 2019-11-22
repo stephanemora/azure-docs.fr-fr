@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562404"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111831"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Démarrage rapide : Créer une application HoloLens avec Azure Spatial Anchors, en C++/WinRT et DirectX
 
@@ -58,7 +58,7 @@ Localisez le champ `SpatialAnchorsAccountId` et remplacez `Set me` par l’ident
 
 Pour **Configuration de la solution**, choisissez **Mise en production**, pour **Plateforme de solution** choisissez **x86**, puis sélectionnez **Appareil**  dans les options de cible de déploiement.
 
-Si vous utilisez HoloLens 2, utilisez **ARM** comme **plateforme de solution** au lieu de **x86**.
+Si vous utilisez HoloLens 2, utilisez **ARM64** comme **plateforme de solution** au lieu de **x86**.
 
 ![Configuration de Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 

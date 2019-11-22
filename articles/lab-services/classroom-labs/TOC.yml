@@ -40,6 +40,8 @@
           href: class-type-ethical-hacking.md
         - name: Gestion de bases de données
           href: class-type-database-management.md
+        - name: Python et Jupyter Notebooks
+          href: class-type-jupyter-notebook.md
     - name: Créer et configurer des comptes lab (propriétaire de compte lab)
       items:
         - name: Créer et gérer des comptes lab

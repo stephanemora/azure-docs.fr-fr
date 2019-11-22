@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire dans Azure Active Directory | Microsoft Docs
+title: Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire – Azure AD
 description: Liste de liens vers des articles sur la manière d’enregistrer et de réinitialiser votre mot de passe professionnel ou scolaire sans assistance de l’administrateur.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160604"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028505"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire
 
@@ -34,5 +34,5 @@ Pour obtenir des informations détaillées et des instructions sur l’inscripti
 
 |Article |Description |
 |------|------------|
-| [S’inscrire pour la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) ] Instructions pour la vérification des méthodes d’authentification et l’inscription à la réinitialisation de mot de passe en libre-service afin de pouvoir réinitialiser votre mot de passe.|
-| [Réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md) ] Instructions pour la réinitialisation et le déverrouillage du mot de passe d’un compte professionnel ou scolaire.|
+| [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md) | Instructions pour la vérification des méthodes d’authentification et l’inscription à la réinitialisation de mot de passe en libre-service de sorte à pouvoir réinitialiser votre mot de passe. |
+| [Réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md) | Instructions pour la réinitialisation et le déverrouillage du mot de passe d’un compte professionnel ou scolaire. |

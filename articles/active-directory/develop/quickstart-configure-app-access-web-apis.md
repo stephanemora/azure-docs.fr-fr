@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473692"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106615"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web
 
@@ -171,13 +171,40 @@ Pour ajouter des informations d’identification à votre application web :
 Pour ajouter des autorisations d’accéder aux API de ressources à partir de votre client :
 
 1. Sélectionner la section **Autorisations API** sur la **page de présentation** de l’application.
-1. Cliquez sur le bouton **Ajouter une autorisation**.
+1. Sous la section **Autorisations configurées**, sélectionnez le bouton **Ajouter une autorisation**.
 1. Par défaut, la vue vous permet de faire votre choix parmi des **API Microsoft**. Sélectionnez la section d’API qui vous intéresse :
     * **API Microsoft** : vous permet de sélectionner les autorisations pour des API Microsoft telles que Microsoft Graph.
     * **API utilisées par mon organisation** : vous permet de sélectionner les autorisations pour les API qui ont été exposées par votre organisation, ou des API que votre organisation a intégrées.
     * **Mes API** : vous permet de sélectionner les autorisations pour les API que vous avez exposées.
 1. Une fois que vous avez sélectionné les API, vous accédez à la page **Demander des autorisations d’API**. Si l’API expose à la fois des autorisations déléguées et des autorisations d’applications, sélectionnez le type d’autorisation nécessaire pour votre application.
 1. Lorsque vous avez terminé, sélectionnez **Ajouter des autorisations**. Vous revenez alors à la page **Autorisations d’API**, dans laquelle les autorisations ont été enregistrées et ajoutées à la table.
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Compréhension des autorisations d'API et de l’interface utilisateur du consentement administrateur
+
+### <a name="configured-permissions"></a>Autorisations configurées
+
+Cette section présente les autorisations qui ont été configurées explicitement sur l’objet d’application (les autorisations qui font partie de la liste d’accès aux ressources requises de l’application). Vous pouvez ajouter ou supprimer des autorisations de cet tableau. En tant qu’administrateur, vous pouvez également accorder/révoquer le consentement d’administrateur pour un ensemble d’autorisations d’API ou d’autorisations individuelles dans cette section.
+
+### <a name="other-permissions-granted"></a>Autres autorisations accordées
+
+Si votre application est inscrite dans un locataire, vous pouvez voir une section supplémentaire intitulée **Autres autorisations accordées pour le locataire**. Cette section présente les autorisations qui ont été accordées pour le locataire, mais qui n’ont pas été explicitement configurées sur l’objet d’application (par exemple, les autorisations qui ont été demandées et convenues dynamiquement). Cette section s’affiche uniquement s’il existe au moins une autorisation qui s’applique.
+
+Vous pouvez ajouter un ensemble d’autorisations d’API ou des autorisations individuelles qui s’affichent dans cette section à la section **Autorisations configurées**. En tant qu’administrateur, vous pouvez également révoquer le consentement de l’administrateur pour des API ou des autorisations individuelles dans cette section.
+
+### <a name="admin-consent-button"></a>Bouton de consentement administrateur
+
+Si votre application est inscrite dans un locataire, vous verrez un bouton **Accorder le consentement administrateur pour le locataire**. Elle sera désactivée si vous n’êtes pas administrateur ou si aucune autorisation n’a été configurée pour l’application.
+Ce bouton permet à un administrateur d’accorder facilement le consentement administrateur aux autorisations configurées pour l’application. En cliquant sur le bouton de consentement administrateur, vous lancez une nouvelle fenêtre avec une invite de consentement qui affiche toutes les autorisations configurées.
+
+> [!NOTE]
+> Il y a un délai entre les autorisations configurées pour l’application et celles figurant sur l’invite de consentement. Si vous ne voyez pas toutes les autorisations configurées dans l’invite de consentement, fermez-l’invite et relancez-la.
+
+Si vous disposez d’autorisations qui ont été accordées mais non configurées, lorsque vous cliquez sur le bouton de consentement administrateur, vous êtes invité à décider comment gérer ces autorisations. Vous pouvez les ajouter aux autorisations configurées ou vous pouvez les supprimer.
+
+L’invite de consentement donne la possibilité d’**accepter** ou d’**annuler**. Si vous sélectionnez **Accepter**, le consentement administrateur est accordé. Si vous sélectionnez **Annuler**, le consentement administrateur n’est pas accordé et une erreur s’affiche indiquant que le consentement a été refusé.
+
+> [!NOTE]
+> Il y a un délai entre l’octroi du consentement administrateur (sélection d’**Accepter** sur l’invite de consentement) et l’état du consentement administrateur à être reflété dans l’interface utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

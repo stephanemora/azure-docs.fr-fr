@@ -1,20 +1,20 @@
 ---
-title: Ce guide de démarrage rapide montre comment utiliser une clé symétrique pour provisionner un appareil simulé auprès d’Azure IoT Hub à l’aide de C | Microsoft Docs
+title: 'Démarrage rapide : Comment utiliser une clé symétrique pour provisionner un appareil simulé auprès d’Azure IoT Hub à l’aide de C'
 description: Dans ce guide de démarrage rapide, vous allez utiliser le SDK device pour C pour créer un appareil simulé qui utilise une clé symétrique avec le service Azure IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 31e71e942d7bd3f7a9739eeb83bd3ed250bb2c61
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a5016587240dfcc0813b7f1e23cd574e82bb935
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909017"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904865"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil simulé avec des clés symétriques
 

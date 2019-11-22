@@ -1,21 +1,21 @@
 ---
-title: Ce démarrage rapide vous montre comment inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Python | Microsoft Docs
+title: 'Démarrage rapide : Comment inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Python'
 description: Ce démarrage rapide utilise des inscriptions de groupe. Dans ce guide de démarrage rapide, vous allez inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide de Python
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 23ae0bd9e66cbb592db0ec9adea5e4332a9aa19b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500768"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904719"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec Python
 
@@ -148,4 +148,4 @@ Si vous prévoyez d’explorer davantage l’exemple de service pour Java, ne ne
 Dans ce guide de démarrage rapide, vous avez inscrit un groupe simulé d’appareils X.509 auprès du service d’approvisionnement d’appareil. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
 
 > [!div class="nextstepaction"]
-> [Tutoriels relatifs au service IoT Hub Device Provisioning](./tutorial-set-up-cloud.md)
+> [Didacticiels relatifs au service d’approvisionnement d’appareil Azure IoT Hub](./tutorial-set-up-cloud.md)

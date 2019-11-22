@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire - Azure Active Directory | Microsoft Docs
+title: Vérification de la sécurité et de votre compte professionnel ou scolaire – Azure AD
 description: Découvrez comment configurer vos méthodes de vérification de sécurité pour utiliser la vérification à deux facteurs avec votre compte professionnel ou scolaire.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615997"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028462"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>Vérification à deux facteurs et de votre compte professionnel ou scolaire
 
 Vous avez reçu un e-mail d’une personne du service informatique ou de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte. Qu’est-ce que cela signifie ? Cela signifie que votre organisation effectue des étapes supplémentaires pour s’assurer que vous êtes bien celui que vous prétendez être lorsque vous vous connectez. Cette vérification supplémentaire, également appelée vérification à deux facteurs, s’effectue via une combinaison de votre nom d’utilisateur, de votre mot de passe et d’un appareil mobile ou d’un téléphone.
 

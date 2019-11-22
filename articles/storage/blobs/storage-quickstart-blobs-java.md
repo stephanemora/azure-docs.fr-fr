@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a7cd61854176dc702f213211b14c2361b3e433ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5196dbbfb52ce75031a53764b371d6d34b43fba7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825357"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091413"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Storage Blob v12 pour Java
 
@@ -24,7 +24,7 @@ Bien démarrer avec la bibliothèque de client Azure Storage Blob v12 pour Java.
 Utilisez la bibliothèque de client Azure Storage Blob pour Java v12 pour :
 
 * Créez un conteneur.
-* Charger un objet blob dans Stockage Azure
+* Charger un blob dans le stockage Azure
 * Lister tous les objets blob d’un conteneur
 * Télécharger un objet blob sur votre ordinateur local
 * Supprimer un conteneur
@@ -48,7 +48,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 Créez une application Java nommée *blob-quickstart-v12*.
 
-1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *blob-quickstart-v12*. Tapez la commande **mvn** suivante sur une seule ligne pour créer un simple projet Java « Hello World ! » . La commande s’affiche ici sur plusieurs lignes pour améliorer la lisibilité.
+1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *blob-quickstart-v12*. Tapez la commande **mvn** suivante sur une seule ligne pour créer un simple projet Java « Hello World ! ». La commande s’affiche ici sur plusieurs lignes pour améliorer la lisibilité.
 
    ```console
    mvn archetype:generate -DgroupId=com.blobs.quickstart
@@ -183,7 +183,7 @@ export CONNECT_STR="<yourconnectionstring>"
 export CONNECT_STR="<yourconnectionstring>"
 ```
 
-#### <a name="restart-programs"></a>Redémarrer les programmes
+#### <a name="restart-programs"></a>Redémarrer des programmes
 
 Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez votre environnement de développement ou éditeur avant de continuer.
 
@@ -193,7 +193,7 @@ Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de donn�
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
-* Un objet blob dans le conteneur
+* Un blob dans le conteneur
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -201,11 +201,11 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Java suivantes pour interagir avec ces ressources :
 
-* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) : La classe `BlobServiceClient` permet de manipuler des ressources de stockage Azure et des conteneurs d’objets Blob. Le compte de stockage fournit l’espace de noms de niveau supérieur pour le service BLOB.
-* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder) : La classe `BlobServiceClientBuilder` fournit une API de générateur Fluent pour faciliter la configuration et l’instanciation d’objets `BlobServiceClient`.
-* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs Stockage Azure et leurs objets blob.
-* [BlobClient](/java/api/com.azure.storage.blob.blobclient) : La classe `BlobClient` vous permet de manipuler des objets blob Stockage Azure.
-* [BlobItem](/java/api/com.azure.storage.blob.blobitem) : La classe `BlobItem` représente des objets blob retournés par un appel à `listBlobsFlat`.
+* [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html) : La classe `BlobServiceClient` permet de manipuler des ressources de stockage Azure et des conteneurs d’objets Blob. Le compte de stockage fournit l’espace de noms de niveau supérieur pour le service BLOB.
+* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html) : La classe `BlobServiceClientBuilder` fournit une API de générateur Fluent pour faciliter la configuration et l’instanciation d’objets `BlobServiceClient`.
+* [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs Stockage Azure et leurs objets blob.
+* [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) : La classe `BlobClient` vous permet de manipuler des objets blob Stockage Azure.
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html) : La classe `BlobItem` représente des objets blob retournés par un appel à `listBlobsFlat`.
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -243,7 +243,7 @@ Choisissez un nom pour le nouveau conteneur. Le code ci-dessous ajoute une valeu
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Ensuite, créez une instance de la classe [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient), puis appelez la méthode [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) pour créer le conteneur dans votre compte de stockage.
+Ensuite, créez une instance de la classe [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html), puis appelez la méthode [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#create--) pour créer le conteneur dans votre compte de stockage.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -263,8 +263,8 @@ BlobContainerClient containerClient = blobServiceClient.createBlobContainer(cont
 L’extrait de code suivant :
 
 1. Crée un fichier texte dans le répertoire *data* local.
-1. Obtient une référence à un objet [BlobClient](/java/api/com.azure.storage.blob.blobclient) en appelant la méthode [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) sur le conteneur évoqué dans la section [Créer un conteneur](#create-a-container).
-1. Charge le fichier texte local dans l’objet Blob en appelant la méthode [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+1. Obtient une référence à un objet [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) en appelant la méthode [getBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#getBlobClient-java.lang.String-) sur le conteneur évoqué dans la section [Créer un conteneur](#create-a-container).
+1. Charge le fichier texte local dans l’objet Blob en appelant la méthode [uploadFromFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html#uploadFromFile-java.lang.String-). Cette méthode crée l’objet blob s’il n’existe pas déjà, mais ne le remplacera pas s’il existe.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -290,7 +290,7 @@ blobClient.uploadFromFile(localPath + fileName);
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-Répertoriez les objets blob dans le conteneur en appelant la méthode [listBlobsFlat](/java/api/com.azure.storage.blob.blobcontainerclient.listblobsflat). Dans ce cas, un seul objet blob a été ajouté au conteneur. Il n’y a donc qu’un objet blob répertorié.
+Répertoriez les objets Blob dans le conteneur en appelant la méthode [list_Blobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#listBlobs--). Dans ce cas, un seul objet blob a été ajouté au conteneur. Il n’y a donc qu’un objet blob répertorié.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -305,7 +305,7 @@ for (BlobItem blobItem : containerClient.listBlobs()) {
 
 ### <a name="download-blobs"></a>Télécharger des objets blob
 
-Téléchargez l’objet blob créé précédemment en appelant la méthode [downloadToFile](/java/api/com.azure.storage.blob.blobclient.downloadtofile). L’exemple de code ajoute le suffixe « DOWNLOAD » au nom de fichier afin que vous puissiez voir les deux fichiers dans votre système de fichiers local.
+Téléchargez l’objet blob créé précédemment en appelant la méthode [downloadToFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/specialized/BlobClientBase.html#downloadToFile-java.lang.String-). L’exemple de code ajoute le suffixe « DOWNLOAD » au nom de fichier afin que vous puissiez voir les deux fichiers dans votre système de fichiers local.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -322,7 +322,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 ### <a name="delete-a-container"></a>Supprimer un conteneur
 
-Le code suivant nettoie les ressources créées par l’application en supprimant le conteneur tout entier à l’aide de la méthode [delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete). Il supprime également les fichiers locaux créés par l’application.
+Le code suivant nettoie les ressources créées par l’application en supprimant le conteneur tout entier à l’aide de la méthode [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--). Il supprime également les fichiers locaux créés par l’application.
 
 L’application s’interrompt pour une entrée de l’utilisateur en appelant `System.console().readLine()` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont bien été créées avant d’être supprimées.
 
