@@ -526,7 +526,7 @@
               href: sql-database-elastic-pool-manage.md
         - name: Ressources de serveur de base de données
           items:
-            - name: Limites de ressources du serveur de base de données
+            - name: Limites de ressources de base de données
               href: sql-database-resource-limits-database-server.md
             - name: Architecture de connectivité
               href: sql-database-connectivity-architecture.md

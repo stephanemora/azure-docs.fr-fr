@@ -62,6 +62,8 @@
       href: customize-rdp-properties.md
     - name: Déployer l’outil de diagnostic
       href: deploy-diagnostics.md
+    - name: Configurer l’attachement d’application MSIX
+      href: app-attach.md
 - name: Concepts
   items:
     - name: Environnement Windows Virtual Desktop

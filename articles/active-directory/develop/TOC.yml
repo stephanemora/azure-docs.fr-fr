@@ -61,8 +61,6 @@
               href: quickstart-v2-netcore-daemon.md
             - name: Démon de console Python
               href: quickstart-v2-python-daemon.md
-            - name: Application web démon ASP.NET
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: Tutoriels
       items:
         - name: Applications monopages
@@ -83,6 +81,10 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows Desktop .NET
               href: tutorial-v2-windows-desktop.md
+        - name: Applications démon
+          items:
+            - name: Application web démon ASP.NET
+              href: tutorial-v2-aspnet-daemon-web-app.md
     - name: Exemples
       href: sample-v2-code.md
     - name: Concepts

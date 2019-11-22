@@ -28,6 +28,8 @@
       href: tutorial-restore-files.md
     - name: Sauvegarder SQL Server sur une machine virtuelle Azure
       href: tutorial-sql-backup.md
+    - name: Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
+      href: tutorial-backup-sap-hana-db.md
     - name: Sauvegarder des partages de fichiers Azure Files
       href: tutorial-backup-azure-files.md
     - name: Sauvegarder Windows Server
@@ -52,6 +54,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice de prise en charge de l’agent MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Tableau de prise en charge de sauvegarde SAP HANA
+          href: sap-hana-backup-support-matrix.md
     - name: Sécurité
       items:
         - name: Contrôle d’accès en fonction du rôle
@@ -74,6 +78,8 @@
           href: backup-azure-files-faq.md
         - name: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
           href: faq-backup-sql-server.md
+        - name: FAQ sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
+          href: sap-hana-faq-backup-azure-vm.md
         - name: FAQ sur le serveur de sauvegarde Azure et DPM
           href: backup-azure-dpm-azure-server-faq.md
         - name: FAQ sur l’alerte de supervision Sauvegarde Azure
@@ -168,6 +174,12 @@
               href: backup-azure-vms-encryption.md
             - name: Restaurer les clés et le secret pour des machines virtuelles chiffrées
               href: backup-azure-restore-key-secret.md
+    - name: Événements de diagnostic pour les coffres Recovery Services
+      items:
+        - name: Utilisation des paramètres de diagnostic pour les coffres Recovery Services
+          href: backup-azure-diagnostic-events.md
+        - name: Modèle de données Log Analytics pour les événements de diagnostic spécifiques aux ressources
+          href: backup-azure-log-analytics-new-data-model.md
     - name: Configurer les rapports de la Sauvegarde Azure
       items:
         - name: Configurer les rapports de la Sauvegarde Azure
@@ -222,8 +234,14 @@
           href: restore-sql-database-azure-vm.md
         - name: Gérer les bases de données SQL Server sauvegardées
           href: manage-monitor-sql-database-backup.md
-    - name: Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
-      href: backup-azure-sap-hana-database.md
+    - name: Bases de données SAP HANA sur des machines virtuelles Azure
+      items:
+        - name: Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
+          href: backup-azure-sap-hana-database.md
+        - name: Restaurer les bases de données SAP HANA dans des machines virtuelles Azure
+          href: sap-hana-db-restore.md
+        - name: Gérer les bases de données SAP HANA sauvegardées
+          href: sap-hana-db-manage.md
     - name: Windows Server
       items:
         - name: Sauvegarder les fichiers et dossiers de Windows Server

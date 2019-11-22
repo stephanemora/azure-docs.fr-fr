@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: Exportation du modèle
       href: export-template-portal.md
-    - name: Déplacer
+    - name: Déplacer - régions
       items:
-        - name: Déplacer des ressources
+        - name: Passer d’une région à l’autre
+          href: resource-group-move-region.md
+        - name: Services pris en charge
+          href: region-move-support.md
+        - name: Services
+          items:
+            - name: Machines virtuelles Azure
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Stockage Azure
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure SQL
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Réseau virtuel
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Groupe de sécurité réseau
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Adresses IP publiques
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: Déplacer - groupes de ressources/abonnements
+      items:
+        - name: Déplacer parmi les groupes de ressources/abonnements
           href: resource-group-move-resources.md
-        - name: Prise en charge des ressources
+        - name: Services pris en charge
           href: move-support-resources.md
         - name: Résoudre les problèmes de transfert
           href: troubleshoot-move.md
-        - name: Conseils en matière de transfert pour les services
+        - name: Services
           items:
             - name: App Service
               href: ./move-limitations/app-service-move-limitations.md
