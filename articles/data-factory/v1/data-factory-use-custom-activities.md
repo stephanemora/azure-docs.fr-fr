@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65910819"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990652"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -1024,11 +1024,11 @@ L’exemple [Azure Data Factory - Environnement local](https://github.com/gbruec
 ## <a name="sample-custom-activities-on-github"></a>Exemples d’activités personnalisées sur GitHub
 | Exemple | Rôle des activités personnalisées |
 | --- | --- |
-| [Téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Télécharge des données à partir d'un point de terminaison HTTP vers Stockage Blob Azure à l'aide d’une activité C# personnalisée dans Data Factory. |
-| [Exemple d’analyse d’opinions Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Appelle un modèle Azure Machine Learning Studio et effectue l’analyse, la notation, la prédiction, etc. des opinions. |
-| [Exécuter un script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Appelle un script R en exécutant RScript.exe sur votre cluster HDInsight, sur lequel R est installé. |
-| [Activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Utilise des versions d’assembly différentes de celles utilisées par le lanceur de Data Factory |
-| [Retraiter un modèle dans Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Retraite un modèle dans Azure Analysis Services. |
+| [Téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Télécharge des données à partir d'un point de terminaison HTTP vers Stockage Blob Azure à l'aide d’une activité C# personnalisée dans Data Factory. |
+| [Exemple d’analyse d’opinions Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Appelle un modèle Azure Machine Learning Studio et effectue l’analyse, la notation, la prédiction, etc. des opinions. |
+| [Exécuter un script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Appelle un script R en exécutant RScript.exe sur votre cluster HDInsight, sur lequel R est installé. |
+| [Activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Utilise des versions d’assembly différentes de celles utilisées par le lanceur de Data Factory |
+| [Retraiter un modèle dans Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Retraite un modèle dans Azure Analysis Services. |
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md

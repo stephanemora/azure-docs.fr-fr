@@ -1,5 +1,6 @@
 ---
-title: Personnaliser des revendications pour une application dans un locataire Azure AD (préversion publique)
+title: Personnaliser des revendications un locataire Azure AD (préversion publique)
+titleSuffix: Microsoft identity platform
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835458"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803518"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -179,7 +180,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| userName |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -323,7 +324,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | othermail | Autre adresse e-mail |
 | Utilisateur | country | Country |
 | Utilisateur | city | City |
-| Utilisateur | state | État |
+| Utilisateur | state | State |
 | Utilisateur | jobtitle | Poste |
 | Utilisateur | employeeid | ID d’employé |
 | Utilisateur | facsimiletelephonenumber | Numéro de télécopie |
@@ -465,7 +466,7 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service.
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez interroger Microsoft Graph. Ou bien, dans l’explorateur Azure AD Graph, connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
      
       ``` powershell
@@ -489,7 +490,7 @@ Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCoun
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez interroger Microsoft Graph. Ou bien, dans l’explorateur Azure AD Graph, connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
      
       ``` powershell
@@ -513,7 +514,7 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez interroger Microsoft Graph. Ou bien, dans l’explorateur Azure AD Graph, connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante : 
      
       ``` powershell

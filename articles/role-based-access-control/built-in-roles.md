@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/25/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842293"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101290"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -114,6 +114,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Lecteur Applications managées](#managed-applications-reader) | Vous permet de lire les ressources dans une application managée et de demander un accès JIT. |
 | [Contributeur d’identités gérées](#managed-identity-contributor) | Peut créer, lire, mettre à jour et supprimer une identité attribuée à l’utilisateur. |
 | [Opérateur d’identités gérées](#managed-identity-operator) | Peut lire et assigner une identité attribuée à l’utilisateur. |
+| [Suppression du rôle d’attribution d’inscription de services managé](#managed-services-registration-assignment-delete-role) | La suppression du rôle d’attribution d’inscription de services managés permet aux utilisateurs du client gérant de supprimer l’attribution d’inscription assignée à leur locataire. |
 | [Collaborateur du groupe d’administration](#management-group-contributor) | Rôle de collaborateur du groupe d’administration |
 | [Lecteur du groupe d’administration](#management-group-reader) | Rôle de lecteur du groupe d’administration |
 | [Contributeur de surveillance](#monitoring-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -279,7 +280,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Description** | lecteur de données de quarantaine ACR |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -294,8 +295,8 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Description** | écriture de données de quarantaine ACR |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Écrit ou modifie l’état des images en quarantaine |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Tire (pull) ou obtient des images en quarantaine à partir du registre de conteneurs |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | Écrit ou modifie l’état des images en quarantaine |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1838,6 +1839,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Retourne le compte de stockage avec le compte spécifique. |
 > | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.Insights/logdefinitions/* | Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. Répertorier les catégories de journaux dans le journal d’activité. |
 > | Microsoft.Insights/metricDefinitions/* | Lire des définitions de mesure (liste de types de mesure disponibles pour une ressource). |
@@ -1870,6 +1872,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Insights/alertRules/*/read | Lit les règles d’alerte d’Insights. |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Obtient les paramètres de diagnostic de Logic Apps. |
 > | Microsoft.Insights/metricDefinitions/*/read | Obtient les mesures disponibles pour Logic Apps. |
 > | Microsoft.Logic/*/read | Lit les ressources Logic Apps. |
@@ -1961,6 +1964,23 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>Suppression du rôle d’attribution d’inscription de services managé
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | La suppression du rôle d’attribution d’inscription de services managés permet aux utilisateurs du client gérant de supprimer l’attribution d’inscription assignée à leur locataire. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Actions** |  |
+> | Microsoft.ManagedServices/registrationAssignments/read | Récupère la liste des affectations d'inscription des services managés. |
+> | Microsoft.ManagedServices/registrationAssignments/delete | Supprime l'affectation d'inscription des services managés. |
+> | Microsoft.ManagedServices/operationStatuses/read | Lit l’état de l’opération pour la ressource. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |

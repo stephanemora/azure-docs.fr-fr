@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972647"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990319"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
@@ -31,6 +31,10 @@ Vous pouvez configurer votre domaine Active Directory et vos contrôleurs de dom
 Ce guide explique les tâches à effectuer pour configurer un domaine et des contrôleurs de domaine Active Directory exécutés localement ou en tant que machines virtuelles dans vos abonnements.  Si vous souhaitez utiliser Azure AD comme source d’identité, consultez [Utiliser Azure AD comme fournisseur d’identité pour vCenter sur un cloud privé CloudSimple](azure-ad.md) pour obtenir des instructions détaillées sur la configuration de la source d’identité.
 
 Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter), [augmentez temporairement vos privilèges vCenter](escalate-private-cloud-privileges.md).
+
+> [!CAUTION]
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs*.  
+
 
 ## <a name="identity-source-options"></a>Options de la source d’identité
 

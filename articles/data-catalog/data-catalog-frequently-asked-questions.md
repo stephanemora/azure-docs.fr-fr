@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898718"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152062"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -87,7 +87,7 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 >
 
 > [!NOTE]
-> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour les bases de données relationnelles SQL Server, qui ne possèdent pas de propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

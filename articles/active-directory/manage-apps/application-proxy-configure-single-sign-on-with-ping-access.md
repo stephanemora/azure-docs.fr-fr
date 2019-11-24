@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0544ed0ff217b6e37cca22a1fc1e0048b30da462
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694215"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062700"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -77,7 +77,7 @@ Vous devez commencer par publier votre application. Cette action implique :
 Pour publier votre propre application en local :
 
 1. Si vous ne l’avez pas fait dans la dernière section, connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’administrateur d’application.
-1. Sélectionnez **Applications d’entreprise** > **Nouvelle application** > **Application locale**. La page **Ajouter votre propre application locale** s’affiche.
+1. Sélectionnez **Applications d’entreprise** > **Nouvelle application** > **Ajouter une application locale**. La page **Ajouter votre propre application locale** s’affiche.
 
    ![Ajouter votre propre application locale](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 1. Entrez les informations concernant votre nouvelle application dans les champs obligatoires. Utilisez les instructions ci-dessous pour les paramètres.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a2fe8238a1ac6f668450aca4e2fd6d2b4ba04a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599992"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901543"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Création d’un modèle Service Fabric Cluster Resource Manager
 
@@ -146,7 +146,7 @@ Le certificat d’authentification de cluster doit être configuré à la fois d
 Vous ajoutez la configuration Azure AD à un modèle Resource Manager de cluster en référençant le coffre de clés qui contient les clés de certificat. Ajoutez ces paramètres et valeurs Azure AD dans un fichier de paramètres de modèle Resource Manager (*azuredeploy.parameters.json*). 
 
 > [!NOTE]
-> Les locataires et les utilisateurs Azure AD doivent être créés avant de créer le cluster.  Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
+> Sur Linux, les locataires et les utilisateurs Azure AD doivent être créés avant de créer le cluster.  Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {

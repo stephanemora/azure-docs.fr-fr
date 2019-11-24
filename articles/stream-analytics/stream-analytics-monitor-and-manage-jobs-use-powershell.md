@@ -1,5 +1,5 @@
 ---
-title: Surveiller et gérer les travaux Azure Stream Analytics à l'aide de PowerShell
+title: Surveiller et gérer les travaux Azure Stream Analytics avec PowerShell
 description: Cet article décrit comment utiliser Azure PowerShell et les applets de commande pour surveiller et gérer des travaux Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 57dee438dca81d46d2bdfda0c7f255f32f203d60
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67612296"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925124"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Surveillance et gestion des travaux Stream Analytics à l’aide des applets de commande Azure PowerShell
 Découvrez comment surveiller et gérer les ressources Stream Analytics à l’aide d’applets de commande Azure PowerShell et de scripts PowerShell qui exécutent les tâches Stream Analytics de base.

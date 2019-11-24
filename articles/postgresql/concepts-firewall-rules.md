@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: a48e9e2583afbde584987e5a1ac61da9734058d1
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/25/2019
+ms.openlocfilehash: 6b4896d78bcc6e9fc1f5d9cd47e60e3df7eba325
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200132"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965282"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Règles de pare-feu dans Azure Database pour PostgreSQL - Serveur unique
 Le pare-feu du serveur Azure Database pour PostgreSQL empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
@@ -40,6 +40,9 @@ Pour autoriser des applications d’Azure à se connecter à votre serveur Azure
 
 ![Configurer Autoriser l’accès aux services Azure dans le portail](media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Connexion à partir d’un réseau virtuel
+Pour vous connecter de manière sécurisée à votre serveur Azure Database pour PostgreSQL à partir d’un réseau virtuel, vous pouvez utiliser des [points de terminaison de service de réseau virtuel](./concepts-data-access-and-security-vnet.md). 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Gestion par programmation des règles de pare-feu
 En dehors du Portail Azure, les règles de pare-feu peuvent être gérées par programmation à l’aide d’Azure CLI.
 Consultez également la page [Créer et gérer les règles de pare-feu de la base de données Azure pour PostgreSQL à l’aide d’Azure CLI](howto-manage-firewall-using-cli.md).
@@ -66,3 +69,4 @@ Considérez les points suivants quand l’accès au service de serveur de base d
 Pour obtenir des informations sur la création de règles de pare-feu au niveau du serveur et au niveau de la base de données, consultez les articles suivants :
 * [Créer et gérer des règles de pare-feu de la base de données Azure pour PostgreSQL à l’aide du Portail Azure](howto-manage-firewall-using-portal.md)
 * [Créer et gérer des règles de pare-feu de la base de données Azure pour PostgreSQL à l’aide d’Azure CLI](howto-manage-firewall-using-cli.md)
+- [Points de terminaison de service de réseau virtuel dans Azure Database pour PostgreSQL](./concepts-data-access-and-security-vnet.md)

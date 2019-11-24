@@ -1,6 +1,6 @@
 ---
 title: Déplacer des données de stockage d’objets blob avec l’Explorateur Stockage Azure - Team Data Science Process
-description: Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de l’explorateur de stockage Azure
+description: Découvrez comment utiliser Explorateur Stockage Azure pour charger et télécharger des données à partir du Stockage Blob Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880b81c07aeed7359dfe35e1361a20ecb11e27dd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61430751"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053957"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Déplacer des données vers et depuis le Stockage Blob Azure à l’aide de l’Explorateur de stockage Azure
 Azure Storage Explorer est un outil Microsoft gratuit qui vous permet d’exploiter les données Azure Storage sous Windows, macOS et Linux. Cette rubrique décrit comment l’utiliser pour charger et télécharger des données depuis le stockage d’objets blob Azure. Vous pouvez télécharger l’outil sur le site [Microsoft Azure Storage Explorer](https://storageexplorer.com/).

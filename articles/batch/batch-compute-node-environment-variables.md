@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 995dfeaf26180b74f135ed2b74fa40faf3a12c08
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958788"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177155"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement runtime Azure Batch
 
@@ -48,7 +48,7 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nom du compte Batch auquel la tâche appartient.                  | Toutes les tâches.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL du compte Batch. | Toutes les tâches. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Préfixe de toutes les variables d'environnement du package d'application. Par exemple, si l'application « Foo » version « 1 » est installée sur un pool, la variable d'environnement est AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 pointe vers l'emplacement où le package a été téléchargé (un dossier). Lorsque vous utilisez la version par défaut du package d’application, utilisez la variable d’environnement AZ_BATCH_APP_PACKAGE sans les numéros de version. | Toute tâche à laquelle un package d'application est associé. Également disponible pour toutes les tâches si le nœud lui-même contient des packages d'application. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | Préfixe de toutes les variables d'environnement du package d'application. Par exemple, si l’application « FOO » version « 1 » est installée sur un pool, la variable d’environnement est AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 pointe vers l'emplacement où le package a été téléchargé (un dossier). Lorsque vous utilisez la version par défaut du package d’application, utilisez la variable d’environnement AZ_BATCH_APP_PACKAGE sans les numéros de version. | Toute tâche à laquelle un package d'application est associé. Également disponible pour toutes les tâches si le nœud lui-même contient des packages d'application. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Jeton d’authentification qui accorde l’accès à un ensemble limité d’opérations du service Batch. Cette variable d’environnement est présente seulement si les [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) sont définis quand la [tâche est ajoutée](/rest/api/batchservice/task/add#request-body). La valeur du jeton est utilisée dans les API Batch comme informations d’identification pour créer un client Batch, comme dans l’[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Toutes les tâches. | Jeton d’accès OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Sous-répertoire du [répertoire de travail de la tâche][files_dirs] dans lequel les certificats sont stockés pour les nœuds de calcul Linux. Cette variable d’environnement ne s’applique pas aux nœuds de calcul Windows.                                                  | Toutes les tâches.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP,nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4,10.0.0.5` |

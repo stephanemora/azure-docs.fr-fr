@@ -1,23 +1,18 @@
 ---
 title: Analyse des performances et de l’utilisation pour les applications de bureau Windows
 description: Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ed6df8b4724dbb297a0c64fd869d3377545a7595
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 10/29/2019
+ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932333"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052454"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
@@ -75,6 +70,44 @@ using Microsoft.ApplicationInsights;
             base.OnClosing(e);
         }
 
+```
+
+## <a name="override-storage-of-computer-name"></a>Remplacer le stockage du nom de l’ordinateur
+
+Par défaut, ce kit de développement logiciel (SDK) collecte et stocke le nom d’ordinateur du système émettant la télémétrie. Pour remplacer la collection, vous devez utiliser un initialiseur de télémétrie :
+
+**Écrire un initialiseur TelemetryInitializer personnalisé comme ci-dessous.**
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here, you can pass an empty string if needed.
+                  telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
+            }
+        }
+    }
+}
+```
+Instanciez l’initialiseur dans la méthode `Program.cs` `Main()` ci-dessous, en définissant la clé d’Instrumentation :
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+   static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+        }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

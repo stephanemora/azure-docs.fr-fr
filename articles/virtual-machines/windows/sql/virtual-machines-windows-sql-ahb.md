@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262872"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900688"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**.
@@ -154,7 +154,7 @@ Cette erreur se produit lorsque vous essayez de changer le modèle de licence su
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-Vous devez inscrire le fournisseur de ressources avec votre [abonnement](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription), puis [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md). 
+Vous devez inscrire votre abonnement auprès du fournisseur de ressources, puis [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>Impossible de valider l’argument sur le paramètre « Sku »
 Vous risquez de rencontrer cette erreur quand vous essayez de changer votre modèle de licence de machine virtuelle SQL Server avec des versions d’Azure PowerShell ultérieures à 4.0 :

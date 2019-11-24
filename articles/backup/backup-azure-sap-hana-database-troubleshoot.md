@@ -1,5 +1,5 @@
 ---
-title: Résoudre les erreurs lors de la sauvegarde des bases de données SAP HANA en utilisant la sauvegarde Azure | Microsoft Docs
+title: Résoudre des erreurs de sauvegarde de bases de données SAP HANA – Sauvegarde Azure
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954448"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968451"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -32,13 +32,13 @@ Voici ce que fait le script de préinscription :
     - CATALOG READ : permet de lire le catalogue de sauvegarde.
     - SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées.
 2. Ajoute une clé à Hdbuserstore pour le plug-in HANA afin de gérer toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde).
-   
+
    Pour confirmer la création de la clé, exécutez la commande HDBSQL sur la machine HANA avec les informations d’identification SIDADM :
 
     ``` hdbsql
     hdbuserstore list
     ```
-    
+
     La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur en tant que AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
@@ -67,11 +67,12 @@ Supposez qu’une instance SDC HANA « H21 » est sauvegardée. La page Élémen
 
 ![Entrées de restauration SDC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
-Notez les points suivants :
+Notez les points suivants :
+
 - Par défaut, le nom de la base de données restaurée est renseigné avec le nom de l’élément de sauvegarde, c.-à-d., H21 (SDC)
 - La sélection de la cible en tant que H11 ne modifie pas automatiquement le nom de la base de données restaurée. **Elle doit être modifiée en H11 (SDC)** . Dans le cas de SDC, le nom de la base de code restaurée sera l’ID d’instance cible avec des lettres minuscules et « sdc » est ajouté entre crochets.
 - Étant donné que SDC ne peut avoir qu’une seule base de données, vous devez également activer la case à cocher pour autoriser le remplacement des données de la base de données existantes par les données du point de récupération.
-- Linux est sensible à la casse alors assurez-vous de respecter la casse.
+- Linux étant sensible à la casse, veillez à respecter la casse.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauration de la base de données à conteneurs multiples (MDC)
 
@@ -81,7 +82,7 @@ Dans plusieurs bases de données de conteneur pour HANA, la configuration standa
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-données| Message d’erreur | Causes possibles | Action recommandée |
+data| Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | Échec de la connexion au système HANA. Vérifiez que votre système est en cours d’exécution.| Le service Sauvegarde Azure ne peut pas se connecter à HANA, car la base de données HANA est indisponible. Ou HANA est en cours d’exécution, mais n’autorise pas le service Sauvegarde Azure à se connecter. | Vérifiez si la base de données ou le service HANA est inactif. Si la base de données ou le service Hana est en cours d’exécution, vérifiez si [toutes les autorisations sont définies](#setting-up-permissions). Si la clé est manquante, réexécutez le script de préinscription pour créer une nouvelle clé. |
 

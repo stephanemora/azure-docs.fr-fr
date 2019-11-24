@@ -1,5 +1,6 @@
 ---
-title: Comportement d’invite dans des requêtes interactives (Microsoft Authentification Library pour JavaScript) | Azure
+title: Comportement d’invite dans des requêtes interactives (Microsoft Authentification Library pour JavaScript)
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur la personnalisation des comportements d’invite dans des appels interactifs à l’aide de Microsoft Authentification Library pour JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd0d736345f312f1a1d6f8f029b41429a3e5f0a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d6c4415a3eeb28c999d95b838c6dd7c0f6e606
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544268"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803012"
 ---
 # <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportement d’invite dans des requêtes interactives MSAL.js
 

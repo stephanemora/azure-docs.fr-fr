@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264345"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804263"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Créer et exécuter des flux de travail automatisés basés sur des événements à l’aide de Webhooks HTTP dans Azure Logic Apps
 
@@ -75,7 +75,7 @@ Ce déclencheur intégré inscrit une URL de rappel avec le service spécifié, 
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
-   Pour en savoir plus sur les types d’authentification disponibles pour le Webhook HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continuez à générer le flux de travail de votre application logique avec des actions qui s’exécutent quand le déclencheur se déclenche.
 
@@ -111,9 +111,9 @@ Cette action intégrée inscrit une URL de rappel avec le service spécifié, su
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
-   Pour en savoir plus sur les types d’authentification disponibles pour le Webhook HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Lorsque vous avez terminé, n’oubliez pas d’enregistrer votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

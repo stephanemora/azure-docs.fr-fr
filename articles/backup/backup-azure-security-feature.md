@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
+title: Fonctionnalités de qui protègent des sauvegardes hybrides à l’aide de Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans la Sauvegarde Azure pour renforcer la sécurité des sauvegardes
 ms.reviewer: utraghuv
 author: dcurwin
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: dacurwin
-ms.openlocfilehash: 2cd298323d8f455010978361078d474415e77dfa
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954527"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968431"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
+
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, la Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les sauvegardes hybrides. Cet article explique comment activer et utiliser ces fonctionnalités par le biais d’un agent Azure Recovery Services et du serveur de sauvegarde Azure. Voici quelques fonctionnalités :
 
 - **Prévention**. Une couche supplémentaire d’authentification est ajoutée à chaque fois qu’une opération critique (par exemple, Modifier la phrase secrète) est effectuée. Cette validation permet de garantir que ces opérations ne peuvent être effectuées que par les utilisateurs ayant des informations d’identification Azure valides.
@@ -34,6 +35,7 @@ Les préoccupations en matière de risques de sécurité, comme les logiciels ma
 >
 
 ## <a name="enable-security-features"></a>Activer les fonctionnalités de sécurité
+
 Si vous créez un coffre Recovery Services, vous pouvez utiliser toutes les fonctionnalités de sécurité. Si vous utilisez un coffre existant, activez les fonctionnalités de sécurité en procédant comme suit :
 
 1. Connectez-vous au portail Azure à l’aide de vos informations d’identification Azure.
@@ -58,6 +60,7 @@ Si vous créez un coffre Recovery Services, vous pouvez utiliser toutes les fonc
     ![Capture d’écran des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Récupérer les données de sauvegarde supprimées
+
 La sauvegarde conserve les données de sauvegarde supprimées pendant 14 jours supplémentaires et ne les supprime pas immédiatement si l’opération **Arrêter la sauvegarde avec suppression des données de sauvegarde** est effectuée. Pour restaurer ces données dans la période de 14 jours autorisée, procédez comme suit, selon ce que vous utilisez :
 
 Pour les utilisateurs de l’**agent Azure Recovery Services** :
@@ -76,13 +79,15 @@ Pour les utilisateurs de **Data Protection Manager** :
 2. Si le serveur n’est pas disponible, utilisez [Ajouter un serveur DPM externe](backup-azure-alternate-dpm-server.md) pour utiliser un autre serveur Data Protection Manager afin d’obtenir ces données.
 
 ## <a name="prevent-attacks"></a>Empêcher les attaques
+
 Des vérifications ont été ajoutées pour que seuls les utilisateurs valides puissent effectuer diverses opérations. Ces vérifications incluent l’ajout d’une couche d’authentification et la conservation d’une durée de rétention minimale pour la récupération.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Authentification pour exécuter des opérations critiques
+
 Dans le cadre de l’ajout d’une couche d’authentification pour les opérations critiques, vous êtes invité à entrer un code PIN de sécurité lors de l’exécution des actions **Arrêter la protection avec les opérations Supprimer les données** et **Modifier la phrase secrète**.
 
 > [!NOTE]
-> 
+>
 > Actuellement, le code PIN de sécurité n’est pas pris en charge pour **Arrêter la protection avec les opérations Supprimer les données** pour DPM et MABS.
 
 Pour recevoir ce code PIN :
@@ -93,6 +98,7 @@ Pour recevoir ce code PIN :
     Ce code PIN n’est valide que pendant cinq minutes, après quoi il est généré automatiquement.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Maintenir la durée de rétention minimale
+
 Les vérifications suivantes ont été ajoutées pour garantir qu’il existe toujours un nombre valide de points de récupération disponibles :
 
 - Pour une rétention quotidienne, une rétention de **sept** jours minimum doit être appliquée.
@@ -101,19 +107,22 @@ Les vérifications suivantes ont été ajoutées pour garantir qu’il existe to
 - Pour une rétention annuelle, une rétention d’**un** an minimum doit être appliquée.
 
 ## <a name="notifications-for-critical-operations"></a>Notifications pour les opérations critiques
+
 Généralement, lorsqu’une opération critique est effectuée, l’administrateur de l’abonnement reçoit une notification électronique contenant les détails de l’opération. Vous pouvez configurer les autres destinataires de ces notifications électroniques sur le portail Azure.
 
 Les fonctionnalités de sécurité mentionnées dans cet article fournissent des mécanismes de défense contre les attaques ciblées. Et surtout, en cas d’attaque, ces fonctionnalités vous permettent de récupérer vos données.
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
+
 | Opération | Détails de l’erreur | Résolution : |
 | --- | --- | --- |
 | Modification de la stratégie |Impossible de modifier la stratégie de sauvegarde. Error: L'opération en cours a échoué en raison d'une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention en deçà des valeurs minimales spécifiées ci-dessus et que vous utilisez une version non prise en charge (les versions prises en charge sont indiquées dans la première remarque de cet article). <br/>**Action recommandée :**<br/> Dans ce cas, vous devez définir la période de rétention sur une valeur supérieure à la période de rétention minimale spécifiée (sept jours pour la rétention quotidienne, quatre semaines pour la rétention hebdomadaire, trois semaines pour la rétention mensuelle ou une année pour la rétention annuelle) pour exécuter les mises à jour relatives à la stratégie. Vous pouvez également mettre à jour l’agent de sauvegarde, le serveur de sauvegarde Azure et/ou le correctif cumulatif de DPM pour tirer parti de toutes les mises à jour de sécurité. |
 | Modification de la phrase secrète |Le code PIN de sécurité entré est incorrect. (ID : 100130) Entrez le code PIN de sécurité qui convient pour exécuter cette opération. |**Cause :**<br/> Cette erreur se produit lorsque vous entrez un code PIN de sécurité non valide ou qui a expiré lors d’une opération critique (par exemple, la modification de la phrase secrète). <br/>**Action recommandée :**<br/> Pour exécuter l’opération, vous devez entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
-| Modification de la phrase secrète |L’opération a échoué. ID : 120002 |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde vers la version minimale 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer le code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au Portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
+| Modification de la phrase secrète |L’opération a échoué. ID : 120002 |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde vers la version minimale 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer le code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Bien démarrer avec le coffre Azure Recovery Services](backup-azure-vms-first-look-arm.md) pour activer ces fonctionnalités.
-* [Téléchargez le dernier Agent Azure Recovery Services](https://aka.ms/azurebackup_agent) pour protéger les ordinateurs Windows, ainsi que vos données de sauvegarde contre les attaques.
-* [Téléchargez le dernier serveur de sauvegarde Azure](https://aka.ms/latest_azurebackupserver) pour protéger les charges de travail, ainsi que vos données de sauvegarde contre les attaques.
-* [Téléchargez UR12 pour System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [téléchargez UR2 pour System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) pour protéger les charges de travail et vos données de sauvegarde contre les attaques.
+
+- [Bien démarrer avec le coffre Azure Recovery Services](backup-azure-vms-first-look-arm.md) pour activer ces fonctionnalités.
+- [Téléchargez le dernier Agent Azure Recovery Services](https://aka.ms/azurebackup_agent) pour protéger les ordinateurs Windows, ainsi que vos données de sauvegarde contre les attaques.
+- [Téléchargez le dernier serveur de sauvegarde Azure](https://aka.ms/latest_azurebackupserver) pour protéger les charges de travail, ainsi que vos données de sauvegarde contre les attaques.
+- [Téléchargez UR12 pour System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [téléchargez UR2 pour System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) pour protéger les charges de travail et vos données de sauvegarde contre les attaques.

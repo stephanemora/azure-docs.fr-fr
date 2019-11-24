@@ -1,6 +1,6 @@
 ---
 title: Tâches du responsable de groupe Team Data Science Process
-description: Présentation détaillée des tâches d’un responsable de groupe sur un projet d’équipe de science des données.
+description: Suivez cette présentation détaillée des tâches qu’un responsable de groupe accomplit sur un projet d’équipe de science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326808"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053305"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tâches du responsable de groupe Team Data Science Process
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer des stratégies Hive dans HDInsight avec le Pack Sécurité Entreprise - Azure
+title: Stratégies Apache Hive dans Apache Ranger – Azure HDInsight
 description: Découvrez comment configurer des stratégies Apache Ranger pour Hive dans un service Azure HDInsight avec le Pack Sécurité Entreprise (ESP, Enterprise Security Package).
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918197"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044869"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.

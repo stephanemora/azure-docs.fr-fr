@@ -1,5 +1,6 @@
 ---
-title: Application mobile appelant des API web - configuration du code de l’application | Plateforme d’identités Microsoft
+title: Application mobile appelant des API web – Configuration du code de l’application
+titleSuffix: Microsoft identity platform
 description: Découvrez comment créer une application mobile qui appelle des API web (configuration du code de l’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413584"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803742"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Application mobile qui appelle des API web - inscription d’application
 
@@ -52,11 +53,11 @@ Cette expérience permet à votre application d’obtenir une authentification u
 
 Notez qu’il existe une expérience en version préliminaire dans le portail d’inscription des applications pour vous aider à calculer l’URI de réponse répartie pour les applications iOS et Android:
 
-1. Dans l’inscription d’application, choisissez **Authentification** et sélection **Essayer d’utiliser la nouvelle**
-   ![image d’expérience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. Dans l’inscription d’application, choisissez **Authentification**, puis sélectionnez **Essayer la nouvelle expérience**
+   ![Image](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Sélectionner **Ajouter une**
-   ![image de plateforme](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. Sélectionnez **Ajouter une plateforme**
+   ![Image](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
 3. Lorsque la liste des plateformes est prise en charge, sélectionnez **Image**
    ![iOS](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)

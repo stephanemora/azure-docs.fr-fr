@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596852"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809628"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -309,7 +309,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-Ce module implémente la propriété `IsPastDue` en tant qu'instance fictive du minuteur.
+
+Ce module implémente la propriété `IsPastDue` en tant qu'instance fictive du minuteur. Des configurations de minuteur telles que des expressions NCRONTAB ne sont pas requises ici, car l’atelier de test appelle simplement la fonction directement pour tester le résultat.
 
 Ensuite, utilisez l’extension VS Code Functions pour [créer une fonction HTTP JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) et nommez-la *HttpTrigger*. Une fois la fonction créée, ajoutez un nouveau fichier au même dossier nommé **index.test.js** et ajoutez le code suivant :
 

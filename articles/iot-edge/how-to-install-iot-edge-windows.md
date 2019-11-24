@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3f866ff5e4266983117e93f2aab5982065947e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516609"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964386"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -76,9 +76,9 @@ Cet exemple présente une installation manuelle avec des conteneurs Windows :
 
 1. Si ce n’est pas déjà fait, inscrivez un nouvel appareil IoT Edge et récupérez la **chaîne de connexion d’appareil**. Copiez cette chaîne de connexion pour l’utiliser plus tard dans cette section. Vous pouvez effectuer cette étape à l’aide des outils suivants :
 
-   * [Portail Azure](how-to-register-device-portal.md)
-   * [Interface de ligne de commande Azure](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Portail Azure](how-to-register-device.md#register-in-the-azure-portal)
+   * [Interface de ligne de commande Azure](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Exécutez PowerShell ISE en tant qu’administrateur.
 
@@ -123,7 +123,7 @@ Pour plus d’informations sur ces options d’installation, passez à la sectio
 
 Dans cette deuxième option, vous provisionnez l’appareil en utilisant le Service IoT Hub Device Provisioning. Fournissez l’**ID de l’étendue** d’une instance du service Device Provisioning, ainsi que toute autre information spécifique de votre [mécanisme d’attestation](../iot-dps/concepts-security.md#attestation-mechanism) favori :
 
-* [Créer et approvisionner un appareil Edge TPM simulé sous Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Créer et approvisionner un appareil IoT Edge simulé avec un TPM virtuel sous Windows](how-to-auto-provision-simulated-device-windows.md)
 * [Créer et approvisionner un appareil IoT Edge à l’aide d’une attestation de clé symétrique](how-to-auto-provision-symmetric-keys.md)
 
 Lorsque vous installez et approvisionnez un appareil automatiquement, vous pouvez utiliser des paramètres supplémentaires pour modifier l’installation, à savoir :

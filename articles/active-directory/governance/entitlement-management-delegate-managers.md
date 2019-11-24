@@ -1,5 +1,5 @@
 ---
-title: Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
+title: Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD – Azure Active Directory
 description: Découvrez comment déléguer la gouvernance des accès des administrateurs informatiques aux gestionnaires de package et chefs de projet pour qu’ils puissent gérer les accès eux-mêmes.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a2b6bfdb4904e11ffba3a9fe1097c7f5cfe9d6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170871"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174360"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management-preview"></a>Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD
 
 Pour déléguer la création et la gestion des packages d’accès dans un catalogue, vous ajoutez des utilisateurs au rôle de gestionnaire de package d’accès. Les gestionnaires de package d’accès doivent connaître les besoins des utilisateurs quant à l’accès aux ressources d’un catalogue. Par exemple, si un catalogue est utilisé pour un projet, alors un coordinateur de projet peut être gestionnaire de package d’accès pour ce catalogue.  Les gestionnaires de package d’accès ne peuvent pas ajouter de ressources à un catalogue, mais ils peuvent gérer les packages d’accès et les stratégies contenus dans un catalogue.  Lors de la délégation à un gestionnaire de package d’accès, cette personne obtient alors les responsabilités suivantes :
 

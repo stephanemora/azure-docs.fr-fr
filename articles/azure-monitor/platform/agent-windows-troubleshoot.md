@@ -1,24 +1,18 @@
 ---
-title: Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows | Microsoft Docs
+title: Résoudre les problèmes liés à l’agent Log Analytics pour Windows
 description: Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’agent Log Analytics pour Windows dans Azure Monitor.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 96f020f24e27ff799f9bfbc08d899e8375b86094
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 06/12/2019
+ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431825"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199006"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 

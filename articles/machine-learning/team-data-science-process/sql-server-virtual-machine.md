@@ -1,6 +1,6 @@
 ---
 title: Explorer les données d’une machine virtuelle SQL Server – Team Data Science Process
-description: Explorer des données et générer des fonctionnalités dans une machine virtuelle SQL Server sur Azure
+description: Explorer des données de traitement supplémentaires et générer des fonctionnalités à l’aide de Python ou de SQL dans une machine virtuelle SQL Server sur Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036608"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053613"
 ---
 # <a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.

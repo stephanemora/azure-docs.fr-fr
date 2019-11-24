@@ -1,5 +1,5 @@
 ---
-title: Simulation d’échange à fréquence élevée avec Azure Stream Analytics
+title: Échange à fréquence élevée à l’aide d’Azure Stream Analytics
 description: Comment effectuer l’apprentissage de modèle de régression linéaire et la notation dans une tâche Stream Analytics.
 services: stream-analytics
 author: zhongc
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9d3c1a730c34632403669794bdd97f95e3b3662d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598649"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925525"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulation d’échange à fréquence élevée avec Stream Analytics
 La combinaison du langage SQL, des fonctions JavaScript définies par l’utilisateur (UDF) et des agrégats définis par l’utilisateur (UDA) dans Azure Stream Analytics permet aux utilisateurs d’effectuer des analyses avancées. Les analyses avancées peuvent inclure l’apprentissage automatique en ligne et la notation, ainsi que la simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.

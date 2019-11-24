@@ -1,5 +1,6 @@
 ---
-title: Application mobile qui appelle des API web (appel d’une API web) - Plateforme d’identités Microsoft
+title: Application mobile qui appelle des API web - Appeler d’une API web
+titleSuffix: Microsoft identity platform
 description: Apprendre à générer une application mobile qui appelle des API web (appel d’une API web)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268316"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802568"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Application mobile qui appelle des API web - Appeler une API web
 

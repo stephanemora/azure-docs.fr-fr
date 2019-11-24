@@ -1,7 +1,7 @@
 ---
 title: Pools partagés
 titleSuffix: Azure Data Science Virtual Machine
-description: Déploiement de pools de machines virtuelles DSVM en tant que ressource partagée pour une équipe
+description: Découvrez comment créer et déployer un pool partagé de DSVM (Data Science Virtual Machine) en tant que ressource partagée pour une équipe.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195626"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052999"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Création d’un pool partagé de Data Science Virtual Machines
 

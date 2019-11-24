@@ -1,22 +1,21 @@
 ---
 title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: b265b77e08dda582153efa51c036f4f7a9de8d41
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160440"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965203"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
-## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -80,7 +79,9 @@ Lorsque vous restaurez un serveur à un état antérieur, un nouveau serveur est
 
 Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent les mêmes que celles du serveur d’origine. 
 
-Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
+Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
+
+Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
 
 ## <a name="geo-restore"></a>Restauration géographique
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce nouveau serveur peut être créé dans toutes les régions dans lesquelles Azure Database pour MySQL est disponible.  
@@ -115,12 +116,13 @@ La commande `az mysql server georestore` requiert les paramètres suivants :
 |location | eastus | L’emplacement du nouveau serveur. |
 |sku-name| GP_Gen5_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen5_8 mappe sur un serveur d’usage général, 5e génération avec 8 vCores.|
 
+Lorsque vous créez un nouveau serveur par une restauration géographique, il hérite de la même taille de stockage et du même niveau tarifaire que le serveur source. Ces valeurs ne peuvent pas être modifiées lors de la création. Une fois le nouveau serveur créé, sa taille de stockage peut être montée en puissance.
 
->[!Important]
->Lorsque vous créez un nouveau serveur par une restauration géographique, il hérite de la même taille de stockage et du même niveau tarifaire que le serveur source. Ces valeurs ne peuvent pas être modifiées lors de la création. Une fois le nouveau serveur créé, sa taille de stockage peut être montée en puissance.
+Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
-Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
+Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
-- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).
+- En savoir plus sur les [sauvegardes](concepts-backup.md) du service
+- En savoir plus sur les [réplicas](concepts-read-replicas.md)
+- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md)

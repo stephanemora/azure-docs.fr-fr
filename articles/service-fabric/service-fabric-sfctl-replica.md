@@ -3,22 +3,23 @@ title: 'CLI Azure Service Fabric : sfctl replica | Microsoft Docs'
 description: Décrit les commandes sfctl replica de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5563dc2d1b2caaa85645b037d6bf93426cc0b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 34e53311e5338e540c1d987896112de39890de3b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035274"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901051"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Permet de gérer les réplicas qui font partie des partitions de service.
@@ -48,7 +49,7 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 | --node-name [Requis] | Nom du nœud. |
 | --partition-id [Requis] | Identité de la partition. |
 | --replica-id [Requis] | Identificateur du réplica. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -73,7 +74,7 @@ Permet d’obtenir la liste contenant les informations sur les réplicas déploy
 | --node-name      [obligatoire] | Nom du nœud. |
 | --partition-id | Identité de la partition. |
 | --service-manifest-name | Nom d’un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -97,7 +98,7 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 | --partition-id [Requis] | Identité de la partition. |
 | --replica-id [Requis] | Identificateur du réplica. |
 | --events-health-state-filter | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont renvoyés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état correspondent à une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés.  <br> - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro.  <br> - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1.  <br> - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2.  <br> - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4.  <br> - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.  <br> - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -120,7 +121,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 | --- | --- |
 | --partition-id [Requis] | Identité de la partition. |
 | --replica-id [Requis] | Identificateur du réplica. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -143,7 +144,7 @@ Le point de terminaison GetReplicas retourne des informations sur la partition s
 | --- | --- |
 | --partition-id [Requis] | Identité de la partition. |
 | --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -168,7 +169,7 @@ Cette API simule un échec de réplica Service Fabric en supprimant un réplica
 | --partition-id [Requis] | Identité de la partition. |
 | --replica-id [Requis] | Identificateur du réplica. |
 | --force-remove | Force la suppression d’un service ou d’une application Service Fabric, sans passer par la séquence d’arrêt normale. Ce paramètre permet de forcer la suppression d’une application ou d’un service pour lesquels le délai de suppression expire à cause de problèmes dans le code de service qui empêchent la fermeture normale des réplicas. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -199,7 +200,7 @@ Signale l’état d’intégrité du réplica Service Fabric spécifié. Le rapp
 | --remove-when-expired | Valeur qui indique si le rapport est supprimé du magasin d’intégrité quand il expire. <br><br> Si la valeur définie est true, le rapport est supprimé du magasin d’intégrité après son expiration. Si la valeur définie est false, le rapport est traité comme une erreur quand il expire. La valeur de cette propriété est false par défaut. Quand les clients créent un rapport régulièrement, ils doivent définir RemoveWhenExpired sur false (valeur par défaut). De cette manière, si le rapporteur rencontre des problèmes (par exemple, un interblocage) et qu’il ne peut pas créer de rapport, l’entité est évaluée comme erreur quand le rapport d’intégrité expire. L’entité est marquée comme étant dans l’état d’intégrité Erreur. |
 | --sequence-number | Numéro de séquence de ce rapport d’intégrité sous forme de chaîne numérique. <br><br> Le numéro de séquence de rapport est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes. S’il n’est pas spécifié, un numéro de séquence est généré automatiquement par le client d’intégrité quand un rapport est ajouté. |
 | --service-kind | Genre de réplica de service (avec ou sans état) pour lequel l’intégrité est signalée. Voici les valeurs possibles \: « Stateless », « Stateful ».  État par défaut \: Stateful. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --ttl | Durée pendant laquelle ce rapport d’intégrité est valide. Ce champ utilise le format ISO8601 pour spécifier la durée. <br><br> Quand les clients créent régulièrement des rapports, ils doivent les envoyer avec une fréquence supérieure à la durée de vie. Si les clients créent des rapports lors d’une transition, ils peuvent définir la durée de vie sur Infinite (illimitée). Quand la durée de vie expire, l’événement d’intégrité qui contient les informations d’intégrité est supprimé du magasin d’intégrité si RemoveWhenExpired est true, ou évalué comme erreur si RemoveWhenExpired est false. Si cet argument n’est pas spécifié, la valeur de durée de vie est par défaut Infinite (illimitée). |
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -224,7 +225,7 @@ Redémarre un réplica de service d’un service persistant exécuté sur un nœ
 | --node-name [Requis] | Nom du nœud. |
 | --partition-id [Requis] | Identité de la partition. |
 | --replica-id [Requis] | Identificateur du réplica. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

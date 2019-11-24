@@ -1,6 +1,6 @@
 ---
 title: Charger des données dans des environnements de Stockage Azure - Team Data Science Process
-description: Déplacer des données vers et depuis un stockage Azure Blob
+description: Découvrez comment ingérer des données dans divers environnements cibles où les données sont stockées et traitées.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56c45bf6db79ded64574a44399712951e82c1c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303585"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053259"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Charger des données dans des environnements de stockage à des fins d’analyse
 

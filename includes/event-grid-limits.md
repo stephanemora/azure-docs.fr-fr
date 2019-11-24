@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "66376933"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887768"
 ---
 Les limites suivantes s’appliquent aux rubriques système Azure Event Grid et aux rubriques personnalisées, et  *non pas* aux domaines d’événements.
 
@@ -29,8 +29,9 @@ Les limites suivantes s’appliquent aux domaines d’événements uniquement.
 
 | Ressource | Limite |
 | --- | --- |
-| Rubriques par domaine d’événements | 1 000 pendant la phase de préversion publique |
-| Abonnements à des événements par rubrique dans un domaine | 50 pendant la phase de préversion publique |
-| Abonnements d’événements à l’étendue de domaine | 50 pendant la phase de préversion publique |
-| Taux de publication pour un Domaine d’événements (entrée) | 5 000 événements par seconde pendant la phase de préversion publique |
+| Rubriques par domaine d’événements | 100 000 |
+| Abonnements à des événements par rubrique dans un domaine | 500 |
+| Abonnements d’événements à l’étendue de domaine | 50 |
+| Taux de publication pour un Domaine d’événements (entrée) | 5 000 événements par seconde |
 | Publier les requêtes | 250 par seconde |
+| Domaines d’événements par abonnement Azure | 100 |

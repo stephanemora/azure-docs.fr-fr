@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300086"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897261"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 
@@ -28,8 +28,9 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 
 | Changements | Détails |
 | --- | --- |
+| **Inscription du fournisseur de ressources en bloc** | Vous pouvez désormais [inscrire en bloc](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) des machines virtuelles SQL avec le fournisseur de ressources. | 
 | **Configuration du stockage à performances optimisées** | Vous pouvez désormais [personnaliser totalement votre configuration de stockage](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) lors de la création d’une machine virtuelle SQL Server. |
-| **Partage de fichiers Premium pour instance de cluster de basculement** | Vous pouvez maintenant créer une instance de cluster de basculement à l’aide du [partage de fichiers Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md), plutôt qu’avec la méthode d’origine [Espaces de stockage direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+| **Partage de fichiers Premium pour instance de cluster de basculement** | Vous pouvez maintenant créer une instance de cluster de basculement à l’aide d’un [partage de fichiers Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md), plutôt qu’avec la méthode d’origine d’[Espaces de stockage direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Août 2019

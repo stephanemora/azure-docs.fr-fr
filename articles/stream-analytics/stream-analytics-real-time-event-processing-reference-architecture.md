@@ -1,5 +1,5 @@
 ---
-title: Traitement des événements en temps réel à l’aide d’Azure Stream Analytics
+title: Traitement d’événement en temps réel à l’aide d’Azure Stream Analytics
 description: Cet article décrit l’architecture de référence permettant un traitement et une analyse des événements en temps réel à l’aide d’Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: ab1ca89427f332151120420c3c087902584706f4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621777"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925113"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Architecture de référence : Traitement d’événements en temps réel avec Microsoft Azure Stream Analytics
 L’architecture de référence associée au traitement des événements en temps réel avec Azure Stream Analytics fournit un modèle générique de déploiement d’une solution de traitement des flux PaaS (Platform as a Service) en temps réel avec Microsoft Azure.

@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library pour Android) | Azure
+title: Azure AD B2C (Microsoft Authentication Library pour Android)
+titleSuffix: Microsoft identity platform
 description: Découvrez les considérations particulières à prendre en compte lors de l’utilisation d’Azure AD B2C avec Microsoft Authentication Library pour Android (MSAL.Android).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678825"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803242"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Utiliser MSAL pour Android avec B2C
 
@@ -58,7 +59,7 @@ Le fichier de configuration de l’application va déclarer deux `authorities`. 
 }
 ```
 
-`redirect_uri` doit être inscrit dans la configuration de l’application, ainsi que dans `AndroidManifest.xml` pour prendre en charge la redirection pendant le [flux de l’octroi du code d’autorisation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri` doit être inscrit dans la configuration de l’application, ainsi que dans `AndroidManifest.xml` pour prendre en charge la redirection pendant le [flux de l’octroi du code d’autorisation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Initialiser IPublicClientApplication
 
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function

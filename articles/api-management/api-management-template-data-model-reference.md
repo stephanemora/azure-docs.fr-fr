@@ -11,23 +11,23 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 323b3effb4c4a63d03ab7ea5251e0d59271d9dcd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072137"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176536"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
 Cette rubrique décrit les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure.  
   
  Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Le portail des développeurs n’est pas disponible dans le niveau de consommation.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="reference"></a>Informations de référence
 
@@ -68,7 +68,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`path`|string|URL relative identifiant exclusivement cette API et tous les chemins d’accès à ses ressources au sein de l’instance de service Gestion des API. Elle est ajoutée à l’URL de base du point de terminaison d’API spécifiée lors de la création de l’instance de service pour former l’URL publique de cette API.|  
 |`protocols`|tableau de nombres|Indique sur quels protocoles les opérations dans cette API peuvent être appelées. Les valeurs autorisées sont `1 - http` et `2 - https`, ou les deux.|  
 |`authenticationSettings`|[Paramètres d’authentification du serveur d’autorisation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Collection de paramètres d’authentification inclus dans cette API.|  
-|`subscriptionKeyParameterNames`|objet|Propriété facultative utilisable pour donner des noms personnalisés aux paramètres de requête et/ou d’en-tête contenant la clé de l’abonnement. Lorsque cette propriété est présente, elle doit contenir au moins une des deux propriétés suivantes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|`subscriptionKeyParameterNames`|object|Propriété facultative utilisable pour donner des noms personnalisés aux paramètres de requête et/ou d’en-tête contenant la clé de l’abonnement. Lorsque cette propriété est présente, elle doit contenir au moins une des deux propriétés suivantes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API summary  
  L’entité `API summary` a les propriétés suivantes :  

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273951"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931817"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Sauvegarder une base de données SAP HANA sur Azure
 
@@ -53,6 +53,9 @@ Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations s
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > Si vous ne mettez pas à jour les référentiels, assurez-vous que la version d’unixODBC est au min la version 2.3.4. Pour connaître la version de uniXODBC, exécutez ```odbcinst -j``` en tant que racine
 
 2. Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la procédure [ci-dessous](#set-up-network-connectivity).
 

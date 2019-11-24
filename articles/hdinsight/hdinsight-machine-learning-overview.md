@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105413"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241637"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 
@@ -41,7 +41,7 @@ Azure Machine Learning fournit des outils de modélisation d’analyses prédict
 
 ![Vue d’ensemble de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Créez des fonctionnalités pour les données dans un cluster HDInsight Hadoop à l’aide de [requêtes Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *conception de fonctionnalités* tente d’augmenter la puissance prédictive des algorithmes d’apprentissage en créant des fonctionnalités à partir des données brutes qui facilitent le processus d’apprentissage. Vous pouvez utiliser le [module Import Data (Importer les données)](../machine-learning/studio/import-data.md) pour exécuter des requêtes HiveQL depuis Azure Machine Learning, et accéder aux données traitées dans Hive et stockées dans le stockage Blob.
+Créez des fonctionnalités pour les données dans un cluster HDInsight Hadoop à l’aide de [requêtes Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *conception de fonctionnalités* tente d’augmenter la puissance prédictive des algorithmes d’apprentissage en créant des fonctionnalités à partir des données brutes qui facilitent le processus d’apprentissage. Vous pouvez exécuter des requêtes HiveQL à partir d’Azure Machine Learning Studio (Classic) et accéder aux données traitées dans Hive et stockées dans le stockage d’objets blob à l’aide du [module Importer des données](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 

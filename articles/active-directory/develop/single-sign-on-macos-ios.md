@@ -1,5 +1,6 @@
 ---
-title: Configurer l’authentification unique sur macOS et iOS | Plateforme des identités Microsoft
+title: Configurer l’authentification unique sur macOS et iOS
+titleSuffix: Microsoft identity platform
 description: Découvrez comment configurer l’authentification unique sur macOS et iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fd944af95f80cf456260beb072c703aab0d15ceb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269347"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175282"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Activation Configurer l’authentification unique sur macOS et iOS
 

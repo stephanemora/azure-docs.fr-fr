@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258519"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176064"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planifier le déploiement d’un panneau d’accès Azure Active Directory
 
@@ -226,6 +226,10 @@ Planifiez l’ordre dans lequel vous allez ajouter des applications au lanceur M
 #### <a name="add-applications-to-the-my-apps-panel"></a>Ajouter des applications au panneau My Apps
 
 Toutes les applications Azure AD compatibles avec l’authentification unique peuvent être ajoutées au lanceur My Apps. Les autres applications sont ajoutées à l’aide de l’option Authentification unique liée. Vous pouvez configurer une vignette d’application qui établit un lien vers l’URL de votre application web existante. L’authentification unique liée vous permet de commencer à diriger les utilisateurs vers le portail My Apps sans avoir à migrer toutes les applications vers l’authentification unique Azure AD. Vous pouvez migrer vers des applications avec authentification unique Azure AD configurée sans interrompre l’expérience des utilisateurs.
+
+#### <a name="use-my-apps-workspaces-preview"></a>Utiliser des espaces de travail Mes applications (préversion)
+
+Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des espaces de travail pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des espaces de travail pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, voir [Comment utiliser des espaces de travail Mes applications pour personnaliser des panneaux d’accès d’utilisateur (préversion)](access-panel-workspaces.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Choisir d’utiliser My Apps ou un portail existant
 

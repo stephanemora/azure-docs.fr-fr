@@ -1,5 +1,6 @@
 ---
-title: Sérialisation du cache de jetons dans Microsoft Authentication Library pour .NET | Azure
+title: Sérialisation du cache de jetons dans Microsoft Authentication Library pour .NET
+titleSuffix: Microsoft identity platform
 description: Découvrez la sérialisation et la sérialisation par le client du cache de jetons à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e4a24e96b41955ca9e89f8307b693e7599b645
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 2cae1a755b9f79ce2fd5084653f7b3c177f29832
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709296"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802733"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Sérialisation du cache de jetons dans MSAL.NET
 Une fois qu’un [jeton est acquis](msal-acquire-cache-tokens.md), il est mis en cache par Microsoft Authentication Library (MSAL).  Le code de l’application doit d’abord essayer d’obtenir un jeton à partir du cache, avant de l’acquérir par une autre méthode.  Cet article décrit la sérialisation par défaut et personnalisée du cache de jetons dans MSAL.NET.

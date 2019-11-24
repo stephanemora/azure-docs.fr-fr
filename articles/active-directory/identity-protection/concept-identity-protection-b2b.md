@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667135"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881307"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilisateurs Identity Protection et B2B
 
@@ -33,9 +33,9 @@ Le risque de l’utilisateur pour les utilisateurs de la collaboration B2B est �
 
 Il existe des limitations dans l’implémentation d’Identity Protection pour les utilisateurs de la collaboration B2B dans un répertoire de ressources, car leur identité existe dans leur répertoire de départ. Les limitations principales sont les suivantes :
 
-- Si un utilisateur invité déclenche la stratégie de risque de l’utilisateur Identity Protection pour forcer la réinitialisation du mot de passe, il sera bloqué. Ce bloc est dû à l’impossibilité de réinitialiser les mots de passe dans le répertoire des ressources.
-- Les utilisateurs invités n’apparaissent pas dans le rapport utilisateurs à risque. Cette perte de visibilité est due à l’évaluation des risques se produisant dans le répertoire de départ de l’utilisateur B2B.
-- Les administrateurs ne peuvent pas ignorer ou corriger un utilisateur à risque de la collaboration B2B dans leur répertoire de ressources. Cette perte de fonctionnalité est due au fait que les administrateurs du répertoire de ressources n’ont pas accès au répertoire de départ de l’utilisateur B2B.
+- Si un utilisateur invité déclenche la stratégie de risque de l’utilisateur Identity Protection pour forcer la réinitialisation du mot de passe, **il sera bloqué**. Ce bloc est dû à l’impossibilité de réinitialiser les mots de passe dans le répertoire des ressources.
+- **Les utilisateurs invités n’apparaissent pas dans le rapport utilisateurs à risque**. Cette perte de visibilité est due à l’évaluation des risques se produisant dans le répertoire de départ de l’utilisateur B2B.
+- Les administrateurs **ne peuvent pas ignorer ou corriger un utilisateur à risque de la collaboration B2B** dans leur répertoire de ressources. Cette perte de fonctionnalité est due au fait que les administrateurs du répertoire de ressources n’ont pas accès au répertoire de départ de l’utilisateur B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>Pourquoi ne puis-je pas corriger les utilisateurs à risque de la collaboration B2B dans mon annuaire ?
 
@@ -54,4 +54,3 @@ L’exclusion des utilisateurs B2B des stratégies d’accès conditionnel en fo
 Consultez les articles suivants sur Azure AD B2B Collaboration :
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](../b2b/what-is-b2b.md)
-- [Qu’est-ce que l’accès conditionnel ?](../conditional-access/overview.md)

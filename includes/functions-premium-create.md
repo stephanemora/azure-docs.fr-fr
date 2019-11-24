@@ -5,50 +5,61 @@ services: functions
 author: jeffhollan
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/01/2019
+ms.date: 10/25/2019
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 9bac92bc1cc94b88dc694b468b795049db4ac9df
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 911db285d1ca885142e8a80345926ce76379e3bc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443974"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72958566"
 ---
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Ouvrir le portail Azure à partir de [https://portal.azure.com](https://portal.azure.com)
 
-1. Sélectionnez **+ Créer une ressource** sur le côté gauche, puis choisissez **Application de fonction**.
+1. Sélectionner le bouton **Créer une ressource**
 
-1. Pour **plan d’hébergement**, choisissez **plan App Service**, puis **Plan/Emplacement App Service**.
+    ![Créer une ressource](./media/functions-create-function-app-portal/function-app-create-resource.png)
 
-    ![Créer une application de fonction](./media/functions-premium-create/create-function-app-resource.png)
+1. Sélectionnez **Calcul** > **Function App**.
 
-1. Sélectionnez **Créer**, entrez un nom de **plan App Service**, choisissez un **emplacement** dans une [région](https://azure.microsoft.com/regions/) près de chez vous ou près des autres services auxquels vos fonctions ont accès, puis sélectionnez **Niveau tarifaire**.
+    ![Créer une application de fonction sur le Portail Azure](./media/functions-premium-create/function-app-create-start.png)
 
-    ![Créer un plan App Service](./media/functions-premium-create/new-app-service-plan.png)
+1. Utilisez les paramètres d’application de fonction comme indiqué dans le tableau sous l’image.
 
-1. Choisissez le plan **EP1** (élastique Premium), puis sélectionnez **Appliquer**.
+    ![Concepts de base](./media/functions-premium-create/function-app-create-basics.png)
 
-    ![Sélectionner le plan Premium](./media/functions-premium-create/hosting-plan.png) 
-
-1. Sélectionnez **OK** pour créer le plan, puis utilisez les paramètres d’application de fonction restants comme spécifié dans le tableau situé sous l’image. 
-
-    ![Plan App Service terminé](./media/functions-premium-create/create-function-app.png)  
-
-    | Paramètre      | Valeur suggérée  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
+    | Paramètre      | Valeur suggérée  | Description |
+    | ------------ | ---------------- | ----------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. |
-    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. Vous pouvez également utiliser la valeur suggérée. |
-    | **SE** | Système d’exploitation préféré | L’abonnement Premium prend en charge Linux et Windows. |
-    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. Seules les langues prises en charge sur le **système d’exploitation** choisi sont affichées. |
-    | **[Stockage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
+    | **Nom de l’application de fonction** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.  |
+    |**Publier**| Code | Option permettant de publier des fichiers de code ou un conteneur Docker. |
+    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |
+    |**Région**| Région recommandée | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
+
+    Sélectionnez le bouton **Suivant : Hébergement >** .
+
+1. Entrez les paramètres d’hébergement suivants.
+
+    ![Hébergement](./media/functions-premium-create/function-app-premium-create-hosting.png)
+
+    | Paramètre      | Valeur suggérée  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Compte de stockage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Système d’exploitation**| Système d’exploitation préféré | Un système d’exploitation est présélectionné pour vous en fonction de la sélection de votre pile d’exécution, mais vous pouvez modifier le paramètre si nécessaire. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Pour Type de plan, sélectionnez **Premium (préversion)** , puis sélectionnez les valeurs par défaut pour *Plan Windows* et *Référence et taille* . |
+
+    Sélectionnez le bouton **Suivant : Surveillance >** .
+
+1. Entrez les paramètres de surveillance suivants.
+
+    ![Surveillance](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+
+    | Paramètre      | Valeur suggérée  | Description |
+    | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Crée une ressource Application Insights avec le même *nom de l’application* dans la région prise en charge la plus proche. En développant ce paramètre, vous pouvez changer le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez stocker vos données. |
 
-1. Une fois que vos paramètres validés, sélectionnez **Créer**.
+    Sélectionnez **Vérifier + créer** pour passer en revue les sélections de configuration d’application.
 
-1. Cliquez sur l’icône Notification en haut à droite du portail pour voir le message **Le déploiement a été effectué**.
-
-    ![Définir de nouveaux paramètres d’application de fonction](./media/functions-premium-create/function-app-create-notification.png)
-
-1. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction. Vous pouvez également sélectionner **Épingler au tableau de bord**. L’épinglage permet de revenir plus facilement à cette ressource d’application de fonction à partir de votre tableau de bord.
+1. Sélectionnez **Créer** pour configurer et déployer l’application de fonction.

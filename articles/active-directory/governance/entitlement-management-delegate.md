@@ -1,5 +1,5 @@
 ---
-title: Délégation et rôles dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
+title: Délégation et rôles dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
 description: Découvrez comment déléguer la gouvernance des accès des administrateurs informatiques aux chefs de service et chefs de projet pour qu’ils puissent gérer les accès eux-mêmes.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389120"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174262"
 ---
-# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD
 
 Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître toutes les situations dans lesquelles des packages d’accès sont exigés. D’ordinaire, il s’agit d’utilisateurs au sein des services, équipes ou projets respectifs qui savent avec qui ils collaborent, en utilisant quelles ressources et pendant combien de temps. Plutôt que d’accorder des autorisations illimitées pour aux non-administrateurs, vous pouvez accorder aux utilisateurs les dernières autorisations dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés.
 
@@ -99,6 +94,7 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 | Tâche | Admin | Créateur de catalogue | Propriétaire de catalogue | Gestionnaire de package d’accès |
 | --- | :---: | :---: | :---: | :---: |
 | [Déléguer à un créateur de catalogue](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Ajouter une organisation connectée](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Créer un catalogue](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Ajouter une ressource à un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Ajouter un propriétaire de catalogue](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
@@ -112,8 +108,9 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 | [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Annuler une requête en attente](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher les erreurs de remise d’une requête](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Retraiter une demande](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Annuler une requête en attente](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Masquer un package d’accès](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 

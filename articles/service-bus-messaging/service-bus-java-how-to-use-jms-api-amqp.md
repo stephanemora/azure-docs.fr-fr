@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f1a679deca8ee33bb4801eb1d1023684a37d0f59
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793159"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027219"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Utiliser Java Message Service (JMS) avec Azure Service Bus et AMQP 1.0
 Cet article explique comment utiliser les fonctionnalités de messagerie d’Azure Service Bus (files d’attente et rubriques de publication/d’abonnement) à partir d’applications Java en utilisant la populaire API standard Java Message Service (JMS). Un [article complémentaire](service-bus-amqp-dotnet.md) explique comment réaliser les mêmes opérations à l’aide de l’API .NET Azure Service Bus. Vous pouvez utiliser ces deux guides ensemble pour découvrir la messagerie interplateforme en utilisant AMQP 1.0.
@@ -344,7 +344,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## <a name="jms-topics-vs-service-bus-topics"></a>Rubriques JMS vs. Rubriques de Service Bus
 L'utilisation de rubriques et d'abonnements Azure Service Bus via l'API JMS (Java Message Service) offre des fonctionnalités d'envoi et de réception de base. Il s'agit d'un choix pratique pour déplacer des applications d'autres courtiers de messages avec des API compatibles JMS, même si les rubriques Service Bus sont différentes des rubriques JMS et nécessitent quelques ajustements. 
 
-Les rubriques Azure Service Bus acheminent les messages vers des abonnements nommés, partagés et durables gérés via l'interface de gestion des ressources Azure, les outils de ligne de commande Azure ou le portail Azure. Chaque abonnement permet jusqu'à 2 000 règles de sélection, chacune pouvant s'accompagner d'une condition de filtre et, pour les filtres SQL, d'une action de transformation des métadonnées. Chaque correspondance de condition de filtre sélectionne le message d'entrée à copier dans l'abonnement.  
+Les rubriques Azure Service Bus acheminent les messages vers des abonnements nommés, partagés et durables gérés via l'interface de gestion des ressources Azure, les outils de ligne de commande Azure ou le portail Azure. Chaque abonnement permet jusqu'à 2 000 règles de sélection, chacune pouvant s'accompagner d'une condition de filtre et, pour les filtres SQL, d'une action de transformation des métadonnées. Chaque correspondance de condition de filtre sélectionne le message d’entrée à copier dans l’abonnement.  
 
 La réception de messages provenant d'abonnements est identique à la réception de messages provenant de files d'attente. Chaque abonnement dispose d'une file d'attente de lettres mortes et peut transférer automatiquement les messages vers une autre file d'attente ou d'autres rubriques. 
 

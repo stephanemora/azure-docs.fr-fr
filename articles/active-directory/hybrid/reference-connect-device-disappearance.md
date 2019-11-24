@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0ef3dd2f39802d07c4ae04ad1eca23e40db502a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345506"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176026"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Présentation d’Azure AD Connect 1.4.xx.x et de la disparition des appareils
 Avec la version 1.4.xx.x d’Azure AD Connect, certains clients peuvent voir une partie ou l’ensemble de leurs appareils Windows disparaître d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces identités d’appareil durant l’autorisation d’accès conditionnel. Ce changement ne supprime pas les appareils Windows correctement inscrits auprès d’Azure AD pour une jonction Azure AD Hybride.

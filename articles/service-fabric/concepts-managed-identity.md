@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333133"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243030"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identité managée pour l’application Service Fabric (préversion)
 
-La gestion des informations d’identification dans votre code pour s’authentifier auprès des services cloud constitue un défi courant lors de la génération d’applications cloud. La sécurisation des informations d’identification est une tâche importante, car elles n’apparaissent jamais sur les stations de travail de développeurs et ne sont pas archivées dans le contrôle de code source. La fonctionnalité Identité managée pour les ressources Azure dans Azure Active Directory (Azure AD) résout ce problème. La fonctionnalité fournit aux services Azure une identité système managée automatiquement dans Azure AD. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
+La gestion des informations d’identification dans votre code pour s’authentifier auprès des services cloud constitue un défi courant lors de la génération d’applications cloud. La sécurisation des informations d’identification est une tâche importante, car elles n’apparaissent jamais sur les stations de travail de développeurs et ne sont pas archivées dans le contrôle de code source. La fonctionnalité Identité managée pour les ressources Azure dans Azure Active Directory (Azure AD) résout ce problème. Elle fournit aux services Azure une identité système administrée automatiquement dans Azure AD. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
 
 La fonctionnalité Identité managée pour les ressources Azure est gratuite avec Azure AD pour les abonnements Azure. Aucun coût supplémentaire n’est facturé.
 
@@ -45,7 +45,7 @@ Les termes suivants sont utilisés dans l'ensemble de la documentation Identité
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scénarios pris en charge pour les applications Service Fabric
 
-Les identités managées pour Service Fabric sont prises en charge uniquement dans les clusters Service Fabric déployés dans Azure et uniquement pour les applications déployées en tant que ressources Azure ; une application qui n’est pas déployée en tant que ressource Azure ne peut pas se voir attribuer une identité. En théorie, le support des identités managées dans un cluster Azure Service Fabric est constitué de deux phases :
+Les identités managées pour Service Fabric sont prises en charge uniquement dans les clusters Service Fabric déployés dans Azure et uniquement pour les applications déployées en tant que ressources Azure. Une application qui n’est pas déployée en tant que ressource Azure ne peut pas se voir attribuer une identité. En théorie, le support des identités managées dans un cluster Azure Service Fabric est constitué de deux phases :
 
 1. Attribuez une ou plusieurs identités managées à la ressource d’application ; une application peut se voir attribuer une seule identité attribuée par le système et/ou des identités attribuées par des utilisateurs, jusqu’à 32, respectivement.
 
@@ -78,3 +78,4 @@ Les scénarios suivants ne sont pas pris en charge ni recommandés ; notez que 
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](./how-to-managed-identity-service-fabric-app-code.md)
 * [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
+* [Déclaration et utilisation de secrets d’application en tant que KeyVaultReferences](./service-fabric-keyvault-references.md) 
