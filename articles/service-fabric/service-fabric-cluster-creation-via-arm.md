@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599972"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901564"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "68599972"
 
 Un [cluster Azure Service Fabric](service-fabric-deploy-anywhere.md) est un ensemble de machines virtuelles connecté au réseau, sur lequel vos microservices sont déployés et gérés.  Un cluster Service Fabric s’exécutant dans Azure est une ressource Azure et il est déployé à l’aide d’Azure Resource Manager. Cet article décrit comment déployer un cluster Service Fabric sécurisé dans Azure à l’aide du gestionnaire des ressources. Vous pouvez utiliser un modèle de cluster par défaut ou personnalisé.  Si vous ne disposez pas d’un modèle personnalisé, vous pouvez [apprendre à en créer un](service-fabric-cluster-creation-create-template.md).
 
-La sécurité du cluster est configurée lorsque le cluster configuré pour la première fois et elle ne peut pas être modifiée ultérieurement. Avant de configurer un cluster, lisez les [scénarios de sécurité du cluster Service Fabric][service-fabric-cluster-security]. Dans Azure, Service Fabric utilise un certificat x509 pour sécuriser votre cluster et ses points de terminaison, authentifier les clients et chiffrer les données. Azure Active Directory est également recommandé pour sécuriser l’accès aux points de terminaison de gestion. Les locataires et les utilisateurs Azure AD doivent être créés avant de créer le cluster.  Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
+Le type de sécurité choisi pour sécuriser le cluster (p. ex. : identité Windows, X509 etc.) doit être spécifié lors de la création initiale du cluster, et ne peut être modifié par la suite. Avant de configurer un cluster, lisez les [scénarios de sécurité du cluster Service Fabric][service-fabric-cluster-security]. Dans Azure, Service Fabric utilise un certificat x509 pour sécuriser votre cluster et ses points de terminaison, authentifier les clients et chiffrer les données. Azure Active Directory est également recommandé pour sécuriser l’accès aux points de terminaison de gestion. Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
 
 Si vous créez un cluster de production pour exécuter des charges de travail de production, nous vous recommandons de commencer par lire la [liste de vérification de disponibilité de la production](service-fabric-production-readiness-checklist.md).
 

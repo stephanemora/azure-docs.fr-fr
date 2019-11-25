@@ -1,0 +1,87 @@
+---
+title: Expériences utilisateur avec Azure AD Identity Protection
+description: Expérience utilisateur d’Azure AD Identity Protection
+services: active-directory
+ms.service: active-directory
+ms.subservice: identity-protection
+ms.topic: conceptual
+ms.date: 10/18/2019
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72886712"
+---
+# <a name="user-experiences-with-azure-ad-identity-protection"></a>Expériences utilisateur avec Azure AD Identity Protection
+
+Avec Azure Active Directory Identity Protection, vous pouvez :
+
+* Exiger que les utilisateurs s’inscrivent pour Azure Multi-Factor Authentication
+* Automatiser la correction des connexions risquées et des utilisateurs compromis
+
+Toutes les stratégies de protection des identités ont un impact sur l’expérience de connexion pour les utilisateurs. Autoriser les utilisateurs de s’inscrire à des outils, tels qu’Azure MFA et la réinitialisation de mot de passe libre-service, et de les utiliser peut réduire l’impact. Ces outils, ainsi que les choix de stratégie appropriés, offrent aux utilisateurs une option de correction automatique lorsqu’ils en ont besoin.
+
+## <a name="multi-factor-authentication-registration"></a>Inscription à l’authentification multifacteur
+
+L’activation de la stratégie Identity Protection nécessitant l’inscription de l’authentification multifacteur et le ciblage de tous vos utilisateurs, garantira qu’ils ont la possibilité d’utiliser Azure MFA pour effectuer une mise à niveau automatique à l’avenir. La configuration de cette stratégie offre à vos utilisateurs une période de 14 jours pendant laquelle ils peuvent choisir de s’inscrire et à la fin sont forcés de s’inscrire. L’expérience pour les utilisateurs est décrite ci-dessous. Pour plus d’informations, consultez la documentation de l’utilisateur final dans l’article [Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire](../user-help/user-help-two-step-verification-overview.md).
+
+### <a name="registration-interrupt"></a>Interruption d’inscription
+
+1. Lors de la connexion à une application intégrée Azure AD, l’utilisateur reçoit une notification sur la nécessité de configurer le compte pour l’authentification multifacteur. Cette stratégie est également déclenchée dans l’expérience Windows 10 prête à l’emploi pour les nouveaux utilisateurs disposant d’un nouvel appareil.
+   
+    ![Plus d’informations sont nécessaires](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
+
+1. Suivez les étapes guidées pour vous inscrire à Azure Multi-Factor Authentication et terminer votre connexion.
+
+## <a name="risky-sign-in-remediation"></a>Correction de connexion à risque
+
+Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter et de déclencher le niveau de risque des stratégies. 
+
+### <a name="risky-sign-in-self-remediation"></a>Correction automatique de connexion à risque
+
+1. L’utilisateur est informé que quelque chose d’inhabituel a été détecté concernant sa connexion, par exemple en cas de connexion depuis un nouvel emplacement, un nouvel appareil ou une nouvelle application.
+   
+    ![Invite inhabituelle](./media/concept-identity-protection-user-experience/120.png)
+
+1. L’utilisateur est tenu de prouver son identité en effectuant l’authentification multifacteur Azure avec l’une de ses méthodes précédemment inscrites. 
+
+### <a name="risky-sign-in-administrator-unblock"></a>Déblocage de l’administrateur de connexion risquée
+
+Les administrateurs peuvent choisir de bloquer les utilisateurs lors de la connexion selon leur niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter leur équipe informatique ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’est possible de corriger automatiquement son compte en effectuant l’authentification multifacteur dans ce cas précis.
+
+![Bloqué par une stratégie en matière de risque à la connexion](./media/concept-identity-protection-user-experience/200.png)
+
+Le personnel informatique peut suivre les instructions de la section [Déblocage des utilisateurs](howto-identity-protection-remediate-unblock.md#unblocking-based-on-sign-in-risk) pour permettre aux utilisateurs de se reconnecter.
+
+## <a name="risky-user-remediation"></a>Correction de l’utilisateur à risque
+
+Lorsqu’une stratégie en matière de risque des utilisateurs a été configurée, les utilisateurs répondant à la probabilité de niveau de risque de compromission doivent passer par le flux de récupération de compte compromis avant de pouvoir se connecter. 
+
+### <a name="risky-user-self-remediation"></a>Correction automatique de l’utilisateur à risque
+
+1. L’utilisateur est informé que la sécurité de son compte est menacée en raison d’activités suspectes ou de la divulgation de ses informations d’identification.
+   
+    ![Correction](./media/concept-identity-protection-user-experience/101.png)
+
+1. L’utilisateur est tenu de prouver son identité en effectuant l’authentification multifacteur Azure avec l’une de ses méthodes précédemment inscrites. 
+1. Enfin, l’utilisateur est obligé de changer son mot de passe par réinitialisation de mot de passe en libre-service, car il se peut que quelqu’un d’autre ait eu accès à son compte.
+
+## <a name="risky-sign-in-administrator-unblock"></a>Déblocage de l’administrateur de connexion risquée
+
+Les administrateurs peuvent choisir de bloquer les utilisateurs lors de la connexion selon leur niveau de risque. Pour être débloqués, les utilisateurs finaux doivent contacter leur service informatique. Dans ce cas, il n’est pas possible d’effectuer une correction automatique en effectuant l’authentification multifacteur et la réinitialisation du mot de passe en libre-service.
+
+![Bloqué par la stratégie de risque utilisateur](./media/concept-identity-protection-user-experience/104.png)
+
+Le personnel informatique peut suivre les instructions de la section [Déblocage des utilisateurs](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) pour permettre aux utilisateurs de se reconnecter.
+
+## <a name="see-also"></a>Voir aussi
+
+- [Corriger les risques et débloquer les utilisateurs](howto-identity-protection-remediate-unblock.md)
+
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

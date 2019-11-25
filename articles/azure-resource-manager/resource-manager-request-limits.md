@@ -4,31 +4,87 @@ description: Décrit comment utiliser la limitation avec des requêtes Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302829"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965562"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
-Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après le principal de sécurité (utilisateur ou application) qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos requêtes proviennent de plusieurs principaux de sécurité, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1200 par heure.
+Cet article explique comment Azure Resource Manager limite les requêtes. Il vous montre comment suivre le nombre de demandes restantes avant d’atteindre la limite et comment réagir quand vous avez atteint la limite.
 
-Les requêtes sont appliquées à votre abonnement ou à votre locataire. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
+La limitation se produit à deux niveaux. Azure Resource Manager limite les demandes pour l’abonnement et le locataire. Si la demande se trouve sous les limites de limitation pour l’abonnement et le locataire, le Gestionnaire des ressources achemine la requête vers le fournisseur de ressources. Le fournisseur de ressources applique des limites de limitation adaptées à ses opérations. L’illustration suivante montre la façon dont la limitation est appliquée lorsqu’une demande passe de l’utilisateur à Azure Resource Manager et au fournisseur de ressources.
 
-Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque région Azure comporte plusieurs instances, et Azure Resource Manager est déployé dans toutes les régions Azure.  Par conséquent, dans la pratique, les limites sont effectivement beaucoup plus importantes que celles-ci, car les requêtes utilisateur sont généralement prises en charge par de nombreuses instances différentes.
+![Limitation des tentatives d’accès](./media/resource-manager-request-limits/request-throttling.svg)
 
-Si votre application ou script atteint ces limites, vous devez limiter vos requêtes. Cet article vous montre comment déterminer les requêtes restantes dont vous disposez avant d’atteindre la limite et comment réagir si vous avez atteint la limite.
+## <a name="subscription-and-tenant-limits"></a>Limites de locataire et d’abonnement
 
-Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**.
+Chaque opération au niveau de l’abonnement et du client est soumise à des limites de limitation. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
+
+Les limites de limitation par heure par défaut sont indiquées dans le tableau suivant.
+
+| Étendue | Opérations | Limite |
+| ----- | ---------- | ------- |
+| Subscription | lectures | 12 000 |
+| Subscription | suppressions | 15000 |
+| Subscription | écritures | 1 200 |
+| Locataire | lectures | 12 000 |
+| Locataire | écritures | 1 200 |
+
+Ces limites sont définies d’après le principal de sécurité (utilisateur ou application) qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos requêtes proviennent de plusieurs principaux de sécurité, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1200 par heure.
+
+Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque région Azure comporte plusieurs instances, et Azure Resource Manager est déployé dans toutes les régions Azure.  Par conséquent, dans la pratique, les limites sont supérieures à ces limites. Les demandes d’un utilisateur sont généralement gérées par des instances différentes d’Azure Resource Manager.
+
+## <a name="resource-provider-limits"></a>Limites de fournisseur de ressources
+
+Les fournisseurs de ressources appliquent leurs propres limites de limitation. Étant donné que le Gestionnaire des ressources est limité par l’ID principal et par l’instance du Gestionnaire des ressources, le fournisseur de ressources peut recevoir plus de demandes que les limites par défaut de la section précédente.
+
+Cette section décrit les limites de limitation de certains fournisseurs de ressources couramment utilisés.
+
+### <a name="storage-throttling"></a>Limitation du stockage
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### <a name="network-throttling"></a>Limitation du réseau
+
+Le fournisseur de ressources Microsoft. Network applique les limites de limitation suivantes :
+
+| Opération | Limite |
+| --------- | ----- |
+| écriture / suppression (PUT) | 1000 toutes les 5 minutes |
+| lecture (GET) | 10000 toutes les 5 minutes |
+
+### <a name="compute-throttling"></a>Calculer la limitation
+
+Pour plus d’informations sur les limites de limitation des opérations de calcul, consultez [Résolution des erreurs de limitation d’API - Calcul](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+
+Pour vérifier les instances de machine virtuelle dans un groupe de machines virtuelles identiques, utilisez les [opérations Virtual Machine Scale Sets](/rest/api/compute/virtualmachinescalesetvms). Par exemple, utilisez la [requête List sur les VM d’un groupe de machines virtuelles identiques](/rest/api/compute/virtualmachinescalesetvms/list) avec des paramètres pour vérifier l’état d’alimentation des instances de la machine virtuelle. Cette API réduit le nombre de demandes.
+
+### <a name="azure-resource-graph-throttling"></a>Limitation Azure Resource Graph
 
 Azure Resource Graph limite le nombre de requêtes à ses opérations. Les étapes décrites dans cet article pour déterminer les requêtes restantes et comment réagir si la limite est atteinte s’appliquent également à Resource Graph. Toutefois, Resource Graph définit ses propres limites et son propre taux de réinitialisation. Pour plus d’informations, consultez [Throttle in Azure Resource Graph (Limitation dans Azure Resource Graph)](../governance/resource-graph/overview.md#throttling).
 
+## <a name="request-increase"></a>Demander une augmentation
+
+Parfois, les limites de limitation peuvent être augmentées. Pour déterminer si les limites de limitation de votre scénario peuvent être augmentées, créez une demande de support. Les détails de votre modèle d’appel seront évalués.
+
+## <a name="error-code"></a>Code d'erreur
+
+Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**. La réponse inclut la valeur **Retry-After** qui spécifie le nombre de secondes pendant lesquelles votre application doit attendre (ou rester en veille) avant d’envoyer la requête suivante. Si vous envoyez une requête avant l’écoulement du temps d’attente avant une nouvelle tentative, votre requête n’est pas traitée et une autre valeur de nouvelle tentative est renvoyée.
+
+Après avoir attendu l’heure spécifiée, vous pouvez également fermer puis rouvrir votre connexion à Azure. En réinitialisant la connexion, vous pouvez vous connecter à une autre instance d’Azure Resource Manager.
+
+Si vous utilisez un kit de développement logiciel (SDK) Azure, celui-ci peut inclure une configuration de nouvelle tentative automatique. Pour plus d’informations, consultez [Guide du mécanisme de nouvelle tentative relatif aux services Azure](/azure/architecture/best-practices/retry-service-specific).
+
+Certains fournisseurs de ressources retournent l’erreur 429 pour signaler un problème temporaire. Le problème peut être une condition de surcharge qui n’est pas directement due à votre demande. Il peut s’agir d’une erreur temporaire concernant l’état de la ressource cible ou de la ressource dépendante. Par exemple, le fournisseur de ressources réseau renvoie le message 429 avec le code d’erreur **RetryableErrorDueToAnotherOperation** lorsque la ressource cible est verrouillée par une autre opération. Pour déterminer si l’erreur provient d’une limitation ou d’une condition temporaire, affichez les détails de l’erreur dans la réponse.
+
 ## <a name="remaining-requests"></a>Requêtes restantes
+
 Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Les requêtes de lecture retournent une valeur dans l’en-tête pour le nombre de requêtes de lecture restantes. Les requêtes d’écriture incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
 | En-tête de réponse | Description |
@@ -42,7 +98,10 @@ Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-tê
 | x-ms-ratelimit-remaining-tenant-resource-requests |Requêtes de type de ressource restantes étendues au locataire.<br /><br />Cet en-tête est ajouté uniquement pour les requêtes au niveau du locataire, et uniquement si un service a remplacé la limite par défaut. Resource Manager ajoute cette valeur au lieu des requêtes de lecture ou d’écriture du locataire. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Requêtes de collecte de type de ressource restantes étendues au locataire.<br /><br />Cet en-tête est ajouté uniquement pour les requêtes au niveau du locataire, et uniquement si un service a remplacé la limite par défaut. |
 
+Le fournisseur de ressources peut également retourner des en-têtes de réponse avec des informations sur les demandes restantes. Pour plus d’informations sur les en-têtes de réponse retournés par le fournisseur de ressources de calcul, consultez [En-têtes de réponse d’information de débit d’appels](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+
 ## <a name="retrieving-the-header-values"></a>Récupération des valeurs d’en-tête
+
 La récupération de ces valeurs d’en-tête dans votre code ou script est similaire à la récupération de n’importe quelle valeur d’en-tête. 
 
 Par exemple, en **C#** , vous récupérez la valeur d’en-tête d’un objet **HttpWebResponse** nommé **response** avec le code suivant :
@@ -136,9 +195,6 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
-
-## <a name="waiting-before-sending-next-request"></a>Attente avant l’envoi de la requête suivante
-Lorsque vous atteignez la limite de requêtes, Resource Manager renvoie le code d’état HTTP **429** et une valeur **Retry-After** dans l’en-tête. La valeur **Retry-After** spécifie le nombre de secondes pendant lesquelles votre application doit attendre (ou rester en veille) avant d’envoyer la requête suivante. Si vous envoyez une requête avant l’écoulement du temps d’attente avant une nouvelle tentative, votre requête n’est pas traitée et une autre valeur de nouvelle tentative est renvoyée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

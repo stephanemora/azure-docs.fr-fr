@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 4426b83ee62f4a894f72e197cbe541b8b669695d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 896179a393b870390991a8e9942f6e7287ec5c90
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086808"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063301"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -161,11 +161,12 @@ Nombre maximal d’instances possibles de l’application de fonction. Par défa
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-La valeur par défaut est « 8.11.1 ».
+_Windows uniquement._  
+Définit la version de Node.js à utiliser lors de l’exécution de votre application de fonction sur Windows. Vous devez utiliser un tilde (~) pour que le runtime utilise la dernière version disponible de la version principale ciblée. Par exemple, lorsqu’elle est définie sur `~10`, la dernière version de Node.js 10 est utilisée. Quand une version majeure est ciblée avec un tilde, vous n’avez pas besoin de mettre à jour manuellement la version mineure. 
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 

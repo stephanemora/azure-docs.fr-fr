@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442899"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809739"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Questions fréquentes (FAQ) sur Azure Front Door Service
 
@@ -144,6 +144,8 @@ Azure Front Door Service est une plateforme multilocataire mondialement distribu
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>Quelles sont les versions de TLS prises en charge par Azure Front Door Service ?
 
+Tous les profils Front Door créés après septembre 2019 utilisent TLS 1.2 comme configuration minimale par défaut.
+
 Front Door prend en charge les versions TLS 1.0, 1.1 et 1.2. TLS 1.3 n’est pas encore pris en charge.
 
 ### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>Quels sont les certificats pris en charge sur Azure Front Door Service ?
@@ -185,7 +187,7 @@ Oui, Azure Front Door Service prend en charge le déchargement SSL et le protoco
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Puis-je configurer la stratégie SSL pour gérer les versions du protocole SSL ?
 
-Non, actuellement Front Door ne prend pas en charge le refus de versions spécifiques de TLS, ni la définition de la version TLS minimale. 
+Vous pouvez configurer une version TLS minimale dans Azure Front Door via l’[API Azure REST](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Actuellement, vous pouvez choisir entre 1.0 et 1.2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Puis-je configurer Front Door pour prendre en charge uniquement des suites de chiffrement spécifiques ?
 
