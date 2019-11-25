@@ -1,6 +1,6 @@
 ---
-title: Créer des alertes personnalisées destinées à Azure Security Center pour IoT | Microsoft Docs
-description: Créer et affecter des alertes d’appareil personnalisées destinées à Azure Security Center pour IoT.
+title: 'Démarrage rapide : Créer des alertes personnalisées destinées à Azure Security Center pour IoT'
+description: En suivant ce guide de démarrage rapide, vous allez créer et affecter des alertes d’appareil personnalisées destinées à Azure Security Center pour IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: ed10cbf89f878f8d27b43476d26ac93dd373ed66
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eca5d69efb04cf8210b0b2aa502bcee5cd4f5264
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597008"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904134"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
 
@@ -89,7 +89,7 @@ Le tableau suivant récapitule les alertes disponibles pour la personnalisation.
 | Faible      | Alerte personnalisée : le nombre de messages appareil-à-cloud dans le protocole AMQP est en dehors de la plage autorisée      | IoT Hub     | Le nombre de messages appareil-à-cloud (protocole AMQP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|   |
 | Faible      | Alerte personnalisée : le nombre d’appels de méthode directe est en dehors de la plage autorisée | IoT Hub     | Le nombre d’appels de méthode directe dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
 | Faible      | Alerte personnalisée : le nombre de chargements de fichiers est en dehors de la plage autorisée | IoT Hub     | Le nombre de nombre de chargements de fichiers dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.| |
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole HTTP) dans une fenêtre de temps est en dehors de la plage autorisée configurée.                                  |
+| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub     | La quantité de messages cloud-à-appareil (protocole HTTP) dans une fenêtre de temps n’est pas dans la plage autorisée configurée                                  |
 | Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil rejetés dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole HTTP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée. |
 | Faible      | Alerte personnalisée : le nombre de messages appareil-à-cloud dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub| Le nombre de messages appareil-à-cloud (protocole HTTP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|    |
 | Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole MQTT est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole MQTT) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|   |

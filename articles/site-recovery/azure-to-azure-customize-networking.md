@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8038f7c909cfeaf15039afa7335dd6b0460a2622
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293469"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968913"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
 
@@ -31,15 +31,12 @@ Vous pouvez fournir la configuration des ressources clés suivantes pour la mach
 - [Adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) pour le sous-réseau et pour la carte réseau
 
- > [!IMPORTANT]
-  > Pour le moment, ces paramètres sont pris en charge uniquement dans l’opération de basculement, et pas pour le test de basculement.
-
 ## <a name="prerequisites"></a>Prérequis
 
 - Veillez à planifier à l’avance vos configurations côté récupération.
 - Créez à l’avance les ressources de mise en réseau. Fournissez-les en entrée afin que le service Azure Site Recovery puisse respecter ces paramètres et s’assurer que la machine virtuelle de basculement adhérera à ces paramètres.
 
-## <a name="customize-failover-networking-configurations"></a>Personnaliser les configurations de mise en réseau du basculement
+## <a name="customize-failover-and-test-failover-networking-configurations"></a>Personnaliser les configurations de mise en réseau du basculement et du test de basculement
 
 1. Accédez à **Éléments répliqués**. 
 2. Sélectionnez la machine virtuelle Azure de votre choix.
@@ -47,13 +44,16 @@ Vous pouvez fournir la configuration des ressources clés suivantes pour la mach
 
      ![Personnaliser les configurations de mise en réseau du basculement](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Sélectionnez **Modifier** à côté de la carte réseau que vous souhaitez configurer. Dans le panneau suivant qui s’affiche, sélectionnez les ressources précréées correspondantes dans la cible.
+4. Sélectionnez un réseau virtuel de test de basculement. Vous pouvez choisir de laisser cette zone vide et en sélectionner une au moment du test de basculement.
+5. Pour le réseau de basculement, sélectionnez **Modifier** à côté de la carte réseau que vous souhaitez configurer. Dans le panneau suivant qui s’affiche, sélectionnez les ressources précréées correspondantes dans les emplacements de basculement de test et de basculement.
 
     ![Modifiez la configuration de la carte réseau](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-5. Sélectionnez **OK**.
+6. Sélectionnez **OK**.
 
 Site Recovery respecte à présent ces paramètres et s’assure que, lors du basculement, la machine virtuelle est connectée à la ressource sélectionnée via la carte réseau correspondante.
+
+Lorsque vous déclenchez le test de basculement via le plan de récupération, il demande toujours le réseau virtuel Azure. Ce réseau virtuel sera utilisé pour le basculement de test pour les machines qui ne possédaient pas de paramètres de basculement de test préconfigurés.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -72,9 +72,8 @@ Validations de l’équilibreur de charge interne :
 - Si la machine virtuelle cible est configurée de manière à être placée dans une zone de disponibilité, vérifiez si l’équilibreur de charge est redondant interzone ou fait partie d’une zone de disponibilité quelconque. (Les équilibreurs de charge de référence SKU de base ne prennent pas en charge les zones et n’apparaîtront pas dans la liste déroulante dans ce cas.)
 - Assurez-vous que l’équilibreur de charge interne possède un pool principal et une configuration frontale créés au préalable.
 
-
 Adresse IP publique :
-    
+
 - L’abonnement et la région de l’adresse IP publique et de la machine virtuelle cible doivent être identiques.
 - La référence SKU d’adresse IP publique de la machine virtuelle cible et la référence SKU de l’équilibreur de charge interne doivent être identiques.
 

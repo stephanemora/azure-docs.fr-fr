@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677119"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242442"
 ---
 # <a name="what-is-distributed-tracing"></a>Présentation du traçage distribué
 
@@ -40,6 +40,7 @@ Les SDK Application Insights pour .NET, .NET Core, Java, Node.js et JavaScript p
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python (préversion)](opencensus-python.md)
 
 Lorsque le SDK Application Insights adéquat est installé et configuré, les collecteurs automatiques des dépendances des SDK recueillent les informations de traçage automatiquement pour les infrastructures, les bibliothèques et les technologies populaires. La liste complète des technologies prises en charge est disponible dans [la documentation de la collecte automatique de la dépendance](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -49,7 +50,7 @@ Lorsque le SDK Application Insights adéquat est installé et configuré, les co
 
 Outre les SDK, Application Insights prend également en charge le traçage distribué via [OpenCensus](https://opencensus.io/). OpenCensus est une distribution unique de bibliothèques (Open Source et indépendante des fournisseurs) offrant la collecte de métriques et le traçage distribué pour les services. Cet outil permet également à la communauté Open Source d’activer le traçage distribué avec des technologies populaires comme Redis, Memcached ou MongoDB. [Microsoft collabore sur OpenCensus avec plusieurs partenaires de surveillance et de cloud](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Pour ajouter des fonctionnalités de traçage distribué à une application avec OpenCensus, commencez par [installer et configurer le redirecteur local Application Insights](./../../azure-monitor/app/opencensus-local-forwarder.md). Dès lors, configurez OpenCensus afin d’acheminer les données de trace distribuée par le biais du redirecteur local. [Python](./../../azure-monitor/app/opencensus-python.md) et [Go](./../../azure-monitor/app/opencensus-go.md) sont pris en charge.
+[Python (préversion)](opencensus-python.md) 
 
 Le site web OpenCensus fournit de la documentation de référence sur l’API pour [Python](https://opencensus.io/api/python/trace/usage.html) et [Go](https://godoc.org/go.opencensus.io), ainsi que divers guides sur l’utilisation d’OpenCensus. 
 

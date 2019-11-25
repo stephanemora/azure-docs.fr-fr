@@ -3,22 +3,23 @@ title: Interface de ligne de commande CLI Azure Service Fabric - sfctl chaos sch
 description: Décrit les commandes sfctl chaos schedule de l’interface de ligne de commande CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036519"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897555"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Permet d’obtenir et de définir la planification de chaos.
@@ -39,7 +40,7 @@ Obtient la version de la planification de chaos en cours d’utilisation et la p
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -54,7 +55,7 @@ Obtient la version de la planification de chaos en cours d’utilisation et la p
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 Définissez la planification utilisée par Chaos.
 
-Chaos va planifier automatiquement les exécutions en fonction de la planification de chaos. La version utilisée dans la planification d’entrée fournie doit correspondre à la version de la planification de chaos sur le serveur. Si la version fournie ne correspond pas à la version sur le serveur, la planification de chaos n’est pas mise à jour. Si la version fournie correspond à la version sur le serveur, alors la planification de chaos est mise à jour et la version de la planification de chaos sur le serveur est incrémentée de un et revient à 0 après 2 147 483 647. Si Chaos est en cours d’exécution lorsque cet appel est effectué, l’appel va échouer.
+Chaos va planifier automatiquement les exécutions en fonction de la planification de chaos. La planification du chaos sera mise à jour si la version fournie correspond à la version sur le serveur. Lors de la mise à jour de la planification du chaos, la version est incrémentée de 1 sur le serveur. La version sur le serveur sera renvoyée à 0 après avoir atteint un nombre élevé. Si Chaos est en cours d’exécution lorsque cet appel est effectué, l’appel va échouer.
 
 ### <a name="arguments"></a>Arguments
 
@@ -64,7 +65,7 @@ Chaos va planifier automatiquement les exécutions en fonction de la planificati
 | --expiry-date-utc | La date et l’heure d’arrêt à l’aide de la planification pour planifier Chaos.  Valeur par défaut\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Liste encodée JSON de ChaosScheduleJobs représentant quand exécuter Chaos et avec quels paramètres. |
 | --start-date-utc | La date et l’heure de démarrage à l’aide de la planification pour planifier Chaos.  Valeur par défaut\: 1601-01-01T00\:00\:00.000Z. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --version | Le numéro de version de la planification. |
 
 ### <a name="global-arguments"></a>Arguments globaux

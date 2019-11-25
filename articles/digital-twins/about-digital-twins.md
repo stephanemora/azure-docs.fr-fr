@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble d’Azure Digital Twins | Microsoft Docs
+title: Vue d’ensemble – Azure Digital Twins | Microsoft Docs
 description: En savoir plus sur Azure Digital Twins, une solution Azure IoT destinée à l’intelligence spatiale.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: 93adf946ac630d2839f761b01a02d02f6ca92b64
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 07065e891ec46f51636fad005ffeece976c9f2fa
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718240"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005954"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Vue d’ensemble d’Azure Digital Twins
 

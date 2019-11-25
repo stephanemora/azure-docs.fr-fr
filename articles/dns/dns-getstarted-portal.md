@@ -1,18 +1,19 @@
 ---
-title: Démarrage rapide - Créer une zone et un enregistrement Azure DNS à partir du portail Azure
+title: 'Démarrage rapide : Créer une zone et un enregistrement DNS – Azure portal'
+titleSuffix: Azure DNS
 description: Utilisez ce guide de démarrage rapide pas à pas pour apprendre à créer un enregistrement et une zone Azure DNS à l’aide du portail Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: feb46114b3cf1b04e6a181f84bcdc41c17f1c0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119069"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082925"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 
@@ -44,7 +45,7 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
    - **Nom** : Pour l’exemple de ce guide de démarrage rapide, tapez *contoso.xyz*. Vous pouvez affecter comme nom de zone DNS toute valeur qui n’est pas encore configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de nom de domaine.
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyResourceGroup*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    ![Zone DNS](./media/dns-getstarted-portal/openzone650.png)
 
@@ -88,7 +89,7 @@ Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Par exemple : 
+   Par exemple :
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

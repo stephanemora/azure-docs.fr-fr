@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097659"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819665"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -93,7 +93,7 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modifier le paramètre de taille dans le cache local
-Par défaut, la taille du cache local est de **300 Mo**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application.
+Par défaut, la taille du cache local est de **1 Go**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Bonnes pratiques pour utiliser le cache local d’App Service
 Nous vous recommandons d’utiliser le cache local conjointement avec la fonctionnalité [Environnements de préproduction](../app-service/deploy-staging-slots.md) .
@@ -105,6 +105,7 @@ Nous vous recommandons d’utiliser le cache local conjointement avec la fonctio
 * Les paramètres associés incluent un nom et sont rattachés à un emplacement. Ainsi, quand l’emplacement de préproduction est échangé avec l’emplacement de production, il hérite des paramètres d’application du cache local. L’emplacement de production qui vient d’être échangé s’exécute sur le cache local après quelques minutes. Il est ensuite initialisé dans le cadre de l’initialisation des emplacements après l’échange. Une fois l’échange des emplacements terminé, votre emplacement de production s’exécute sur le cache local.
 
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Comment savoir si mon application peut bénéficier de la fonctionnalité de cache local ?
 Utilisez la fonctionnalité de cache local si votre application a besoin d’un magasin de contenu fiable et très performant, si elle n’utilise pas le magasin de contenu pour écrire des données stratégiques au moment de l’exécution et si elle a une taille totale inférieure à 2 Go. Vous pouvez obtenir la taille totale de vos dossiers /site et /siteextensions en utilisant l’extension de site Utilisation du disque d’Azure Web Apps.
 

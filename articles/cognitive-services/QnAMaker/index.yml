@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentation relative à QnA Maker
   description: QnA Maker est un service d’API cloud qui crée une couche de questions-réponses conversationnelle sur vos données. QnA Maker vous permet de mettre en place un service de questions-réponses à partir de votre contenu semi-structuré, comme des documents de questions fréquentes (FAQ), des URL et des manuels de produit. Le service QnA Maker répond aux questions en langage naturel de vos utilisateurs en les faisant correspondre à la meilleure réponse possible à partir des entités QnA de votre base de connaissances.
-  ms.openlocfilehash: 091d2007d115c5e08904af6081d0f67b2eb60071
-  ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+  ms.openlocfilehash: f88336107203a166b61df98c55b680f1f11f79f6
+  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/05/2019
-  ms.locfileid: "71971470"
+  ms.lasthandoff: 11/23/2019
+  ms.locfileid: "74422649"
 landingContent:
 - title: À propos de QnA Maker
   linkLists:
@@ -64,10 +64,8 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 'Démarrage rapide : Utilisation de Postman'
-      url: quickstarts/get-answer-from-kb-using-postman.md
-    - text: 'Démarrage rapide : Utilisation de cURL'
-      url: quickstarts/get-answer-from-kb-using-curl.md
+    - text: 'Démarrage rapide : Avec Postman ou cURL'
+      url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - text: 'Démarrage rapide : Utilisation de REST et C#'
       url: quickstarts/get-answer-from-knowledge-base-csharp.md
     - text: 'Démarrage rapide : Utilisation de NuGet et C#'

@@ -4,7 +4,7 @@ description: Cet article détaille un ensemble de meilleures pratiques en matiè
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2019
+ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195073"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053340"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
+
 Dans cet article, nous étudions une collection de bonnes pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure. Ces meilleures pratiques sont issues de notre expérience avec [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), mais également de celle des clients, comme vous.
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
@@ -33,7 +34,11 @@ Pour chaque bonne pratique, nous détaillons les éléments suivants :
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la bonne pratique
 
-Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plateforme Azure disponibles lors de l’écriture. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
+Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plateforme Azure disponibles lors de l’écriture.
+
+Cet article a pour objectif de fournir une feuille de route générale dans une démarche de sécurité renforcée après le déploiement, à l’aide de notre liste de contrôle « [Cinq étapes pour sécuriser votre infrastructure d’identité](steps-secure-identity.md) », qui vous guide tout au long de nos principaux services et fonctionnalités.
+
+Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
 Dans cet article, nous allons étudier les points suivants :
 
@@ -42,6 +47,7 @@ Dans cet article, nous allons étudier les points suivants :
 * Gérer les locataires connectés
 * Activer l’authentification unique
 * Activer l’accès conditionnel
+* Planifier les améliorations de la sécurité de routine
 * Activer la gestion des mots de passe
 * Appliquer la vérification multifacteur pour les utilisateurs
 * Utiliser le contrôle d’accès en fonction du rôle
@@ -56,6 +62,9 @@ Beaucoup de gens considèrent l’identité comme le périmètre principal pour 
 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) est la solution Azure pour la gestion des identités et des accès. Azure AD est un service multilocataire basé sur le cloud pour la gestion des identités et des annuaires par Microsoft. Il associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution.
 
 Les sections suivantes répertorient les meilleures pratiques pour la sécurité des identités et des accès à l’aide d’Azure AD.
+
+**Bonne pratique** : Centrez les contrôles et les détections de sécurité autour des identités d’utilisateur et de service.
+**Détail** : Utilisez Azure AD pour colocaliser des contrôles et des identités.
 
 ## <a name="centralize-identity-management"></a>La centralisation de la gestion des identités
 
@@ -122,6 +131,15 @@ Afin d’équilibrer la sécurité et la productivité, vous devez aussi tenir c
 **Bonne pratique** : Bloquez les protocoles d’authentification hérités.
 **Détail** : Les attaquants exploitent chaque jour les failles de protocoles plus anciens, en concernant les attaques par pulvérisations de mots de passe. Configurez l’accès conditionnel pour bloquer les protocoles hérités. Regardez la vidéo [Azure AD : Choses à faire et à ne pas faire](https://www.youtube.com/watch?v=wGk0J4z90GI) pour plus d’informations.
 
+## <a name="plan-for-routine-security-improvements"></a>Planifier les améliorations de la sécurité de routine
+
+La sécurité est en constante évolution, et il est important d’intégrer à votre infrastructure de gestion du cloud et des identités un moyen de montrer régulièrement la croissance et de découvrir de nouvelles façons de sécuriser votre environnement.
+
+Identity Secure Score est un ensemble de contrôles de sécurité recommandés que Microsoft publie et qui vise à vous fournir un score numérique pour mesurer objectivement votre posture de sécurité et vous aider à planifier les futures améliorations de sécurité. Vous pouvez également consulter votre score par rapport à celui d’autres secteurs d’activité ainsi que vos propres tendances au fil du temps.
+
+**Bonne pratique** : Planifiez des révisions et des améliorations de sécurité de routine basées sur les bonnes pratiques de votre secteur d’activité.
+**Détail** : Utilisez la fonctionnalité Score d’identité sécurisée pour classer vos améliorations dans le temps.
+
 ## <a name="enable-password-management"></a>Activer la gestion des mots de passe
 
 Si vous avez plusieurs locataires ou si vous voulez permettre aux utilisateurs de [réinitialiser leurs mots de passe](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), il est important d’utiliser des stratégies de sécurité appropriées afin d’éviter les abus.
@@ -143,22 +161,30 @@ Il existe plusieurs options pour exiger une vérification en deux étapes. La me
 
 Voici les options et les avantages de la vérification en deux étapes :
 
-**Option 1** : [Activez Multi-Factor Authentication en modifiant l’état de l’utilisateur](../../active-directory/authentication/howto-mfa-userstates.md).   
+**Option 1** : Activez l’authentification multifacteur pour tous les utilisateurs et les méthodes de connexion avec l’**avantage** offert par les paramètres de sécurité par défaut d’Azure AD : Cette option vous permet d’intégrer aisément et rapidement Azure MFA pour tous les utilisateurs de votre environnement à une stratégie rigoureuse :
+
+* Contester les comptes d’administration et les mécanismes d’ouverture de session d’administration
+* Exiger une stimulation MFA via Microsoft Authenticator pour tous les utilisateurs
+* Restreindre les protocoles d’authentification hérités.
+
+Cette méthode est disponible pour tous les niveaux de licence, mais elle ne peut pas être combinée à des stratégies d’accès conditionnel existantes. Vous trouverez plus d’informations dans la section consacrée aux valeurs par défaut de sécurité d’Azure AD
+
+**Option 2** : [Activez Multi-Factor Authentication en modifiant l’état de l’utilisateur](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantage** : C’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec [l’authentification multifacteur Azure dans le cloud et le serveur Multi-Factor Authentication Azure](/azure/active-directory/authentication/concept-mfa-whichversion). Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes chaque fois qu’ils se connectent, puis remplace les stratégies d’accès conditionnel.
 
 Pour déterminer où Multi-Factor Authentication doit être activé, consultez [Quelle version d’Azure MFA est adaptée à mon organisation ?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
-**Option 2** : [Activez Multi-Factor Authentication avec stratégie d’accès conditionnel](/azure/active-directory/authentication/howto-mfa-getstarted).
+**Option 3** : [Activez Multi-Factor Authentication avec stratégie d’accès conditionnel](/azure/active-directory/authentication/howto-mfa-getstarted).
 **Avantage** : Cette option permet de demander une vérification en deux étapes sous certaines conditions à l’aide de [l’accès conditionnel](/azure/active-directory/active-directory-conditional-access-azure-portal). Les conditions spécifiques peuvent être une connexion de l’utilisateur à partir d’emplacements différents, d’appareils non approuvés ou d’applications que vous considérez comme risquées. Le fait de définir des conditions spécifiques pour une vérification en deux étapes vous permet d’éviter de la demander continuellement à vos utilisateurs, ce qui peut être désagréable.
 
 Il s’agit de la méthode la plus souple pour activer la vérification en deux étapes pour vos utilisateurs. Activer une stratégie d’accès conditionnel fonctionne uniquement pour l’authentification multifacteur Azure dans le cloud, et c’est une fonctionnalité payante d’Azure AD. Vous pouvez trouver plus d’informations sur cette méthode dans [Déployer une authentification multifacteur Azure basée sur le cloud](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Option 3** : Activez Multi-Factor Authentication avec des stratégies d’accès conditionnel en évaluant les risques de l’utilisateur et de la connexion [d’Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Option 4** : Activez Multi-Factor Authentication avec des stratégies d’accès conditionnel en évaluant les risques de l’utilisateur et de la connexion [d’Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
 **Avantage** : Cette option permet de :
 
-- Détecter des vulnérabilités potentielles qui affectent les identités de votre organisation.
-- Configurer des réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation.
-- Examiner les incidents suspects et prendre les mesures appropriées pour les résoudre.
+* Détecter des vulnérabilités potentielles qui affectent les identités de votre organisation.
+* Configurer des réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation.
+* Examiner les incidents suspects et prendre les mesures appropriées pour les résoudre.
 
 Cette méthode utilise l’évaluation de risques d’Azure AD Identity Protection pour déterminer si la vérification en deux étapes est exigée en se basant sur les risques de l’utilisateur et de la connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
@@ -168,6 +194,7 @@ Cette méthode utilise l’évaluation de risques d’Azure AD Identity Protecti
 Les organisations qui n’ajoutent pas de couche supplémentaire de protection d’identité, comme la vérification en deux étapes, sont plus sensibles au vol d’informations d’identification. Le vol d’informations d’identification peut entraîner une compromission des données.
 
 ## <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle
+
 Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le [contrôle d’accès basé sur un rôle (RBAC)](/azure/role-based-access-control/overview) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
 Désigner des groupes ou des rôles individuels avec des fonctions spécifiques dans Azure aide à éviter une confusion pouvant entraîner des erreurs humaines et d’automatisation qui sont à l’origine de risques de sécurité. Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données.
@@ -185,8 +212,8 @@ Vous pouvez utiliser la [fonction de contrôle d’accès en fonction du rôle (
 **Bonne pratique** : Accordez l’accès à des équipes de sécurité avec des responsabilités Azure pour voir les ressources Azure afin de pouvoir évaluer les risques et y remédier.
 **Détail** : Accordez à des équipes de sécurité le rôle RBAC de [lecteur sécurité](/azure/role-based-access-control/built-in-roles#security-reader). Vous pouvez utiliser le groupe d’administration racine ou le groupe d’administration de segment, selon l’étendue des responsabilités :
 
-- **Groupe d’administration racine** pour les équipes responsables de toutes les ressources d’entreprise
-- **Groupe d’administration de segment** pour les équipes avec une portée limitée (généralement en raison de limites organisationnelles réglementaires ou autres)
+* **Groupe d’administration racine** pour les équipes responsables de toutes les ressources d’entreprise
+* **Groupe d’administration de segment** pour les équipes avec une portée limitée (généralement en raison de limites organisationnelles réglementaires ou autres)
 
 **Bonne pratique** : Accordez les autorisations appropriées aux équipes de sécurité ayant des responsabilités opérationnelles directes.
 **Détail** : Passez en revue les rôles intégrés RBAC pour l’attribution de rôle appropriée. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer des [rôles personnalisés pour les ressources Azure](/azure/role-based-access-control/custom-roles). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources.
@@ -218,18 +245,18 @@ Les éléments suivants résument les meilleures pratiques indiquées dans [Séc
 **Bonne pratique** : Identifiez et catégorisez les comptes présentant des rôles très privilégiés.   
 **Détail** : Après avoir activé Azure AD Privileged Identity Management, vous voyez les utilisateurs Administrateur général, Administrateur à rôle privilégié et d’autres rôles très privilégiés. Supprimez les comptes qui ne sont plus nécessaires dans ces rôles et classez les autres comptes qui sont affectés à des rôles d’administrateur :
 
-- Affectés individuellement à des utilisateurs administratifs, et pouvant servir à des fins non administratives (par exemple, messagerie personnelle)
-- Affectés individuellement à des utilisateurs administratifs et dédiés à des fins administratives uniquement
-- Partagés entre plusieurs utilisateurs
-- Pour les scénarios d’accès d’urgence
-- Pour les scripts automatisés
-- Pour les utilisateurs externes
+* Affectés individuellement à des utilisateurs administratifs, et pouvant servir à des fins non administratives (par exemple, messagerie personnelle)
+* Affectés individuellement à des utilisateurs administratifs et dédiés à des fins administratives uniquement
+* Partagés entre plusieurs utilisateurs
+* Pour les scénarios d’accès d’urgence
+* Pour les scripts automatisés
+* Pour les utilisateurs externes
 
 **Bonne pratique** : Implémentez l’accès juste-à-temps pour réduire encore le temps d’exposition des privilèges et augmenter votre visibilité sur l’utilisation des comptes privilégiés.   
 **Détail** : Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
-- Limiter les utilisateurs à l’utilisation de leur accès Juste à temps privilégiés.
-- Attribuer des rôles pour une durée plus courte en sachant que les privilèges sont automatiquement révoqués.
+* Limiter les utilisateurs à l’utilisation de leur accès Juste à temps privilégiés.
+* Attribuer des rôles pour une durée plus courte en sachant que les privilèges sont automatiquement révoqués.
 
 **Bonne pratique** : Définissez au moins deux comptes d’accès d’urgence.   
 **Détail** : Les comptes d’accès d’urgence aident les organisations à restreindre l’accès privilégié dans un environnement Azure Active Directory existant. Ces comptes sont hautement privilégiés et ne sont pas affectés à des individus spécifiques. Les comptes d’accès d’urgence sont limités aux scénarios où il est impossible d’utiliser des comptes d’administration normaux. Les organisations doivent limiter l’utilisation des comptes d’urgence au temps strictement nécessaire.

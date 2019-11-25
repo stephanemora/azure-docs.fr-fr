@@ -1,5 +1,6 @@
 ---
-title: Comment limiter votre application inscrite dans Azure Active Directory à un ensemble d’utilisateurs
+title: Limiter votre application inscrite dans Azure Active Directory à un ensemble d’utilisateurs
+titleSuffix: Microsoft identity platform
 description: Découvrez comment limiter l’accès à vos applications inscrites dans Azure AD à un ensemble d’utilisateurs sélectionné.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812962"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803952"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Activation Limiter votre application à un ensemble d’utilisateurs
 

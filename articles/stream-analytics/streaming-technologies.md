@@ -1,5 +1,5 @@
 ---
-title: Choisir une technologie de traitement de streaming et d’analytique en temps réel sur Azure
+title: Choisir une solution de traitement en temps réel et en continu sur Azure
 description: Découvrez comment choisir la technologie adaptée pour l’analytique en temps réel et le traitement du streaming pour créer votre application sur Azure.
 author: zhongc
 ms.author: zhongc
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3bde2964c40553d02a56f57f9c459cc6afa3f660
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483406"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924913"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Choisir une technologie de traitement de streaming et d’analytique en temps réel sur Azure
 

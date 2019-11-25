@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452927"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819729"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocage de l’authentification héritée
  
@@ -33,9 +33,11 @@ Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vou
 
 1. Accédez au portail Azure > Azure Active Directory > Connexions.
 1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur Colonnes > Application cliente.
-1. Filtrez par Application cliente > Autres Clients, puis cliquez sur Appliquer.
+1. Filtrer par application cliente > cochez toutes les autres options client présentées, puis cliquez sur Appliquer.
+1. Filtrer par État > Réussite, puis cliquez sur Appliquer. 
+1. Si nécessaire, développez votre plage de dates à l’aide du filtre Date.
 
-Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ Application cliente affiché sous l’onglet Informations de base indique quel protocole d’authentification héritée a été utilisé. Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Pour les utilisateurs qui ne figurent pas dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée, implémentez une stratégie d’accès conditionnel, ou activez la Stratégie de base de référence : Bloquer l’authentification héritée uniquement pour ces utilisateurs.
+Grâce au filtrage, vous afficherez uniquement les tentatives réussies de connexion effectuées via des protocoles d’authentification héritée sélectionnés. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Une fois que vous aurez sélectionné une ligne de données individuelle, la colonne Application client ou le champ Application client sous l’onglet Informations de base indiquera quel protocole d’authentification existant a été utilisé. Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Pour les utilisateurs qui ne figurent pas dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée, implémentez une stratégie d’accès conditionnel, ou activez la Stratégie de base de référence : Bloquer l’authentification héritée uniquement pour ces utilisateurs.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Abandon de l’authentification héritée 
 

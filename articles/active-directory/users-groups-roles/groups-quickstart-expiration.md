@@ -1,25 +1,25 @@
 ---
-title: Démarrage rapide en matière de stratégie d’expiration pour les groupes Office 365 – Azure Active Directory | Microsoft Docs
+title: Guide de démarrage rapide sur la stratégie d’expiration de groupe - Azure AD | Microsoft Docs
 description: Expiration des groupes Office 365 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606181"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026897"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l’expiration des groupes Office 365 dans Azure Active Directory
 
@@ -27,9 +27,13 @@ Dans le cadre de ce démarrage rapide, vous allez définir la stratégie d’exp
 
 La stratégie d’expiration est simple :
 
-* Les propriétaires de groupe sont invités à renouveler un groupe sur le point d’expirer.
-* Un groupe non renouvelé est supprimé.
-* Un groupe Office 365 supprimé peut être restauré dans les 30 jours par son propriétaire ou par un administrateur Azure AD.
+- Les groupes présentant des activités utilisateur sont automatiquement renouvelés à l’approche de l’expiration.
+- Les propriétaires de groupe sont invités à renouveler un groupe sur le point d’expirer.
+- Un groupe non renouvelé est supprimé.
+- Un groupe Office 365 supprimé peut être restauré dans les 30 jours par son propriétaire ou par un administrateur Azure AD.
+
+> [!NOTE]
+> Les groupes bénéficient désormais de l’intelligence Azure AD, qui corrèle leur renouvellement automatique à leur utilisation récente. Cette décision de renouvellement est basée sur l’activité des utilisateurs dans les groupes des services Office 365 tels qu’Outlook, SharePoint, Teams, Yammer, etc.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

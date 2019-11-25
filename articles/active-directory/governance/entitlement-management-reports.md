@@ -1,6 +1,6 @@
 ---
-title: Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
-description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory (préversion).
+title: Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD - Azure Active Directory
+description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,45 +12,70 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032442"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173887"
 ---
-# <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD (préversion)
+# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD
 
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Les rapports de gestion des droits d’utilisation d’Azure AD et le journal d’audit d’Azure AD fournissent des détails supplémentaires sur les ressources auxquelles les utilisateurs ont accès. En tant qu’administrateur, vous pouvez afficher les packages d’accès et les affectations de ressources pour un utilisateur et afficher les journaux des requêtes à des fins d’audit, ou pour déterminer l’état de la requête d’un utilisateur. Cet article explique comment utiliser les rapports de gestion des droits d’utilisation et les journaux d’audit d’Azure AD.
 
-Le rapport sur les attributions d’utilisateurs et le journal d’audit Azure Active Directory fournissent des détails supplémentaires sur les utilisateurs de votre annuaire. En tant qu’administrateur, vous pouvez afficher les ressources auxquelles un utilisateur a accès et afficher les journaux des requêtes à des fins d’audit, ou pour déterminer l’état de la requête d’un utilisateur. Cet article explique comment utiliser le rapport des attributions des utilisateurs et les journaux d’audit Azure AD.
-
-Regardez la vidéo suivante pour savoir comment utiliser la gestion des droits pour gérer l’accès des utilisateurs dans Azure Active Directory :
+Regardez la vidéo suivante pour savoir comment afficher les ressources auxquelles les utilisateurs ont accès dans la gestion des droits d’utilisation :
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## <a name="view-resources-a-user-has-access-to"></a>Afficher les ressources auxquelles un utilisateur a accès
+## <a name="view-access-packages-for-a-user"></a>Afficher les packages d’accès d’un utilisateur
+
+Ce rapport vous permet de répertorier tous les packages d’accès qu’un utilisateur peut demander et les packages d’accès qui sont actuellement affectés à l’utilisateur.
+
+**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
 
 1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
-1. Dans le menu de gauche, cliquez sur **Rapport des affectations utilisateur**.
+1. Dans le menu gauche, cliquez sur **Rapports**.
+
+1. Cliquez sur **Afficher les packages d’accès d’un utilisateur**.
 
 1. Cliquez sur **Sélectionner des utilisateurs** pour ouvrir le volet Sélectionner des utilisateurs.
 
-1. Passez au travers de la liste pour trouver l’utilisateur dont vous souhaitez afficher les ressources auxquelles il a accès.
+1. Recherchez l’utilisateur dans la liste, puis cliquez sur **Sélectionner**.
 
-1. Sélectionnez sur l’utilisateur, puis cliquez sur **Sélectionner**.
+    L’onglet **Peut demander** affiche la liste des packages d’accès que l’utilisateur peut demander. Cette liste est déterminée par les [stratégies de demande](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) définies pour les packages d’accès. 
 
-    Une liste de ressources auxquelles l’utilisateur a accès s’affiche. Elle comprend le package d’accès, la stratégie et les dates.
+    ![Packages d’accès d’un utilisateur](./media/entitlement-management-reports/access-packages-report.png)
 
-    ![Rapport des affectations utilisateur](./media/entitlement-management-reports/user-assignments-report.png)
+1. S’il existe plusieurs rôles de ressource ou de stratégie pour un package d’accès, cliquez sur l’entrée rôles de ressource ou stratégies pour afficher les détails de la sélection.
+
+1. Cliquez sur l’onglet **Affecté** pour afficher la liste des packages d’accès actuellement affectés à l’utilisateur. Lorsqu’un package d’accès est attribué à un utilisateur, cela signifie que l’utilisateur a accès à tous les rôles de ressource dans le package d’accès.
+
+## <a name="view-resource-assignments-for-a-user"></a>Afficher les attributions de ressources pour un utilisateur
+
+Ce rapport vous permet de répertorier les ressources actuellement attribuées à un utilisateur dans la gestion des droits d’utilisation. Notez que ce rapport est destiné aux ressources gérées avec la gestion des droits d’utilisation. L’utilisateur peut avoir accès à d’autres ressources dans votre répertoire en dehors de la gestion des droits d’utilisation.
+
+**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
+
+1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+
+1. Dans le menu gauche, cliquez sur **Rapports**.
+
+1. Cliquez sur **Attributions de ressources pour un utilisateur**.
+
+1. Cliquez sur **Sélectionner des utilisateurs** pour ouvrir le volet Sélectionner des utilisateurs.
+
+1. Recherchez l’utilisateur dans la liste, puis cliquez sur **Sélectionner**.
+
+    La liste des ressources actuellement affectées à l’utilisateur s’affiche. La liste affiche également le package d’accès et la stratégie à partir desquels ils ont le rôle de ressource, ainsi que la date de début et de fin pour l’accès.
+    
+    Si un utilisateur a obtenu l’accès à la même ressource dans plusieurs packages, vous pouvez cliquer sur une flèche pour afficher chaque package et chaque stratégie.
+
+    ![Attributions de ressources pour un utilisateur](./media/entitlement-management-reports/resource-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>Déterminer l’état de la demande d’un utilisateur
 

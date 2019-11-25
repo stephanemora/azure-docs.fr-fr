@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Intégrer un compte de stockage Azure à Azure CDN | Microsoft Docs
+title: Démarrage rapide – Intégrer un compte de stockage Azure à Azure CDN
 description: Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob à partir d’Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594026"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083076"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 Dans ce guide de démarrage rapide, vous allez activer [Azure Content Delivery Network (CDN)](cdn-overview.md) pour mettre en cache le contenu du stockage Azure. Azure CDN offre aux développeurs une solution globale pour fournir du contenu à bande passante élevée. Il peut mettre en cache les objets blob et le contenu statique des instances de calcul au niveau de nœuds physiques aux États-Unis, ainsi qu’en Europe, Asie, Australie et Amérique du Sud.
@@ -80,7 +80,7 @@ Vous pouvez utiliser plusieurs méthodes pour créer un compte de stockage, y co
     
 5. Sélectionnez **Épingler au tableau de bord** pour enregistrer le compte de stockage sur votre tableau de bord après l’avoir créé.
     
-6. Sélectionnez **Créer**. La création du compte de stockage peut prendre quelques minutes.
+6. Sélectionnez **Create** (Créer). La création du compte de stockage peut prendre quelques minutes.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Activer Azure CDN pour le compte de stockage
 
@@ -101,7 +101,7 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement depuis v
     | **Nom du point de terminaison CDN** | Entrez votre nom d’hôte de point de terminaison, à savoir *my-endpoint-123*. Ce nom doit être globalement unique. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_ .azureedge.net. |
     | **Nom d’hôte de l’origine** | Par défaut, le nouveau point de terminaison CDN utilise le nom d’hôte de votre compte de stockage en tant que serveur d’origine. |
 
-3. Sélectionnez **Créer**. Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison.
+3. Sélectionnez **Create** (Créer). Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison.
 
     ![Nouveau point de terminaison CDN de stockage](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 

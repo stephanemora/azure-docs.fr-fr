@@ -39,7 +39,7 @@ La première étape de création d’un Assistant vocal est de décider de ce qu
 Nous recommandons [Direct Line Speech](direct-line-speech.md) comme meilleur choix par défaut si vous n’êtes pas encore sûr de ce que votre Assistant doit traiter. Il offre une intégration avec un ensemble complet d’outils et d’aides à la création, comme le [modèle de solution d’Assistant virtuel et d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) et le [service QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) pour créer des modèles courants et utiliser vos sources de connaissances existantes.
 
 [Commandes personnalisées (préversion)](custom-commands.md) offre une expérience de création et d’hébergement simplifiée, spécialement adaptée aux scénarios de commande et de contrôle en langage naturel.
-   ![Comparaison des solutions Assistant](media/voice-assistants/assistant-solution-comparison.png "CompComparaison des solutions d’Assistant »)
+   ![Comparaison des solutions Assistant](media/voice-assistants/assistant-solution-comparison.png "CompComparaison des solutions Assistant")
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
