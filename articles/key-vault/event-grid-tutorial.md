@@ -9,63 +9,63 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3b24da4d988554da240baba2984df44ff4744aaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464106"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133341"
 ---
-# <a name="how-to-receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Activation Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)
+# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)
 
-L’intégration entre Key Vault et Azure Event Grid, actuellement en préversion, permet aux utilisateurs d’être avertis en cas de modification de l’état d’un secret stocké dans le coffre de clés. Pour une vue d’ensemble de la fonctionnalité, voir [Monitoring de Key Vault avec Azure Event Grid](event-grid-overview.md).
+L’intégration d’Azure Key Vault à Azure Event Grid (en préversion) permet de notifier l’utilisateur en cas de changement de l’état d’un secret stocké dans un coffre de clés. Pour obtenir une vue d’ensemble de cette fonctionnalité, consultez [Supervision de Key Vault avec Event Grid](event-grid-overview.md).
 
-Ce guide montre comment recevoir des notifications de Key Vault par le biais d’Azure Event Grid et comment répondre aux changements d’état avec Azure Automation.
+Ce guide explique comment recevoir des notifications de Key Vault via Event Grid, et comment répondre aux changements d’état via Azure Automation.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Un coffre de clés dans votre abonnement Azure. Pour créer rapidement un coffre de clés, suivez les étapes décrites dans [Définir et récupérer un secret dans Azure Key Vault avec Azure CLI](quick-create-cli.md).
+- Un coffre de clés dans votre abonnement Azure. Vous pouvez créer rapidement un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](quick-create-cli.md).
 
 ## <a name="concepts"></a>Concepts
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans ce guide, vous allez vous abonner aux événements du coffre de clés et diriger les événements vers Azure Automation. Lorsque l’un des secrets du coffre de clés est sur le point d’expirer, Event Grid est averti de la modification de l’état et lance une requête HTTP POST sur le point de terminaison. Un webhook déclenche ensuite une exécution Azure Automation d’un script PowerShell.
+Event Grid est un service de gestion d’événements dans le cloud. En suivant les étapes de ce guide, vous allez vous abonner à des événements pour Key Vault et les router vers Automation. Lorsque l’un des secrets du coffre de clés est sur le point d’expirer, Event Grid est averti de la modification de l’état et lance une requête HTTP POST sur le point de terminaison. Un Webhook déclenche ensuite une exécution Automation d’un script PowerShell.
 
-![image](media/image1.png)
+![Organigramme HTTP POST](media/image1.png)
 
-## <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
+## <a name="create-an-automation-account"></a>Créer un compte Automation
 
-Créez un compte Azure Automation sur le [Portail Azure](https://portal.azure.com).
+Créez un compte Automation via le [portail Azure](https://portal.azure.com) :
 
 1.  Accédez à portal.azure.com et connectez-vous à votre abonnement.
 
-1.  Dans la zone de recherche, tapez « Comptes Automation ».
+1.  Dans la zone de recherche, entrez **Comptes Automation**.
 
-1.  Sous la section « Services » de la liste déroulante de la barre de recherche, sélectionnez « Comptes Automation ».
+1.  Dans la section **Services** de la liste déroulante de la barre de recherche, sélectionnez **Comptes Automation**.
 
-1.  Cliquez sur Ajouter.
+1.  Sélectionnez **Ajouter**.
 
-    ![](media/image2.png)
+    ![Volet Comptes Automation](media/image2.png)
 
-1.  Renseignez les informations requises dans le panneau « Ajouter un compte Automation » et sélectionnez « Créer ».
+1.  Entrez les informations nécessaires dans le volet **Ajouter un compte Automation**, puis sélectionnez **Créer**.
 
 ## <a name="create-a-runbook"></a>Créer un runbook
 
-Une fois votre compte Azure Automation prêt, créez un runbook.
+Une fois votre compte Automation prêt, créez un runbook.
 
-![](media/image3.png)
+![Créer une IU de runbook](media/image3.png)
 
 1.  Sélectionnez le compte Automation que vous venez de créer.
 
-1.  Sélectionnez « Runbooks » sous la section Automatisation des processus.
+1.  Sélectionnez **Runbooks** sous **Automatisation des processus**.
 
-1.  Cliquez sur « Créer un runbook ».
+1.  Sélectionnez **Créer un runbook**.
 
-1.  Donnez un nom à votre runbook et sélectionnez « PowerShell » comme type de runbook.
+1.  Donnez un nom à votre runbook et sélectionnez **PowerShell** comme type de runbook.
 
-1.  Cliquez sur le runbook que vous avez créé, puis sélectionnez le bouton « Modifier ».
+1.  Sélectionnez le runbook que vous avez créé, puis sélectionnez le bouton **Modifier**.
 
-1.  Entrez le code suivant (à des fins de test), puis cliquez sur le bouton « Publier » pour obtenir en sortie le résultat de la requête POST reçue.
+1.  Entrez le code suivant (à des fins de test), puis sélectionnez le bouton **Publier**. Cette action retourne le résultat de la requête POST reçue.
 
 ```azurepowershell
 param
@@ -91,113 +91,113 @@ write-Error "No input data found."
 }
 ```
 
-![](media/image4.png)
+![Publier l’IU du runbook](media/image4.png)
 
 ## <a name="create-a-webhook"></a>Créer un webhook
 
-À présent, créez un webhook pour déclencher votre nouveau runbook.
+Créez un Webhook pour déclencher le runbook que vous venez de créer.
 
-1.  Sélectionnez « Webhooks » dans la section Ressources du runbook que vous venez de publier.
+1.  Sélectionnez **Webhooks** dans la section **Ressources** du runbook que vous venez de publier.
 
-1.  Cliquez sur « Ajouter un webhook ».
+1.  Sélectionnez **Ajouter un Webhook**.
 
-    ![](media/image5.png)
+    ![Bouton Ajouter un Webhook](media/image5.png)
 
-1.  Sélectionnez « Créer un webhook ».
+1.  Sélectionnez **Créer un Webhook**.
 
-1. Donnez un nom au webhook, définissez une date d’expiration et **copiez l’URL**.
+1. Nommez le Webhook, définissez une date d’expiration, puis copiez l’URL.
 
     > [!IMPORTANT] 
-    > Il n’est pas possible d’afficher l’URL après la création. Veillez à enregistrer une copie dans un endroit sûr et accessible pour la suite de ce guide.
+    > Vous ne pouvez pas voir l’URL une fois que vous l’avez créée. Veillez à en enregistrer une copie à un emplacement sûr et accessible pour le reste de ce guide.
 
-1. Cliquez sur « Paramètres et paramètres d’exécution », puis sélectionnez « OK ». N’entrez aucun paramètre. Le bouton « Créer » s’active.
+1. Sélectionnez **Paramètres et valeurs pour l’exécution**, puis **OK**. N’entrez aucun paramètre. Cela permet d’activer le bouton **Créer**.
 
-1. Sélectionnez « OK », puis « Créer ».
+1. Sélectionnez **OK**, puis **Créer**.
 
-    ![](media/image6.png)
+    ![Créer une IU de Webhook](media/image6.png)
 
 ## <a name="create-an-event-grid-subscription"></a>Créer un abonnement Event Grid
 
 Créez un abonnement Event Grid sur le [Portail Azure](https://portal.azure.com).
 
-1.  Ouvrez le Portail Azure en cliquant sur le lien suivant : https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true.
+1.  Ouvrez le [portail Azure](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
-1.  Accédez à votre coffre de clés et sélectionnez l’onglet « Événements ». Si l’onglet n’apparaît pas, vérifiez que vous utilisez bien la [préversion du portail](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Accédez à votre coffre de clés et sélectionnez l’onglet **Événements**. Si vous ne le voyez pas, vérifiez que vous utilisez la [préversion du portail](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
-    ![](media/image7.png)
+    ![Onglet Événements du portail Azure](media/image7.png)
 
-1.  Cliquez sur le bouton « + Abonnement aux événements ».
+1.  Sélectionnez le bouton **Abonnement aux événements**.
 
 1.  Donnez un nom descriptif à l’abonnement.
 
-1.  Choisissez « Schéma Event Grid ».
+1.  Choisissez **Schéma Event Grid**.
 
-1.  « Ressource de rubrique » est normalement le coffre de clés à surveiller pour connaître les changements d’état.
+1.  La **ressource de rubrique** doit être le coffre de clés dont vous souhaitez superviser les changements d’état.
 
-1.  Dans « Filtrer sur les types d’événements », laissez toutes les cases cochées (« 9 sélectionnés »).
+1.  Pour **Filtrer sur les types d’événement**, laissez toutes les options sélectionnées (**9 sélectionnées**).
 
-1.  Dans « Type de point de terminaison », sélectionnez « Webhook ».
+1.  Pour **Type de point de terminaison**, sélectionnez **Webhook**.
 
-1.  Sélectionnez « Sélectionner un point de terminaison ». Dans le nouveau volet contextuel, collez l’URL du webhook de l’étape [Créer un webhook](#create-a-webhook) dans le champ « Point de terminaison de l’abonné ».
+1.  Choisissez **Sélectionner un point de terminaison**. Dans le nouveau volet contextuel, collez l’URL de Webhook de l’étape [Créer un Webhook](#create-a-webhook) dans le champ **Point de terminaison de l’abonné**.
 
-1.  Sélectionnez « Confirmer la sélection » dans le volet contextuel.
+1.  Sélectionnez **Confirmer la sélection** dans le volet contextuel.
 
-1.  Sélectionnez « Create  (Créer) ».
+1.  Sélectionnez **Create** (Créer).
 
-    ![](media/image8.png)
+    ![Créer un abonnement aux événements](media/image8.png)
 
 ## <a name="test-and-verify"></a>Tester et vérifier
 
-Vérifiez que votre abonnement Event Grid est correctement configuré.  Ce test suppose d’être abonné à la notification « Nouvelle version du secret créée » de [Créer un abonnement Event Grid](#create-an-event-grid-subscription) et de disposer des privilèges nécessaires pour créer une nouvelle version d’un secret dans un coffre de clés.
+Vérifiez que votre abonnement Event Grid est correctement configuré. Ce test suppose que vous êtes abonné à la notification « Version du secret créée » dans [Créer un abonnement Event Grid](#create-an-event-grid-subscription), et que vous disposez des autorisations nécessaires pour créer une version d’un secret dans un coffre de clés.
 
-![](media/image9.png)
+![Tester la configuration de l’abonnement Event Grid](media/image9.png)
 
-![](media/image10.png)
+![Volet Créer un secret](media/image10.png)
 
-1.  Accédez à votre coffre de clés sur le Portail Azure.
+1.  Accédez à votre coffre de clés dans le portail Azure.
 
-1.  Créer un secret. À des fins de test, définissez la date d’expiration sur le jour suivant.
+1.  Créer un secret. À des fins de test, définissez la date d’expiration au jour suivant.
 
-1.  Accédez à l’onglet des événements dans votre coffre de clés.
+1.  Sous l’onglet **Événements** de votre coffre de clés, sélectionnez l’abonnement Event Grid que vous avez créé.
 
-1.  Sélectionnez l’abonnement Event Grid que vous avez créé.
+1.  Sous **Métriques**, vérifiez si un événement a été capturé. Deux événements sont attendus : SecretNewVersion et SecretNearExpiry. Ces événements confirment que Event Grid a correctement capturé le changement d’état du secret dans votre coffre de clés.
 
-1.  Sous Métriques, regardez si un événement a été capturé. Deux événements sont attendus : SecretNewVersion et SecretNearExpiry. Cela confirme qu’Event Grid a bien capturé le changement d’état du secret dans votre coffre de clés.
+    ![Volet Métriques : recherche des événements capturés](media/image11.png)
 
-    ![](media/image11.png)
+1.  Accédez à votre compte Automation.
 
-1.  Allez sur votre compte Azure Automation.
+1.  Sélectionnez l’onglet **Runbooks**, puis sélectionnez le runbook que vous avez créé.
 
-1.  Sélectionnez l’onglet « Runbooks », puis le runbook que vous avez créé.
+1.  Sélectionnez l’onglet **Webhooks**, puis vérifiez que l’horodatage du « dernier déclenchement » se situe dans un délai de 60 secondes après la création du secret. Ce résultat confirme qu’Event Grid a envoyé une requête POST au Webhook en indiquant les détails de l’événement de changement d’état relatif à votre coffre de clés, et que le Webhook a été déclenché.
 
-1.  Sélectionnez l’onglet « Webhooks », puis vérifiez que le timestamp « Dernier déclenchement » se situe dans un délai de 60 secondes après la création du nouveau secret.  Cela confirme qu’Event Grid a lancé une requête POST sur le webhook en indiquant les détails de l’événement de changement d’état dans votre coffre de clés et que le webhook a été déclenché.
+    ![Onglet Webhooks, horodatage du dernier déclenchement](media/image12.png)
 
-    ![](media/image12.png)
+1. Retournez à votre runbook, puis sélectionnez l’onglet **Vue d’ensemble**.
 
-1. Revenez à votre runbook et sélectionnez l’onglet « Vue d’ensemble ».
+1. Examinez la liste **Tâches récentes**. Vous devriez voir qu’une tâche a été créée et que l’état est terminé. Cela confirme que le webhook a déclenché le runbook pour commencer l’exécution de son script.
 
-1. Examinez la liste Tâches récentes. Vous devriez voir qu’une tâche a été créée et que l’état est terminé.  Cela confirme que le webhook a déclenché le runbook pour commencer l’exécution de son script.
+    ![Liste Tâches récente du Webhook](media/image13.png)
 
-    ![](media/image13.png)
-
-1. Sélectionnez la tâche récente, puis examinez la requête POST envoyée au webhook par Event Grid. Examinez le JSON et vérifiez que les paramètres de votre coffre de clés et du type d’événement sont corrects. Si le paramètre « type d’événement » de l’objet JSON correspond à l’événement qui s’est produit dans le coffre de clés (dans cet exemple, Microsoft.KeyVault.SecretNearExpiry), le test a réussi.
+1. Sélectionnez la tâche récente, puis examinez la requête POST envoyée au Webhook par Event Grid. Examinez le JSON et vérifiez que les paramètres de votre coffre de clés et du type d’événement sont corrects. Si le paramètre « type d’événement » de l’objet JSON correspond à l’événement qui s’est produit dans le coffre de clés (dans cet exemple, Microsoft.KeyVault.SecretNearExpiry), le test a réussi.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-### <a name="unable-to-create-event-subscription"></a>Impossible de créer un abonnement aux événements
+### <a name="you-cant-create-an-event-subscription"></a>Vous ne pouvez pas créer un abonnement à un événement
 
-Réinscrivez Event Grid et le fournisseur Key Vault dans vos fournisseurs de ressources d’abonnement Azure. Voir [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Réinscrivez Event Grid et le fournisseur de coffres de clés auprès de vos fournisseurs de ressources d’abonnement Azure. Voir [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations ! Si vous avez suivi toutes les étapes ci-dessus, vous savez maintenant répondre programmatiquement aux modifications d’état des secrets stockés dans votre coffre de clés.
+Félicitations ! Si vous avez correctement suivi toutes ces étapes, vous êtes maintenant prêt à répondre par programmation aux changements d’état des secrets stockés dans votre coffre de clés.
 
-Si vous utilisiez un système basé sur l’interrogation pour rechercher les modifications d’état des secrets dans vos coffres de clés, changez pour utiliser cette fonctionnalité de notification. Vous pouvez également remplacer le script de test de votre runbook par du code pour renouveler programmatiquement vos secrets lorsqu’ils sont sur le point d’expirer.
+Si vous avez utilisé un système d’interrogation pour rechercher les changements d’état des secrets dans vos coffres de clés, vous pouvez désormais vous servir de cette fonctionnalité de notification. Vous pouvez également remplacer le script de test de votre runbook par du code pour renouveler vos secrets par programmation au moment où ils sont sur le point d’expirer.
 
 En savoir plus :
 
+
+- Vue d’ensemble : [Monitoring de Key Vault avec Azure Event Grid (préversion)](event-grid-overview.md)
+- Activation [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](event-grid-logicapps.md)
+- [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../event-grid/event-schema-key-vault.md)
 - [Vue d’ensemble d’Azure Key Vault](key-vault-overview.md)
 - [Vue d’ensemble d’Azure Event Grid](../event-grid/overview.md)
-- [Monitoring de Key Vault avec Azure Event Grid (préversion)](event-grid-overview.md)
-- [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../event-grid/event-schema-key-vault.md)
 - [Vue d’ensemble d’Azure Automation](../automation/index.yml)

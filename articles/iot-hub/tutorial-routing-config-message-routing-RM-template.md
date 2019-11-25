@@ -1,5 +1,5 @@
 ---
-title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’un modèle Azure Resource Manager
 description: Configurer le routage des messages pour Azure IoT Hub à l’aide d’un modèle Azure Resource Manager
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163260"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084405"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser un modèle Azure Resource Manager pour configurer le routage des messages IoT Hub
 
@@ -88,7 +88,7 @@ Utilisées dans le modèle, ces valeurs sont essentiellement dérivées des para
 
 **service_bus_queue** : ce champ indique le nom de la file d’attente Service Bus après sa concaténation avec la valeur randomValue.
 
-**sbVersion** : version de l’API Service Bus à utiliser. Dans ce cas, la version est « 2017-04-01 ».
+**sbVersion** : version de l’API Service Bus à utiliser. Dans ce cas, la version est "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Ressources : compte de stockage et conteneur
 
@@ -370,7 +370,7 @@ Les fichiers sont chargés dans le partage utilisé par votre instance Cloud She
 
 Exécutez le script pour lancer le déploiement. La dernière ligne de ce script récupère la variable configurée pour être retournée, c’est-à-dire la chaîne de connexion de la file d’attente Service Bus.
 
-Les variables suivantes sont définies dans ce script.
+Le script définit et utilise les variables suivantes :
 
 **$RGName** indique le nom du groupe de ressources où déployer le modèle. Ce champ est créé avant de déployer le modèle.
 

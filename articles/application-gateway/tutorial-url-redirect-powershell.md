@@ -1,18 +1,18 @@
 ---
-title: Créer une passerelle d’application avec une redirection selon un chemin d’URL - Azure PowerShell
+title: Redirection basée sur un chemin d’URL à l’aide de PowerShell – Azure Application Gateway
 description: Découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’accès d’URL à l’aide d’Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/3/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: tutorial
-ms.openlocfilehash: 6a73cbe9ef2302a8195f67b645a3e48b7ee6b1f2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618882"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047608"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 

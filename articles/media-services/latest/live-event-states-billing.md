@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/24/2019
 ms.author: juliako
-ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af3d4b51dadfaa99a166ca0ce475c5a110d8f6e8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074894"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933678"
 ---
 # <a name="live-event-states-and-billing"></a>États et facturation des événements en direct
 
@@ -26,11 +26,14 @@ Dans Azure Media Services, la facturation d’un événement en direct commence 
 
 Quand la valeur **LiveEventEncodingType** de votre [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) est définie sur Standard ou Premium1080p, Media Services met automatiquement fin aux événements en direct **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en direct** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en direct était dans l’état **En cours d’exécution**.
 
+> [!NOTE]
+> Les événements en direct de transfert ne sont pas arrêtés automatiquement mais doivent être arrêtés de façon explicite via l’API pour éviter une facturation excessive. 
+
 ## <a name="states"></a>États
 
 L’événement en direct peut présenter l’un des états suivants.
 
-|État|Description|
+|State|Description|
 |---|---|
 |**Arrêté**| C’est l’état initial de l’événement en direct après sa création (sauf si le démarrage automatique a été défini sur true). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés de l’événement en direct peuvent être mises à jour, mais le streaming n’est pas autorisé.|
 |**Démarrage en cours**| L’événement en direct est en cours de démarrage et les ressources sont allouées. Aucune facturation ne survient dans cet état. Les mises à jour et diffusions en continu ne sont pas autorisées pendant cet état. Si une erreur se produit, l’événement en direct retourne à l’état Arrêté.|

@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Obtention de résultats de suggestion automatique à l’aide de l’API Suggestion automatique Bing'
 titleSuffix: Azure Cognitive Services
-description: Montre comment utiliser la Suggestion automatique Bing.
+description: Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Suggestion automatique Bing et d’afficher les résultats de la requête.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d208187b7ba61fc0d217cef05a1bda559ca0c42b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996786"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072838"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Didacticiel : Obtention de suggestions de recherche sur une page web
 

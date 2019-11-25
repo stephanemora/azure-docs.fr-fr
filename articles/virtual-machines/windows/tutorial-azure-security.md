@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : utiliser Azure Security Center pour les machines virtuelles Windows dans Azure | Microsoft Docs'
+title: 'Tutoriel : Utiliser Azure Security Center pour les machines virtuelles Windows dans Azure'
 description: Avec ce didacticiel, vous allez découvrir les fonctionnalités Azure Security Center pour mieux protéger et sécuriser vos machines virtuelles Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e65e9670facdfcbf9d1aac04fa25ee53996a9c4b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100304"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064955"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
 

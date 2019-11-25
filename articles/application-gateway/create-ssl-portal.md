@@ -1,18 +1,18 @@
 ---
-title: Tutoriel – Configurer une passerelle d’application avec un arrêt SSL – Portail Azure
+title: 'Didacticiel : Configurer la terminaison SSL dans le portail – Azure Application Gateway'
 description: Dans ce tutoriel, vous allez découvrir comment configurer une passerelle d’application et ajouter un certificat pour un arrêt SSL à partir du portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/27/2019
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470041"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012309"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Didacticiel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 

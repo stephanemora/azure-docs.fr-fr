@@ -1,26 +1,23 @@
 ---
-title: Terraform avec les emplacements de déploiement fournisseur Azure
+title: 'Tutoriel : Provisionner une infrastructure avec les emplacements de déploiement Azure à l’aide de Terraform'
 description: Didacticiel sur l’utilisation de Terraform avec les emplacements de déploiement fournisseur Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, machine virtuelle, Azure, emplacements de déploiement
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169826"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838056"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utiliser Terraform pour approvisionner une infrastructure avec des emplacements de déploiement Azure
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Didacticiel : Provisionner une infrastructure avec les emplacements de déploiement Azure à l’aide de Terraform
 
 Vous pouvez utiliser des [emplacements de déploiement Azure](/azure/app-service/deploy-staging-slots) pour alterner entre différentes versions de votre application. Cette fonctionnalité vous permet de minimiser l’incidence des déploiements défaillants. 
 
-Cet article illustre un exemple d’utilisation d’emplacements de déploiement en vous guidant à travers le déploiement de deux applications via GitHub et Azure. L’une de ces applications est hébergée dans un emplacement de production. La seconde application est hébergée dans un emplacement de préproduction. (Les noms « production » et « intermédiaire ». Il peut s’agir de tout type d’emplacement requis dans le cadre de votre scénario.) Après avoir configuré vos emplacements de déploiement, vous pouvez utiliser Terraform pour basculer entre les deux emplacements en fonction de vos besoins.
+Cet article illustre un exemple d’utilisation d’emplacements de déploiement en vous guidant à travers le déploiement de deux applications via GitHub et Azure. L’une de ces applications est hébergée dans un emplacement de production. La seconde application est hébergée dans un emplacement de préproduction. (Les noms « production » et « préproduction » sont arbitraires. Il peut s’agir de tout type d’emplacement approprié dans le cadre de votre scénario.) Après avoir configuré vos emplacements de déploiement, vous utilisez Terraform pour basculer entre les deux emplacements en fonction de vos besoins.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,13 +61,11 @@ Cet article illustre un exemple d’utilisation d’emplacements de déploiement
     cd deploy
     ```
 
-1. À l’aide de [l’éditeur vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), créez un fichier nommé `deploy.tf`. Ce fichier contiendra la [configuration Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. Dans Cloud Shell, créez un fichier nommé `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
@@ -85,8 +80,8 @@ Cet article illustre un exemple d’utilisation d’emplacements de déploiement
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,27 +90,21 @@ Cet article illustre un exemple d’utilisation d’emplacements de déploiement
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
-1. Sélectionnez la touche Échap pour quitter le mode insertion.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 1. Après avoir créé le fichier, vérifiez son contenu.
 
@@ -207,7 +196,7 @@ Après avoir dupliqué (fork) le référentiel du projet de test, configurez les
 
 1. Dans l’onglet **Option de déploiement**, sélectionnez **OK**.
 
-À ce stade, vous avez déployé l’emplacement de production. Pour déployer l’emplacement de préproduction, effectuez toutes les étapes précédentes de cette section en apportant uniquement les modifications suivantes :
+À ce stade, vous avez déployé l’emplacement de production. Pour déployer l’emplacement de préproduction, effectuez les étapes précédentes en apportant les modifications suivantes :
 
 - À l’étape 3, sélectionnez la ressource **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ Après avoir dupliqué (fork) le référentiel du projet de test, configurez les
 
 Dans les sections précédentes, vous avez configuré deux emplacements, **slotAppService** et **slotAppServiceSlotOne**, pour déployer les applications à partir de différentes branches dans GitHub. Nous allons maintenant afficher un aperçu des applications web pour vérifier qu’elles ont été déployées avec succès.
 
-Effectuez les étapes suivantes 2 fois. À l’étape 3, sélectionnez **slotAppService** la première fois, puis **slotAppServiceSlotOne** la seconde fois.
-
 1. Dans le menu principal du Portail Azure, sélectionnez **Groupes de ressources**.
 
 1. Sélectionnez **slotDemoResourceGroup**.
@@ -231,18 +218,15 @@ Effectuez les étapes suivantes 2 fois. À l’étape 3, sélectionnez **slotApp
 
     ![Sélectionner l’URL dans l’onglet de vue d’ensemble pour effectuer le rendu de l’application](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Azure peut mettre plusieurs minutes pour créer et déployer le site à partir de GitHub.
->
->
+1. En fonction de l’application sélectionnée, les résultats suivants s’affichent :
+    - Application web **slotAppService** : page bleue avec le titre de page **Slot Demo App 1**. 
+    - Application web **slotAppServiceSlotOne** : page verte avec le titre de page **Slot Demo App 2**.
 
-Pour l’application web **slotAppService**, une page bleue avec le titre de page **Slot Demo App 1** s’affiche. Pour l’application web **slotAppServiceSlotOne**, une page verte avec le titre de page **Slot Demo App 2** s’affiche.
-
-![Afficher un aperçu des applications pour vérifier qu’elles ont été correctement déployées](./media/terraform-slot-walkthru/app-preview.png)
+    ![Afficher un aperçu des applications pour vérifier qu’elles ont été correctement déployées](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Permuter entre les deux emplacements de déploiement
 
-Pour tester la permutation entre les deux emplacements de déploiement, procédez comme suit :
+Pour tester la permutation entre les deux emplacements de déploiement, procédez comme suit :
  
 1. Basculez vers l’onglet de navigateur exécutant **slotAppService** (application avec la page bleue). 
 
@@ -256,13 +240,11 @@ Pour tester la permutation entre les deux emplacements de déploiement, procéde
     cd clouddrive/swap
     ```
 
-1. À l’aide de l’éditeur vi, créez un fichier nommé `swap.tf`.
+1. Dans Cloud Shell, créez un fichier nommé `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
@@ -278,13 +260,7 @@ Pour tester la permutation entre les deux emplacements de déploiement, procéde
     }
     ```
 
-1. Sélectionnez la touche Échap pour quitter le mode insertion.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 1. Initialisez Terraform.
 
@@ -304,7 +280,7 @@ Pour tester la permutation entre les deux emplacements de déploiement, procéde
     terraform apply
     ```
 
-1. Une fois que Terraform a permuté les emplacements, revenez dans l’onglet de navigateur utilisé pour le rendu de l’application web **slotAppService** et actualisez la page. 
+1. Une fois que Terraform a permuté les emplacements, retournez dans le navigateur. Actualisez la page. 
 
 L’application web dans votre emplacement de préproduction **slotAppServiceSlotOne** a été permutée avec celle de l’emplacement de production, et le rendu affiche à présent une page verte. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 Une fois la permutation effectuée, la configuration d’origine s’affiche.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"] 
+> [En savoir plus sur l’utilisation de Terraform dans Azure](/azure/terraform)

@@ -1,5 +1,6 @@
 ---
-title: Problèmes connus sur les navigateurs (bibliothèque d’authentification Microsoft pour JavaScript) | Azure
+title: Problèmes connus sur Internet Explorer et Microsoft Edge (MSAL pour JavaScript)
+titleSuffix: Microsoft identity platform
 description: Apprenez-en davantage sur les problèmes connus d’utilisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec les navigateurs Internet Explorer et Microsoft Edge.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,19 +18,19 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ed956ec50c8bac26720a27894c07353928336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7b4e24a02bcce372f020833a82b685748432c39
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873899"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934841"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problèmes connus sur les navigateurs Internet Explorer et Microsoft Edge avec MSAL.js
 
 ## <a name="issues-due-to-security-zones"></a>Problèmes dus à des zones de sécurité
 Des problèmes d’authentification liés à IE et à Microsoft Edge (depuis la mise à jour de la *version du navigateur Microsoft Edge vers 40.15063.0.0* ) nous ont été signalés à plusieurs reprises. Nous les suivons et avons informé l’équipe Microsoft Edge. Pendant que celle-ci travaille à les résoudre, voici une description des problèmes fréquents et des solutions de contournement possibles.
 
-### <a name="cause"></a>Cause
+### <a name="cause"></a>Cause :
 La cause de la plupart de ces problèmes est la suivante. Le stockage de session et le stockage local sont partitionnés par des zones de sécurité dans le navigateur Microsoft Edge. Dans cette version de Microsoft Edge, lorsque l’application est redirigée vers plusieurs zones, le stockage de session et le stockage local sont effacés. Plus précisément, le stockage de session est effacé dans la navigation normale, et tant le stockage de session et que le stockage local sont effacés dans le mode InPrivate du navigateur. MSAL.js enregistre certains états dans le stockage de session et s’appuie sur la vérification de cet état dans le cadre des flux d’authentification. Lorsque le stockage de session est effacé, cet état est perdu et entraîne des expériences interrompues.
 
 ### <a name="issues"></a>Problèmes

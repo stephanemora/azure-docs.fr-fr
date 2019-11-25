@@ -1,5 +1,5 @@
 ---
-title: Utiliser le WAN virtuel Azure pour créer une connexion de site à site vers Azure | Microsoft Docs
+title: 'Azure Virtual WAN : Créer des connexions site à site'
 description: Dans ce didacticiel, découvrez comment utiliser le WAN virtuel Azure pour créer une connexion VPN de site à site vers Azure.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8824111edff23b8bdc93a64707cf5198288b3a6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 82f662dd00805cf53c0581fb0a2b3322a0207a11
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488852"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005709"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Didacticiel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -41,7 +41,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le Portail Azure, consultez le [démarrage rapide](../virtual-network/quick-create-portal.md).
+* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le Portail Azure, consultez le [Démarrage rapide](../virtual-network/quick-create-portal.md).
 
 * Votre réseau virtuel n’a pas de passerelle de réseau virtuel. Si votre réseau virtuel dispose d’une passerelle (VPN ou ExpressRoute), vous devez supprimer toutes les passerelles. Cette configuration nécessite que les réseaux virtuels soient connectés à la passerelle hub Virtual WAN.
 

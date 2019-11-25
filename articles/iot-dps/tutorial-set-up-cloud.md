@@ -1,22 +1,21 @@
 ---
-title: Configurer le cloud pour le service IoT Hub Device Provisioning dans le portail | Microsoft Docs
-description: Approvisionnement d’appareils automatique IoT Hub dans le portail Azure
+title: 'Didacticiel : Configurer le cloud pour le service Azure IoT Hub Device Provisioning dans le portail'
+description: 'Didacticiel : Configurer les ressources cloud pour le provisionnement d’appareil dans le [portail Azure](https://portal.azure.com) en utilisant le service IoT Hub Device Provisioning'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826191"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112791"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Didacticiel : Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
 Ce didacticiel montre comment configurer le cloud pour l’approvisionnement d’appareils automatique à l’aide du service IoT Hub Device Provisioning. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -48,7 +47,7 @@ Suivez ces étapes pour créer une instance du service Device Provisioning.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom** | Tout nom unique | -- | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Conventions d’affectation de nom). |
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |   
 
    ![Entrer les informations de base sur votre service Device Provisioning dans le portail](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

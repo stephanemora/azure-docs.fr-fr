@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4449ac3519757bb9670d2d7fec53cb5f3ce152
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948300"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à G Suite
 
@@ -250,7 +250,9 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 ### <a name="create-g-suite-test-user"></a>Créer un utilisateur de test G Suite
 
-L’objectif de cette section est de créer un utilisateur appelé B.Simon dans les logiciels G Suite. G Suite prend en charge l’approvisionnement automatique, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si un utilisateur n’existe pas déjà dans G Suite, un nouveau est créé lorsque vous tentez d’accéder aux logiciels G Suite.
+L’objectif de cette section est de [créer un utilisateur dans G Suite](https://support.google.com/a/answer/33310?hl=en) (appelé B.Simon). Une fois l’utilisateur créé manuellement dans G Suite, il peut se connecter à l’aide de ses informations d’identification Office 365.
+
+G Suite prend également en charge le provisionnement automatique d’utilisateurs. Pour configurer le provisionnement automatique d’utilisateurs, vous devez d’abord [configurer G Suite pour le provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Assurez-vous que votre utilisateur existe déjà dans G Suite si l’approvisionnement dans Azure AD n’a pas été activé avant de tester l’authentification unique.

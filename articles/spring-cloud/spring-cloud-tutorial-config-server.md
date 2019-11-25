@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 6742e1a5924fdcd1fe00f49ac790209a907d1bac
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646721"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132791"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Didacticiel : Configurer un serveur de configuration Spring Cloud pour votre service
 
@@ -95,7 +95,7 @@ Toutes les propriétés configurables servant à configurer un dépôt Git priv�
 | `password`      | `no`     | Mot de passe utilisé pour accéder au serveur du dépôt `Git`, __obligatoire__ lorsque le serveur du dépôt `Git` prend en charge `Http Basic Authentication`. |
 
 > [!NOTE]
-> Certains serveurs de dépôt `Git`, comme GitHub, prennent en charge un jeton personnel (« personal-token ») ou un jeton d’accès (« access-token ») en tant que mot de passe pour `HTTP Basic Authentication`. Vous pouvez ici aussi utiliser ce type de jeton comme mot de passe ; le jeton personnel ou le jeton d’accès n’expirera pas. Cependant, pour les serveurs de dépôt Git tels que BitBucket et Azure DevOps, le jeton expire au bout d’une ou deux heures, ce qui rend cette option non viable pour une utilisation avec Azure Spring Cloud.
+> De nombreux serveurs de dépôt `Git` prennent en charge l’utilisation des jetons à la place des mots de passe pour `HTTP Basic Authentication`. Certains dépôts, tels que GitHub, permettent aux jetons d’être conservés indéfiniment. Toutefois, certains serveurs de dépôt Git, notamment Azure DevOps, forcent les jetons à expirer en quelques heures. Les dépôts qui entraînent l’expiration des jetons ne doivent pas utiliser l’authentification par jeton avec Azure Spring Cloud.
 
 ### <a name="git-repositories-with-pattern"></a>Dépôts Git avec modèle
 
@@ -127,7 +127,9 @@ Maintenant que vous avez enregistré vos fichiers de configuration dans un dép�
 
 1. Accédez à la page **Vue d’ensemble** de votre instance Azure Spring Cloud.
 
-1. Accédez à l’onglet **Config Server** (Serveur de configuration) sous l’en-tête **Paramètres** dans le menu de gauche.
+1. Sélectionnez le service à configurer.
+
+1. Dans la page du service, sélectionnez l’onglet **Config Server** (Serveur de configuration) sous le titre **Settings** (Paramètres) dans le menu de gauche.
 
 ![capture d’écran de la fenêtre](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Turtoriel - Router du trafic vers des points de terminaison pondérés - Azure Traffic Manager
+title: 'Tutoriel : Router du trafic vers des points de terminaison pondérés - Azure Traffic Manager'
 description: Ce didacticiel explique comment acheminer le trafic vers des points de terminaison pondérés à l’aide de Traffic Manager.
 services: traffic-manager
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258370"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037912"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Didacticiel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager
 
@@ -141,8 +141,8 @@ Créez un profil Traffic Manager basé sur la méthode de routage **Pondéré**.
     | ---                     | ---                                                |
     | Nom                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Pondéré**.                                       |
-    | Abonnement            | Sélectionnez votre abonnement.                          |
-    | Groupe de ressources          | Sélectionnez **Utiliser l’existant**, puis **myResourceGroupTM1**. |
+    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Resource group          | Sélectionnez **Utiliser l’existant**, puis **myResourceGroupTM1**. |
     |        |   |
 
     ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-weighted-endpoint-routing/create-traffic-manager-profile.png)

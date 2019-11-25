@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837483"
 ---
 # <a name="get-labels-for-data"></a>Obtenir des étiquettes pour des données
 
 L’étiquetage des grandes quantités de données a souvent été un casse-tête dans les projets de Machine Learning. Les projets de Machine Learning avec un composant de vision par ordinateur, tels que la classification d’images ou la détection d’objets, requièrent généralement des milliers d’images et d’étiquettes correspondantes. 
  
-Azure Machine Learning Studio offre un emplacement central pour créer, gérer et surveiller les projets d’étiquetage. Les projets d’étiquetage aident à coordonner les données, les étiquettes et les membres de l’équipe, ce qui vous permet de gérer plus efficacement les tâches d’étiquetage. Les tâches actuellement prises en charge sont la classification d’images, à plusieurs étiquettes ou multiclasse, et l’identification des objets à l’aide de zones délimitées.
+Azure Machine Learning vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage. Les projets d’étiquetage aident à coordonner les données, les étiquettes et les membres de l’équipe, ce qui vous permet de gérer plus efficacement les tâches d’étiquetage. Les tâches actuellement prises en charge sont la classification d’images, à plusieurs étiquettes ou multiclasse, et l’identification des objets à l’aide de zones délimitées.
 
 Azure suit la progression et gère la file d’attente des tâches des tâches d’étiquetage incomplètes. Les « étiqueteurs » n’ont pas besoin d’un compte Azure pour participer. Une fois authentifiés à l’aide de leur compte Microsoft (MSA) ou [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), ils peuvent faire autant d’étiquetage que le temps le leur permet. Ils peuvent attribuer et modifier des étiquettes à l’aide de raccourcis clavier. 
 
@@ -43,7 +43,7 @@ Cet article porte sur les points suivants :
 
 ## <a name="create-a-labeling-project"></a>Créer un projet d’étiquetage
 
-Les projets d’étiquetage sont administrés à partir d’[Azure Machine Learning Studio](https://ml.azure.com/). La page **Projets d’étiquetage** vous permet de gérer vos projets, équipes et personnes. Une ou plusieurs équipes sont attribuées à un projet, et chaque équipe comprend une ou plusieurs personnes attribuées à celui-ci. 
+Les projets d’étiquetage sont administrés à partir d’[Azure Machine Learning](https://ml.azure.com/). La page **Projets d’étiquetage** vous permet de gérer vos projets, équipes et personnes. Une ou plusieurs équipes sont attribuées à un projet, et chaque équipe comprend une ou plusieurs personnes attribuées à celui-ci. 
 
 Si vos données sont déjà stockées dans un stockage d’objets blob Azure, vous devez les mettre à disposition en tant que magasin de données avant de créer votre projet d’étiquetage. Pour plus d’informations, voir [Créer et inscrire des magasins de données](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -149,7 +149,7 @@ Vous pouvez étiqueter des données directement à partir de la page **Détails 
 
 Vous pouvez exporter à tout moment les données d’étiquette pour expérimentation de Machine Learning. Vous pouvez exporter des étiquettes d’image au [format COCO](http://cocodataset.org/#format-data) ou en tant que jeu de données Azure Machine Learning. Le bouton **Exporter** se trouve sur la page **Détails du projet** de votre projet d’étiquetage.
 
-Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier sous **export/coco**. Vous pouvez accéder au jeu de données Azure Machine Learning exporté sous la section **Jeu de données** de Studio. La page Détails du jeu de données fournit également un exemple de code pour accéder à vos étiquettes à partir de Python.
+Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier sous **export/coco**. Vous pouvez accéder au jeu de données Azure ML exporté dans la section **Jeux de données** d’Azure Machine Learning. La page Détails du jeu de données fournit également un exemple de code pour accéder à vos étiquettes à partir de Python.
 
 ![Jeu de données exporté](media/how-to-create-labeling-projects/exported-dataset.png)
 

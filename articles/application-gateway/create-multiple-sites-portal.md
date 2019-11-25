@@ -1,5 +1,6 @@
 ---
-title: 'Tutoriel : Créer une passerelle d’application qui héberge plusieurs sites web à l’aide du portail Azure'
+title: 'Didacticiel : Héberger plusieurs sites web à l’aide du Portail Azure'
+titleSuffix: Azure Application Gateway
 description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application qui héberge plusieurs sites web à l’aide du portail Azure.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498450"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075147"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Didacticiel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
@@ -67,7 +68,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
      ![Créer une passerelle d’application : réseau virtuel](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Front-ends**.
+3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Serveurs frontaux**.
 
 ### <a name="frontends-tab"></a>Onglet Front-ends
 
@@ -219,7 +220,7 @@ Une fois la passerelle d’application créée avec son adresse IP publique, vou
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-1. Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
+1. Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, `http://www.contoso.com`.
 
     ![Tester le site contoso dans la passerelle d’application](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

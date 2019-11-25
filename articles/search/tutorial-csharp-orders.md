@@ -1,19 +1,19 @@
 ---
 title: Tutoriel C# sur le classement des résultats
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche cognitive Azure » et y ajoute le classement des résultats de la recherche. Découvrez comment classer les résultats sur une propriété principale et, pour les résultats qui ont la même propriété principale, comment classer les résultats sur une propriété secondaire. Enfin, découvrez comment classer les résultats en fonction d’un profil de score.
+description: Ce tutoriel montre comment trier les résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Il comporte un tri par propriété principale et par propriété secondaire, et inclut un profil de scoring pour ajouter des critères de boosting.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794051"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112669"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutoriel C# : Classer les résultats - Recherche cognitive Azure
 

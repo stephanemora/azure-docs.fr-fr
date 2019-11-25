@@ -1,6 +1,6 @@
 ---
-title: Utiliser des événements IoT Hub pour déclencher des applications Azure Logic Apps | Microsoft Docs
-description: À l’aide du service de routage d’événement d’Azure Event Grid, créez des processus automatisés pour effectuer des actions Azure Logic Apps basées sur des événements IoT Hub.
+title: 'Didacticiel : Utiliser les événements IoT Hub pour déclencher des applications Azure Logic Apps'
+description: 'Didacticiel : À l’aide du service de routage d’événement d’Azure Event Grid, créez des processus automatisés pour effectuer des actions Azure Logic Apps basées sur des événements IoT Hub.'
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -10,14 +10,14 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e003cb650b0589ab43c984850838c56cbbf1ff2f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079995"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106782"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps
 
@@ -42,7 +42,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    ![Créer une application logique](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Donnez à votre application logique un nom qui est unique dans votre abonnement, puis sélectionnez les mêmes abonnement, groupe de ressources et emplacement que votre hub IoT. 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 4. Une fois la ressource créée, accédez à votre application logique. 
 

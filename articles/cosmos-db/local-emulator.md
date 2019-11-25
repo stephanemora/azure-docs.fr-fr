@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997879"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075657"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -416,6 +416,24 @@ Si vous fermez l’interpréteur de commandes interactif une fois que l’émula
 Pour ouvrir l’Explorateur de données, accédez à l’URL suivante dans votre navigateur. Le point de terminaison de l’émulateur est fourni dans le message de réponse ci-dessus.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+Si vous avez une application cliente .NET en cours d’exécution sur un conteneur Linux Docker et si vous exécutez l’émulateur Azure Cosmos sur un ordinateur hôte, vous ne pouvez pas alors vous connecter au compte Azure Cosmos à partir de l’émulateur. Comme l’application n’est pas en cours d’exécution sur l’ordinateur hôte, le certificat inscrit sur le conteneur Linux qui correspond au point de terminaison de l’émulateur ne peut pas être ajouté. 
+
+En guise de solution de contournement, vous pouvez désactiver la validation du certificat SSL du serveur à partir de votre application cliente en passant une instance `HttpClientHandler` comme indiqué dans l’exemple de code .Net suivant. Cette solution de contournement n’est applicable que si vous utilisez le package NuGet `Microsoft.Azure.DocumentDB`. Elle n’est pas prise en charge avec le package NuGet `Microsoft.Azure.Cosmos` :
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+Outre la désactivation de la validation du certificat SSL, il est important que vous démarriez l’émulateur avec l’option `/allownetworkaccess` et que le point de terminaison de l’émulateur soit accessible à partir de l’adresse IP de l’hôte plutôt que de l’adresse DNS `host.docker.internal`.
 
 ## Exécution sur Mac ou Linux<a id="mac"></a>
 

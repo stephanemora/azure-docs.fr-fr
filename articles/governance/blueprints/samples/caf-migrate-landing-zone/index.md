@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud – Vue d’ensemble
-description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud.
+description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud pour Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038465"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404752"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -43,7 +43,7 @@ Pour plus d’informations, voir [Framework d’adoption de Microsoft Cloud pour
 Vous avez découvert la vue d’ensemble et l’architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud.
 
 > [!div class="nextstepaction"]
->  [Blueprint de zone d’accueil de migration du framework d’adoption du cloud – Étapes de déploiement](./deploy.md)
+> [Blueprint de zone d’accueil de migration du framework d’adoption du cloud – Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

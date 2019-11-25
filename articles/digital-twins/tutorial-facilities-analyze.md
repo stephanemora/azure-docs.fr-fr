@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Analyser des événements à partir d’une configuration Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Analyser des événements à partir d’une configuration Azure Digital Twins'
 description: Découvrez comment visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide d’Azure Time Series Insights, en suivant les étapes de ce tutoriel.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949801"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107679"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir d’Azure Digital Twins à l’aide de Time Series Insights
 
 Après avoir déployé votre instance Azure Digital Twins, puis provisionné vos espaces et implémenté une fonction personnalisée visant à surveiller des conditions spécifiques, vous pouvez visualiser les événements et les données provenant de vos espaces pour rechercher des tendances et des anomalies.
 

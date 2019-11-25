@@ -7,18 +7,21 @@ ms.author: dacurwin
 ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637578"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091509"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
+
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde des partages de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
+
 La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage à usage général v1 et v2 sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
+
 - Il n’y a aucune interface CLI disponible pour la protection des fichiers Azure à l’aide de Sauvegarde Azure.
 - Vous pouvez effectuer une seule sauvegarde planifiée par jour.
 - Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
@@ -29,6 +32,7 @@ La sauvegarde des partages de fichiers Azure est disponible en préversion. Les 
 La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant interzone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions USA Centre (CUS), USA Est (EUS), USA Est 2 (EUS2), Europe Nord (NE), Asie Sud-Est (SEA), Europe Ouest (WE) et USA Ouest 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Configuration de la sauvegarde
+
 Le tableau suivant concerne la configuration de la sauvegarde :
 
 | messages d'erreur | Conseils de résolution ou solution de contournement |
@@ -39,7 +43,6 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | Impossible de répertorier ou de trouver les partages de fichiers du compte de stockage sélectionné. | <ul><li> Assurez-vous que le compte de stockage existe dans le groupe de ressources (et qu’il n’a pas été supprimé ou déplacé après la dernière validation ou le dernier enregistrement dans le coffre).<li>Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li>Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.<li>Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.|
 | La configuration de la sauvegarde de partage de fichiers (ou la configuration de la stratégie de protection) échoue. | <ul><li>Réessayez l’opération pour voir si le problème persiste. <li> Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li> Si vous essayez de protéger plusieurs partages de fichiers en même temps, et si l’échec touche certains partages de fichiers, recommencez la configuration de la sauvegarde pour les partages de fichiers ayant échoué. |
 | Impossible de supprimer le coffre Recovery Services après avoir ôté la protection d’un partage de fichiers. | Dans le portail Azure, ouvrez votre coffre > **Infrastructure de sauvegarde** > **Comptes de stockage** et cliquez sur **Annuler l’enregistrement** pour supprimer le compte de stockage du coffre Recovery Services.|
-
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messages d’erreur pour les échecs des travaux de sauvegarde ou de restauration
 
@@ -59,15 +62,16 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | L’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible. | Réessayez après quelques instants et, si le problème persiste, contactez le support technique Microsoft. |
 | Un ou plusieurs fichiers n’ont pas pu être récupérés avec succès. Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus. | <ul> <li> Les raisons d’un échec de récupération sont répertoriées dans le fichier (chemin d’accès fourni dans les détails du travail), traitez les raisons et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Les causes courantes des échecs d’une restauration de fichiers sont : <br/> -Vérifiez que les fichiers ayant échoué ne sont pas en cours d’utilisation. <br/> -un répertoire portant le même nom que les fichiers ayant échoué existe dans le répertoire parent. |
 
-
 ## <a name="modify-policy"></a>Modifier la stratégie
+
 | messages d'erreur | Conseils de résolution ou solution de contournement |
 | ------------------ | ----------------------------- |
 | Une autre opération de configuration de la protection est en cours pour cet élément. | Attendez que l’opération précédente de modification de la stratégie soit terminée pour réessayer.|
 | Une autre opération est en cours sur l’élément sélectionné. | Attendez que l’autre opération en cours soit terminée, puis réessayez. |
 
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur la sauvegarde des partages de fichiers Azure, consultez les références suivantes :
+Pour plus d’informations sur la sauvegarde des partages de fichiers Azure, consultez les références suivantes :
+
 - [Sauvegarder des partages de fichiers Azure](backup-azure-files.md)
 - [FAQ sur la sauvegarde des partages de fichiers Azure](backup-azure-files-faq.md)

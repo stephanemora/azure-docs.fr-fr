@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 2e2195c61acbf39b40a7659335afff78ac03cb4b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563061"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881423"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Connecter un réseau virtuel Azure à CloudSimple à l’aide d’ExpressRoute
 
@@ -30,15 +30,22 @@ Une clé d’autorisation est requise pour connecter ExpressRoute à votre cloud
 * Sous-type de problème : **Clé d’autorisation pour la connexion au réseau virtuel Azure**
 * Objet : **Demande de clé d’autorisation pour la connexion au réseau virtuel Azure**
 
-## <a name="obtain-peering-information-for-azure-virtual-network-to-cloudsimple-connection"></a>Obtenir des informations de peering pour la connexion entre le réseau virtuel Azure et CloudSimple
+## <a name="get-peering-information-from-cloudsimple-portal"></a>Recevoir des informations de peering à partir du portail CloudSimple
 
-Pour configurer la connexion, vous devez établir un lien entre le réseau virtuel Azure et votre environnement CloudSimple.  Dans le cadre de la procédure, vous devez fournir l’URI du circuit pair et la clé d’autorisation. Obtenez l’URI et la clé d'autorisation à partir du [portail CloudSimple](access-cloudsimple-portal.md).  Sélectionnez **Réseau** dans le menu latéral, puis **Connexion réseau Azure**. Ou sélectionnez **Compte** dans le menu latéral, puis **Connexion réseau Azure**.
+Pour configurer la connexion, vous devez établir une connexion entre le réseau virtuel Azure et votre environnement CloudSimple.  Dans le cadre de la procédure, vous devez fournir l’URI du circuit pair et la clé d’autorisation. Obtenez l’URI et la clé d'autorisation à partir du [portail CloudSimple](access-cloudsimple-portal.md).  Sélectionnez **Réseau** dans le menu latéral, puis **Connexion réseau Azure**. Ou sélectionnez **Compte** dans le menu latéral, puis **Connexion réseau Azure**.
 
-Notez les icônes de copie pour l'URI du circuit pair et la clé d'autorisation pour chacune des régions. Pour chaque cloud privé que vous souhaitez connecter :
+Copiez l’URI du circuit pair et la clé d’autorisation pour chacune des régions à l’aide de l’icône de *copie*. Pour chaque région CloudSimple que vous souhaitez connecter :
 
-* Cliquez sur **Copier** pour copier l’URI. Collez-le dans un fichier qui permettra de l’ajouter au portail Azure.  
-* Cliquez sur **Copier** pour copier la clé d’autorisation et collez-la également dans le fichier.
+1. Cliquez sur **Copier** pour copier l’URI. Collez-le dans un fichier qui permettra de l’ajouter au portail Azure.  
+2. Cliquez sur **Copier** pour copier la clé d’autorisation et collez-la également dans le fichier.
 
-![Page de connexion de réseau virtuel](media/network-virt-conn-page.png)
+Copiez la clé d’autorisation et l’URI du circuit pair qui se trouve à l’état **Disponible**.  L’état **Utilisé** indique que la clé a déjà été utilisée pour créer une connexion de réseau virtuel.
+
+![Page de connexion de réseau virtuel](media/virtual-network-connection.png)
 
 Pour plus d’informations sur la configuration du réseau virtuel Azure au lien CloudSimple, consultez la page [Connecter votre environnement de cloud privé CloudSimple au réseau virtuel Azure à l’aide d’ExpressRoute](azure-expressroute-connection.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Connexion entre un réseau virtuel Azure et le cloud privé](azure-expressroute-connection.md)
+* [Se connecter à un réseau local à l’aide d’Azure ExpressRoute](on-premises-connection.md)

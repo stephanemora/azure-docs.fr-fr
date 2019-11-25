@@ -1,23 +1,23 @@
 ---
-title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java et de groupes d’inscriptions | Microsoft Docs
+title: 'Didacticiel : Provisionner un appareil X.509 simulé sur Azure IoT Hub à l’aide de Java et des groupes d’inscription'
 description: 'Didacticiel Azure : créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805051"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112437"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Didacticiel : Créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription
 
 Ces étapes indiquent comment simuler un appareil X.509 sur votre ordinateur de développement exécutant le système d’exploitation Windows et comment utiliser un exemple de code pour connecter cet appareil simulé au service Device Provisioning et à votre IoT Hub à l’aide de groupes d’inscription. 
 
@@ -73,7 +73,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Dans le code source téléchargé, accédez au dossier d’exemples **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Ouvrez le fichier  **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** dans l’éditeur de votre choix, puis ajoutez les informations suivantes :
+1. Dans le code source téléchargé, accédez au dossier d’exemples **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Ouvrez le fichier  **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** dans l’éditeur de votre choix, puis ajoutez les informations suivantes :
 
     1. Ajoutez `[Provisioning Connection String]` pour votre service d’approvisionnement. Pour cela, procédez comme suit à partir du portail :
 
@@ -85,7 +85,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
             ![Comment obtenir la chaîne de connexion d’approvisionnement à partir du portail](./media/tutorial-group-enrollments/provisioning-string.png)  
 
-        1. Dans l’exemple de fichier de code **_ServiceEnrollmentGroupSample.java_**, remplacez `[Provisioning Connection String]` par la **chaîne de connexion de la clé primaire**.
+        1. Dans l’exemple de fichier de code **_ServiceEnrollmentGroupSample.java_** , remplacez `[Provisioning Connection String]` par la **chaîne de connexion de la clé primaire**.
 
             ```java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -127,7 +127,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
     1. Enregistrez le fichier _ServiceEnrollmentGroupSample.java_.
 
-1. Ouvrez une fenêtre de commande, puis accédez au dossier **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Ouvrez une fenêtre de commande, puis accédez au dossier **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 1. Générez l’exemple de code à l’aide de cette commande :
 
@@ -177,7 +177,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
     Si vous avez généré vos certificats d’appareils avec l’interpréteur de commandes Bash, ./certs/new-device.cert.pem contient la clé publique. La clé privée de l’appareil se trouve dans le fichier ./private/new-device.key.pem.
 
-    Ouvrez votre fichier de clé publique et mettez à jour la variable `leafPublicPem` ayant cette valeur. Copiez le texte de _---BEGIN PRIVATE KEY---_ dans _---END PRIVATE KEY---_.
+    Ouvrez votre fichier de clé publique et mettez à jour la variable `leafPublicPem` ayant cette valeur. Copiez le texte de _---BEGIN PRIVATE KEY---_ dans _---END PRIVATE KEY---_ .
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -189,7 +189,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
         "-----END CERTIFICATE-----\n";
     ```
 
-    Ouvrez votre fichier de clé privée et mettez à jour la variable `leafPrivatePem` ayant cette valeur. Copiez le texte de _-----BEGIN RSA PRIVATE KEY-----_ dans _-----END RSA PRIVATE KEY-----_.
+    Ouvrez votre fichier de clé privée et mettez à jour la variable `leafPrivatePem` ayant cette valeur. Copiez le texte de _-----BEGIN RSA PRIVATE KEY-----_ dans _-----END RSA PRIVATE KEY-----_ .
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +

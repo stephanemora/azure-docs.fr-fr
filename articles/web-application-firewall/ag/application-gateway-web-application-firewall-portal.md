@@ -1,18 +1,18 @@
 ---
-title: Tutoriel – Créer une passerelle d’application avec un pare-feu d’applications web – Portail Azure
+title: 'Didacticiel : Créer à l’aide du portail - Pare-feu d’applications web'
 description: Dans ce tutoriel, vous allez découvrir comment créer une passerelle d’application avec un pare-feu d’applications web à partir du portail Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d439703f1637282c73cd960923733460502c55bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509743"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049224"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Didacticiel : Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 

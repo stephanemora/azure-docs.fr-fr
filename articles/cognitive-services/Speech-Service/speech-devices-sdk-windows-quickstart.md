@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Exécuter le SDK Speech Devices sur Windows - Service Speech'
+title: 'Démarrage rapide : Exécuter le SDK Speech Devices sur Windows'
 titleSuffix: Azure Cognitive Services
 description: Prérequis et instructions pour bien démarrer avec le SDK Windows Speech Devices.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468744"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111672"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Windows
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Windows pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](conversation-transcription-service.md). Actuellement, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge.
+Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Windows pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](conversation-transcription-service.md). Pour la transcription de conversation, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge. Pour les autres utilisations des fonctions vocales, les réseaux de microphones linéaires fournissant une géométrie de réseau de microphones sont pris en charge.
 
-L’application est créée avec le package Speech SDK et l’IDE Eclipse Java (v4) sur Windows 64 bits. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Windows 64 bits. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 Ce guide nécessite un compte [Azure Cognitive Services](get-started.md) avec une ressource des services Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
@@ -32,7 +32,7 @@ Le code source de l’[exemple d’application](https://aka.ms/sdsdk-download-JR
 Ce démarrage rapide nécessite :
 
 * Système d’exploitation : Windows 64 bits
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+* Un réseau de microphones comme [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) uniquement.
 * [Redistribuable Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
@@ -65,6 +65,29 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
    ![Capture d’écran de l’explorateur de package](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Ouvrez le fichier pom.xml et modifiez-le.
+
+    À la fin du fichier, avant la balise de fermeture `</project>`, créez des éléments `repositories` et `dependencies`, comme indiqué ici, et vérifiez que le `version` correspond bien à votre version actuelle :
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
+1. Copiez le contenu de **Windows x64** à l’emplacement du projet Java, par exemple **C:\SDSDK\JRE-Sample-Release**
+
 1. Copiez `kws.table`, `participants.properties` et `Microsoft.CognitiveServices.Speech.extension.pma.dll` dans le dossier **target/classes** du projet
 
 ## <a name="configure-the-sample-application"></a>Configurer l’exemple d’application
@@ -82,27 +105,25 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Si vous utilisez la transcription de conversation, vos informations de clé et de région de reconnaissance vocale sont également nécessaires dans `Cts.java` :
+   Si vous utilisez la transcription de conversation, vos informations de clé et de région de reconnaissance vocale sont également nécessaires dans `Cts.java` :
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. Le mot clé par défaut (keyword) est « Computer ». Vous pouvez également essayer l’un des autres mots clés fournis, tels que « Machine » ou « Assistant ». Les fichiers de ressources pour ces mots clés alternatifs figurent dans le dossier keyword du Kit de développement logiciel (SDK) Speech Devices. Par exemple, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contient les fichiers utilisés pour le mot clé « Computer ».
 
-   > [!TIP]
-   > Vous pouvez également [créer un mot clé personnalisé](speech-devices-sdk-create-kws.md).
+    > [!TIP]
+    > Vous pouvez également [créer un mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
-    Pour utiliser un nouveau mot clé, mettez à jour les deux lignes suivantes dans `FunctionsList.java` et copiez l’ensemble de mots clés dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `kws-machine.zip` :
+    Pour utiliser un nouveau mot clé, mettez à jour la ligne suivante dans `FunctionsList.java`, puis copiez le mot clé dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `machine.zip` :
 
-   * Copiez le package de mots clés dans le dossier **target/classes** du projet.
-
-   * Mettez à jour le fichier `FunctionsList.java` avec le mot clé et le nom de l’ensemble :
+   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes**.
+   * Mettez à jour le `FunctionsList.java` avec le nom du mot clé :
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Exécuter l’exemple d’application à partir d’Eclipse
@@ -121,23 +142,23 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 ## <a name="create-and-run-a-standalone-application"></a>Créer et exécuter une application autonome
 
-1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Export** (Exporter). 
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Export** (Exporter).
 
 1. La fenêtre **Export** (Exporter) apparaît. Développez **Java**, sélectionnez **Runnable JAR file** (Fichier JAR exécutable), puis sélectionnez **Suivant**.
 
-   ![Capture d’écran de la fenêtre Export (Exporter)](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Capture d’écran de la fenêtre Export (Exporter)](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. La fenêtre **Runnable JAR File Export** (Fichier JAR exécutable) apparaît. Choisissez une **Export destination** (Destination de l’exportation) pour l’application, puis sélectionnez **Finish** (Terminer).
- 
+
    ![Capture d’écran de l’exportation du fichier JAR exécutable](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Placez `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` et `Microsoft.CognitiveServices.Speech.extension.pma.dll` dans le dossier de destination sélectionné ci-dessus, car ces fichiers sont nécessaires à l’application.
 
 1. Pour exécuter l’application autonome
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

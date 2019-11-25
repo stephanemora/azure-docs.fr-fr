@@ -1,19 +1,19 @@
 ---
-title: Procédure pas à pas sur l’utilisation du Machine Learning avec Azure IoT Edge | Microsoft Docs
+title: 'Didacticiel : Procédure pas à pas détaillée relative au Machine Learning sur Azure IoT Edge'
 description: Ce didacticiel général présente les différentes tâches nécessaires à la création d’un scénario Machine Learning de bout en bout en périphérie.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 916e48752431be41ff150c2ac84e66eb1e98e81f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064673"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106513"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Didacticiel : Une solution de bout en bout à l’aide d’Azure Machine Learning et IoT Edge
 
@@ -30,7 +30,7 @@ Vous pouvez également suivre ce didacticiel avec des collègues occupant diffé
 Dans tous les cas, dans un souci de lisibilité, chaque article de ce didacticiel indique le rôle prévu pour le lecteur. Ces rôles sont les suivants :
 
 * Développeur cloud (dont un développeur cloud travaillant selon la méthode DevOps)
-* Analyste de données
+* Analyse de données
 
 ## <a name="use-case-predictive-maintenance"></a>Cas d’usage Maintenance prédictive
 
@@ -52,7 +52,7 @@ Comme les données a été publiées pour un concours, plusieurs méthodes de d�
 
 [Dégradation d’un moteur à turboréacteur](https://github.com/hankroark/Turbofan-Engine-Degradation) de l’utilisateur de GitHub hankroark.
 
-## <a name="process"></a>Processus
+## <a name="process"></a>Process
 
 L’image ci-dessous représente une synthèse des étapes de ce didacticiel :
 

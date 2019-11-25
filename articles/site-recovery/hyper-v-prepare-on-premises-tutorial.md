@@ -1,18 +1,18 @@
 ---
-title: Préparer des serveurs Hyper-V locaux pour la reprise d’activité de machines virtuelles Hyper-V vers Azure
-description: Découvrez comment préparer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure avec le service Azure Site Recovery.
+title: Préparer la reprise d’activité après sinistre de machines virtuelles Hyper-V sur Azure à l’aide d’Azure Site Recovery
+description: Découvrez comment préparer les machines virtuelles Hyper-V locales à la reprise d’activité après sinistre sur Azure à l’aide d’Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813712"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954008"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 

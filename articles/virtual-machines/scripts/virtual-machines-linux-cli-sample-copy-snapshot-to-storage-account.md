@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure CLI - Copier une capture instantanée dans un stockage de compte dans une autre région | Microsoft Docs
+title: Exemple Azure CLI - Copier une capture instantanée dans un compte de stockage appartenant à une autre région
 description: Exemple de Script Azure CLI - Exporter/copier une capture instantanée en tant que VHD vers un compte de stockage dans une région identique ou différente.
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 2ca70eae4a7ab14be9eba82324d41f9e5a24bcff
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e9390d6854ecfa43542d1713bae7d7e8fd8439ee
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727670"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038257"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exporter/copier une capture instantanée vers un compte de stockage dans une région différente à l’aide de CLI
 

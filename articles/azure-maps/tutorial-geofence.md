@@ -1,22 +1,22 @@
 ---
-title: Créer une limite géographique à l’aide d’Azure Maps | Microsoft Docs
-description: Configurez une limite géographique à l’aide d’Azure Maps.
+title: 'Didacticiel : Créer une limite géographique à l’aide d’Azure Maps'
+description: 'Didacticiel : Configurez une limite géographique à l’aide d’Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694922"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107097"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Didacticiel : Configurer une limite géographique à l’aide d’Azure Maps
 
 Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Dans ce tutoriel, le but est d’aider les chefs de chantier à s’assurer que le matériel potentiellement dangereux ne sorte pas des zones de construction prévues. Un site de construction implique du matériel coûteux et des réglementations. En général, le matériel doit rester sur le site de construction et ne pas le quitter sans autorisation.
 

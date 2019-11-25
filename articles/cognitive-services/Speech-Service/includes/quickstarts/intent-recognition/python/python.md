@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, Python - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, Python - Service de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8916cb0438f0005d3ff9f720cf1b5a5653eeac77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4efa535118d075addf78b2e9be6a645c458d6bb4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506162"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125474"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
+>
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Créer une application LUIS et obtenir une clé de point de terminaison](../../../../quickstarts/create-luis.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md)
@@ -41,14 +42,14 @@ Nous allons ajouter du code qui servira de squelette à notre projet
 
 Avant de pouvoir initialiser un objet `IntentRecognizer`, vous devez créer une configuration qui utilise votre clé et votre région de point de terminaison LUIS. Ensuite, insérez ce code.
 
-Cet exemple construit l’objet `SpeechConfig` à l’aide de la clé et de la région LUIS. Pour obtenir la liste complète des méthodes disponibles, consultez la [classe SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Cet exemple construit l’objet `SpeechConfig` à l’aide de la clé et de la région LUIS. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 > [!NOTE]
-> Il est important d’utiliser la clé de point de terminaison LUIS et non les clés de démarrage ou de création, car seule la clé de point de terminaison est valide pour la conversion de sortie orale en intention. Consultez [Créer une application LUIS et obtenir une clé de point de terminaison](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) pour obtenir des instructions sur la façon d’obtenir la clé appropriée.
+> Il est important d’utiliser la clé de point de terminaison LUIS, et non les clés de démarrage ou de création, car seule la clé de point de terminaison est valide pour la reconnaissance de conversion de sortie orale en intention. Consultez [Créer une application LUIS et obtenir une clé de point de terminaison](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) pour obtenir des instructions sur la façon d’obtenir la clé appropriée.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-## <a name="initialize-a-intentrecognizer"></a>Initialiser un IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Initialiser IntentRecognizer
 
 Créons maintenant un `IntentRecognizer`. Insérez ce code juste en dessous de votre configuration Speech.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
@@ -60,18 +61,19 @@ Vous devez maintenant associer un `LanguageUnderstandingModel` au module de reco
 
 ## <a name="recognize-an-intent"></a>Reconnaître une intention
 
-À partir de l’objet `IntentRecognizer`, vous devez appeler la méthode `recognize_once()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule phrase pour reconnaissance et d’arrêter la conversion une fois que l’expression est identifiée.
+À partir de l’objet `IntentRecognizer`, vous devez appeler la méthode `recognize_once()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule expression pour reconnaissance, et d’arrêter la reconnaissance une fois que l’expression a été identifiée.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Afficher les résultats de la reconnaissance (ou les erreurs)
 
-Une fois que le résultat de la reconnaissance est retourné par le service Speech, vous pouvez l’utiliser. Nous allons faire simple et imprimer le résultat dans la console.
+Lorsque le résultat de la reconnaissance est retourné par le service de reconnaissance vocale, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et imprimer le résultat dans la console.
 
 À l’intérieur de l’instruction using, sous votre appel à `recognize_once()`, ajoutez ce code : [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## <a name="check-your-code"></a>Vérifier votre code
 
-À ce stade, votre code doit ressembler à ceci : (Nous avons ajouté des commentaires à cette version) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
+À ce stade, votre code doit ressembler à ceci :  
+(Nous avons ajouté des commentaires à cette version) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 

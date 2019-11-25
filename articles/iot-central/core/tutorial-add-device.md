@@ -1,20 +1,20 @@
 ---
-title: Ajouter un appareil réel à une application Azure IoT Central | Microsoft Docs
-description: Découvrez comment ajouter et configurer un appareil réel dans votre application Azure IoT Central. Vous pouvez également en apprendre davantage sur le code de votre appareil réel.
+title: 'Didacticiel : Ajouter un appareil réel à une application Azure IoT Central'
+description: 'Didacticiel : Découvrez comment ajouter et configurer un appareil réel dans votre application Azure IoT Central. Vous pouvez également en apprendre davantage sur le code de votre appareil réel.'
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 08/23/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fce5be4d059d7b3698f1e76a4ec6ff46c4ce3c0b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5234c371cc4a7238148915f4dcca1faac564f608
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824605"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108974"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Didacticiel : Ajouter un appareil réel à votre application Azure IoT Central
 

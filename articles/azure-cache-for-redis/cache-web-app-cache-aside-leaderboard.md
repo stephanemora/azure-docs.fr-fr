@@ -1,26 +1,18 @@
 ---
-title: Tutoriel pour créer une application web avec Cache Azure pour Redis qui utilise le modèle Cache-Aside | Microsoft Docs
+title: Tutoriel pour créer une application web avec Cache Azure pour Redis qui utilise le modèle Cache-Aside
 description: Découvrez comment créer une application web avec Cache Azure pour Redis qui utilise le modèle Cache-Aside.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826392"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121518"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -671,7 +663,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
    | Paramètre       | Valeur suggérée | DESCRIPTION |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Conventions d’affectation de nom). |
+   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : caractères en majuscules, caractères en minuscules, chiffres et caractères non alphanumériques. |
    | **Lieu** | *USA Est* | Sélectionnez la région où vous avez créée le cache et le service d’applications. |

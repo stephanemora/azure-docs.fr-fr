@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Superviser des machines virtuelles Windows dans Azure | Microsoft Docs
+title: Tutoriel - Superviser des machines virtuelles Windows dans Azure
 description: Dans ce tutoriel, vous allez apprendre à superviser le niveau de performance ainsi que les composants d’application découverts qui s’exécutent sur vos machines virtuelles Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679339"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112493"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Didacticiel : Superviser une machine virtuelle Windows dans Azure
 
-La supervision Azure utilise des agents pour collecter les données de démarrage et de performances des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et Azure CLI. La supervision avancée est fournie avec Azure Monitor pour machines virtuelles à travers la collecte des métriques de performance, la découverte des composants d’applications installés sur la machine virtuelle ainsi que l’inclusion de graphiques de performances et d’une carte de dépendances.
+La supervision Azure utilise des agents pour collecter les données de démarrage et de performances des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et Azure CLI. La supervision avancée est fournie avec Azure Monitor pour machines virtuelles à travers la collecte des métriques de performance, la découverte des composants d’applications installés sur la machine virtuelle ainsi que des graphiques de performance et une carte de dépendances.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -91,7 +91,7 @@ Pour activer la supervision de votre machine virtuelle Azure avec Azure Monitor 
 
 3. Sur la page **Insights (préversion)** , sélectionnez **Essayer maintenant**.
 
-    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. Dans la page **Intégration des insights de Azure Monitor**, si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  
 

@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Prise en main de la bibliothèque de client Form Recognizer pour .NET | Microsoft Docs'
-description: Prise en main de la bibliothèque de client Form Recognizer pour .NET.
+description: Bien démarrer avec la bibliothèque de client Form Recognizer pour .NET en vue d’entraîner, d’extraire, d’analyser et d’obtenir des données structurées.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264439"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904607"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Form Recognizer pour .NET
 
@@ -43,7 +43,7 @@ Utilisez la bibliothèque de client Form Recognizer pour .NET. pour :
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Après avoir obtenu une clé à partir de votre abonnement ou ressource d’évaluation, [créez une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé, nommée `FORM_RECOGNIZER_KEY`.
+Une fois que vous avez obtenu une clé à partir de votre abonnement ou ressource d’essai, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et le point de terminaison nommés respectivement `FORM_RECOGNIZER_KEY` et `FORM_RECOGNIZER_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Créer une application C#
 
@@ -120,7 +120,6 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 
 Avant de définir les méthodes, ajoutez les définitions de variables suivantes au début de votre classe **Program**. Vous devez remplir certaines des variables vous-même. 
 
-* Vous pouvez retrouver la valeur du point de terminaison de votre service dans la section **Vue d’ensemble** du portail Azure. 
 * Pour récupérer l’URL SAS de vos données d’apprentissage, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Si vous avez besoin d’un exemple de formulaire à analyser, vous pouvez utiliser l’un des fichiers disponibles dans le dossier **Test** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451). Tous les formulaires utilisés dans le cadre de ce guide sont des formulaires PDF.
 

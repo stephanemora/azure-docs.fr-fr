@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607482"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120004"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -73,11 +73,9 @@ Nous prévoyons d’ajouter la prise en charge des systèmes d’exploitation su
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
 
 * Un annuaire [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* Un annuaire Windows Server Active Directory synchronisé avec Azure Active Directory. Celui-ci peut être activé par le biais de :
-  * Azure AD Connect
-  * Services de domaine Azure AD
-     >[!NOTE]
-     >Si vous utilisez Azure AD Domain Services, vos utilisateurs doivent provenir d’Azure Active Directory. L’utilisation d’Azure AD Domain Services avec des utilisateurs provenant de Windows Server AD n’est pas prise en charge pour le moment.
+* Un annuaire Windows Server Active Directory synchronisé avec Azure Active Directory. Pour le configurer, utilisez l’un des éléments suivants :
+  * Azure AD Connect (pour les organisations hybrides)
+  * Services de domaine Azure AD (pour les organisations cloud ou hybrides)
 * Un abonnement Azure contenant un réseau virtuel qui contient ou est connecté à l’annuaire Windows Server Active Directory
   
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
@@ -100,7 +98,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 >[!NOTE]
 >Il est essentiel d’ouvrir ces URL pour un déploiement Windows Virtual Desktop fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent uniquement aux sites et aux ressources Windows Virtual Desktop, et n’incluent pas les URL d’autres services comme Azure AD.
 
-Windows Virtual Desktop comprend les bureaux et applications Windows que fournissez aux utilisateurs ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis (région USA Est 2). Cela peut entraîner le transfert des données vers les États-Unis.
+Windows Virtual Desktop comprend les bureaux et applications Windows que fournissez aux utilisateurs ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis. Cela peut entraîner le transfert des données vers les États-Unis.
 
 Pour bénéficier de performances optimales, vérifiez que votre réseau remplit les conditions suivantes :
 
@@ -117,14 +115,16 @@ Les clients Bureau à distance suivants prennent en charge Windows Virtual Deskt
 
 ## <a name="supported-virtual-machine-os-images"></a>Images de système d’exploitation de machine virtuelle prises en charge
 
-Windows Virtual Desktop prend en charge les images de système d'exploitation suivantes :
+Windows Virtual Desktop prend en charge les images de système d'exploitation x64 suivantes :
 
-* Windows 10 Entreprise multisession
-* Windows 10 Entreprise
+* Windows 10 Entreprise multisession, version 1809 ou ultérieure
+* Windows 10 Entreprise, version 1809 ou ultérieure
 * Windows 7 Entreprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows Virtual Desktop ne prend pas en charge les images de système d’exploitation x86 (32 bits).
 
 Les options d’automatisation et de déploiement qui sont disponibles dépendent du système d’exploitation et de la version que vous choisissez, comme indiqué dans le tableau suivant : 
 

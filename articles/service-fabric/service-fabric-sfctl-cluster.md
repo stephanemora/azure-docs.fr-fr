@@ -3,22 +3,23 @@ title: Interface de ligne de commande CLI Azure Service Fabric - sfctl cluster |
 description: Décrit les commandes sfctl cluster de l’interface CLI Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 305b1e11841dd2da4aa6c0bdeb3df2c76addad87
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: a42062f6f6b671d853f47e3f170b366799829a62
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036505"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901491"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
@@ -39,7 +40,7 @@ Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
 | select | Se connecte à un point de terminaison du cluster Service Fabric. |
 | show-connection | Indique le cluster Service Fabric auquel cette instance sfctl est connectée. |
 | unprovision | Annule l’approvisionnement du code ou des packages de configuration d’un cluster Service Fabric. |
-| mettre à niveau | Commence la mise à niveau du code ou de la version de configuration d’un cluster Service Fabric. |
+| upgrade | Commence la mise à niveau du code ou de la version de configuration d’un cluster Service Fabric. |
 | upgrade-resume | Effectue le déplacement de la mise à niveau de cluster vers le domaine de mise à niveau suivant. |
 | upgrade-rollback | Restaure la mise à niveau d’un cluster Service Fabric. |
 | upgrade-status | Obtient la progression de la mise à niveau de cluster actuelle. |
@@ -55,7 +56,7 @@ Obtient une liste des informations sur les versions de code fabric approvisionn�
 |Argument|Description|
 | --- | --- |
 | --code-version | La version du produit Service Fabric. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -77,7 +78,7 @@ Obtient une liste des informations sur les versions de configuration fabric appr
 |Argument|Description|
 | --- | --- |
 | --config-version | La version de configuration Service Fabric. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -101,9 +102,9 @@ EventsHealthStateFilter permet de filtrer la collecte d’événements de contr�
 | --applications-health-state-filter | Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des applications qui sont retournés dans les résultats de la requête d’intégrité du cluster. Les valeurs possibles pour ce paramètre incluent la valeur entière qui est obtenue à partir des membres ou des opérations au niveau du bit effectuées sur les membres de l’énumération HealthStateFilter. Seules les applications qui correspondent au filtre sont retournées. Toutes les applications sont utilisées pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des applications dont la valeur HealthState est OK (2) et Warning (4) est retourné.  <br> - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro.  <br> - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1.  <br> - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2.  <br> - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4.  <br> - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.  <br> - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535. |
 | --events-health-state-filter | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont renvoyés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état correspondent à une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés.  <br> - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro.  <br> - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1.  <br> - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2.  <br> - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4.  <br> - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.  <br> - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535. |
 | --exclude-health-statistics | Indique si les statistiques d’intégrité doivent être retournées dans le cadre du résultat de la requête. False par défaut. Les statistiques affichent le nombre d’entités enfants dont l’état d’intégrité est OK, Warning et Error. |
-| --include-system-application-health-statistics | Indique si les statistiques d’intégrité doivent inclure celles des applications fabric\:/System. False par défaut. Si IncludeSystemApplicationHealthStatistics est défini sur true, les statistiques d’intégrité incluent les entités qui appartiennent à l’application fabric\:/System. Dans le cas contraire, le résultat de la requête inclut uniquement les statistiques d’intégrité pour les applications utilisateur. Pour que ce paramètre soit appliqué, les statistiques d’intégrité doivent être incluses dans le résultat de la requête. |
+| --include-system-application-health-statistics | Indique si les statistiques d’intégrité doivent inclure celles des applications fabric\:/System. False par défaut. Si IncludeSystemApplicationHealthStatistics est défini sur true, les statistiques d’intégrité incluent les entités qui appartiennent à l’application fabric\: /System. Dans le cas contraire, le résultat de la requête inclut uniquement les statistiques d’intégrité pour les applications utilisateur. Pour que ce paramètre soit appliqué, les statistiques d’intégrité doivent être incluses dans le résultat de la requête. |
 | --nodes-health-state-filter | Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des nœuds qui sont retournés dans les résultats de la requête d’intégrité du cluster. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les nœuds qui correspondent au filtre sont renvoyés. Tous les nœuds sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des nœuds dont la valeur HealthState est OK (2) et Warning (4) est retourné.  <br> - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro.  <br> - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1.  <br> - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2.  <br> - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4.  <br> - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.  <br> - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -124,7 +125,7 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -139,12 +140,7 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annule une opération d’erreur induite par l’utilisateur.
 
-Les API suivantes démarrent des opérations d’erreurs qui peuvent être annulées au moyen de CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force est défini sur false, l’opération induite par l’utilisateur spécifiée est correctement arrêtée et nettoyée.  Si force est défini sur true, la commande va être abandonnée et un état interne peut éventuellement être conservé.  La définition de force sur true doit être utilisée avec précaution. Vous n’êtes pas autorisé à appeler cette API avec force défini sur true tant que cette API n’a pas encore été appelée sur la même commande de test avec force défini sur false, ou sauf si la commande de test a déjà un OperationState OperationState.RollingBack. 
-
-Clarification \: OperationState.RollingBack signifie que le système nettoiera/nettoie l’état du système interne généré par l’exécution de la commande.  Cela ne restaurera pas les données si la commande de test engendre une perte de données.  Par exemple, si vous appelez StartDataLoss, puis cette API, le système nettoiera seulement l’état interne lié à l’exécution de la commande. Il ne restaurera pas les données de la partition cible si la commande a progressé suffisamment pour entraîner une perte de données. 
-
-> [!NOTE]
-> Si cette API est appelée avec force == true, l’état interne peut être conservé.
+Les API suivantes démarrent des opérations d’erreurs qui peuvent être annulées au moyen de CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force est défini sur false, l’opération induite par l’utilisateur spécifiée est correctement arrêtée et nettoyée.  Si force est défini sur true, la commande va être abandonnée et un état interne peut éventuellement être conservé.  La définition de force sur true doit être utilisée avec précaution. Vous n’êtes pas autorisé à appeler cette API avec force défini sur true tant que cette API n’a pas encore été appelée sur la même commande de test avec force défini sur false, ou sauf si la commande de test a déjà un OperationState OperationState.RollingBack. Clarification \: OperationState.RollingBack signifie que le système nettoiera/nettoie l’état du système interne généré par l’exécution de la commande.  Cela ne restaurera pas les données si la commande de test engendre une perte de données.  Par exemple, si vous appelez StartDataLoss, puis cette API, le système nettoiera seulement l’état interne lié à l’exécution de la commande. Il ne restaurera pas les données de la partition cible si la commande a progressé suffisamment pour entraîner une perte de données. Remarque importante\:  Si cette API est appelée avec force == true, l’état interne peut être conservé.
 
 ### <a name="arguments"></a>Arguments
 
@@ -152,7 +148,7 @@ Clarification \: OperationState.RollingBack signifie que le système nettoiera/n
 | --- | --- |
 | --operation-id [Requis] | GUID qui identifie un appel de cette API.  Celui-ci est transmis à l’API GetProgress correspondante. |
 | --force | Indique s’il faut restaurer et nettoyer l’état du système interne modifié par l’exécution de l’opération induite par l’utilisateur. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -173,9 +169,9 @@ Obtient la liste des opérations d’erreurs induites par l’utilisateur filtr�
 
 |Argument|Description|
 | --- | --- |
-| --state-filter | Permet de filtrer sur OperationState pour les opérations induites par l’utilisateur. <br> 65535 - Tout sélectionner <br> 1 - Sélectionner l’opération en cours d’exécution <br> 2     - Sélectionner l’opération RollingBack <br>8     - Sélectionner l’opération terminée <br>16     - Sélectionner l’opération avec erreur <br>32     - Sélectionner l’opération annulée <br>64     - Sélectionner ForceCancelled  <br>Par défaut \: 65535. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
-| --type-filter | Permet de filtrer sur OperationType pour les opérations induites par l’utilisateur. <br> 65535 - Tout sélectionner <br> 1     - Sélectionner PartitionDataLoss <br> 2     - Sélectionner PartitionQuorumLoss <br> 4     - Sélectionner PartitionRestart <br> 8     - Sélectionner NodeTransition  <br> Par défaut \: 65535. |
+| --state-filter | Permet de filtrer sur OperationState pour les opérations induites par l’utilisateur. - 65535 - sélectionner All - 1 - sélectionner Running - 2 - sélectionner RollingBack - 8 - sélectionner Completed - 16 - sélectionner Faulted - 32 - sélectionner Canceled - 64 - sélectionner ForceCancelled.  Par défaut \: 65535. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
+| --type-filter | Permet de filtrer sur OperationType pour les opérations induites par l’utilisateur. - 65535 - sélectionner All - 1 - sélectionner PartitionDataLoss. - 2 - sélectionner PartitionQuorumLoss. - 4 - sélectionner PartitionRestart. - 8 - sélectionner NodeTransition.  Par défaut \: 65535. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -198,7 +194,7 @@ Valide et provisionne le code ou les packages de configuration d’un cluster Se
 | --- | --- |
 | --cluster-manifest-file-path | Chemin d’accès au fichier du manifeste de cluster. |
 | --code-file-path | Chemin d’accès au fichier du package de code de cluster. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -219,7 +215,7 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer les service
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -234,7 +230,7 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer les service
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
 Envoie un rapport d’intégrité sur le cluster Service Fabric.
 
-Le rapport doit contenir les informations sur la source du rapport d’intégrité et sur la propriété dont il fait état. Il est envoyé à un nœud de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Le rapport peut être accepté par la passerelle, mais rejeté par le magasin d’intégrité après une validation supplémentaire. Par exemple, le magasin d’intégrité peut rejeter le rapport en raison d’un paramètre non valide, comme un numéro de séquence obsolète. Pour voir si le rapport a été appliqué dans le magasin d’intégrité, vérifiez qu’il s’affiche dans les événements d’intégrité du cluster.
+Envoie un rapport d’intégrité sur un cluster Service Fabric. Le rapport doit contenir les informations sur la source du rapport d’intégrité et sur la propriété dont il fait état. Il est envoyé à un nœud de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Le rapport peut être accepté par la passerelle, mais rejeté par le magasin d’intégrité après une validation supplémentaire. Par exemple, le magasin d’intégrité peut rejeter le rapport en raison d’un paramètre non valide, comme un numéro de séquence obsolète. Pour voir si le rapport a été appliqué dans le magasin d’intégrité, exécutez GetClusterHealth et vérifiez qu’il s’affiche dans la section des événements d’intégrité.
 
 ### <a name="arguments"></a>Arguments
 
@@ -247,7 +243,7 @@ Le rapport doit contenir les informations sur la source du rapport d’intégrit
 | --immediate | Indicateur qui spécifie si le rapport doit être envoyé immédiatement. <br><br> Un rapport d’intégrité est envoyé à une application de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Si le paramètre immediate est défini sur true, le rapport est immédiatement envoyé de la passerelle HTTP au magasin d’intégrité, quels que soient les paramètres du client Fabric qu’utilise l’application de passerelle HTTP. Cela est utile pour les rapports critiques qui doivent être envoyés dès que possible. En fonction du minutage et d’autres conditions, l’envoi du rapport peut quand même échouer, par exemple si la passerelle HTTP est fermée ou si le message n’atteint pas la passerelle. Si le paramètre immediate est défini sur false, le rapport est envoyé en fonction des paramètres du client d’intégrité de la passerelle HTTP. C’est pourquoi il est traité par lot selon la configuration HealthReportSendInterval. Il s’agit du paramètre recommandé, car il permet au client d’intégrité d’optimiser les messages de rapport d’intégrité envoyés au magasin d’intégrité, ainsi que le traitement des rapports d’intégrité. Par défaut, les rapports ne sont pas envoyés immédiatement. |
 | --remove-when-expired | Valeur qui indique si le rapport est supprimé du magasin d’intégrité quand il expire. <br><br> Si la valeur définie est true, le rapport est supprimé du magasin d’intégrité après son expiration. Si la valeur définie est false, le rapport est traité comme une erreur quand il expire. La valeur de cette propriété est false par défaut. Quand les clients créent un rapport régulièrement, ils doivent définir RemoveWhenExpired sur false (valeur par défaut). De cette manière, si le rapporteur rencontre des problèmes (par exemple, un interblocage) et qu’il ne peut pas créer de rapport, l’entité est évaluée comme erreur quand le rapport d’intégrité expire. L’entité est marquée comme étant dans l’état d’intégrité Erreur. |
 | --sequence-number | Numéro de séquence de ce rapport d’intégrité sous forme de chaîne numérique. <br><br> Le numéro de séquence de rapport est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes. S’il n’est pas spécifié, un numéro de séquence est généré automatiquement par le client d’intégrité quand un rapport est ajouté. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --ttl | Durée pendant laquelle ce rapport d’intégrité est valide. Ce champ utilise le format ISO8601 pour spécifier la durée. <br><br> Quand les clients créent régulièrement des rapports, ils doivent les envoyer avec une fréquence supérieure à la durée de vie. Si les clients créent des rapports lors d’une transition, ils peuvent définir la durée de vie sur Infinite (illimitée). Quand la durée de vie expire, l’événement d’intégrité qui contient les informations d’intégrité est supprimé du magasin d’intégrité si RemoveWhenExpired est true, ou évalué comme erreur si RemoveWhenExpired est false. Si cet argument n’est pas spécifié, la valeur de durée de vie est par défaut Infinite (illimitée). |
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -263,16 +259,16 @@ Le rapport doit contenir les informations sur la source du rapport d’intégrit
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Se connecte à un point de terminaison du cluster Service Fabric.
 
-Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d’accès absolu à un fichier de certificat (.crt) et de clé (.key) ou à un seul fichier comportant les deux (.pem). Ne spécifiez pas les deux. Si vous le souhaitez, lorsque vous vous connectez à un cluster sécurisé, spécifiez également un chemin d’accès absolu à un fichier de groupement d’autorités de certification ou à un répertoire de certificats d’autorités de certification approuvés. Si vous utilisez un répertoire de certificats d’autorité de certification, le paramètre `c_rehash <directory>` fourni par OpenSSL doit d’abord être exécuté pour calculer les hachages de certificat et créer les liens symboliques appropriés.
+Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d’accès absolu à un fichier de certificat (.crt) et de clé (.key) ou à un seul fichier comportant les deux (.pem). Ne spécifiez pas les deux. Si vous le souhaitez, lorsque vous vous connectez à un cluster sécurisé, spécifiez également un chemin d’accès absolu à un fichier de groupement d’autorités de certification ou à un répertoire de certificats d’autorités de certification approuvés.  Il n’y a pas de connexion à un cluster sans exécuter d’abord cette commande, y compris une connexion à localhost. Cependant, aucun point de terminaison explicite n’est nécessaire pour se connecter à un cluster local.
 
 ### <a name="arguments"></a>Arguments
 
 |Argument|Description|
 | --- | --- |
-| --endpoint [Requis] | URL de point de terminaison du cluster, y compris le port et le préfixe HTTP ou HTTPS. |
 | --aad | Utilisez Azure Active Directory pour l’authentification. |
-| --ca | Chemin d’accès absolu au répertoire de certificats d’autorités de certification à traiter comme étant valides ou au fichier de groupement d’autorités de certification. |
+| --ca | Chemin d’accès absolu au répertoire de certificats d’autorités de certification à traiter comme étant valides ou au fichier de groupement d’autorités de certification. Si vous utilisez un répertoire de certificats d’autorité de certification, le paramètre `c_rehash <directory>` fourni par OpenSSL doit d’abord être exécuté pour calculer les hachages de certificat et créer les liens symboliques appropriés. Cela permet de vérifier que le certificat retourné par le cluster est valide. |
 | --cert | Chemin d’accès absolu à un fichier de certificat client. |
+| --endpoint | URL de point de terminaison du cluster, y compris le port et le préfixe HTTP ou HTTPS. En règle générale, le point de terminaison se présente sous la forme https\://<votre-URL>\:19080. Si aucun point de terminaison n’est spécifié, la valeur par défaut est http\://localhost\:19080.  Par défaut\: http\://localhost\:19080. |
 | --key | Chemin d’accès absolu à un fichier de clé de certificat client. |
 | --no-verify | Désactivez la vérification des certificats lors de l’utilisation de HTTPS. Remarque \: il s’agit d’une option non sécurisée à ne pas utiliser pour les environnements de production. |
 | --pem | Chemin d’accès absolu à un fichier de certificat client au format .pem. |
@@ -311,7 +307,7 @@ Il est possible d’annuler la mise en service du code et de la configuration s�
 | --- | --- |
 | --code-version | Version du package de code de cluster. |
 | --config-version | Version du manifeste de cluster. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -345,7 +341,7 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
 | --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité. |
 | --replica-set-check-timeout | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. <br><br> Lorsque ce délai d’attente expire, le traitement du domaine de mise à niveau se poursuit, indépendamment des problèmes de perte de disponibilité. Le délai d’expiration est réinitialisé au début de chaque domaine de mise à niveau. Les valeurs valides sont comprises entre 0 et 42949672925 inclus. |
 | --rolling-upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --unhealthy-applications | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce calcul est effectué en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances de l’application dans le cluster, à l’exception des types d’applications inclus dans le ApplicationTypeHealthPolicyMap. Le calcul est arrondi pour tolérer la défaillance d’un petit nombre d’applications. |
 | --unhealthy-nodes | Pourcentage maximal autorisé de nœuds non sains avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % de nœuds défectueux, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins un nœud pouvant être défectueux, l’état d’intégrité est Warning. Le pourcentage est calculé en divisant le nombre de nœuds défectueux par le nombre total de nœuds du cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition. |
 | --upgrade-domain-delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds de domaine de mise à niveau pendant les mises à niveau de clusters.  Valeur par défaut \: 15. <br><br> Le delta est mesuré entre l’état des nœuds de domaine de mise à niveau au début de la mise à niveau et leur état au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau (pour l’ensemble des domaines de mise à niveau) afin de vérifier que l’état des domaines de mise à niveau se trouve dans les limites autorisées. |
@@ -373,7 +369,7 @@ Le cas échéant, effectue le déplacement de la mise à niveau de code de clust
 |Argument|Description|
 | --- | --- |
 | --upgrade-domain [Requis] | Domaine de mise à niveau suivant pour cette mise à niveau de cluster. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -394,7 +390,7 @@ Restaure la mise à niveau du code ou de la configuration d’un cluster Service
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -415,7 +411,7 @@ Obtient la progression actuelle de la mise à niveau de cluster en cours. Si auc
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -445,7 +441,7 @@ Met à jour les paramètres de mise à niveau d’une mise à niveau du cluster 
 | --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité. |
 | --replica-set-check-timeout | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. <br><br> Lorsque ce délai d’attente expire, le traitement du domaine de mise à niveau se poursuit, indépendamment des problèmes de perte de disponibilité. Le délai d’expiration est réinitialisé au début de chaque domaine de mise à niveau. Les valeurs valides sont comprises entre 0 et 42949672925 inclus. |
 | --rolling-upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --unhealthy-applications | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce calcul est effectué en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances de l’application dans le cluster, à l’exception des types d’applications inclus dans le ApplicationTypeHealthPolicyMap. Le calcul est arrondi pour tolérer la défaillance d’un petit nombre d’applications. |
 | --unhealthy-nodes | Pourcentage maximal autorisé de nœuds non sains avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % de nœuds défectueux, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins un nœud pouvant être défectueux, l’état d’intégrité est Warning. Le pourcentage est calculé en divisant le nombre de nœuds défectueux par le nombre total de nœuds du cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition. |
 | --upgrade-domain-delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds de domaine de mise à niveau pendant les mises à niveau de clusters.  Valeur par défaut \: 15. <br><br> Le delta est mesuré entre l’état des nœuds de domaine de mise à niveau au début de la mise à niveau et leur état au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau (pour l’ensemble des domaines de mise à niveau) afin de vérifier que l’état des domaines de mise à niveau se trouve dans les limites autorisées. |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072123"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108508"
 ---
 # <a name="import-an-openapi-specification"></a>Importer une spécification OpenAPI
 
@@ -43,6 +43,7 @@ Effectuez le guide de démarrage rapide suivant : [Créer une instance du servi
 
 1. Sélectionnez **API** sous **Gestion des API**.
 2. Sélectionnez **Spécification OpenAPI** dans la liste **Ajouter une nouvelle API**.
+
     ![Spécification OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Entrez les paramètres appropriés. Vous pouvez définir toutes les valeurs de l’API lors de la création. Ou bien, vous pouvez définir certaines d’entre elles ultérieurement en accédant à l’onglet **Paramètres**. <br/> Si vous appuyez sur la **touche de tabulation** certains (ou l’ensemble) des champs sont remplis automatiquement avec les informations du service de serveur principal spécifié.
 
@@ -63,40 +64,18 @@ Effectuez le guide de démarrage rapide suivant : [Créer une instance du servi
 > [!NOTE]
 > Les limitations relatives à l’importation d’API sont documentées dans [un autre article](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Tester la nouvelle API APIM dans le portail Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Tester la nouvelle API dans le Portail Azure
+
+![Tester le mappage d’API](./media/api-management-get-started/01-import-first-api-01.png)
 
 Les opérations peuvent être directement appelées depuis le portail Azure, qui permet d’afficher et de tester les opérations d’une API.
 
-![Tester l’API](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. Sélectionnez l’API que vous avez créée à l’étape précédente.
+1. Sélectionnez l’API que vous avez créée à l’étape précédente (à partir de l’onglet **API**).
 2. Appuyez sur l’onglet **Test**.
-3. Cliquez sur **GetSpeakers**.
-
-    La page affiche les champs des paramètres de requête, mais ici, nous n’en avons pas. La page affiche également des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur.
+3. Cliquez sur **GetSpeakers**. La page affiche les champs des paramètres de requête (inexistants, en l’occurrence) et les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. La clé est renseignée automatiquement.
 4. Appuyez sur **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.
-
-## <a name="call-operation"> </a>Appeler une opération à partir du portail des développeurs
-
-Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API.
-
-1. Sélectionnez l’API que vous avez créée à l’étape « Importer et publier une API de serveur principal ».
-2. Appuyez sur **Portail des développeurs**.
-
-    ![Test dans le portail des développeurs](./media/api-management-get-started/developer-portal.png)
-
-    Le site « Portail des développeurs » s’ouvre.
-3. Sélectionnez **l’API**.
-4. Sélectionnez **API de conférence de démonstration**.
-5. Cliquez sur **GetSpeakers**.
-
-    La page affiche les champs des paramètres de requête, mais ici, nous n’en avons pas. La page affiche également des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur.
-6. Appuyez sur **Essayer**.
-7. Appuyez sur **Envoyer**.
-
-    Après l’appel d’une opération, le portail des développeurs affiche le **statut de réponse**, les **en-têtes de réponse**, et tout **contenu de la réponse**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

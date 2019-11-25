@@ -1,22 +1,22 @@
 ---
-title: Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+title: 'Démarrage rapide : Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager'
 description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126475"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903360"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
 Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour configurer par programme les ressources du cloud Azure nécessaires à l’approvisionnement de vos appareils. Ces étapes montrent comment créer un IoT Hub et un service IoT Hub Device Provisioning et comment lier les deux services à l’aide d’un modèle Azure Resource Manager. Ce guide de démarrage rapide utilise [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) pour effectuer les étapes de programmation nécessaires pour créer un groupe de ressources et déployer le modèle. Cependant, vous pouvez facilement utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou d’autres langages de programmation pour effectuer ces étapes et déployer votre modèle. 
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/azure/a
 
 Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
-1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command]:
+1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command] :
     
     ```azurecli
     az login
@@ -39,7 +39,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
     Suivez les instructions pour vous authentifier à l’aide du code et vous connecter à votre compte Azure via un navigateur web.
 
-2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la [commande suivante pour répertorier les comptes Azure][lnk-az-account-command] que vous pouvez utiliser :
+2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la [commande pour répertorier les comptes Azure][lnk-az-account-command] ci-dessous :
     
     ```azurecli
     az account list 
@@ -51,7 +51,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
     az account set --subscription {your subscription name or id}
     ```
 
-3. Lorsque vous créez des ressources de cloud Azure comme des IoT Hubs et des services d’approvisionnement, vous les créez dans un groupe de ressources. Utilisez un groupe de ressources existant, ou exécutez la [commande suivante pour en créer un][lnk-az-resource-command] :
+3. Lorsque vous créez des ressources de cloud Azure comme des IoT Hubs et des services d’approvisionnement, vous les créez dans un groupe de ressources. Utilisez un groupe de ressources existant, ou exécutez la [commande suivante pour en créer un groupe de ressources][lnk-az-resource-command] :
     
     ```azurecli
      az group create --name {your resource group name} --location westus

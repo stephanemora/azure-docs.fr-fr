@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24cba4b02bb046a16db04635a1bf5ef4f6b619a6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3282106651f9ec101251d7d35369040df9572b06
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234541"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122858"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Démarrage rapide : Créer une fabrique de données et un pipeline avec le kit .NET SDK
 
@@ -43,7 +43,7 @@ Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Créer une application dans Azure Active Directory
 
-Dans les sections de la *Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources*, suivez les instructions pour effectuer ces tâches :
+Dans les sections de la rubrique *Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources*, suivez les instructions pour effectuer ces tâches :
 
 1. Dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), créez une application qui représente l’application .NET que vous créez dans ce didacticiel. Pour l’URL de connexion, vous pouvez fournir une URL factice, comme indiqué dans l’article (`https://contoso.org/exampleapp`).
 2. Dans [Obtenir les valeurs pour la connexion](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), récupérez l’**ID d’application** et l’**ID de locataire**, puis notez ces valeurs que vous allez utiliser ultérieurement dans ce didacticiel. 
@@ -287,7 +287,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
        pipelineRun = client.PipelineRuns.Get(
            resourceGroup, dataFactoryName, runResponse.RunId);
        Console.WriteLine("Status: " + pipelineRun.Status);
-       if (pipelineRun.Status == "InProgress")
+       if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
            System.Threading.Thread.Sleep(15000);
        else
            break;

@@ -1,25 +1,23 @@
 ---
-title: Créer un cluster Kubernetes avec Azure Kubernetes Service (AKS) et Terraform
+title: 'Tutoriel : Créer un cluster Kubernetes avec Azure Kubernetes Service (AKS) et Terraform'
 description: Tutoriel illustrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, devops, machine virtuelle, azure, kubernetes
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: d7e6b5c5b9b36e093986aa96a6ad9b401175deb2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 1bfeef729bdb3f07fe2cc64cee4fd4f27c49ef67
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173503"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833606"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
-[Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
+# <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Didacticiel : Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 
-Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer un cluster [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) à l’aide de [Terraform](https://terraform.io) et AKS :
+[Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé. AKS vous permet de déployer et de gérer des applications conteneurisées sans expertise d’orchestration de conteneurs. AKS vous permet également d’effectuer de nombreuses opérations de maintenance courantes sans mettre votre application hors connexion. Ces opérations incluent le provisionnement, la mise à niveau et la mise à l’échelle des ressources à la demande.
+
+Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser HCL (HashiCorp Language) pour définir un cluster Kubernetes
@@ -35,6 +33,7 @@ Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer
 - **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
+
 La première étape consiste à créer le répertoire qui contient vos fichiers de configuration Terraform pour l’exercice.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
@@ -62,15 +61,14 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
     ```
 
 ## <a name="declare-the-azure-provider"></a>Déclarer le fournisseur Azure
+
 Créez le fichier de configuration Terraform qui déclare le fournisseur Azure.
 
 1. Dans Cloud Shell, créez un fichier nommé `main.tf`.
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
@@ -84,31 +82,24 @@ Créez le fichier de configuration Terraform qui déclare le fournisseur Azure.
     }
     ```
 
-1. Quittez le mode insertion en sélectionnant la touche **Échap**.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 ## <a name="define-a-kubernetes-cluster"></a>Définir un cluster Kubernetes
+
 Créez le fichier de configuration Terraform qui déclare les ressources du cluster Kubernetes.
 
 1. Dans Cloud Shell, créez un fichier nommé `k8s.tf`.
 
     ```bash
-    vi k8s.tf
+    code k8s.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
     ```hcl
     resource "azurerm_resource_group" "k8s" {
-        name     = "${var.resource_group_name}"
-        location = "${var.location}"
+        name     = var.resource_group_name
+        location = var.location
     }
     
     resource "random_id" "log_analytics_workspace_name_suffix" {
@@ -118,17 +109,17 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
     resource "azurerm_log_analytics_workspace" "test" {
         # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
         name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
-        location            = "${var.log_analytics_workspace_location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        sku                 = "${var.log_analytics_workspace_sku}"
+        location            = var.log_analytics_workspace_location
+        resource_group_name = azurerm_resource_group.k8s.name
+        sku                 = var.log_analytics_workspace_sku
     }
 
     resource "azurerm_log_analytics_solution" "test" {
         solution_name         = "ContainerInsights"
-        location              = "${azurerm_log_analytics_workspace.test.location}"
-        resource_group_name   = "${azurerm_resource_group.k8s.name}"
-        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
-        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+        location              = azurerm_log_analytics_workspace.test.location
+        resource_group_name   = azurerm_resource_group.k8s.name
+        workspace_resource_id = azurerm_log_analytics_workspace.test.id
+        workspace_name        = azurerm_log_analytics_workspace.test.name
 
         plan {
             publisher = "Microsoft"
@@ -137,36 +128,36 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
     }
 
     resource "azurerm_kubernetes_cluster" "k8s" {
-        name                = "${var.cluster_name}"
-        location            = "${azurerm_resource_group.k8s.location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        dns_prefix          = "${var.dns_prefix}"
+        name                = var.cluster_name
+        location            = azurerm_resource_group.k8s.location
+        resource_group_name = azurerm_resource_group.k8s.name
+        dns_prefix          = var.dns_prefix
 
         linux_profile {
             admin_username = "ubuntu"
 
             ssh_key {
-                key_data = "${file("${var.ssh_public_key}")}"
+                key_data = file(var.ssh_public_key)
             }
         }
 
         agent_pool_profile {
             name            = "agentpool"
-            count           = "${var.agent_count}"
+            count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
 
         service_principal {
-            client_id     = "${var.client_id}"
-            client_secret = "${var.client_secret}"
+            client_id     = var.client_id
+            client_secret = var.client_secret
         }
 
         addon_profile {
             oms_agent {
             enabled                    = true
-            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
             }
         }
 
@@ -176,29 +167,21 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
     }
     ```
 
-    Le code précédent définit le nom du cluster, l’emplacement et le resource_group_name. De plus, la valeur dns_prefix, qui fait partie du nom de domaine complet (FQDN) utilisé pour accéder au cluster, est définie.
+    Le code précédent définit le nom du cluster, l’emplacement et le nom du groupe de ressources. Le préfixe du nom de domaine complet (FQDN) est également défini. Le nom de domaine complet est utilisé pour accéder au cluster.
 
-    L’enregistrement **linux_profile** vous permet de configurer les paramètres servant à vous connecter aux nœuds worker à l’aide de SSH.
+    L’enregistrement `linux_profile` vous permet de configurer les paramètres servant à vous connecter aux nœuds Worker en utilisant SSH.
 
-    Avec AKS, vous payez uniquement pour les nœuds worker. L’enregistrement **agent_pool_profile** configure les détails de ces nœuds worker. L’enregistrement **agent_pool_profile** inclut le nombre de nœuds worker à créer et le type de nœuds worker. Si vous avez besoin d’augmenter ou de réduire l’échelle du cluster par la suite, modifiez la valeur **count** dans cet enregistrement.
+    Avec AKS, vous payez uniquement pour les nœuds worker. L’enregistrement `agent_pool_profile` configure les détails de ces nœuds Worker. L’enregistrement `agent_pool_profile record` inclut le nombre de nœuds Worker à créer et le type des nœuds Worker. Si vous devez par la suite effectuer un scale-up ou un scale-down du cluster, modifiez la valeur de `count` dans cet enregistrement.
 
-1. Quittez le mode insertion en sélectionnant la touche **Échap**.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 ## <a name="declare-the-variables"></a>Déclarer les variables
 
 1. Dans Cloud Shell, créez un fichier nommé `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
@@ -245,73 +228,65 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
    }
     ```
 
-1. Quittez le mode insertion en sélectionnant la touche **Échap**.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 ## <a name="create-a-terraform-output-file"></a>Créer un fichier de sortie Terraform
+
 Les [sorties Terraform](https://www.terraform.io/docs/configuration/outputs.html) vous permettent de définir des valeurs qui sont présentées en surbrillance à l’utilisateur quand Terraform applique un plan, et qui peuvent être interrogées à l’aide de la commande `terraform output`. Dans cette section, créez un fichier de sortie qui permet d’accéder au cluster avec [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. Dans Cloud Shell, créez un fichier nommé `output.tf`.
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. Passez en mode insertion en sélectionnant la touche I.
 
 1. Collez le code suivant dans l’éditeur :
 
     ```hcl
     output "client_key" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
     output "client_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate
     }
 
     output "cluster_ca_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate
     }
 
     output "cluster_username" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.username
     }
 
     output "cluster_password" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.password
     }
 
     output "kube_config" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config_raw
     }
 
     output "host" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
     }
     ```
 
-1. Quittez le mode insertion en sélectionnant la touche **Échap**.
-
-1. Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
-
-    ```bash
-    :wq
-    ```
+1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Configurer le stockage Azure pour stocker l’état de Terraform
-Terraform suit l’état en local via le fichier `terraform.tfstate`. Ce modèle fonctionne bien dans un environnement comptant une seule personne. Toutefois, dans un environnement à plusieurs personnes plus pratique, vous devez suivre l’état sur le serveur en utilisant le [stockage Azure](/azure/storage/). Dans cette section, récupérez les informations de compte de stockage nécessaires (nom de compte et clé de compte) et créez un conteneur de stockage dans lequel les informations d’état de Terraform seront stockées.
+
+Terraform suit l’état en local via le fichier `terraform.tfstate`. Ce modèle fonctionne bien dans un environnement comptant une seule personne. Dans un environnement à plusieurs personnes, le [stockage Azure](/azure/storage/) est utilisé pour suivre l’état.
+
+Dans cette section, vous allez apprendre à effectuer les tâches suivantes :
+- Récupérer les informations de compte de stockage (nom de compte et clé de compte)
+- Créer un conteneur de stockage dans lequel les informations d’état de Terraform seront stockées.
 
 1. Dans le portail Azure, sélectionnez **Tous les services** dans le menu à gauche.
 
 1. Sélectionnez **Comptes de stockage**.
 
-1. Sous l’onglet **Comptes de stockage**, sélectionnez le nom du compte de stockage dans lequel Terraform doit stocker l’état. Par exemple, vous pouvez utiliser le compte de stockage créé lorsque vous ouvrez Cloud Shell pour la première fois.  Le nom du compte de stockage créé par Cloud Shell commence généralement par `cs` suivi d’une chaîne aléatoire de chiffres et lettres. **N’oubliez pas le nom du compte de stockage que vous sélectionnez, car vous en aurez besoin plus tard.**
+1. Sous l’onglet **Comptes de stockage**, sélectionnez le nom du compte de stockage dans lequel Terraform doit stocker l’état. Par exemple, vous pouvez utiliser le compte de stockage créé lorsque vous ouvrez Cloud Shell pour la première fois.  Le nom du compte de stockage créé par Cloud Shell commence généralement par `cs` suivi d’une chaîne aléatoire de chiffres et lettres. Notez le compte de stockage que vous sélectionnez. Vous en aurez besoin par la suite.
 
 1. Sous l’onglet du compte de stockage, sélectionnez **Clés d’accès**.
 
@@ -321,30 +296,31 @@ Terraform suit l’état en local via le fichier `terraform.tfstate`. Ce modèle
 
     ![Clés d’accès au compte de stockage](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. Dans Cloud Shell, créez un conteneur dans votre compte de stockage Azure (remplacez les espaces réservés &lt;YourAzureStorageAccountName > et &lt;YourAzureStorageAccountAccessKey > par des valeurs appropriées à votre compte de stockage Azure).
+1. Dans Cloud Shell, créez un conteneur dans votre compte de stockage Azure. Remplacez les espaces réservés par les valeurs appropriées pour votre environnement.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
 ## <a name="create-the-kubernetes-cluster"></a>Créer un cluster Kubernetes
+
 Dans cette section, vous voyez comment utiliser la commande `terraform init` pour créer les ressources définies dans les fichiers de configuration que vous avez créés dans les sections précédentes.
 
-1. Dans Cloud Shell, initialisez Terraform (remplacez les espaces réservés &lt;YourAzureStorageAccountName> et &lt;YourAzureStorageAccountAccessKey> par des valeurs appropriées à votre compte de stockage Azure).
+1. Dans Cloud Shell, initialisez Terraform. Remplacez les espaces réservés par les valeurs appropriées pour votre environnement.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
     
-    La commande `terraform init` affiche la réussite de l’initialisation du backend et du plug-in du fournisseur :
+    La commande `terraform init` affiche la réussite de l’initialisation du back-end et du plug-in de fournisseur :
 
     ![Exemple de résultats « terraform init »](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Exportez les informations d’identification du principal de service. Remplacez respectivement les espaces réservés &lt;votre-id-client> et &lt;votre-secret-client> par les valeurs d’**appId** et de **mot de passe** associées à votre principal de service.
+1. Exportez les informations d’identification du principal de service. Remplacez les espaces réservés par les valeurs appropriées de votre principal de service.
 
     ```bash
-    export TF_VAR_client_id=<your-client-id>
-    export TF_VAR_client_secret=<your-client-secret>
+    export TF_VAR_client_id=<service-principal-appid>
+    export TF_VAR_client_secret=<service-principal-password>
     ```
 
 1. Exécutez la commande `terraform plan` pour créer le plan Terraform qui définit les éléments d’infrastructure. 
@@ -367,12 +343,13 @@ Dans cette section, vous voyez comment utiliser la commande `terraform init` pou
 
     ![Exemple de résultats « terraform apply »](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. Dans le portail Azure, sélectionnez **Tous les services** dans le menu de gauche pour voir les ressources créées pour votre nouveau cluster Kubernetes.
+1. Dans le portail Azure, sélectionnez **Toutes les ressources** dans le menu de gauche pour voir les ressources créées pour votre nouveau cluster Kubernetes.
 
-    ![Invite Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
+    ![Toutes les ressources dans le portail Azure](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Récupérer suite à l’expiration de Cloud Shell
-Si la session Cloud Shell expire, vous pouvez effectuer les étapes suivantes pour récupérer :
+
+Si la session Cloud Shell expire, vous pouvez suivre les étapes ci-dessous pour récupérer :
 
 1. Démarrez une session Cloud Shell.
 
@@ -389,6 +366,7 @@ Si la session Cloud Shell expire, vous pouvez effectuer les étapes suivantes po
     ```
     
 ## <a name="test-the-kubernetes-cluster"></a>Tester le cluster Kubernetes
+
 Les outils Kubernetes peuvent être utilisés pour vérifier le cluster nouvellement créé.
 
 1. Obtenez la configuration Kubernetes à partir de l’état Terraform et stockez-la dans un fichier que kubectl peut lire.
@@ -414,12 +392,10 @@ Les outils Kubernetes peuvent être utilisés pour vérifier le cluster nouvelle
     ![L’outil kubectl vous permet de vérifier l’intégrité de votre cluster Kubernetes](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux d’activité
-Lorsque de la création du cluster AKS, la supervision a été activée pour capturer les métriques d’intégrité pour les nœuds de cluster et les pods. Ces mesures sont disponibles dans le portail Azure. Pour plus d’informations sur la supervision de l’intégrité des conteneurs, consultez [Superviser l’intégrité d’Azure Kubernetes Service](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+
+Lorsque de la création du cluster AKS, la supervision a été activée pour capturer les métriques d’intégrité pour les nœuds de cluster et les pods. Ces mesures sont disponibles dans le portail Azure. Pour plus d’informations sur la supervision de l’intégrité des conteneurs, consultez [Superviser l’intégrité d’Azure Kubernetes Service](/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris à utiliser Terraform et AKS pour créer un cluster Kubernetes. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes : 
 
- [Hub Terraform sur Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentation Terraform Azure Provider](https://aka.ms/terraform)  
- [Source Terraform Azure Provider](https://aka.ms/tfgit)  
- [Modules Terraform Azure](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"] 
+> [En savoir plus sur l’utilisation de Terraform dans Azure](/azure/terraform)

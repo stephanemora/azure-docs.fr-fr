@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Capturer des événements à partir d’un espace Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Capturer des événements à partir d’un espace Azure Digital Twins'
 description: Découvrez comment recevoir des notifications à partir de vos espaces en intégrant Azure Digital Twins à Logic Apps en suivant la procédure décrite dans ce didacticiel.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949177"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129131"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
@@ -38,7 +38,7 @@ Ce didacticiel suppose que vous avez [configuré](tutorial-facilities-setup.md) 
 - Une instance de Digital Twins en cours d’exécution.
 - Les [exemples Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) téléchargés et extraits sur votre machine de travail.
 - [Le kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée.
-- Un compte Office 365 pour envoyer des e-mails de notification.
+- Un compte [Office 365](https://products.office.com/home) pour envoyer des e-mails de notification.
 
 > [!TIP]
 > Utilisez un nom d’instance Digital Twins unique si vous provisionnez une nouvelle instance.
@@ -63,7 +63,7 @@ Une [rubrique de grille d’événements](../event-grid/concepts.md#topics) offr
 
 1. Accédez à la rubrique de grille d’événements à partir de votre groupe de ressources, sélectionnez **Vue d’ensemble** et copiez la valeur du **Point de terminaison de la rubrique** dans un fichier temporaire. Vous aurez besoin de cette URL à la section suivante. 
 
-1. Sélectionnez **Clés d’accès**, puis copiez **YOUR_KEY_1** et **YOUR_KEY_2** dans un fichier temporaire. Ces valeurs vous seront utiles pour créer le point de terminaison à la section suivante.
+1. Sélectionnez **Clés d’accès**, puis copiez **Clé 1** et **Clé 2** dans un fichier temporaire. Ces valeurs vous seront utiles pour créer le point de terminaison à la section suivante.
 
     [![Clés Event Grid](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ Une [rubrique de grille d’événements](../event-grid/concepts.md#topics) offr
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Remplacez l’espace réservé `<Primary connection string for your Event Grid>` par la valeur de **YOUR_KEY_1**.
+1. Remplacez l’espace réservé `<Primary connection string for your Event Grid>` par la valeur de **Key 1**.
 
-1. Remplacez l’espace réservé `<Secondary connection string for your Event Grid>` par la valeur de **YOUR_KEY_2**.
+1. Remplacez l’espace réservé `<Secondary connection string for your Event Grid>` par la valeur de **Key 2**.
 
 1. Remplacez l’espace réservé pour **path** par le chemin d’accès à la rubrique Event Grid. Récupérez ce chemin à partir de l’URL du **Point de terminaison de la rubrique**, en supprimant **https://** et les chemins de ressource à la fin. Cela doit ressembler au format suivant : *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
@@ -178,7 +178,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
    a. Sélectionnez **Ajouter une action**, puis **Office 365 Outlook**.
 
-   b. Dans la liste **Actions**, sélectionnez **Envoyer un e-mail**. Sélectionnez **Se connecter** et utilisez vos informations d’identification de compte e-mail. Sélectionnez **Autoriser l’accès** si vous y êtes invité.
+   b. Dans la liste **Actions**, sélectionnez **Envoyer un e-mail (V2)** . Sélectionnez **Se connecter** et utilisez vos informations d’identification de compte e-mail. Sélectionnez **Autoriser l’accès** si vous y êtes invité.
 
    c. Dans la zone **To** (À), entrez votre ID de messagerie pour recevoir des notifications. Dans **Objet**, entrez le texte **Notification Digital Twins pour la mauvaise qualité de l’air dans l’espace**. Sélectionnez ensuite **TopologyObjectId** à partir de la liste **Contenu dynamique** pour **Analyser JSON**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration continue/déploiement continu de Jenkins vers des machines virtuelles Azure avec Azure DevOps Services | Microsoft Docs'
+title: 'Tutoriel : CI/CD de Jenkins vers des machines virtuelles Azure avec Azure DevOps Services'
 description: Avec ce didacticiel, vous allez apprendre à configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js en utilisant Jenkins sur des machines virtuelles Azure à partir de Release Management dans Visual Studio Team Services ou Microsoft Team Foundation Server
 author: tomarchermsft
 manager: jpconnock
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828423"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034562"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Didacticiel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 

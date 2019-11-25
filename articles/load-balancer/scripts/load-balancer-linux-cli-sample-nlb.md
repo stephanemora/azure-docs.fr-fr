@@ -1,26 +1,22 @@
 ---
-title: Exemple CLI - Équilibrage de charge du trafic vers les machines virtuelles pour haute disponibilité - Azure | Microsoft Docs
+title: Équilibrer la charge du trafic vers les machines virtuelles à des fins de haute disponibilité - Azure CLI - Azure Load Balancer
 description: Cet exemple de script CLI Azure montre comment équilibrer la charge du trafic vers les machines virtuelles pour haute disponibilité
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed3f0899d6a378285c9799b57e2aad76348c45d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c0bfb5705989c99d3626d6e728b764e94f83fffe
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273812"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048927"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script Azure CLI : Équilibrer le trafic sur les machines virtuelles pour la haute disponibilité
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637695"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934158"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "68637695"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Exécuteur en bloc - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc - Java](sql-api-sdk-bulk-executor-java.md)
 
 Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les opérations synchrones. Pour la prise en charge asynchrone, utilisez le [Kit de développement (SDK) Java asynchrone de l’API SQL](sql-api-sdk-async-java.md). 
@@ -42,6 +42,30 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
+* Actualisations du cache des plages de clés de partition optimisées.
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Actualisations optimisées du cache de collection.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Ajout de la prise en charge de la récupération du message d’exception interne de la chaîne de diagnostic de la requête.
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* Introduction de l’API Version sur PartitionKeyDefinition.
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Ajout de la prise en charge des délais d’attente distincts pour le mode direct.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Utilisation d’un message d’erreur null du service et production d’une exception client de document.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Amélioration de la connexion au socket, ajout de SoKeepAlive par défaut sur true.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Ajout de la prise en charge des chaînes de diagnostic des requêtes.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Correction d’un bogue dans PartitionKey pour Hash V2.

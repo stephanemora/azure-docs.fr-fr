@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300905"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904913"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
 
@@ -103,9 +103,14 @@ Suivez ces instructions pour lancer l’outil :
 1. Sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Connectez-vous avec vos informations d’identification Windows Virtual Desktop.
 3. Quand vous êtes invité à choisir un groupe de locataires, sélectionnez **Groupe de locataires par défaut** dans la liste déroulante.
+4. Lorsque vous sélectionnez Groupe de locataires par défaut, un menu doit s’afficher du côté droit de votre fenêtre. Dans ce menu, recherchez le nom de votre groupe de locataires et sélectionnez-le.
 
 > [!NOTE]
 > Si vous avez un groupe de locataires personnalisé, entrez le nom manuellement au lieu de choisir dans la liste déroulante.
+
+## <a name="report-issues"></a>Signaler des problèmes
+
+Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Windows Virtual Desktop, suivez les instructions dans [Modèles ARM pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

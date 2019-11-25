@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073242"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107661"
 ---
 # <a name="import-soap-api"></a>Importer une API SOAP
 
@@ -60,7 +60,7 @@ Effectuez le guide de démarrage rapide suivant : [Créer une instance du servi
     * **Illimité**   
 10. Sélectionnez **Create** (Créer).
 
-### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Tester la nouvelle API APIM dans le portail d’administration
+### <a name="test-the-new-api-in-the-administrative-portal"></a>Tester la nouvelle API dans le portail d’administration
 
 Les opérations peuvent être directement appelées depuis le portail d’administration, qui permet d’afficher et de tester les opérations d’une API.  
 
@@ -72,21 +72,6 @@ Les opérations peuvent être directement appelées depuis le portail d’admini
 1. Appuyez sur **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.
-
-### <a name="call-operation"></a>Appel d’une opération à partir du portail des développeurs
-
-Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API. 
-
-1. Sélectionnez l’API que vous avez créée à l’étape « Importer et publier une API de serveur principal ».
-2. Appuyez sur **Portail des développeurs**.
-
-    Le site « Portail des développeurs » s’ouvre.
-3. Sélectionnez l’**API** que vous avez créée.
-4. Cliquez sur l’opération que vous souhaitez tester.
-5. Appuyez sur **Essayer**.
-6. Appuyez sur **Envoyer**.
-    
-    Après l’appel d’une opération, le portail des développeurs affiche le **statut de réponse**, les **en-têtes de réponse**, et tout **contenu de la réponse**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

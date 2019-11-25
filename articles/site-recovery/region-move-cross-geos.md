@@ -1,19 +1,18 @@
 ---
-title: Déplacer des machines virtuelles IaaS Azure entre Azure Government et des régions publiques avec le service Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery permet de déplacer des machines virtuelles IaaS Azure entre Azure Government et des régions publiques.
-services: site-recovery
+title: Déplacer des machines virtuelles Azure entre des régions Azure Government et des régions publiques à l’aide d’Azure Site Recovery
+description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles Azure entre des régions Azure Government et des régions publiques.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376125"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961412"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Superviser vos appareils IoT à partir d’une solution Azure - Azure | Microsoft Docs'
+title: Superviser des appareils dans la solution de supervision à distance – Azure | Microsoft Docs
 description: Dans ce tutoriel, vous découvrez comment surveiller vos appareils IoT avec l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d6d850fa8f896809318be77529e10abddaf6ea9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58173819"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890872"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Superviser vos appareils IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Didacticiel : Superviser vos appareils IoT
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
 
@@ -100,4 +100,4 @@ Les mêmes filtres que ceux qui définissent l’intervalle de temps pour les al
 Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** de l’accélérateur de solution de supervision à distance pour filtrer et surveiller les camions simulés. Pour découvrir comment utiliser l’accélérateur de solution pour détecter des problèmes avec vos appareils connectés, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Détectez les problèmes liés aux appareils connectés à votre solution de monitoring](iot-accelerators-remote-monitoring-automate.md)
+> [Détectez les problèmes liés aux appareils connectés à votre solution de supervision](iot-accelerators-remote-monitoring-automate.md)

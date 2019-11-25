@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel REST : Créer un pipeline d’enrichissement par IA pour extraire du texte et une structure à partir d’objets blob JSON'
+title: 'Didacticiel : Extraire du texte et une structure à partir d’objets blob JSON'
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de texte et de traitement de langage naturel sur du contenu d’objets blob JSON en utilisant Postman et les API REST de Recherche cognitive Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790188"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113663"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Didacticiel : Ajouter une structure à du « contenu non structuré » avec l’enrichissement par IA
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Didacticiel : Extraire du texte et une structure à partir d’objets blob JSON dans Azure à l’aide des API REST (Recherche cognitive Azure)
 
-Si vous avez un contenu de type texte non structuré ou image, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut vous aider à extraire des informations, et à créer du contenu utile pour des scénarios de recherche en texte intégral ou d’exploration de connaissances. Bien qu’un pipeline puisse traiter des fichiers image (JPG, PNG, TIFF), ce tutoriel se concentre sur du contenu exprimé en mots, en appliquant la détection de la langue et l’analyse de texte pour créer des champs et des informations exploitables dans des requêtes, des facettes et des filtres.
+Si vous avez du contenu de type texte non structuré ou image dans le Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut vous aider à extraire des informations et à créer du contenu utile pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. Bien qu’un pipeline puisse traiter des fichiers image (JPG, PNG, TIFF), ce tutoriel se concentre sur du contenu exprimé en mots, en appliquant la détection de la langue et l’analyse de texte pour créer des champs et des informations exploitables dans des requêtes, des facettes et des filtres.
 
 > [!div class="checklist"]
 > * Commencez avec des documents entiers (texte non structuré) tels que des documents PDF, MD, DOCX et PPTX dans le stockage Blob Azure.
@@ -503,13 +503,13 @@ Lorsque votre code arrive à maturité, vous pouvez affiner une stratégie de re
 
 Ce tutoriel présente les étapes de base pour générer un pipeline d’indexation enrichie via la création de composants : une source de données, un ensemble de compétences, un index et un indexeur.
 
-Les [compétences intégrées](cognitive-search-predefined-skills.md) ont été introduites, ainsi que la définition d’un ensemble de compétences et les mécanismes de chaînage de compétences via des entrées et des sorties. Vous avez également découvert que `outputFieldMappings` est requis dans la définition de l’indexeur pour router les valeurs enrichies du pipeline dans un index de recherche sur un service Recherche cognitive Azure.
+Les [compétences intégrées](cognitive-search-predefined-skills.md) ont été introduites, ainsi que la définition d’un ensemble de compétences et les mécanismes de chaînage de compétences via des entrées et des sorties. Vous avez également appris que `outputFieldMappings` est requis dans la définition de l’indexeur pour acheminer les valeurs enrichies du pipeline dans un index de recherche, sur un service de Recherche cognitive Azure.
 
 Enfin, vous avez appris à tester les résultats et réinitialiser le système pour des itérations ultérieures. Vous avez appris qu’émettre des requêtes par rapport à l’index retourne la sortie créée par le pipeline d’indexation enrichie. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez maintenant le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez maintenant le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

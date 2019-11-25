@@ -1,5 +1,5 @@
 ---
-title: Tutoriel de détection des problèmes d’appareils dans une solution de supervision à distance - Azure | Microsoft Docs
+title: Utiliser la solution de supervision à distance pour détecter des problèmes d’appareil – Azure | Microsoft Docs
 description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de supervision à distance.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598672"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888887"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Détecter les problèmes liés aux appareils connectés à votre solution de supervision
 
@@ -137,4 +137,4 @@ Vous ne pouvez supprimer qu’une règle à la fois.
 Ce tutoriel vous a montré comment utiliser la page **Règles** dans l’accélérateur de solution de supervision à distance pour créer et gérer des règles qui déclenchent des alertes dans la solution. Pour découvrir comment utiliser l’accélérateur de solution pour gérer et configurer vos appareils connectés, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Configurer et gérer les appareils connectés à votre solution de surveillance](iot-accelerators-remote-monitoring-manage.md)
+> [Configurer et gérer les appareils connectés à votre solution de supervision](iot-accelerators-remote-monitoring-manage.md)

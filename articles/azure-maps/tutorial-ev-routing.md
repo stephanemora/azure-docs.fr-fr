@@ -1,22 +1,22 @@
 ---
-title: Router les véhicules électriques avec Azure Notebooks (Python) | Microsoft Docs
-description: Routez les véhicules électriques avec les API de routage Azure Maps, et Azure Notebooks.
+title: 'Didacticiel : Router les véhicules électriques avec Azure Notebooks (Python)'
+description: 'Didacticiel : Routez les véhicules électriques avec les API de routage Azure Maps, et Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243299"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109602"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Router les véhicules électriques avec Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Didacticiel : Router les véhicules électriques avec Azure Notebooks (Python)
 
 Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Avec ces API, les développeurs, les entreprises et les éditeurs de logiciels indépendants peuvent créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. 
 
@@ -41,7 +41,7 @@ Pour suivre ce tutoriel, vous devez d’abord créer un compte Azure Maps et obt
 
 Pour créer un abonnement de compte Azure Maps au niveau tarifaire S1, suivez les instructions fournies dans [Gérer votre compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Rechercher des points d’intérêt à proximité avec Azure Maps](./tutorial-search-location.md#getkey).
+Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Créer un compte et obtenir une clé](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## <a name="create-an-azure-notebook"></a>Créer un notebook Azure
 
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 Une fois que vous avez déterminé toutes les bornes de recharge potentielles dans la zone accessible, vous voulez savoir quelles bornes peuvent être atteintes en un minimum de temps. 
 
-Le script suivant appelle l’[API de routage par matrice](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) Azure Maps, qui retourne pour le lieu du véhicule précisé la durée du trajet et la distance jusqu’à chaque borne de recharge. Le script de la cellule suivante analyse la réponse pour localiser la borne de recharge accessible la plus proche en temps.
+Le script suivant appelle l’[API de routage par matrice](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) Azure Maps, qui retourne pour le lieu du véhicule précisé la durée du trajet et la distance jusqu’à chaque borne de recharge. Le script de la cellule suivante analyse la réponse pour localiser la borne de recharge accessible la plus proche en temps.
 
 Pour trouver la borne de recharge la plus proche, qui peut être atteinte en moins de temps possible, exécutez le script de la cellule suivante :
 
@@ -395,7 +395,7 @@ Pour explorer les API Azure Maps qui sont utilisées dans ce tutoriel, consulte
 * [Envoyer une recherche dans une géométrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Chargement de données](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Rendu - Obtenir une image de carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Envoyer une matrice d’itinéraire](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Envoyer une matrice d’itinéraire](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obtenir un itinéraire](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).

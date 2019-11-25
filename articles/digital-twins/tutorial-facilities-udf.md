@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Surveiller un espace avec Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Superviser un espace avec Azure Digital Twins'
 description: Découvrez comment provisionner vos ressources spatiales et superviser les conditions de travail avec Azure Digital Twins en suivant les étapes de ce tutoriel.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/13/2019
+ms.openlocfilehash: 6c9403f8355d2f842226c9c7257803edd3215829
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949085"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107487"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
 

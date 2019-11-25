@@ -1,5 +1,6 @@
 ---
-title: Application mobile qui appelle des API web - acquisition d’un jeton pour l’application | Plateforme d’identités Microsoft
+title: Application mobile qui appelle des API web - acquisition d’un jeton pour l’application
+titleSuffix: Microsoft identity platform
 description: Découvrez comment générer une application mobile qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 454d62f871290d2e7dd8d0eee4b1a2429625a5fc
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9b1d6a0e4bfffaaf4ed0fa836bcf62a7f1104e6a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268264"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803771"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API web - acquisition d’un jeton
 

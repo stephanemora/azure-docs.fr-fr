@@ -1,12 +1,10 @@
 ---
-title: 'Exemple CLI : Équilibrer la charge des machines virtuelles au sein d’une zone - Azure | Microsoft Docs'
+title: Équilibrer la charge des machines virtuelles dans une zone - Azure CLI
 description: Cet exemple de script Azure CLI montre comment équilibrer la charge du trafic vers les machines virtuelles dans une zone de disponibilité spécifique
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
@@ -16,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273731"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068759"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script Azure CLI : Équilibrer le trafic sur les machines virtuelles pour la haute disponibilité
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemple de script Azure CLI : Équilibrer la charge du trafic vers les machines virtuelles dans une zone de disponibilité spécifique
 
 Cet exemple de script CLI Azure crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge dans une zone de disponibilité spécifique. Une fois que vous avez exécuté le script, vous obtenez trois machines virtuelles dans une zone de disponibilité unique dans une région, qui sont accessibles par le biais d’Azure Load Balancer Standard. 
 

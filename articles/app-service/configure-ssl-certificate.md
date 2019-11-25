@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572149"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907124"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Ajouter un certificat SSL dans Azure App Service
 
@@ -68,6 +68,10 @@ Le certificat managé App Service gratuit est une solution clé en main pour la 
 - Ne prend pas en charge les certificats avec caractères génériques.
 - Il ne prend pas en charge les domaines nus.
 - Il n’est pas exportable.
+
+> [!NOTE]
+> Le certificat gratuit est émis par DigiCert. Pour certains domaines de niveau supérieur, vous devez autoriser explicitement DigiCert comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue digicert.com`.
+> 
 
 Pour créer un certificat managé App Service gratuit :
 
@@ -344,7 +348,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-Le fichier *appservicecertificate.pfx* téléchargé est un fichier PKCS12 brut qui contient à la fois des certificats publics et des certificats privés. Chaque fois qu’une invite s’affiche, le mot de passe d’importation et la phrase secrète PEM correspondent aux chaînes vides.
+Le fichier *appservicecertificate.pfx* téléchargé est un fichier PKCS12 brut qui contient à la fois des certificats publics et des certificats privés. Dans chaque invite, utilisez une chaîne vide pour le mot de passe d’importation et la phrase secrète PEM.
 
 ### <a name="delete-certificate"></a>Suppression d'un certificat 
 

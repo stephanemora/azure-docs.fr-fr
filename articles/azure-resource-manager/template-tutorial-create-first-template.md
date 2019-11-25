@@ -1,22 +1,22 @@
 ---
-title: Tutoriel - Créer et déployer votre premier modèle Azure Resource Manager
-description: Décrit les étapes de la création de votre premier modèle Azure Resource Manager. Vous découvrez la syntaxe du fichier de modèle et comment déployer un compte de stockage.
+title: Tutoriel – Créer et déployer un modèle Azure Resource Manager
+description: Créez votre premier modèle Azure Resource Manager. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers de modèle et comment déployer un compte de stockage.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029536"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074372"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Didacticiel : Créer et déployer votre premier modèle Azure Resource Manager
 
-Ce tutoriel vous présente les modèles Resource Manager. Il vous montre comment créer un modèle de démarrage et le déployer sur Azure. Vous allez découvrir la structure du modèle et les outils dont vous avez besoin pour utiliser les modèles. Il faut environ **12 minutes** pour suivre ce tutoriel, mais le temps réel varie en fonction du nombre d’outils que vous devez installer.
+Ce tutoriel vous présente les modèles Azure Resource Manager. Il vous montre comment créer un modèle de démarrage et le déployer sur Azure. Vous allez découvrir la structure du modèle et les outils dont vous avez besoin pour utiliser les modèles. Il faut environ **12 minutes** pour suivre ce tutoriel, mais le temps réel varie en fonction du nombre d’outils que vous devez installer.
 
 Ce tutoriel est le premier d’une série. Au fur et à mesure que vous progressez dans la série, vous modifiez petit à petit le modèle de démarrage, jusqu’à ce que vous ayez exploré toutes les parties vitales qui composent un modèle Resource Manager. Il s’agit des éléments constitutifs de modèles bien plus complexes. Nous espérons qu’à la fin de la série, vous vous lancerez dans la création de vos propres modèles et que vous serez prêt à automatiser vos déploiements à l’aide de modèles.
 
@@ -71,9 +71,9 @@ Bien, vous êtes prêt à découvrir les modèles.
 
     - **$schema** : précise l’emplacement du fichier de schéma JSON. Le fichier de schéma décrit les propriétés qui sont disponibles dans un modèle. Par exemple, le schéma définit **resources** comme faisant partie des propriétés valides d’un modèle. Ne vous inquiétez pas de voir 2015-01-01 comme date du schéma. Cette version de schéma est à jour et comprend toutes les fonctionnalités les plus récentes. La date du schéma n’a pas été modifiée, car il n’y a eu aucun changement cassant depuis sa création.
     - **contentVersion** : spécifie la version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé.
-    - **resources** : contient les ressources que vous souhaitez déployer ou mettre à jour. Actuellement, il est vide, mais vous ajouterez des ressources ultérieurement.
+    - **Ressources** : contient les ressources que vous souhaitez déployer ou mettre à jour. Actuellement, il est vide, mais vous ajouterez des ressources ultérieurement.
 
-1. Enregistrez le fichier.
+1. Enregistrez le fichier .
 
 Félicitations, vous avez créé votre premier modèle.
 

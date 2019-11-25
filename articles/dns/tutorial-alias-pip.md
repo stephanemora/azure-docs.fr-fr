@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Créer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure.'
+title: 'Didacticiel : Créer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure'
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536876"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072129"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Didacticiel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -45,7 +45,7 @@ Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveur
 1. Sélectionnez **Créer une ressource** > **Machine virtuelle Windows Server 2016**.
 2. Saisissez **Web-01** pour le nom et placez la machine virtuelle dans le groupe de ressources **RG-DNS-Alias-TM**. Entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **OK**.
 3. Pour **Taille**, sélectionnez une référence SKU avec 8 Go de RAM.
-4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)**, puis **OK**.
+4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)** , puis **OK**.
 5. Dans la page **Résumé**, sélectionnez **Créer**.
 
 Cette procédure s’achève après quelques minutes.
@@ -56,7 +56,7 @@ Installez IIS sur **Web-01**.
 
 1. Connectez-vous à **Web-01**.
 2. Dans le tableau de bord **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et fonctionnalités**.
-3. Sélectionnez **Suivant** trois fois de suite. Sur la page **Rôles de serveur**, cliquez sur **Serveur Web (IIS)**.
+3. Sélectionnez **Suivant** trois fois de suite. Sur la page **Rôles de serveur**, cliquez sur **Serveur Web (IIS)** .
 4. Sélectionnez **Ajouter des fonctionnalités**, puis sélectionnez **Suivant**.
 5. Sélectionnez **Suivant** quatre fois de suite, puis **Installer**. Cette procédure s’achève après quelques minutes.
 6. Une fois l’installation terminée, sélectionnez **Fermer**.

@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et PHP'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser l’API Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
+description: Cette simple application PHP envoie une requête à l’API Vérification orthographique Bing et retourne une liste de suggestions de corrections.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 15a550321c28703c7bb4d8155ffeb7791eafedc6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423481"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110790"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et PHP
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Python envoie une demande à l’API et retourne une liste de suggestions de corrections. Alors que cette application est écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application C# envoie une requête à l’API et retourne une liste de suggestions de corrections. Alors que cette application est écrite en PHP, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
 

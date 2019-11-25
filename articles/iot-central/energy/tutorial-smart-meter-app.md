@@ -1,19 +1,19 @@
 ---
-title: Créer une application d’analytique de compteur intelligente avec IoT Central | Microsoft Docs
-description: Découvrez comment créer une application de surveillance de compteur intelligente à l’aide de modèles d’application Azure IoT Central.
+title: 'Didacticiel : Créer une application d’analyse des compteurs intelligents avec IoT Central'
+description: 'Didacticiel : Découvrez comment créer une application de surveillance de compteur intelligente à l’aide de modèles d’application Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581255"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112538"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Didacticiel : Créer et découvrir pas à pas le modèle d’application de surveillance de compteur intelligente 
 
@@ -27,13 +27,13 @@ Ce didacticiel vous guide tout au long du processus de création de l’applicat
 > * Supprimer des ressources
 
 
-Si vous n’avez pas d’abonnement, [créez un compte d’essai gratuit](https://azure.microsoft.com/free)
+Si vous n'avez pas d'abonnement, [créez un compte d'essai gratuit](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Prérequis
 - Aucun
 - Pour l’essai, un abonnement Azure est recommandé, mais pas obligatoire
 
-## <a name="create-a-smart-meter-monitoring-app"></a>Créer une application de surveillance de compteur intelligente 
+## <a name="create-a-smart-meter-monitoring-app"></a>Créer une application intelligente de suivi de compteurs 
 
 Vous pouvez créer cette application en trois étapes simples :
 
@@ -46,11 +46,11 @@ Vous pouvez créer cette application en trois étapes simples :
     
 
 3. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les détails demandés, comme illustré dans la figure ci-dessous :
-    * **Nom d’application** : Choisissez un nom pour votre application IoT Central. 
-    * **URL** : Choisissez une URL IoT Central. La plateforme vérifie son unicité.
-    * **Essai gratuit de 7 jours** : Si vous avez déjà un abonnement Azure, le paramètre par défaut est recommandé. Si vous n’avez pas d’abonnement Azure, commencez avec l’essai gratuit.
-    * **Informations de facturation** : L’application proprement dite est gratuite. Les champs Annuaire, Abonnement Azure et Région doivent être obligatoirement renseignés l’approvisionnement des ressources de votre application.
-    * Cliquez sur bouton **Créer** au bas de la page pour créer votre application. L’opération prend environ une minute.     
+    * **Nom de l'application** : choisissez un nom pour votre application IoT Central. 
+    * **URL** : choisissez une URL IoT Central. La plateforme vérifie son unicité.
+    * **Essai gratuit de 7 jours** : si vous disposez déjà d'un abonnement Azure, le paramètre par défaut est recommandé. Si vous n'avez pas d'abonnement Azure, commencez avec l'essai gratuit.
+    * **Informations de facturation** : l'application proprement dite est gratuite. Les champs Annuaire, Abonnement Azure et Région doivent obligatoirement être renseignés pour l'approvisionnement des ressources de votre application.
+    * Cliquez sur bouton **Créer** en bas de la page pour créer votre application. L'opération prend environ une minute.     
         > [!div class="mx-imgBorder"]
         > ![Formulaire Nouvelle application](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
@@ -59,7 +59,7 @@ Vous pouvez créer cette application en trois étapes simples :
 
 L’application de compteur intelligente nouvellement créée vous appartient. Vous pouvez la modifier à tout moment. Avant de modifier l’application, vérifions qu’elle est déployée et qu’elle fonctionne comme prévu.
 
-Pour vérifier la création de l’application et la simulation des données, accédez au **Tableau de bord**. Si vous pouvez voir les vignettes avec des données dans celles-ci, cela signifie que le déploiement de votre application a réussi. La simulation des données pouvant prendre quelques minutes, patientez 1 ou 2 minutes. 
+Pour vérifier la création de l'application et la simulation des données, accédez au **Tableau de bord**. Si vous voyez les vignettes et les données qu'elles contiennent, cela signifie que le déploiement de votre application a abouti. Soyez patient, car la simulation des données peut prendre 1 à 2 minutes. 
 
 ## <a name="application-walk-through"></a>Découvrir pas à pas l’application
 Une fois le modèle d’application correctement déployé, il comprend un exemple d’appareil de compteur intelligent, un modèle d’appareil et un tableau de bord. 
@@ -96,8 +96,8 @@ Cliquez sur l’onglet **Modèles d’appareils** pour afficher le modèle d’a
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous décidez de ne pas continuer à utiliser cette application, supprimez-la en procédant comme suit :
 
-1. Dans le volet gauche, ouvrez l’onglet Administration.
-2. Sélectionnez Paramètres de l’application, puis cliquez sur le bouton Supprimer au bas de la page. 
+1. Dans le volet gauche, ouvrez l'onglet Administration.
+2. Sélectionnez Paramètres de l'application, puis cliquez sur le bouton Supprimer en bas de la page. 
 
     > [!div class="mx-imgBorder"]
     > ![Supprimer une application](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

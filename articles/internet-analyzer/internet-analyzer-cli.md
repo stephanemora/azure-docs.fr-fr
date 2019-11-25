@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3ae3c3f66ce7301023217a91cd8c79783f3ef833
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509843"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839522"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Créer un test Internet Analyzer avec l’interface de ligne de commande (préversion)
 
@@ -79,7 +79,7 @@ L’interface CLI d’Internet Analyzer expose les types de ressources suivants�
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    La commande ci-dessus suppose que www.contoso.com et www.microsoft.com hébergent l’image d’un pixel ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) sous des chemins personnalisés. Si un chemin d’accès à l’objet n’est pas spécifié explicitement, Internet Analyzer utilise `/apc/trans.gif` comme chemin d’accès à l’objet par défaut, à savoir l’emplacement où les points de terminaison préconfigurés hébergent l’image d’un pixel. Notez également que le schéma (https/http) n’a pas besoin d’être spécifié. Internet Analyzer ne prend en charge que les points de terminaison HTTPS ; par conséquent, le protocole HTTPS est utilisé.
+    La commande ci-dessus suppose que `www.contoso.com` et `www.microsoft.com` hébergent l’image d’un pixel ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) sous des chemins personnalisés. Si un chemin d’accès à l’objet n’est pas spécifié explicitement, Internet Analyzer utilise `/apc/trans.gif` comme chemin d’accès à l’objet par défaut, à savoir l’emplacement où les points de terminaison préconfigurés hébergent l’image d’un pixel. Notez également que le schéma (https/http) n’a pas besoin d’être spécifié. Internet Analyzer ne prend en charge que les points de terminaison HTTPS ; par conséquent, le protocole HTTPS est utilisé.
 
 11. Le nouveau test doit apparaître sous le profil Internet Analyzer :
     ```azurecli-interactive

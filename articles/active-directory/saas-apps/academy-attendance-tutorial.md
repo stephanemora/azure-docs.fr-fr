@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Academy Attendance | Microsoft Docs'
+title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Academy Attendance | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Academy Attendance.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489284a83483bb20353818adf275303b027255ce
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2e3214572042f4a6d6cf5e6e160a4d37a9f2909d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641251"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082124"
 ---
-# <a name="tutorial-integrate-academy-attendance-with-azure-active-directory"></a>Didacticiel : Intégrer Academy Attendance à Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Academy Attendance
 
 Dans ce tutoriel, vous allez apprendre à intégrer Academy Attendance à Azure Active Directory (Azure AD). Lorsque vous intégrez Academy Attendance à Azure Active Directory, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Academy Attendance pour lequel l’authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -45,7 +45,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Academy Attendance prend en charge l’authentification unique initiée par le **fournisseur de services**
+
+
 * Academy Attendance prend en charge l’attribution d’utilisateurs **juste-à-temps**
+
 
 ## <a name="adding-academy-attendance-from-the-gallery"></a>Ajout de Academy Attendance à partir de la galerie
 
@@ -58,26 +61,27 @@ Pour configurer l’intégration de Academy Attendance à Azure AD, vous devez 
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Academy Attendance** dans la zone de recherche.
 1. Sélectionnez **Academy Attendance** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-academy-attendance"></a>Configurer et tester l’authentification unique Azure AD pour Academy Attendance
 
 Configurez et testez l’authentification unique Azure AD avec AcquireIO à l’aide d’un utilisateur de test appelé **Academy Attendance**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Academy Attendance associé.
 
 Pour configurer et tester l’authentification unique (SSO) Azure AD avec Academy Attendance, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Academy Attendance](#configure-academy-attendance-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Academy Attendance](#create-academy-attendance-test-user)** pour avoir dans Academy Attendance un équivalent de B. Simon lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Academy Attendance](#configure-academy-attendance-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Academy Attendance](#create-academy-attendance-test-user)** pour avoir dans Academy Attendance un équivalent de B.Simon lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Academy Attendance**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -90,48 +94,26 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Academy Attendance](mailto:support@yournextconcepts.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application Academy Attendance attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre comment configurer les assertions :
+1. L’application Academy Attendance s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Academy Attendance prend en charge deux rôles pour les utilisateurs : **Teacher** et **Student**. Configurez ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Reportez-vous à [ce document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) expliquant comment créer des rôles personnalisés dans Azure AD.
 
-1. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+1. En plus de ce qui précède, l’application Academy Attendance s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
     | Nom |  Attribut source|
     | --------- | --------------- |
     | role      | user.assignedroles |
 
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **OK**.
-
-    g. Cliquez sur **Enregistrer**.
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
 1. Dans la section **Configurer Academy Attendance**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-### <a name="configure-academy-attendance-sso"></a>Configurer l’authentification unique Academy Attendance
-
-Pour configurer l’authentification unique côté **Academy Attendance**, vous devez envoyer le **XML des métadonnées** téléchargé et les URL copiées correspondantes depuis le portail Azure à l’[équipe du support technique Academy Attendance](mailto:support@yournextconcepts.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -163,11 +145,15 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+## <a name="configure-academy-attendance-sso"></a>Configurer l’authentification unique Academy Attendance
+
+Pour configurer l’authentification unique côté **Academy Attendance**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées correspondantes à partir du portail Azure à l’[équipe du support technique d’Academy Attendance](mailto:support@yournextconcepts.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
 ### <a name="create-academy-attendance-test-user"></a>Créer un utilisateur de test Academy Attendance
 
-Dans cette section, un utilisateur appelé B. Simon est créé dans Academy Attendance. Academy Attendance prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Academy Attendance, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Academy Attendance. Academy Attendance prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Academy Attendance, il en est créé un après l’authentification.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -175,9 +161,11 @@ Le fait de cliquer sur la vignette Academy Attendance dans le panneau d’accès
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Essayer Academy Attendance avec Azure AD](https://aad.portal.azure.com/)
 

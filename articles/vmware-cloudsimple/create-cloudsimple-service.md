@@ -8,19 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8648f2c9cc0175050d4b7642f5235d47159ecfaf
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173504"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893942"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Créer le service Azure VMware Solution by CloudSimple
 
 Pour commencer à utiliser Azure VMware Solution by CloudSimple, créez le service Azure VMware Solution by CloudSimple  dans le portail Azure.
 
-> [!IMPORTANT]
-> Avant de créer le service CloudSimple, vous devez inscrire le fournisseur de ressources Microsoft.VMwareCloudSimple sur votre abonnement Azure. Suivez les étapes dans [Inscrire le fournisseur de ressources Microsoft.VMwareCloudSimple sur votre abonnement Azure](enable-cloudsimple-service.md).
+## <a name="before-you-begin"></a>Avant de commencer
+
+Allouez un bloc /28 CIDR pour le sous-réseau de passerelle. Un sous-réseau de passerelle est requis par le service CloudSimple et est propre à la région dans laquelle il est créé. Le sous-réseau de passerelle est utilisé pour les services de réseau Edge et nécessite un bloc CIDR /28. L’espace d’adressage du sous-réseau de passerelle doit être unique. Il ne doit chevaucher aucun réseau qui communique avec l’environnement CloudSimple. Les réseaux qui communiquent avec CloudSimple incluent les réseaux locaux et les réseaux virtuels Azure.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

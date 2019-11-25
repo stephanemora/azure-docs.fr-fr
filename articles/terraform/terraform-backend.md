@@ -1,32 +1,31 @@
 ---
-title: Utiliser le stockage Azure comme serveur principal Terraform
+title: 'Tutoriel : Stocker l’état de Terraform dans le stockage Azure'
 description: Introduction au stockage de l’état Terraform dans le stockage Azure.
-services: terraform
+ms.service: terraform
 author: tomarchermsft
-ms.service: azure
-ms.topic: article
-ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.topic: tutorial
+ms.date: 11/07/2019
+ms.openlocfilehash: 374936c39221d79d59fc8a54dc2bc4a49800240d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169944"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078563"
 ---
-# <a name="store-terraform-state-in-azure-storage"></a>Stocker l’état de Terraform dans le stockage Azure
+# <a name="tutorial-store-terraform-state-in-azure-storage"></a>Didacticiel : Stocker l’état de Terraform dans le stockage Azure
 
-L’état Terraform est utilisé pour rapprocher des ressources déployées avec les configurations de Terraform. En utilisant l’état, Terraform connaît les ressources Azure à ajouter, mettre à jour ou supprimer. Par défaut, l’état Terraform est stocké localement lors de l’exécution de *Terraform apply*. Cette configuration n’est pas idéale pour plusieurs raisons :
+L’état Terraform est utilisé pour rapprocher des ressources déployées avec les configurations de Terraform. L’état permet à Terraform de connaître les ressources Azure à ajouter, mettre à jour ou supprimer. Par défaut, l’état Terraform est stocké localement lors de l’exécution de la commande `terraform apply`. Cette configuration n’est pas idéale pour les raisons suivantes :
 
-- L’état local ne fonctionne pas correctement dans une équipe ou un environnement de collaboration
-- L’état Terraform peut inclure des informations sensibles
-- Stocker l’état localement augmente les risques de suppression accidentelle
+- L’état local ne fonctionne pas correctement dans une équipe ou un environnement de collaboration.
+- L’état Terraform peut inclure des informations sensibles.
+- Le stockage de l’état localement augmente les risques de suppression accidentelle.
 
-Terraform inclut le concept de serveur principal d’état, qui est un stockage à distance pour l’état Terraform. Lorsque vous utilisez un serveur principal d’état, le fichier d’état est stocké dans un magasin de données tel que le stockage Azure. Ce document décrit en détail comment configurer et utiliser le stockage Azure comme serveur principal d’état Terraform.
+Terraform prend en charge la persistance de l’état dans le stockage étendu. Le stockage Azure est un back-end pris en charge de ce type. Ce document montre comment configurer et utiliser le stockage Azure à cet effet.
 
 ## <a name="configure-storage-account"></a>Configurer le compte de stockage
 
-Avant d’utiliser le stockage Azure comme serveur principal, un compte de stockage doit être créé. Le compte de stockage peut être créé avec le portail Azure, PowerShell, l’interface Azure CLI ou Terraform lui-même. L’exemple suivant permet de configurer le compte de stockage avec l’interface Azure CLI.
+Avant d’utiliser le stockage Azure comme back-end, vous devez créer un compte de stockage. Le compte de stockage peut être créé avec le portail Azure, PowerShell, l’interface Azure CLI ou Terraform lui-même. L’exemple suivant permet de configurer le compte de stockage avec l’interface Azure CLI.
 
 ```azurecli
 #!/bin/bash
@@ -54,16 +53,16 @@ echo "access_key: $ACCOUNT_KEY"
 
 Notez le nom du compte de stockage, du conteneur et de la clé d’accès de stockage. Ces valeurs sont nécessaires lors de la configuration de l’état à distance.
 
-## <a name="configure-state-backend"></a>Configurer le serveur principal d’état
+## <a name="configure-state-back-end"></a>Configurer un back-end d’état
 
-Le serveur principal d’état Terraform est configuré lors de l’exécution de *Terraform init*. Pour configurer le serveur principal d’état, les données suivantes sont requises.
+Le back-end d’état Terraform est configuré lorsque vous exécutez la commande `terraform init`. Les données suivantes sont nécessaires pour configurer le back-end d’état :
 
-- storage_account_name : le nom de votre compte de stockage Azure.
-- container_name : le nom du conteneur d’objets blob.
-- key : le nom du fichier de magasin d’état qui doit être créé.
-- access_key : la clé d’accès de stockage.
+- **storage_account_name** : Nom du compte Stockage Azure.
+- **container_name** : Nom du conteneur d’objets blob.
+- **clé** : Nom du fichier de magasin d’état à créer.
+- **access_key** : Clé d’accès de stockage.
 
-Chacune de ces valeurs peut être spécifiée dans le fichier de configuration Terraform ou sur la ligne de commande. Toutefois, il est recommandé d’utiliser une variable d’environnement pour la `access_key`. Utiliser une variable d’environnement empêche la clé d’être écrite dans le disque.
+Chacune de ces valeurs peut être spécifiée dans le fichier de configuration Terraform ou sur la ligne de commande. Nous vous recommandons d’utiliser une variable d’environnement pour la valeur `access_key`. Utiliser une variable d’environnement empêche la clé d’être écrite dans le disque.
 
 Créez une variable d’environnement nommée `ARM_ACCESS_KEY` avec la valeur de la clé d’accès de stockage Azure.
 
@@ -71,15 +70,19 @@ Créez une variable d’environnement nommée `ARM_ACCESS_KEY` avec la valeur de
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Pour mieux protéger la clé d’accès du compte de stockage Azure, stockez-la dans Azure Key Vault. La variable d’environnement peut ensuite être définie à l’aide d’une commande semblable à ce qui suit. Pour plus d’informations sur Azure Key Vault, consultez la [documentation concernant Azure Key Vault][azure-key-vault].
+Pour mieux protéger la clé d’accès du compte de stockage Azure, stockez-la dans Azure Key Vault. La variable d’environnement peut ensuite être définie à l’aide d’une commande semblable à ce qui suit. Pour plus d’informations sur Azure Key Vault, consultez la [documentation concernant Azure Key Vault](../key-vault/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-Pour configurer Terraform afin d’utiliser le serveur principal, vous devez inclure une configuration de *serveur principal* avec un type d’*azurerm* à l’intérieur de la configuration de Terraform. Ajoutez les valeurs *storage_account_name*, *container_name*, et *key* au bloc de configuration.
+Pour configurer Terraform afin d’utiliser le back-end, vous devez effectuer les étapes suivantes :
+- Incluez un bloc de configuration `backend` avec le type `azurerm`.
+- Ajoutez une valeur `storage_account_name` au bloc de configuration.
+- Ajoutez une valeur `container_name` au bloc de configuration.
+- Ajoutez une valeur `key` au bloc de configuration.
 
-L’exemple suivant configure un back-end Terraform et crée un groupe de ressources Azure. Remplacez les valeurs avec les valeurs de votre environnement.
+L’exemple suivant configure un back-end Terraform et crée un groupe de ressources Azure.
 
 ```hcl
 terraform {
@@ -96,31 +99,30 @@ resource "azurerm_resource_group" "state-demo-secure" {
 }
 ```
 
-À présent, initialisez la configuration avec *Terraform init*, puis exécutez la configuration avec *Terraform apply*. Une fois cela terminé, vous trouverez le fichier d’état dans le blob Azure Storage Blob.
+Initialisez la configuration en procédant comme suit :
+
+1. Exécutez la commande `terraform init`.
+1. Exécutez la commande `terraform apply`.
+
+Vous pouvez maintenant trouver le fichier d’état dans Azure Storage Blob.
 
 ## <a name="state-locking"></a>Verrouillage de l’état
 
-Lorsque vous utilisez un blob Azure Storage Blob pour le stockage de l’état, l’objet blob est automatiquement verrouillé avant toute opération d’écriture de l’état. Cette configuration empêche plusieurs opérations d’état simultanées, lesquelles peuvent entraîner une corruption. Pour plus d’informations, voir [Verrouillage d’état][terraform-state-lock] dans la documentation Terraform.
+Les objets blob Azure Storage Blob sont automatiquement verrouillés avant toute opération d’écriture de l’état. Ce modèle empêche les opérations d’état simultanées, lesquelles peuvent entraîner un endommagement. 
 
-Le verrou peut être vu lorsque vous examinez l’objet blob via le portail Azure ou d’autres outils de gestion Azure.
+Pour plus d’informations, consultez [Verrouillage de l’état](https://www.terraform.io/docs/state/locking.html) dans la documentation Terraform.
+
+Vous pouvez voir le verrou quand vous examinez l’objet blob via le portail Azure ou d’autres outils de gestion Azure.
 
 ![Blob Azure avec verrou](media/terraform-backend/lock.png)
 
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Par défaut, les données stockées dans un blob Azure sont chiffrées avant d’être conservées dans l’infrastructure de stockage. Lorsque Terraform a besoin d’un état, il est récupéré depuis le serveur principal et stocké en mémoire sur votre système de développement. Dans cette configuration, l’état est sécurisé dans le stockage Azure et n’est pas écrit sur votre disque local.
+Les données stockées dans un objet blob Azure sont chiffrées avant d’être conservées. Si nécessaire, Terraform récupère l’état du back-end et le stocke dans la mémoire locale. À l’aide de ce modèle, l’état n’est jamais écrit sur votre disque local.
 
-Pour plus d’informations sur le chiffrement du stockage Azure, consultez [Azure Storage Service Encryption pour les données au repos][azure-storage-encryption].
+Pour plus d’informations sur le chiffrement du stockage Azure, consultez [Chiffrement du service de stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la configuration du back-end Terraform, consultez la [documentation du back-end Terraform][terraform-backend].
-
-<!-- LINKS - internal -->
-[azure-key-vault]: ../key-vault/quick-create-cli.md
-[azure-storage-encryption]: ../storage/common/storage-service-encryption.md
-
-<!-- LINKS - external -->
-[terraform-azurerm]: https://www.terraform.io/docs/backends/types/azurerm.html
-[terraform-backend]: https://www.terraform.io/docs/backends/
-[terraform-state-lock]: https://www.terraform.io/docs/state/locking.html
+> [!div class="nextstepaction"] 
+> [En savoir plus sur l’utilisation de Terraform dans Azure](/azure/terraform)

@@ -1,19 +1,19 @@
 ---
-title: Entraîner et déployer un modèle - Machine Learning sur Azure IoT Edge | Microsoft Docs
-description: Formez un modèle d’apprentissage automatique à l’aide d’Azure Machine Learning, puis empaquetez le modèle sous forme d’image de conteneur qui peut être déployée en tant que module Azure IoT Edge.
+title: 'Didacticiel : Entraîner et déployer un modèle - Machine Learning sur Azure IoT Edge'
+description: 'Didacticiel : Formez un modèle d’apprentissage automatique à l’aide d’Azure Machine Learning, puis empaquetez le modèle sous forme d’image de conteneur qui peut être déployée en tant que module Azure IoT Edge.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8cb3d0329c41256823a66fc3276711c43da61cdd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493989"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112471"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Didacticiel : Entraîner et déployer un modèle Azure Machine Learning
 

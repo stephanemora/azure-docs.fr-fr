@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516599"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243013"
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
 L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût. 
@@ -76,7 +76,14 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impact du coût de déplacement
-MoveCost comporte quatre niveaux : zéro, faible, moyen et élevé. À l’exception de zéro, ces niveaux MoveCost sont liés les uns aux autres. Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution. Le fait de définir le coût élevé ne garantit *pas* que le réplica reste au même endroit.
+MoveCost comporte cinq niveaux : Zero, Low, Medium, High et VeryHigh. Les règles suivantes s’appliquent :
+
+* À l’exception de Zero et VeryHigh, ces niveaux MoveCost sont liés les uns aux autres. 
+* Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution.
+* Le fait de régler votre coût de déplacement sur High ou VeryHigh ne permet *pas* de garantir que le réplica ne sera *jamais* déplacé.
+* Les réplicas avec un coût de déplacement VeryHigh sont déplacés uniquement une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon (même si elle nécessite de déplacer de nombreux autres réplicas pour résoudre la violation)
+
+
 
 <center>
 
@@ -88,6 +95,9 @@ MoveCost vous permet de rechercher les solutions qui provoquent globalement le m
 - La quantité d’état ou de données que le service doit déplacer.
 - Le coût de déconnexion des clients. Le déplacement d’un réplica principal coûte généralement plus cher que celui d’un réplica secondaire.
 - Le coût d’interruption d’une opération en cours. Certaines opérations au niveau du magasin de données ou en réponse à un appel du client sont coûteuses. Après un certain point, il est préférable de ne pas les arrêter si vous n’êtes pas obligé de le faire. Par conséquent, pendant l’opération, vous augmentez le coût du déplacement de cet objet de service afin de réduire la probabilité qu’il se déplace. Lorsque l’opération se termine, vous rétablissez le coût normal.
+
+> [!IMPORTANT]
+> L’utilisation du coût de déplacement VeryHigh doit être soigneusement envisagée, car elle restreint de manière significative la capacité du Gestionnaire des ressources clusters à trouver une solution de placement globalement optimale dans le cluster. Les réplicas avec un coût de déplacement VeryHigh sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon (même si elle nécessite de déplacer de nombreux autres réplicas pour résoudre la violation)
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>Activer le coût de déplacement dans un cluster
 Pour que les coûts de déplacement pris en compte soient aussi précis que possible, MoveCost doit être activé dans le cluster. Sans ce paramètre, le mode par défaut, qui consiste à compter les déplacements, est utilisé pour calculer MoveCost, et les rapports MoveCost sont ignorés.

@@ -1,20 +1,21 @@
 ---
-title: 'Tutoriel : Créer un enregistrement d’alias Azure DNS pour prendre en charge les noms d’apex de domaine avec Traffic Manager'
+title: 'Didacticiel : Créer un enregistrement d’alias pour prendre en charge les noms Apex de domaine – Traffic Manager'
+titleSuffix: Azure DNS
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour prendre en charge l’utilisation du nom d’apex de votre domaine avec Traffic Manager.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530958"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082254"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutoriel : Configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Didacticiel : Configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
 
 Vous pouvez créer un enregistrement d’alias pour l’apex de votre nom de domaine pour référencer un profil Azure Traffic Manager. contoso.com en est un exemple. Au lieu d’utiliser un service de redirection, vous pouvez configurer Azure DNS pour référencer un profil Traffic Manager directement à partir de votre zone. 
 
@@ -50,7 +51,7 @@ Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveur
 3. Pour **Taille**, sélectionnez une référence SKU avec 8 Go de RAM.
 4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**.
 5. Sélectionnez **Adresse IP publique**. Sous **Affectation**, sélectionnez **Statique**, puis **OK**.
-6. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)**, puis **OK**.
+6. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)** , puis **OK**.
 7. Dans la page **Résumé**, sélectionnez **Créer**. Cette procédure s’achève après quelques minutes.
 
 Répétez cette procédure pour créer une autre machine virtuelle nommée **Web-02**.
@@ -70,7 +71,7 @@ Installez IIS sur **Web-01** et sur **Web-02**.
 
 1. Connectez-vous à **Web-01**.
 2. Dans le tableau de bord **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et fonctionnalités**.
-3. Sélectionnez **Suivant** trois fois de suite. Sur la page **Rôles de serveur**, cliquez sur **Serveur Web (IIS)**.
+3. Sélectionnez **Suivant** trois fois de suite. Sur la page **Rôles de serveur**, cliquez sur **Serveur Web (IIS)** .
 4. Sélectionnez **Ajouter des fonctionnalités**, puis **Suivant**.
 5. Sélectionnez **Suivant** quatre fois de suite. Sélectionnez **Installer**. Cette procédure s’achève après quelques minutes.
 6. Une fois l’installation terminée, sélectionnez **Fermer**.
@@ -84,7 +85,7 @@ Répétez cette procédure pour installer IIS sur **Web-02**.
 1. Ouvrez le groupe de ressources **RG-DNS-Alias-TM**, puis sélectionnez l’adresse IP publique **Web-01-ip**. Notez l’adresse IP pour une utilisation ultérieure. Répétez cette étape pour l’adresse IP publique **Web-02-ip**.
 1. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager**.
 2. Pour le nom, entrez **TM-alias-test**. Placez-le dans le groupe de ressources **RG-DNS-Alias-TM**.
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 5. Dans la page Profil Traffic Manager, sous **Paramètres**, sélectionnez **Points de terminaison**.
 6. Sélectionnez **Ajouter**.

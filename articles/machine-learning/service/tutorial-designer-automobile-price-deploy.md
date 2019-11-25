@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Déployer un modèle Machine Learning avec le concepteur'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer une solution d’analytique prédictive dans le concepteur Azure Machine Learning (préversion). Entraînez, évaluez et déployez un modèle Machine Learning à l’aide de modules de type glisser-déplacer.
+description: Découvrez comment créer une solution d’analytique prédictive dans le concepteur Azure Machine Learning (préversion). Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,23 +9,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715918"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932047"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Didacticiel : Déployer un modèle Machine Learning avec le concepteur (préversion)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la partie 1, vous avez entraîné votre modèle. À présent, il est temps de générer de nouvelles prédictions basées sur des entrées utilisateur. Dans cette partie du didacticiel, vous allez :
+Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la première partie, vous avez entraîné votre modèle. À présent, il est temps de générer de nouvelles prédictions basées sur des entrées utilisateur. Dans cette partie du didacticiel, vous allez :
 
 > [!div class="checklist"]
-> * Créer un pipeline d’inférence en temps réel
-> * Créer un cluster d’inférence
-> * Déployer un point de terminaison en temps réel
-> * Tester un point de terminaison en temps réel
+> * Créez un pipeline d’inférence en temps réel.
+> * Créez un cluster d’inférence.
+> * Déployez le point de terminaison en temps réel.
+> * Testez le point de terminaison en temps réel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,9 +37,9 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Créer un pipeline d’inférence en temps réel
 
-1. En haut du canevas de pipeline, sélectionnez **Create inference pipeline** (Créer un pipeline d’inférence) > **Real-time inference pipeline (Pipeline d’inférence en temps réel)**
+1. Au-dessus du canevas de pipeline, sélectionnez **Create inference pipeline** > **Real-time inference pipeline** (Créer un pipeline d’inférence > Pipeline d’inférence en temps réel).
 
-    Votre pipeline doit maintenant se présenter comme suit :  
+    Votre pipeline doit maintenant se présenter comme suit : 
 
    ![Capture d’écran montrant la configuration attendue du pipeline après sa préparation pour le déploiement](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
@@ -48,13 +48,13 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
     * Le modèle entraîné est stocké sous la forme d’un module **Jeux de données** dans la palette de modules. Vous pouvez le trouver sous **Mes modèles**.
     * Des modules d’entraînement, comme **Train Model** (Entraîner le modèle) et **Split Data** (Fractionner les données) sont supprimés.
     * Le modèle entraîné enregistré est rajouté au pipeline.
-    * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés. Ces modules montrent l’endroit où les données utilisateur sont entrées dans le modèle, et où les données sont retournées.
+    * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés. Ces modules montrent l’emplacement où les données utilisateur sont entrées dans le modèle ainsi que l’emplacement où ces données sont retournées.
 
-    > [!Note]
-    > Le **pipeline d’entraînement** est enregistré sous le nouvel onglet situé en haut du canevas du pipeline. Vous le trouvez également en tant que pipeline publié dans le concepteur.
+    > [!NOTE]
+    > Le *pipeline d’entraînement* est enregistré sous le nouvel onglet situé en haut du canevas du pipeline. Vous le trouvez également en tant que pipeline publié dans le concepteur.
     >
 
-1. Sélectionnez **Exécuter**, et utilisez la même cible de calcul et la même expérience que ce que vous avez utilisé dans la partie 1.
+1. Sélectionnez **Exécuter**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
 
 1. Sélectionnez le module **Scorer le modèle**.
 
@@ -64,24 +64,24 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
 ## <a name="create-an-inferencing-cluster"></a>Créer un cluster d’inférence
 
-Dans la boîte de dialogue qui apparaît, vous pouvez sélectionner n’importe quel cluster Azure Kubernetes Service (AKS) existant dans lequel déployer votre modèle. Si vous n’avez pas de cluster AKS, utilisez les étapes suivantes pour en créer un.
+Dans la boîte de dialogue qui s’affiche, vous pouvez sélectionner n’importe quel cluster AKS (Azure Kubernetes Service) existant sur lequel déployer votre modèle. Si vous n’avez pas de cluster AKS, utilisez les étapes suivantes pour en créer un.
 
-1. Sélectionnez **Capacité de calcul** dans la boîte de dialogue qui s’affiche pour accéder à la page **Capacité de calcul**.
+1. Dans la boîte de dialogue qui s’affiche, sélectionnez **Calculer** pour accéder à la page **Calculer**.
 
-1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau**.
+1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau**.
 
     ![Capture d’écran montrant comment accéder au volet Nouveau cluster d’inférence](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
 1. Dans le volet Cluster d’inférence, configurez un nouveau service Kubernetes.
 
-1. Entrez « aks-compute » pour **Nom de la capacité de calcul**.
+1. Entrez *aks-compute* pour **Nom du calcul**.
     
-1. Sélectionnez une **région** proche disponible.
+1. Sélectionnez une région proche disponible pour **Région**.
 
 1. Sélectionnez **Create** (Créer).
 
-    > [!Note]
-    > La création d’un service AKS prend environ 15 minutes. Vous pouvez vérifier l’état de provisionnement dans la page **Clusters d’inférence**
+    > [!NOTE]
+    > La création d’un service AKS prend environ 15 minutes. Vous pouvez vérifier l’état de provisionnement dans la page **Clusters d’inférence**.
     >
 
 ## <a name="deploy-the-real-time-endpoint"></a>Déployer le point de terminaison en temps réel
@@ -98,11 +98,11 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
     ![Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
-    Une notification de réussite apparaît au-dessus du canevas une fois le déploiement terminé, ce qui peut prendre quelques minutes.
+    Une notification de réussite s’affiche au-dessus du canevas, une fois le déploiement effectué. Cela peut prendre quelques minutes.
 
 ## <a name="test-the-real-time-endpoint"></a>Tester le point de terminaison en temps réel
 
-À l’issue du déploiement, vous pouvez tester votre point de terminaison en temps réel en accédant à la page **Points de terminaison**.
+Une fois le déploiement effectué, vous pouvez tester votre point de terminaison en temps réel en accédant à la page **Points de terminaison**.
 
 1. Dans la page **Points de terminaison**, sélectionnez le point de terminaison que vous avez déployé.
 
@@ -110,9 +110,9 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 1. Sélectionnez **Test**.
 
-1. Vous pouvez entrer des données de test manuellement ou utiliser les exemples de données automatiquement renseignés, puis sélectionnez **Test** (Tester).
+1. Vous pouvez entrer manuellement des données de test ou utiliser les exemples de données automatiquement renseignés, puis sélectionner **Test** (Tester).
 
-    Le portail soumet une requête de test au point de terminaison et affiche les résultats. Même si une valeur de prix est générée pour les données d’entrée, celle-ci n’est pas utilisée pour générer la valeur de prédiction.
+    Le portail soumet une requête de test au point de terminaison et affiche les résultats. Bien qu’une valeur de prix soit générée pour les données d’entrée, elle n’est pas utilisée pour générer la valeur de prédiction.
 
     ![Capture d’écran montrant comment tester le point de terminaison en temps réel avec l’étiquette scorée pour le prix mise en surbrillance](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
@@ -122,7 +122,7 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez découvert les étapes clés de la création, du déploiement et de la consommation d’un modèle Machine Learning dans le concepteur. Pour plus d’informations sur la façon dont vous pouvez utiliser le concepteur pour résoudre d’autres types de problèmes, consultez nos autres exemples de pipelines.
+Dans ce tutoriel, vous avez découvert les étapes clés de la création, du déploiement et de la consommation d’un modèle Machine Learning dans le concepteur. Pour en savoir plus sur l’utilisation du concepteur pour résoudre d’autres types de problème, consultez nos autres exemples de pipelines.
 
 > [!div class="nextstepaction"]
 > [Exemple de classification de risque de crédit](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582496"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049140"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Didacticiel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Dans la barre supérieure, sélectionnez une machine virtuelle Notebook à utiliser pour exécuter le notebook. Ces machines virtuelles sont préconfigurées avec tout ce dont vous avez besoin pour exécuter Azure Machine Learning. Vous pouvez sélectionner une machine virtuelle créée par n’importe quel utilisateur de votre espace de travail. 
 
-1. Si aucune machine virtuelle n’est trouvée, sélectionnez **+ Add Compute** (+ Ajouter une capacité de calcul) pour créer la machine virtuelle.
+1. S’il n’existe aucune machine virtuelle, sélectionnez **+ Add VM** (Ajouter une machine virtuelle) pour en créer une. 
 
     1. Quand vous créez une machine virtuelle, indiquez un nom.  Le nom doit être compris entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère« - ». De plus, les noms doivent être uniques dans votre abonnement Azure.
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747029"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074656"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Sauvegarder une base de données SQL Server dans une machine virtuelle Azure
 
@@ -23,7 +23,7 @@ Ce tutoriel vous explique comment sauvegarder, dans un coffre Recovery Services 
 > * Créer et configurer un coffre
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
-> * Exécutez une sauvegarde ad hoc.
+> * Exécuter une sauvegarde à la demande
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -102,7 +102,7 @@ Détectez les bases de données en cours d’exécution sur la machine virtuelle
 
     ![Message Déploiement réussi](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. La sauvegarde Azure détecte toutes les bases de données SQL Server résidant sur la machine virtuelle. Lors de la découverte, les événements ci-dessous se produisent en arrière-plan :
+8. La sauvegarde Azure détecte toutes les bases de données SQL Server résidant sur la machine virtuelle. Lors de la découverte, les événements suivants se produisent en arrière-plan :
 
     * La sauvegarde Azure inscrit la machine virtuelle auprès du coffre pour la sauvegarde de la charge de travail. Les bases de données présentes sur la machine virtuelle inscrite ne peuvent être sauvegardées que sur ce coffre.
     * La sauvegarde Azure installe l’extension **AzureBackupWindowsWorkload** sur la machine virtuelle. Aucun agent n’est installé sur la base de données SQL.
@@ -215,7 +215,7 @@ Pour créer une stratégie de sauvegarde :
 
 14. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**.
 
-## <a name="run-an-ad-hoc-backup"></a>Exécuter une sauvegarde ad hoc
+## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 
 1. Dans le coffre Recovery Services, choisissez Éléments de la sauvegarde.
 2. Cliquez sur « SQL dans Azure VM ».
@@ -233,7 +233,7 @@ Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opé
 > * Créer et configurer un coffre
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
-> * Exécutez une sauvegarde ad hoc.
+> * Exécuter une sauvegarde à la demande
 
 Passez au didacticiel suivant pour restaurer une machine virtuelle Azure à partir d’un disque.
 

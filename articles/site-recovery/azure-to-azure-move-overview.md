@@ -1,34 +1,23 @@
 ---
-title: Déplacer des machines virtuelles IaaS Azure vers une autre région Azure à l’aide du service Azure Site Recovery | Microsoft Docs
-description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles IaaS Azure d’une région Azure à l’autre.
-services: site-recovery
+title: Déplacement de machines virtuelles Azure vers une autre région à l’aide d’Azure Site Recovery
+description: Utilisation d’Azure Site Recovery pour déplacer des machines virtuelles Azure d’une région Azure vers une autre.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078004"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091937"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
+# <a name="moving-azure-vms-to-another-azure-region"></a>Déplacement de machines virtuelles Azure vers une autre région Azure
 
-Azure enregistre une croissance à l’image de sa base de clients et prend en charge de nouvelles régions pour répondre à une demande en hausse. De nouvelles fonctionnalités sont également ajoutées chaque mois aux services. Vous souhaiterez peut-être déplacer vos machines virtuelles dans une autre région ou dans d’autres zones de disponibilité pour en augmenter la disponibilité.
+Cet article fournit une vue d’ensemble des raisons et des étapes relatives au déplacement de machines virtuelles Azure vers une autre région Azure à l’aide d’[Azure Site Recovery](site-recovery-overview.md). 
 
-Ce tutoriel décrit les différents scénarios dans lesquels vous pourriez vouloir déplacer vos machines virtuelles. Il décrit également comment configurer l’architecture dans la région cible pour garantir une meilleure disponibilité. 
-
-Dans ce tutoriel, vous allez découvrir :
-
-> [!div class="checklist"]
-> 
-> * Les raisons pouvant motiver un déplacement de machines virtuelles
-> * Les architectures classiques
-> * Le déplacement de machines virtuelles en l’état vers une région cible
-> * Le déplacement de machines virtuelles pour augmenter la disponibilité
 
 ## <a name="reasons-to-move-azure-vms"></a>Raisons pouvant motiver un déplacement de machines virtuelles Azure
 

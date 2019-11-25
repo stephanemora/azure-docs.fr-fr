@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Superviser des machines virtuelles Linux dans Azure | Microsoft Docs
+title: 'Tutoriel : Superviser des machines virtuelles Linux dans Azure'
 description: Dans ce tutoriel, vous allez apprendre à superviser les performances ainsi que les composants d’application découverts qui s’exécutent sur vos machines virtuelles Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71679410"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111995"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Didacticiel : Superviser une machine virtuelle Linux dans Azure
 
@@ -133,7 +133,7 @@ Pour activer la supervision de votre machine virtuelle Azure avec Azure Monitor 
 
 3. Sur la page **Insights (préversion)** , sélectionnez **Essayer maintenant**.
 
-    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. Dans la page **Intégration des insights de Azure Monitor**, si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  
 

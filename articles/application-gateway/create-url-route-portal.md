@@ -1,18 +1,18 @@
 ---
-title: Tutoriel - Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL - Portail Azure
+title: 'Didacticiel : Règles de routage basées sur un chemin d’URL à l’aide du portail – Azure Application Gateway'
 description: Dans ce tutoriel, découvrez comment créer des règles d’acheminement par chemin d’accès URL pour une passerelle d’application et un groupe de machines virtuelles identiques avec le portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2cb21eb98e698ab44d73ada195fdcb7d7aac8839
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844641"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048134"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Didacticiel : Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 

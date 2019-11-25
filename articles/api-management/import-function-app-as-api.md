@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073347"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107851"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -142,7 +142,7 @@ Accédez à votre instance de Gestion des API Azure et sélectionnez **Valeurs n
 
 ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Tester la nouvelle API Gestion des API dans le portail Azure
+## <a name="test-in-azure-portal"></a> Tester la nouvelle API dans le Portail Azure
 
 Vous pouvez appeler des opérations directement depuis le portail Azure. Le portail Azure est pratique pour afficher et tester les opérations d’une API.  
 
@@ -157,26 +157,6 @@ Vous pouvez appeler des opérations directement depuis le portail Azure. Le port
 4. Sélectionnez **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.
-
-## <a name="test-in-developer-portal"></a> Appeler une opération à partir du portail des développeurs
-
-Vous pouvez également appeler des opérations à partir du portail des développeurs pour tester les API. 
-
-1. Sélectionnez l’API que vous avez créée à l’étape Importer et publier une API de serveur principal.
-
-2. Sélectionnez **Portail des développeurs**.
-
-    Le site « Portail des développeurs » s’ouvre.
-
-3. Sélectionnez l’**API** que vous avez créée.
-
-4. Cliquez sur l’opération que vous souhaitez tester.
-
-5. Sélectionnez **Essayer**.
-
-6. Sélectionnez **Envoyer**.
-    
-    Après l’appel d’une opération, le portail des développeurs affiche le **statut de réponse**, les **en-têtes de réponse**, et tout **contenu de la réponse**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure PowerShell | Microsoft Docs
-description: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure PowerShell
+title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure PowerShell
+description: Configurez le routage des messages pour Azure IoT Hub à l’aide d’Azure PowerShell. En fonction des propriétés du message, effectuez le routage vers un compte de stockage ou une file d’attente Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535134"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084433"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure PowerShell pour configurer le routage des messages IoT Hub
 
@@ -34,13 +34,13 @@ Commencez par créer les ressources avec PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Utiliser PowerShell pour créer vos ressources de base
 
-Certains noms de ressources doivent être globalement uniques, tels que le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
+Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Cette première section du script crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus. Dans les étapes suivantes du tutoriel, vous devrez copier chaque bloc de script et le coller dans Cloud Shell pour l’exécuter.
+
+Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
 
 > [!IMPORTANT]
 > Les variables définies dans le script initial étant également utilisées par le script de routage, vous devez exécuter le script entier dans la même session Cloud Shell. Si vous ouvrez une nouvelle session pour exécuter le script de configuration du routage, plusieurs variables n’auront pas de valeurs définies. 
 >
-
-Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Cette première section du script crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus. Dans les étapes suivantes du tutoriel, vous devrez copier chaque bloc de script et le coller dans Cloud Shell pour l’exécuter.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,7 +140,7 @@ Configurez d’abord le point de terminaison pour le compte de stockage, puis cr
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Les variables suivantes sont définies :
+Voici les variables utilisées par le script, que vous devez définir dans votre session Cloud Shell :
 
 **resourceGroup** : ce champ apparaît à deux endroits. Définissez chaque occurrence sur votre groupe de ressources.
 
@@ -162,7 +162,7 @@ Les variables suivantes sont définies :
 
 **condition** : ce champ correspond à la requête utilisée pour filtrer les messages envoyés à ce point de terminaison. La condition de requête pour les messages routés vers le stockage est `level="storage"`.
 
-**enabled** : ce champ a la valeur `true` par défaut, spécifiant que la route des messages doit être activée après sa création.
+**enabled** : La valeur par défaut de ce champ est `true`, ce qui indique que le routage du message doit être activé après sa création.
 
 Copiez ce script et collez-le dans la fenêtre Cloud Shell.
 
@@ -232,7 +232,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Configurez maintenant le point de terminaison de routage et la route des messages vers la file d’attente Service Bus. Les variables suivantes sont définies :
+Configurez maintenant le point de terminaison de routage et la route des messages pour la file d’attente Service Bus. Voici les variables utilisées par le script, que vous devez définir dans votre session Cloud Shell :
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 

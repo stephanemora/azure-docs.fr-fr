@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint de base du framework d’adoption du cloud – Vue d’ensemble
-description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud.
+description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: a353f92be995412702a93219c8fb1af967368beb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2943d3327fe6ea3c935694118aaa995b8e96ace6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038504"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404796"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -50,7 +50,7 @@ Pour plus d’informations, voir [Framework d’adoption de Microsoft Cloud pour
 Vous avez découvert la vue d’ensemble et l’architecture de l’exemple de blueprint de base du framework d’adoption du cloud.
 
 > [!div class="nextstepaction"]
->  [Blueprint de base du framework d’adoption du cloud – Étapes de déploiement](./deploy.md)
+> [Blueprint de base du framework d’adoption du cloud – Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

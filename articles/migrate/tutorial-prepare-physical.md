@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747978"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091916"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -99,25 +99,25 @@ Pour préparer l’évaluation des serveurs physiques, vous devez vérifier les 
 
 ### <a name="verify-physical-server-settings"></a>Vérifier les paramètres des serveurs physiques
 
-1. Vérifiez la [configuration requise des serveurs physiques](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) pour l’évaluation.
-2. Vérifiez que les [ports obligatoires](migrate-support-matrix-hyper-v.md#assessment-port-requirements) sont ouverts sur les serveurs physiques.
+1. Vérifiez la [configuration requise des serveurs physiques](migrate-support-matrix-physical.md#assessment-physical-server-requirements) pour l’évaluation.
+2. Vérifiez que les [ports obligatoires](migrate-support-matrix-physical.md#assessment-port-requirements) sont ouverts sur les serveurs physiques.
 
 
 ### <a name="verify-appliance-settings"></a>Vérifier les paramètres de l’appliance
 
 Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le tutoriel suivant, préparez le déploiement de l’appliance.
 
-1. [Vérifiez](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) la configuration requise de l’appliance.
-2. [Passez en revue](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) les URL Azure auxquelles l’appliance devra accéder.
+1. [Vérifiez](migrate-support-matrix-physical.md#assessment-appliance-requirements) la configuration requise de l’appliance.
+2. [Passez en revue](migrate-support-matrix-physical.md#assessment-appliance-url-access) les URL Azure auxquelles l’appliance devra accéder.
 3. Passez en revue les données que l’appliance va collecter pendant la découverte et l’évaluation.
-4. [Notez](migrate-support-matrix-hyper-v.md#assessment-port-requirements) les conditions d’accès aux ports pour l’appliance.
+4. [Notez](migrate-support-matrix-physical.md#assessment-port-requirements) les conditions d’accès aux ports pour l’appliance.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurer un compte pour la découverte des serveurs physiques
 
 Azure Migrate a besoin d’autorisations pour découvrir les serveurs locaux.
 
-- **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Le compte d’utilisateur doit être ajouté aux groupes suivants : - Utilisateurs du Bureau à distance       - Utilisateurs de l’Analyseur de performances       - Utilisateurs du journal de performances
+- **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la détection. Le compte d’utilisateur doit être ajouté aux groupes suivants :       - Utilisateurs de gestion à distance       - Utilisateurs de l’Analyseur de performances       - Utilisateurs du journal de performances
 - **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir.
 
 

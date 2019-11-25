@@ -1,21 +1,18 @@
 ---
 title: Exemple - Coffres de clés sans point de terminaison de réseau virtuel
 description: Cet exemple de définition de stratégie audite les coffres de clés pour détecter les instances qui n’ont pas de points de terminaison de service de réseau virtuel.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255722"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076201"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemple - Coffres de clés sans points de terminaison de réseau virtuel
 
-Cette stratégie audite les coffres Key Vault n’ayant aucun point de terminaison de réseau virtuel. Utilisez cette option pour appliquer vos exigences de sécurité. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel dans Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
+Cet exemple d’[intégration de Key Vault avec Azure Policy](../../../key-vault/azure-policy.md) audite les coffres de clés qui n’ont pas de points de terminaison de réseau virtuel. Utilisez cette option pour appliquer vos exigences de sécurité. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel dans Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 Vous pouvez déployer cette exemple de stratégie à l’aide des éléments suivants :
 
@@ -177,7 +174,7 @@ Il existe plusieurs outils permettant d’interagir avec l’API REST Resource M
 
 ### <a name="rest-api-explanation"></a>Explication de l’API REST
 
-| de diffusion en continu | Groupe | Opération | Notes |
+| Service | Groupe | Opération | Notes |
 |---|---|---|---|
 | Gestion des ressources | Définitions de stratégies | [Créer](/rest/api/resources/policydefinitions/createorupdate) | Crée une définition Azure Policy au niveau d’un abonnement. Alternative : [Créer au niveau du groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestion des ressources | Affectations de stratégies | [Créer](/rest/api/resources/policyassignments/create) | Crée une affectation Azure Policy. Dans cet exemple, nous lui fournissons une définition, mais elle peut également en prendre l’initiative. |
@@ -187,4 +184,5 @@ Il existe plusieurs outils permettant d’interagir avec l’API REST Resource M
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consulter d’autres [exemples Azure Policy](index.md)
+- Découvrez comment [intégrer Azure Key Vault avec Azure Policy](../../../key-vault/azure-policy.md).
 - Consulter [Structure de définition Azure Policy](../concepts/definition-structure.md)

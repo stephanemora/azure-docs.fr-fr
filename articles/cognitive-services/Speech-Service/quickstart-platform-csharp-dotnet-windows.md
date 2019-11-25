@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Configuration de la plateforme du Kit de développement logiciel (SDK) Speech pour .NET Framework (Windows) - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Configuration de la plateforme du SDK Speech pour .NET Framework (Windows) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour configurer votre plateforme pour C# sous .NET Framework pour Windows avec le Speech Services SDK.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: e6447df56ebbb3d88ace22645ba9bb18be4c9558
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: efd4339f55f2b5454e3ad9853b9c8d833763ea86
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504434"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111002"
 ---
 # <a name="quickstart-speech-sdk-for-net-framework-windows-platform-setup"></a>Démarrage rapide : Configuration de la plateforme du Kit de développement logiciel (SDK) Speech pour .NET Framework (Windows)
 

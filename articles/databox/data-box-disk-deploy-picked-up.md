@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128685"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092075"
 ---
 ::: zone target="chromeless"
 
@@ -137,11 +137,25 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
     - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** et récupérez une étiquette d’expédition de retour.
     - Collez l’étiquette sur l’appareil. Vérifiez que l’étiquette est visible.
 
-2. Pour demander un enlèvement :
-    - Appelez **SingPost** au **6845 6485** pendant des heures de bureau (de 9 à 17 h, du lundi au vendredi).  
-    - Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service (numéro de suivi sur l’étiquette de réexpédition) pour organiser l’enlèvement. 
-    - Vous recevrez une confirmation verbale pour la planification de l’enlèvement. 
-    - Si le transporteur ne se présente pas pour l’enlèvement, appelez **SingPost** au **6845 6485** pour trouver une autre solution. 
+2. Pour demander la collecte, envoyez un e-mail au service client SingPost en utilisant le modèle suivant, avec le numéro de suivi (le numéro de suivi se trouve sur l’étiquette de retour fournie dans le package remis).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Pour les demandes de réservation reçues un jour ouvré :
+   > - Avant 15 h, la collecte sera effectuée le jour ouvré suivant entre 9 h et 13 h.
+   > - Après 15 h, la collecte sera effectuée le jour ouvré suivant entre 14 h et 18 h.
+
+   Si vous rencontrez des problèmes, contactez l’équipe Data Box Operations Asia à l’adresse suivante : adbo@microsoft.com. Indiquez le nom de la tâche dans l’objet du message, ainsi que le problème rencontré.
+
 3. Remettez le colis au transporteur. 
 
 

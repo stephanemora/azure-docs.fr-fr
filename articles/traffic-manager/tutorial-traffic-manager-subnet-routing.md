@@ -1,5 +1,5 @@
 ---
-title: Configurer la méthode de routage du trafic de sous-réseau à l’aide d’Azure Traffic Manager
+title: 'Tutoriel : Configurer le routage du trafic de sous-réseau - Azure Traffic Manager'
 description: Cet article explique comment configurer Traffic Manager pour router le trafic des sous-réseaux des utilisateurs vers des points de terminaison spécifiques.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304946"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048825"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Didacticiel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
 Cet article explique comment configurer la méthode de routage du trafic de sous-réseau. La méthode de routage du trafic de **sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP à des points de terminaison spécifiques. Quand une requête est reçue par Traffic Manager, ce dernier inspecte l’adresse IP source de la requête et retourne le point de terminaison associé.
 
@@ -156,8 +156,8 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |
-    | Abonnement            | Sélectionnez votre abonnement.                          |
-    | Groupe de ressources          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
+    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Resource group          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
     | |                              |
     |
 

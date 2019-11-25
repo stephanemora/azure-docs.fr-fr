@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : équilibrer la charge des machines virtuelles Windows dans Azure | Microsoft Docs'
+title: 'Tutoriel : Équilibrer la charge des machines virtuelles Windows dans Azure'
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell afin de créer un équilibreur de charge pour une application hautement disponible et sécurisée sur trois machines virtuelles Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe202712f5e269950b64046453867bd23d18a9ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100219"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067862"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Didacticiel : Équilibrer la charge des machines virtuelles Windows dans Azure pour créer une application hautement disponible avec Azure PowerShell
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :

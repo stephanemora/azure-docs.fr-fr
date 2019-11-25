@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Gérer des machines virtuelles Azure avec Azure PowerShell | Microsoft Docs'
+title: 'Tutoriel : Gérer des machines virtuelles Azure avec Azure PowerShell'
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell afin de gérer les machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 3a0821885361fa4781c75b0ed4caa71f9fda37a1
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9f806c6790c953d86cf7fe99daf40c17a43d2d35
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749127"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067944"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Didacticiel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
 

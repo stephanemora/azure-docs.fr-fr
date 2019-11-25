@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471346"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835876"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -330,7 +330,7 @@ En bas de la page, le répertoire virtuel racine `/` pointe par défaut vers `si
 
 ![Personnalisation du répertoire virtuel](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Une fois l’opération terminée, votre application devrait renvoyer la bonne page sur le chemin racine (par exemple, http://contoso.com).
+Une fois l’opération terminée, votre application devrait renvoyer la bonne page sur le chemin racine (par exemple, `http://contoso.com`).
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 

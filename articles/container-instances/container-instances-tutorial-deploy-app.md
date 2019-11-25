@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325632"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846598"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutoriel : Déployer une application conteneur sur Azure Container Instances
 
@@ -37,7 +37,9 @@ Dans cette section, vous utilisez l’interface Azure CLI pour déployer l’ima
 
 ### <a name="get-registry-credentials"></a>Obtenir les informations d’identification du registre
 
-Lorsque vous déployez une image qui est hébergée dans un registre de conteneurs privé, tel que celui créé dans le [deuxième tutoriel](container-instances-tutorial-prepare-acr.md), vous devez fournir les informations d’identification pour accéder au registre. Comme indiqué dans [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances](../container-registry/container-registry-auth-aci.md), une bonne pratique à suivre dans de nombreux scénarios consiste à créer et à configurer un principal du service Azure Active Directory avec des autorisations d’accès en *extraction* (pull) à votre registre. Consultez cet article pour des exemples de scripts de création d’un principal de service avec les autorisations nécessaires. Notez l’ID et le mot de passe du principal de service. Vous utilisez ces informations d’identification lorsque vous déployez le conteneur.
+Lorsque vous déployez une image qui est hébergée dans un registre de conteneurs Azure privé, tel que celui créé dans le [deuxième tutoriel](container-instances-tutorial-prepare-acr.md), vous devez fournir les informations d’identification pour accéder au registre. 
+
+Une bonne pratique à suivre dans de nombreux scénarios consiste à créer et à configurer un principal de service Azure Active Directory avec des autorisations d’accès en *extraction* (pull) à votre registre. Consultez [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances](../container-registry/container-registry-auth-aci.md) pour obtenir des exemples de scripts afin de créer un principal de service doté des autorisations nécessaires. Notez l’*ID du principal de service* et le *mot de passe du principal de service*. Vous utilisez ces informations d’identification pour accéder au registre lorsque vous déployez le conteneur.
 
 Vous avez également besoin du nom complet du serveur de connexion au registre de conteneurs (remplacez `<acrName>` par le nom de votre registre) :
 

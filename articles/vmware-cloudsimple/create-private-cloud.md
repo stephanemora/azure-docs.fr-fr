@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828158"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893918"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Créer un cloud privé CloudSimple
 
@@ -31,6 +31,16 @@ La création d’un cloud privé vous permet de répondre à divers besoins cour
 
 Lorsque vous créez un cloud privé, vous obtenez un cluster vSphere unique et toutes les machines virtuelles qui sont créées dans ce cluster de gestion.
 
+## <a name="before-you-begin"></a>Avant de commencer
+
+Les nœuds doivent être configurés avant de pouvoir créer votre cloud privé. Pour plus d’informations sur l’approvisionnement des nœuds, consultez l’article [Approvisionner des nœuds pour Azure VMware Solution by CloudSimple](create-nodes.md).
+
+Allouez une plage CIDR pour les sous-réseaux vSphere/vSAN pour le cloud privé. Un cloud privé est créé sous la forme d’un environnement isolé de la pile VMware (avec hôtes ESXi, vCenter, vSAN et NSX) géré par un serveur vCenter. Les composants de gestion sont déployés sur le réseau sélectionné pour la plage CIDR de sous-réseaux vSphere/vSAN. La plage CIDR du réseau est divisée en plusieurs sous-réseaux pendant le déploiement. L’espace d’adressage du sous-réseau vSphere/vSAN doit être unique. Il ne doit chevaucher aucun réseau qui communique avec l’environnement CloudSimple. Les réseaux qui communiquent avec CloudSimple incluent les réseaux locaux et les réseaux virtuels Azure. Pour plus d’informations sur les sous-réseaux vSphere/vSAN, consultez Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux.
+
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN minimum : /24
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN maximum : /21
+
+
 ## <a name="access-the-cloudsimple-portal"></a>Accéder au portail CloudSimple
 
 Accédez au [portail CloudSimple](access-cloudsimple-portal.md).
@@ -46,7 +56,7 @@ Accédez au [portail CloudSimple](access-cloudsimple-portal.md).
 
 5. Dans le portail CloudSimple, fournissez un nom pour votre cloud privé.
 6. Sélectionnez l’**Emplacement** de votre cloud privé.
-7. Sélectionnez le **Type de nœud** conformément à ce que vous avez acheté sur Azure.
+7. Sélectionnez le **Type de nœud**, conformément à ce que vous avez approvisionné sur Azure.
 8. Spécifiez le **Nombre de nœuds**.  Au moins trois nœuds sont nécessaires pour créer un cloud privé.
 
     ![Créer un cloud privé - Informations de base](media/create-private-cloud-basic-info.png)

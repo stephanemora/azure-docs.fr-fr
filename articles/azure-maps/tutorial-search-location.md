@@ -1,22 +1,22 @@
 ---
-title: Rechercher avec Azure Maps | Microsoft Docs
-description: Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps
+title: 'Didacticiel : Rechercher avec Azure Maps'
+description: 'Didacticiel : Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8945ccef1dd44570f4f59c7c91c2fe05b222c5bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576921"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109519"
 ---
-# <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Didacticiel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
 Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

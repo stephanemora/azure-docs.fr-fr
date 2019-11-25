@@ -1,5 +1,5 @@
 ---
-title: Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion) | Microsoft Docs
+title: Communiquer avec une application d’appareil en Node.js avec des flux d'appareil Azure IoT Hub
 description: Dans ce guide de démarrage rapide, vous allez exécuter une application côté service Node.js qui communique avec un appareil IoT par le biais d’un flux d’appareil.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4acfe148e424d41308e310abd2a10e4e21133799
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900841"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083730"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 

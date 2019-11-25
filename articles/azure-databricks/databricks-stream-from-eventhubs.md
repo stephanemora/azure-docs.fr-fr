@@ -10,17 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784019"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121277"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
-
-> [!IMPORTANT]
-> Ce tutoriel fonctionne avec Azure Databricks Runtime 5.2.
 
 Dans ce didacticiel, vous connectez un système d’ingestion des données à Azure Databricks pour diffuser en continu des données en temps quasi-réel dans un cluster Apache Spark. Vous allez configurer le système d’ingestion des données à l’aide d’Azure Event Hubs et le connecter à Azure Databricks pour traiter les messages entrants. Pour accéder à un flux de données, vous allez utiliser des API Twitter pour faire ingérer des tweets à Event Hubs. Une fois les données reçues dans Azure Databricks, vous pourrez exécuter des tâches d’analyse pour aller plus loin.
 
@@ -104,10 +101,10 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **5.2**.
+   * Pour cet article, créez un cluster avec le runtime **6.0*.
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
-   Sélectionnez la taille des nœuds worker et de pilote adaptée à vos critères techniques et à votre [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/).
+   Sélectionnez la taille des nœuds worker et de pilote adaptée à vos critères techniques et à votre [budget](https://azure.microsoft.com/pricing/details/databricks/).
 
      Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 

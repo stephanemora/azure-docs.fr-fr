@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585585"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838943"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>Comment baliser des images dans un projet d’étiquetage
 
-Une fois que votre administrateur de projet a créé un projet d’étiquetage dans Azure Machine Learning Studio, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données destinée à un projet de Machine Learning. 
+Une fois que votre administrateur de projet a créé un projet d’étiquetage dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données d’un projet de Machine Learning. 
 
 > [!div class="checklist"]
 > * Comment accéder à vos projets d’étiquetage

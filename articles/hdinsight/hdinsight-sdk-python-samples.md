@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
-ms.openlocfilehash: 9afb65b320b440920a1fca1dec7146073ba05821
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/08/2019
+ms.openlocfilehash: 14d7c6c6352528207a20071908c31ea684dde19d
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074930"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903633"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight : Exemples Python
 
@@ -22,24 +22,23 @@ ms.locfileid: "71074930"
 > * [Exemples Java](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
-
 Cet article fournit :
 
 * Liens vers des exemples de tâches de création de cluster.
 * Liens vers du contenu de référence pour d’autres tâches de gestion.
 
-## <a name="prerequisites"></a>Prérequis
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [SDK Azure HDInsight pour Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>Prérequis
+
+[SDK Azure HDInsight pour Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Gestion des clusters - création
 
-* [Créer un cluster Kafka](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
-* [Créer un cluster Spark](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Créer un cluster Spark avec Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
-* [Créer un cluster Spark avec l’offre Pack Sécurité Entreprise](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
+* [Créer un cluster Apache Kafka](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
+* [Créer un cluster Apache Spark](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
+* [Créer un cluster Apache Spark avec Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Créer un cluster Apache Spark avec le Pack Sécurité Entreprise](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
 Vous pouvez obtenir ces exemples pour Python en clonant le dépôt GitHub [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples).
 

@@ -1,20 +1,21 @@
 ---
-title: 'Tutoriel : Créer un enregistrement d’alias Azure DNS pour référencer un enregistrement de ressource dans la zone.'
+title: 'Didacticiel : Créer un enregistrement d’alias pour référencer un enregistrement de ressource dans une zone'
+titleSuffix: Azure DNS
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour référencer un enregistrement de ressource dans la zone.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: allensu
+ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091638"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082888"
 ---
-# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutoriel : Créer un enregistrement d’alias pour référencer un enregistrement de ressource de zone
+# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Didacticiel : Créer un enregistrement d’alias pour référencer un enregistrement de ressource de zone
 
 Les enregistrements d’alias peuvent référencer d’autres jeux d’enregistrements du même type. Par exemple, un jeu d’enregistrements CNAME DNS peut être un alias pour un autre jeu d’enregistrements CNAME du même type. Cette fonctionnalité est pratique si vous voulez que certains jeux d’enregistrements se comportent comme des alias et d’autres comme des non-alias.
 
@@ -22,7 +23,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créez un enregistrement d’alias pour un enregistrement de ressource dans la zone.
-> * Testez l’enregistrement d’alias.
+> * Tester l’enregistrement d’alias.
 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -30,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
-Pour obtenir des instructions pour héberger votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
+Pour obtenir des instructions sur l’hébergement de votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
 
 
 ## <a name="create-an-alias-record"></a>Créer un enregistrement d’alias
@@ -38,7 +39,7 @@ Pour obtenir des instructions pour héberger votre domaine dans Azure DNS, consu
 Créez un enregistrement d’alias qui pointe vers un enregistrement de ressource dans la zone.
 
 ### <a name="create-the-target-resource-record"></a>Créer l’enregistrement de ressource cible
-1. Sélectionnez votre zone Azure DNS pour l’ouvrir.
+1. Sélectionnez votre zone Azure DNS pour ouvrir la zone.
 2. Sélectionnez **+ Jeu d’enregistrements**.
 3. Dans la zone de texte **Nom**, entrez **server**.
 4. Pour le **Type**, sélectionnez **A**.
@@ -46,7 +47,7 @@ Créez un enregistrement d’alias qui pointe vers un enregistrement de ressourc
 6. Sélectionnez **OK**.
 
 ### <a name="create-the-alias-record"></a>Créer l’enregistrement d’alias
-1. Sélectionnez votre zone Azure DNS pour l’ouvrir.
+1. Sélectionnez votre zone Azure DNS pour ouvrir la zone.
 2. Sélectionnez **+ Jeu d’enregistrements**.
 3. Dans la zone de texte **Nom**, entrez **test**.
 4. Pour le **Type**, sélectionnez **A**.
@@ -57,7 +58,7 @@ Créez un enregistrement d’alias qui pointe vers un enregistrement de ressourc
 ## <a name="test-the-alias-record"></a>Tester l’enregistrement d’alias
 
 1. Lancez votre outil nslookup préféré. Une option est d’accéder à [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Définissez le type de requête pour les enregistrements A et recherchez **test.\<votre nom de domaine\>**. La réponse est **10.10.10.10**.
+2. Définissez le type de requête pour les enregistrements A et recherchez **test.\<votre nom de domaine\>** . La réponse est **10.10.10.10**.
 3. Dans le portail Azure, changez l’enregistrement A **server** en **10.11.11.11**.
 4. Attendez quelques minutes, puis utilisez à nouveau nslookup pour l’enregistrement **test**. La réponse est **10.11.11.11**.
 

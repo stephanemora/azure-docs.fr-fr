@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer des machines virtuelles exécutant une pile SQL, IIS, .NET dans Azure | Microsoft Docs'
+title: 'Tutoriel : Créer des machines virtuelles exécutant une pile SQL, IIS ou .NET dans Azure'
 description: Dans ce tutoriel, vous allez apprendre à installer la pile Azure SQL, IIS, .NET sur une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8b2cf6f5475966426ee75cf73ce7bd84abc9ba42
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101622"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064657"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Didacticiel : Installer la pile SQL, IIS, .NET dans une machine virtuelle Windows avec Azure PowerShell
 

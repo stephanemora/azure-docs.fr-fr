@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666094"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837413"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Didacticiel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -145,7 +145,7 @@ Une fois que vous avez terminé l’inscription de votre domaine personnalisé, 
  
 1. Assurez-vous d’avoir un contenu public qui est mis en cache au point de terminaison. Par exemple, si votre point de terminaison CDN est associé à un compte de stockage, Azure CDN met en cache le contenu dans un conteneur public. Pour tester le domaine personnalisé, assurez-vous que votre conteneur est configuré pour autoriser l’accès public et qu’il contient au moins un fichier.
 
-2. Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est www.contoso.com, l’URL vers l’objet mis en cache sera similaire à la suivante : http:\//www.contoso.com/my-public-container/my-file.jpg. Vérifiez que le résultat est identique au résultat que vous obtenez lorsque vous accédez au point de terminaison CDN directement à *&lt;nom d’hôte du point de terminaison&gt;* .azureedge.net.
+2. Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est `www.contoso.com`, l’URL vers le fichier mis en cache doit être similaire à l’URL suivante : `http://www.contoso.com/my-public-container/my-file.jpg`. Vérifiez que le résultat est identique au résultat que vous obtenez lorsque vous accédez au point de terminaison CDN directement à *&lt;nom d’hôte du point de terminaison&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapper le domaine personnalisé permanent

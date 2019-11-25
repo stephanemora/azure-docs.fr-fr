@@ -1,21 +1,21 @@
 ---
-title: Préparer les ressources Azure pour la récupération d’urgence de machines locales
+title: Préparer Azure à la reprise d’activité après sinistre pour Hyper-V à l’aide d’Azure Site Recovery
 description: Découvrez comment préparer Azure à la reprise d’activité des machines virtuelles Hyper-V locales à l’aide d’Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814332"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084170"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Préparer les ressources Azure à la reprise d’activité après sinistre pour Hyper-V
 
  [Azure Site Recovery](site-recovery-overview.md) fournit une aide à la continuité d’activité et reprise d’activité en garantissant le bon fonctionnement et la disponibilité des applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: be6eb6f13d7abf80537d155472a4072f7d08c06c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747463"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091595"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -119,7 +119,7 @@ Oui. Reportez-vous à la documentation détaillée [ici](backup-azure-afs-automa
 
 Tous les instantanés pris par Azure Backup sont accessibles par l’option Voir les instantanés dans le portail, PowerShell ou CLI. Pour en savoir plus sur les instantanés de partage de fichiers Azure, consultez [Vue d’ensemble des instantanés de partage pour Azure Files (préversion)](../storage/files/storage-snapshots-files.md).
 
-### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Quelle est la durée de rétention maximale configurable pour les sauvegardes ?
+### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Quelle est la durée de conservation maximale configurable pour les sauvegardes ?
 
 La sauvegarde de partages de fichiers Azure offre la possibilité de configurer des stratégies de rétention allant jusqu’à 180 jours. Toutefois, à l’aide de la [option « sauvegarde à la demande » dans PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), vous pouvez même conserver un point de récupération pendant 10 ans.
 
@@ -127,9 +127,9 @@ La sauvegarde de partages de fichiers Azure offre la possibilité de configurer 
 
 Lorsqu’une nouvelle stratégie est appliquée sur les partages de fichiers, le planning et la rétention de la nouvelle stratégie sont suivis. Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie. Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et supprimés.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-Cette information concerne uniquement la sauvegarde des fichiers Azure, pour en savoir plus sur les autres zones de Azure Backup, consultez certaines de ces autres FAQ relatives à la sauvegarde :
+Pour en savoir plus sur les autres zones d’Azure Backup, consultez certaines de ces autres FAQ relatives à la sauvegarde :
 
 - [FAQ du coffre Recovery Services](backup-azure-backup-faq.md)
 - [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)

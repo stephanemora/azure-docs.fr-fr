@@ -1,5 +1,5 @@
 ---
-title: Configurer le routage des messages pour Azure IoT Hub avec Azure CLI et le portail Azure | Microsoft Docs
+title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI
 description: Configurer le routage des messages pour Azure IoT Hub avec Azure CLI et le portail Azure
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535126"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084389"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535126"
 
 Ce tutoriel utilise Azure CLI pour créer les ressources de base, puis utilise le [portail Azure](https://portal.azure.com) pour montrer comment configurer le routage des messages et l’appareil virtuel pour les tests.
 
+Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Ceci crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus.
+
 Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique.
 
-Copiez et collez le script ci-dessous dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Ceci crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus.
-
-Une remarque à propos du débogage : ce script utilise le symbole de continuation (la barre oblique inverse `\`) pour rendre le script plus lisible. Si vous avez un problème pour exécuter le script, vérifiez qu’il n’existe pas d’espace après les barres obliques inverses.
+> [!TIP]
+> Une remarque à propos du débogage : ce script utilise le symbole de continuation (la barre oblique inverse `\`) pour rendre le script plus lisible. Si vous rencontrez des problèmes durant l’exécution du script, vérifiez que votre session Cloud Shell exécute `bash`, et qu’il n’existe aucun espace après les barres obliques inverses.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser des alertes et résoudre les problèmes des appareils dans la solution de supervision à distance - Azure | Microsoft Docs'
+title: Utiliser des alertes dans la solution de surveillance à distance – Azure | Microsoft Docs
 description: Ce tutoriel vous montre comment utiliser des alertes pour identifier et résoudre les problèmes avec les appareils connectés à l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451713"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890917"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutoriel : Résoudre et corriger les problèmes liés aux appareils
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Didacticiel : Résoudre et corriger les problèmes liés aux appareils
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour identifier et résoudre les problèmes avec vos appareils IoT connectés. Vous utilisez des alertes dans le tableau de bord de l’accélérateur de solution pour identifier les problèmes, puis vous exécutez des tâches à distance pour résoudre ces problèmes.
 

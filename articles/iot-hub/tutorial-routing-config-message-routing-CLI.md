@@ -1,6 +1,6 @@
 ---
-title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI | Microsoft Docs
-description: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI
+title: Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI
+description: Configurez le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI. En fonction des propriétés du message, effectuez le routage vers un compte de stockage ou une file d’attente Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 103a18389a2b956f20b61ce45d045fb9a11c4356
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 340ea35bc3ed0c889a1a851da47f7e955116e103
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984709"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084463"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI pour configurer le routage des messages IoT Hub
 
@@ -30,17 +30,17 @@ Si vous souhaitez voir le script terminé, téléchargez les [exemples Azure IoT
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Utiliser Azure CLI pour créer vos ressources
 
+Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Cette première section du script crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus. Dans les étapes restantes du tutoriel, vous devrez copier chaque bloc de script et le coller dans Cloud Shell pour l’exécuter.
+
+> [!TIP]
+> Une remarque à propos du débogage : ce script utilise le symbole de continuation (la barre oblique inverse `\`) pour rendre le script plus lisible. Si vous rencontrez des problèmes durant l’exécution du script, vérifiez que votre session Cloud Shell exécute `bash`, et qu’il n’existe aucun espace après les barres obliques inverses.
+> 
+
 Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
 
 > [!IMPORTANT]
 > Les variables définies dans le script initial étant également utilisées par le script de routage, vous devez exécuter le script entier dans la même session Cloud Shell. Si vous ouvrez une nouvelle session pour exécuter le script de configuration du routage, plusieurs variables n’auront pas de valeurs définies.
 >
-
-Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Cette première section du script crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus. Dans les étapes restantes du tutoriel, vous devrez copier chaque bloc de script et le coller dans Cloud Shell pour l’exécuter.
-
-> [!TIP]
-> Une remarque à propos du débogage : ce script utilise le symbole de continuation (la barre oblique inverse `\`) pour rendre le script plus lisible. Si vous avez un problème pour exécuter le script, vérifiez qu’il n’existe pas d’espace après les barres obliques inverses.
-> 
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
@@ -155,7 +155,7 @@ Pour créer un point de terminaison de routage, utilisez [az iot hub routing-end
 
 Configurez d’abord le point de terminaison pour le compte de stockage, puis configurez la route. 
 
-Les variables suivantes sont définies :
+Voici les variables utilisées par le script, que vous devez définir dans votre session Cloud Shell :
 
 **storageConnectionString** : cette valeur est récupérée auprès du compte de stockage configuré dans le script précédent. Elle est utilisée par le routage des messages pour accéder au compte de stockage.
 
@@ -175,7 +175,7 @@ Les variables suivantes sont définies :
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 
-**enabled** : ce champ a la valeur `true` par défaut, spécifiant que la route des messages doit être activée après sa création.
+**enabled** : La valeur par défaut de ce champ est `true`, ce qui indique que le routage du message doit être activé après sa création.
 
 **condition** : ce champ correspond à la requête utilisée pour filtrer les messages envoyés à ce point de terminaison. La condition de requête pour les messages routés vers le stockage est `level="storage"`.
 
@@ -257,7 +257,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Configurez maintenant le point de terminaison de routage et la route des messages pour la file d’attente Service Bus. Les variables suivantes sont définies :
+Configurez maintenant le point de terminaison de routage et la route des messages pour la file d’attente Service Bus. Voici les variables utilisées par le script, que vous devez définir dans votre session Cloud Shell :
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 

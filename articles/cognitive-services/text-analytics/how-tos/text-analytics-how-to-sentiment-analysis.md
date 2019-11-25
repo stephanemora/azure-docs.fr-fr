@@ -1,7 +1,7 @@
 ---
-title: Analyse des sentiments à l’aide de l’API REST Analyse de texte dans Azure Cognitive Services
+title: Exécuter une analyse des sentiments avec l’API REST Analyse de texte
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment détecter des sentiments à l’aide de l’API REST Analyse de texte.
+description: Cet article vous montre comment détecter les sentiments dans un texte avec l’API REST Analyse de texte d’Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494445"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031456"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemple : Détecter les sentiments avec Analyse de texte
 
@@ -36,7 +36,7 @@ L’analyse des sentiments est effectuée sur l’ensemble du document, par oppo
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments v3 - Préversion publique
 
-La [prochaine version d’Analyse des sentiments](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) est désormais disponible en préversion publique. Elle apporte des améliorations significatives en matière de précision et de détail du score et de la catégorisation du texte de l’API.
+La [prochaine version d’Analyse des sentiments](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) est désormais disponible en préversion publique. Elle apporte des améliorations significatives en matière de précision et de détail du score et de la catégorisation du texte de l’API.
 
 > [!NOTE]
 > * Analyse des sentiments v3 nécessite le même format de requête et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.

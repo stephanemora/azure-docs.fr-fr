@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Générer des images conteneurs dans le cloud - Azure Container Registry Tasks'
+title: Tutoriel – Génération rapide d’une image de conteneur – Azure Container Registry Tasks
 description: Dans ce didacticiel, vous allez apprendre comment générer une image de conteneur Docker dans Azure avec Azure Container Registry Tasks (ACR Tasks), puis la déployer dans Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0b62ef1fa05138b1d5c0a3aacb570f5d577176fe
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057496"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931391"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 

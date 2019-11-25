@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel Python : Appeler Cognitive Services dans un pipeline d’enrichissement par IA'
+title: 'Didacticiel : Créer un ensemble de compétences en Python à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement d’image par IA dans Recherche cognitive Azure avec un notebook Jupyter Python. Les données extraites sont indexées et sont facilement accessibles au moyen d’une requête.
 manager: nitinme
@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790200"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113677"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Tutoriel Python : Appeler des API Cognitive Services dans un pipeline d’enrichissement Recherche cognitive Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Didacticiel : Créer un pipeline d’enrichissement par IA à l’aide de REST et de Python
 
-Dans ce tutoriel, vous découvrez les mécanismes de programmation de l’enrichissement des données dans Recherche cognitive Azure avec des *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat est un contenu supplémentaire riche dans un index de recherche, créé avec des enrichissements par IA dans un pipeline d’indexation. 
+Dans ce tutoriel, vous découvrez les mécanismes de programmation de l’enrichissement des données dans la Recherche cognitive Azure avec des *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat est un contenu supplémentaire riche dans un index de recherche, créé avec des enrichissements par IA dans un pipeline d’indexation. 
 
 Dans ce tutoriel, vous allez utiliser Python pour effectuer les tâches suivantes :
 
@@ -34,7 +34,7 @@ La sortie obtenue est un index de recherche en texte intégral sur Recherche cog
 Ce tutoriel s’exécute sur le service gratuit. Toutefois, le nombre de transactions gratuites est limité à 20 documents par jour. Si vous souhaitez exécuter ce tutoriel plusieurs fois par jour, utilisez un ensemble de fichiers plus petit pour pouvoir intégrer davantage d’exécutions.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables lors de l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents dans Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
 > L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -60,7 +60,7 @@ Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -439,7 +439,7 @@ Les avertissements sont courants avec certaines combinaisons de fichiers sources
 
 ## <a name="query-your-index"></a>Interroger votre index
 
-Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, Recherche cognitive Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans Recherche cognitive Azure](search-pagination-page-layout.md).
+Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, Recherche cognitive Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans la Recherche cognitive Azure](search-pagination-page-layout.md).
 
 Comme étape de vérification, interrogez l’index au sujet de tous les champs.
 
@@ -517,4 +517,4 @@ Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le 
 Personnalisez ou étendez le pipeline avec des compétences personnalisées. La création d’une compétence personnalisée et son ajout dans un ensemble de compétences vous permet d’intégrer une analyse de texte ou d’image que vous écrivez vous-même.
 
 > [!div class="nextstepaction"]
-> [Exemple : Création d’une compétence personnalisée pour l’enrichissement par IA](cognitive-search-create-custom-skill-example.md)
+> [Exemple : Création d’une compétence personnalisée pour l’enrichissement par l’IA](cognitive-search-create-custom-skill-example.md)

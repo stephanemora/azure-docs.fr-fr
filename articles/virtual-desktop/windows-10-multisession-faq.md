@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: a44f1e93302b90b88ef63030fab17433855af4ff
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f1ba54547b947e18d2d42520c0fb51a0855fb37c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143268"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901604"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -28,7 +28,7 @@ Le nombre de sessions interactives qui peuvent être actives en même temps dép
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Pourquoi mon application indique-t-elle que Windows 10 Entreprise multisession est un système d’exploitation serveur ?
 
-Windows 10 Entreprise multisession est une édition virtuelle de Windows 10 Entreprise. La différence est que ce système d’exploitation attribue la valeur 2 à [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem), qui est la même que pour Windows Server. Cette propriété permet de maintenir la compatibilité du système d’exploitation avec les outils de gestion existants de l’hôte de connexion à distance, les applications compatibles avec le multisession de l’hôte de connexion à distance et principalement, l’optimisation des performances du système de bas niveau pour les environnements de type hôte de connexion à distance. Certains programmes d’installation de l’application peuvent bloquer l’installation sur Windows 10 multisession s’ils détectent que le ProductType est défini sur Client. Si votre application ne peut pas être installée, contactez son fournisseur pour obtenir une version mise à jour. 
+Windows 10 Entreprise multisession est une édition virtuelle de Windows 10 Entreprise. La différence est que ce système d’exploitation attribue la valeur 3 à [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem), qui est la même que pour Windows Server. Cette propriété permet de maintenir la compatibilité du système d’exploitation avec les outils de gestion existants de l’hôte de connexion à distance, les applications compatibles avec le multisession de l’hôte de connexion à distance et principalement, l’optimisation des performances du système de bas niveau pour les environnements de type hôte de connexion à distance. Certains programmes d’installation de l’application peuvent bloquer l’installation sur Windows 10 multisession s’ils détectent que le ProductType est défini sur Client. Si votre application ne peut pas être installée, contactez son fournisseur pour obtenir une version mise à jour. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Est-il possible d’exécuter Windows 10 Entreprise multisession localement ?
 

@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1ff70a8a794cbc4c201512a0cf578eb0a890a5e4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647115"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904418"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -99,8 +99,8 @@ Découvrez plus d’informations sur la [dernière architecture d’Azure Machin
 Pour avoir une vue d’ensemble du service, consultez [Qu’est-ce qu’Azure Machine Learning ?](overview-what-is-azure-ml.md).
 
 Créez votre première expérience avec la méthode de votre choix :
-  + [Utiliser des notebooks Python pour entraîner et déployer des modèles ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Utiliser R Markdown pour entraîner et déployer des modèles ML]( tutorial-1st-r-experiment.md) 
-  + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](ui-tutorial-automobile-price-train-score.md) 
-  + [Utiliser les fonctionnalités glisser-déplacer du concepteur pour entraîner et déployer](tutorial-first-experiment-automated-ml.md) 
-  + [Utiliser l’interface CLI Machine Learning pour entraîner et déployer un modèle](tutorial-train-deploy-model-cli.md)
+  + [Utiliser des notebooks Python](tutorial-1st-experiment-sdk-setup.md)
+  + [Utiliser R Markdown]( tutorial-1st-r-experiment.md) 
+  + [Utiliser le Machine learning automatisé](ui-tutorial-automobile-price-train-score.md) 
+  + [Utiliser les fonctionnalités glisser-déplacer du concepteur](tutorial-first-experiment-automated-ml.md) 
+  + [Utiliser l’extension ML de l’interface CLI](tutorial-train-deploy-model-cli.md)

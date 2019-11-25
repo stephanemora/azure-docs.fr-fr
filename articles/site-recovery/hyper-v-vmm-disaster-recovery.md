@@ -1,19 +1,19 @@
 ---
-title: Configurer la reprise d’activité après sinistre pour les machines virtuelles Hyper-V entre des sites locaux avec Azure Site Recovery
+title: Configurer la reprise d’activité après sinistre pour Hyper-V sur un site secondaire à l’aide d’Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre vos sites locaux et Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813761"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132992"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -28,6 +28,7 @@ Cet article vous indique comment configurer la récupération d’urgence vers u
 > * Configurer le mappage réseau 
 > * Créer une stratégie de réplication
 > * Activer la réplication pour une machine virtuelle
+
 
 ## <a name="prerequisites"></a>Prérequis
 

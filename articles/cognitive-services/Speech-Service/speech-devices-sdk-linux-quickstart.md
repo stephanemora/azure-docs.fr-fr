@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490968"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090424"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Linux
 
@@ -80,11 +80,34 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
    ![Capture d’écran de l’explorateur de package](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Ouvrez le fichier pom.xml et modifiez-le.
+
+    À la fin du fichier, avant la balise de fermeture `</project>`, créez des éléments `repositories` et `dependencies`, comme indiqué ici, et vérifiez que le `version` correspond bien à votre version actuelle :
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Properties (Propriétés)** , puis **Run/Debug Settings**  (Paramètres d’exécution/débogage) > **New... (Nouveau...)** > **Java Application** (Application Java). 
 
 1. La fenêtre **Edit Configuration** (Modifier la configuration) apparaît. Dans le champ **Name (Nom)** , entrez **Main (Principal)** et utilisez **Search (Rechercher)** pour la **Main Class (Classe principale)** pour rechercher et sélectionner **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
    ![Capture d’écran de la modification de la configuration du lancement](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. Copiez les fichiers binaires audio de votre architecture cible, de **Linux-ARM** ou **Linux-x64** vers l’emplacement du projet Java, par exemple **/home/wcaltest/JRE-Sample-Release**
 
 1. Dans la même fenêtre **Edit Configuration**, sélectionnez la page **Environment** (Environnement) puis **New** (Nouveau). La fenêtre **New Environment Variable** (Nouvelle variable d’environnement) apparaît. Dans le champ **Name** (Nom), entrez **LD_LIBRARY_PATH** et, dans le champ **Value** (Valeur), entrez le dossier contenant les fichiers *.so, par exemple **/home/wcaltest/JRE-Sample-Release**
 
@@ -113,20 +136,19 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. Le mot clé par défaut est « Computer ». Vous pouvez également essayer l’un des autres mots clés fournis, tels que « Machine » ou « Assistant ». Les fichiers de ressources pour ces mots clés alternatifs figurent dans le dossier keyword du Kit de développement logiciel (SDK) Speech Devices. Par exemple, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contient les fichiers utilisés pour le mot clé « Computer ».
+1. Le mot clé par défaut (keyword) est « Computer ». Vous pouvez également essayer l’un des autres mots clés fournis, tels que « Machine » ou « Assistant ». Les fichiers de ressources pour ces mots clés alternatifs figurent dans le dossier keyword du Kit de développement logiciel (SDK) Speech Devices. Par exemple, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contient les fichiers utilisés pour le mot clé « Computer ».
 
    > [!TIP]
    > Vous pouvez également [créer un mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
-    Pour utiliser un nouveau mot clé, mettez à jour les deux lignes suivantes dans `FunctionsList.java` et copiez l’ensemble de mots clés dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `kws-machine.zip` :
+    Pour utiliser un nouveau mot clé, mettez à jour la ligne suivante dans `FunctionsList.java`, puis copiez le mot clé dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `machine.zip` :
 
-   * Copiez le package de mots clés dans le dossier **target/classes** du projet.
+   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes**.
 
-   * Mettez à jour le fichier `FunctionsList.java` avec le mot clé et le nom de l’ensemble :
+   * Mettez à jour le `FunctionsList.java` avec le nom du mot clé :
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Exécuter l’exemple d’application à partir d’Eclipse
