@@ -836,8 +836,10 @@
               href: insights/container-insights-update-metrics.md
             - name: Configuration de la supervision de l’intégrité
               href: insights/container-insights-health-monitors-config.md
-            - name: Désactiver l’analyse
+            - name: Désactiver la supervision AKS
               href: insights/container-insights-optout.md
+            - name: Désactiver la supervision de Red Hat OpenShift
+              href: insights/container-insights-optout-openshift.md
             - name: Résolution de problèmes
               href: insights/container-insights-troubleshoot.md
         - name: Surveillance de Docker et du conteneur Windows

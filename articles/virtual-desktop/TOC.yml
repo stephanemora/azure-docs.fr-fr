@@ -34,32 +34,42 @@
           href: connect-macos.md
         - name: Se connecter avec le client iOS
           href: connect-ios.md
-    - name: Créer un pool d’hôtes avec le modèle Azure Resource Manager
-      href: create-host-pools-arm-template.md
-    - name: Créer un pool d’hôtes avec PowerShell
-      href: create-host-pools-powershell.md
-    - name: "Déployer une machine virtuelle Windows\_7 sur Windows Virtual Desktop"
-      href: deploy-windows-7-virtual-machine.md
-    - name: Appliquer une licence Windows aux hôtes de session Windows Virtual Desktop
+    - name: Créer un pool d’hôtes et des hôtes de session
+      items:
+        - name: "Modèle Azure\_Resource\_Manager"
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell.md
+        - name: "Déployer une machine virtuelle Windows\_7"
+          href: deploy-windows-7-virtual-machine.md
+        - name: Déployer un hôte de session basé sur GPU
+          href: configure-vm-gpu.md
+    - name: Créer un conteneur de profils
+      items:
+        - name: Utiliser un partage de fichiers basé sur machine virtuelle
+          href: create-host-pools-user-profile.md
+        - name: Utiliser Azure NetApp Files
+          href: create-fslogix-profile-container.md
+    - name: Configurer les paramètres d’un pool d’hôtes
+      items:
+        - name: Propriétés RDP
+          href: customize-rdp-properties.md
+        - name: Équilibrage de charge pour les pools d’hôtes mis en pool
+          href: configure-host-pool-load-balancing.md
+    - name: Utiliser une licence Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
       href: create-host-pools-user-profile.md
-    - name: Créer un conteneur de profils pour un pool hôte à l’aide d’Azure NetApp Files
-      href: create-fslogix-profile-container.md
-    - name: Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
-      href: configure-host-pool-load-balancing.md
-    - name: Préparer et personnaliser une image de disque dur virtuel principale
-      href: set-up-customize-master-image.md
-    - name: Installer Office sur une image VHD principale
-      href: install-office-on-wvd-master-image.md
-    - name: Configurer le GPU pour Windows Virtual Desktop
-      href: configure-vm-gpu.md
+    - name: Personnaliser une image d’hôte de session
+      items:
+        - name: Configurer une image VHD principale
+          href: set-up-customize-master-image.md
+        - name: Installer Office sur une image VHD principale
+          href: install-office-on-wvd-master-image.md
     - name: Mettre à l’échelle dynamiquement des hôtes de session
       href: set-up-scaling-script.md
-    - name: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
+    - name: Personnaliser un flux
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Personnaliser les propriétés RDP
-      href: customize-rdp-properties.md
     - name: Déployer l’outil de diagnostic
       href: deploy-diagnostics.md
     - name: Configurer l’attachement d’application MSIX
