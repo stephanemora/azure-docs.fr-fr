@@ -1,5 +1,5 @@
 ---
-title: 'Déboguer Apache Hadoop : Afficher les journaux d’activité et interpréter les messages d’erreur - Azure HDInsight'
+title: 'Déboguer Apache Hadoop : Journaux et messages d’erreur dans Azure HDInsight'
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 ms.reviewer: jasonh
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2e5cb1676670642121caec71a973374063fe4320
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059214"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044857"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analyser les journaux Apache Hadoop dans Azure HDInsight
 
@@ -73,7 +73,7 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 5. Cliquez avec le bouton droit de la souris sur la table hadoopservicelog dans le volet du **navigateur** et sélectionnez **Modifier**. Vous devez voir quatre colonnes. Vous pouvez supprimer les colonnes **Clé de partition**, **Clé de ligne** et **Horodatage** en les sélectionnant, puis en cliquant sur **Supprimer les colonnes** dans les options du ruban.
 6. Cliquez sur l’icône de développement de la colonne Contenu pour choisir les colonnes que vous souhaitez importer dans la feuille de calcul Excel. Pour cette démonstration, j’ai choisi les colonnes TraceLevel et ComponentName : Elles peuvent me donner des informations de base sur les composants ayant rencontré des problèmes.
    
-    ![Les journaux HDInsight Hadoop choisissent les colonnes Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes Excel")
+    ![Choisir des colonnes des journaux d’activité HDInsight Hadoop dans Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Choisir des colonnes des journaux d’activité HDInsight Hadoop dans Excel")
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
@@ -93,21 +93,20 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
    
         TraceLevel eq 'ERROR'
    
-    ![Les journaux HDInsight Hadoop choisissent les colonnes VS](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes VS")
+    ![Choisir des colonnes des journaux d’activité HDInsight Hadoop dans Visual Studio](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "Choisir des colonnes des journaux d’activité HDInsight Hadoop dans Visual Studio")
    
     Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Journaux d’activité écrits dans le stockage d’objets Blob Azure
+
 Les journaux d’activité écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight. Toutefois, ces tables ne fournissent pas de journaux d’activité au niveau des tâches, qui peuvent être utiles pour explorer les problèmes lorsqu’ils se produisent. Pour fournir ce niveau de détail supérieur, les clusters HDInsight sont configurés pour écrire les journaux d’activité des tâches dans votre compte de stockage d’objets Blob pour toute tâche envoyée par le biais de Templeton. En pratique, cela signifie les tâches envoyées à l’aide des applets de commande Microsoft Azure PowerShell ou les API de soumission de tâche .NET, pas les tâches envoyées via RDP/accès par ligne de commande au cluster. 
 
 Pour afficher les journaux d’activité, consultez [Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight sous Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-
-Pour plus d’informations sur les journaux des applications, consultez la page [Simplifier la gestion et l’accès des journaux d’activité utilisateur dans Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
-
-
 ## <a name="view-cluster-health-and-job-logs"></a>Afficher les journaux d’activité de travail et d’état d’intégrité du cluster
+
 ### <a name="access-the-ambari-ui"></a>Accéder à l’interface utilisateur Ambari
+
 À partir du portail Azure, cliquez sur un nom de cluster HDInsight pour ouvrir le volet du cluster. Dans le volet du cluster, cliquez sur **Tableau de bord**.
 
 ![HDInsight - Lancer le tableau de bord de cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
@@ -120,7 +119,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
 
 * **Obtenir l’état du cluster**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **About**. Une série de détails sur l’état du cluster apparaissent, comme la mémoire totale allouée, les cœurs utilisés, l’état du gestionnaire des ressources de cluster ou la version du cluster.
   
-    ![HDInsight - Lancer le tableau de bord du cluster YARN](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight - Lancer le tableau de bord de cluster YARN")
+    ![HDInsight – Lancer le tableau de bord du cluster Yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight – Lancer le tableau de bord du cluster Yarn")
 * **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
 * **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux d’activité.
 
@@ -202,7 +201,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Description** : Impossible de créer le service hébergé *nom_service_hébergé*. Relancez la requête.  
-* **Atténuation** : relancez la requête.
+* **Atténuation** : Relancez la requête.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
 * **Description** : Le service hébergé *nom_service_hébergé* a déjà un déploiement de production. Un service hébergé ne peut pas contenir plusieurs déploiements de production. Relancez la requête avec un nom de cluster différent.
@@ -226,7 +225,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
 * **Description** : Le serveur a rencontré une erreur interne. Relancez la requête.  
-* **Atténuation** : relancez la requête.
+* **Atténuation** : Relancez la requête.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
 * **Description** : L’emplacement d’Azure Storage *nom_région_données* n’est pas un emplacement correct. Assurez-vous que la région est correcte et relancez la requête.
@@ -262,7 +261,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Description** : Il n’a pas été possible d’exécuter l’opération dans le temps imparti ou en respectant le nombre maximum de tentatives. Relancez la requête.  
-* **Atténuation** : relancez la requête.
+* **Atténuation** : Relancez la requête.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **Description** : Le paramètre *nom_paramètre* ne peut pas être de type null ou vide.  

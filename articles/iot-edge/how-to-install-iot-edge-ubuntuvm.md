@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fec39a9e788debcd9c3ac707a0431e268d87ed35
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987004"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146186"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Exécuter Azure IoT Edge sur des Machines virtuelles Ubuntu
 
@@ -33,10 +33,10 @@ Au premier démarrage, Azure IoT Edge sur la Machine virtuelle Ubuntu préinstal
     *   Si c’est la première fois que vous testez une machine virtuelle, il est plus facile d’utiliser un mot de passe et d’activer la liaison SSH dans le menu du port d’entrée public. 
     *   Si votre charge de travail nécessite de nombreuses ressources, mettez à niveau la taille de machine virtuelle en ajoutant des processeurs ou de la mémoire.
 4.  Une fois la machine virtuelle déployée, configurez-la de sorte qu’elle se connecte à votre hub IoT :
-    1.  Copiez la chaîne de connexion de votre appareil IoT Edge créé dans votre hub IoT (vous pouvez suivre le guide pratique [Inscrire un nouvel appareil Azure IoT Edge sur le Portail Azure](how-to-register-device-portal.md) si vous ne connaissez pas ce processus).
+    1.  Copiez la chaîne de connexion de votre appareil IoT Edge créé dans votre hub IoT. si vous ne connaissez pas bien ce processus, vous pouvez suivre la procédure [Récupérer la chaîne de connexion sur le portail Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal)
     1.  Sélectionnez votre nouvelle ressource de machine virtuelle sur le Portail Azure et ouvrez l’option **Exécuter la commande**.
     1.  Sélectionnez l’option **RunShellScript**.
-    1.  Exécutez le script ci-dessous dans la fenêtre Commande avec la chaîne de connexion de votre appareil : `/etc/iotedge/configedge.sh “{device_connection_string}”`.
+    1.  Exécutez le script ci-dessous dans la fenêtre Commande avec la chaîne de connexion de votre appareil : `/etc/iotedge/configedge.sh "{device_connection_string}"`.
     1.  Sélectionner **Exécuter**.
     1.  Attendez quelques instants ; l’écran devrait alors présenter un message indiquant que la chaîne de connexion a été correctement définie.
 
@@ -85,7 +85,7 @@ Sur le Portail Azure, recherchez « Azure IoT Edge » et sélectionnez **Runti
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. Définissez la chaîne de connexion d’appareil (vous pouvez suivre le guide pratique [Inscrire un nouvel appareil Azure IoT Edge avec Azure CLI](how-to-register-device-cli.md) si vous ne connaissez pas ce processus) :
+1. Définissez la chaîne de connexion de l’appareil. Si vous ne connaissez pas bien ce processus, vous pouvez suivre la procédure [Récupérer la chaîne de connexion avec Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) :
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"

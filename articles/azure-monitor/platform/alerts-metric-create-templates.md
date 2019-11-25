@@ -1,19 +1,19 @@
 ---
 title: Créer une alerte de mesure avec un modèle Resource Manager
 description: Découvrez comment utiliser un modèle Resource Manager pour créer une alerte de métrique.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 9/27/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372769"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099750"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
@@ -27,8 +27,9 @@ Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Man
 Procédure de base :
 
 1. Utilisez un des modèles ci-dessous sous la forme d’un fichier JSON qui décrit comment créer l’alerte.
-2. Modifier et utiliser le fichier de paramètres correspondant en tant que code JSON pour personnaliser l’alerte
-3. Déployez le modèle à l’aide de [n’importe quelle méthode de déploiement](../../azure-resource-manager/resource-group-template-deploy.md).
+2. Modifier et utiliser le fichier de paramètres correspondant en tant que code JSON pour personnaliser l’alerte.
+3. Pour le paramètre `metricName`, consultez les métriques disponibles dans [Métriques prises en charge par Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Déployez le modèle à l’aide de [n’importe quelle méthode de déploiement](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modèle pour une alerte de métrique de seuil statique simple
 
@@ -2970,6 +2971,9 @@ Enregistrez le code json ci-après sous le nom availabilityalert.json pour les b
     },
     "actionGroupId": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -2981,7 +2985,7 @@ Enregistrez le code json ci-après sous le nom availabilityalert.json pour les b
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "location": "West Central US",
+      "location": "[parameters('location')]",
       "tags": {
         "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
@@ -3060,13 +3064,16 @@ Enregistrez le code json ci-après sous le nom availabilityalert.parameters.json
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
-            "value": "Replace with your Application Insights component name"
+            "value": "Replace with your Application Insights resource name"
         },
         "pingURL": {
             "value": "https://www.yoursite.com"
         },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        },
+        "location": {
+            "value": "Replace with the location of your Application Insights resource"
         }
     }
 }

@@ -3,22 +3,23 @@ title: 'CLI Azure Service Fabric : sfctl property | Microsoft Docs'
 description: Décrit les commandes sfctl property de l’interface CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035248"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901068"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Stocke et interroge des propriétés avec des noms Service Fabric.
@@ -43,7 +44,7 @@ Supprime la propriété Service Fabric spécifiée sous un nom donné. Une propr
 | --- | --- |
 | --name-id       [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --property-name [Requis] | Spécifie le nom de la propriété à obtenir. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’expiration du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -66,7 +67,7 @@ Obtient la propriété Service Fabric spécifiée sous un nom donné. Retourne t
 | --- | --- |
 | --name-id       [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --property-name [Requis] | Spécifie le nom de la propriété à obtenir. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’expiration du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -90,7 +91,7 @@ Un nom Service Fabric peut avoir une ou plusieurs propriétés nommées qui stoc
 | --name-id [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --include-values | Permet de spécifier s’il faut inclure les valeurs des propriétés retournées. True si les valeurs doivent être retournées avec les métadonnées ; False pour retourner uniquement les métadonnées de propriété. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’expiration du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -115,7 +116,7 @@ Crée ou met à jour la propriété Service Fabric spécifiée sous un nom donn�
 | --property-name [Requis] | Nom de la propriété Service Fabric. |
 | --value         [Requis] | Décrit une valeur de propriété Service Fabric. Il s’agit d’une chaîne JSON. <br><br> La chaîne json a deux champs, le type ('kind') de données et la valeur ('value') des données. La valeur 'Kind' doit être le premier élément à afficher dans la chaîne JSON et peut être les valeurs 'Binary', 'Int64', 'Double', 'String' ou 'Guid'. La valeur doit pouvoir être sérialisée pour les types donnés. Les valeurs 'Kind' et 'Data' doivent être fournies sous forme de chaînes. |
 | --custom-id-type | ID du type personnalisé de la propriété. Avec cette propriété, l’utilisateur peut marquer le type de la valeur de la propriété. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

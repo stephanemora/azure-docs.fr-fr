@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772900"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064107"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
@@ -60,7 +60,7 @@ Cette erreur signifie que votre conteneur de baux actuel est partitionné et que
 
 Ce problème se produit si vous utilisez le portail Azure et que vous essayez de sélectionner le bouton **Exécuter** sur l’écran lors de l’inspection d’une fonction Azure qui utilise le déclencheur. Il n’est pas nécessaire de sélectionner Exécuter pour démarrer le déclencheur. Il démarrera automatiquement lorsque la fonction Azure sera déployée. Si vous souhaitez vérifier le flux de journaux de la fonction Azure sur le portail Azure, il vous suffit d’accéder à votre conteneur surveillé et d’insérer de nouveaux éléments, puis vous verrez votre déclencheur s’exécuter automatiquement.
 
-### <a name="my-changes-take-too-long-be-received"></a>Mes modifications prennent top de temps à s’effectuer
+### <a name="my-changes-take-too-long-to-be-received"></a>La réception de mes modifications prend trop de temps
 
 Il existe plusieurs causes possibles pour ce scénario et vous devez vérifier chacune d’entre elles :
 
@@ -78,7 +78,7 @@ Lorsque votre fonction Azure reçoit les modifications, elle les traite souvent 
 
 S’il manque des modifications à la destination, cela peut signifier que des erreurs se produisent lors de l’exécution de la fonction Azure après la réception des modifications.
 
-Dans ce scénario, la meilleure méthode consiste à ajouter `try/catch blocks` dans votre code et à l’intérieur de boucles susceptibles de traiter les modifications afin de détecter tout échec au niveau d’un sous-ensemble d’éléments particulier, puis de s’en occuper de manière appropriée (envoyez-les vers un autre stockage pour les analyser davantage ou réessayez). 
+Dans ce scénario, la meilleure méthode consiste à ajouter des blocs `try/catch` dans votre code et à l’intérieur de boucles susceptibles de traiter les modifications afin de détecter tout échec au niveau d’un sous-ensemble d’éléments particulier, puis de s’en occuper de manière appropriée (envoyez-les vers un autre stockage pour les analyser davantage ou réessayez). 
 
 > [!NOTE]
 > Par défaut, le déclencheur Azure Functions pour Cosmos DB n’essaiera pas de traiter à nouveau les modifications si une exception non prise en charge est survenue lors de l’exécution du code. Cela signifie que les modifications ne sont pas arrivées à destination en raison d’une erreur lors de leur traitement.
@@ -103,6 +103,10 @@ La définition de [StartFromBeginning](../azure-functions/functions-bindings-cos
 Cette erreur se produit si votre projet Azure Functions (ou tout autre projet référencé) contient une référence NuGet manuelle au Kit de développement logiciel (SDK) Azure Cosmos DB et qu’elle présente une version différente de celle fournie par [l’extension Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
 Pour contourner cette situation, supprimez la référence NuGet manuelle qui a été ajoutée et laissez la référence du Kit de développement logiciel (SDK) Azure Cosmos DB résoudre le package d’extension d’Azure Functions Cosmos DB.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Modification de l’intervalle d’interrogation de Fonction Azure pour la détection des modifications
+
+Comme expliqué précédemment pour [La réception de mes modifications prend trop de temps](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure Function reste en veille pendant un laps de temps configurable (5 secondes, par défaut) avant de vérifier la présence de nouvelles modifications (pour éviter une consommation élevée de RU). Vous pouvez configurer la durée de veille à l’aide du paramètre `FeedPollDelay/feedPollDelay` dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) de votre déclencheur (la valeur indiquée est en millisecondes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

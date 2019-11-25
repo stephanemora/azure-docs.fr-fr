@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 10/23/2019
 ms.author: danlep
-ms.openlocfilehash: 27c38f51104dfb170c59860c96a8e3a86973bb1e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6e55b65d58fe6545d8212b4233f2f45261d18ee5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638923"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043878"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -128,7 +128,7 @@ Générez une image conteneur. Le type d’étape `build` représente un moyen s
 ### <a name="syntax-build"></a>Syntaxe : build
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
     [property]: [value]
@@ -157,13 +157,13 @@ Le type d’étape `build` prend en charge les propriétés suivantes : La sect
 | `ignoreErrors` | bool | Facultatif |
 | `isolation` | string | Facultatif |
 | `keep` | bool | Facultatif |
-| `network` | objet | Facultatif |
+| `network` | object | Facultatif |
 | `ports` | [chaîne, chaîne,...] | Facultatif |
 | `pull` | bool | Facultatif |
 | `repeat` | int | Facultatif |
 | `retries` | int | Facultatif |
 | `retryDelay` | int (secondes) | Facultatif |
-| `secret` | objet | Facultatif |
+| `secret` | object | Facultatif |
 | `startDelay` | int (secondes) | Facultatif |
 | `timeout` | int (secondes) | Facultatif |
 | `when` | [chaîne, chaîne,...] | Facultatif |
@@ -183,9 +183,9 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 #### <a name="build-image---context-in-subdirectory"></a>Générer une image : contexte dans un sous-répertoire
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## <a name="push"></a>push
@@ -197,21 +197,21 @@ Envoie (push) des images générées ou ré-étiquetées vers un registre de con
 Le type d’étape `push` prend en charge une collection d’images. La syntaxe de collection YAML prend en charge les formats imbriqués et inline. L’envoi (push) d’une image unique est généralement représenté à l’aide de la syntaxe inline :
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Inline YAML collection syntax
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 Pour une meilleure lisibilité, utilisez la syntaxe imbriquée lors de l’envoi de plusieurs images :
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Nested YAML collection syntax
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-    - {{.Run.Registry}}/hello-world:latest
+    - $Registry/hello-world:$ID
+    - $Registry/hello-world:latest
 ```
 
 ### <a name="properties-push"></a>Propriétés : push
@@ -254,7 +254,7 @@ Le type d’étape `cmd` exécute un conteneur.
 ### <a name="syntax-cmd"></a>Syntaxe : cmd
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
 ```
@@ -274,13 +274,13 @@ Le type d’étape `cmd` prend en charge les propriétés suivantes :
 | `ignoreErrors` | bool | Facultatif |
 | `isolation` | string | Facultatif |
 | `keep` | bool | Facultatif |
-| `network` | objet | Facultatif |
+| `network` | object | Facultatif |
 | `ports` | [chaîne, chaîne,...] | Facultatif |
 | `pull` | bool | Facultatif |
 | `repeat` | int | Facultatif |
 | `retries` | int | Facultatif |
 | `retryDelay` | int (secondes) | Facultatif |
-| `secret` | objet | Facultatif |
+| `secret` | object | Facultatif |
 | `startDelay` | int (secondes) | Facultatif |
 | `timeout` | int (secondes) | Facultatif |
 | `when` | [chaîne, chaîne,...] | Facultatif |
@@ -330,33 +330,31 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 Le type d’étape `cmd` fait référence à des images à l’aide du format `docker run` standard. Les images non précédées d’un registre sont supposées provenir de docker.io. L’exemple précédent peut également être représenté comme suit :
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: docker.io/bash:3.0 echo hello world
 ```
 
 À l’aide de la convention de référence d’image `docker run` standard, `cmd` peut exécuter des images de n’importe quel registre privé ou dans le Docker Hub public. Si vous faites référence à des images du registre dans lequel ACR Tasks s’exécute, vous n’avez pas besoin de spécifier des informations d’identification de registre.
 
-* Exécuter une image d’un registre de conteneurs Azure
-
-    Remplacez `[myregistry]` par le nom de votre registre :
+* Exécutez une image d’un registre de conteneurs Azure. L’exemple suivant part du principe que vous disposez d’un registre nommé `myregistry`, et d’une image personnalisée `myimage:mytag`.
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-        - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
+        - cmd: myregistry.azurecr.io/myimage:mytag
     ```
 
-* Généraliser la référence de registre avec une variable d’exécution
+* Généraliser la référence de registre avec une variable d’exécution ou un alias
 
-    Au lieu de coder de manière irréversible le nom de votre registre dans un fichier `acr-task.yaml`, vous pouvez rendre plus portable en utilisant une [variable d’exécution](#run-variables). La variable `Run.Registry` est développée lors de l’exécution pour donner le nom du registre dans lequel la tâche s’exécute.
+    Au lieu de coder de manière irréversible le nom de votre registre dans un fichier `acr-task.yaml`, vous pouvez le rendre plus portable en utilisant une [variable d’exécution](#run-variables) ou une [alias](#aliases). La variable `Run.Registry` ou l’alias `$Registry` sont développé lors du runtime pour donner le nom du registre dans lequel la tâche s’exécute.
 
-    Pour généraliser la tâche précédente de sorte qu’elle fonctionne dans n’importe quel registre de conteneurs Azure, vous devez référencer la variable [Run.Registry](#runregistry) dans le nom de l’image :
+    Par exemple, pour généraliser la tâche précédente de sorte qu’elle fonctionne dans n’importe quel registre de conteneurs Azure, référencez la variable $Registry dans le nom de l’image :
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: $Registry/myimage:mytag
     ```
 
 ## <a name="task-step-properties"></a>Propriétés d’étape de tâche
@@ -374,14 +372,14 @@ Chaque type d’étape prend en charge plusieurs propriétés appropriées pour 
 | `ignoreErrors` | bool | OUI | Si vous souhaitez marquer l’état comme réussie, même si une erreur s’est produite pendant l’exécution du conteneur. | `false` |
 | `isolation` | string | OUI | Niveau d’isolation du conteneur. | `default` |
 | `keep` | bool | OUI | Indique si le conteneur de l’étape doit être conservé après l’exécution. | `false` |
-| `network` | objet | OUI | Identifie un réseau dans lequel le conteneur s’exécute. | Aucun |
+| `network` | object | OUI | Identifie un réseau dans lequel le conteneur s’exécute. | Aucun |
 | `ports` | [chaîne, chaîne,...] | OUI | Tableau des ports qui sont publiés sur l’hôte à partir du conteneur. |  Aucun |
 | `pull` | bool | OUI | Indique s’il faut ou non forcer une opération d’extraction du conteneur avant son exécution pour éviter tout comportement de mise en cache. | `false` |
 | `privileged` | bool | OUI | Indique s’il faut ou non exécuter le conteneur en mode privilégié. | `false` |
 | `repeat` | int | OUI | Nombre de tentatives d’exécution d’un conteneur. | 0 |
 | `retries` | int | OUI | Nombre de tentatives à renouveler si un conteneur échoue dans son exécution. Une nouvelle tentative n’a lieu que si le code de sortie d’un conteneur est différent de zéro. | 0 |
 | `retryDelay` | int (secondes) | OUI | Délai en secondes entre les tentatives d’exécution du conteneur. | 0 |
-| `secret` | objet | OUI | Identifie une clé secrète Azure Key Vault ou une [identité managée pour les ressources Azure](container-registry-tasks-authentication-managed-identity.md). | Aucun |
+| `secret` | object | OUI | Identifie une clé secrète Azure Key Vault ou une [identité managée pour les ressources Azure](container-registry-tasks-authentication-managed-identity.md). | Aucun |
 | `startDelay` | int (secondes) | OUI | Nombre de secondes de décalage pour l’exécution d’un conteneur. | 0 |
 | `timeout` | int (secondes) | OUI | Nombre maximal de secondes pendant lesquelles une étape peut s’exécuter avant d’être terminée. | 600 |
 | [`when`](#example-when) | [chaîne, chaîne,...] | OUI | Configure les dépendances d’une étape sur une ou plusieurs autres étapes au sein de la tâche. | Aucun |
@@ -451,10 +449,17 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 ACR Tasks inclut un ensemble de variables par défaut qui sont disponibles pour les étapes de tâche lors de l’exécution. Ces variables sont accessibles à l’aide du format `{{.Run.VariableName}}`, où `VariableName` est une des valeurs suivantes :
 
 * `Run.ID`
+* `Run.SharedVolume`
 * `Run.Registry`
+* `Run.RegistryName`
 * `Run.Date`
+* `Run.OS`
+* `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+* `Run.TaskName`
+
+Les noms des variables sont généralement explicites. Des détails suivent pour les variables couramment utilisées. À partir de la version YAML `v1.1.0`, vous pouvez utiliser un [alias de tâche](#aliases) prédéfini abrégé à la place de la plupart des variables d’exécution. Par exemple, à la place de `{{.Run.Registry}}`, utilisez l’alias `$Registry`.
 
 ### <a name="runid"></a>Run.ID
 
@@ -463,9 +468,9 @@ Chaque exécution, via `az acr run` ou lancée par un déclencheur, des tâches 
 Généralement utilisé pour un balisage qui identifie de façon unique une image :
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    - build: -t $Registry/hello-world:$ID .
 ```
 
 ### <a name="runregistry"></a>Run.Registry
@@ -473,9 +478,21 @@ steps:
 Nom complet du serveur du registre. Généralement utilisé pour référencer de façon générique le registre dans lequel la tâche est en cours d’exécution.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t $Registry/hello-world:$ID .
+```
+
+### <a name="runregistryname"></a>Run.RegistryName
+
+Nom du registre de conteneurs. Généralement utilisé dans des étapes de tâche ne requérant pas de nom de serveur complet, par exemple, `cmd` étapes qui exécutent des commandes Azure CLI sur des registres.
+
+```yml
+version 1.1.0
+steps:
+# List repositories in registry
+- cmd: az login --identity
+- cmd: az acr repository list --name $RegistryName
 ```
 
 ### <a name="rundate"></a>Run.Date
@@ -490,11 +507,88 @@ Pour une tâche déclenchée par un commit dans un référentiel GitHub, l’ide
 
 Pour une tâche déclenchée par un commit dans un référentiel GitHub, le nom de la branche.
 
+## <a name="aliases"></a>Alias
+
+Depuis `v1.1.0`, Azure Container Registry Tasks prend en charge les alias disponibles pour les étapes de tâche quand elles s’exécutent. Les alias ont un concept similaire à celui des alias (raccourcis de commande) pris en charge dans Bash et d’autres interpréteurs de commandes. 
+
+Avec un alias, vous pouvez lancer toute commande ou tout  groupe de commandes (y compris des options et des noms de fichiers) en entrant un mot.
+
+ACR Tasks prend en charge plusieurs alias prédéfinis ainsi que des alias personnalisés que vous créez.
+
+### <a name="predefined-aliases"></a>Alias prédéfinis
+
+Vous pouvez utiliser les alias de tâches suivants à la place des [variables d’exécution](#run-variables) :
+
+| Alias | Exécuter une variable |
+| ----- | ------------ |
+| `ID` | `Run.ID` |
+| `SharedVolume` | `Run.SharedVolume` |
+| `Registry` | `Run.Registry` |
+| `RegistryName` | `Run.RegistryName` |
+| `Date` | `Run.Date` |
+| `OS` | `Run.OS` |
+| `Architecture` | `Run.Architecture` |
+| `Commit` | `Run.Commit` |
+| `Branch` | `Run.Branch` |
+
+Dans les étapes de la tâche, faites précéder un alias de la directive `$`, comme dans cet exemple :
+
+```yaml
+version: v1.1.0
+steps:
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
+```
+
+### <a name="image-aliases"></a>alias d’image
+
+Chacun des points d’alias suivants pointe vers une image stable dans le Registre de conteneurs Microsoft. Vous pouvez faire référence à chacun d’eux dans la section `cmd` d’un fichier de tâches sans utiliser de directive.
+
+| Alias | Image |
+| ----- | ----- |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
+| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
+| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+
+L’exemple de tâche suivant utilise plusieurs alias pour [purger](container-registry-auto-purge.md) les balises d’image de plus de 7 jours dans le référentiel `samples/hello-world` dans le registre d’exécution :
+
+```yaml
+version: v1.1.0
+steps:
+  - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
+  - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
+```
+
+### <a name="custom-alias"></a>Alias personnalisé
+
+Définissez un alias personnalisé dans votre fichier YAML et utilisez-le comme indiqué dans l’exemple suivant. Un alias ne peut contenir que des caractères alphanumériques. La directive par défaut pour développer un alias est le caractère `$`.
+
+```yml
+version: v1.1.0
+alias:
+  values:
+    repo: myrepo
+steps:
+  - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
+```
+
+Vous pouvez créer un lien vers un fichier YAML distant ou local pour les définitions d’alias personnalisées. L’exemple suivant établit un lien vers un fichier YAML dans le Stockage Blob Azure :
+
+```yml
+version: v1.1.0
+alias:
+  src:  # link to local or remote custom alias files
+    - 'https://link/to/blob/remoteAliases.yml?readSasToken'
+[...]
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour une vue d’ensemble des tâches en plusieurs étapes, consultez la rubrique [Exécuter des tâches de génération, de test et de correction en plusieurs étapes dans les ACR Tasks](container-registry-tasks-multi-step.md).
 
 Pour les builds à une seule étape, consultez la [vue d’ensemble d’ACR Tasks](container-registry-tasks-overview.md).
+
+
 
 <!-- IMAGES -->
 

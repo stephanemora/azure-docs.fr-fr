@@ -1,19 +1,19 @@
 ---
 title: Surveiller votre application web avec des tests web à plusieurs étapes et Azure Application Insights | Microsoft Docs
-description: Configuration des tests web à plusieurs étapes pour surveiller vos applications web avec Azure Application Insights
+description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678233"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817391"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -34,38 +34,12 @@ Pour localiser les outils requis. Lancez **Visual Studio Installer** > **Composa
 > [!NOTE]
 > Les tests web à plusieurs étapes impliquent des coûts supplémentaires. Pour en savoir plus, consultez le [guide de tarification officiel](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Enregistrer un test web à plusieurs étapes
+## <a name="record-a-multi-step-web-test"></a>Enregistrer un test web à plusieurs étapes 
 
-Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l’aide de Visual Studio Enterprise et téléchargez ensuite l’enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie la réponse.
+> [!WARNING]
+> Nous ne recommandons plus l’utilisation de l’enregistreur multiétape. L’enregistreur a été développé pour les pages HTML statiques avec des interactions de base et ne fournit pas d’expérience fonctionnelle pour les pages web modernes.
 
-> [!IMPORTANT]
-> * Vous ne pouvez pas utiliser de fonctions codées ni de boucles dans vos tests. Le test doit être entièrement contenu dans le script .webtest. Toutefois, vous pouvez utiliser des plug-ins standard.
-> * Seuls les caractères anglais sont pris en charge dans les tests web à plusieurs étapes. Si vous utilisez Visual Studio dans d’autres langages, veuillez mettre à jour le fichier de définition de test web pour traduire/exclure les caractères non anglais.
-
-Utilisez Visual Studio Enterprise pour enregistrer une session web.
-
-1. Créer un projet de test de performances web et de charge **Fichier** > **Nouveau** > **Projet** > **Visual C#**  > **Test**
-
-    ![Interface utilisateur du nouveau projet dans Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. Ouvrez le fichier `.webtest` et lancez l’enregistrement.
-
-    ![Interface utilisateur d’enregistrement du test Visual Studio](./media/availability-multistep/open-web-test.png)
-
-3. Cliquez sur les étapes que vous souhaitez que votre test simule dans le cadre de l’enregistrement.
-
-    ![Interface utilisateur d’enregistrement du navigateur](./media/availability-multistep/record.png)
-
-4. Modifiez le test pour :
-
-    * ajouter des validations en vue de vérifier le texte reçu et les codes de réponse ;
-    * supprimer toutes les interactions inutiles. Vous pouvez également supprimer les requêtes dépendantes d’images ou ajouter des sites de suivi qui ne sont pas pertinents pour que vous considériez votre test comme réussi.
-    
-    Gardez à l’esprit que vous pouvez modifier uniquement le script de test. Vous pouvez ajouter du code personnalisé ou appeler d’autres tests web. N’insérez pas de boucles dans le test. Vous pouvez utiliser des plug-ins de test web standard.
-
-5. Exécutez le test dans Visual Studio pour valider et vérifier qu’il fonctionne.
-
-    Le test runner web ouvre un navigateur web et répète les actions enregistrées. Assurez-vous que tout se comporte comme prévu.
+Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [documentation officielle de Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Charger le test web
 
@@ -96,7 +70,7 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 |**Classique** | Nous déconseillons d’utiliser les alertes classiques pour les nouveaux tests de disponibilité.|
 |**Seuil d’emplacement de l’alerte**|nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test - 2, avec un minimum de cinq emplacements de test.**|
 
-## <a name="advanced-configuration"></a>Configuration avancée
+## <a name="configuration"></a>Configuration
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Ajout de plug-ins de temps et de nombres aléatoires à votre test
 

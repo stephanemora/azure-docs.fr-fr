@@ -3,16 +3,17 @@ title: Exécuter une image Azure Container Registry à partir d’une applicatio
 description: Utilisez la commande AZ ACR Pack Build pour créer une image conteneur à partir d’une application et effectuer une transmission de type envoi (push) vers Azure Container Registry, sans utiliser de fichier dockerfile.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: danlep
-ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293908"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965910"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -25,32 +26,30 @@ Pour utiliser les exemples de cet article, vous pouvez utiliser Azure Cloud Shel
 
 ## <a name="use-the-build-command"></a>Utiliser la commande Build
 
-Pour générer et envoyer (push) une image de conteneur à l’aide de Cloud Native Buildpacks, exécutez la commande [az acr pack build][az-acr-pack-build]. Tandis que la commande [az acr build][az-acr-build] génère et envoie (push) une image à partir d’une source fichier dockerfile et du code associé, avec `az acr pack build` vous spécifiez directement une arborescence source d’application.
+Pour générer et envoyer (push) une image conteneur à l’aide de Cloud Native Buildpacks, exécutez la commande [az acr pack build][az-acr-pack-build]. Tandis que la commande [az acr build][az-acr-build] génère et envoie (push) une image à partir d’une source fichier dockerfile et du code associé, avec `az acr pack build` vous spécifiez directement une arborescence source d’application.
 
 Au minimum, spécifiez les éléments suivants lorsque vous exécutez `az acr pack build` :
 
 * Un registre de conteneurs Azure dans lequel vous exécutez la commande
 * Un nom d’image et étiquette pour l’image résultante
 * L’un des [emplacements de contexte pris en charge](container-registry-tasks-overview.md#context-locations) pour les tâches ACR, comme un répertoire local, un GitHub référentiel ou un tarball distant
-* Le nom d’une image du générateur Buildpack, telle que `cloudfoundry/cnb:0.0.12-bionic`.  
+* Le nom d’une image de générateur Buildpack appropriée pour votre application. Azure Container Registry met en cache des images de générateur telles que `cloudfoundry/cnb:0.0.34-cflinuxfs3` pour accélérer les builds.  
 
 `az acr pack build` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-overview.md#view-task-logs) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemple : Créer une image Node.js avec Cloud Foundry Builder
 
-L’exemple suivant crée une image conteneur à partir de l’application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), à l’aide du générateur `cloudfoundry/cnb:0.0.12-bionic` :
+L’exemple suivant génère une image conteneur à partir d’une application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) à l’aide du générateur `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Ce générateur étant mis en cache par Azure Container Registry, aucun paramètre `--pull` n’est requis :
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
+    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-Cet exemple génère l'image `node-app` avec la balise `1.0` et l'envoie (push) au registre de conteneurs *myregistry*. Ici, le nom du registre cible est explicitement ajouté au nom de l’image. Si cette valeur n’est pas spécifiée, l’URL du registre est automatiquement ajoutée au nom de l’image.
-
-Le paramètre `--pull` spécifie que la commande extrait la dernière image du générateur.
+Cet exemple génère l'image `node-app` avec la balise `1.0` et l'envoie (push) au registre de conteneurs *myregistry*. Dans cet exemple, le nom du registre cible est explicitement ajouté au nom de l’image. S’il n’est pas spécifié, le nom du serveur de connexion au registre est automatiquement ajouté au nom de l’image.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 
@@ -70,7 +69,7 @@ Accédez à `localhost:1337` dans votre navigateur favori pour voir l’exemple 
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exemple : Créer une image Java avec Heroku Builder
 
-L’exemple suivant génère une image de conteneur à partir de l’application Java dans le référentiel [buildpack/sample-java-App](https://github.com/buildpack/sample-java-app), à l’aide du générateur `heroku/buildpacks:18` :
+L’exemple suivant génère une image conteneur à partir de l’application Java dans le référentiel [buildpack/sample-java-App](https://github.com/buildpack/sample-java-app), à l’aide du générateur `heroku/buildpacks:18`. Le paramètre `--pull` spécifie que la commande doit extraire la dernière image du générateur. 
 
 ```azurecli
 az acr pack build \
@@ -81,8 +80,6 @@ az acr pack build \
 ```
 
 Cet exemple génère l'image `java-app` marquée avec l’ID d’exécution de la commande et l'envoie (push) au registre de conteneurs *myregistry*.
-
-Le paramètre `--pull` spécifie que la commande extrait la dernière image du générateur.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 
@@ -105,7 +102,7 @@ Accédez à `localhost:8080` dans votre navigateur favori pour voir l’exemple 
 
 Une fois que vous avez généré et envoyé une image conteneur avec `az acr pack build`, vous pouvez la déployer comme n’importe quelle image vers une cible de votre choix. Les options de déploiement Azure incluent l'exécution de cette opération dans [App Service](../app-service/containers/tutorial-custom-docker-image.md) ou le [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre autres.
 
-Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [Automatiser les builds d’image de conteneur et la maintenance avec les tâches ACR](container-registry-tasks-overview.md).
+Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [Automatiser les builds d’image conteneur et la maintenance avec les tâches ACR](container-registry-tasks-overview.md).
 
 
 <!-- LINKS - External -->

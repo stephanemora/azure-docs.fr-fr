@@ -3,7 +3,7 @@ title: Suivi des données lors du repérage dans Azure Sentinel à l’aide de 
 description: Cet article décrit comment utiliser les signets de repérage d’Azure Sentinel pour effectuer le suivi des données.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
@@ -14,22 +14,27 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: aa414e37470cc11b7dc83e7416590aa2babf6818
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 10/24/2019
+ms.author: cabailey
+ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240251"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935332"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Suivi des données lors du repérage avec Azure Sentinel
 
 Le repérage des menaces nécessite généralement la vérification de montagnes de données de journal à la recherche de preuves de comportements malveillants. Pendant ce processus, les enquêteurs détectent des événements qu’ils souhaitent mémoriser, réexaminer et analyser afin de valider des hypothèses potentielles et de comprendre d’une compromission dans sa globalité.
 
-Dans Azure Sentinel, les signets de repérage vous y aident, en conservant les requêtes que vous avez exécutées dans Log Analytics, ainsi que les résultats de requête que vous jugez pertinents. Vous pouvez également enregistrer vos observations contextuelles et référencer vos découvertes en ajoutant des balises et des notes. Les données avec signet sont visibles par vous et vos collègues pour faciliter la collaboration.
+Dans Azure Sentinel, les signets de chasse vous y aident en conservant les requêtes que vous avez exécutées dans **Azure Sentinel – Logs**, ainsi que les résultats de requête que vous jugez pertinents. Vous pouvez également enregistrer vos observations contextuelles et référencer vos découvertes en ajoutant des balises et des notes. Les données avec signet sont visibles par vous et vos collègues pour faciliter la collaboration.
 
-Vous pouvez revenir consulter vos données avec signet à tout moment dans l’onglet **Signet** du volet **Repérage**. Vous pouvez utiliser les options de filtrage et de recherche pour trouver rapidement des données spécifiques dans le cadre de l’examen en cours. Vous pouvez également afficher vos données avec signet directement dans la table **HuntingBookmark** d'Azure Monitor. Cela vous permet de filtrer les données avec signet, les synthétiser et les joindre à d’autres sources de données, ce qui facilite la recherche de preuves pour la confirmation.
+Vous pouvez revenir consulter vos données marquées d’un signet à tout moment sous l’onglet **Signet** du volet **Chasse**. Vous pouvez utiliser les options de filtrage et de recherche pour trouver rapidement des données spécifiques dans le cadre de l’examen en cours. Vous pouvez également afficher vos données marquées d’un directement dans la table **HuntingBookmark** de votre espace de travail Log Analytics. Par exemple :
+
+> [!div class="mx-imgBorder"]
+> ![afficher la table HuntingBookmark](./media/bookmarks/bookmark-table.png)
+
+L’affichage des signets de la table vous permet de filtrer et de synthétiser les données marquées d’un signet, ainsi que de les joindre à d’autres sources de données, ce qui facilite la recherche de preuves pour la confirmation.
 
 Actuellement en préversion, si vous trouvez des éléments qui doivent être traités de manière urgente dans vos journaux, en quelques clics, vous pouvez créer un signet et le transformer en incident, ou ajouter le signet à un incident existant. Pour plus d’informations sur les incidents, consultez [Didacticiel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md). 
 
@@ -48,23 +53,23 @@ Actuellement en préversion, si vous trouvez des éléments qui doivent être tr
     
     Cette action ouvre les résultats de la requête dans le volet **Journaux**.
 
-4. Dans la liste des résultats de requête de journal, développez la ligne contenant les informations qui vous intéressent.
+4. Dans la liste des résultats de la requête de journal, utilisez les cases à cocher pour sélectionner une ou plusieurs lignes contenant des informations que vous trouvez intéressantes.
 
-5. Sélectionnez les points de suspension (...) sur la gauche, puis **Ajouter un signet de repérage** :
+5. Sélectionnez **Ajouter un signet** :
     
     > [!div class="mx-imgBorder"]
     > ![Ajouter un signet de repérage à une requête](./media/bookmarks/add-hunting-bookmark.png)
 
-6. À droite, dans le volet **Ajouter un signet de repérage**, vous pouvez mettre à jour le nom du signet et ajouter des balises et des notes pour identifier facilement les informations intéressantes à propos de l’élément.
+6. À droite, dans le volet **Ajouter un signet**, vous pouvez mettre à jour le nom du signet et ajouter des balises et des notes pour identifier facilement les informations intéressantes à propos de l’élément.
 
-7. Dans la section **Informations sur la requête**, utilisez les zones de liste déroulante afin d'extraire des informations des résultats de la requête pour les types d’entités **Compte**, **Hôte** et **Adresse IP**. Cette action mappe le type d’entité sélectionné à une colonne spécifique à partir du résultat de la requête. Par exemple :
+7. Dans la section **Informations sur la requête**, utilisez les zones de liste déroulante afin d’extraire des informations des résultats de la requête pour les types d’entités **Compte**, **Hôte** et **Adresse IP**. Cette action mappe le type d’entité sélectionné à une colonne spécifique à partir du résultat de la requête. Par exemple :
     
     > [!div class="mx-imgBorder"]
     > ![Mapper les types d’entité pour le signet de repérage](./media/bookmarks/map-entity-types-bookmark.png)
     
     Pour afficher le signet dans le graphe d’examen (actuellement en préversion), vous devez mapper au moins un type d’entité correspondant à **Compte**, **Hôte** ou **Adresse IP**. 
 
-5. Cliquez sur **Ajouter** pour valider vos modifications et ajouter le signet. Toutes les données avec signet sont partagées avec d’autres enquêteurs et constituent une première étape vers une expérience d’examen collaborative.
+5. Cliquez sur **Enregistrer** pour valider vos modifications et ajouter le signet. Toutes les données avec signet sont partagées avec d’autres enquêteurs et constituent une première étape vers une expérience d’examen collaborative.
 
  
 > [!NOTE]
@@ -118,6 +123,9 @@ Pour savoir comment utiliser le graphe d’examen, consultez [Utiliser le graphe
 
 Pour afficher le signet dans l’incident : Accédez à **Sentinel** > **Gestion des menaces** > **Incidents**, puis sélectionnez l'incident avec votre signet. Sélectionnez **Afficher les détails**, puis l'onglet **Signets**.
 
+> [!TIP]
+> En guise d’alternative à l’option **Actions d’incident (préversion)** dans la barre de commandes, vous pouvez utiliser le menu contextuel ( **...** ) pour un ou plusieurs signets afin de sélectionner des options pour **Créer un incident**, **Ajouter à un incident existant** et **Supprimer de l’incident**. 
+
 ## <a name="view-bookmarked-data-in-logs"></a>Afficher les données avec signet dans les journaux
 
 Pour afficher les requêtes avec signet, les résultats ou l’historique, sélectionnez le signet dans l'onglet **Repérage** > **Signets** et utilisez les liens fournis dans le volet de détails : 
@@ -140,9 +148,9 @@ Cet affichage montre tous vos signets avec les métadonnées associées. Vous po
  
 1.  Dans le portail Azure, accédez à **Sentinel** > **Gestion des menaces** > **Repérage** > **Signets**, puis sélectionnez le(s) signet(s) que vous souhaitez supprimer. 
 
-2. Cliquez sur les points de suspension (...) à la fin de la ligne, puis sélectionnez **Supprimer le signet**.
+2. Cliquez avec le bouton droit sur vos sélections, puis sélectionnez l’option permettant de supprimer le ou les signets. Par exemple, **Supprimer le signet** si vous avez sélectionné un seul signet, et **supprimer 2 signets** si vous avez sélectionné deux signets.
     
-La suppression du signet supprime le signet de la liste dans l’onglet **Signet**. La table **HuntingBookmark** de Log Analytics contient toujours les précédentes entrées de signet, mais la valeur de la dernière entrée pour **SoftDelete** devient true, ce qui vous permet d’exclure les anciens signets. La suppression d’un signet ne supprime pas les entités de l’expérience d’examen qui sont associées à d’autres alertes ou signets. 
+La suppression du signet supprime le signet de la liste dans l’onglet **Signet**. La table **HuntingBookmark** pour votre espace de travail Log Analytics contient toujours les précédentes entrées de signet, mais la valeur de la dernière entrée pour **SoftDelete** devient true, ce qui vous permet de filtrer aisément les anciens signets. La suppression d’un signet ne supprime pas les entités de l’expérience d’examen qui sont associées à d’autres alertes ou signets. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

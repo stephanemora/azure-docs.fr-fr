@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4f585778808b133fe5c731ab6a3189594cbfc0f9
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122695"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804232"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envoyer des appels sortants à des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
@@ -35,7 +35,7 @@ En fonction des capacités du point de terminaison cible, le connecteur HTTP pre
 
 * L’URL du point de terminaison cible que vous souhaitez appeler
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](../logic-apps/logic-apps-overview.md) ?
 
 * L’application logique à partir de laquelle vous souhaitez appeler le point de terminaison cible. Pour démarrer avec un déclencheur HTTP, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser l’action HTTP, démarrez votre application logique avec le déclencheur de votre choix. Cet exemple utilise le déclencheur HTTP en tant que première étape.
 
@@ -43,9 +43,9 @@ En fonction des capacités du point de terminaison cible, le connecteur HTTP pre
 
 Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un point de terminaison et renvoie une réponse.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’applications logiques.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
-1. Dans la zone de recherche du Concepteur, saisissez le filtre « http ». Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP**.
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « http » en guise de filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP**.
 
    ![Sélectionner le déclencheur HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -53,9 +53,9 @@ Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un
 
 1. Indiquez les valeurs des [paramètres du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurez la fréquence à laquelle le déclencheur doit vérifier le point de terminaison cible.
 
-   ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Pour en savoir plus sur les types d’authentification disponibles pour HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
@@ -75,7 +75,7 @@ Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un poi
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Dans la zone de recherche du Concepteur, saisissez le filtre « http ». Dans la liste **Actions**, sélectionnez **HTTP**.
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « http » en guise de filtre. Dans la liste **Actions**, sélectionnez **HTTP**.
 
    ![Sélection de l’action HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -83,9 +83,9 @@ Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un poi
 
 1. Indiquez les valeurs des [paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) à inclure dans l’appel au point de terminaison cible.
 
-   ![Entrer les paramètres de l’action HTTP](./media/connectors-native-http/http-action-parameters.png)
+   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Pour en savoir plus sur les types d’authentification disponibles pour HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Entrer les paramètres de l’action HTTP](./media/connectors-native-http/http-action-parameters.png)
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 33078439e8f055d746fad9949a9b0d7651e120f7
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 001a6d5ef742874698cd7a67014179a2f8528fc6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543809"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053463"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ? (Préversion)
 
@@ -35,7 +35,7 @@ Le diagramme suivant illustre un déploiement double pile (IPv4/IPv6) dans Azure
 
 ## <a name="benefits"></a>Avantages
 
-Avantages du protocole IPv6 pour réseau virtuel Azure :
+Avantages d’IPv6 pour un réseau virtuel Azure :
 
 - Vous aide à étendre vos applications hébergées dans Azure aux marchés en pleine expansion des solutions mobiles et de l’Internet des objets.
 - Les machines virtuelles double pile IPv4/IPv6 offrent une flexibilité de déploiement de service maximale. Une simple instance de service peut se connecter indifféremment à des clients Internet compatibles IPv4 et IPv6.
@@ -44,34 +44,39 @@ Avantages du protocole IPv6 pour réseau virtuel Azure :
 
 ## <a name="capabilities"></a>Fonctionnalités
 
-IPv6 pour le réseau virtuel inclut les fonctionnalités suivantes :
+IPv6 pour les réseaux virtuels Azure inclut les fonctionnalités suivantes :
 
 - Les clients Azure peuvent définir leur propre espace d’adressage de réseau virtuel IPv6 pour répondre aux besoins de leurs applications et clients, ou intégrer sans difficulté dans leur propre espace d’adressage IP local.
 - Des réseaux virtuels double pile (IPv4 et IPv6) avec des sous-réseaux double pile permettent aux applications de se connecter à des ressources tant IPv4 que IPv6 au sein de leur réseau virtuel ou sur Internet.
     > [!IMPORTANT]
-    > Les sous-réseaux pour IPv6 doivent avoir une taille égale à /64.  Cela garantit la compatibilité ultérieure si vous décidez d’activer le routage du sous-réseau vers un réseau local, car certains routeurs acceptent uniquement les routes IPv6 /64.  
+    > Les sous-réseaux pour IPv6 doivent avoir une taille égale à /64.  Cela garantit la compatibilité ultérieure si vous décidez d’activer le routage du sous-réseau vers un réseau local, car certains routeurs acceptent uniquement les itinéraires IPv6 /64.  
 - Possibilité de protéger vos ressources avec des règles de protocole IPv6 pour les groupes de sécurité réseau.
+    - Et les protections de déni de service distribué (DDoS) de la plateforme Azure sont étendues aux adresses IP publiques accessibles sur Internet
 - Possibilité de personnaliser le routage du trafic IPv6 dans votre réseau virtuel avec des itinéraires définis par l’utilisateur, en particulier lorsque vous utilisez des appliances virtuelles réseau pour augmenter votre application.
-- Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 
-- Prise en charge de l’équilibreur de charge public IPv6 standard pour créer des applications scalables et résilientes. Cela inclut :
-    - Sonde d’intégrité IPv6 en option pour déterminer quelles instances de pool back-end sont intègres et donc en état de recevoir de nouveaux flux. .  
+- Les machines virtuelles Linux et Windows peuvent toutes utiliser le protocole IPv6 pour les réseaux virtuels Azure
+- Prise en charge de l’[équilibreur de charge public IPv6 standard](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) pour créer des applications extensibles résilientes, à savoir :
+    - Sonde d’intégrité IPv6 en option pour déterminer quelles instances de pool back-end sont intègres et donc en état de recevoir de nouveaux flux.
     - Règles de trafic sortant fournissant un contrôle déclaratif complet sur la connectivité sortante pour mettre à l’échelle et adapter cette fonctionnalité en fonction de vos besoins spécifiques.
     - Configurations front-end facultatives qui permettent à un même équilibreur de charge d’utiliser plusieurs adresses IP publiques IPv6. Les mêmes protocole et port frontal peuvent être réutilisés pour plusieurs adresses front-end.
+    - Les ports IPv6 facultatifs peuvent être réutilisés sur des instances principales à l’aide de la fonctionnalité *IP flottante* des règles d’équilibrage de charge 
+- [L’équilibreur de charge interne IPv6 Standard](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) prend en charge la création d’applications multiniveau résilientes dans des réseaux virtuels Azure.  
+- Prise en charge de l’équilibreur de charge public IPv6 De base pour assurer la compatibilité avec des déploiements hérités
+- [Les adresses et plages d’adresses IP publiques IPv6 réservées](ipv6-public-ip-address-prefix.md) fournissent des adresses IPv6 stables et prévisibles qui facilitent la mise en liste verte de vos applications hébergées par Azure pour votre entreprise et vos clients.
 - Une adresse IP publique de niveau d’instance fournit une connectivité Internet IPv6 directement aux machines virtuelles individuelles.
-- Ajoutez facilement la connectivité IPv6 à des déploiements exclusivement IPv4 existants, avec mise à niveau sur place.
-- Possibilité de créer des applications double pile dont l’échelle s’adapte automatiquement à votre charge à l’aide de groupes de machines virtuelles identiques.
-- La prise en charge du portail pour la préversion inclut à présent la création, la modification et la suppression interactives de réseaux virtuels et sous-réseaux virtuels à double pile (IPv4+IPv6), ainsi que de règles de groupe de sécurité réseau IPv6, d’itinéraires IPv6 définis par l’utilisateur et d’adresses IP publiques IPv6.  
+- [Ajouter IPv6 à des déploiements uniquement IPv4 existants](ipv6-add-to-existing-vnet-powershell.md) : cette fonctionnalité vous permet d’ajouter facilement une connectivité IPv6 à des déploiements uniquement IPv4 existants sans avoir à recréer de déploiements.  Le trafic réseau IPv4 n’étant pas affecté au cours de ce processus, en fonction de votre application et du système d’exploitation, vous pouvez ajouter le protocole IPv6 même à des services en direct.    
+- Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 
+- Créez des applications double pile dont l’échelle s’adapte automatiquement à votre charge à l’aide de groupes de machines virtuelles identiques avec IPv6.
+- Un [appairage de réseaux virtuels](virtual-network-peering-overview.md), tant au sein d’une région qu’à l’échelle globale, vous permet de connecter sans problème des réseaux virtuels double pile. Les points de terminaison IPv4 et IPv6 sur les machines virtuelles dans les réseaux appairés pourront communiquer entre eux. Vous pouvez même effectuer un appairage double pile avec des réseaux virtuels uniquement IPv4 lorsque vous opérez la transition de vos déploiements vers le mode double pile. 
+- Le dépannage et les diagnostics du protocole IPv6 sont disponibles avec les métriques et alertes de l’équilibreur de charge, ainsi que des fonctionnalités de Network Watcher telles que la capture de paquets, les journaux de flux de groupe de sécurité réseau (NSG), la résolution des problèmes de connexion et la vérification de la connectivité.   
+
+## <a name="scope"></a>Étendue
+Le protocole IPv6 pour réseaux virtuels Azure VNET est un ensemble de fonctionnalités de base qui permet aux clients d’héberger des applications double pile (IPv4 + IPv6) dans Azure.  Nous avons l’intention d’ajouter la prise en charge du protocole IPv6 à d’autres fonctionnalités de mise en réseau Azure au fil du temps, voire d’offrir des versions double pile des services PaaS Azure. Entre-temps, tous les services Azure PaaS sont accessibles via les points de terminaison IPv4 sur des machines virtuelles double pile.   
 
 ## <a name="limitations"></a>Limites
-La préversion du protocole IPv6 pour réseau virtuel Azure présente les limitations suivantes :
-- Le protocole IPv6 pour réseau virtuel Azure (préversion) est disponible dans toutes les régions Azure, mais uniquement dans Azure international, pas dans les clouds pour le secteur public.
-- La prise en charge par le portail de composants Standard Load Balancer est en mode lecture uniquement.  Toutefois, une prise en charge complète et de la documentation (avec des exemples) sont disponibles pour les déploiements Standard Load Balancer à l’aide d’Azure PowerShell et de l’interface de ligne de commande (CLI).   
-- La prise en charge de Network Watcher pour la préversion est limitée aux journaux de flux NSG et aux captures de paquet réseau.
-- Le peering de réseau virtuel (au niveau régional ou global) n’est pas pris en charge dans la préversion.
-- Lors de l’utilisation d’un équilibreur de charge externe IPv6 Standard, les limites suivantes s’appliquent : 
-  - Les règles de trafic sortant peuvent faire référence à plusieurs adresses IP publiques front-end, mais elles ne peuvent **pas** faire référence à un préfixe public IPv6. Le préfixe public IP prend en charge uniquement les préfixes IPv4.
-  - Les règles d’équilibrage de charge IPv6 ne peuvent **pas** utiliser la fonctionnalité d’*adresse IP flottante*. La réutilisation de ports sur les instances back-end est prise en charge uniquement avec IPv4.
-- La réservation d’un bloc d’adresses IPv6 accessibles sur Internet n’est pas prise en charge par la fonctionnalité de préfixe d’adresse IP publique Azure.
+La version actuelle du protocole IPv6 pour réseau virtuel Azure présente les limitations suivantes :
+- Le protocole IPv6 pour réseau virtuel Azure (préversion) est disponible dans toutes les régions Azure, mais uniquement dans Azure international, pas encore dans les clouds pour le secteur public.
+- ExpressRoute et les passerelles VPN ne peuvent pas être utilisés dans un réseau virtuel dans lequel le protocole IPv6 est activé, que ce soit directement ou appairés avec « UseRemoteGateway ». 
+- La plateforme Azure (AKS, etc.) ne prend pas en charge la communication IPv6 pour les conteneurs.  
 
 ## <a name="pricing"></a>Tarifs
 
@@ -79,5 +84,6 @@ Les ressources et la bande passante du protocole IPv6 Azure sont facturées au m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [déployer une application double pile IPv6 dans Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
-- Découvrez comment [déployer une application double pile IPv6 à l’aide d’Azure CLI](virtual-network-ipv4-ipv6-dual-stack-cli.md).
+- Découvrez comment [déployer une application double pile IPv6 dans Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+- Découvrez comment [déployer une application double pile IPv6 à l’aide d’Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+- Découvrez comment [déployer une application IPv6 double pile à l’aide de modèles de Gestionnaire des ressources (JSON)](ipv6-configure-standard-load-balancer-template-json.md)

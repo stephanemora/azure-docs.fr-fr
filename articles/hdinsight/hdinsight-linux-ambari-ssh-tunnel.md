@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/28/2019
+ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105471"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991351"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur
 
@@ -56,10 +56,10 @@ Le [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoc
 
 ## <a name="usessh"></a>Création d’un tunnel à l'aide de la commande SSH
 
-Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande `ssh` . Remplacez `sshuser` par un utilisateur SSH de votre cluster HDInsight et `clustername` par le nom de votre cluster HDInsight.
+Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande `ssh` . Remplacez `sshuser` par un utilisateur SSH de votre cluster HDInsight et `CLUSTERNAME` par le nom de votre cluster HDInsight.
 
 ```cmd
-ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
@@ -77,16 +77,19 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
 ## <a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) est un client SSH graphique pour Windows. Si vous n’êtes pas familiarisé avec PuTTY, consultez la [documentation de PuTTY ](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit :
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) est un client SSH graphique pour Windows. Si vous n’êtes pas familiarisé avec PuTTY, voir la [documentation de PuTTY ](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit :
 
 ### <a name="create-or-load-a-session"></a>Créer ou charger une session
 
 1. Ouvrez PuTTY et vérifiez que **Session** est sélectionné dans le menu de gauche. Si vous avez déjà enregistré une session, sélectionnez le nom de la session dans la liste **Sessions enregistrées**, puis sélectionnez **Charger**.
 
 1. Si vous ne disposez pas d’une session enregistrée, entrez vos informations de connexion :
-    * **Nom d’hôte (ou adresse IP)**  : adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**
-    * **Port** : 22
-    * **Type de connexion** : SSH
+
+    |Propriété |Valeur |
+    |---|---|
+    |Nom d’hôte (ou adresse IP)|Adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**.|
+    |Port|22|
+    |Type de la connexion|SSH|
 
 1. Sélectionnez **Enregistrer**.
 
@@ -96,15 +99,15 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
 1. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH** .
 
-   * **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
+    |Propriété |Valeur |
+    |---|---|
+    |Port source|Port sur le client que vous souhaitez transférer. Par exemple : **9876**.|
+    |Destination|Adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**.|
+    |Dynamique|Active le routage dynamique du proxy SOCKS.|
 
-   * **Destination** : adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**.
+    ![Configuration de PuTTY - Options de tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-   * **Dynamique** : active le routage dynamique du proxy SOCKS.
-
-     ![Configuration de PuTTY - Options de tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
-
-1. Sélectionnez **Ajouter** pour ajouter les paramètres, puis cliquez sur **Ouvrir** pour ouvrir une connexion SSH.
+1. Sélectionnez **Ajouter** pour ajouter les paramètres, puis **Ouvrir** pour ouvrir une connexion SSH.
 
 1. Lorsque vous y êtes invité, connectez-vous au serveur.
 
@@ -153,6 +156,6 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à créer et utiliser un tunnel SSH, consultez le document suivant pour découvrir d’autres façons d’utiliser Ambari :
+À présent que vous avez appris à créer et utiliser un tunnel SSH, voir le document suivant pour découvrir d’autres façons d’utiliser Ambari :
 
 * [Gérer des clusters HDInsight avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)

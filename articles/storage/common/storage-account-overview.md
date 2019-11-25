@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671307"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882585"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -44,7 +44,7 @@ Les comptes de stockage universels v2 offrent plusieurs niveaux d’accès pour 
 
 ### <a name="general-purpose-v1-accounts"></a>Comptes GPv1
 
-Les comptes de stockage universels v1 offrent un accès à tous les services du stockage Azure, mais ils ne proposent pas les fonctionnalités les plus récentes, ni les tarifs par gigaoctet les plus bas. Les comptes de stockage universels v1 prennent en charge les services de stockage Azure suivants :
+Les comptes de stockage universels v1 offrent un accès à tous les services des Stockage Azure, mais ils ne proposent pas les fonctionnalités les plus récentes, ni les tarifs par gigaoctet les plus bas. Les comptes de stockage universels v1 prennent en charge les services de stockage Azure suivants :
 
 - Objets blob (tous les types)
 - Fichiers
@@ -60,17 +60,19 @@ Même si les comptes de stockage universels v2 sont recommandés dans la plupart
 
 * Vous utilisez une version de l’ [API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
 
-### <a name="block-blob-storage-accounts"></a>Comptes de stockage d’objets blob de blocs
+### <a name="blockblobstorage-accounts"></a>Comptes BlockBlobStorage
 
-Un compte de stockage d’objets blob de blocs est un compte de stockage spécialisé qui stocke les données d’objets non structurées sous la forme d’objets blob de blocs. Ce type de compte de stockage prend en charge le stockage des objets blob de blocs et des objets blob d’ajout, mais pas des objets blob de pages, des tables ou des files d'attente.
+Un compte BlockBlobStorage est un compte de stockage spécialisé utilisé pour stocker des données d’objets non structurées en tant qu’objets blob de blocs et créer des objets blob de blocs Premium. Ce genre de compte de stockage prend en charge le stockage des objets blob de blocs et des objets blob d’ajout, mais pas des objets blob de pages, de tables ou de files d’attente.
 
-Par comparaison avec des comptes à usage général v2 et de stockage d’objets blob, les comptes de stockage d’objet blob de blocs fournissent une latence faible et cohérente et des taux de transactions plus élevés.
+En comparaison des comptes BlobStorage et v2 universels , les comptes de stockage BlockBlobStorage fournissent une latence faible et cohérente, et des taux de transactions plus élevés.
 
-Les comptes de stockage d’objets blob de blocs ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive.
+Les comptes BlockBlobStorage ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive.
 
-### <a name="filestorage-storage-accounts"></a>Comptes de stockage FileStorage
+### <a name="filestorage-accounts"></a>Comptes FileStorage
 
-Un compte de stockage FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers premium. Les comptes de stockage FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’éclatement d’IOPS de rupture. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
+Un compte FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers Premium. Ce genre de compte de stockage prend en charge les fichiers mais pas les objets blob de blocs, d’ajout, de pages, de tables ou de files d’attente. 
+
+Les comptes FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’IOPS en mode rafale. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
 
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 
@@ -86,7 +88,7 @@ Les comptes de stockage universels peuvent être configurés avec l’un des niv
 * Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure
 * Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement
 
-Les comptes de stockage d’objet blob de blocs fournissent un niveau de performances premium pour stocker des objets blob de blocs et ajouter des objets blob.
+Les comptes de stockage BlockBlobStorage fournissent un niveau de performances Premium pour stocker des objets blob de blocs et d’ajout.
 
 Les comptes de stockage FileStorage fournissent un niveau de performances premium pour les partages de fichiers Azure.
 
@@ -186,5 +188,5 @@ Vous pouvez également utiliser ce service pour transférer des données de Stoc
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour apprendre à créer un compte de stockage Azure à usage général, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
-* Pour apprendre à créer un compte de stockage d’objets blob de blocs, consultez [Créer un compte de stockage d’objets blob de blocs](../blobs/storage-blob-create-account-block-blob.md).
+* Pour apprendre à créer un compte BlockBlobStorage, voir [Créer un compte de stockage d’objets blob de blocs](../blobs/storage-blob-create-account-block-blob.md).
 * Pour gérer ou supprimer un compte de stockage existant, consultez [Gérer des comptes de stockage Azure](storage-account-manage.md).
