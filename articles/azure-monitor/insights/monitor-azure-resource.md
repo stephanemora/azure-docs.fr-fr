@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 1ec241e261a7710b7a5b92d88f147ce8d148602b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554031"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928475"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -62,11 +62,19 @@ Les ressources dans Azure génèrent les [journaux](../platform/data-platform-lo
 
 
 ## <a name="configuration-requirements"></a>Exigences de configuration
+
+### <a name="configure-monitoring"></a>Configuration de l’analyse
 Certaines données de supervision sont collectées automatiquement, mais vous devrez peut-être adapter votre configuration en fonction de vos besoins. Consultez les informations ci-dessous pour obtenir des informations spécifiques pour chaque type de données de supervision.
 
 - [Métriques de plateforme](../platform/data-platform-metrics.md) – Les métriques de plateforme sont collectées automatiquement dans [Métriques Azure Monitor](../platform/data-platform-metrics.md) sans qu’aucune configuration soit requise. Créez un paramètre de diagnostic pour envoyer des entrées aux journaux Azure Monitor ou les transférer en dehors d’Azure.
 - [Journaux de ressources](../platform/resource-logs-overview.md) – Les journaux de ressources sont générés automatiquement par les ressources Azure, mais ne sont pas collectés sans paramètre de diagnostic.  Créez un paramètre de diagnostic pour envoyer des entrées aux journaux Azure Monitor ou les transférer en dehors d’Azure.
 - [Journal d’activité](../platform/activity-logs-overview.md) – Le journal d’activité est collecté automatiquement sans aucune configuration requise et peut être affiché dans le portail Azure. Créez un paramètre de diagnostic pour les copier dans les journaux Azure Monitor ou pour les transférer en dehors d’Azure.
+
+### <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
+La collecte de données dans les journaux d’activité Azure Monitor nécessite un espace de travail Log Analytics. Vous pouvez commencer à superviser votre service rapidement en créant un espace de travail, mais il peut être utile d’utiliser un espace de travail qui collecte des données à partir d’autres services. Consultez [Créer un espace de travail Log Analytics dans le Portail Azure](../learn/quick-create-workspace.md) pour plus d’informations sur la création d’un espace de travail et [Conception de votre déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md) afin de déterminer la meilleure conception d’espace de travail pour vos besoins. Si vous utilisez un espace de travail existant dans votre organisation, vous aurez besoin des autorisations appropriées, comme décrit dans [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](../platform/manage-access.md). 
+
+
+
 
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
@@ -82,20 +90,27 @@ Suivez la procédure indiquée dans [Créer un paramètre de diagnostic pour col
 ## <a name="monitoring-in-the-azure-portal"></a>Surveillance dans le portail Azure
  Vous pouvez accéder aux données de supervision de la plupart des ressources Azure à partir du menu de la ressource dans le Portail Azure. Cela vous donne accès aux données d’une ressource unique à l’aide des outils Azure Monitor standard. Certains services Azure fournissent des options différentes et vous devez vous référer à la documentation de ces services pour obtenir des informations supplémentaires. Utilisez le menu d’**Azure Monitor** pour analyser les données provenant de toutes les ressources supervisées. 
 
+### <a name="overview"></a>Vue d'ensemble
 De nombreux services incluent des données de supervision dans leur page **Vue d’ensemble**, offrant un aperçu rapide de leur fonctionnement. En général, cela se base sur un sous-ensemble de métriques de plateforme stockées dans les métriques Azure Monitor. D’autres options de supervision sont généralement disponibles dans une section **Supervision** du menu des services.
 
 ![Page Vue d’ensemble](media/monitor-azure-resource/overview-page.png)
 
-## <a name="analyzing-metrics"></a>Analyse des métriques
-Analysez les métriques individuelles et mettez en corrélation plusieurs métriques pour identifier les corrélations et les tendances à l’aide de [Metrics Explorer](../platform/metrics-getting-started.md). Certains services fournissent une expérience personnalisée pour l’utilisation de ses métriques lorsque vous ouvrez **Métriques** à partir du menu de ressources.
+
+### <a name="insights-and-solutions"></a>Insights et solutions 
+Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [insights](../insights/insights-overview.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor. Des [solutions](../insights/solutions.md) fournissent une logique de supervision prédéfinie basée sur les journaux d’activité Azure Monitor. 
+
+Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à partir de **Supervision** dans le menu de chaque ressource. Accédez à tous les insights et à toutes les solutions à partir du menu **Azure Monitor**.
+
+![Insights](media/monitor-azure-resource/insights.png)
+
+### <a name="metrics"></a>Mesures
+Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer**, disponible à partir de l’élément de menu [Métriques](../platform/metrics-getting-started.md) pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
 
 - Consultez [Bien démarrer avec Azure Metrics Explorer](../platform/metrics-getting-started.md) pour découvrir les principes de base de l’utilisation de Metrics Explorer.
 - Consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../platform/metrics-charts.md) pour découvrir les fonctionnalités avancées de Metrics Explorer, telles que l’utilisation de plusieurs métriques et l’application de filtres et d’un fractionnement.
 
 ![Mesures](media/monitor-azure-resource/metrics.png)
 
-
-## <a name="analyzing-logs"></a>Analyse des journaux d’activité
 
 ### <a name="activity-log"></a>Journal d’activité 
 Affichez les entrées du journal d’activité dans le Portail Azure avec le filtre initial défini sur la ressource actuelle. Copiez le journal d’activité dans un espace de travail Log Analytics pour y accéder et l’utiliser dans des classeurs et des requêtes de journal. 
@@ -110,7 +125,6 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 
 [Log Analytics](../log-query/get-started-portal.md) vous permet de travailler avec des [requêtes de journal](../log-query/log-query-overview.md), qui sont une fonctionnalité puissante d’Azure Monitor qui vous permet d’effectuer une analyse avancée des données de journal à l’aide d’un langage de requête complet. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Supervision** pour qu’une ressource Azure utilise les requêtes de journal avec la ressource en tant qu’[étendue de requête](../log-query/scope.md#query-scope). Cela vous permet d’analyser les données de plusieurs tables uniquement pour cette ressource. Utilisez **Journaux** dans le menu d’Azure Monitor pour accéder aux journaux de toutes les ressources. 
 
-- Consultez [Prise en main de Log Analytics dans Azure Monitor](../log-query/get-started-portal.md) pour obtenir une procédure pas à pas d’utilisation de Log Analytics afin d’écrire une requête et d’utiliser les résultats.
 - Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md) pour bénéficier d’un tutoriel sur le langage de requêtes utilisé pour écrire des requêtes de journal.
 - Consultez [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../platform/resource-logs-collect-workspace.md) pour plus d’informations sur la façon dont les journaux de ressources sont collectés dans les journaux Azure Monitor et la façon d’accéder à ces derniers dans une requête.
 - Consultez [Mode de collecte](../platform/resource-logs-collect-workspace.md#collection-mode) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
@@ -118,6 +132,19 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 
 ![Journaux d’activité](media/monitor-azure-resource/logs.png)
 
+## <a name="monitoring-from-command-line"></a>Supervision à partir de la ligne de commande
+Vous pouvez accéder aux données de supervision collectées depuis votre ressource à partir d’une ligne de commande ou les inclure dans un script à l’aide d’[Azure PowerShell](/powershell/azure/) ou de l’[interface de ligne de commande Azure](/cli/azure/). 
+
+- Pour accéder aux données de métriques à partir de l’interface CLI, consultez [Référence sur les métriques CLI](/cli/azure/monitor/metrics).
+- Pour accéder aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir de l’interface CLI, consultez [Référence sur Log Analytics CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).
+- Pour accéder aux données de métriques à partir d’Azure PowerShell, consultez [Référence sur les métriques Azure PowerShell](/powershell/module/azurerm.insights/get-azurermmetric).
+- Pour accéder aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir d’Azure PowerShell, consultez [Référence sur les requêtes de journal Azure PowerShell](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery).
+
+## <a name="monitoring-from-rest-api"></a>Supervision à partir de l’API REST
+Incluez les données de supervision collectées à partir de votre ressource dans une application personnalisée à l’aide d’une API REST.
+
+- Pour plus d’informations sur l’accès aux métriques à partir de l’API REST d’Azure Monitor, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../platform/rest-api-walkthrough.md).
+- Pour plus d’informations sur l’accès aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir d’Azure PowerShell, consultez [API REST d’Azure Log Analytics](https://dev.loganalytics.io/).
 
 ## <a name="alerts"></a>Alertes
 Les [alertes](../platform/alerts-overview.md) vous avertissent de façon proactive et peuvent entreprendre une action lorsque des conditions significatives sont détectées dans vos données de supervision. Vous créez une règle d’alerte qui définit une cible pour l’alerte, les conditions indiquant si une alerte doit être créée, et les actions éventuelles à entreprendre en réponse.
@@ -133,14 +160,7 @@ Utilisez **Alertes** dans le menu d’une ressource pour afficher les alertes et
 - Consultez les articles relatifs aux différents types d’alertes ci-dessus pour plus d’informations sur la création de règles d’alerte.
 - Consultez [Créer et gérer des groupes d’actions sur le Portail Azure](../platform/action-groups.md) pour plus d’informations sur la création d’un groupe d’actions vous permettant de gérer les réponses aux alertes.
 
-## <a name="insights-and-solutions"></a>Insights et solutions 
-Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [solutions](../insights/solutions.md) fournissent une logique de supervision prédéfinie basée sur les fonctionnalités standard d’Azure Monitor. Des [insights](../insights/insights-overview.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor.
 
-Si une ressource dispose d’un insight, vous pouvez y accéder via l’option **Insights** du menu de la ressource. Accédez à tous les insights et solutions à partir du menu d’Azure Monitor.
-
-- Consultez la documentation sur la supervision pour chaque service afin de déterminer si des insights ou des solutions sont disponibles.
-
-![Insights](media/monitor-azure-resource/insights.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

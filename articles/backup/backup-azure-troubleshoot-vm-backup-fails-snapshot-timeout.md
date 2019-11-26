@@ -1,5 +1,5 @@
 ---
-title: 'Résoudre les problèmes d’une Sauvegarde Azure : état de l’agent invité indisponible'
+title: 'Résoudre les problèmes d’une Sauvegarde Azure : Problèmes liés aux agents et aux extensions'
 description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
 ms.reviewer: saurse
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074138"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -29,7 +29,7 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 
 L’agent de machine virtuelle Azure peut être arrêté, obsolète, dans un état incohérent ou non installé et empêcher le service Sauvegarde Azure de déclencher des instantanés.  
 
-- Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, **redémarrez l’agent** et réessayez l’opération de sauvegarde (essayez une sauvegarde ad hoc). Pour connaître les étapes de redémarrage de l’agent, consultez [Machines virtuelles Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
+- Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, **redémarrez l’agent** et réessayez l’opération de sauvegarde (essayez une sauvegarde sur demande). Pour connaître les étapes de redémarrage de l’agent, consultez [Machines virtuelles Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
 - Si l’agent de machine virtuelle n’est pas installé ou est obsolète, installez/mettez à jour l’agent de machine virtuelle et réessayez l’opération de sauvegarde. Pour connaître les étapes d’installation/de mise à jour de l’agent, consultez [Machines virtuelles Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané
@@ -239,15 +239,15 @@ Si vous supprimez le groupe de ressources de la machine virtuelle, voire la mach
 
 Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes :<br>
 
-- [Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+- [Nettoyer la collection de points de restauration en exécutant une sauvegarde sur demande](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Nettoyer la collection de points de restauration sur le portail Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Nettoyer la collection de points de restauration en exécutant une sauvegarde sur demande
 
-Après avoir supprimé le verrou, déclenchez une sauvegarde ad hoc/manuelle. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendez-vous à ce que cette opération ad hoc/manuelle échoue la première fois. Toutefois, elle garantit le nettoyage automatique à la place de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
+Après avoir supprimé le verrou, déclenchez une sauvegarde sur demande. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendez-vous à ce que cette opération sur demande échoue la première fois. Toutefois, elle garantit le nettoyage automatique à la place de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
 
 > [!NOTE]
-> Le nettoyage automatique a lieu quelques heures après le déclenchement de la sauvegarde ad hoc/manuelle. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
+> Le nettoyage automatique a lieu quelques heures après le déclenchement de la sauvegarde sur demande. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Nettoyer la collection de points de restauration sur le portail Azure <br>
 

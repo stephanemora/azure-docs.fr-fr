@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797214"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131976"
 ---
 # <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -251,7 +251,7 @@ Dans le tableau de bord du groupe de ressources, recherchez le compte de stockag
 
 **Signification** : La configuration de l’inscription de l’application Azure AD n’a pas été effectuée correctement.  
 
-**Action corrective** : Demandez à l’administrateur informatique (avec accès en lecture du locataire) d’utiliser notre [script](https://aka.ms/PPCreateAADappregistration) pour générer la création de l’inscription de l’application Azure AD. Ce script s’occupera également des étapes de configuration. en tant que  
+**Action corrective** : Demandez à l’administrateur informatique (avec accès en lecture du locataire) d’utiliser notre [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) pour créer l’inscription de l’application Azure AD. Ce script s’occupera également des étapes de configuration.
 
 **Erreur** : Impossible de créer un « dummyname » Active Directory App dans ce locataire : Un autre objet avec la même valeur pour les URI d’identificateur de propriété existe déjà
 

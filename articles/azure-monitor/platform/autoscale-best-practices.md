@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063382"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007626"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -48,8 +48,8 @@ Nous vous recommandons de choisir avec soin des seuils différents pour l’augm
 
 Nous vous *déconseillons* de choisir des paramètres de mise à l’échelle tels que les exemples ci-dessous, avec des valeurs de seuil très similaires ou identiques pour l’augmentation et la diminution de la taille des instances :
 
-* Augmenter les instances de 1 lorsque le nombre de threads <= 600
-* Diminuer les instances de 1 lorsque le nombre de threads >= 600
+* Augmenter les instances de 1 lorsque le nombre de threads >= 600
+* Diminuer les instances de 1 lorsque le nombre de threads <= 600
 
 Examinons un exemple de ce qui peut entraîner un comportement qui peut sembler déroutant. Examinez la séquence suivante.
 

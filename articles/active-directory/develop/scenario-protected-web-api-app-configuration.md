@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569628"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882628"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -158,6 +158,10 @@ Les validateurs sont décrits dans ce tableau :
 | `ValidateTokenReplay` | S’assure que le jeton n’est pas en cours de réexécution (cas spécial pour certains protocoles d’utilisation unique). |
 
 Les validateurs sont tous associés à des propriétés de la classe `TokenValidationParameters`, elles-mêmes initialisées à partir de la configuration ASP.NET/ASP.NET Core. Dans la plupart des cas, vous n’avez pas besoin de modifier les paramètres. Il existe une exception pour les applications qui ne sont pas à locataire unique (c’est-à-dire des applications web qui acceptent des utilisateurs de toute organisation ou de comptes Microsoft personnels). Dans ce cas, l’émetteur doit être validé.
+
+## <a name="token-validation-in-azure-functions"></a>Validation des jetons dans Azure Functions
+
+Il est également possible de valider les jetons d’accès entrants dans Azure Functions. Vous trouverez des exemples de validation de jetons dans Azure Functions dans [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) et [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

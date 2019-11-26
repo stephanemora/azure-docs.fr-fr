@@ -1,6 +1,6 @@
 ---
-title: Partager des vues Azure Time Series Insights personnalisées avec des URL paramétrables | Microsoft Docs
-description: Cet article explique comment développer des URL paramétrables dans Azure Time Series Insights, afin qu’une vue client puisse être facilement partagée.
+title: Partager des vues personnalisées avec des URL paramétrables – Azure Time Series Insights | Microsoft Docs
+description: Découvrez comment développer des URL paramétrables dans Azure Time Series Insights pour partager facilement des vues personnalisées.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006373"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 

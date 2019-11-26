@@ -1,9 +1,9 @@
 ---
-title: Guide pratique pour résoudre les erreurs de connexion avec les rapports Azure Active Directory | Microsoft Docs
+title: Guide pratique pour résoudre les rapports d’erreurs de connexion | Microsoft Docs
 description: Découvrez comment résoudre les erreurs de connexion avec les rapports Azure Active Directory dans le portail Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988165"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008059"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Activation Résoudre les erreurs de connexion avec les rapports Azure Active Directory
 

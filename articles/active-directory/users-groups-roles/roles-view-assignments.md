@@ -1,24 +1,24 @@
 ---
-title: Afficher les autorisations de rôle d’administrateur dans le centre d’administration – Azure Active Directory | Microsoft Docs
+title: Afficher les attributions de rôles personnalisées dans le portail Azure AD | Microsoft Docs
 description: Vous pouvez désormais afficher et gérer les membres d’un rôle d’administrateur Azure AD dans le centre d’administration Azure AD.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d989a515a1a3c1dc12ca357a3ab2126e78800ffa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025555"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024416"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Afficher les attributions de rôles personnalisées dans Azure Active Directory
 

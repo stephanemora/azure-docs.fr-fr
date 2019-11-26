@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
-ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/08/2019
+ms.openlocfilehash: fc8159b3deba373948f513cb11540695362ecaf1
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574292"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954561"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,18 +39,20 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
 
     * Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-        * Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
+        * Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
 
-        * Dans le dossier des exemples du serveur de notebooks, recherchez deux notebooks terminés et développés en accédant à ce répertoire : **how-to-use-azureml > training-with-deep-learning**.
-        * export-run-history-to-run-history.ipynb
-        * tensorboard.ipynb
+        * Dans le dossier des exemples du serveur de notebooks, recherchez deux notebooks terminés et développés en accédant à ces répertoires :
+            * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
+
+            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
 
     * Votre propre serveur de notebooks Jupyter
-          * [Installer le kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) avec le `tensorboard` supplémentaire
-          * [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md).  
-          * [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
+       * [Installer le kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) avec le `tensorboard` supplémentaire
+        * [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md).  
+        * [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
+
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Option 1 : Voir directement l’historique des exécutions dans TensorBoard
 
 Cette option fonctionne pour les expériences qui génèrent en mode natif des fichiers journaux consommables par TensorBoard, comme les expériences PyTorch, Chainer et TensorFlow. Si ce n’est pas le cas de votre expérience, utilisez [la méthode `export_to_tensorboard()`](#export) à la place.

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b11d831be847716d4edfac4f9a0725e07a60c52a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d071517377053e8f4f22ad00966e2be688b0d486
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513853"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029860"
 ---
 # <a name="azcopy-doc"></a>azcopy doc
 
@@ -28,6 +28,13 @@ Par défaut, les fichiers sont stockés dans un dossier nommé « doc » du r�
 ```azcopy
 azcopy doc [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Transférer des données avec AzCopy et le stockage de blobs](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Options
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499918"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084725"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -36,7 +36,7 @@ Voici les différentes méthodes qui sont disponibles pour sécuriser l’accès
 
 * [Générer des signatures d’accès partagé](#sas)
 * [Limiter les adresses IP entrantes](#restrict-inbound-ip-addresses)
-* [Ajouter Azure Active Directory, OAuth ou une autre sécurité](#add-authentication)
+* [Ajouter OAuth Azure Active Directory ou une autre sécurité](#add-authentication)
 
 <a name="sas"></a>
 
@@ -163,9 +163,9 @@ Si vous [automatisez le déploiement des applications logiques à l’aide de mo
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Ajouter Azure Active Directory, OAuth ou une autre sécurité
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Ajouter OAuth Azure Active Directory ou une autre sécurité
 
-Pour ajouter des protocoles d’autorisation supplémentaires à votre application logique, pensez à utiliser le service [Gestion des API Azure](../api-management/api-management-key-concepts.md). Ce service vous permet d’exposer votre application logique sous la forme d’une API. En outre, il fournit des fonctionnalités avancées de supervision, de sécurité et d’application des stratégies, ainsi qu’une documentation riche sur tous les points de terminaison. Le service Gestion des API peut exposer un point de terminaison public ou privé pour votre application logique. Vous pouvez ensuite utiliser Azure Active Directory, OAuth, un certificat ou d’autres standards de sécurité pour autoriser l’accès à ce point de terminaison. Lorsque Gestion des API reçoit une requête, le service envoie celle-ci à votre application logique, en effectuant également toutes les transformations ou restrictions nécessaires tout au long du processus. Pour que seule la fonctionnalité Gestion des API déclenche votre application logique, vous pouvez utiliser les paramètres de plage d’adresses IP entrantes de votre application logique.
+Pour ajouter des protocoles d’autorisation supplémentaires à votre application logique, pensez à utiliser le service [Gestion des API Azure](../api-management/api-management-key-concepts.md). Ce service vous permet d’exposer votre application logique sous la forme d’une API. En outre, il fournit des fonctionnalités avancées de supervision, de sécurité et d’application des stratégies, ainsi qu’une documentation riche sur tous les points de terminaison. Le service Gestion des API peut exposer un point de terminaison public ou privé pour votre application logique. Pour autoriser l’accès à ce point de terminaison, vous pouvez utiliser [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), un [certificat client](#client-certificate-authentication) ou d’autres normes de sécurité. Lorsque Gestion des API reçoit une requête, le service envoie celle-ci à votre application logique, en effectuant également toutes les transformations ou restrictions nécessaires tout au long du processus. Pour que seule la fonctionnalité Gestion des API déclenche votre application logique, vous pouvez utiliser les paramètres de plage d’adresses IP entrantes de votre application logique.
 
 <a name="secure-operations"></a>
 
@@ -361,7 +361,7 @@ Voici quelques [aspects à prendre en compte](#obfuscation-considerations) lors 
 
 Si vous effectuez des déploiements dans différents environnements, vous pouvez paramétrer les valeurs de votre définition de workflow qui varient selon l’environnement. De cette façon, vous pouvez éviter les données codées en dur en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) pour déployer votre application logique, protéger les données sensibles en définissant des paramètres sécurisés et transmettre ces données sous forme d’entrées distinctes par le biais des [paramètres du modèle](../azure-resource-manager/template-parameters.md) à l’aide d’un [fichier de paramètres](../azure-resource-manager/resource-manager-parameter-files.md).
 
-Par exemple, si vous authentifiez des actions HTTP avec [Azure Active Directory](#azure-active-directory-oauth-authentication), vous pouvez configurer et sécuriser les paramètres qui acceptent l’ID client et le secret client utilisés pour l’authentification. Si vous souhaitez configurer ces paramètres dans votre application logique, utilisez la section `parameters` située dans la définition de workflow de votre application logique et le modèle Resource Manager pour le déploiement. Pour masquer les valeurs de paramètre que vous ne voulez pas présenter lors de la modification de votre application logique ou de la consultation de l’historique des exécutions, configurez les paramètres avec le type `securestring` ou `secureobject`, et utilisez un encodage si nécessaire. Les paramètres de ce type ne sont pas retournés avec la définition de la ressource, et ne sont pas accessibles lors de l’affichage de la ressource après le déploiement. Pour accéder à ces valeurs de paramètre pendant l’exécution, utilisez l’expression `@parameters('<parameter-name>')` située dans la définition de votre workflow. Cette expression est évaluée uniquement au moment de l’exécution et est décrite par le [langage de définition du workflow](../logic-apps/logic-apps-workflow-definition-language.md).
+Par exemple, si vous authentifiez des actions HTTP à l’aide d’[Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), vous pouvez configurer et sécuriser les paramètres qui acceptent l’ID client et la clé secrète client utilisés pour l’authentification. Si vous souhaitez configurer ces paramètres dans votre application logique, utilisez la section `parameters` située dans la définition de workflow de votre application logique et le modèle Resource Manager pour le déploiement. Pour masquer les valeurs de paramètre que vous ne voulez pas présenter lors de la modification de votre application logique ou de la consultation de l’historique des exécutions, configurez les paramètres avec le type `securestring` ou `secureobject`, et utilisez un encodage si nécessaire. Les paramètres de ce type ne sont pas retournés avec la définition de la ressource, et ne sont pas accessibles lors de l’affichage de la ressource après le déploiement. Pour accéder à ces valeurs de paramètre pendant l’exécution, utilisez l’expression `@parameters('<parameter-name>')` située dans la définition de votre workflow. Cette expression est évaluée uniquement au moment de l’exécution et est décrite par le [langage de définition du workflow](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Si vous utilisez un paramètre dans l’en-tête ou le corps d’une requête, il peut être visible lorsque vous consultez l’historique des exécutions de l’application logique et la requête HTTP sortante. Veillez également à définir vos stratégies d’accès au contenu en conséquence. Vous pouvez également utiliser l’[obfuscation](#obfuscate) pour masquer les entrées et les sorties dans votre historique des exécutions. Les en-têtes d’autorisation ne sont jamais visibles par le biais d’entrées ou de sorties. Si un secret est utilisé ici, il n’est pas récupérable.
@@ -573,7 +573,17 @@ Voici quelques méthodes permettant de sécuriser les points de terminaison qui 
 
 * Ajoutez l’authentification aux requêtes sortantes.
 
-  Lorsque utilisez un déclencheur ou une action basé(e) sur HTTP qui effectue des appels sortants, tels que HTTP, HTTP + Swagger ou Webhook, vous pouvez ajouter l’authentification à la demande envoyée par votre application logique. Par exemple, vous pouvez inclure l’authentification de base, l’authentification par certificat client ou l’authentification [Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) ou une identité managée. Pour plus d’informations, consultez la section [Ajouter l’authentification aux appels sortants](#add-authentication-outbound) plus loin dans cette rubrique.
+  Lorsque utilisez un déclencheur ou une action basé(e) sur HTTP qui effectue des appels sortants, tels que HTTP, HTTP + Swagger ou Webhook, vous pouvez ajouter l’authentification à la demande envoyée par votre application logique. Par exemple, vous pouvez utiliser les types d’authentification suivants :
+
+  * [Authentification de base](#basic-authentication)
+
+  * [Authentification par certificat client](#client-certificate-authentication)
+
+  * [Authentification OAuth Active Directory](#azure-active-directory-oauth-authentication)
+
+  * [Authentification d’une identité managée](#managed-identity-authentication)
+  
+  Pour plus d’informations, consultez la section [Ajouter l’authentification aux appels sortants](#add-authentication-outbound) plus loin dans cette rubrique.
 
 * Restreignez l’accès des adresses IP d’application logique.
 
@@ -649,8 +659,8 @@ Si l’option [Certificat client](../active-directory/authentication/active-dire
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentification** | `type` | OUI | **Certificat client** <br>or <br>`ClientCertificate` | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
-| **Pfx** | `pfx` | OUI | <*encoded-pfx-file-content*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **Mot de passe** | `password`| OUI | <*password-for-pfx-file*> | Mot de passe pour accéder au fichier PFX |
+| **Pfx** | `pfx` | OUI | <*encoded-pfx-file-content*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) <p><p>Pour convertir le fichier PFX au format encodé en base64, vous pouvez utiliser PowerShell en procédant comme suit : <p>1. Enregistrez le contenu du certificat dans une variable : <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertissez le contenu du certificat à l’aide de la fonction `ToBase64String()` et enregistrez ce contenu dans un fichier texte : <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Mot de passe** | `password`| Voir la description | <*password-for-pfx-file*> | Mot de passe pour accéder au fichier PFX. <p><p>**Remarque**: Cette valeur de propriété est requise lorsque vous travaillez dans le concepteur d’applications logiques et n’est *pas* obligatoire lorsque vous travaillez en affichage code. |
 |||||
 
 Lorsque vous utilisez des [paramètres sécurisés](#secure-action-parameters) pour gérer et protéger des informations sensibles, par exemple dans un [modèle Azure Resource Manager pour l’automatisation du déploiement](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), vous pouvez utiliser des expressions pour accéder à ces valeurs de paramètre au moment de l’exécution. Cet exemple de définition d’action HTTP spécifie l’authentification `type` en tant que `ClientCertificate` et utilise la fonction [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) pour récupérer les valeurs des paramètres :

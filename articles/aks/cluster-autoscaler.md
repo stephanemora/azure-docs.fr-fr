@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472856"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885776"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -122,6 +122,35 @@ Vous pouvez mettre à l’échelle votre cluster manuellement après avoir désa
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Réactiver un programme de mise à l’échelle automatique du cluster désactivé
 
 Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks update][az-aks-update], en spécifiant les paramètres *--enable-cluster-autoscaler*, *--min-count* et *--max-count*.
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Récupérer les journaux et l’état de la mise à l’échelle automatique des clusters
+
+Pour diagnostiquer et déboguer des événements de mise à l’échelle automatique, les journaux et l’état peuvent être récupérés à partir du module complémentaire de mise à l’échelle automatique.
+
+AKS gère la mise à l’échelle automatique des clusters en votre nom et l’exécute dans le plan de contrôle managé. Les journaux des nœuds principaux doivent être configurés pour être affichés en conséquence.
+
+Pour configurer les journaux à envoyer (push) de la mise à l’échelle automatique de clusters à Log Analytics, procédez comme suit :
+
+1. Configurez une règle pour les journaux de diagnostic afin d’envoyer (push) les journaux d’activité de la mise à l’échelle automatique de clusters vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
+1. Cliquez sur la section « Journaux d’activité » de votre cluster via le Portail Azure.
+1. Dans Log Analytics, entrez l’exemple de requête suivant :
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+Vous devez voir des journaux d’activité similaires à ce qui suit, à condition qu’il y ait des journaux à récupérer.
+
+![Journaux d’activité Log Analytics](media/autoscaler/autoscaler-logs.png)
+
+La mise à l’échelle automatique de clusters écrit également l’état d’intégrité sur un élément ConfigMap nommé `cluster-autoscaler-status`. Pour récupérer ces journaux d’activité, exécutez la commande `kubectl` suivante. Un état d’intégrité sera signalé pour chaque pool de nœuds configuré avec la mise à l’échelle automatique de clusters.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Pour en savoir plus sur ce qui est enregistré à partir de la mise à l’échelle automatique, consultez la FAQ relative au [projet GitHub Kubernetes/mise à l’échelle automatique](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Utiliser le programme de mise à l’échelle automatique du cluster avec la fonctionnalité de pools de nœuds multiples activée
 

@@ -1,29 +1,29 @@
 ---
-title: Approuver ou rejeter des demandes de rôles Azure AD dans PIM – Azure Active Directory | Microsoft Docs
+title: Approuver ou rejeter des demandes de rôles Azure AD dans PIM – Azure AD | Microsoft Docs
 description: Découvrez comment approuver ou rejeter des demandes de rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7f663f7daad19e77dcc1cc95a6a324e881d92b28
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804026"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847128"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approuver ou rejeter des demandes de rôles Azure AD dans PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approuver ou rejeter des demandes de rôles Azure AD dans Privileged Identity Management
 
 Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez configurer des rôles afin d’exiger une approbation pour les activations. Vous pouvez également choisir un ou plusieurs utilisateurs ou groupes en tant qu’approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
 
@@ -31,7 +31,7 @@ Suivez les étapes décrites dans cet article pour approuver ou refuser des dema
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 
-En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle Azure AD est en attente d’approbation. Vous pouvez afficher les demandes en attente dans PIM.
+En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle Azure AD est en attente d’approbation. Ces demandes en attente sont affichées dans Privileged Identity Management.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -77,5 +77,5 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Notifications par e-mail dans PIM](pim-email-notifications.md)
-- [Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM](pim-resource-roles-approval-workflow.md)
+- [Notifications par e-mail dans Privileged Identity Management](pim-email-notifications.md)
+- [Approuver ou rejeter des demandes de rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-approval-workflow.md)

@@ -1,20 +1,18 @@
 ---
-title: Configurer la reprise d’activité pour les déploiements d’applications SAP NetWeaver multiniveau avec Azure Site Recovery | Microsoft Docs
+title: Configurer la récupération d’urgence de SAP NetWeaver à l’aide d’Azure Site Recovery
 description: Cet article décrit comment configurer la reprise d’activité pour les déploiements d’applications SAP NetWeaver avec Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793671"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083788"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 

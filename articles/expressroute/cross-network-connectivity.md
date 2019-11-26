@@ -1,21 +1,18 @@
 ---
-title: Connectivité interréseau Azure | Microsoft Docs
+title: Connectivité interréseau Azure
 description: Cette page décrit un scénario d'application relatif à la connectivité interréseau et une solution basée sur des fonctionnalités réseau Azure.
-documentationcenter: na
-services: networking
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e503dc2b4ae8773ebfedc7a9b73bc5ea93dd9d5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866000"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076752"
 ---
 # <a name="cross-network-connectivity"></a>Connectivité interréseau
 
@@ -45,7 +42,7 @@ Le tableau suivant présente les itinéraires effectifs d'une machine virtuelle 
 
 Dans cet article, nous allons passer chaque étape en revue et expliquer comment obtenir les interconnexions souhaitées à l'aide des fonctionnalités réseau Azure suivantes :
 
-* [Appairage de réseaux virtuels][Virtual network peering] 
+* [Peering de réseau virtuel][Virtual network peering] 
 * [Connexion de réseau virtuel ExpressRoute][connection]
 * [Global Reach][Global Reach] 
 
@@ -53,7 +50,7 @@ Dans cet article, nous allons passer chaque étape en revue et expliquer comment
 
 Le peering de réseaux virtuels (VNet Peering) est celui qui offre les meilleurs résultats et les meilleures performances réseau lors de la connexion de deux réseaux virtuels. Le peering de réseaux virtuels prend en charge le peering de deux réseaux virtuels dans la même région Azure (communément appelé VNet Peering) ainsi que dans deux régions Azure différentes (communément appelé Global VNet Peering). 
 
-Nous allons configurer le Global VNet Peering entre les réseaux virtuels des abonnements Azure de Contoso et Fabrikam. Pour plus d'informations sur le VNet Peering entre deux réseaux virtuels, consultez l'article [Créer un peering de réseaux virtuels][Configure VNet peering].
+Nous allons configurer le Global VNet Peering entre les réseaux virtuels des abonnements Azure de Contoso et Fabrikam. Pour plus d’informations sur l’appairage de deux réseaux virtuels, consultez l’article [Créer un appairage de réseaux virtuels][Configure VNet peering].
 
 L'illustration suivante présente l'architecture réseau après la configuration du Global VNet Peering.
 
@@ -71,7 +68,7 @@ Le VNet Peering relie directement deux réseaux virtuels (absence de tronçon su
 
 ## <a name="cross-connecting-vnets-to-the-on-premises-networks"></a>Interconnexion des réseaux virtuels avec les réseaux locaux
 
-Nous pouvons connecter un circuit ExpressRoute à différents réseaux virtuels. Consultez [Limites du service et de l'abonnement][Subscription limits] pour connaître le nombre maximum de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute. 
+Nous pouvons connecter un circuit ExpressRoute à différents réseaux virtuels. Consultez [Limites du service et de l’abonnement][Subscription limits] pour connaître le nombre maximum de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute. 
 
 Connectons le circuit ExpressRoute de Fabrikam au réseau virtuel de l'abonnement Contoso et, de la même manière, le circuit ExpressRoute de Contoso au réseau virtuel de l'abonnement Fabrikam afin de permettre l'interconnexion entre les réseaux virtuels et les réseaux locaux. Pour connecter un réseau virtuel à un circuit ExpressRoute d'un autre abonnement, vous devez créer et utiliser une autorisation.  Consultez l'article : [Connecter un réseau virtuel à un circuit ExpressRoute][Connect-ER-VNet].
 
@@ -101,7 +98,7 @@ Le tableau suivant présente les itinéraires connus pour accéder à la machine
 
 ## <a name="cross-connecting-on-premises-networks"></a>Interconnexion des réseaux locaux
 
-ExpressRoute Global Reach assure la connectivité entre les réseaux locaux connectés à différents circuits ExpressRoute. Configurons Global Reach entre les circuits ExpressRoute de Contoso et Fabrikam. Comme les circuits ExpressRoute se trouvent dans des abonnements différents, nous devons créer et utiliser une autorisation. Pour des instructions détaillées, consultez l'article [Configurer ExpressRoute Global Reach][Configure Global Reach].
+ExpressRoute Global Reach assure la connectivité entre les réseaux locaux connectés à différents circuits ExpressRoute. Configurons Global Reach entre les circuits ExpressRoute de Contoso et Fabrikam. Comme les circuits ExpressRoute se trouvent dans des abonnements différents, nous devons créer et utiliser une autorisation. Pour des instructions détaillées, consultez l’article [Configurer ExpressRoute Global Reach][Configure Global Reach].
 
 L'illustration suivante présente l'architecture réseau après la configuration de Global Reach.
 
@@ -117,7 +114,7 @@ Le tableau suivant présente la table de routage du peering privé du circuit Ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour toute question complémentaire sur les réseaux virtuels et le peering de réseau virtuel, consultez l'article [FAQ sur les réseaux virtuels][VNet-FAQ]. Pour toute question complémentaire sur ExpressRoute et la connectivité des réseaux virtuels, consultez l'article [FAQ sur ExpressRoute][ER-FAQ].
+Pour toute question complémentaire sur les réseaux virtuels et le peering de réseau virtuel, consultez l’article [FAQ sur les réseaux virtuels][VNet-FAQ]. Pour toute question complémentaire sur ExpressRoute et la connectivité des réseaux virtuels, consultez l’article [FAQ sur ExpressRoute][ER-FAQ].
 
 Global Reach est déployé pays/région par pays/région. Pour vérifier si Global Reach est disponible dans les pays/régions qui vous intéressent, consultez [ExpressRoute Global Reach][Global Reach].
 

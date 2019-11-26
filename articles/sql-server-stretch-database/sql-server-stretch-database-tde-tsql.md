@@ -1,5 +1,5 @@
 ---
-title: Activer Transparent Data Encryption pour Stretch Database TSQL - Azure | Microsoft Docs
+title: Activer Transparent Data Encryption pour Stretch Database (T-SQL)
 description: Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -13,12 +13,13 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.openlocfilehash: 9718db18ea675fa744262f0736aff3c07732e1d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002873"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033955"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)
 > [!div class="op_single_selector"]

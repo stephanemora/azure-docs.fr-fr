@@ -6,15 +6,16 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/06/2019
-ms.openlocfilehash: dd1618151b97ab4f958bfd5d50333b9551014f0f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/11/2019
+ms.openlocfilehash: b513408f551a255facc897b7ba83c68e2befe282
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554070"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928266"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
+
 Azure Monitor pour conteneurs prend désormais en charge la collecte de métriques à partir des nœuds et pods de clusters Azure Kubernetes Service (AKS), ainsi que la consignation de ces métriques dans le magasin de métriques Azure Monitor. Cette modification est destinée à accroître la rapidité d’exécution lors de la présentation de calculs agrégés (Avg, Count, Max, Min, Sum) dans les graphiques de performances, à prendre en charge l’épinglage de ces graphiques dans les tableaux de bord du Portail Azure et à gérer les alertes de métrique.
 
 Les métriques activées dans le cadre de cette fonctionnalité sont les suivantes :
@@ -28,8 +29,12 @@ La mise à jour du cluster pour la prise en charge de ces nouvelles fonctionnali
 
 Les deux processus attribuent le rôle **Éditeur de métriques d’analyse** au principal de service du cluster afin que les données collectées par l’agent puissent être publiées sur votre ressource de cluster. L’Éditeur de métriques d’analyse est uniquement autorisé à envoyer (push) des métriques à la ressource. Il ne peut pas modifier d’état, mettre à jour la ressource ni lire aucune donnée. Pour plus d’informations sur le rôle, consultez l’article [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) (Rôle Éditeur de métriques d’analyse).
 
-## <a name="prerequisites"></a>Prérequis 
-Avant de commencer, vérifiez que vous êtes membre du rôle **[Propriétaire](../../role-based-access-control/built-in-roles.md#owner)** sur la ressource de cluster AKS pour activer la collection de métriques de performances personnalisées de nœud et de pod. 
+## <a name="prerequisites"></a>Prérequis
+
+Avant de commencer, vérifiez les éléments suivants :
+
+* Les métriques personnalisées sont disponibles dans un sous-ensemble de régions Azure uniquement. La liste des régions prises en charge est présentée [ici](../platform/metrics-custom-overview.md#supported-regions).
+* Vous êtes membre du rôle **[Propriétaire](../../role-based-access-control/built-in-roles.md#owner)** sur la ressource de cluster AKS pour activer la collection de métriques de performances personnalisées de nœud et de pod. 
 
 Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -42,6 +47,7 @@ Dans le cas des clusters AKS existants surveillés par Azure Monitor pour conten
 Cliquez sur **Activer** pour démarrer le processus de mise à niveau du cluster. Ce processus peut nécessiter plusieurs secondes. Vous pouvez suivre sa progression sous Notifications à partir du menu.
 
 ## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Mettre à niveau tous les clusters à l’aide de Bash dans l’interpréteur de commandes Azure
+
 Pour mettre à jour tous les clusters de votre abonnement à l’aide de Bash dans l’interpréteur de commandes Azure, procédez comme suit.
 
 1. Exécutez la commande ci-après par le biais d’Azure CLI.  Remplacez la valeur **subscriptionId** par celle qui figure sur la page **Vue d’ensemble d’AKS** du cluster AKS.
@@ -59,6 +65,7 @@ Pour mettre à jour tous les clusters de votre abonnement à l’aide de Bash da
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-cli"></a>Effectuer une mise à niveau par cluster à l’aide d’Azure CLI
+
 Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azure CLI, procédez comme suit.
 
 1. Exécutez la commande ci-après par le biais d’Azure CLI. Remplacez les valeurs **subscriptionId**, **resourceGroupName** et **clusterName** par celles qui figurent sur la page **Vue d’ensemble d’AKS** du cluster AKS.  La valeur **clientIdOfSPN** est renvoyée lors de l’exécution de la commande `az aks show`, comme indiqué dans l’exemple ci-dessous.
@@ -71,6 +78,7 @@ Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azur
     ``` 
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Mettre à niveau tous les clusters à l’aide d’Azure PowerShell
+
 Pour mettre à jour tous les clusters de votre abonnement à l’aide d’Azure PowerShell, procédez comme suit.
 
 1. Copiez-collez le script ci-après dans votre fichier :
@@ -326,6 +334,7 @@ Pour mettre à jour tous les clusters de votre abonnement à l’aide d’Azure 
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-powershell"></a>Effectuer une mise à niveau par cluster à l’aide d’Azure PowerShell
+
 Pour mettre à jour un cluster spécifique au moyen d’Azure PowerShell, procédez comme suit.
 
 1. Copiez-collez le script ci-après dans votre fichier :
@@ -576,4 +585,5 @@ Pour mettre à jour un cluster spécifique au moyen d’Azure PowerShell, procé
     ```
 
 ## <a name="verify-update"></a>Vérifier la mise à jour 
+
 Après avoir lancé la mise à jour à l’aide de l’une des méthodes décrites dans cet article, vous pouvez utiliser la fonctionnalité Metrics Explorer d’Azure Monitor pour vérifier que la valeur **insights** est répertoriée dans **Espace de noms de métrique**. Si tel est le cas, cela indique que vous pouvez commencer à configurer les [alertes de métrique](../platform/alerts-metric.md) ou à épingler vos graphiques dans les [tableaux de bord](../../azure-portal/azure-portal-dashboards.md).  

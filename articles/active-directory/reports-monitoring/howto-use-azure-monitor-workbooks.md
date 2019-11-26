@@ -1,8 +1,8 @@
 ---
-title: Utiliser des classeurs Azure Monitor pour la création de rapports Azure Active Directory | Microsoft Docs
+title: Classeurs Azure Monitor pour les rapports | Microsoft Docs
 description: Découvrez comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -11,17 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
-ms.author: chadam
+ms.date: 10/30/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255665"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014377"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
+
+> [!IMPORTANT]
+> Afin d’optimiser les requêtes sous-jacentes de ce classeur, cliquez sur « Modifier », puis sur l’icône Paramètres et sélectionnez l’espace de travail dans lequel vous souhaitez exécuter ces requêtes. Par défaut, les classeurs sélectionnent tous les espaces de travail dans lesquels vous routez vos journaux d’activité Azure AD. 
 
 Vous voulez...
 
@@ -31,7 +34,17 @@ Vous voulez...
 
 - savoir qui utilise l’authentification héritée pour se connecter à votre environnement ? (en [bloquant l’authentification héritée](../conditional-access/block-legacy-authentication.md), vous pouvez améliorer la protection de votre locataire.)
 
-Pour vous aider à résoudre ces problèmes, Active Directory fournit des classeurs, à des fins de surveillance. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu. 
+- Avez-vous besoin de comprendre l’impact des stratégies d’accès conditionnel dans votre locataire ?
+
+- Aimeriez-vous passer en revue les requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources ?
+
+- Souhaitez-vous acquérir une compréhension plus approfondie des détails du classeur par condition, afin que l’impact d’une stratégie puisse être contextualisé par condition, y compris la plateforme de l’appareil, l’état de l’appareil, l’application cliente, le risque à la connexion, l’emplacement et l’application ?
+
+- Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
+
+- Pour vous aider à résoudre ces problèmes, Active Directory fournit des classeurs, à des fins de surveillance. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+
+
 
 Cet article :
 
@@ -51,19 +64,18 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
 
 - [Accéder](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
 - Rôles suivants dans Azure Active Directory (si vous accédez à Log Analytics via le portail Azure Active Directory)
-    - Administrateur de la sécurité
+    - Administrateur de sécurité
     - Lecteur de sécurité
     - Lecteur de rapport
     - Administrateur général
 
 ## <a name="roles"></a>contrôleur
-Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
+Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
 -   Administrateur général
--   Administrateur de la sécurité
+-   Administrateur de sécurité
 -   Lecteur de sécurité
 -   Lecteur de rapport
 -   Administrateur d’application
-
 
 ## <a name="workbook-access"></a>Accès aux classeurs 
 
@@ -71,16 +83,11 @@ Pour accéder à des classeurs, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
+1. Accédez à **Azure Active Directory** > **Supervision** > **Classeurs**. 
 
-3. Dans la section **Surveillance**, sélectionnez **Classeurs**. 
+1. Sélectionnez un rapport ou un modèle, ou, sur la barre d’outils, sélectionnez **Ouvrir**. 
 
-    ![Sélectionner Insights](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Sélectionnez un rapport ou un modèle, ou, sur la barre d’outils, sélectionnez **Ouvrir**. 
-
-    ![Sélectionner Ouvrir](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Rechercher les classeurs Azure Monitor dans Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Analyse des connexions
 
@@ -170,7 +177,43 @@ Pour les connexions désactivées, vous obtenez une répartition en fonction de 
 ![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## <a name="conditional-access-insights"></a>Insights sur l’accès conditionnel
 
+### <a name="overview"></a>Vue d'ensemble
+
+Les classeurs contiennent des requêtes de journal de connexion qui peuvent aider les administrateurs informatiques à surveiller l’impact des stratégies d’accès conditionnel dans leur locataire. Vous avez la possibilité de créer des rapports sur le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé. Le classeur contient des informations sur le nombre d’utilisateurs qui auraient contourné les stratégies d’accès conditionnel en fonction des attributs des utilisateurs au moment de la connexion. Il contient des détails par condition, afin que l’impact d’une stratégie puisse être contextualisé par condition, y compris la plateforme de l’appareil, l’état de l’appareil, l’application cliente, le risque à la connexion, l’emplacement et l’application.
+
+### <a name="instructions"></a>Instructions 
+Pour accéder au classeur relatif aux Informations sur l’accès conditionnel, sélectionnez le classeur **Informations sur l’accès conditionnel** dans la section Accès conditionnel. Ce classeur montre l’impact attendu de chaque stratégie d’accès conditionnel dans votre locataire. Sélectionnez une ou plusieurs stratégies d’accès conditionnel dans la liste déroulante et réduisez l’étendue du classeur en appliquant les filtres suivants : 
+
+- **Intervalle de temps**
+
+- **Utilisateur**
+
+- **Applications**
+
+- **Vue de données**
+
+![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+Le résumé de l’impact indique le nombre d’utilisateurs ou de connexions pour lesquels les stratégies sélectionnées ont un résultat particulier. « Total » représente le nombre d’utilisateurs ou de connexions pour lesquels les stratégies sélectionnées ont été évaluées dans l’intervalle de temps sélectionné. Cliquez sur une vignette pour filtrer les données du classeur en fonction de ce type de résultat. 
+
+![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+Ce classeur montre également l’impact des stratégies sélectionnées, ventilé selon chacune des six conditions : 
+- **État de l’appareil**
+- **Plateforme de l’appareil**
+- **Applications clientes**
+- **Risque à la connexion**
+- **Lieu**
+- **Applications**
+
+![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+Vous pouvez également examiner des connexions individuelles, filtrées par les paramètres sélectionnés dans le classeur. Recherchez des utilisateurs individuels, triés par fréquence de connexion, et affichez les événements de connexion correspondants. 
+
+![État de l’accès conditionnel](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -211,7 +254,7 @@ Pour chaque tendance, vous obtenez une répartition par application et par proto
 
 ## <a name="sign-ins-failure-analysis"></a>Analyse des échecs de connexion
 
-Utilisez le classeur **d’analyse des échecs de connexion** pour résoudre les erreurs avec les éléments suivants :
+Utilisez le classeur **Analyse des échecs de connexion** pour résoudre les erreurs à l’aide des éléments suivants :
 
 - Connexions
 - Stratégies d’accès conditionnel

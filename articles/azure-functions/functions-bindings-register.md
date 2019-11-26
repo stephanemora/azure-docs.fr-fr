@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 93ced443a73d5499d8b305770c3c866c26d540f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 40dca0797d75597f4728423eb9d6d071a15d81b9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086460"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129265"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -37,34 +37,17 @@ Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 
 ## <a name="extension-bundles"></a>Offres groupées d’extension pour développement local
 
-Les offres groupées d’extension constituent une technologie de développement local pour le runtime version 2.x qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible à votre projet d’application de fonction. Ces packages d’extension sont ensuite inclus dans le package de déploiement lorsque vous déployez sur Azure. Les offres groupées permettent de mettre à disposition toutes les liaisons publiées par Microsoft via un paramètre dans le fichier *host.json*. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2).
+Les offres groupées d’extensions constituent une technologie de déploiement qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible avec votre application de fonction. Un ensemble prédéfini d’extensions est ajouté lorsque vous générez votre application. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Vous activez les offres groupées d’extensions dans le fichier host.json de l’application.  
 
-Utilisez des offres groupées d’extension pour l’ensemble du développement local à l’aide d’Azure Functions Core Tools ou de Visual Studio Code.
+Vous pouvez utiliser des offres groupées d’extensions avec la version 2.x et les versions ultérieures du runtime Functions. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2).
 
-Si vous n’utilisez pas d’offres groupées d’extension, vous devez installer le Kit de développement logiciel (SDK) .NET Core 2.x sur votre ordinateur local avant d’installer des extensions de liaison. Les offres groupées suppriment cette exigence pour le développement local. 
+Utilisez des offres groupées d’extensions pour le développement local à l’aide d’Azure Functions Core Tools ou de Visual Studio Code, ou lorsque vous créez à distance.
+
+Si vous n’utilisez pas d’offres groupées d’extension, vous devez installer le Kit de développement logiciel (SDK) .NET Core 2.x sur votre ordinateur local avant d’installer des extensions de liaison. Les offres groupées d’extensions suppriment cette exigence pour le développement local. 
 
 Pour utiliser des offres groupées d’extension, mettez à jour le fichier *host.json* pour inclure l’entrée suivante pour `extensionBundle` :
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
-```
-
-Les propriétés suivantes sont disponibles dans `extensionBundle` :
-
-| Propriété | Description |
-| -------- | ----------- |
-| **`id`** | Espace de noms pour les offres groupées d’extension Microsoft Azure Functions. |
-| **`version`** | Version de l’offre groupée à installer. Le runtime Functions récupère toujours la version autorisée maximale définie par la plage ou l’intervalle de version. La valeur de version ci-dessus autorise toutes les versions d’offre groupée jusqu’à 1.0.0 mais sans inclure la version 2.0.0. Pour plus d’informations, consultez la [notation d’intervalle de spécification de plages de versions](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
-
-Les versions d’offre groupées sont incrémentées à mesure que les packages contenus dans l’offre groupée changent. Un changement de version majeure se produit lorsque les packages contenus dans l’offre groupée sont incrémentés par une version majeure, ce qui coïncide généralement avec un changement de version majeure du runtime Functions.  
-
-L’ensemble actuel d’extensions installées par l’offre groupée par défaut est énuméré dans ce [fichier extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+ 
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
@@ -80,12 +63,12 @@ Le nom du package utilisé pour une liaison donnée est fourni dans l’article 
 
 Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
 
-Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [bundles d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
+Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [offres groupées d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
 
 ## <a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
 
 > [!NOTE]
-> Nous vous recommandons d’utiliser des [offres groupées d’extension](#extension-bundles) pour que Functions installe automatiquement un ensemble de packages d’extension de liaison compatible.
+> Nous vous recommandons d’utiliser des [offres groupées d’extension](#extension-bundles) pour que Functions installe automatiquement un ensemble de packages d’extension de liaison compatible. 
 
 Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core. L’exemple suivant montre comment ajouter une liaison :
 
@@ -95,7 +78,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 CLI .NET Core peut être utilisé seulement pour le développement Azure Functions 2.x.
 
-Remplacez `<BINDING_TYPE_NAME>` par le nom du package fourni dans l’article de référence pour la liaison souhaitée. Vous trouverez l’article de référence de la liaison souhaitée dans la [liste des liaisons prises en charge](./functions-triggers-bindings.md#supported-bindings).
+Remplacez `<BINDING_TYPE_NAME>` par le nom du package qui contient la liaison dont vous avez besoin. Vous trouverez l’article de référence de la liaison souhaitée dans la [liste des liaisons prises en charge](./functions-triggers-bindings.md#supported-bindings).
 
 Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f782c5abe611086baae5d2ad71bc38516039a231
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796049"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033979"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accès multi-protocole pour Azure Data Lake Storage
 
@@ -49,6 +49,7 @@ Les éléments qui apparaissent dans ce tableau changeront au fil du temps, car 
 |---|---|
 |[Niveau d’accès froid](storage-blob-storage-tiers.md)|Mise à la disposition générale|
 |SDK d’objets Blob |Mise à la disposition générale|
+|API REST de blobs|Mise à la disposition générale|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Mise à la disposition générale|
 |[INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Mise à la disposition générale|
 |[Journaux de diagnostic](../common/storage-analytics-logging.md)| PRÉVERSION|

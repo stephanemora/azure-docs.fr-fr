@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672949"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891422"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -160,7 +160,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
    1.  Vérifiez que les [règles du groupe de sécurité et les règles ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) fonctionnent comme prévu et protègent les ressources protégées.
    1.  Assurez-vous que toutes les ressources qui doivent être chiffrées le sont. Définissez et implémentez des processus pour sauvegarder les certificats, les stocker, y accéder et restaurer les entités chiffrées.
    1.  Utilisez [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) pour les disques de système d’exploitation, si possible du point de vue de la prise en charge du système d’exploitation.
-   1.  Veillez à ne pas utiliser un nombre excessif de couches de chiffrement. Dans certains cas, il est logique d’utiliser Azure Disk Encryption avec l’une des méthodes TDE (Transparent Data Encryption) SGBD.
+   1.  Veillez à ne pas utiliser un nombre excessif de couches de chiffrement. Dans certains cas, il est logique d’utiliser Azure Disk Encryption avec l’une des méthodes TDE (Transparent Data Encryption) SGBD afin de protéger différents disques ou composants sur le même serveur.  Par exemple, sur un serveur SGBD SAP, Azure Disk Encryption (ADE) peut être activé sur le disque de démarrage du système d’exploitation (si le système d’exploitation prend en charge ADE) et sur les disques de données qui ne sont pas utilisés par les fichiers de persistance des données du SGBD.  Vous pouvez notamment utiliser ADE sur le disque contenant les clés de chiffrement TDE SGBD.
 1. Tests de performances. Dans SAP, en fonction du suivi et des mesures SAP, effectuez les comparaisons suivantes :
    - Le cas échéant, comparez les 10 premiers rapports en ligne à votre implémentation actuelle.
    - Le cas échéant, comparez les 10 premiers traitements par lots à votre implémentation actuelle.

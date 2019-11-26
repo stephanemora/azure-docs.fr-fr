@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797474"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891027"
 ---
 # <a name="generate-maps"></a>Générer des cartes
 
@@ -170,7 +170,7 @@ L’humidité du sol fait référence à l’eau maintenue dans les espaces entr
 Vérifiez les éléments suivants avant de générer une carte thermique d’humidité du sol :
 
 - Au moins trois capteurs d’humidité du sol doivent être déployés. Microsoft recommande de ne pas créer de carte d’humidité du sol avant de déployer les capteurs et de les associer à la ferme.  
-- Au moins une scène Sentinel sans nuage doit être disponible pour les 120 jours précédant le jour de demande de la carte d’humidité du sol.
+- La génération d’une carte d’humidité du sol dépend de la couverture du chemin d’accès, de la couverture nuageuse et de l’ombre des nuages de Sentinel. Au moins une scène Sentinel sans nuage doit être disponible pour les 120 jours précédant le jour de demande de la carte d’humidité du sol.
 - Au moins la moitié des capteurs déployés sur la ferme doit être en ligne et assurer le streaming des données vers le hub de données.
 - Les capteurs fournissant les mesures pour la génération de la carte thermique doivent provenir du même fournisseur.
 
@@ -220,6 +220,6 @@ Procédez comme suit :
 4. Sélectionnez l’icône de **tri** en regard des en-têtes du tableau pour effectuer un tri sur les critères Farm, Date, Created On, Job ID et Job Type.
 5. Faites défiler la liste des cartes disponibles à l’aide des boutons de navigation en bas de la page.
 6. Sélectionnez la carte à afficher. Une fenêtre indépendante affiche l’aperçu de la carte sélectionnée.
-7. Sélectionnez le menu déroulant **Download** pour choisir le format de téléchargement. La carte est téléchargée et stockée dans le dossier local de votre ordinateur.
+7. Sélectionnez le menu déroulant **Download** pour choisir le format de téléchargement. La carte est téléchargée et stockée dans le dossier spécifié.
 
     ![Projet FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

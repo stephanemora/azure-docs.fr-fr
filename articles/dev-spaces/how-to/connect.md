@@ -9,12 +9,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Découvrez comment connecter votre ordinateur de développement à un cluster AKS avec Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 0adaa4266978cf9c9ef42359c0cf4f81c5c5f056
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571762"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888923"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connecter l’ordinateur de développement à un cluster AKS (préversion)
 
@@ -96,7 +96,7 @@ Après avoir sélectionné votre mode de connexion, vous êtes invité à entrer
 Après avoir sélectionné le port TCP de votre application, Azure Dev Spaces établit une connexion au cluster AKS. Azure Dev Spaces injecte un agent dans votre cluster AKS pour rediriger le trafic entre le cluster AKS et votre ordinateur de développement. L’établissement de cette connexion peut prendre quelques minutes. Azure Dev Spaces demandera également l’accès administrateur pour modifier le fichier *d’hébergement* sur votre ordinateur de développement.
 
 > [!IMPORTANT]
-> Une fois que Azure Dev Spaces établi une connexion avec votre cluster AKS, les autres services de votre cluster AKS peuvent ne pas fonctionner correctement tant que vous n’avez pas démarré le service sur votre ordinateur de développement. En outre, si votre service a une dépendance qui n’est pas disponible sur votre ordinateur de développement, vous devrez peut-être modifier votre application ou fournir une [configuration supplémentaire](#additional-configuration)
+> Une fois qu’Azure Dev Spaces établi une connexion avec votre cluster AKS, les autres services de votre cluster AKS peuvent ne pas fonctionner correctement tant que vous n’avez pas démarré le service sur votre ordinateur de développement si vous choisissez le mode de connexion *Remplacer*. Vous pouvez choisir le mode de connexion *Cloner* à la place pour créer un espace de développement enfant pour votre redirection et éviter toute interruption de l’espace parent. En outre, si votre service a une dépendance qui n’est pas disponible sur votre ordinateur de développement, vous devrez peut-être modifier votre application ou fournir une [configuration supplémentaire](#additional-configuration)
 
 Azure Dev Spaces ouvre une fenêtre de terminal intitulée *AZDS Connect-Bikes* après avoir établi une connexion avec votre cluster AKS. Toutes les variables d’environnement et les entrées DNS de cette fenêtre de terminal sont configurées à partir de votre cluster AKS. Tout code que vous exécutez dans cette fenêtre de terminal ou à l’aide du débogueur Visual Studio Code est connecté au cluster AKS.
 

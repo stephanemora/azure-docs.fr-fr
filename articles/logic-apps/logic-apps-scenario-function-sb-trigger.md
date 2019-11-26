@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
-ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680138"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904653"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 
@@ -32,13 +32,13 @@ Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md)
 
 ## <a name="create-logic-app"></a>Créer une application logique
 
-Pour ce scénario, vous disposez d’une fonction exécutant chaque application logique que vous voulez déclencher. Créez d’abord une application logique qui démarre avec un déclencheur de requête HTTP. La fonction appelle ce point de terminaison chaque fois qu’un message de la file d’attente est reçu.  
+Pour ce scénario, vous disposez d’une fonction exécutant chaque application logique que vous voulez déclencher. Créez d’abord une application logique qui démarre avec un déclencheur de requête HTTP. La fonction appelle ce point de terminaison chaque fois qu’un message de la file d’attente est reçu.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et créez une application logique vide.
 
    Si vous débutez avec les applications logiques, consultez le guide de [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Dans la zone de recherche, entrez « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP**
+1. Dans la zone de recherche, entrez `http request`. Dans la liste des déclencheurs, sélectionnez **Lors de la réception d’une requête HTTP**.
 
    ![Sélectionner le déclencheur](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -50,9 +50,9 @@ Pour ce scénario, vous disposez d’une fonction exécutant chaque application 
 
    Si vous n’avez pas de schéma, mais un exemple de charge utile au format JSON, vous pouvez générer un schéma à partir de cette charge utile.
 
-   1. Dans le déclencheur Requête, choisissez **Utiliser l’exemple de charge utile pour générer le schéma**.
+   1. Dans le déclencheur de requête, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
 
-   1. Sous **Entrer ou coller un exemple de charge utile JSON**, entrez votre exemple de charge utile, puis choisissez **Terminé**.
+   1. Sous **Entrer ou coller un exemple de charge utile JSON**, entrez votre exemple de charge utile, puis sélectionnez **Terminé**.
 
       ![Entrer un exemple de charge utile](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -102,9 +102,9 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
 1. Sur le Portail Azure, ouvrez et développez votre application de fonction, si ce n’est pas déjà le cas. 
 
-1. Sous le nom de votre application de fonction, développez **Fonctions**. Dans le volet **Fonction**, choisissez **Nouvelle fonction**.
+1. Sous le nom de votre application de fonction, développez **Fonctions**. Dans le volet **Fonctions**, sélectionnez **Nouvelle fonction**.
 
-   ![Développez « Fonctions », puis choisissez « Nouvelle fonction ».](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Développer « Fonctions » et sélectionner « Nouvelle fonction »](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. Sélectionnez ce modèle selon que vous avez créé une application de fonction où vous avez sélectionné .NET comme pile d’exécution ou que vous utilisez une application de fonction existante.
 
@@ -116,9 +116,17 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
      ![Sélectionner un modèle pour une application de fonction existante](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. Dans le volet **Déclencheur File d’attente Service Bus**, fournissez un nom pour votre déclencheur, puis configurez la **Connexion Service Bus** pour la file d’attente, qui utilise l’écouteur `OnMessageReceive()` du SDK Azure Service Bus, puis choisissez **Créer**.
+1. Dans le volet **Déclencheur File d’attente Service Bus**, fournissez un nom pour votre déclencheur, puis configurez la **Connexion Service Bus** pour la file d’attente, qui utilise l’écouteur `OnMessageReceive()` du Kit de développement logiciel (SDK) Azure Service Bus, puis sélectionnez **Créer**.
 
-1. Écrivez une fonction de base pour appeler le point de terminaison d’application logique créé précédemment en utilisant le message de la file d’attente comme déclencheur. Cet exemple utilise un type de contenu de message `application/json`, mais vous pouvez le modifier si nécessaire. Si possible, réutilisez l’instance de clients HTTP. Pour plus d’informations, consultez la rubrique [Gérer les connexions dans Azure Functions](../azure-functions/manage-connections.md).
+1. Écrivez une fonction de base pour appeler le point de terminaison d’application logique créé précédemment en utilisant le message de la file d’attente comme déclencheur. Avant d’écrire votre fonction, passez en revue les considérations suivantes :
+
+   * Cet exemple utilise un type de contenu de message `application/json`, mais vous pouvez le modifier si nécessaire.
+   
+   * En raison de la possibilité d’exécution simultanée de fonctions, de volumes élevés ou de charges lourdes, évitez d’instancier la [classe HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) avec l’instruction `using` et de créer directement des instances HTTPClient par requête. Pour plus d’informations, consultez [Utiliser HttpClientFactory pour implémenter des requêtes HTTP résilientes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * Si possible, réutilisez l’instance de clients HTTP. Pour plus d’informations, consultez la rubrique [Gérer les connexions dans Azure Functions](../azure-functions/manage-connections.md).
+
+   Cet exemple utilise la [méthode `Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) en mode [asynchrone](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async). Pour plus d’informations, consultez l’article [Programmation asynchrone avec async et await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```CSharp
    using System;
@@ -126,17 +134,16 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
@@ -146,4 +153,4 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md)
+* [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md)

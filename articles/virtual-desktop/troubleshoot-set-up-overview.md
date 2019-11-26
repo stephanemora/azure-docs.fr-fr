@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: aa4254673d426579a5e5f0e90e389db7c6cadff0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607350"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904895"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
 
@@ -44,6 +44,7 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 | Connexion des clients                                                                    | Consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md) et, si cela ne résout pas votre problème, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md). |
 | Réactivité des applications ou du Bureau à distance                                      | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
 | Messages ou erreurs concernant les licences                                                          | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
+| Problèmes liés à l’utilisation des outils Windows Virtual Desktop sur GitHub (modèles Azure Resource Manager, outil de diagnostic, outil de gestion) | Pour signaler des problèmes, consultez [Modèles ARM pour Services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

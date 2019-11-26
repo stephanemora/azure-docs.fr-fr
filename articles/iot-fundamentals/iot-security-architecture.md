@@ -1,18 +1,18 @@
 ---
 title: Architecture de la sécurité IoT
-description: Considérations et recommandations relatives à l’architecture de sécurité IoT
+description: Considérations et recommandations relatives à l’architecture de sécurité pour les solutions Azure IoT
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: bf00bbc614f9fc46a983405800d4136e65c9de05
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e4e6a60f893108f8fa58d84dabb50c88afcf774c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789085"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929605"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architecture de sécurité de l’Internet des objets (IdO)
 

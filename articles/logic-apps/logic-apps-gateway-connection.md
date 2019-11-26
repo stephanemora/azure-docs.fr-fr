@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796252"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068897"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -27,9 +27,9 @@ Cet article explique comment créer votre ressource de passerelle Azure pour une
 
 Pour plus d’informations sur l’utilisation de la passerelle avec d’autres services, consultez les articles suivants :
 
-* [Passerelle de données locale Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Passerelle de données locale Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Passerelle de données locale Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Passerelle de données locale Microsoft Power Automate](/power-automate/gateway-reference)
+* [Passerelle de données locale Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Passerelle de données locale Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699199"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838533"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
@@ -37,7 +37,7 @@ Causes courantes de ce problème :
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- Les utilitaires CIFS (cfs-utils) ne sont pas installés sur le client.
+- Les utilitaires CIFS (cifs-utils) ne sont pas installés sur le client.
 - La version de SMB/CIFS minimale, à savoir 2.1, n’est pas installée sur le client.
 - Le chiffrement SMB 3.0 n’est pas pris en charge sur le client. Le tableau précédent fournit une liste des distributions de Linux qui prennent en charge le montage à partir d’emplacements locaux et entre les régions grâce au chiffrement. Les autres distributions requièrent un noyau 4.11 et versions ultérieures.
 - Vous tentez de vous connecter à un compte de stockage via le port TCP 445, qui n’est pas pris en charge.
@@ -60,7 +60,7 @@ Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de m
 
 Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Un canal de communication chiffré est fourni uniquement si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
 
-Pour en savoir plus, consultez [Prérequis pour le montage d’un partage de fichiers Azure avec Linux et le package cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+Pour en savoir plus, consultez [Prérequis pour le montage d’un partage de fichiers Azure avec Linux et le package cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
@@ -94,10 +94,10 @@ Réduisez le nombre de handles ouverts simultanément en en fermant certains, pu
 
 Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez la cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell.  
 
-Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez la cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell.
+Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle).
 
 > [!Note]  
-> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module AZ PowerShell version 2.4 ou ultérieure. Pour installer le module AZ PowerShell le plus récent, veuillez vous reporter à la page [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module AZ PowerShell le plus récent, veuillez vous reporter à la page [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files dans Linux
@@ -126,7 +126,7 @@ Certaines distributions Linux ne prennent pas encore en charge les fonctionnalit
 
 ### <a name="solution"></a>Solution
 
-La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage d’un fichier Azure en local ou à partir d’une autre région Azure. Cette fonctionnalité est incluse dans les distributions Linux listées dans [Versions minimales recommandées avec fonctionnalités de montage correspondantes (comparaison entre SMB version 2.1 et SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Les autres distributions requièrent un noyau 4.11 et versions ultérieures.
+La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage d’un fichier Azure en local ou à partir d’une autre région Azure. Certaines distributions Linux peuvent avoir des modifications rétroportées du noyau 4.11 vers des versions antérieures du noyau Linux qu’elles maintiennent. Pour vous aider à déterminer si votre version de Linux prend en charge SMB 3.0 avec chiffrement, consultez [Utiliser Azure Files avec Linux](storage-how-to-use-files-linux.md). 
 
 Si votre client SMB Linux ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Azure Linux se trouvant dans le même centre de données que le partage de fichiers. Vérifiez que le paramètre [Transfert sécurisé requis]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage. 
 
@@ -154,18 +154,18 @@ Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées co
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
 
 ### <a name="cause"></a>Cause :
-Ce problème se produit généralement lorsque le fichier ou le répertoire a un descripteur ouvert. 
+Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
 
 ### <a name="solution"></a>Solution
 
-Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, procédez comme suit :
+Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, effectuez les étapes suivantes :
 
-- Utilisez la cmdlet PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
+- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
 
-- Utilisez la cmdlet PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
+- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
 
 > [!Note]  
-> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module AZ PowerShell version 2.4 ou ultérieure. Pour installer le module AZ PowerShell le plus récent, veuillez vous reporter à la page [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module AZ PowerShell le plus récent, veuillez vous reporter à la page [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Ralentissement des performances dans un partage de fichiers Azure monté sur une machine virtuelle
@@ -281,7 +281,7 @@ Ce problème de reconnexion dans le noyau Linux est maintenant résolu dans le c
 - [CIFS : Corriger une éventuelle corruption de la mémoire pendant la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS : Corriger un éventuel double verrouillage du mutex pendant la reconnexion (pour les noyaux v4.9 et ultérieurs)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-Toutefois, il se peut que ces modifications n’aient pas encore été appliquées à l’ensemble des distributions Linux. Ce correctif et d’autres correctifs de reconnexion se trouvent dans la section [Versions minimales recommandées avec fonctionnalités de montage correspondantes (comparaison entre SMB version 2.1 et SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) de l’article [Utiliser Azure Files avec Linux](storage-how-to-use-files-linux.md). Vous pouvez obtenir ce correctif en procédant à la mise à niveau vers l’une de ces versions du noyau recommandées.
+Toutefois, il se peut que ces modifications n’aient pas encore été appliquées à l’ensemble des distributions Linux. Si vous utilisez une distribution Linux populaire, vous pouvez vérifier la page [Utiliser Azure Files avec Linux](storage-how-to-use-files-linux.md) pour voir quelle version de votre distribution a les modifications de noyau nécessaires.
 
 ### <a name="workaround"></a>Solution de contournement
 

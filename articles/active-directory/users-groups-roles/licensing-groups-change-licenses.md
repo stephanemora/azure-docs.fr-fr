@@ -1,27 +1,27 @@
 ---
-title: Comment modifier des affectations de licence pour des utilisateurs et des groupes - Azure Active Directory | Microsoft Docs
-description: Décrit le processus recommandé pour migrer des utilisateurs au sein d’un groupe vers différentes licences de services (par exemple, Office 365 Entreprise E1 et E3) à l’aide de la gestion de licences de groupes.
+title: Modifier les plans de licence pour les utilisateurs et les groupes – Azure AD | Microsoft Docs
+description: Migration des utilisateurs d’un groupe vers différents plans de service à l’aide de la gestion des licences de groupe dans Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7212983470e71ff6d7c1c33de142767ecf38d1f
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034014"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025900"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Modifier des affectations de licence pour un utilisateur ou un groupe dans Azure Active Directory
 

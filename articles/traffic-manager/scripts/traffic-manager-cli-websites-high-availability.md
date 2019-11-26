@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Acheminer le trafic pour la haute disponibilité des applications | Microsoft Docs
+title: Acheminer le trafic pour la haute disponibilité des applications – Azure CLI – Traffic Manager
 description: Exemple de script Azure CLI - Acheminer le trafic pour la haute disponibilité des applications
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: allensu
-ms.openlocfilehash: 2bf993dad3b9452424c5d3b450bf3908b38983c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02807d3773b5d27d59ab6b03a22f7637bae95aca
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050991"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006394"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Acheminer le trafic pour la haute disponibilité des applications à l’aide d’Azure CLI
 

@@ -1,18 +1,18 @@
 ---
 title: Problèmes d’authentification dans Azure HDInsight
 description: Problèmes d’authentification dans Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/09/2019
-ms.openlocfilehash: 3d2ba5965fef19a36faa8b9bbef235fd4117c20f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 11/08/2019
+ms.openlocfilehash: 17bc9f1ea93b0afa4f53443a53d294acb9e94b2e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71071950"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901398"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problèmes d’authentification dans Azure HDInsight
 
@@ -191,6 +191,24 @@ Le jeton d’accès OAuth requis est introuvable pour que le travail/la commande
 ### <a name="resolution"></a>Résolution :
 
 Vérifiez que vous êtes connecté au portail Ambari une seule fois via le nom d’utilisateur dont l’identité est utilisée pour exécuter le travail.
+
+---
+
+## <a name="error-fetching-access-token"></a>Erreur lors de la récupération du jeton d’accès
+
+### <a name="issue"></a>Problème
+
+L’utilisateur reçoit un message d’erreur `Error fetching access token`.
+
+### <a name="cause"></a>Cause :
+
+Cette erreur se produit par intermittence lorsque les utilisateurs essaient d’accéder au ADLS Gen2 à l’aide de listes de contrôle d’accès et que le jeton Kerberos a expiré.
+
+### <a name="resolution"></a>Résolution :
+
+* Pour Azure Data Lake Storage Gen1, nettoyez le cache du navigateur et reconnectez-vous à Ambari.
+
+* Par Azure Data Lake Storage Gen2, exécutez `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` pour l’utilisateur auquel l’utilisateur tente de se connecter.
 
 ---
 

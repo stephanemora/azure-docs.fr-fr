@@ -1,18 +1,18 @@
 ---
-title: Gérer un serveur de processus utilisé pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment gérer un serveur de processus configuré pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure avec Azure Site Recovery.
+title: Gérer un serveur de processus pour la récupération d’urgence des machines virtuelles VMware/serveurs physiques dans Azure Site Recovery
+description: Cet article explique comment gérer un serveur de processus pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques à l’aide d’Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925630"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954349"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -67,7 +67,20 @@ Déplacez la charge de travail entière gérée par un serveur de processus vers
 
 La répercussion des modifications dans le portail prend environ 15 minutes. Pour obtenir un effet plus rapide, [actualisez le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## <a name="register-a-master-target-server"></a>Inscrire un serveur cible maître
 
+Le serveur cible maître réside sur le serveur de configuration et les serveurs de processus Scale-out. Il doit être inscrit auprès du serveur de configuration. En cas d’échec de cette inscription, cela peut avoir un impact sur l’intégrité des éléments protégés. Pour inscrire un serveur cible maître auprès du serveur de configuration, connectez-vous au serveur de configuration/serveur de processus Scale-out spécifique sur lequel l’inscription est requise. Accédez au dossier **%PROGRAMDATA%\ASR\Agent** et exécutez la commande suivante sur l’invite de commandes Administrateur.
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="reregister-a-process-server"></a>Réinscrire un serveur de processus
 

@@ -1,19 +1,18 @@
 ---
-title: Questions courantes sur la récupération d’urgence de VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Questions courantes sur la récupération d’urgence pour VMware avec Azure Site Recovery
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
-ms.date: 06/27/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002273"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084165"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 

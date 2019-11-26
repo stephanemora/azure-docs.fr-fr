@@ -1,5 +1,5 @@
 ---
-title: Parcourir les API Azure Digital Twins | Microsoft Docs
+title: Parcourir les API – Azure Digital Twins | Microsoft Docs
 description: Découvrez les modèles courants d’interrogation des API de gestion Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822241"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009999"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Guide pratique pour utiliser les API de gestion Azure Digital Twins
 

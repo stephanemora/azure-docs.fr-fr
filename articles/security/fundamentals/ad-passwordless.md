@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820513"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007278"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
@@ -24,7 +24,7 @@ Les attaques par pulvérisation de mots de passe, hameçonnage et rejeu sont cou
 
 Cet article marque le début de votre parcours. Il vous aide à comprendre et à implémenter les solutions sans mot de passe Microsoft et à choisir une ou plusieurs des options parmi les suivantes :
 
-* **Windows Hello Entreprise**. Dans Windows 10, Windows Hello Entreprise remplace les mots de passe par une authentification à deux facteurs forte sur les PC et appareils mobiles. Cette authentification se compose d’un nouveau type d’informations d’identification utilisateur qui sont liées à un appareil et utilise un code biométriques ou un code PIN.
+* **Windows Hello Entreprise**. Dans Windows 10, Windows Hello Entreprise remplace les mots de passe par une authentification à deux facteurs forte sur les PC et appareils mobiles. Cette authentification se compose d’un nouveau type d’informations d’identification utilisateur qui sont liées à un appareil et utilise la reconnaissance biométriques ou un code PIN.
 
 * **Connexion sans mot de passe avec Microsoft Authenticator**. L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. À l’instar de la technologie de Windows Hello Entreprise, Microsoft Authenticator a recours à l’authentification par clé pour activer des informations d’identification utilisateur qui sont liées à un appareil et utilisent un code biométrique ou confidentiel.
 

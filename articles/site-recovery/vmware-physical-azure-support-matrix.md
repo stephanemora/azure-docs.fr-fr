@@ -1,18 +1,18 @@
 ---
-title: Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Prendre en charge la matrice de récupération d’urgence VMware/physique à l’aide d’Azure Site Recovery
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 2cda2c4e640c48d712ea5ebc8534cf5a4e35da7a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620546"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133367"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -64,6 +64,9 @@ Ports | 443 utilisé pour l’orchestration du canal de contrôle<br/>9443 utili
 
 Site Recovery assure la réplication de toutes les charges de travail exécutées sur une machine prise en charge.
 
+> [!Note]
+> Le tableau suivant répertorie la prise en charge des machines avec démarrage BIOS. Pour en savoir sur la prise en charge sur les machines UEFI, reportez-vous à la section [Stockage](#storage).
+
 **Composant** | **Détails**
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
@@ -72,16 +75,16 @@ Windows Server 2019 | Pris en charge à partir du [Correctif cumulatif 34](htt
 Windows Server 2016 64 bits | Pris en charge pour Server Core, Server avec Expérience utilisateur.
 Windows Server 2012 R2/Windows Server 2012 | Pris en charge.
 Windows Server 2008 R2 avec SP1 et au-delà. | Pris en charge.<br/><br/> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’agent Mobility Service, vous devez installer la [mise à jour de la pile de maintenance (SSU)](https://support.microsoft.com/help/4490628) et la [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les ordinateurs exécutant Windows 2008 R2 avec SP1 ou une version ultérieure. SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 avec SP2 ou version ultérieure (64 bits/32 bits) |  Pris en charge pour la migration uniquement. [Plus d’informations](migrate-tutorial-windows-server-2008.md)<br/><br/> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’agent Mobility Service, vous devez installer la [mise à jour de la pile de maintenance (SSU)](https://support.microsoft.com/help/4493730) et la [mise à jour SHA-2](h https://support.microsoft.com/help/4474419) sur les ordinateurs Windows 2008 SP2. SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 avec SP2 ou version ultérieure (64 bits/32 bits) |  Pris en charge pour la migration uniquement. [Plus d’informations](migrate-tutorial-windows-server-2008.md)<br/><br/> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’agent Mobility Service, vous devez installer la [mise à jour de la pile de maintenance (SSU)](https://support.microsoft.com/help/4493730) et la [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les ordinateurs Windows 2008 SP2. SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
 Windows 10, Windows 8.1, Windows 8 | Pris en charge.
 Windows 7 avec SP1 64 bits | Pris en charge à partir du [Correctif cumulatif 36](https://support.microsoft.com/help/4503156) (version 9.22 de Mobility Service). </br></br> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’agent Mobility Service, vous devez installer la [mise à jour de la pile de maintenance (SSU)](https://support.microsoft.com/help/4490628) et la [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les ordinateurs Windows 7 SP1.  SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
 Linux | Seul le système 64 bits est pris en charge. Le système 32 bits n’est pas pris en charge.<br/><br/>Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) doivent être installés sur chaque serveur Linux. Il sont nécessaires pour démarrer le serveur dans Azure après le test de basculement et le basculement. Si les [composants](https://www.microsoft.com/download/details.aspx?id=55106) LIS sont manquants, veillez à les installer avant d’activer la réplication pour les machines à démarrer dans Azure. <br/><br/> Site Recovery orchestre le basculement pour exécuter des serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent limiter la prise en charge aux versions de distribution qui n’ont pas atteint leur fin de vie.<br/><br/> Dans les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de distribution sont pris en charge.<br/><br/> La mise à niveau des machines protégées sur des versions de distribution majeures Linux n’est pas prise en charge. Pour effectuer la mettre à niveau, désactivez la réplication, mettez à niveau le système d’exploitation, puis réactivez la réplication.<br/><br/> [Apprenez-en davantage](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sur la prise en charge des technologies Linux et open source dans Azure.
-Red Hat Enterprise Linux | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> 7.0 à 7.7. </br>La version 7.7 est prise en charge à partir de la [version 9.29 de l’agent de mobilité](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery)<br/> <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 et 6.1-6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 et 6.1-6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
 Linux : CentOS | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> 7.0 à 7.6<br/> <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant CentOS 5.2 à 5.11 et 6.1 à 6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
 Ubuntu | Serveur LTS Ubuntu 14.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions) </br> Serveur LTS Ubuntu 18.04 [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8[ (voir les versions du noyau prises en charge)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [ (voir les versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7<br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
 
 
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
@@ -93,6 +96,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5
 14.04 LTS | [9.26][9.26 UR]| 3.13.0-24-generic à 3.13.0-170-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-148-generic,<br/>4.15.0-1023-azure à 4.15.0-1045-azure |
 14.04 LTS | [9.25][9.25 UR]  | 3.13.0-24-generic à 3.13.0-169-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-146-generic,<br/>4.15.0-1023-azure à 4.15.0-1042-azure |
 |||
+LTS 16.04 | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-generic à 4.4.0-166-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-66-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1061-azure|
 LTS 16.04 | [9.28][9.28 UR] | 4.4.0-21-generic à 4.4.0-159-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-58-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1055-azure|
 LTS 16.04 | [9.27][9.27 UR] | 4.4.0-21-generic à 4.4.0-154-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-54-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1050-azure|
 LTS 16.04 | [9.26][9.26 UR] | 4.4.0-21-generic à 4.4.0-148-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-50-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1045-azure|
@@ -100,6 +104,7 @@ LTS 16.04 | [9.25][9.25 UR] | 4.4.0-21-generic à 4.4.0-146-generic,<br/>4.8.0-3
 LTS 16.04 | [9.24][9.24 UR] | 4.4.0-21-generic à 4.4.0-143-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-46-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1040-azure|
 |||
 18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-générique à 4.15.0-62-générique </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-générique à 5.0.0-27-générique </br> 4.15.0-1009-azure à 4.15.0-1037-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1018-azure
+18.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-generic à 4.15.0-66-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-32-generic </br> 4.15.0-1009-azure à 4.15.0-1037-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1023-azure
 
 
 ### <a name="debian-kernel-versions"></a>Versions du noyau Debian
@@ -203,7 +208,7 @@ Invité/serveur - Exclure le disque | OUI
 Multipath invité/serveur (MPIO) | Non
 Partitions GPT invité/serveur | Cinq partitions sont prises en charge à partir du [Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) (version 9.25 de Mobility Service). Auparavant, elles étaient au nombre de quatre.
 ReFS | Resilient File System est pris en charge avec le service Mobility version 9.23 ou ultérieure
-Démarrage EFI/UEFI invité/serveur | - Pris en charge lorsque vous exécutez Mobility Service version 9.13 ou ultérieure.<br/> - Pris en charge lors de la migration de machines virtuelles ou serveurs physiques VMware exécutant Windows Server 2012 ou version ultérieure vers Azure.<br/> - Vous ne pouvez répliquer des machines virtuelles que pour la migration. La restauration automatique en local n’est pas pris en charge.<br/> - Seul le système NTFS est pris en charge <br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. <br/> - La taille de secteur de disque doit être de 512 octets par secteur physique.
+Démarrage EFI/UEFI invité/serveur | - Pris en charge pour Windows Server 2012 ou une version ultérieure, SLES 12 SP4 et RHEL 8.0 avec l’agent de mobilité à compter de la version 9.30<br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. 
 
 ## <a name="replication-channels"></a>Canaux de réplication
 
@@ -224,6 +229,7 @@ Stockage froid | Non
 Stockage chaud| Non
 Objets blob de blocs | Non
 Chiffrement au repos (SSE)| OUI
+Chiffrement au repos (CMK)| Non
 Stockage Premium | OUI
 Service Import/Export | Non
 Pare-feu de Stockage Azure pour les réseaux virtuels | Oui.<br/> Configurés sur le compte de stockage de cache/stockage cible (utilisé pour stocker les données de réplication).

@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes liés au pare-feu d’applications web pour Azure Application Gateway
+title: Détecter un problème – Pare-feu d’applications web Azure
 description: Cet article fournit des informations sur la résolution des problèmes liés au pare-feu d’applications web (WAF) pour Azure Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2019
+ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: fff50417bd7944e125ce1d7c1e1ae52ec22f806f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511430"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046195"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Résoudre les problèmes liés au pare-feu d’applications web (WAF) pour Azure Application Gateway
 

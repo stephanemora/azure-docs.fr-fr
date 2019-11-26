@@ -1,6 +1,6 @@
 ---
-title: Copier des données vers et à partir d’Azure SQL Data Warehouse avec Azure Data Factory
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de magasins de données sources pris en charge vers SQL Data Warehouse ou de SQL Data Warehouse vers des magasins de données récepteurs pris en charge.
+title: Copier et transformer des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
+description: Découvrez comment copier des données depuis et vers Azure SQL Data Warehouse et comment transformer des données dans Azure SQL Data Warehouse à l’aide de Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681150"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076764"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
+# <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version actuelle](connector-azure-sql-data-warehouse.md)
 
-Cet article explique comment copier des données vers et depuis Azure SQL Data Warehouse. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure SQL Data Warehouse et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -35,7 +35,7 @@ Ce connecteur Azure SQL Data Warehouse est pris en charge pour les activités su
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 
-Plus précisément, ce connecteur Azure SQL Data Warehouse prend en charge les fonctions suivantes :
+Pour l’activité de copie, ce connecteur Azure SQL Data Warehouse prend en charge les fonctions suivantes :
 
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
@@ -227,9 +227,9 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Data Warehouse.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-Pour copier des données depuis ou vers Azure SQL Data Warehouse, les propriétés suivantes sont prises en charge :
+Les propriétés prises en charge pour le jeu de données Azure SQL Data Warehouse sont les suivantes :
 
 | Propriété  | Description                                                  | Obligatoire                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |

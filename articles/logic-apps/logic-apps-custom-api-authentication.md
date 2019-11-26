@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167241"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039125"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -49,7 +49,7 @@ Votre application logique utilise cette identité d’application Azure AD pour 
 
 **Créer l’identité d’application pour votre application logique dans le Portail Azure**
 
-1. Dans le [portail Azure](https://portal.azure.com "https://portal.azure.com"), choisissez **Azure Active Directory**. 
+1. Dans le [Portail Azure](https://portal.azure.com "https://portal.azure.com"), choisissez **Azure Active Directory**. 
 
 2. Vérifiez que vous vous trouvez dans le même répertoire que votre application web ou votre application API.
 
@@ -100,11 +100,13 @@ Vous pouvez effectuer cette tâche par le biais d’Azure Resource Manager avec 
 
 1. `Add-AzAccount`
 
-2. `$SecurePassword = Read-Host -AsSecureString` (Entrez un mot de passe et appuyez sur Entrée)
+1. `$SecurePassword = Read-Host -AsSecureString`
 
-3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+1. Entrez un mot de passe et appuyez sur Entrée.
 
-4. Veillez à copier **l’ID de locataire** (GUID pour votre locataire Azure AD), **l’ID d’application** et le mot de passe que vous avez utilisé.
+1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+
+1. Veillez à copier **l’ID de locataire** (GUID pour votre locataire Azure AD), **l’ID d’application** et le mot de passe que vous avez utilisé.
 
 Pour plus d’informations, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -114,7 +116,7 @@ Si votre application web ou votre application API est déjà déployée, vous po
 
 **Créer l’identité d’application et activer l’authentification dans le Portail Azure pour les applications déployées**
 
-1. Dans le [portail Azure](https://portal.azure.com "https://portal.azure.com"), recherchez puis sélectionnez votre application web ou votre application API. 
+1. Dans le [Portail Azure](https://portal.azure.com "https://portal.azure.com"), recherchez puis sélectionnez votre application web ou votre application API. 
 
 2. Sous **Paramètres**, choisissez **Authentification/Autorisation**. Sous **Authentification App Service**, activez **l’authentification**. Sous **Fournisseurs d’authentification**, sélectionnez **Azure Active Directory**.
 
@@ -161,19 +163,21 @@ Vous pouvez également suivre les étapes décrites dans la partie 1. Cependant
 Une fois que vous disposez de l’ID client et de l’ID de locataire, incluez-les en tant que sous-ressource de votre application web ou de votre application API dans votre modèle de déploiement :
 
 ``` json
-"resources": [ {
-    "apiVersion": "2015-08-01",
-    "name": "web",
-    "type": "config",
-    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-    "properties": {
-        "siteAuthEnabled": true,
-        "siteAuthSettings": {
-            "clientId": "{client-ID}",
-            "issuer": "https://sts.windows.net/{tenant-ID}/",
-        }
-    }
-} ]
+"resources": [ 
+   {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "config",
+      "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+      "properties": {
+         "siteAuthEnabled": true,
+         "siteAuthSettings": {
+            "clientId": "<client-ID>",
+            "issuer": "https://sts.windows.net/<tenant-ID>/"
+         }
+      }
+   } 
+]
 ```
 
 Pour déployer automatiquement une application web et une application logique vides avec l’authentification Azure Active Directory, [consultez le modèle complet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) ou cliquez sur **Déploiement sur Azure** ici :
@@ -184,12 +188,20 @@ Pour déployer automatiquement une application web et une application logique vi
 
 Cette section d’autorisation est déjà configurée dans le modèle précédent, mais si vous créez l’application logique directement, vous devez inclure la section d’autorisation complète.
 
-Ouvrez votre définition d’application logique en mode code, accédez à la section d’action **HTTP**, recherchez la section **Autorisation** et ajoutez cette ligne :
+Ouvrez votre définition d’application logique en mode code, accédez à la définition d’action **HTTP**, recherchez la section **Autorisation** et ajoutez ces propriétés :
 
-`{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
+```json
+{
+   "tenant": "<tenant-ID>",
+   "audience": "<client-ID-from-Part-2-web-app-or-API app>", 
+   "clientId": "<client-ID-from-Part-1-logic-app>",
+   "secret": "<key-from-Part-1-logic-app>", 
+   "type": "ActiveDirectoryOAuth"
+}
+```
 
-| Élément | Obligatoire | Description | 
-| ------- | -------- | ----------- | 
+| Propriété | Obligatoire | Description | 
+| -------- | -------- | ----------- | 
 | tenant | OUI | GUID du locataire Azure AD | 
 | audience | OUI | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
 | clientId | OUI | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
@@ -202,10 +214,9 @@ Par exemple :
 ``` json
 {
    "actions": {
-      "some-action": {
-         "conditions": [],
+      "HTTP": {
          "inputs": {
-            "method": "post",
+            "method": "POST",
             "uri": "https://your-api-azurewebsites.net/api/your-method",
             "authentication": {
                "tenant": "tenant-ID",
@@ -214,7 +225,7 @@ Par exemple :
                "secret": "key-from-azure-ad-app-for-logic-app",
                "type": "ActiveDirectoryOAuth"
             }
-         },
+         }
       }
    }
 }
@@ -230,16 +241,22 @@ Par exemple :
 
 Vous pouvez utiliser des certificats clients pour valider les demandes entrantes de votre application logique parvenant à votre application web ou votre application API. Pour configurer votre code, consultez [Configuration de l’authentification mutuelle TLS pour une application web](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Dans la section **Autorisation**, ajoutez cette ligne : 
+Dans la section **Autorisation**, ajoutez ces propriétés :
 
-`{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
+```json
+{
+   "type": "ClientCertificate",
+   "password": "<password>",
+   "pfx": "<long-pfx-key>"
+} 
+```
 
-| Élément | Obligatoire | Description | 
-| ------- | -------- | ----------- | 
-| type | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
-| password | OUI | Mot de passe pour l’accès au certificat client (fichier PFX) | 
-| pfx | OUI | Contenu codé base 64 du certificat client (fichier PFX) | 
-|||| 
+| Propriété | Obligatoire | Description |
+| -------- | -------- | ----------- |
+| `type` | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. |
+| `password` | Non | Mot de passe pour l’accès au certificat client (fichier PFX) |
+| `pfx` | OUI | Contenu codé base 64 du certificat client (fichier PFX) |
+||||
 
 <a name="basic"></a>
 
@@ -247,12 +264,18 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 Pour valider les demandes entrantes de votre application logique à l’attention de votre application web ou de votre application API, vous pouvez utiliser l’authentification de base, par exemple, un nom d’utilisateur et un mot de passe. L’authentification de base est une méthode courante que vous pouvez utiliser dans n’importe quel langage utilisé pour générer votre application web ou votre application API.
 
-Dans la section **Autorisation**, ajoutez cette ligne :
+Dans la section **Autorisation**, ajoutez ces propriétés :
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+```json
+{
+   "type": "Basic",
+   "username": "<username>",
+   "password": "<password>"
+}
+```
 
-| Élément | Obligatoire | Description | 
-| ------- | -------- | ----------- | 
+| Propriété | Obligatoire | description | 
+| -------- | -------- | ----------- | 
 | type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
 | username | OUI | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
 | password | OUI | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 

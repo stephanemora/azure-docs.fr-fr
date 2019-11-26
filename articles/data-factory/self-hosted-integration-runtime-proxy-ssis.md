@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684302"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954739"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurer un runtime d'intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF
 Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF) avec un runtime d'intégration auto-hébergé configuré en tant que proxy.  Cette fonctionnalité vous permet d'accéder aux données locales sans avoir à [joindre votre instance d'Azure-SSIS IR à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Ceci est particulièrement utile lorsque la stratégie de configuration/stratégie restrictive de votre réseau d'entreprise est trop complexe pour y injecter votre instance d'Azure-SSIS IR.
@@ -87,10 +87,10 @@ Les deuxièmes tâches intermédiaires exécutées sur votre instance d'Azure-SS
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
-- Seuls les gestionnaires de connexions de fichiers plats/OLEDB et les sources de fichiers plats/OLEDB sont actuellement pris en charge. 
+- Seules les tâches de flux de données avec les gestionnaires de connexions de fichiers plats/OLEDB/ODBC et les sources de fichiers plats/OLEDB/ODBC sont actuellement prises en charge. 
 - Seuls les services liés Stockage Blob Azure configurés avec une authentification de type **Clé de compte**/**URI SAS**/**Principal de service** sont actuellement pris en charge.
 - Seul le runtime d'intégration auto-hébergé approvisionné sous la fabrique de données ADF où votre instance d'Azure-SSIS est elle-même approvisionnée est actuellement pris en charge.
-- L’utilisation de variables/paramètres SSIS dans les propriétés des gestionnaires de connexions et des sources de fichiers plats/OLEDB n’est pas prise en charge.
+- L’utilisation de variables/paramètres SSIS dans les propriétés des gestionnaires de connexions et des sources de fichiers plats/OLEDB/ODBC n’est pas prise en charge actuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir configuré votre runtime d'intégration auto-hébergé en tant que proxy pour votre instance d'Azure-SSIS IR, vous pouvez déployer et exécuter vos packages pour accéder aux données locales sous forme d'activités Exécuter un package SSIS dans les pipelines ADF. Pour plus d'informations, consultez [Exécuter des packages SSIS en tant qu'activités Exécuter un package SSIS dans les pipelines ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

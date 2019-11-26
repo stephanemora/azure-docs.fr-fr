@@ -1,18 +1,19 @@
 ---
-title: Configurer la reprise d’activité après sinistre pour des machines virtuelles Azure après la migration vers Azure à l’aide d’Azure Site Recovery
+title: Configurer la récupération d’urgence après une migration vers Azure à l’aide d’Azure Site Recovery
 description: Cet article décrit comment préparer des machines pour configurer la récupération d’urgence entre des régions Azure après une migration vers Azure à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 081e1db4df0d77fa600e132a5585172d44f1196a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cd15b562c3707a28b54bc59166d54871120909e2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663022"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084933"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure 
 

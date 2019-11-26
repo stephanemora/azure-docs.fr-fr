@@ -1,23 +1,25 @@
 ---
 title: Lister les objets blob avec .NET – Stockage Azure
-description: Découvrez comment lister les objets blob dans un conteneur dans votre compte de stockage Azure à l’aide de la bibliothèque cliente .NET.
+description: Découvrez comment lister les objets blob dans un conteneur dans votre compte de stockage Azure à l’aide de la bibliothèque cliente .NET. Les exemples de code montrent comment répertorier des blobs dans une liste plate ou comment les répertorier hiérarchiquement, comme s’ils étaient organisés dans des répertoires ou des dossiers.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599799"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902013"
 ---
 # <a name="list-blobs-with-net"></a>Lister les objets blob avec .NET
 
-Lorsque vous listez les objets blob de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Cet article explique comment lister les objets blob à l’aide de la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).  
+Lorsque vous listez les objets blob de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Vous pouvez spécifier le nombre de résultats à retourner dans chaque ensemble de résultats, puis récupérer les ensembles suivants. Vous pouvez spécifier un préfixe pour retourner les blobs dont le nom commence par ce caractère ou cette chaîne. Vous pouvez également répertorier les blobs dans une structure de liste plate, ou hiérarchiquement. Une liste hiérarchique retourne les blobs comme s’ils étaient organisés en dossiers. 
+
+Cet article explique comment lister les objets blob à l’aide de la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).  
 
 ## <a name="understand-blob-listing-options"></a>Présentation des options de liste d’objets blob
 
@@ -53,7 +55,7 @@ Pour retourner les métadonnées des objets blob avec les résultats, spécifiez
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Création d’une liste plate ou d’une liste hiérarchique
 
-Les objets blob dans le stockage Azure sont organisés en paradigme plat, plutôt qu’en paradigme hiérarchique (comme un système de fichiers standard). Toutefois, vous pouvez organiser les objets blob en *répertoires virtuels* afin de simuler un paradigme hiérarchique. Un répertoire virtuel fait partie du nom de l’objet blob délimité par le caractère délimiteur.
+Les objets blob dans le stockage Azure sont organisés en paradigme plat, plutôt qu’en paradigme hiérarchique (comme un système de fichiers standard). Toutefois, vous pouvez organiser les blobs en *répertoires virtuels* afin de simuler une structure de dossiers. Un répertoire virtuel fait partie du nom du blob et est indiqué par le caractère délimiteur.
 
 Pour organiser les objets blob en répertoires virtuels, utilisez un caractère délimiteur dans les noms des objets blob. Le caractère délimiteur par défaut est une barre oblique (/), mais vous pouvez spécifier n’importe quel caractère comme délimiteur.
 

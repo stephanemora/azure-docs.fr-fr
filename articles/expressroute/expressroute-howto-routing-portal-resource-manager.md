@@ -1,5 +1,5 @@
 ---
-title: 'Configuration du peering pour un circuit - ExpressRoute : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute : Configurer le peering'
 description: Cet article décrit les étapes de création et d’approvisionnement d’un peering Microsoft et privé ExpressRoute. Cet article montre également comment vérifier l’état, mettre à jour ou supprimer des peerings pour un circuit.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: 5fb728cccd77d0cefd10c124cb7215dc3b880fe3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622343"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083539"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Créer et modifier le peering pour un circuit ExpressRoute
 
@@ -23,9 +22,9 @@ Cet article vous aide à créer et gérer la configuration du routage d’un cir
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interface de ligne de commande Azure](howto-routing-cli.md)
-> * [Vidéo - Homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
 
@@ -44,7 +43,7 @@ Ces instructions s'appliquent uniquement aux circuits créés avec des fournisse
 > 
 > 
 
-## <a name="msft"></a>Homologation Microsoft
+## <a name="msft"></a>Peering Microsoft
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering Microsoft pour un circuit ExpressRoute.
 
@@ -61,11 +60,11 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
    **Circuit : état du fournisseur : Non approvisionné**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "État du fournisseur : Non approvisionné")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
    **Circuit : état du fournisseur : Approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "État du fournisseur = Approvisionné")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Configurez le peering Microsoft pour le circuit. Assurez-vous de disposer des informations suivantes avant de poursuivre.
 
    * Un sous-réseau /30 pour le lien principal. Il doit s’agir d’un préfixe IPv4 public valide vous appartenant et enregistré dans un registre RIR / IRR. À partir de ce sous-réseau, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième adresse IP utilisable pour son routeur.
@@ -78,10 +77,16 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
 3. Vous pouvez sélectionner le peering que vous souhaitez configurer comme indiqué dans l’exemple suivant. Sélectionnez la ligne de peering Microsoft.
 
-   [![Sélectionner la ligne d’homologation Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Sélectionner la ligne d’homologation Microsoft")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+   [![Sélectionner la ligne de Peering Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Sélectionner la ligne de Peering Microsoft")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
 4. Configurez le peering Microsoft. **Enregistrez** la configuration après avoir spécifié tous les paramètres. L’illustration suivante montre un exemple de configuration :
 
    ![Configurer le peering Microsoft](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
+
+> [!IMPORTANT]
+> Microsoft vérifie si les « préfixes publics publiés » et « ASN pairs » (ou « ASN client ») spécifiés vous sont attribués dans le registre de routage Internet. Si vous obtenez les préfixes publics d’une autre entité et si l’affectation n’est pas enregistrée avec le registre de routage, la validation automatique ne se termine pas et nécessite une validation manuelle. Si la validation automatique échoue, le message « Validation nécessaire » s’affiche. 
+>
+> Si vous voyez le message « Validation nécessaire », collectez le ou les documents qui affichent les préfixes publics qui sont attribués à votre organisation par l’entité répertoriée comme propriétaire des préfixes dans le registre de routage et soumettez ces documents pour la validation manuelle en ouvrant un ticket de support comme indiqué ci-dessous. 
+>
 
    Si votre circuit obtient un état « Validation nécessaire », vous devez ouvrir un ticket de support pour apporter la preuve de possession des préfixes à notre équipe de support. Vous pouvez ouvrir un ticket de support directement à partir du portail, comme indiqué dans l’exemple suivant :
 
@@ -89,26 +94,26 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 5. Une fois la configuration acceptée, vous verrez quelque chose de similaire à l’image suivante :
 
-   ![État d’appairage : Configuré](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "État d’appairage : Configuré")]
+   ![État de peering : Configuré](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "État de Peering : Configuré")]
 
-### <a name="getmsft"></a>Pour afficher les détails de l’homologation Microsoft
+### <a name="getmsft"></a>Pour afficher les détails du peering Microsoft
 
 Vous pouvez afficher les propriétés de peering Microsoft en sélectionnant la ligne du peering.
 
-[![Afficher les propriétés d’homologation Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Afficher les propriétés")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
-### <a name="updatemsft"></a>Pour mettre à jour la configuration d’homologation Microsoft
+[![Afficher les propriétés de Peering Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Afficher les propriétés")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
+### <a name="updatemsft"></a>Pour mettre à jour la configuration de peering Microsoft
 
 Sélectionnez la ligne du peering que vous souhaitez modifier, puis modifiez les propriétés de peering et enregistrez vos modifications.
 
 ![Sélectionner la ligne de peering](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
 
-### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
+### <a name="deletemsft"></a>Pour supprimer le peering Microsoft
 
 Vous pouvez supprimer votre configuration de peering en cliquant sur l’icône Supprimer, comme illustré ci-dessous :
 
 ![Supprimer le peering](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
-## <a name="private"></a>Homologation privée Azure
+## <a name="private"></a>Peering privé Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
@@ -120,11 +125,11 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
    **Circuit : état du fournisseur : Non approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "État du fournisseur = Non approvisionné")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Circuit : état du fournisseur : Approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "État du fournisseur = Approvisionné")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Configurez le peering privé Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
 
@@ -136,7 +141,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
 3. Sélectionnez la ligne de peering privé Azure, comme indiqué dans l’exemple suivant :
 
-   [![Sélectionner la ligne d’homologation privée](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Sélectionner la ligne d’homologation privée")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+   [![Sélectionner la ligne de Peering privé](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Sélectionner la ligne de Peering privé")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
 4. Configurer le peering privé Azure. **Enregistrez** la configuration après avoir spécifié tous les paramètres.
 
    ![configurer le peering privé](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
@@ -144,19 +149,19 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
    ![peering privé enregistré](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
-### <a name="getprivate"></a>Pour afficher les détails d’une homologation privée Azure
+### <a name="getprivate"></a>Pour afficher les détails d’un peering privé Azure
 
 Vous pouvez afficher les propriétés de peering privé Azure en sélectionnant le peering.
 
-[![Afficher les propriétés d’homologation privée](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Afficher les propriétés d’homologation privée")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
+[![Afficher les propriétés de Peering privé](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Afficher les propriétés de Peering privé")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
-### <a name="updateprivate"></a>Pour mettre à jour la configuration d’homologation privée Azure
+### <a name="updateprivate"></a>Pour mettre à jour la configuration de peering privé Azure
 
 Vous pouvez sélectionner la ligne pour le peering et modifier les propriétés de peering. Après la mise à jour, enregistrez vos modifications.
 
 ![mettre à jour le peering privé](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
-### <a name="deleteprivate"></a>Pour supprimer une homologation privée Azure
+### <a name="deleteprivate"></a>Pour supprimer un peering privé Azure
 
 Vous pouvez supprimer votre configuration de peering en sélectionnant l’icône Supprimer, comme illustré ci-dessous :
 
@@ -167,23 +172,23 @@ Vous pouvez supprimer votre configuration de peering en sélectionnant l’icôn
 
 ![supprimer le peering privé](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
-## <a name="public"></a>Homologation publique Azure
+## <a name="public"></a>Peering public Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering public Azure pour un circuit ExpressRoute.
 
 > [!Note]
-> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d'informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
+> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d’informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
 >
 
-### <a name="getpublic"></a>Pour afficher les détails d’une homologation publique Azure
+### <a name="getpublic"></a>Pour afficher les détails d’un peering public Azure
 
 Affichez les propriétés de peering public Azure en sélectionnant le peering.
 
-### <a name="updatepublic"></a>Pour mettre à jour la configuration d’homologation publique Azure
+### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
 
 Sélectionnez la ligne du peering, puis modifiez les propriétés de peering.
 
-### <a name="deletepublic"></a>Pour supprimer une homologation publique Azure
+### <a name="deletepublic"></a>Pour supprimer un peering public Azure
 
 Supprimez votre configuration de peering en sélectionnant l’icône Supprimer.
 

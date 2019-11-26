@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572961"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120024"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -35,7 +35,7 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 <a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
 <a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Comme l'instance gérée s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n'est pas activée, une passerelle de données locale est requise.    
 <a name="databricks">3</a> - Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
-<a name="gen2">4</a> - ADLS Gen2 n’est actuellement pas pris en charge.
+<a name="gen2">4</a> – Le connecteur ADLS Gen2 n’est pas pris en charge pour le moment. Toutefois, le connecteur Stockage Blob peut être utilisé avec une source de données ADLS Gen2.
 
 
 **Fournisseur**   
@@ -43,14 +43,14 @@ Les modèles en mémoire et DirectQuery qui se connectent aux sources de donnée
 
 ## <a name="other-data-sources"></a>Autres sources de données
 
-La connexion aux sources de données locales et au serveur Azure AS requiert une passerelle locale. Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis.
+La connexion aux sources de données locales à partir d’un serveur Azure Analysis Services requiert une passerelle locale. Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis.
 
 ### <a name="in-memory-and-directquery"></a>En mémoire et DirectQuery
 
 |Source de données | Fournisseur en mémoire | Fournisseur DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
+| SQL Server |Microsoft OLE DB Driver pour SQL Server MSOLEDBSQL (recommandé), SQL Server Native Client 11.0, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB Driver pour SQL Server MSOLEDBSQL (recommandé), SQL Server Native Client 11.0, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
 | Oracle | Fournisseur OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
 | Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET |
 | | | |

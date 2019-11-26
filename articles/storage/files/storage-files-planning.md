@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514663"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066341"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -207,11 +207,16 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 |-------|---------|
 |Australie Est |LRS     |
 |Sud-Australie Est|LRS |
+|Centre du Canada  |LRS     |
+|Est du Canada     |LRS     |
 |Inde centrale  |LRS     |
+|USA Centre*   |LRS     |
 |Asie Est      |LRS     |
 |USA Est*        |LRS     |
+|USA Est 2*      |LRS     |
 |France Centre |LRS, ZRS|
 |France Sud   |LRS     |
+|Europe Nord   |LRS     |
 |Inde Sud    |LRS     |
 |Asie Sud-Est |LRS, ZRS|
 |Centre-USA Ouest|LRS     |
@@ -219,13 +224,13 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 |USA Ouest*        |LRS     |
 |USA Ouest 2      |LRS, ZRS|
 
-\* Pris en charge pour les nouveaux comptes ; les comptes existants n’ont pas tous terminé le processus de mise à niveau.
+\* Pris en charge pour les nouveaux comptes ; les comptes existants n’ont pas tous terminé le processus de mise à niveau. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
 
 Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="enable-and-create-larger-file-shares"></a>Activer et créer des partages de fichiers plus volumineux
 
-Pour commencer à utiliser des partages de fichiers plus volumineux, consultez notre article [Activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
+Pour commencer à utiliser des partages de fichiers plus volumineux, consultez notre article [Guide pratique pour activer et créer des partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données
 

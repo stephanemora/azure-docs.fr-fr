@@ -1,5 +1,5 @@
 ---
-title: Sécuriser le service web à l’aide de SSL
+title: Sécuriser des services web à l’aide du protocole SSL
 titleSuffix: Azure Machine Learning
 description: Découvrez comment activer HTTPS afin de sécuriser un service web déployé par le biais d’Azure Machine Learning.
 services: machine-learning
@@ -11,17 +11,17 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f6a6f50a86dc58299a1c1b5994dd1d19cc915e6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489557"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076876"
 ---
-# <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
+# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article vous explique comment sécuriser un service web déployé par le biais d’Azure Machine Learning.
+Cet article vous expliquer comment sécuriser un service web déployé par le biais d’Azure Machine Learning.
 
 Vous utilisez [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pour restreindre l’accès aux services web et sécuriser les données soumises par les clients. HTTPS permet de sécuriser les communications entre un client et un service web en chiffrant les communications entre les deux. Le chiffrement utilise [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS est toujours parfois appelé *SSL (Secure Sockets Layer)* , qui était le prédécesseur de TLS.
 
@@ -41,9 +41,9 @@ Voici le processus général visant à sécuriser un service web :
 
 2. Obtenir un certificat numérique.
 
-3. Déployer ou mettre à jour le service sur lequel SSL est activé
+3. Déployer ou mettre à jour le service web sur lequel SSL est activé.
 
-4. Mettre à jour votre DNS pour pointer vers le service.
+4. Mettre à jour votre DNS afin qu’il pointe vers le service web.
 
 > [!IMPORTANT]
 > Si vous effectuez un déploiement vers Azure Kubernetes Service (AKS), vous pouvez acheter votre propre certificat ou utiliser un certificat fourni par Microsoft. Si vous utilisez un certificat fourni par Microsoft, vous n'êtes pas tenu d'obtenir un nom de domaine ou un certificat SSL. Pour plus d’informations, consultez la section [Activer le protocole SSL et le déployer](#enable) de cet article.
@@ -85,7 +85,7 @@ Lorsque vous déployez sur AKS, vous pouvez créer un cluster AKS ou attacher un
 
 La méthode **enable_ssl** peut utiliser un certificat fourni par Microsoft ou un certificat que vous achetez.
 
-  * Lorsque vous utilisez un certificat fourni par Microsoft, vous devez utiliser le paramètre *leaf_domain_label*. Ce paramètre génère le nom DNS du service. Par exemple, une valeur « monservice » crée un nom de domaine « monservice\<six-caracteres-aleatoires >.\<regionazure>. cloudapp.azure.com », où \<regionazure> correspond à la région contenant le service. Vous pouvez également utiliser le paramètre *overwrite_existing_domain* pour remplacer le paramètre *leaf_domain_label* existant.
+  * Lorsque vous utilisez un certificat fourni par Microsoft, vous devez utiliser le paramètre *leaf_domain_label*. Ce paramètre génère le nom DNS du service. Par exemple, une valeur « contoso » crée un nom de domaine « contoso\<six-caractères-aléatoires >.\<azureregion>. cloudapp.azure.com », où \<azureregion> correspond à la région contenant le service. Vous pouvez également utiliser le paramètre *overwrite_existing_domain* pour remplacer le paramètre *leaf_domain_label* existant.
 
     Pour déployer (ou redéployer) le service avec le protocole SSL activé, définissez le paramètre *ssl_enabled* sur « True », si nécessaire. Définissez le paramètre *ssl_certificate* sur la valeur du fichier *certificate*. Définissez *ssl_key* sur la valeur du fichier *key*.
 
@@ -98,11 +98,19 @@ La méthode **enable_ssl** peut utiliser un certificat fourni par Microsoft ou u
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable SSL
     provisioning_config = AksCompute.provisioning_configuration()
-    provisioning_config.enable_ssl(leaf_domain_label = "myservice")
+    # Leaf domain label generates a name using the formula
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  where "######" is a random series of characters
+    provisioning_config.enable_ssl(leaf_domain_label = "contoso")
+
+
     # Config used to attach an existing AKS cluster to your workspace and enable SSL
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                           cluster_name = cluster_name)
-    attach_config.enable_ssl(leaf_domain_label = "myservice")
+    # Leaf domain label generates a name using the formula
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  where "######" is a random series of characters
+    attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
   * Lorsque vous utilisez *un certificat que vous avez acheté*, vous utilisez les paramètres *ssl_cert_pem_file*, *ssl_key_pem_file* et *ssl_cname*. L’exemple suivant montre comment utiliser les fichiers *.pem* pour créer une configuration s'appuyant sur un certificat SSL que vous avez acheté :
@@ -152,7 +160,7 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
 
   Mettez à jour le DNS de l’adresse IP publique du cluster AKS sur l’onglet **Configuration**, sous **Paramètres** dans le volet de gauche. (Consultez l'image suivante.) L’adresse IP publique est un type de ressource créé sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
 
-  [![Azure Machine Learning : Sécurisation du service avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning : Sécurisation des services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Mettre à jour le certificat SSL
 
@@ -249,5 +257,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment :
-+ [Consommer un modèle Machine Learning déployé en tant que ](how-to-consume-web-service.md)
++ [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
 + [Exécuter en toute sécurité des expériences et une inférence dans un réseau virtuel Azure](how-to-enable-virtual-network.md)

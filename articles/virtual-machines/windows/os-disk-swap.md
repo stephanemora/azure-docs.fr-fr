@@ -1,5 +1,5 @@
 ---
-title: Remplacer le disque du système d’exploitation d’une machine virtuelle Azure avec PowerShell | Microsoft Docs
+title: Remplacer le disque du système d’exploitation d’une machine virtuelle Azure avec PowerShell
 description: Utilisez PowerShell pour remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 50428f8f28a4211c54e7e3e9ee19421197490666
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749300"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033022"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de PowerShell
 

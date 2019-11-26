@@ -1,5 +1,5 @@
 ---
-title: Gestionnaire d’extensions de configuration d’état souhaité Azure | Microsoft Docs
+title: Gestionnaire d’extensions Azure Desired State Configuration
 description: Charger et appliquer une configuration DSC PowerShell sur une machine virtuelle Azure à l’aide de l’extension DSC
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092376"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073782"
 ---
 # <a name="powershell-dsc-extension"></a>Extension de configuration d’état souhaité PowerShell
 

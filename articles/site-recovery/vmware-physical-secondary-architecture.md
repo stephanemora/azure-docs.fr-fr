@@ -1,19 +1,18 @@
 ---
-title: Architecture pour la reprise d’activité de machines virtuelles VMware ou de serveurs physiques sur un site secondaire avec Azure Site Recovery | Microsoft Docs
+title: 'Architecture : récupération d’urgence VMware/physique sur un site secondaire à l’aide d’Azure Site Recovery'
 description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés lors de la reprise d’activité de machines virtuelles VMware locales ou de serveurs physiques Windows/Linux sur un site secondaire VMware avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 0c00e26e6c12835db96c192400c3fe8652534dd4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972108"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954571"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architecture pour la réplication de machines virtuelles VMware ou de serveurs physiques vers un site local secondaire
 

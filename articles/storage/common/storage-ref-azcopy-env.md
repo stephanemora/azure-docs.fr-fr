@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7ceff4df320aa1fbc3aa6e601c61f6407fd762e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cc0ed5f1eec76bedc21106c90e5e82332e27ce3c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514754"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033762"
 ---
 # <a name="azcopy-env"></a>azcopy env
 
@@ -27,6 +27,13 @@ azcopy env [flags]
 
 > [!IMPORTANT]
 > Si vous définissez une variable d’environnement à l’aide de la ligne de commande, la variable sera lisible dans votre historique de ligne de commande. Vous pouvez supprimer de l’historique de la ligne de commande les variables qui contiennent des informations d’identification. Pour empêcher l’affichage des variables dans votre historique, vous pouvez utiliser un script qui invite l’utilisateur à entrer ses informations d’identification et qui définit la variable d’environnement.
+
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Transférer des données avec AzCopy et le stockage de blobs](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Options
 

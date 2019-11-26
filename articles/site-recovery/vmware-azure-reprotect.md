@@ -1,5 +1,5 @@
 ---
-title: Reprotéger des machines virtuelles à partir d’Azure vers un site local lors de la récupération d’urgence de machines virtuelles VMware et de serveurs physiques | Microsoft Docs
+title: Reprotéger les machines virtuelles VMware ou les serveurs physiques sur un site local à l’aide d’Azure Site Recovery
 description: Après un basculement vers Azure lors d’une récupération d’urgence de machines virtuelles VMware et de serveurs physiques, découvrez comment effectuer une reprise automatique à partir d’Azure vers le site local.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791799"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961343"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 

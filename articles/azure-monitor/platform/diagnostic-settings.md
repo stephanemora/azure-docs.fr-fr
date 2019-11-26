@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ec1842d534dcb1e9ddef149d3ae879677b29e715
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263024"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023743"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure
 Les [journaux de plateforme](resource-logs-overview.md) dans Azure fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations.
@@ -42,7 +42,8 @@ Il est possible d’envoyer des journaux de plateforme aux destinations indiqué
 | [Compte Azure Storage](resource-logs-collect-storage.md) | L’archivage des journaux dans un compte de stockage Azure est utile à des fins d’audit, d’analyse statique ou de sauvegarde. |
 
 
-
+> [!IMPORTANT]
+> Les comptes ADLS Gen2 ne sont actuellement pas pris en charge en tant que destination pour les paramètres de diagnostic, même s’ils peuvent être répertoriés comme une option valide dans le Portail Azure.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Créer des paramètres de diagnostic sur le portail Azure
 Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à partir du menu Azure Monitor ou du menu de la ressource.
@@ -92,7 +93,7 @@ Après quelques instants, le nouveau paramètre apparaît dans la liste des para
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Créer des paramètres de diagnostic à l’aide de PowerShell
-Pour créer un paramètre de diagnostic avec [Azure PowerShell](powershell-quickstart-samples.md), utilisez la cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
+Pour créer un paramètre de diagnostic avec [Azure PowerShell](powershell-quickstart-samples.md), utilisez la cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
 
 Voici un exemple de cmdlet PowerShell permettant de créer un paramètre de diagnostic utilisant les trois destinations.
 

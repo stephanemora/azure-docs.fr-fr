@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820473"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048771"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
@@ -110,7 +110,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
 
 > [!IMPORTANT]
-> Vérifiez qu’il n’existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement des instances gérées via les déploiements Azure Resource Manager échouera si les règles de trafic entrant et sortant sont configurées individuellement sur chaque port. Si ces ports sont inclus dans des règles distinctes, le déploiement échouera et afficher le code d’erreur `VnetSubnetConflictWithIntendedPolicy`.
+> Vérifiez qu’il n’existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440 et 1452 et une seule règle de trafic sortant pour les ports 443 et 12000. L’approvisionnement des instances gérées via les déploiements Azure Resource Manager échouera si les règles de trafic entrant et sortant sont configurées individuellement sur chaque port. Si ces ports sont inclus dans des règles distinctes, le déploiement échouera et afficher le code d’erreur `VnetSubnetConflictWithIntendedPolicy`.
 
 \* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme 10.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
 

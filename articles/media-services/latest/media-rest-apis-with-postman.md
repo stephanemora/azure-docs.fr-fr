@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675725"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839599"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
@@ -91,6 +91,11 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
 4. La réponse inclut le jeton et définit la variable d’environnement « AccessToken » sur la valeur du jeton.  
 
     ![Obtenir le jeton AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## <a name="troubleshooting"></a>Résolution de problèmes 
+
+* Si votre application échoue avec « HTTP 504 : Délai d’expiration de la passerelle », vérifiez que la variable d’emplacement n’a pas été définie explicitement sur une valeur autre que l’emplacement attendu du compte Media Services. 
+* Si vous recevez une erreur « compte introuvable », vérifiez également que la propriété emplacement dans le message JSON du corps est définie sur l’emplacement dans lequel se trouve le compte Media Services. 
 
 ## <a name="see-also"></a>Voir aussi
 

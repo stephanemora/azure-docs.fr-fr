@@ -1,6 +1,6 @@
 ---
 title: Détection des menaces pour les services de données dans Azure Security Center | Microsoft Docs
-description: Cette rubrique présente les alertes des services de données disponibles dans Azure Security Center.
+description: Cet article présente les alertes des services de données disponibles dans Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,16 +10,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d23d9d2712923f37b3ab9da5ae5369342cd82f5d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621343"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906997"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Détection des menaces pour les services de données dans Azure Security Center
 
- Azure Security Center analyse les journaux des services de stockage de données, et déclenche des alertes lorsqu’il détecte une menace pour vos ressources de données. Cette rubrique répertorie les alertes générées par Security Center pour les services suivants :
+ Azure Security Center analyse les journaux des services de stockage de données, et déclenche des alertes lorsqu’il détecte une menace pour vos ressources de données. Cet article répertorie les alertes générées par Security Center pour les services suivants :
 
 * [Azure SQL Database et Azure SQL Data Warehouse](#data-sql)
 * [Stockage Azure](#azure-storage)
@@ -53,7 +53,7 @@ Security Center analyse les journaux de diagnostic des requêtes de lecture, éc
 
 |Alerte|Description|
 |---|---|
-|**Anomalies d'accès inhabituel à l'emplacement**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale, établie à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Elle peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison RDP externe. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Accès à partir d’un emplacement inhabituel**|Indique un changement dans le modèle d’accès à un compte Stockage Azure. Quelqu’un a accédé à ce compte à partir d’une adresse IP considérée comme peu familière par rapport à l’activité récente. Soit un attaquant a obtenu l’accès au compte, soit un utilisateur légitime s’est connecté à partir d’un emplacement géographique nouveau ou inhabituel. Dans le deuxième cas, il peut s’agir, par exemple, d’une opération de maintenance à distance effectuée par une nouvelle application ou un nouveau développeur.|
 |**Anomalie d'accès aux applications**|Indique qu’une application inhabituelle a accédé à ce compte de stockage. Un attaquant a peut-être accédé à votre compte de stockage à l’aide d’une nouvelle application.|
 |**Anomalie d'accès anonyme**|Indique un changement dans le modèle d’accès à un compte de stockage. Par exemple, le compte a fait l’objet d’un accès anonyme (sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte. Un attaquant a peut-être exploité un accès en lecture public à un conteneur de stockage d’objets blob.|
 |**Anomalie Tor**|Indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). La gravité de cette alerte considère le type d’authentification utilisé (le cas échéant) et le fait qu’il s’agit ou non du premier cas de ce type d’accès. Un attaquant ou un utilisateur légitime a peut-être accédé à votre compte de stockage à l’aide de Tor.|

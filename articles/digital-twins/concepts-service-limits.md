@@ -1,19 +1,19 @@
 ---
-title: Limites de service de la préversion publique d’Azure Digital Twins | Microsoft Docs
-description: Découvrez les limites de service de la préversion publique d’Azure Digital Twins.
+title: Limites de service de la préversion publique – Azure Digital Twins | Microsoft Docs
+description: Découvrez les limites de service de la préversion publique pour Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/22/2019
+ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949242"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014164"
 ---
 # <a name="public-preview-service-limits"></a>Limites de service de la préversion publique
 
@@ -70,7 +70,8 @@ Les limites suivantes définissent le nombre total d’appels de fonction défin
 
 Les limites suivantes restreignent le nombre total de messages que vos appareils peuvent envoyer à votre instance d’Azure Digital Twins :
 
-- 100 messages par seconde
+- 100 messages par seconde sur tous les appareils
+-   25 messages par seconde par appareil
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,23 +8,27 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: dacurwin
-ms.openlocfilehash: 96adca2da28517c28ba3583f5d15f07311d2792a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f3db0e6a78eada52f2b5936f5194138d97ebcca6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954506"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074887"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modèle de données pour les rapports de sauvegarde Azure
-Cet article décrit le modèle de données Power BI utilisé pour créer des rapports de sauvegarde Azure. À l’aide de ce modèle de données, vous pouvez filtrer les rapports existants sur les champs appropriés et surtout, créer vos propres rapports en utilisant des tables et des champs du modèle. 
+
+Cet article décrit le modèle de données Power BI utilisé pour créer des rapports de sauvegarde Azure. À l’aide de ce modèle de données, vous pouvez filtrer les rapports existants sur les champs appropriés et surtout, créer vos propres rapports en utilisant des tables et des champs du modèle.
 
 ## <a name="creating-new-reports-in-power-bi"></a>Création de rapports dans Power BI
+
 Power BI fournit des fonctionnalités de personnalisation qui vous permettent de [créer des rapports en utilisant le modèle de données](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
 ## <a name="using-azure-backup-data-model"></a>Utilisation du modèle de données de sauvegarde Azure
+
 Vous pouvez utiliser les champs suivants fournis dans le cadre du modèle de données pour créer des rapports et personnaliser des rapports existants.
 
 ### <a name="alert"></a>Alerte
+
 Ce tableau présente les champs de base et les agrégations des différents champs liés aux alertes.
 
 | Champ | Type de données | Description |
@@ -42,6 +46,7 @@ Ce tableau présente les champs de base et les agrégations des différents cham
 | EntityState |Texte |État actuel de l’objet alerte. Par exemple, Actif, Supprimé |
 
 ### <a name="backup-item"></a>Élément de sauvegarde
+
 Ce tableau présente les champs de base et les agrégations des différents champs liés à l’élément de sauvegarde.
 
 | Champ | Type de données | Description |
@@ -60,6 +65,7 @@ Ce tableau présente les champs de base et les agrégations des différents cham
 | ProtectionState |Texte |État de protection actuel de l’élément de sauvegarde. Par exemple, Protégé, Protection arrêtée |
 
 ### <a name="calendar"></a>Calendrier
+
 Ce tableau fournit plus d’informations sur les champs liés au calendrier.
 
 | Champ | Type de données | Description |
@@ -77,6 +83,7 @@ Ce tableau fournit plus d’informations sur les champs liés au calendrier.
 | YearDate |Date |Date à laquelle l’année se termine, sélectionnée pour filtrer les données |
 
 ### <a name="job"></a>Travail
+
 Ce tableau présente les champs de base et les agrégations des différents champs liés aux travaux.
 
 | Champ | Type de données | Description |
@@ -97,6 +104,7 @@ Ce tableau présente les champs de base et les agrégations des différents cham
 | JobUniqueId |Texte |ID unique d’identification du travail |
 
 ### <a name="policy"></a>Stratégie
+
 Ce tableau présente les champs de base et les agrégations des différents champs liés aux stratégies.
 
 | Champ | Type de données | Description |
@@ -131,6 +139,7 @@ Ce tableau présente les champs de base et les agrégations des différents cham
 | YearlyRetentionWeeksOfTheMonth |Texte |Semaines du mois au cours desquelles la conservation annuelle est configurée. Par exemple, Première, Dernière, etc. |
 
 ### <a name="protected-server"></a>Serveur protégé
+
 Ce tableau fournit les champs de base et les agrégations des différents champs liés au serveur protégé.
 
 | Champ | Type de données | Description |
@@ -150,6 +159,7 @@ Ce tableau fournit les champs de base et les agrégations des différents champs
 | RegisteredContainerId |Texte |ID du conteneur inscrit pour la sauvegarde |
 
 ### <a name="storage"></a>Stockage
+
 Ce tableau fournit les champs de base et les agrégations des différents champs liés au stockage.
 
 | Champ | Type de données | Description |
@@ -161,6 +171,7 @@ Ce tableau fournit les champs de base et les agrégations des différents champs
 | LastUpdatedDate |Date |Date de dernière mise à jour de la ligne sélectionnée |
 
 ### <a name="time"></a>Temps
+
 Ce tableau fournit plus d’informations sur les champs liés au temps.
 
 | Champ | Type de données | Description |
@@ -173,6 +184,7 @@ Ce tableau fournit plus d’informations sur les champs liés au temps.
 | TimeKey |Texte |Valeur de clé représentant l’heure |
 
 ### <a name="vault"></a>Coffre
+
 Ce tableau fournit les champs de base et les agrégations des différents champs liés au coffre.
 
 | Champ | Type de données | Description |
@@ -187,6 +199,7 @@ Ce tableau fournit les champs de base et les agrégations des différents champs
 | VaultTags |Texte |Balises associées au coffre |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Lorsque vous examinez le modèle de données de création de rapports de sauvegarde Azure, consultez les articles suivants pour plus d’informations sur la création et l’affichage des rapports dans Power BI.
 
 * [Création de rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

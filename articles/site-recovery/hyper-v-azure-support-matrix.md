@@ -5,29 +5,27 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620831"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133030"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
 
 Cet article résume les composants pris en charge ainsi que les paramètres concernant la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure, à l’aide de [Azure Site Recovery](site-recovery-overview.md).
 
-> [!WARNING]
-> Notez que la prise en charge par ASR de la configuration SCVMM dans un compte sera bientôt dépréciée. Par conséquent, nous vous recommandons de lire les informations sur la [Dépréciation](scvmm-site-recovery-deprecation.md) avant de continuer.
 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
 **Scénario** | **Détails**
 --- | ---
-Hyper-V avec Virtual Machine Manager <br> **Ce scénario est en voie de dépréciation.** <br>| Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur des hôtes Hyper-V managés dans l’infrastructure System Center Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.<br/><br/> Lorsque les hôtes Hyper-V sont managés par Virtual Machine Manager, vous pouvez également effectuer la récupération d’urgence vers un site secondaire local. Pour plus d’informations sur ce scénario, consultez [ce didacticiel](hyper-v-vmm-disaster-recovery.md).
+Hyper-V avec Virtual Machine Manager <br> <br>| Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur des hôtes Hyper-V managés dans l’infrastructure System Center Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.<br/><br/> Lorsque les hôtes Hyper-V sont managés par Virtual Machine Manager, vous pouvez également effectuer la récupération d’urgence vers un site secondaire local. Pour plus d’informations sur ce scénario, consultez [ce didacticiel](hyper-v-vmm-disaster-recovery.md).
 Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur les hôtes Hyper-V qui ne sont pas gérés par Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.
 
 ## <a name="on-premises-servers"></a>Serveurs locaux
@@ -96,7 +94,7 @@ Mise en réseau accélérée | Non | Non
 NFS | N/D | N/D
 SMB 3.0 | OUI | OUI
 SAN (ISCSI) | OUI | OUI
-Chemins d’accès multiples (MPIO). Testé avec :<br></br> Module DSM Microsoft, EMC PowerPath 5.7 SP4<br/><br/> Module DSM EMC PowerPath pour CLARiiON | OUI | OUI
+Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | OUI | OUI
 
 ## <a name="hyper-v-vm-guest-storage"></a>Stockage invité de machines virtuelles Hyper-V
 
@@ -105,7 +103,7 @@ Chemins d’accès multiples (MPIO). Testé avec :<br></br> Module DSM Microsoft
 VMDK | N/D | N/D
 VHD/VHDX | OUI | OUI
 Machine virtuelle de 2e génération | OUI | OUI
-EFI/UEFI| OUI | OUI
+EFI/UEFI<br></br>La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.| OUI | OUI
 Disque de cluster partagé | Non | Non
 Disque chiffré | Non | Non
 NFS | N/D | N/D
@@ -132,6 +130,7 @@ Stockage froid | Non | Non
 Stockage chaud| Non | Non
 Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| OUI | OUI
+Chiffrement au repos (CMK)| Non | Non
 Stockage Premium | OUI | OUI
 Service Import/Export | Non | Non
 Comptes de stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.

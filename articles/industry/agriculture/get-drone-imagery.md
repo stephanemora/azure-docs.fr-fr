@@ -5,16 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 598248a0efb3322a9c22a5e38e4986f5ba5142ab
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6ee4391369744f966ce273697e5ba9e7f0590edd
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797466"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890998"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenir une imagerie par drone auprès des partenaires de drone
 
-Cet article explique comment récupérer, dans un hub de données Azure FarmBeats, des données orthophotographiques de partenaires d’imagerie par drone. Actuellement, les partenaires d’imagerie suivants sont pris en charge :  
+Cet article explique comment récupérer, dans un hub de données Azure FarmBeats, des données orthophotographiques de partenaires d’imagerie par drone. Une orthomosaïque est une illustration/image aérienne qui est corrigée géométriquement et dont un panorama est créé à partir des données collectées par drone.
+
+Actuellement, les partenaires d’imagerie suivants sont pris en charge :
 
   ![Projet FarmBeats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
@@ -53,7 +55,7 @@ Procédez comme suit :
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 

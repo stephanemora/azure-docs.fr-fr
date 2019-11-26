@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470110"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958044"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -26,7 +26,7 @@ Azure fournit des diagnostics intégrés pour aider au débogage d’une [applic
 Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> En plus des instructions de journalisation figurant dans cet article, il existe une nouvelle fonctionnalité de journalisation intégrée avec Azure Monitor. Cette fonctionnalité est disponible dans les pages [Journaux et Paramètres de diagnostic (préversion)](https://aka.ms/appsvcblog-azmon). 
+> En plus des instructions de journalisation figurant dans cet article, il existe une nouvelle fonctionnalité de journalisation intégrée avec Azure Monitor. Pour plus d’informations sur cette fonctionnalité, consultez la section [Envoyer des journaux à Azure Monitor (préversion)](#send-logs-to-azure-monitor-preview). 
 >
 >
 
@@ -178,7 +178,28 @@ Pour les applications Windows, le fichier ZIP contient le contenu du répertoire
 | **Journaux de serveur web** | */LogFiles/http/RawLogs/* | Contient les fichiers texte au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l’aide d’un éditeur de texte ou d’un utilitaire tel que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service ne prend pas en charge les champs `s-computername`, `s-ip` ni `cs-version`. |
 | **Journaux de déploiement** | */LogFiles/Git/* et */deployments/* | Contient les journaux générés par les processus de déploiement internes, ainsi que les journaux des déploiements Git. |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>Envoyer des journaux à Azure Monitor (préversion)
+
+Grâce à la nouvelle [intégration d’Azure Monitor](https://aka.ms/appsvcblog-azmon), vous pouvez [créer des paramètres de diagnostic (préversion)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) pour envoyer des journaux aux comptes de stockage, à Event Hubs et à Log Analytics. 
+
+> [!div class="mx-imgBorder"]
+> ![Paramètres de diagnostic (préversion)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>Types de journaux pris en charge
+
+Le tableau suivant renseigne sur les types et la descriptions des journaux pris en charge : 
+
+| Type de journal | Prise en charge de Windows | Prise en charge de Linux | Description |
+|-|-|-|
+| AppServiceConsoleLogs | À confirmer | OUI | Sortie standard et erreur standard |
+| AppServiceHTTPLogs | OUI | OUI | Journaux d’activité des serveurs Web |
+| AppServiceEnvironmentPlatformLogs | OUI | OUI | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
+| AppServiceAuditLogs | OUI | OUI | Activité de connexion via FTP et Kudu |
+| AppServiceFileAuditLogs | À confirmer | À confirmer | Modifications de fichiers via FTP et Kudu |
+| AppServiceAppLogs | À confirmer | Java SE et Tomcat | Journaux d’activité d’application |
+
 ## <a name="nextsteps"></a> Étapes suivantes
+* [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Surveillance des applications dans Azure App Service](web-sites-monitor.md)
 * [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyse des journaux d’activité d’application dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
