@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: Gestion de vos appareils
           href: howto-manage-devices.md
+        - name: Configurer des règles
+          href: howto-configure-rules.md
         - name: Analyser les données de votre appareil
           href: howto-create-analytics.md
         - name: Ajouter des vignettes à votre tableau de bord

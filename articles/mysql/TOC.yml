@@ -79,16 +79,18 @@
           href: concepts-limits.md
     - name: Accès aux données et sécurité
       items:
-        - name: Règles de pare-feu
-          href: concepts-firewall-rules.md
+        - name: Présentation de la sécurité
+          href: concepts-security.md
         - name: Configuration de SSL
           href: concepts-ssl-connection-security.md
-        - name: Protection avancée contre les menaces
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: Réseau virtuel
-          href: concepts-data-access-and-security-vnet.md
         - name: Architecture de connectivité
           href: concepts-connectivity-architecture.md
+        - name: Règles de pare-feu
+          href: concepts-firewall-rules.md
+        - name: Réseau virtuel
+          href: concepts-data-access-and-security-vnet.md
+        - name: Protection avancée contre les menaces
+          href: concepts-data-access-and-security-threat-protection.md
     - name: Continuité de l’activité
       items:
         - name: Introduction à la continuité de l’activité
