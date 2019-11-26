@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/30/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 603de4d9bed936ecb91f130b0e30f6d1383a9092
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164493"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935821"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
@@ -29,10 +29,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
 ## <a name="prerequisites"></a>Prérequis
-Des recommandations sont disponibles pour diverses étendues et divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
+Des recommandations sont disponibles pour diverses étendues et divers types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
-- Abonnement
-- Groupe de ressources
+- Subscription
+- Resource group
 
 Vous devez disposer de machines virtuelles actives avec au moins 14 jours d’activité.
 
@@ -63,7 +63,7 @@ Les recommandations d’impact moyen incluent :
 
 ## <a name="act-on-a-recommendation"></a>Agir sur une recommandation
 
-Azure Advisor supervise l’utilisation de vos machines virtuelles pendant 14 jours, puis identifie les machines virtuelles sous-utilisées. Les machines virtuelles dont l’utilisation du processeur est inférieure ou égale à 5 % et celle du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.
+Azure Advisor supervise l’utilisation des machines virtuelles pendant sept jours, puis identifie celles qui sont sous-utilisées. Les machines virtuelles dont l’utilisation du processeur est inférieure ou égale à 5 % et celle du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.
 
 Le paramètre d’utilisation du processeur inférieure ou égale à 5 % est la valeur par défaut, mais vous pouvez ajuster les paramètres. Pour plus d’informations sur l’ajustement du paramètre, consultez l’article [Configurer la règle d’utilisation moyenne du processeur ou la recommandation en cas de faible utilisation de machines virtuelles](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
@@ -79,14 +79,14 @@ Dans les informations détaillées de la machine virtuelle, consultez l’utilis
 
 Notez la taille actuelle de la machine virtuelle. Après avoir vérifié que la machine virtuelle doit être redimensionnée, fermez les informations détaillées de la machine virtuelle afin d’afficher la liste des machines virtuelles.
 
-Dans la liste des candidats à arrêter ou à redimensionner, sélectionnez **Redimensionner la machine virtuelle**.
+Dans la liste des candidats à arrêter ou à redimensionner, sélectionnez **Redimensionner de *&lt;FromVirtualMachineSKU&gt;* à *&lt;ToVirtualMachineSKU&gt;***.
 ![Exemple de recommandation avec l’option permettant de redimensionner la machine virtuelle](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-Ensuite, une liste d’options de redimensionnement disponibles vous est présentée. Choisissez celle qui offre les meilleures performances et la meilleure rentabilité pour votre scénario. Dans l’exemple suivante, l’option choisie effectue le redimensionnement d’un **DS14\_V2** en **DS13\_V2**. Suivre la recommandation fait économiser 551,30 $/mois ou 6 615,60 $/an.
+Ensuite, une liste d’options de redimensionnement disponibles vous est présentée. Choisissez celle qui offre les meilleures performances et la meilleure rentabilité pour votre scénario. Dans l’exemple suivant, l’option choisie effectue un redimensionnement de **Standard_D8s_v3** à **Standard_D2s_v3**.
 
 ![Liste d’exemple de tailles de machine virtuelle disponibles parmi lesquelles vous pouvez en choisir une](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-Après avoir choisi une taille appropriée, cliquez sur **Sélectionner** pour démarrer l’action de redimensionnement.
+Après avoir choisi une taille adaptée, cliquez sur **Redimensionner** pour lancer l’action de redimensionnement.
 
 Le redimensionnement nécessite le redémarrage d’une machine virtuelle en cours d’exécution. Si la machine virtuelle se trouve dans un environnement de production, nous vous recommandons d’exécuter l’opération de redimensionnement après les heures de bureau. La planification du redémarrage peut réduire les perturbations provoquées par l’indisponibilité momentanée.
 

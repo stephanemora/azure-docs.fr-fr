@@ -71,7 +71,7 @@ Ce guide de démarrage rapide décrit comment configurer un nouvel utilisateur F
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    Pour plus d’informations, consultez les documents relatifs aux [limites de mémoire et de concurrence]memory-concurrency-limits.md) et aux [classes de ressources](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    Pour plus d’informations, consultez les documents relatifs aux [limites de mémoire et de concurrence](memory-concurrency-limits.md) et aux [classes de ressources](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## <a name="sign-in-to-fivetran"></a>Se connecter à Fivetran

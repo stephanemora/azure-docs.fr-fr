@@ -1,7 +1,7 @@
 ---
 title: Référence Select OData
 titleSuffix: Azure Cognitive Search
-description: Informations de référence sur le langage OData pour la syntaxe Select dans les requêtes de Recherche cognitive Azure.
+description: Référence de syntaxe et de langage pour la sélection explicite de champs à retourner dans les résultats de recherche des requêtes Recherche cognitive Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793243"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113098"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Syntaxe OData $select dans la Recherche cognitive Azure
 
@@ -113,4 +113,4 @@ Le résultat peut ressembler à cet exemple :
 - [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md)
 - [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

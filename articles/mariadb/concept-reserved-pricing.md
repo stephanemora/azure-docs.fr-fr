@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e7aa951634dffcafc20f198f85c15f5ac954fe58
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608437"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076865"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database for MariaDB avec une capacité de réserve
 
@@ -32,7 +32,7 @@ Plus en savoir plus sur la facturation des achats de réservation pour les clien
 
 La taille de la réservation doit s’appuyer sur le nombre total de calculs utilisés par les instances de bases de données existantes ou sur le point d’être déployées dans une région spécifique et utilisant le même niveau de performance et la même génération de matériel.</br>
 
-Par exemple, supposons que vous exécutez un usage général ; une base de données MariaDB de 32 vCore Gen5 et deux bases de données MariaDB 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois suivant un usage général supplémentaire ; un pool élastique de 32 vCore Gen5, et un serveur de base de données élastique de 16 vCore Gen5 à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
+Par exemple, supposons que vous exécutez un usage général ; une base de données MariaDB de 32 vCore Gen5 et deux bases de données MariaDB 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois suivant un serveur de base de données supplémentaire de 32 vCore Gen5 pour un usage général et un autre de 16 vCore Gen5 à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
 
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Acheter une capacité de réserve Azure Database for MariaDB
@@ -77,7 +77,7 @@ Pour savoir comment gérer la capacité réservée d’Azure Database pour Maria
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-* [Qu’est-ce qu’une réservation Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ?
+* [Qu’est-ce que des réservations Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ?
 * [Gérer les réservations Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Comprendre la remise sur réservation Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)

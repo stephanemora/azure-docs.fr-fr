@@ -1,5 +1,5 @@
 ---
-title: Configurer Network Performance Monitor pour les circuits ExpressRoute - Azure | Microsoft Docs
+title: 'Azure ExpressRoute : Configurer NPM pour les circuits'
 description: Configurez la surveillance réseau (NPM) basée sur le cloud pour les circuits Azure ExpressRoute. Ce document traite de la surveillance via le peering privé ExpressRoute et le peering Microsoft.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60840170"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076593"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -191,7 +190,7 @@ Dans cette section, vous configurez les analyses. Suivez les étapes pour le typ
 
 Pour le peering privé, une fois la détection terminée, vous voyez des règles pour un **nom de circuit** et un **nom de réseau virtuel** uniques. Au départ, ces règles sont désactivées.
 
-![règles](./media/how-to-npm/14.png)
+![rules](./media/how-to-npm/14.png)
 
 1. Cochez la case **Surveiller ce peering**.
 2. Cochez la case **Activer le monitoring d’intégrité pour ce peering**.
@@ -243,7 +242,7 @@ Les graphiques représentant la bande passante, la latence et la perte sont inte
 
 ![tendance](./media/how-to-npm/16.png)
 
-### <a name="peerings"></a>Liste des homologations
+### <a name="peerings"></a>Liste des peerings
 
 Cliquez sur la vignette **Peerings privés** du tableau de bord pour afficher une liste de toutes les connexions à des réseaux virtuels sur le peering privé. Ici, vous pouvez sélectionner une connexion de réseau virtuel et afficher son état d’intégrité, des graphiques de tendances pour la perte de paquets, l’utilisation de la bande passante et la latence.
 

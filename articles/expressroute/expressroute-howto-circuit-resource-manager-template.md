@@ -1,19 +1,19 @@
 ---
-title: 'Création d’un circuit ExpressRoute — modèle Resource Manager : Azure | Microsoft Docs'
+title: 'Modèle Azure ExpressRoute : Création d’un circuit ExpressRoute'
 description: Créez, approvisionnez, supprimez et déprovisionnez un circuit ExpressRoute.
-services: expressroute;azure-resource-manager
+services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849233"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083506"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
 
@@ -64,9 +64,9 @@ Pour créer un circuit ExpressRoute en déployant un modèle :
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **niveau** détermine si ExpressRoute standard ou un module complémentaire ExpressRoute Premium est activé. Vous pouvez spécifier **Standard** pour obtenir la référence (SKU) standard ou **Premium** pour le module complémentaire Premium.
-
-   * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
+   * Le **niveau SKU** détermine si un circuit ExpressRoute est [local](expressroute-faqs.md#expressroute-local), standard ou [Premium](expressroute-faqs.md#expressroute-premium). Vous pouvez définir sur *Local*, *Standard* ou *Premium*.
+   * La **famille de références** détermine le type de facturation. Vous pouvez spécifier *Metereddata* pour définir un forfait de données limité et *Unlimiteddata* pour un forfait de données illimité. Vous pouvez changer le type de facturation de *Metereddata* en *Unlimiteddata*, mais que vous ne pouvez pas le changer de *Unlimiteddata* en *Metereddata*. Un circuit *local* est uniquement *Unlimiteddata*.
+   * L’**Emplacement de peering** est l’emplacement physique où vous effectuez le peering auprès de Microsoft.
 
      > [!IMPORTANT]
      > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.

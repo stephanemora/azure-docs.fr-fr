@@ -1,20 +1,20 @@
 ---
-title: Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de VMware sur Azure | Microsoft Docs
-description: Cet article décrit comment analyser un rapport généré par le Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure.
+title: Analyser le rapport du planificateur de déploiement pour la récupération d’urgence VMware avec Azure Site Recovery
+description: Cet article décrit comment analyser un rapport généré par le planificateur de déploiement de récupération pour la récupération d’urgence VMware sur Azure à l’aide d’Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690727"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961376"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du planificateur de déploiement pour la récupération d’urgence VMware sur Azure
 
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
 ## <a name="on-premises-summary"></a>Résumé local
@@ -232,8 +232,6 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 * Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 80 000 par machine virtuelle.
 
 * L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 20 Mo/s pour la taille d’E/S moyenne du disque.
-
-* L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 25 Mo/s pour la taille d’E/S moyenne de la machine virtuelle (sommes de toutes les activités de disque).
 
 * L’activité de pointe des données sur tous les disques de la machine virtuelle dépasse la limite d’activité des données maximale de pointe prise en charge par Site Recovery, qui est de 54 Mo/s par machine virtuelle.
 

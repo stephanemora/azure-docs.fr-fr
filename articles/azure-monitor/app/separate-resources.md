@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899908"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928296"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -51,7 +51,7 @@ Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.
 Dans cet exemple, les ikeys des différentes ressources sont placées dans différentes versions du fichier de configuration web. Le remplacement du fichier de configuration web, que vous pouvez effectuer dans le cadre du script de lancement, remplacera la ressource cible.
 
 ### <a name="web-pages"></a>Pages web
-L'iKey est également utilisée dans les pages web de votre application, dans le [script que vous avez obtenu à partir du panneau de démarrage rapide](../../azure-monitor/app/javascript.md). Au lieu de la coder littéralement dans le script, vous devez la générer à partir de l'état du serveur. Par exemple, dans une application ASP.NET :
+L’iKey est également utilisée dans les pages web de votre application, dans le [script que vous avez obtenu à partir du panneau de démarrage rapide](../../azure-monitor/app/javascript.md). Au lieu de la coder littéralement dans le script, vous devez la générer à partir de l'état du serveur. Par exemple, dans une application ASP.NET :
 
 *JavaScript dans Razor*
 
@@ -81,7 +81,7 @@ Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressou
 
 La création de la ressource prend quelques secondes. Une alerte vous prévient lorsque l’opération est terminée.
 
-(Vous pouvez écrire un [script PowerShell](../../azure-monitor/app/powershell-script-create-resource.md) pour créer automatiquement une ressource.)
+(Vous pouvez écrire un [script PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) pour créer automatiquement une ressource.)
 
 ### <a name="getting-the-instrumentation-key"></a>Récupération de la clé d’instrumentation
 La clé d'instrumentation identifie la ressource que vous avez créée. 
@@ -134,7 +134,7 @@ Il existe plusieurs méthodes de définition de la propriété Version de l’ap
     Pour permettre à MSBuild de générer des numéros de version, définissez la version comme `1.0.*` dans AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Suivi de la version
-Pour vérifier la version de l’application, assurez-vous que `buildinfo.config` est généré par votre processus Microsoft Build Engine. Dans votre fichier .csproj, ajoutez :  
+Pour vérifier la version de l’application, assurez-vous que `buildinfo.config` est généré par votre processus Microsoft Build Engine. Dans votre fichier `.csproj`, ajoutez :  
 
 ```XML
 

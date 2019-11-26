@@ -1,21 +1,18 @@
 ---
 title: Langages pris en charge dans Azure Functions
 description: Découvrez les langages qui sont pris en charge (Disponibilité générale) et ceux qui sont en version expérimentale ou en préversion.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148820"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802458"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -29,7 +26,7 @@ Il existe trois niveaux de prise en charge :
 * **Préversion** : pas encore pris en charge, mais le statut de disponibilité générale est prévu à l’avenir.
 * **Expérimental** : pas pris en charge et peut être abandonné à l’avenir. Aucune garantie quant à une éventuelle préversion ou un passage à l’état de disponibilité générale.
 
-## <a name="languages-in-runtime-1x-and-2x"></a>Langages dans les runtimes 1.x et 2.x
+## <a name="languages-by-runtime-version"></a>Langues par version du runtime 
 
 [Deux versions du runtime Azure Functions](functions-versions.md) sont disponibles. Le tableau suivant montre les langages qui sont pris en charge dans chaque version du runtime.
 
@@ -45,23 +42,16 @@ Le runtime en version 2.x ne prend pas en charge les langages expérimentaux. La
 
 ### <a name="language-extensibility"></a>Extensibilité de langage
 
-Le runtime 2.x est conçu pour offrir une [extensibilité de langage](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Les langages JavaScript et Java dans le runtime 2.x sont générés avec cette extensibilité.
+À compter de la version 2.x, le runtime est conçu pour offrir une [extensibilité de langage](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Les langages JavaScript et Java dans le runtime 2.x sont générés avec cette extensibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la façon d’utiliser l’un des langages GA ou Préversion dans Azure Functions, consultez les ressources suivantes :
+Pour savoir plus en détails comment développer des fonctions dans les langages pris en charge, voir les ressources suivantes :
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
-
-> [!div class="nextstepaction"]
-> [Python](functions-reference-python.md)
++ [Informations de référence pour les développeurs de bibliothèques de classes C#](functions-dotnet-class-library.md)
++ [Informations de référence pour les développeurs de scripts C#](functions-reference-csharp.md)
++ [Informations de référence pour les développeurs Java](functions-reference-java.md)
++ [Informations de référence pour les développeurs JavaScript](functions-reference-node.md)
++ [Informations de référence pour les développeurs PowerShell](functions-reference-powershell.md)
++ [Informations de référence pour les développeurs Python](functions-reference-python.md)
++ [Informations de référence pour les développeurs TypeScript](functions-reference-node.md#typescript)

@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748372"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953118"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot (Préversion)
 
@@ -24,7 +24,7 @@ En plus de l'approvisionnement manuel du débit, vous pouvez désormais configur
 
 Il n'est plus nécessaire de gérer manuellement le débit approvisionné ou les problèmes de limitation de débit. Les conteneurs Azure Cosmos configurés en mode Autopilot peuvent faire l'objet d'une mise à l'échelle instantanée pour répondre à la charge de travail sans aucun impact sur la disponibilité, la latence, le débit ou les performances de celle-ci. En cas d'utilisation intensive, les conteneurs Azure Cosmos configurés en mode Autopilot peuvent être mis à l'échelle sans affecter les opérations en cours.
 
-Lors de la configuration de conteneurs et de bases de données en mode Autopilot, vous devez spécifier le débit maximal `Tmax` à ne pas dépasser. Les conteneurs peuvent ensuite faire l'objet d'une mise à l'échelle instantanée en fonction des besoins de la charge de travail dans la plage `0.1*Tmax < T < Tmax`. En d’autres termes, les conteneurs et les bases de données sont instantanément mis à l’échelle en fonction des besoins de la charge de travail, à partir de 10 % de la valeur de débit maximal que vous avez configurée, et jusqu’à la valeur maximale configurée. Vous pouvez à tout moment modifier le paramètre de débit maximal (Tmax) de la base de données ou du conteneur configurés en mode Autopilot.
+Lors de la configuration de conteneurs et de bases de données en mode Autopilot, vous devez spécifier le débit maximal `Tmax` à ne pas dépasser. Les conteneurs peuvent ensuite faire l'objet d'une mise à l'échelle instantanée en fonction des besoins de la charge de travail dans la plage `0.1*Tmax < T < Tmax`. En d’autres termes, les conteneurs et les bases de données sont instantanément mis à l’échelle en fonction des besoins de la charge de travail, à partir de 10 % de la valeur de débit maximal que vous avez configurée, et jusqu’à la valeur maximale configurée. Vous pouvez à tout moment modifier le paramètre de débit maximal (Tmax) de la base de données ou du conteneur configurés en mode Autopilot. Avec l’option Autopilot, le débit minimal de 400 RU/s par conteneur ou base de données n’est plus applicable.
 
 Pendant la préversion de la fonctionnalité Autopilot, le débit maximal spécifié sur le conteneur ou la base de données permet au système d’être utilisé dans la limite de stockage calculée. Si la limite de stockage est dépassée, le débit maximal est automatiquement ajusté à une valeur supérieure. Lorsque vous utilisez le débit du niveau de la base de données avec le mode Autopilot, le nombre de conteneurs autorisés dans une base de données est calculé comme suit : (0,001 * Débit max.). Par exemple, si vous provisionnez 20 000 unités de requête par seconde en mode Autopilot, la base de données peut comporter 20 conteneurs.
 

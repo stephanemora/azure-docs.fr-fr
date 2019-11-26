@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: 0fdad0caa2deef0d7d55b30a85632f72f4ff0ecc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4fb01eac53151799a0def00d13f18619faf437f6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594455"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927537"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 
@@ -92,7 +92,7 @@ steps:
 
 #### <a name="python"></a>Python
 
-Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application Python. Python est pris en charge uniquement pour Azure Functions sur Linux.
+Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application Python. Python est pris en charge uniquement pour Azure Functions sur Linux. Pour générer YAML pour Python 3.7, vous pouvez remplacer toutes les instances de 3.6 par 3.7 dans ce fichier YAML.
 
 ```yaml
 pool:

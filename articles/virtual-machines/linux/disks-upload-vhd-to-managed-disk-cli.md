@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 3257e75849c3e00ae4b221746ebd25798a0aa6f0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757583"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803989"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Charger un disque dur virtuel sur Azure à l’aide d’Azure CLI
 
 Cet article explique comment charger un disque dur virtuel sur un disque managé Azure à partir de votre ordinateur local. Jusqu'à présent, vous deviez suivre un processus complexe qui exigeait la mise en lots de vos données sur un compte de stockage et la gestion de ce compte de stockage. Désormais, pour charger un disque dur virtuel, vous n'avez plus aucun compte de stockage à gérer ni aucune donnée à indexer sur celui-ci. Il vous suffit de créer un disque managé vierge et d'y chargez directement le disque dur virtuel. Cela simplifie le chargement des machines virtuelles locales dans Azure et vous permet de charger un disque dur virtuel d'un maximum de 32 Tio directement sur un disque managé volumineux.
 
-Si vous fournissez une solution de sauvegarde pour les machines virtuelles IaaS dans Azure, nous vous recommandons d'utiliser le chargement direct afin de restaurer les sauvegardes client sur des disques managés. Si vous chargez un disque dur virtuel dans Azure à partir d'une machine externe, les vitesses dépendent de votre bande passante locale. Si vous utilisez une machine virtuelle Azure, votre bande passante sera identique à celle des disques HDD Standard.
+Si vous fournissez une solution de sauvegarde pour les machines virtuelles IaaS dans Azure, nous vous recommandons d'utiliser le chargement direct afin de restaurer les sauvegardes client sur des disques managés. Si vous chargez un disque dur virtuel dans Azure à partir d’une machine externe, les vitesses dépendront de votre bande passante locale. Si vous utilisez une machine virtuelle Azure, votre bande passante sera identique à celle des disques HDD Standard.
 
 Actuellement, le chargement direct est pris en charge pour les disques managés de type HDD Standard, SSD Standard et SSD Premium. Il n'est pas encore pris en charge pour les disques SSD Ultra.
 

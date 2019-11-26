@@ -5,22 +5,22 @@ keywords: app service, azure app service, mise à l’échelle, plan app service
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067207"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899016"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 
@@ -33,23 +33,17 @@ Un [plan Azure App Service](overview-hosting-plans.md) fournit les ressources n�
 
 Vous pouvez créer un plan App Service vide ou en créer un dans le cadre de la création d’une application.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Web + Mobile**, puis sélectionnez **Application web** ou un autre genre d’application App Service.
-
-2. Sélectionnez un plan App Service existant ou créez-en un pour la nouvelle application.
+1. Sur le [Portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Application web** ou un autre type d’application App Service.
 
    ![Créer une application dans le portail Azure.][createWebApp]
 
-   Pour créer un plan :
+2. Configurez la section **Détails de l’instance** avant de configurer le plan App Service. Des paramètres comme **Publier** et **Systèmes d’exploitation** sont susceptibles de modifier les niveaux tarifaires disponibles de votre plan App Service. **Région** détermine l’emplacement de création du plan App Service.
+   
+3. Dans la section **Plan App Service**, sélectionnez un plan ou créez-en un en sélectionnant **Créer**.
 
-   a. Sélectionnez **[+] Créer nouveau**.
+   ![Créer un plan App Service.][createASP] 
 
-      ![Créer un plan App Service.][createASP] 
-
-   b. Sous **Plan App Service**, entrez le nom du plan.
-
-   c. Sous **Localisation**, sélectionnez une localisation appropriée.
-
-   d. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner** .
+4. Lorsque vous créez un plan, vous pouvez sélectionner son niveau tarifaire. Dans **Référence SKU et taille**, sélectionnez **Modifier la taille** pour modifier le niveau tarifaire. 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ Vous pouvez déplacer une application vers un autre plan App Service tant que le
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à l’application à déplacer.
 
-1. Dans le menu, recherchez la section **Plan App Service**.
+2. Dans le menu de gauche, sélectionnez **Modifier le plan App Service**.
 
-1. Sélectionnez **Changer le plan App Service** pour ouvrir le sélecteur de **plan App Service**.
+3. Dans la liste déroulante **Plan App Service**, sélectionnez le plan vers lequel l’application sera déplacée. La liste déroulante affiche seulement les plans qui se trouvent dans le même groupe de ressources et la même région géographique que le plan App Service actuel. S’il n’existe pas de plan de ce type, elle permet de créer un plan par défaut. Vous pouvez également créer un plan manuellement en sélectionnant **Créer**.
 
+4. Si vous créez un plan, vous pouvez sélectionner son niveau tarifaire. Dans **Niveau tarifaire**, sélectionnez le niveau existant pour le modifier. 
+   
+   > [!IMPORTANT]
+   > Si vous déplacez une application d’un plan de niveau élevé vers un plan de niveau inférieur, par exemple de **D1** à **F1**, elle risque de perdre certaines fonctionnalités dans le nouveau plan. Par exemple, si votre application utilise des certificats SSL, ce message d’erreur risque de s’afficher :
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. Lorsque vous avez terminé, sélectionnez **OK**.
+   
    ![Sélecteur de plan App Service.][change] 
-
-1. Dans le sélecteur de **plan App Service**, sélectionnez un plan existant vers lequel déplacer cette application.   
-
-La page **Sélectionner un plan App Service** affiche uniquement les plans qui se trouvent dans le même groupe de ressources et la même région géographique que le plan App Service de l’application actuelle.
-
-Chaque plan a son propre niveau de tarification. Par exemple, quand vous passez du niveau **Gratuit** au niveau **Standard** d’un site, toutes les applications affectées peuvent utiliser les fonctionnalités et ressources du niveau **Standard**. Par contre, le déplacement d’une application d’un plan de niveau supérieur vers un plan de niveau inférieur vous prive de certaines fonctionnalités. Si votre application utilise une fonctionnalité qui n’est pas disponible dans le plan cible, vous obtenez une erreur qui indique quelle fonctionnalité en cours d’utilisation n’est pas disponible. 
-
-Par exemple, si l’une de vos applications utilise des certificats SSL, ce message d’erreur peut s’afficher :
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-Dans ce cas, avant de pouvoir déplacer l’application vers le plan cible, vous devez :
-- Faire passer le plan cible à un niveau tarifaire supérieur (**De base** au minimum).
-- Ou supprimer toutes les connexions SSL à votre application.
 
 ## <a name="move-an-app-to-a-different-region"></a>Déplacer une application vers une autre région
 

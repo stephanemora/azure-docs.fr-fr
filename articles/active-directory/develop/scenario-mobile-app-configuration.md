@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0d0550dd92b786ec540bae6ae6da7322d4fb629
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678014"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175485"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Application mobile appelant des API web - Configuration du code
 
@@ -152,7 +152,7 @@ Sur UWP, vous pouvez utiliser des réseaux d’entreprise. Pour plus d’informa
 Sur Android et iOS, les répartiteurs activent :
 
 - L’authentification unique (SSO) quand un appareil est inscrit auprès d’AAD. Vos utilisateurs n’ont pas besoin de se connecter à chaque application.
-- L’identification des appareils. Active des stratégies d’accès conditionnel Azure AD liées aux appareils, en accédant au certificat de l’appareil qui a été créé sur l’appareil lorsque ce dernier a été joint à l’espace de travail.
+- L’identification des appareils. Active des stratégies d’accès conditionnel Azure AD liées aux appareils, en accédant au certificat d’appareil créé sur l’appareil lorsque ce dernier a été joint à l’espace de travail.
 - Vérification de l’identification de l’application. Lorsqu’une application appelle le répartiteur, elle transmet son URL de redirection et le répartiteur la vérifie.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Activer le répartiteur sur Xamarin

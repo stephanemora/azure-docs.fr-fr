@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932312"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089539"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
@@ -37,14 +37,16 @@ Pour configurer un cluster AKS basé sur un groupe de machines virtuelles pour l
 Utilisez la commande [az aks show][az-aks-show] pour obtenir le nom du groupe de ressources de votre cluster AKS, puis la commande [az vmss list][az-vmss-list] pour obtenir le nom de votre groupe identique.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
 L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite *CLUSTER_RESOURCE_GROUP* pour afficher le nom du groupe identique et l’affecter à *SCALE_SET_NAME*.  
 
-> [!NOTE]
-> Les clés SSH peuvent actuellement uniquement être ajoutées à des nœuds Linux à l’aide de l’interface de ligne de commande Azure. Si vous souhaitez vous connecter à un nœud Windows Server à l’aide de SSH, utilisez les clés SSH fournies lors de la création du cluster AKS et ignorez le jeu de commandes suivant pour l’ajout de votre clé publique SSH. Vous avez toujours besoin de l’adresse IP du nœud que vous souhaitez dépanner, comme indiqué dans la dernière commande de cette section. Vous pouvez également [vous connecter aux nœuds Windows Server à l’aide de connexions utilisant le protocole RDP (Remote Desktop Protocol)][aks-windows-rdp] plutôt que d’une clé SSH.
+> [!IMPORTANT]
+> À ce stade, vous devez uniquement mettre à jour vos clés SSH pour les clusters AKS basés sur un groupe de machines virtuelles identiques à l’aide d’Azure CLI.
+> 
+> Pour les nœuds Linux, les clés SSH peuvent actuellement uniquement être ajoutées à l’aide d’Azure CLI. Si vous souhaitez vous connecter à un nœud Windows Server à l’aide de SSH, utilisez les clés SSH fournies lors de la création du cluster AKS et ignorez le jeu de commandes suivant pour l’ajout de votre clé publique SSH. Vous avez toujours besoin de l’adresse IP du nœud que vous souhaitez dépanner, comme indiqué dans la dernière commande de cette section. Vous pouvez également [vous connecter aux nœuds Windows Server à l’aide de connexions utilisant le protocole RDP (Remote Desktop Protocol)][aks-windows-rdp] plutôt que d’une clé SSH.
 
 Pour ajouter vos clés SSH aux nœuds dans un groupe de machines virtuelles identiques, utilisez les commandes [az vmss extension set][az-vmss-extension-set] et [az vmss update-instances][az-vmss-update-instances].
 
@@ -94,7 +96,7 @@ Pour configurer votre cluster AKS basé sur un groupe à haute disponibilité de
 Utilisez la commande [az aks show][az-aks-show] pour obtenir le nom du groupe de ressources de votre cluster AKS, puis la commande [az vmss list][az-vm-list] pour afficher le nom de machine virtuelle du nœud Linux de votre cluster.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 

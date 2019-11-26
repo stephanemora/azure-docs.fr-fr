@@ -4,20 +4,20 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 8fe665ed9a9c580f5ce7d7bf43e71b9672a2bc5b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286722"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075030"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
 Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour une introduction à la création d’un modèle, voir [Modèles Azure Resource Manager](template-deployment-overview.md).
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Format de modèle
 
@@ -286,6 +286,31 @@ Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans u
 
 Vous avez quelques options permettant d’ajouter des commentaires et des métadonnées à votre modèle.
 
+### <a name="comments"></a>Commentaires
+
+Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cette syntaxe ne fonctionne pas avec tous les outils. Vous ne pouvez pas utiliser l’éditeur de modèle du portail pour travailler sur des modèles avec des commentaires inclus. Si vous ajoutez ce style de commentaire, vérifiez que les outils que vous utilisez prennent en charge les commentaires JSON inclus.
+
+> [!NOTE]
+> Pour déployer des modèles avec des commentaires à l’aide d’Azure CLI, vous devez utiliser le commutateur `--handle-extended-json-format`.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ /* storage account and network interface must be deployed first */
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](./resource-manager-tools-vs-code.md#install-resource-manager-tools-extension) peut détecter automatiquement un modèle Resource Manager et modifier le mode de langage en conséquence. Si **Modèle Azure Resource Manager** s’affiche dans le coin inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
+
+![Mode de modèle Azure Resource Manager Visual Studio Code](./media/resource-group-authoring-templates/resource-manager-template-editor-mode.png)
+
+### <a name="metadata"></a>Métadonnées
+
 Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modèle. Resource Manager ignore l’objet, mais votre éditeur JSON peut vous avertir que la propriété n’est pas valide. Dans l’objet, définissez les propriétés dont vous avez besoin.
 
 ```json
@@ -354,31 +379,6 @@ Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.
 ```
 
 Vous ne pouvez pas ajouter un objet de métadonnées aux fonctions définies par l’utilisateur.
-
-Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cette syntaxe ne fonctionne pas avec tous les outils. Vous ne pouvez pas utiliser l’éditeur de modèle du portail pour travailler sur des modèles avec des commentaires inclus. Si vous ajoutez ce style de commentaire, vérifiez que les outils que vous utilisez prennent en charge les commentaires JSON inclus.
-
-> [!NOTE]
-> Pour déployer des modèles avec des commentaires à l’aide d’Azure CLI, vous devez utiliser le commutateur `--handle-extended-json-format`.
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[parameters('location')]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
-  "dependsOn": [ /* storage account and network interface must be deployed first */
-    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-  ],
-```
-
-Dans VS Code, vous pouvez définir le mode de langage sur JSON avec des commentaires. Les commentaires inclus ne sont plus signalés comme étant non valides. Pour modifier le mode :
-
-1. Ouvrez la sélection du mode de langage (Ctrl + K M)
-
-1. Sélectionnez **JSON avec des commentaires**.
-
-   ![Sélectionner un mode de langage](./media/resource-group-authoring-templates/select-json-comments.png)
 
 ## <a name="multi-line-strings"></a>Chaînes à lignes multiples
 

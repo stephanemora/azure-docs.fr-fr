@@ -1,5 +1,5 @@
 ---
-title: Compétence API web personnalisée dans un pipeline d’enrichissement
+title: Compétence API web personnalisée dans un ensemble de compétences
 titleSuffix: Azure Cognitive Search
 description: Étendez les fonctionnalités des ensembles de compétences de Recherche cognitive Azure en appelant des API web. Utilisez la compétence API web personnalisée pour intégrer votre code personnalisé.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466740"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113799"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence API web personnalisée dans un pipeline d’enrichissement de Recherche cognitive Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Tester des requêtes Azure Stream Analytics localement avec Visual Studio
+title: Tester des requêtes Azure Stream Analytics en local dans Visual Studio
 description: Cet article décrit comment tester des requêtes localement avec Azure Stream Analytics Tools pour Visual Studio.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914007"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925036"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Tester des requêtes Stream Analytics localement avec Visual Studio
 

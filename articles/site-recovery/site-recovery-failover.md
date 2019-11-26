@@ -1,19 +1,19 @@
 ---
-title: Basculement pendant la reprise d’activité avec Azure Site Recovery | Microsoft Docs
+title: Basculement pendant la récupération d’urgence avec Azure Site Recovery
 description: Découvrez comment basculer des machines virtuelles et des serveurs physiques pendant la reprise d’activité avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
-ms.openlocfilehash: da55d83665792f6ea2f4c78aa2a6c3ca26c39233
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1585c5dbdecf11bbc6ef3dad63bf4f982c70f73e
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383187"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053771"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Basculer des machines virtuelles et des serveurs physiques 
 

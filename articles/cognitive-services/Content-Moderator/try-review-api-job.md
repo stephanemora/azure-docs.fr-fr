@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 4eded22d5f7a8f19f286f9e90185d695b4c28fc6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755284"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935935"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Définir et utiliser des travaux de modération (REST)
 
@@ -28,7 +28,7 @@ Un travail de modération est une forme de wrapper des fonctionnalités de modé
 
 ## <a name="create-a-job"></a>Création d’un travail
 
-Pour créer un travail de modération, accédez à la page de référence API [Travail – Créer](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) et sélectionnez le bouton de votre région clé (que vous trouverez dans l’URL Point de terminaison, sur la page **Informations d’identification** de [l’Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). La console d’API, qui permet de construire et d’exécuter des appels d’API REST, se lance.
+Pour créer un travail de modération, accédez à la page de référence API [Travail – Créer](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) et sélectionnez le bouton de votre région d’abonnement (que vous trouverez dans l’URL du point de terminaison, sur la page **Informations d’identification** de [l’Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). La console d’API, qui permet de construire et d’exécuter des appels d’API REST, se lance.
 
 ![Sélection d’une région sur la page Travail – Créer](images/test-drive-job-1.png)
 

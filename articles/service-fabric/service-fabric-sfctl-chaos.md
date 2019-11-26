@@ -3,22 +3,23 @@ title: CLI Azure Service Fabric - sfctl chaos | Microsoft Docs
 description: Décrit les commandes sfctl chaos de l’interface de ligne de commande CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035097"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901759"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.
@@ -46,10 +47,10 @@ Pour obtenir le segment suivant des événements Chaos, vous pouvez spécifier l
 |Argument|Description|
 | --- | --- |
 | --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
-| --end-time-utc | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
+| --end-time-utc | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
-| --start-time-utc | Heure de fichier Windows représentant l’heure de début de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --start-time-utc | Heure de fichier Windows représentant l’heure de début de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -70,7 +71,7 @@ Obtenez l’état de Chaos indiquant si Chaos est en cours d’exécution ou non
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -85,7 +86,7 @@ Obtenez l’état de Chaos indiquant si Chaos est en cours d’exécution ou non
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Démarre Chaos dans le cluster.
 
-Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec les paramètres Chaos transmis. Si Chaos est déjà en cours d’exécution au moment de cet appel, l’appel échoue avec le code d’erreur FABRIC_E_CHAOS_ALREADY_RUNNING.
+Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec les paramètres Chaos transmis. Si Chaos est déjà en cours d’exécution au moment de cet appel, l’appel échoue avec le code d’erreur FABRIC_E_CHAOS_ALREADY_RUNNING. Pour plus d’informations, voir l’article [Induire un chaos contrôlé dans des clusters Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos).
 
 ### <a name="arguments"></a>Arguments
 
@@ -100,7 +101,7 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 | --max-percent-unhealthy-apps | Lors de l’évaluation de l’intégrité du cluster au cours de Chaos, pourcentage maximal autorisé d’applications pouvant être défectueuses avant signalement d’une erreur. <br><br> Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce calcul est effectué en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances de l’application dans le cluster, à l’exception des types d’applications inclus dans le ApplicationTypeHealthPolicyMap. Le calcul est arrondi pour tolérer la défaillance d’un petit nombre d’applications. Le pourcentage par défaut est zéro. |
 | --max-percent-unhealthy-nodes | Lors de l’évaluation de l’intégrité du cluster au cours de Chaos, pourcentage maximal autorisé de nœuds pouvant être défectueux avant signalement d’une erreur. <br><br> Pourcentage maximal autorisé de nœuds non sains avant signalement d’une erreur. Par exemple, pour autoriser 10 % de nœuds défectueux, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins un nœud pouvant être défectueux, l’état d’intégrité est Warning. Le pourcentage est calculé en divisant le nombre de nœuds défectueux par le nombre total de nœuds du cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Le pourcentage par défaut est zéro. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition. |
 | --time-to-run | Durée totale d’exécution (en secondes) de Chaos avant son arrêt automatique. La valeur maximale autorisée est de 4 294 967 295 (System.UInt32.MaxValue).  Valeur par défaut \: 4 294 967 295. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --wait-time-between-faults | Temps d’attente (en secondes) entre les erreurs consécutives au sein d’une seule itération.  Valeur par défaut \: 20. <br><br> Plus la valeur est grande, plus le chevauchement entre les erreurs est faible et plus la séquence de transitions d’état dont fait l’objet le cluster est simple. Il est recommandé de démarrer avec une valeur comprise entre 1 et 5 et de faire preuve de prudence lors de l’augmentation de cette valeur. |
 | --wait-time-between-iterations | Temps d’attente (en secondes) entre deux itérations consécutives de Chaos. Plus la valeur est grande, plus le taux d’injection d’erreurs est faible.  Valeur par défaut \: 30. |
 | --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
@@ -124,7 +125,7 @@ Arrête Chaos pour l’empêcher d’exécuter de nouvelles erreurs. Les erreurs
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

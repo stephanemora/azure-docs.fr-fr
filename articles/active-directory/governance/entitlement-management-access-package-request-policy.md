@@ -1,6 +1,6 @@
 ---
-title: Modifier les paramètres de requête et d’approbation pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
-description: Découvrez comment modifier les paramètres de requête et d’approbation d’un package d'accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion).
+title: Modifier les paramètres de demande et d’approbation d’un package d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+description: Découvrez comment modifier les paramètres de demande et d’approbation d’un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b060a17d9e7f795b6aad7df0e3e6349bbbd81b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392020"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174679"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Modifier les paramètres de requête et d’approbation pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande et d’approbation d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
 En tant que gestionnaire de package d’accès, vous pouvez modifier la liste des utilisateurs qui peuvent demander un package d’accès à tout moment en éditant la stratégie ou en ajoutant une nouvelle stratégie. Vous pouvez également modifier les paramètres d’approbation.
 

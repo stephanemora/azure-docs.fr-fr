@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391627"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083733"
 ---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour en savoir plus sur le coût de chaque *unité* dans chaque couche, consultez [la tarification relative à Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -27,7 +27,7 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal d’IoT Hubs payants par abonnement Azure |50 |
+| Nombre maximal d’IoT Hubs payants par abonnement Azure |100 |
 | Nombre maximal d’IoT Hubs gratuits par abonnement Azure |1 |
 | Nombre maximal de caractères d’un ID d’appareil | 128 |
 | Nombre maximal d’identités de périphériques<br/> renvoyées dans un seul appel |1 000 |
@@ -53,7 +53,7 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 | Transfert de données de flux d’appareil maximal | 300 Mo par jour (pour S1, S2, S3 et F1 uniquement) |
 
 > [!NOTE]
-> Si vous avez besoin de plus de 50 IoT Hubs payants dans un abonnement Azure, contactez le support technique Microsoft.
+> Si vous avez besoin de plus de 100 hubs IoT payants dans un abonnement Azure, contactez le Support Microsoft.
 
 > [!NOTE]
 > Actuellement, le nombre total d’appareils plus les modules qui peuvent être inscrits auprès d’un même hub IoT est limité à 1 million. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).

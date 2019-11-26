@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555593"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802311"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -184,9 +184,9 @@ Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit d
 
 Vous pouvez interroger par programmation les alertes générées pour votre abonnement. Cela peut consister à créer des vues personnalisées en dehors du portail Microsoft Azure, ou à analyser vos alertes pour identifier des tendances et modèles.
 
-Vous pouvez interroger le système afin d’accéder aux alertes générées pour vos abonnements en utilisant [l’API REST Alert Management](https://aka.ms/alert-management-api) ou [l’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+Pour accéder aux alertes générées pour vos abonnements, utilisez soit [l’API REST Alert Management](https://aka.ms/alert-management-api), soit [l’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources).
 
-[L’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) vous permet d’interroger le système pour afficher les instances d’alerte à grande échelle. Elle est recommandée lorsque vous devez gérer des alertes générées pour de nombreux abonnements. 
+[L’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) permet d’interroger le système pour afficher les instances d’alerte à grande échelle. Elle est recommandée lorsque vous devez gérer des alertes générées pour de nombreux abonnements. 
 
 L’exemple de requête suivant demande à l’API de renvoyer le nombre d’alertes au sein d’un abonnement :
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555524"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834688"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour Diagnostics Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -208,15 +208,15 @@ Ce code génère les quatre tables :
 
 | Événement | Nom de la table |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider="prov1" &lt;Event id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
+| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
+| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
 
 ## <a name="references"></a>Références
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Comment vérifier la configuration de l’extension Diagnostics
-Pour vérifier la configuration de l’extension, le plus simple est d’accéder à [Azure Resource Explorer](http://resources.azure.com), puis à la machine virtuelle ou au service cloud sur lesquels se trouve l’extension Diagnostics Azure (IaaSDiagnostics/PaaDiagnostics).
+Pour vérifier la configuration de l’extension, le plus simple est d’accéder à [Azure Resource Explorer](https://resources.azure.com), puis à la machine virtuelle ou au service cloud sur lesquels se trouve l’extension Diagnostics Azure (IaaSDiagnostics/PaaDiagnostics).
 
 Vous pouvez également activer le Bureau à distance sur la machine, puis regarder le fichier de configuration Diagnostics Azure qui est décrit dans la section des chemins d’accès des artefacts de journaux.
 

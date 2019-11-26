@@ -17,17 +17,17 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0184aa7bff4203f50d834f603bed5fd2af52e4c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 051565d984196edce0404b12677cf27de9006f29
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514422"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175217"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
 
 > [!NOTE]
->  Si vous n’indiquez pas au serveur la ressource que vous envisagez d’appeler, le serveur ne déclenche pas les stratégies d’accès conditionnel pour cette ressource. Ainsi, pour que l’authentification MFA se déclenche, vous devez inclure une ressource dans votre URL. 
+>  Si vous n’indiquez pas au serveur quelle ressource vous envisagez d’appeler, il ne déclenche pas les stratégies d’accès conditionnel de cette ressource. Ainsi, pour que l’authentification MFA se déclenche, vous devez inclure une ressource dans votre URL. 
 >
 
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos [bibliothèques open source](active-directory-authentication-libraries.md).

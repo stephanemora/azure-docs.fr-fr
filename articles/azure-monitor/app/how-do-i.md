@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817370"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928417"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -72,7 +72,7 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 [Utiliser PowerShell pour créer des alertes](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Utiliser PowerShell pour gérer Application Insights
-* [Créer des ressources](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Créer des ressources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Créer des alertes](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Télémétrie distincte des différentes versions
@@ -98,7 +98,7 @@ Ou
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrer les utilisateurs authentifiés ou anonymes
-Si vos utilisateurs se connectent, vous pouvez définir l’ [ID d’utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Cela n’est pas automatique.)
+Si vos utilisateurs se connectent, vous pouvez définir l’[ID d’utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Cela n’est pas automatique.)
 
 Vous pouvez ensuite effectuer les opérations suivantes :
 
@@ -114,12 +114,12 @@ Vous pouvez ensuite effectuer les opérations suivantes :
 Créez un [filtre](../../azure-monitor/app/api-filtering-sampling.md#filtering). Cela vous permet de modifier ou de filtrer la télémétrie avant son envoi depuis votre application vers Application Insights.
 
 ## <a name="list-specific-users-and-their-usage"></a>Répertorier les utilisateurs spécifiques et leur utilisation
-Si vous voulez simplement [rechercher des utilisateurs spécifiques](#search-specific-users), vous pouvez définir [l’identifiant utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+Si vous voulez simplement [rechercher des utilisateurs spécifiques](#search-specific-users), vous pouvez définir [l’ID utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 Si vous voulez une liste des utilisateurs avec des données telles que les pages qu’ils ont consultées ou leur fréquence de connexion, deux options s’offrent à vous :
 
-* [Définissez l’identifiant utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exportez vers une base de données](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) et utilisez des outils pour analyser vos données utilisateur.
-* Si vous ne disposez que d’un petit nombre d’utilisateurs, envoyez des événements ou des métriques personnalisés, en utilisant les données d’intérêt comme le nom de l’événement ou la valeur de la métrique et en définissant l’id d’utilisateur en tant que propriété. Pour analyser les vues de page, remplacez l’appel standard de trackPageView JavaScript. Pour analyser la télémétrie côté serveur, utilisez un initialiseur de télémétrie pour ajouter l’id d’utilisateur à toute la télémétrie de serveur. Vous pouvez ensuite filtrer et segmenter les métriques et les recherches sur l’id d’utilisateur.
+* [Définissez l’ID utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exportez vers une base de données](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) et utilisez des outils pour analyser vos données utilisateur.
+* Si vous ne disposez que d’un petit nombre d’utilisateurs, envoyez des événements ou des métriques personnalisés, en utilisant les données d’intérêt comme le nom de l’événement ou la valeur de la métrique et en définissant l’ID d’utilisateur en tant que propriété. Pour analyser les vues de page, remplacez l’appel standard de trackPageView JavaScript. Pour analyser la télémétrie côté serveur, utilisez un initialiseur de télémétrie pour ajouter l’ID d’utilisateur à toute la télémétrie de serveur. Vous pouvez ensuite filtrer et segmenter les métriques et les recherches sur l’ID d’utilisateur.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Réduire le trafic de mon application vers Application Insights
 * Dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme le collecteur de compteurs de performances.
@@ -150,7 +150,7 @@ Pour les applications ASP.NET Core, vous pouvez accéder à l’instance `Teleme
 Vous pouvez désactiver les collecteurs standard (par exemple, les compteurs de performances, les requêtes HTTP ou les dépendances)
 
 * **Applications ASP.NET** : supprimez ou commentez les lignes correspondantes dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **Applications ASP.NET Core** : suivez les options de configuration de modules de télémétrie dans [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **Applications ASP.NET Core** : suivez les options de configuration de modules de télémétrie dans [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Afficher les compteurs de performances système
 Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d'entre eux.

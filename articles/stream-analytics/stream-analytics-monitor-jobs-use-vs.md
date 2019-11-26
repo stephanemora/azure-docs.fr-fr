@@ -1,5 +1,5 @@
 ---
-title: Surveiller et gérer les tâches Azure Stream Analytics à l’aide de Visual Studio
+title: Monitorage et gestion d’Azure Stream Analytics avec Visual Studio
 description: Cet article décrit comment utiliser Visual Studio pour surveiller et gérer des tâches Azure Stream Analytics.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 684f034393dd3f53900100dd964d9ea07d200897
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479434"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934972"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Surveiller et gérer des tâches Stream Analytics avec Visual Studio
 

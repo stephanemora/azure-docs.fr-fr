@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69197b9c0d2a60e1833d03a3f12802221a8307e2
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529965"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177784"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption pour les groupes de machines virtuelles identiques
 
@@ -23,7 +23,7 @@ Azure Disk Encryption peut également être appliqué aux groupes de machines vi
 - Système d’exploitation et volumes de données dans des groupes identiques Windows.
 - Volumes de données dans des groupes identiques Linux. Actuellement, le chiffrement de disque de systèmes d’exploitation n’est PAS pris en charge pour les groupes identiques Linux.
 
-Vous pouvez découvrir les notions de base d’Azure Disk Encryption pour les groupes de machines virtuelles identiques en quelques minutes seulement à l’aide du tutoriel [Chiffrer un groupe de machines virtuelles identiques à l’aide d’Azure CLI](disk-encryption-cli.md) ou [Chiffrer un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell](disk-encryption-powershell.md).
+Pour découvrir les notions de base d’Azure Disk Encryption pour les groupes de machines virtuelles identiques en quelques minutes seulement, suivez le tutoriel [Chiffrer un groupe de machines virtuelles identiques avec Azure CLI](disk-encryption-cli.md) ou le tutoriel [Chiffrer un groupe de machines virtuelles identiques avec Azure PowerShell](disk-encryption-powershell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

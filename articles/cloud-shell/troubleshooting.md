@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169594"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961551"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -86,6 +86,12 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 ## <a name="general-limitations"></a>Limitations générales
 
 Azure Cloud Shell a les limitations connues suivantes :
+
+### <a name="quota-limitations"></a>Limitations de quota
+
+Azure Cloud Shell a une limite de 20 utilisateurs simultanés par locataire et par région. Si vous essayez d’ouvrir un nombre de sessions simultanées supérieur à la limite, une erreur « Dépassement du quota d’utilisateurs locataires ». Si vous avez besoin à juste titre d’un nombre d’ouvertures de sessions supérieur à celui-ci (par exemple pour des sessions de formation), contactez le support avant votre utilisation pour demander une augmentation du quota.
+
+Cloud Shell est fourni en tant que service gratuit et est conçu pour configurer votre environnement Azure, et non comme une plateforme informatique à usage général. Une utilisation automatique excessive peut être considérée comme une violation des conditions d’utilisation du service Azure et peut entraîner le blocage de l’accès à Cloud Shell.
 
 ### <a name="system-state-and-persistence"></a>État du système et persistance
 
@@ -160,7 +166,7 @@ Azure Cloud Shell prend très au sérieux vos données personnelles ; les donné
 ### <a name="export"></a>Exportation
 Pour **exporter** les paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
 Bash :
@@ -183,7 +189,7 @@ Pour **supprimer** vos paramètres utilisateur que Cloud Shell enregistre pour v
 >[!Note]
 > Si vous supprimez vos paramètres utilisateur, le partage Azure Files proprement dit n’est pas supprimé. Accédez à Azure Files pour effectuer cette action.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
 Bash :

@@ -1,18 +1,18 @@
 ---
-title: Fonctionnalités de demande de données client
+title: Fonctionnalités de demande de données client pour les appareils Azure DPS
+description: Cet article explique aux administrateurs comment exporter ou supprimer des données personnelles dans le cas d’appareils personnels gérés dans Azure DPS (Device Provisioning Service).
 author: dominicbetts
 ms.author: dobett
-manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626432"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890651"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 

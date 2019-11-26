@@ -1,5 +1,5 @@
 ---
-title: Déplacer une machine virtuelle SQL Server vers une autre région dans Azure avec les services Azure Site Recovery | Microsoft Docs
+title: Déplacer une machine virtuelle vers une autre région (Azure Site Recovery)
 description: Découvrez comment vous pouvez migrer votre machine virtuelle SQL Server d’une région à l’autre dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 063876316c92780d061388283a55c7f50dd3d78a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3b84119cdcc1bb7e8603de64e3d23c69dac70cc3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100522"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022294"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Déplacer une machine virtuelle SQL Server vers une autre région dans Azure avec les services Azure Site Recovery
 

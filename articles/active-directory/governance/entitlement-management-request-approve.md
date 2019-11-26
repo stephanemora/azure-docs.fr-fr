@@ -1,6 +1,6 @@
 ---
-title: Approuver ou refuser des demandes d’accès pour la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
-description: Découvrez comment utiliser le portail Mon Accès pour approuver ou refuser les demandes à un package d’accès pour la gestion des droits d’utilisation Azure Active Directory (préversion).
+title: Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+description: Découvrez comment utiliser le portail Mon Accès pour approuver ou refuser les demandes d’accès à un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489003"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199768"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Approuver ou refuser des demandes d’accès pour la gestion des droits d’utilisation Azure AD (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
 Avec la gestion des droits d’utilisation Azure AD, vous pouvez configurer des stratégies pour exiger l’approbation des packages d’accès et choisir un ou plusieurs approbateurs. Cet article décrit comment les approbateurs désignés peuvent approuver ou refuser les demandes pour les packages d’accès.
 
@@ -40,7 +35,7 @@ La première étape pour approuver ou refuser les demandes d’accès consiste �
 
 1. Recherchez un e-mail de Microsoft Azure vous demandant d’approuver ou de refuser une demande. Voici un exemple d’e-mail :
 
-    ![E-mail concernant l’approbation de la demande pour un package d’accès](./media/entitlement-management-shared/email-approve-request.png)
+    ![E-mail concernant l’approbation de la demande pour un package d’accès](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Cliquez sur le lien **Approuver ou refuser la demande** pour ouvrir la demande d’accès.
 
@@ -70,7 +65,7 @@ Une fois que vous avez ouvert une demande d’accès en attente d’approbation,
 
 1. Si nécessaire, indiquez un motif.
 
-    ![Portail Mon Accès - Demande d’accès](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Portail Mon Accès - Demande d’accès](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Cliquez sur **Soumettre** pour soumettre votre décision.
 

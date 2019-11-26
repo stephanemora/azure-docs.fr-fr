@@ -1,5 +1,5 @@
 ---
-title: Mappages de champs pour une indexation automatisée à l’aide d’indexeurs
+title: Mappages de champs dans les indexeurs
 titleSuffix: Azure Cognitive Search
 description: Configurez des mappages de champs d’un indexeur vers un compte pour détecter des différences de noms de champs et de représentations des données.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786971"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123991"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -175,11 +175,14 @@ Recherche cognitive Azure prend en charge deux encodages en Base64. Vous devez u
 
 #### <a name="base64-encoding-options"></a>Options d’encodage en Base64
 
-Recherche cognitive Azure prend en charge deux encodages en Base64 : l’encodage de **jetons d’URL HttpServerUtility**, et l’encodage **Base64 sécurisé pour les URL sans remplissage**. Une chaîne encodée en Base64 lors de l’indexation devra être décodée avec les mêmes options de d’encodage, faute de quoi le résultat ne correspondra pas à la version d’origine.
+La Recherche cognitive Azure prend en charge l’encodage en base64 normal et sécurisé pour les URL. Une chaîne encodée en base64 lors de l’indexation devra être décodée ultérieurement avec les mêmes options d’encodage. Dans le cas contraire, le résultat ne correspondra pas à la version d’origine.
 
 Si les paramètres `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` d’encodage et de décodage, respectivement, sont définis sur `true`, `base64Encode` se comporte comme [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) et `base64Decode` se comporte comme [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si vous n’utilisez pas le composant .NET Framework complet (par exemple, vous utilisez .NET Core ou une autre infrastructure) pour produire les valeurs de clé afin d’émuler le comportement de Recherche cognitive Azure, vous devez définir `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` sur `false`. Selon la bibliothèque que vous utilisez, les fonctions d’encodage et de décodage en Base64 peuvent différer de celles utilisées par Recherche cognitive Azure.
+> [!WARNING]
+> Si `base64Encode` est utilisé pour générer des valeurs de clé, `useHttpServerUtilityUrlTokenEncode` doit être défini sur true. Seul l’encodage en base64 sécurisé pour les URL peut être utilisé pour les valeurs de clés. Consultez [Règles de nommage (Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/naming-rules) pour obtenir l’ensemble des restrictions appliquées aux caractères des valeurs de clé.
+
+Les bibliothèques .NET dans la Recherche cognitive Azure utilisent l’intégralité de .NET Framework qui fournit un encodage intégré. Les options `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` tirent parti de cette fonctionnalité intégrée. Si vous utilisez .NET Core ou une autre infrastructure, nous vous recommandons de définir ces options sur `false` et d’appeler directement les fonctions d’encodage et de décodage de votre infrastructure.
 
 Le tableau suivant compare les différents encodages base64 de la chaîne `00>00?00`. Pour déterminer quel traitement supplémentaire s’avère nécessaire (le cas échéant) pour vos fonctions base64, appliquez votre fonction d’encodage de bibliothèque à la chaîne `00>00?00` et comparez le résultat obtenu au résultat attendu `MDA-MDA_MDA`.
 

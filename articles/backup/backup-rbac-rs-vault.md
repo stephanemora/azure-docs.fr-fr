@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: dacurwin
-ms.openlocfilehash: d0d2663fcf7be9662325b24f9f063a8f3def668a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8ba28829d3ee18b441227e537cb0a7ca97fb7638
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688520"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074052"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
+
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 > [!IMPORTANT]
@@ -29,9 +30,8 @@ Azure Backup fournit 3 rôles intégrés pour contrôler les opérations de ges
 
 Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](../role-based-access-control/custom-roles.md).
 
-
-
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mappage des rôles de sauvegarde intégrés pour les actions de gestion des sauvegardes
+
 Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle RBAC minimum nécessaire correspondant pour effectuer cette opération.
 
 | Opération de gestion | Rôle RBAC minimum nécessaire | Étendue requise |
@@ -63,23 +63,24 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 > Si vous spécifiez VM Contributor dans le cadre d’une ressource de machine virtuelle et cliquez sur Backup dans les paramètres de la machine virtuelle, l’écran 'Enable Backup' (Activer la sauvegarde) s’ouvre même si la VM est déjà sauvegardée car l’appel de vérification de l’état de la sauvegarde fonctionne uniquement au niveau abonnement. Pour éviter cela, allez dans le coffre-fort et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle VM Contributor au niveau de l’abonnement.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Exigences de rôle minimum pour la sauvegarde de partage de fichiers Azure
+
 Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle nécessaire correspondant pour effectuer cette opération de partage Azure File.
 
 | Opération de gestion | Rôle requis | Ressources |
 | --- | --- | --- |
-| Activer la sauvegarde d’un partage de fichiers Azure | Contributeur de sauvegarde | Coffre Recovery Services |
-| | Compte de stockage | Ressource de compte de stockage de contributeur |
+| Activer la sauvegarde d’un partage de fichiers Azure | Contributeur de sauvegarde |Coffre Recovery Services |
+| |Compte de stockage | Ressource de compte de stockage de contributeur |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |
 | Restaurer le partage de fichiers | Opérateur de sauvegarde | Coffre Recovery Services |
 | | Contributeur de compte de stockage | Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
 | Restaurer des fichiers individuels | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de compte de stockage |   Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
-| Arrêter la protection | Contributeur de sauvegarde | Coffre Recovery Services |      
-| Annuler l’inscription d’un compte de stockage au coffre |   Contributeur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de compte de stockage | Ressource du compte de stockage|
-
+| |Contributeur de compte de stockage|Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
+| Arrêter la protection |Contributeur de sauvegarde | Coffre Recovery Services |
+| Annuler l’inscription d’un compte de stockage au coffre |Contributeur de sauvegarde | Coffre Recovery Services |
+| |Contributeur de compte de stockage | Ressource du compte de stockage|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)

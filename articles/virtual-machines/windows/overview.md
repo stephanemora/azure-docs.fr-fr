@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des machines virtuelles Windows - Azure | Microsoft Docs
+title: Vue d’ensemble des machines virtuelles Windows - Azure
 description: Apprenez à créer et à gérer des machines virtuelles Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe62f67071b77c464d5b3b8649d16db597d9ab21
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033036"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
 
@@ -48,7 +48,7 @@ Il existe toujours une multitude de [considérations liées à la conception](/a
 * et les ressources liées dont a besoin la machine virtuelle.
 
 ### <a name="naming"></a>Dénomination
-Une machine virtuelle se voit affecter un [nom](/azure/architecture/best-practices/naming-conventions) et possède un nom d’ordinateur configuré au sein du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
+Une machine virtuelle se voit affecter un [nom](/azure/architecture/best-practices/resource-naming) et possède un nom d’ordinateur configuré au sein du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
 
 Si vous utilisez Azure pour créer le disque du système d’exploitation, le nom de l’ordinateur et celui de la machine virtuelle sont identiques. Si vous [chargez et utilisez votre propre image](upload-generalized-managed.md) qui contient un système d’exploitation précédemment configuré et que vous l’utilisez pour créer une machine virtuelle, les noms peuvent être différents. Nous vous recommandons de faire en sorte que le nom d’ordinateur dans le système d’exploitation et celui de la machine virtuelle soient identiques lorsque vous chargez votre propre fichier d’image.
 

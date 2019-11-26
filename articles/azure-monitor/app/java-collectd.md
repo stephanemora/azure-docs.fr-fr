@@ -1,30 +1,25 @@
 ---
 title: Surveiller les performances des applications web Java sur Linux - Azure | Microsoft Docs
 description: Surveillance étendue des performances des applications de votre site web Java avec le plug-in collectd pour Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 03/14/2019
+ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061194"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176405"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd : métriques de performances Linux dans Application Insights
 
 
 Pour explorer les métriques de performances d’un système Linux dans [Application Insights](../../azure-monitor/app/app-insights-overview.md), installez [collectd](https://collectd.org/) et son plug-in Application Insights. Cette solution open source rassemble diverses statistiques concernant le système et le réseau.
 
-De manière générale, vous utilisez collectd lorsque vous avez déjà [instrumenté votre service web Java avec Application Insights][java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes. 
+De manière générale, on utilise collectd après avoir [instrumenté le service web Java avec Application Insights][java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes. 
 
 ## <a name="get-your-instrumentation-key"></a>Récupérer votre clé d’instrumentation
 Dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez la ressource [Application Insights](../../azure-monitor/app/app-insights-overview.md) dans laquelle vous souhaitez afficher les données. (Ou [créez une ressource](../../azure-monitor/app/create-new-resource.md ).)
@@ -37,7 +32,7 @@ Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 Sur vos ordinateurs serveurs Linux :
 
 1. Installez [collectd](https://collectd.org/) version 5.4.0 ou ultérieure.
-2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://aka.ms/aijavasdk). Notez le numéro de version.
+2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notez le numéro de version.
 3. Copiez le fichier JAR du plug-in dans `/usr/share/collectd/java`.
 4. Modifiez `/etc/collectd/collectd.conf`:
    * Vérifiez que [le plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) est activé.
@@ -91,7 +86,7 @@ Configurez d’autres [plug-ins collectd](https://collectd.org/wiki/index.php/Ta
 Redémarrez collectd selon les instructions de son [manuel](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualiser les données dans Application Insights
-Dans votre ressource Application Insights, ouvrez [Métriques et ajoutez des graphiques][metrics] en sélectionnant les indicateurs de performance que vous souhaitez voir à partir de la catégorie Personnalisé.
+Dans votre ressource Application Insights, ouvrez [Métriques et ajoutez des graphiques][metrics] en sélectionnant les métriques que vous souhaitez voir dans la catégorie Personnalisé.
 
 Par défaut, les métriques sont agrégés sur toutes les machines hôtes à partir desquelles ils ont été collectés. Pour visualiser les métriques par hôte, dans le panneau des détails du graphique, activez le regroupement, puis choisissez un groupement de type CollectD-Host.
 
@@ -113,7 +108,7 @@ Séparez les directives par un saut de ligne.
 ## <a name="problems"></a>Des problèmes ?
 *Je ne vois pas les données dans le portail*
 
-* Ouvrez [Rechercher][diagnostic] pour vérifier si les événements bruts sont arrivés. Ils mettent parfois du temps à apparaître dans Metrics Explorer.
+* Ouvrez [Rechercher][diagnostic] pour voir si les événements bruts sont arrivés. Ils mettent parfois du temps à apparaître dans Metrics Explorer.
 * Vous devrez peut-être [définir des exceptions de pare-feu pour les données sortantes](../../azure-monitor/app/ip-addresses.md)
 * Activez le suivi dans le plug-in Application Insights. Ajoutez la ligne ci-après dans `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`

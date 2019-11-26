@@ -1,7 +1,7 @@
 ---
 title: Résolution des problèmes de filtres de collection OData
 titleSuffix: Azure Cognitive Search
-description: Résolution des erreurs liées aux filtres de collection OData dans les requêtes de Recherche cognitive Azure.
+description: Découvrez des approches permettant de résoudre des erreurs liées aux filtres de collection OData dans les requêtes de Recherche cognitive Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793190"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113081"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Résolution de problèmes liés aux filtres de collection OData dans la Recherche cognitive Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer la reprise d’activité de machines virtuelles VMware sur Azure à l’aide de PowerShell dans Azure Site Recovery | Microsoft Docs
+title: Configurer la récupération d’urgence VMware à l’aide de PowerShell dans Azure Site Recovery
 description: Découvrez comment configurer la réplication et le basculement vers Azure pour la reprise d’activité de machines virtuelles VMware à l’aide de PowerShell dans Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 7c13bb8586995a82ee240df39a9c95a67743e2a8
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9546ae590918cdf6f3a6a95b9a68e9208054dcee
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503344"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953929"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurer la reprise d’activité des machines virtuelles VMware sur Azure avec PowerShell
 

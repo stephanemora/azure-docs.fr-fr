@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812689"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120121"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -110,6 +110,14 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 >[!IMPORTANT] 
 > L’enregistrement d’un nouveau filtre d’étendue déclenche une nouvelle synchronisation complète pour l’application, avec une comparaison de tous les utilisateurs dans le système source par rapport au nouveau filtre d’étendue. Si un utilisateur dans l’application répondait précédemment aux exigences d’un approvisionnement, mais que ce n’est plus le cas maintenant, son compte est désactivé ou déprovisionné dans l’application. Pour remplacer ce comportement par défaut, consultez [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](skip-out-of-scope-deletions.md).
 
+
+## <a name="common-scoping-filters"></a>Filtres d’étendue communs
+| Attribut cible| Operator | Valeur | Description|
+|----|----|----|----|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |Tous les utilisateurs dont userPrincipal a le domaine @domain.com sont concernés par l’approvisionnement|
+|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|Tous les utilisateurs dont userPrincipal a le domaine @domain.com ne sont pas concernés par l’approvisionnement|
+|department|EQUALS|sales|Tous les utilisateurs du service commercial sont concernés par l’approvisionnement|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tous les employés dont les workerID sont compris entre 1 000 000 et 2 000 000 sont concernés par l’approvisionnement.|
 
 ## <a name="related-articles"></a>Articles connexes
 * [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)

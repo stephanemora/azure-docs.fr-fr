@@ -1,5 +1,5 @@
 ---
-title: Gérer des clusters HDInsight avec le pack Sécurité Entreprise - Azure
+title: Gérer des clusters du Pack Sécurité Entreprise – Azure HDInsight
 description: Découvrez comment gérer des clusters Azure HDInsight avec le Pack Sécurité Entreprise.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b98c62908885bc13cd5f473967cc70709af693d2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 35accc587fe197da751a8695e3ec0b21ea9fbbd4
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034120"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044922"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 Découvrez les utilisateurs et les rôles du pack Sécurité Entreprise (ESP) HDInsight et apprenez à gérer des clusters ESP.
@@ -35,7 +35,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Am
 
 3. Vous pouvez voir un cluster lié à l’aide de la commande **List cluster**. Vous pouvez désormais soumettre un script à ce cluster lié.
 
-   ![Vérification de la sortie de la commande List cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "Cluster lié")
+   ![Vérification de la sortie de la commande List cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "cluster lié")
 
 4. Vous pouvez également dissocier un cluster en entrant **HDInsight : Unlink a cluster** dans la palette de commandes.
 
@@ -58,7 +58,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
 
 3. Si les informations d’entrée sont correctes, vous pouvez voir un cluster lié dans le nœud **HDInsight**. Vous pouvez désormais soumettre une application à ce cluster lié.
 
-   ![Explorateur Azure - Cluster lié IntelliJ](./media/apache-domain-joined-manage/linked-cluster-intellij.png "Cluster lié IntelliJ]")
+   ![Explorateur Azure – Cluster lié IntelliJ](./media/apache-domain-joined-manage/linked-cluster-intellij.png "Cluster lié IntelliJ")
 
 4. Vous pouvez également dissocier un cluster à partir de **Azure Explorer**.
 

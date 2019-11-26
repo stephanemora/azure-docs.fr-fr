@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023510"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -35,6 +35,13 @@ Il existe plusieurs différences entre la commande sync et la commande copy :
 2. Lors de la synchronisation entre répertoires virtuels, ajoutez une barre oblique finale au chemin d’accès (voir exemples) s’il existe un objet blob portant le même nom que l’un des répertoires virtuels.
 3. Si l’indicateur « deleteDestination » est défini sur true ou prompt, la synchronisation supprime les fichiers et objets blob de destination qui ne sont pas présents au niveau de la source.
 
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
+
 ### <a name="advanced"></a>Avancé
 
 Si vous n’indiquez pas d’extension de fichier, AzCopy détecte automatiquement le type de contenu des fichiers lorsque vous les chargez à partir du disque local, en se basant sur l’extension du fichier ou sur son contenu (si aucune extension n’est spécifiée).
@@ -48,7 +55,7 @@ La table de recherche intégrée contient peu de données. Toutefois, sur UNIX, 
 Sur Windows, les types MIME sont extraits du Registre.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## <a name="examples"></a>Exemples

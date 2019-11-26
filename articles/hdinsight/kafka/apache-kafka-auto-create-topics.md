@@ -7,51 +7,49 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/18/2018
-ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/25/2019
+ms.openlocfilehash: 7ec7d15806927306b12624962facbafddf2ce08b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122666"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242366"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement
 
-Par défaut, [Apache Kafka](https://kafka.apache.org/) sur HDInsight n’active pas la création automatique de rubriques. Vous pouvez activer la création automatique de rubriques pour les clusters existants à l’aide d’[Apache Ambari](https://ambari.apache.org/). Vous pouvez également activer la création automatique de rubriques quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Manager.
+Par défaut, [Apache Kafka](https://kafka.apache.org/) sur HDInsight n’autorise pas la création automatique de rubriques. Vous pouvez activer la création automatique de rubriques pour les clusters existants à l’aide d’[Apache Ambari](https://ambari.apache.org/). Vous pouvez également activer la création automatique de rubriques quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Manager.
 
 ## <a name="apache-ambari-web-ui"></a>Interface utilisateur web d’Apache Ambari
 
 Pour activer la création automatique de rubriques sur un cluster existant par le biais de l’interface utilisateur web d’Ambari, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le cluster Kafka.
+1. Sur le [Portail Azure](https://portal.azure.com), sélectionnez votre cluster Kafka.
 
-2. Dans la __vue d’ensemble du cluster__, sélectionnez __Tableau de bord du cluster__.
+1. Dans **Tableaux de bord du cluster**, sélectionnez **Accueil Ambari**.
 
-    ![Image du portail avec le tableau de bord du cluster sélectionné](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
+    ![Image du portail avec le tableau de bord du cluster sélectionné](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-3. Puis choisissez __Tableau de bord du cluster HDInsight__. Lorsque vous y êtes invité, authentifiez-vous à l’aide des informations d’identification de connexion (admin) pour le cluster.
+    Lorsque vous y êtes invité, authentifiez-vous à l’aide des informations d’identification de connexion (admin) pour le cluster. Vous pouvez également vous connecter directement à Amabri sur `https://CLUSTERNAME.azurehdinsight.net/`, où `CLUSTERNAME` est le nom de votre cluster Kafka.
 
-    ![Image de l’entrée du tableau de bord du cluster HDInsight](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
-
-3. Sélectionnez le service Kafka dans la liste à gauche de la page.
+1. Sélectionnez le service Kafka dans la liste à gauche de la page.
 
     ![Apache Ambari - Onglet avec la liste des services](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
-4. Sélectionnez Configs au milieu de la page.
+1. Sélectionnez Configs au milieu de la page.
 
     ![Apache Ambari - Onglet Configs du service](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. Dans le champ Filter (Filtrer), entrez la valeur `auto.create`.
+1. Dans le champ Filter (Filtrer), entrez la valeur `auto.create`.
 
     ![Apache Ambari - Champ Filtre de recherche](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     Cette option filtre la liste des propriétés et affiche le paramètre `auto.create.topics.enable`.
 
-6. Définissez la valeur `auto.create.topics.enable` sur `true`, puis sélectionnez Save (Enregistrer). Ajoutez une note, puis resélectionnez Save (Enregistrer).
+1. Remplacez la valeur de `auto.create.topics.enable` par `true`, puis sélectionnez **Save** (Enregistrer). Ajoutez une note, puis sélectionnez à nouveau **Save** (Enregistrer).
 
     ![Image de l’entrée auto.create.topics.enable](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-7. Sélectionnez le service Kafka, choisissez __Restart__ (Redémarrer), puis __Restart all affected__ (Redémarrer tous les éléments affectés). Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
+1. Sélectionnez le service Kafka, choisissez __Restart__ (Redémarrer), puis __Restart all affected__ (Redémarrer tous les éléments affectés). Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
 
     ![Apache Ambari - Redémarrer tous les éléments affectés](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 

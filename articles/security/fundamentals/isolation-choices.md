@@ -1,10 +1,10 @@
 ---
 title: Isolation dans le cloud public Azure | Microsoft Docs
-description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
+description: Découvrez comment Azure assure une isolation contre les utilisateurs malveillants et non malveillants et propose différents choix d’isolation aux architectes.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123081"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159755"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
-##  <a name="introduction"></a>Introduction
-### <a name="overview"></a>Vue d'ensemble
-Pour aider les clients actuel et futurs d’Azure à comprendre et à utiliser les différentes fonctionnalités liées à la sécurité disponibles dans la plateforme Azure et autour de celle-ci, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de vérification.
-Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme décrit dans la section Résumé ci-après.
+Azure offre la possibilité d’exécuter des applications et des machines virtuelles sur une infrastructure physique partagée. L’une des principales motivations économiques pour exécuter des applications dans un environnement cloud est la possibilité de répartir le coût des ressources partagées entre plusieurs clients. Cette pratique de mutualisation améliore l’efficacité en multiplexant des ressources entre différents clients à faible coût. Malheureusement, elle présente également le risque de partager des serveurs physiques et d’autres ressources d’infrastructure pour exécuter vos machines virtuelles et applications sensibles appartenant peut-être à un utilisateur arbitraire et potentiellement malveillant.
 
-### <a name="azure-platform"></a>Plateforme Azure
-Azure est une plateforme de services cloud ouverte et flexible, qui prend en charge un large éventail de systèmes d’exploitation, de langages de programmation, d’infrastructures, d’outils, de bases de données et d’appareils. Vous pouvez par exemple :
-- exécuter des conteneurs Linux avec l’intégration Docker ;
-- créer des applications avec JavaScript, Python, .NET, PHP, Java et Node.js ; et
-- créer des serveurs principaux pour les appareils iOS, Android et Windows.
-
-Microsoft Azure prend en charge les technologies auxquelles des millions de développeurs et de professionnels de l’informatique font déjà confiance.
-
-Lorsque vous générez ou faites migrer des ressources informatiques vers un fournisseur de services cloud public, vous comptez sur les capacités de cette organisation à protéger vos applications et données avec les services et les contrôles qu’elle vous fournit pour gérer la sécurité de vos ressources cloud.
-
-L’infrastructure d’Azure est conçue de l’installation vers les applications pour héberger des millions de clients simultanément, et constitue une base fiable permettant de répondre aux besoins des entreprises en matière de sécurité. En outre, Azure vous offre un large éventail d’options de sécurité configurables, ainsi que la possibilité de contrôler ces options pour vous permettre de personnaliser la sécurité et de répondre ainsi aux exigences uniques de vos déploiements. Ce document vous aide à répondre à ces exigences.
-
-### <a name="abstract"></a>Résumé
-
-Microsoft Azure vous permet d’exécuter des applications et des machines virtuelles sur une infrastructure physique partagée. L’une des principales motivations économiques pour exécuter des applications dans un environnement cloud est la possibilité de répartir le coût des ressources partagées entre plusieurs clients. Cette pratique de mutualisation améliore l’efficacité en multiplexant des ressources entre différents clients à faible coût. Malheureusement, elle présente également le risque de partager des serveurs physiques et d’autres ressources d’infrastructure pour exécuter vos machines virtuelles et applications sensibles appartenant peut-être à un utilisateur arbitraire et potentiellement malveillant.
-
-Cet article explique comment Microsoft Azure fournit une isolation contre les utilisateurs malveillants et non malveillants, et sert de guide pour concevoir des solutions cloud en proposant aux architectes différentes options d’isolation. Ce livre blanc se concentre sur la technologie de plateforme Azure et les contrôles de sécurité orientés client, et n’essaie pas de répondre aux considérations relatives aux SLA, aux modèles de tarification et aux pratiques DevOps.
+Cet article explique comment Azure assure une isolation contre les utilisateurs malveillants et non malveillants, et sert de guide pour concevoir des solutions cloud en proposant aux architectes différentes options d’isolation.
 
 ## <a name="tenant-level-isolation"></a>Isolation au niveau du client
 L’un des principaux avantages du cloud est le concept d’une infrastructure commune partagée entre plusieurs clients simultanément, ce qui conduit à des économies d’échelle. Ce concept est appelé mutualisation. Microsoft travaille en permanence pour veiller à ce que l’architecture mutualisée de Microsoft Cloud Azure prenne en charge les normes de disponibilité, d’intégrité, de confidentialité et de sécurité.
@@ -350,4 +331,3 @@ Microsoft Azure propose divers services informatiques cloud qui incluent une lar
 - [Isolation du stockage](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure sépare le calcul basé sur les machines virtuelles du client du stockage. Cette séparation permet de mettre à l’échelle le calcul et le stockage de façon indépendante et ainsi de faciliter l’isolation et la mutualisation. Par conséquent, le stockage Azure s’exécute sur un matériel distinct sans connectivité réseau au calcul Azure, sauf sous forme logique. Toutes les demandes s’exécutent sur HTTP ou HTTPS en fonction du choix du client.
-

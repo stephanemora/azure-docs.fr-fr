@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263036"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030888"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiver des journaux de ressource Azure dans un compte de stockage
 Les [journaux de ressource](resource-logs-overview.md) dans Azure fournissent des informations complètes et fréquentes sur le fonctionnement interne d’une ressource Azure. Cet article décrit la collecte de journaux de ressource dans un compte de stockage Azure en vue de conserver les données pour archivage.
 
 ## <a name="prerequisites"></a>Prérequis
 Vous devez [créer un compte de stockage Azure](../../storage/common/storage-quickstart-create-account.md) si vous n’en avez pas encore un. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+
+
+> [!IMPORTANT]
+> Actuellement, les comptes ADLS Gen2 ne sont pas pris en charge en tant que destination pour les paramètres de diagnostic, même s’ils peuvent être répertoriés comme une option valide dans le portail Azure.
+
 
 Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Si vous archivez également le [journal d’activité](activity-logs-overview.md) sur un compte de stockage cependant, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données de surveillance au même emplacement.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070677"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199489"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -69,7 +69,7 @@ Dans la mesure du possible, utilisez des [emplacements de déploiement](deploy-s
 
 Le contenu Azure App Service est stocké sur Stockage Azure est exposé de manière durable en tant que partage de contenu. Toutefois, certaines applications ont uniquement besoin d’un magasin de contenu en lecture seule très performant à partir duquel elles peuvent s’exécuter avec une haute disponibilité. Ces applications peuvent tirer parti de l’utilisation du [cache local](overview-local-cache.md). Le cache local n’est pas recommandé pour les sites de gestion de contenu tels que WordPress.
 
-Utilisez toujours le cache local conjointement avec les [emplacements de déploiement](deploy-staging-slots md) pour éviter les temps d’arrêt. Consultez [cette section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) pour plus d’informations sur l’utilisation conjointe de ces fonctionnalités.
+Utilisez toujours le cache local conjointement avec les [emplacements de déploiement](deploy-staging-slots.md) pour éviter les temps d’arrêt. Consultez [cette section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) pour plus d’informations sur l’utilisation conjointe de ces fonctionnalités.
 
 ### <a name="high-cpu-or-memory"></a>Utilisation de l’UC ou de mémoire élevée
 

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967214"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175973"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Choisir le protocole de fédération approprié pour votre application mutualisée
 
@@ -80,7 +80,7 @@ SAML 2.0 est un standard éprouvé et la plupart des plates-formes technologique
 
 ### <a name="trade-offs"></a>Compromis
 
-Lorsque vous utilisez les protocoles SAML 2.0 ou WSFed pour les applications mobiles, certaines stratégies d’accès conditionnel, y compris l’authentification multifacteur auront une expérience détériorée. En outre, si vous souhaitez accéder à Microsoft Graph, vous devez implémenter l’autorisation via OAuth 2.0 pour générer les jetons nécessaires. 
+Si vous utilisez les protocoles SAML 2.0 ou WSFed pour les applications mobiles, certaines stratégies d’accès conditionnel, notamment l’authentification multifacteur, présenteront une expérience détériorée. En outre, si vous souhaitez accéder à Microsoft Graph, vous devez implémenter l’autorisation via OAuth 2.0 pour générer les jetons nécessaires. 
 
 ### <a name="implementation"></a>Implémentation
 

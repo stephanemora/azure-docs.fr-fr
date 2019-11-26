@@ -1,5 +1,5 @@
 ---
-title: Stratégies de déploiement et meilleures pratiques en matière d’optimisation des performances
+title: Optimisation du déploiement et des performances
 titleSuffix: Azure Cognitive Search
 description: Découvrez les techniques et les bonnes pratiques pour optimiser les performances de la Recherche cognitive Azure et configurer une mise à l’échelle optimale.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 15557a437732ee15c3c6dada7b2d9fe1d397dc5a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4ff6779843546bd41423c140ef40de6a7e24b026
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793417"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113253"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-cognitive-search"></a>Stratégies de déploiement et meilleures pratiques en matière d’optimisation des performances dans la Recherche cognitive Azure
 

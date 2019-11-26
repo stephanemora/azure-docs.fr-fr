@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b75e9aa3c588f5046ec55c0d809ca74060ad9c2
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 39ec09c1ecb94a5ae189317d89cce4bc8f279b48
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509340"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175687"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Activation Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
@@ -28,8 +28,8 @@ Cet article vous donne les informations dont vous avez besoin pour configurer un
 
 Cet article suppose de connaître : 
 
-- Les [concepts de base](overview.md) de l’accès conditionnel Azure AD 
-- Les [meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le Portail Azure
+- [Concepts de base](overview.md) de l’accès conditionnel Azure AD 
+- [Meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le Portail Microsoft Azure
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -47,10 +47,10 @@ L’accès conditionnel Azure AD permet de répondre à cette exigence avec une 
 
 Le défi de ce scénario consiste à traduire l’*accès à partir d’un emplacement réseau non approuvé* en une condition d’accès conditionnel. Dans une stratégie d’accès conditionnel, vous pouvez configurer la [condition d’emplacements](location-condition.md) de façon à gérer les scénarios liés aux emplacements réseau. Cette condition permet de sélectionner des emplacements nommés, qui sont des regroupements logiques de plages d’adresses IP, de pays et de régions.  
 
-En règle générale, une organisation possède au moins une plage d’adresses, par exemple, 199.30.16.0-199.30.16.24.
+En règle générale, une organisation possède au moins une plage d’adresses, par exemple, 199.30.16.0-199.30.16.15.
 Pour configurer un emplacement nommé :
 
-- Spécifiez cette plage (199.30.16.0/24). 
+- Spécifiez cette plage (199.30.16.0/28) 
 - Attribuez un nom descriptif, par exemple, **Réseau d’entreprise**. 
 
 Au lieu de tenter de définir tous les emplacements non approuvés, vous pouvez :

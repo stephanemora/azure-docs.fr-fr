@@ -4,34 +4,116 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7e13e2bed4e881d12737d8e0df0ff0ba2bb2bca9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc39c727526f55039a5e18a8fd2aeeb4f25234a6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827477"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965627"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
+* [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [fournisseurs](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [abonnement](#subscription)
+* [subscription](#subscription)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
 Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel, consultez [Fonctions de valeur de déploiement](resource-group-template-functions-deployment.md).
+
+## <a name="extensionresourceid"></a>extensionResourceId
+
+```json
+extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retourne l’ID d’une [ressource d’extension](extension-resource-types.md), un type de ressource qui s’applique à une autre ressource pour y ajouter des fonctionnalités.
+
+### <a name="parameters"></a>parameters
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| ResourceId |OUI |string |ID de la ressource à laquelle s’applique la ressource d’extension. |
+| resourceType |OUI |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |OUI |string |Nom de la ressource. |
+| nom_ressource2 |Non |string |Segment de nom de ressource suivant si nécessaire. |
+
+Continuez à ajouter des noms de ressource en paramètres lorsque le type de ressource contient plus de segments.
+
+### <a name="return-value"></a>Valeur de retour
+
+Le format de base de l’ID de ressource retourné par cette fonction est le suivant :
+
+```json
+{scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Le segment d’étendue varie en fonction de la ressource étendue.
+
+Lorsque la ressource d’extension est appliquée à une **ressource**, l’ID de la ressource est retourné au format suivant :
+
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Lorsque la ressource d’extension est appliquée à un **groupe de ressources**, le format est le suivant :
+
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Lorsque la ressource d’extension est appliquée à un **abonnement**, le format est le suivant :
+
+```json
+/subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Lorsque la ressource d’extension est appliquée à un **groupe d’administration**, le format est le suivant :
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+### <a name="extensionresourceid-example"></a>Exemple extensionResourceId
+
+L’exemple suivant retourne l’ID de la ressource pour un verrou de groupe de ressources.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "lockName":{
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "lockResourceId": {
+            "type": "string",
+            "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
+        }
+    }
+}
+```
 
 <a id="listkeys" />
 <a id="list" />
 
 ## <a name="list"></a>list*
 
-`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
+```json
+list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
+```
 
 La syntaxe de cette fonction varie en fonction du nom des opérations de liste. Chaque implémentation retourne des valeurs pour le type de ressource qui prend en charge une opération de liste. Le nom de l’opération doit commencer par `list`. Des utilisations courantes sont `listKeys` et `listSecrets`. 
 
@@ -262,7 +344,9 @@ Pour obtenir le jeton SAS, passez un objet pour l’heure d’expiration. L’he
 
 ## <a name="providers"></a>fournisseurs
 
-`providers(providerNamespace, [resourceType])`
+```json
+providers(providerNamespace, [resourceType])
+```
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction retourne tous les types pris en charge pour le fournisseur de ressources.
 
@@ -337,7 +421,9 @@ Pour le fournisseur de ressources **Microsoft.Web** et le type de ressource **si
 
 ## <a name="reference"></a>reference
 
-`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
+```json
+reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
+```
 
 Renvoie un objet représentant l’état d’exécution d’une ressource.
 
@@ -558,7 +644,9 @@ L’objet complet retourné présente le format suivant :
 
 ## <a name="resourcegroup"></a>resourceGroup
 
-`resourceGroup()`
+```json
+resourceGroup()
+```
 
 Renvoie un objet qui représente le groupe de ressources actuel. 
 
@@ -637,7 +725,9 @@ L’exemple précédent renvoie un objet dans le format suivant :
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
+```json
+resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
+```
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. 
 
@@ -655,10 +745,23 @@ Continuez à ajouter des noms de ressource en paramètres lorsque le type de res
 
 ### <a name="return-value"></a>Valeur de retour
 
-L'identificateur est retourné au format suivant :
+L’ID de la ressource est retourné au format suivant :
 
-**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
+Lorsqu’il est utilisé dans un [déploiement au niveau de l’abonnement](deploy-to-subscription.md), l’ID de la ressource est retourné au format suivant :
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+Pour obtenir l’ID dans d’autres formats, voir :
+
+* [extensionResourceId](#extensionresourceid)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
 ### <a name="remarks"></a>Remarques
 
@@ -686,14 +789,6 @@ Pour obtenir l’ID de ressource d’une ressource se trouvant dans un abonnemen
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-Lorsqu’elle est utilisée avec un [déploiement au niveau abonnement](deploy-to-subscription.md), la fonction `resourceId()` ne peut récupérer que l’ID des ressources déployées à ce niveau. Ainsi, vous pouvez obtenir l’ID d’une définition de stratégie ou d’une définition de rôle, mais pas l’ID d’un compte de stockage. Pour les déploiements sur un groupe de ressources, l’inverse est vrai. Vous ne pouvez pas obtenir l’ID de ressource des ressources déployées au niveau abonnement.
-
-Pour obtenir l’ID de ressource d’une ressource de niveau abonnement lors du déploiement dans l’étendue de l’abonnement, utilisez :
-
-```json
-"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :
@@ -781,7 +876,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="subscription"></a>subscription
 
-`subscription()`
+```json
+subscription()
+```
 
 Retourne des détails concernant l’abonnement pour le déploiement actuel. 
 
@@ -815,6 +912,120 @@ La fonction retourne les informations au format suivant :
     }
 }
 ```
+
+## <a name="subscriptionresourceid"></a>subscriptionResourceId
+
+```json
+subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retourne l’identificateur unique d’une ressource déployée au niveau de l’abonnement.
+
+### <a name="parameters"></a>parameters
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |Non |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
+| resourceType |OUI |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |OUI |string |Nom de la ressource. |
+| nom_ressource2 |Non |string |Segment de nom de ressource suivant si nécessaire. |
+
+Continuez à ajouter des noms de ressource en paramètres lorsque le type de ressource contient plus de segments.
+
+### <a name="return-value"></a>Valeur de retour
+
+L'identificateur est retourné au format suivant :
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+### <a name="remarks"></a>Remarques
+
+Utilisez cette fonction pour récupérer l’ID des ressources [déployées dans l’abonnement](deploy-to-subscription.md) plutôt qu’un groupe de ressources. L’ID retourné diffère de la valeur retournée par la fonction [resourceId](#resourceid) en ce qu’il n’inclut pas de valeur de groupe de ressources.
+
+### <a name="subscriptionresourceid-example"></a>Exemple subscriptionResourceID
+
+Le modèle suivant attribue un rôle intégré. Vous pouvez le déployer soit sur un groupe de ressources, soit sur un abonnement. Il utilise la fonction subscriptionResourceId pour récupérer l’ID de ressource pour les rôles intégrés.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "string",
+            "metadata": {
+                "description": "The principal to assign the role to"
+            }
+        },
+        "builtInRoleType": {
+            "type": "string",
+            "allowedValues": [
+                "Owner",
+                "Contributor",
+                "Reader"
+            ],
+            "metadata": {
+                "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        }
+    },
+    "variables": {
+        "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+        "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[parameters('principalId')]"
+            }
+        }
+    ]
+}
+```
+
+## <a name="tenantresourceid"></a>tenantResourceId
+
+```json
+tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retourne l’identificateur unique d’une ressource déployée au niveau du tenant.
+
+### <a name="parameters"></a>parameters
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceType |OUI |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |OUI |string |Nom de la ressource. |
+| nom_ressource2 |Non |string |Segment de nom de ressource suivant si nécessaire. |
+
+Continuez à ajouter des noms de ressource en paramètres lorsque le type de ressource contient plus de segments.
+
+### <a name="return-value"></a>Valeur de retour
+
+L'identificateur est retourné au format suivant :
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+### <a name="remarks"></a>Remarques
+
+Cette fonction permet de récupérer l’ID d’une ressource déployée sur le tenant. L’ID retourné diffère des valeurs retournées par d’autres fonctions d’ID de ressource en ce qu’il n’inclut pas de valeurs de groupe de ressources ou d’abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,33 +1,25 @@
 ---
-title: Comment configurer la géoréplication pour le Cache Azure pour Redis | Microsoft Docs
+title: Configurer la géoréplication pour Azure Cache pour Redis | Microsoft Docs
 description: Découvrez comment répliquer vos instances Cache Azure pour Redis dans des régions géographiques.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552357"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129416"
 ---
-# <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Comment configurer la géoréplication pour le Cache Azure pour Redis
+# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
-La géoréplication fournit un mécanisme permettant de lier deux instances de Cache Azure pour Redis de niveau Premium. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Cette fonctionnalité peut être utilisée pour répliquer un cache entre des régions Azure. Cet article fournit un guide de configuration de la géoréplication pour vos instances de Cache Azure pour Redis de niveau Premium.
+La géoréplication fournit un mécanisme permettant de lier deux instances de Cache Azure pour Redis de niveau Premium. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Cette fonctionnalité peut être utilisée pour répliquer un cache entre des régions Azure. Cet article fournit un guide de configuration de la géoréplication pour vos instances Azure Cache pour Redis de niveau Premium.
 
 ## <a name="geo-replication-prerequisites"></a>Conditions préalables à la géoréplication
 
-Pour configurer la géoréplication entre deux caches, les conditions préalables suivantes doivent être remplies :
+Pour configurer la géoréplication entre deux caches, les conditions préalables suivantes doivent être remplies :
 
 - Les deux caches sont de [niveau Premium](cache-premium-tier-intro.md).
 - Les deux caches figurent dans le même abonnement Azure.
@@ -39,9 +31,9 @@ Certaines fonctionnalités ne sont pas prises en charge par la géoréplication�
 - La persistance n'est pas prise en charge par la géoréplication.
 - Le clustering est pris en charge s'il est activé pour les deux caches et si ceux-ci possèdent le même nombre de partitions.
 - Les caches situés dans le même réseau virtuel sont pris en charge.
-- Les caches situés dans des réseaux virtuels différents sont pris en charge avec des mises en garde. Pour plus d'informations, consultez [Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- Les caches situés dans des réseaux virtuels différents sont pris en charge avec des mises en garde. Pour plus d’informations, consultez [Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 
-Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
+Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
 
 - Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. 
 - Toutes les données présentes dans le cache lié secondaire avant l’ajout du lien sont supprimées. Toutefois, en cas de suppression ultérieure de la géoréplication, les données répliquées restent dans le cache lié secondaire.
@@ -88,7 +80,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="remove-a-geo-replication-link"></a>Supprimer un lien de géoréplication
 
-1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, dans le panneau **Géoréplication**, cliquez sur **Dissocier les caches**.
+1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication**.
     
     ![Dissocier les caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -101,23 +93,23 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="geo-replication-faq"></a>FAQ concernant la géoréplication
 
-- [Puis-je utiliser la géoréplication avec un cache de niveau Standard ou De base ?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
+- [Puis-je utiliser la géoréplication avec un cache de niveau Standard ou De base ?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
 - [Mon cache est-il disponible pendant le processus de liaison ou de dissociation ?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
 - [Puis-je lier plus de deux caches ?](#can-i-link-more-than-two-caches-together)
 - [Puis-je lier deux caches d’abonnements Azure différents ?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Puis-je lier deux caches de tailles différentes ?](#can-i-link-two-caches-with-different-sizes)
-- [Puis-je utiliser la géoréplication quand le clustering est activé ?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Puis-je utiliser la géoréplication quand le clustering est activé ?](#can-i-use-geo-replication-with-clustering-enabled)
+- [Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [Quelle est la planification de réplication pour la géoréplication Redis ?](#what-is-the-replication-schedule-for-redis-geo-replication)
 - [Quelle est la durée de réplication pour la géoréplication ?](#how-long-does-geo-replication-replication-take)
 - [Y a-t-il un point de récupération de la réplication garanti ?](#is-the-replication-recovery-point-guaranteed)
-- [Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
+- [Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [Combien coûte la réplication de mes données entre des régions Azure ?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [Pourquoi ma tentative de suppression de mon cache lié a-t-elle échoué ?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Quelle région dois-je utiliser pour mon cache lié secondaire ?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Comment fonctionne le basculement vers le cache lié secondaire ?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Puis-je utiliser la géoréplication avec un cache de niveau Standard ou De base ?
+### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Puis-je utiliser la géoréplication avec un cache de niveau Standard ou De base ?
 
 Non, la géoréplication est disponible uniquement pour des caches de niveau Premium.
 
@@ -139,13 +131,13 @@ Non, les deux caches doivent figurer dans le même abonnement Azure.
 
 Oui, pour autant que le cache lié secondaire soit plus grand que le cache lié principal.
 
-### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Puis-je utiliser la géoréplication quand le clustering est activé ?
+### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Puis-je utiliser la géoréplication quand le clustering est activé ?
 
 Oui, pour autant que les deux caches aient le même nombre de partitions.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?
 
-Oui, la géoréplication de caches dans des réseaux virtuels est prise en charge avec des mises en garde :
+Oui, la géoréplication de caches dans des réseaux virtuels est prise en charge avec des mises en garde :
 
 - La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge.
 - La géoréplication entre caches figurant dans des réseaux virtuels différents est également prise en charge.
@@ -168,7 +160,7 @@ Pour les caches en mode géorépliqué, la persistance est désactivée. Si une 
 
 Pour obtenir un point de récupération, [exportez](cache-how-to-import-export-data.md#export) à partir de l'un ou l'autre des caches. Vous pourrez ensuite [importer](cache-how-to-import-export-data.md#import) dans le cache lié principal.
 
-### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?
+### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?
 
 Oui, la géoréplication peut être gérée à l'aide du portail Azure, de PowerShell ou d'Azure CLI. Pour plus d'informations, consultez la documentation de [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou d'[Azure CLI](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
@@ -178,7 +170,7 @@ Lorsque vous utilisez la géoréplication, les données du cache lié principal 
 
 ### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Pourquoi ma tentative de suppression de mon cache lié a-t-elle échoué ?
 
-Les caches géorépliqués et leurs groupes de ressources ne peuvent pas être supprimés tant qu'ils sont liés. Vous devez d'abord supprimer le lien de géoréplication. Si vous tentez de supprimer le groupe de ressources contenant l’un des caches liés ou les deux, les autres ressources du groupe sont supprimées, mais le groupe de ressources reste dans l’état `deleting` et les caches liés dans le groupe de ressources restent dans l’état `running`. Pour supprimer complètement le groupe de ressources et les caches liés qu'il contient, dissociez les caches comme décrit dans [Supprimer un lien de géoréplication](#remove-a-geo-replication-link).
+Les caches géorépliqués et leurs groupes de ressources ne peuvent pas être supprimés tant qu'ils sont liés. Vous devez d'abord supprimer le lien de géoréplication. Si vous tentez de supprimer le groupe de ressources contenant l’un des caches liés ou les deux, les autres ressources du groupe sont supprimées, mais le groupe de ressources reste dans l’état `deleting` et les caches liés dans le groupe de ressources restent dans l’état `running`. Pour supprimer complètement le groupe de ressources et les caches liés qu’il contient, dissociez les caches comme décrit dans [Supprimer un lien de géoréplication](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Quelle région dois-je utiliser pour mon cache lié secondaire ?
 

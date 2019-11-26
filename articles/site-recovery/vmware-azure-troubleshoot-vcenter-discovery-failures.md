@@ -1,20 +1,20 @@
 ---
-title: Résoudre les problèmes de restauration automatique sur l’infrastructure locale pendant la reprise d’activité de machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment résoudre les problèmes de restauration automatique et de reprotection pendant la reprise d’activité de machines virtuelles VMware sur Azure avec Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+title: Résoudre les problèmes d’échec de découverte de VMware vCenter dans Azure Site Recovery
+description: Cet article explique comment résoudre les problèmes d’échec de découverte de VMware vCenter dans Azure Site Recovery.
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970851"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091250"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>Résoudre les problèmes d’échec de découverte vCenter
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Résoudre les problèmes d’échec de découverte de vCenter Server
 
 Cet article vous aide à résoudre les problèmes qui surviennent pour cause d’échecs de découverte de VMware vCenter.
 

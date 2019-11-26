@@ -1,5 +1,6 @@
 ---
-title: Considérations Xamarin iOS (Microsoft Authentication Library pour .NET) | Azure
+title: Considérations sur Xamarin iOS (bibliothèque d’authentification Microsoft pour .NET)
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur les considérations spécifiques lors de l’utilisation de Xamarin iOS avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872844"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175618"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considérations spécifiques à Xamarin iOS avec MSAL.NET
 Sur Xamarin iOS, il existe plusieurs considérations à prendre en compte lors de l’utilisation de MSAL.NET
@@ -117,7 +118,7 @@ Il a été mentionné précédemment que MSAL ajoute le préfixe $ (AppIdentifie
 Votre application peut utiliser Microsoft Authenticator (un répartiteur) pour activer :
 
 - L’authentification unique. Vos utilisateurs n’ont pas besoin de se connecter à chaque application.
-- L’identification des appareils. En accédant au certificat de l’appareil qui a été créé sur celui-ci lors de son rattachement à un espace de travail. Votre application sera prête si les administrateurs locataires activent l'accès conditionnel lié aux appareils.
+- L’identification des appareils. En accédant au certificat de l’appareil qui a été créé sur celui-ci lors de son rattachement à un espace de travail. Votre application sera prête si les administrateurs clients activent l’accès conditionnel lié aux appareils.
 - Vérification de l’identification de l’application. Lorsqu’une application appelle le répartiteur, elle transmet son URL de redirection et le répartiteur la vérifie.
 
 Pour plus de détails sur l’activation du répartiteur, voir [Utiliser le portail d'entreprise Microsoft Authenticator ou Microsoft Intune sur des applications Xamarin iOS et Android](msal-net-use-brokers-with-xamarin-apps.md).

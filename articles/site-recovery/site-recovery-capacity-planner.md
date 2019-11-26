@@ -1,19 +1,19 @@
 ---
-title: Planifier la capacité pour la reprise d’activité d’Hyper-V avec Azure Site Recovery | Microsoft Docs
+title: Planifier la capacité pour la reprise d’activité d’Hyper-V avec Azure Site Recovery
 description: Aidez-vous de cet article pour estimer la capacité à planifier quand vous configurez la reprise d’activité avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 7501982f90cd145e0fc918bf976a840323a31127
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972573"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936040"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planifier la capacité pour la reprise d’activité de machines virtuelles Hyper-V 
 

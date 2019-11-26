@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure ExpressRoute avec Azure Site Recovery pour la reprise d’activité et la migration | Microsoft Docs
+title: À propos de l’utilisation d’ExpressRoute avec Azure Site Recovery
 description: Cet article décrit comment utiliser Azure ExpressRoute avec Azure Site Recovery pour la reprise d’activité et la migration.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 97aea824fac60f8bed71971a416f12e8df0e5e64
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333067"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954073"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
 

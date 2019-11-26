@@ -1,24 +1,19 @@
 ---
 title: 'Application Insights : langages, plateformes et intégrations | Microsoft Docs'
 description: Langages, plateformes et intégrations disponibles pour Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.author: mbullwin
-ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 01cebc3a86808d549f1a7dc3adfd2883bc289076
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878796"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061451"
 ---
 # <a name="supported-languages"></a>Langues prises en charge
 
@@ -26,6 +21,7 @@ ms.locfileid: "68878796"
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
+* [Python (préversion)](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>Plateformes et infrastructures prises en charge
 
@@ -42,6 +38,7 @@ ms.locfileid: "68878796"
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
+* [Python (préversion)](../../azure-monitor/app/opencensus-python.md)
 * [Application Windows universelle](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Rôles de travail, services et applications de bureau Windows](../../azure-monitor/app/windows-desktop.md)
 

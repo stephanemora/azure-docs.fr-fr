@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a02e690e344678b512503f8c3beb57023a838ac0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4ce0d4ecd64273bcb3226b4b543ba378aad538c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686663"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078952"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -358,14 +358,14 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
 
 ## <a name="exceptions"></a>Exceptions
 
-Les règles de réseau vous aident à créer un environnement sécurisé pour les connexions entre vos applications et vos données dans la plupart des scénarios. Toutefois, certaines applications font appel à des services qui ne peuvent pas être isolés individuellement par le biais de règles de réseau virtuel ou d’adresses IP. Pour autant, ces services doivent avoir accès au stockage afin d’activer toutes les fonctionnalités des applications. Dans ces cas de figure, vous pouvez utiliser le paramètre ***Autoriser les services Microsoft approuvés...*** pour activer l’accès à vos données, journaux ou analyses.
+Les règles de réseau vous aident à créer un environnement sécurisé pour les connexions entre vos applications et vos données dans la plupart des scénarios. Toutefois, certaines applications font appel à des services Azure qui ne peuvent pas être isolés individuellement par le biais de règles de réseau virtuel ou d’adresses IP. Pour autant, ces services doivent avoir accès au stockage afin d’activer toutes les fonctionnalités des applications. Dans ces cas de figure, vous pouvez utiliser le paramètre ***Autoriser les services Microsoft approuvés...*** pour activer de tels services afin d’accéder à vos données, journaux ou analyses.
 
 ### <a name="trusted-microsoft-services"></a>Services Microsoft approuvés
 
-Certains services Microsoft fonctionnent à partir de réseaux qui ne peuvent pas être inclus dans vos règles de réseau. Vous pouvez accorder à une partie de ces services Microsoft approuvés l’accès au compte de stockage, mais conserver des règles de réseau pour d’autres applications. Ces services approuvés peuvent ensuite se connecter à votre compte de stockage de manière sécurisée à l’aide de l’authentification renforcée. Nous autorisons deux types d’accès approuvé pour les services Microsoft.
+Certains services Microsoft fonctionnent à partir de réseaux qui ne peuvent pas être inclus dans vos règles de réseau. Vous pouvez accorder à une partie de ces services Microsoft approuvés l’accès au compte de stockage, mais conserver des règles de réseau pour d’autres applications. Ces services approuvés se connectent ensuite à votre compte de stockage de manière sécurisée à l’aide de l’authentification renforcée. Nous autorisons deux modes d’accès approuvés pour les services Microsoft.
 
 - Les ressources de certains services, **quand ils sont inscrits dans votre abonnement**, peuvent accéder à votre compte de stockage **dans le même abonnement** pour des opérations spécifiques, comme la journalisation ou la sauvegarde.
-- Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en [**attribuant un rôle RBAC**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à l’instance de la ressource.
+- Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en **attribuant un rôle RBAC** à son identité managée attribuée par le système.
 
 
 Quand vous activez le paramètre **Autoriser les services Microsoft approuvés...** , les ressources des services suivants qui sont inscrites dans le même abonnement que votre compte de stockage bénéficient d’un accès pour un ensemble limité d’opérations, comme décrit ci-dessous :
@@ -383,15 +383,15 @@ Quand vous activez le paramètre **Autoriser les services Microsoft approuvés..
 | Mise en réseau Azure         | Microsoft.Network          | Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Activez la réplication pour la reprise d’activité des machines virtuelles Azure IaaS lors de l’utilisation de comptes de stockage de cache avec pare-feu activé, de stockage source ou de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
-Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous attribuez explicitement un rôle RBAC à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource.
+Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous [attribuez explicitement un rôle RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle RBAC affecté à l’identité managée.
 
 | Service                        | Nom du fournisseur de ressources          | Objectif                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | Autorise l’accès aux comptes de stockage par le biais du Runtime ADF. |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | Permet aux applications logiques d’accéder aux comptes de stockage. [Plus d’informations](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md) |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | Permet aux applications logiques d’accéder aux comptes de stockage. [Plus d’informations](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
 | Service Azure Machine Learning | Microsoft.MachineLearningServices | Les espaces de travail Azure Machine Learning autorisés écrivent des sorties, des modèles et des journaux expérimentaux dans le stockage d’objets blob. [Plus d’informations](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                   | Permet l’importation et l’exportation de données d’instances SQL Database spécifiques à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Autorise l’écriture des données d’une tâche de streaming dans le stockage d’objets blob. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. [Plus d’informations](/azure/stream-analytics/blob-output-managed-identity.md) |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Autorise l’écriture des données d’une tâche de streaming dans le stockage d’objets blob. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. [Plus d’informations](/azure/stream-analytics/blob-output-managed-identity) |
 
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics

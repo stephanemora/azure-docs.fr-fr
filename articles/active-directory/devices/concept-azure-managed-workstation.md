@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562165"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200220"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -91,7 +91,7 @@ Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aide
 
 * **Sécurité renforcée** :cette solution protégée d’entrée de gamme convient aux particuliers, aux utilisateurs des petites entreprises et aux développeurs généraux.
 
-   La station de travail renforcée est basée sur des stratégies et permet d’améliorer la sécurité du profil de sécurité faible. Elle constitue un moyen sécurisé de travailler avec des données client en utilisant également des outils de productivité comme la messagerie et la navigation web. Vous pouvez utiliser des stratégies d’audit et Intune pour surveiller une station de travail renforcée en termes de comportement des utilisateurs et d’utilisation des profils. Déployez le profil de station de travail renforcée avec le script Windows10 (1809), qui lui permet de tirer parti de la protection avancée contre les programmes malveillants avec [Advanced Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   La station de travail renforcée est basée sur des stratégies et permet d’améliorer la sécurité du profil de sécurité faible. Elle constitue un moyen sécurisé de travailler avec des données client en utilisant également des outils de productivité comme la messagerie et la navigation web. Vous pouvez utiliser des stratégies d’audit et Intune pour surveiller une station de travail renforcée en termes de comportement des utilisateurs et d’utilisation des profils. Déployez le profil de station de travail renforcée avec le script Windows10 (1809), qui lui permet de tirer parti de la protection avancée contre les programmes malveillants avec [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Haute sécurité** : le moyen le plus efficace de réduire la surface d’attaque d’une station de travail consiste à supprimer la possibilité d’administrer soi-même la station de travail. La suppression des droits d’administrateur local améliore la sécurité, mais cela peut avoir un impact sur la productivité si cette approche implémentée de manière incorrecte. Le profil haute sécurité s’appuie sur le profil de sécurité renforcée à une différence notable : la suppression de l’administrateur local. Ce profil est conçu pour les utilisateurs importants : cadres, utilisateurs responsables de la paie et des données sensibles, approbateurs de services et processus.
 

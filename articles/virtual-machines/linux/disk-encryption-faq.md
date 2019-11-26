@@ -1,5 +1,5 @@
 ---
-title: FAQ - Azure Disk Encryption pour les machines virtuelles Linux | Microsoft Docs
+title: FAQ - Azure Disk Encryption pour les machines virtuelles Linux
 description: Cet article offre des réponses aux questions fréquentes sur Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Linux.
 author: msmbaldwin
 ms.service: security
@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8d31c8df4d073ccd744e792d1316ce02e4bf387
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829998"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036347"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -73,11 +73,11 @@ Vous ne pouvez pas utiliser le service de gestion de clés local ou HSM pour pro
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Quels sont les composants requis pour configurer Azure Disk Encryption ?
 
-Azure Disk Encryption a des prérequis. Consultez l’article [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md) pour créer un nouveau coffre de clés ou en configurer un existant pour l’accès au chiffrement de disque, pour activer le chiffrement et protéger des secrets et des clés. Pour plus d’informations sur les scénarios de prise en charge des clés de chiffrement principales, consultez [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md).
+Azure Disk Encryption a des prérequis. Consultez l’article [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md) pour créer un coffre de clés ou en configurer un existant afin d’activer l’accès au chiffrement de disque et protéger des secrets et des clés. Pour plus d’informations sur les scénarios de prise en charge des clés de chiffrement principales, consultez [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Quels sont les prérequis pour configurer Azure Disk Encryption avec une application Azure AD (version précédente) ?
 
-Azure Disk Encryption a des prérequis. Consultez l’article [Azure Disk Encryption avec Azure AD](disk-encryption-linux-aad.md) pour créer une application Azure Disk Encryption, créer un nouveau coffre de clés ou en configurer un existant pour l’accès au chiffrement de disque, pour activer le chiffrement et protéger des secrets et des clés. Pour plus d’informations sur les scénarios de prise en charge des clés de chiffrement principales, consultez [Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD](disk-encryption-key-vault-aad.md).
+Azure Disk Encryption a des prérequis. Consultez l’article [Azure Disk Encryption avec Azure AD](disk-encryption-linux-aad.md) pour créer une application Azure Active Directory et créer un coffre de clés ou en configurer un existant afin d’activer l’accès au chiffrement de disque et protéger des secrets et des clés. Pour plus d’informations sur les scénarios de prise en charge des clés de chiffrement principales, consultez [Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD](disk-encryption-key-vault-aad.md).
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>La technologie Azure Disk Encryption utilisant une application Azure AD (version précédente) est-elle toujours pris en charge ?
 Oui. Le chiffrement de disque à l’aide d’une application Azure AD est toujours pris en charge. Cependant, lors du chiffrement de nouvelles machines virtuelles, il est recommandé d’utiliser la nouvelle méthode plutôt que le chiffrement avec une application Azure AD. 

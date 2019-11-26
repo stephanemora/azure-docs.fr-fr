@@ -1,23 +1,18 @@
 ---
 title: Surveiller les services Node.js avec Azure Application Insights | Microsoft Docs
 description: Analysez les performances et diagnostiquez les problèmes dans les services Node.js avec Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255281"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820729"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -35,7 +30,7 @@ Terminez les tâches suivantes pour configurer la surveillance d’une applicati
 
 ### <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [obtenez-en un gratuitement][azure-free-offer]. Si votre organisation possède déjà un abonnement Azure, un administrateur peut suivre [ces instructions][add-aad-user] pour vous y ajouter.
+Avant de commencer, vérifiez que vous disposez d’un abonnement Azure ou [obtenez-en un gratuitement][azure-free-offer]. Si votre organisation possède déjà un abonnement Azure, un administrateur peut suivre [ces instructions][add-aad-user] pour vous y ajouter.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -44,7 +39,7 @@ Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [o
 ### <a name="resource"></a> Configurer une ressource Application Insights
 
 
-1. Connectez-vous au [portail Azure][portal].
+1. Connectez-vous au [Portail Azure][portal].
 2. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**. La ressource inclut un point de terminaison permettant de recevoir les données de télémétrie, le stockage pour ces données, les rapports et tableaux de bord enregistrés, la configuration des règles et des alertes, etc.
 
 3. Sur la page de création de ressource, sélectionnez **Application Node.js** dans la zone **Application Type**. Le type d’application détermine les tableaux de bord et rapports créés par défaut. (Toutes les ressources Application Insights peuvent collecter des données à partir de n’importe quel langage et n’importe quelle plateforme.)
@@ -83,7 +78,7 @@ Incluez le kit de développement logiciel dans votre application afin qu’il co
 
 Le kit de développement logiciel (SDK) recueille automatiquement les données de télémétrie sur le runtime Node.js et certains modules tiers courants. Utilisez votre application pour générer certaines de ces données.
 
-Ensuite, dans le [portail Azure][portal], allez dans la ressource Application Insights que vous avez créée. Dans la **Vue d’ensemble de la chronologie**, cherchez vos premiers points de données. Pour voir plus de données détaillées, sélectionnez des composants différents dans les graphiques.
+Ensuite, sur le [Portail Azure][portal], accédez à la ressource Application Insights que vous avez créée. Dans la **Vue d’ensemble de la chronologie**, cherchez vos premiers points de données. Pour voir plus de données détaillées, sélectionnez des composants différents dans les graphiques.
 
 Pour consulter la topologie découverte pour votre application sélectionnez le bouton **Mappage d’application**. Sélectionnez les composants pour plus de détails.
 
@@ -101,7 +96,7 @@ Pour en savoir plus sur votre application et pour résoudre d’éventuels probl
 * Cliquez sur **Actualiser** dans l’affichage des ressources du portail. Les graphiques s’actualisent périodiquement et automatiquement. Les actualiser manuellement les force à s’actualiser immédiatement.
 * Vérifiez que les [ports sortants requis](../../azure-monitor/app/ip-addresses.md) sont ouverts.
 * Utilisez la fonction [Recherche](../../azure-monitor/app/diagnostic-search.md) pour chercher des événements spécifiques.
-* Consultez le [FAQ][FAQ].
+* Consultez les [FAQ][FAQ].
 
 
 ## <a name="sdk-configuration"></a>Configuration du kit de développement logiciel (SDK)

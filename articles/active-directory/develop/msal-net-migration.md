@@ -1,5 +1,6 @@
 ---
-title: Migration vers MSAL.NET | Azure
+title: Migrer vers MSAL.NET
+titleSuffix: Microsoft identity platform
 description: Découvrez les différences entre Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’authentification Azure AD pour .NET (ADAL.NET)et apprenez à effectuer une migration vers MSAL.NET.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 5059acea753b4b8b7db80bfc79b4bb9718e0484e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264271"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175565"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -30,7 +31,7 @@ Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’au
 
 - vous pouvez authentifier un ensemble plus large d'identités Microsoft (identités Azure AD et comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d'Azure AD B2C) via le point de terminaison de la plateforme d'identités Microsoft ;
 - vos utilisateurs bénéficieront de la meilleure expérience d'authentification unique ;
-- votre application peut activer le consentement incrémentiel, et l'accès conditionnel est plus facile à prendre en charge ;
+- votre application peut activer le consentement incrémentiel, et l’accès conditionnel est plus facile à prendre en charge ;
 - vous bénéficiez de l'innovation.
 
 **MSAL.NET est désormais la bibliothèque d'authentification recommandée avec la plateforme d'identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
@@ -82,7 +83,7 @@ MSAL.NET a des exceptions plus explicites. Par exemple, quand une authentificati
 ```csharp
 catch(AdalException exception)
 {
- if (exception.ErrorCode == “user_interaction_required”)
+ if (exception.ErrorCode == "user_interaction_required")
  {
   try
   {“try to authenticate interactively”}}
@@ -181,7 +182,7 @@ Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avertissement : Une ou deux barres obliques dans l’étendue correspondant à une API web v1.0 ?

@@ -1,29 +1,24 @@
 ---
 title: Surveillez l'intégrité et l'utilisation de votre application avec Application Insights
 description: Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373084"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899297"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
 
-Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] vous signale tous les problèmes de performances et les exceptions, et vous aide à trouver et à diagnostiquer les causes principales.
+Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] signale tous les problèmes de performances et toutes les exceptions, et aide à trouver et à diagnostiquer les causes racines.
 
 Application Insights peut surveiller les services WCF, ainsi que les applications et services web Java et ASP.NET. Ils peuvent être hébergés localement, sur des machines virtuelles, ou en tant que sites web Microsoft Azure. 
 
@@ -108,11 +103,11 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 ## <a name="diagnosis"></a>Problèmes de diagnostic
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
-* Configurez des [tests web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
+* Configurez des [tests web][availability] pour recevoir une alerte en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
-* [Insérez et recherchez des instructions de trace][diagnostic] dans votre code pour vous aider à identifier les problèmes.
-* Surveillez votre application Web en cours avec le [Flux de métriques temps réel][livestream].
-* Capturez l’état de votre application .Net avec le [Débogueur de capture instantanée][snapshot].
+* [Insérez et recherchez des déclarations de trace][diagnostic] dans votre code pour identifier plus facilement les problèmes.
+* Surveillez votre application web en cours de fonctionnement avec le [Flux de métriques temps réel][livestream].
+* Capturez l’état de votre application .NET avec le [Débogueur de capture instantanée][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Rechercher et corriger les goulots d’étranglement avec une expérience analyse de performances
 
@@ -140,11 +135,11 @@ L’expérience d’analyse des performances montre des informations pertinentes
 
 
 ## <a name="next"></a>Étapes suivantes
-[Tests web][availability] : faites envoyer des demandes web à votre application à intervalles réguliers et depuis n’importe où dans le monde.
+[Tests web][availability] : faites envoyer des requêtes web à votre application à intervalles réguliers et partout dans le monde.
 
-[Capture et recherche de traces de diagnostic][diagnostic] : insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.
+[Capturer et rechercher des traces de diagnostic][diagnostic] : insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.
 
-[Suivi de l’utilisation][usage] : découvrez comment ce que les utilisateurs font avec votre application.
+[Suivi de l’utilisation][usage] : découvrez ce que font les utilisateurs avec votre application.
 
 [Résolution des problèmes][qna] et Questions et réponses
 

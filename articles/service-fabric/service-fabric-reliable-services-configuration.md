@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723548"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242890"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
@@ -125,6 +125,7 @@ ReplicatorConfig
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SlowApiMonitoringDuration |Secondes |300 |Définit l’intervalle de surveillance pour les appels d’API gérées. Exemple : fonction de rappel de sauvegarde fournie par l’utilisateur. Une fois l’intervalle écoulé, un rapport d’intégrité Warning sera adressé au Gestionnaire d’intégrité. |
 | LogTruncationIntervalSeconds |Secondes |0 |Intervalle configurable à partir duquel la troncature des journaux se lance sur chaque réplica. Il permet de s’assurer que le journal est également tronqué en fonction du temps plutôt que de sa taille uniquement. Ce paramètre permet également de forcer le vidage des entrées supprimées dans un dictionnaire fiable. Il peut donc servir à s’assurer que les éléments supprimés sont nettoyés en temps opportun. |
+| EnableStableReads |Boolean |False |Le fait d’activer les lectures stables a pour effet de restreindre les réplicas secondaires aux valeurs retournées demandées par le quorum. |
 
 ### <a name="sample-configuration-via-code"></a>Exemple de configuration au moyen du code
 ```csharp

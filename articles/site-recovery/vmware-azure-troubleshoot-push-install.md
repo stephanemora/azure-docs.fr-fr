@@ -1,20 +1,20 @@
 ---
-title: Résoudre les erreurs d’installation Push du service Mobilité lors de l’activation de la réplication dans le cadre d’une récupération d’urgence | Microsoft Docs
-description: Résoudre les erreurs d’installation des services Mobilité lors de l’activation de la réplication dans le cadre d’une récupération d’urgence
+title: Résoudre les problèmes d’installation Push du service Mobilité avec Azure Site Recovery
+description: Résolvez les erreurs d’installation des services Mobilité lors de l’activation de la réplication dans le cadre d’une récupération d’urgence avec Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
-ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3646499ad2104566cb82f3f26c6b55d05f84dc7d
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910636"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953772"
 ---
-# <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
+# <a name="troubleshoot-mobility-service-push-installation"></a>Résoudre les problèmes d’installation Push du service Mobilité 
 
 L’installation du service Mobilité est une étape clé de l’activation de la réplication. La réussite de cette étape dépend uniquement de la satisfaction des conditions préalables et de l’utilisation des configurations prises en charge. Les erreurs les plus courantes que vous rencontrez au cours de l’installation du service Mobilité sont dues aux :
 

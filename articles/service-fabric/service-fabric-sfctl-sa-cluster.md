@@ -3,22 +3,23 @@ title: Interface de ligne de commande Azure Service Fabric - sfctl sa-cluster | 
 description: Décrit les commandes de cluster autonome sfctl de l’interface de ligne de commande Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 902ebab5dc12d7649edd0ed6e594e663e5332ce3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035231"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901012"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Permet de gérer les clusters Service Fabric autonomes.
@@ -41,7 +42,7 @@ La configuration du cluster contient les propriétés du cluster qui incluent de
 |Argument|Description|
 | --- | --- |
 | --configuration-api-version [requis] | Version de l’API de la configuration json du cluster autonome. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -68,7 +69,7 @@ Valide les paramètres de mise à niveau de la configuration fournis et démarre
 | --health-check-retry | Délai séparant les tentatives d'exécution des contrôles d'intégrité si l'application ou le cluster n'est pas sain.  Valeur par défaut \: PT0H0M0S. |
 | --health-check-stable | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant.  Valeur par défaut \: PT0H0M0S. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
 | --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité.  Valeur par défaut \: PT0H0M0S. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 | --unhealthy-applications | Pourcentage maximal autorisé d’applications non saines au cours de la mise à niveau. Les valeurs autorisées sont les valeurs entières comprises entre zéro et 100. |
 | --unhealthy-nodes | Pourcentage maximal autorisé de nœuds non sains au cours de la mise à niveau. Les valeurs autorisées sont les valeurs entières comprises entre zéro et 100. |
 | --upgrade-domain-delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds delta de domaine de mise à niveau pendant la mise à niveau. Les valeurs autorisées sont les valeurs entières comprises entre zéro et 100. |
@@ -88,10 +89,9 @@ Valide les paramètres de mise à niveau de la configuration fournis et démarre
 ### <a name="examples"></a>Exemples
 
 Lancer une mise à jour de la configuration du cluster
-
-```
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+``` 
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-    
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"   
 ```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
@@ -103,7 +103,7 @@ Permet d’obtenir les détails de l’état de mise à niveau de la configurati
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

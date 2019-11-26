@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d44b868f2ea92c2d7bb8d7139822112a8545045
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787460"
+ms.locfileid: "72809257"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -62,6 +62,8 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 - L’utilisateur désactive l’appareil à partir du portail Mes applications. 
 - Un administrateur (ou un utilisateur) supprime ou désactive l’appareil dans le portail Azure ou à l’aide de PowerShell.
 - Valable uniquement pour les appareils hybrides joints à Azure AD : Un administrateur supprime l’unité d’organisation Appareils de l’étendue de synchronisation, ce qui entraîne la suppression des appareils dans Azure AD.
+- Mise à niveau d’AAD Connect vers la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+
 
 Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
@@ -137,7 +139,7 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 >[!NOTE]
 >Un appareil peut également passer d’un état inscrit à « en attente » :
 >* Si un appareil est supprimé d’Azure AD puis resynchronisé à partir d’un Active Directory local.
->* S’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
+>* s’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
 >
 >Dans les deux cas, vous devez réinscrire l’appareil manuellement sur chacun de ces appareils. Pour vérifier si l’appareil a déjà été inscrit, vous pouvez [résoudre les problèmes liés aux appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
 

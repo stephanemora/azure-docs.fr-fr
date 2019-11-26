@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828614"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896953"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 
@@ -130,15 +130,12 @@ Azure utilise les paramètres suivants pour créer le pool de stockage sur les m
 | Tailles du disque |1 To chacun |
 | Cache |Lire |
 | Taille d'allocation |Taille d'unité d'allocation NTFS = 64 Ko |
-| Initialisation instantanée des fichiers |activé |
-| Verrouillage des pages en mémoire |activé |
-| Récupérer |Récupération simple (sans résilience) |
-| Nombre de colonnes |Nombre de disques de données<sup>1</sup> |
-| Emplacement de TempDB |Stocké sur les disques de données<sup>2</sup> |
+| Récupération | Récupération simple (sans résilience) |
+| Nombre de colonnes |Nombre de disques de données, 8 maximum<sup>1</sup> |
+
 
 <sup>1</sup> Une fois le pool de stockage créé, vous ne pouvez pas modifier le nombre de colonnes qu’il contient.
 
-<sup>2</sup> Ce paramètre s’applique uniquement au premier lecteur que vous créez à l’aide de la fonctionnalité de configuration du stockage.
 
 ## <a name="workload-optimization-settings"></a>Paramètres d’optimisation de la charge de travail
 

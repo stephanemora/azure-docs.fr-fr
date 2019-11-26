@@ -1,5 +1,5 @@
 ---
-title: Extension de machine virtuelle Azure Key Vault pour Linux | Microsoft Docs
+title: Extension de machine virtuelle Azure Key Vault pour Linux
 description: Déployez un agent réalisant une actualisation automatique des certificats Key Vault sur des machines virtuelles à l’aide d’une extension de machine virtuelle.
 services: virtual-machines-linux
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584380"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073000"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 

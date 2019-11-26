@@ -1,5 +1,5 @@
 ---
-title: Comprendre et ajuster les unités de streaming dans Azure Stream Analytics
+title: Unités de streaming dans Azure Stream Analytics
 description: Cet article décrit le paramètre d’unités de diffusion en continu et d’autres facteurs qui affectent les performances dans Azure Stream Analytics.
 services: stream-analytics
 author: JSeb225
@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.date: 10/28/2019
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329335"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961274"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -34,6 +34,7 @@ La métrique de pourcentage d’utilisation des unités de streaming, comprise e
     ![Configuration d’un travail Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
     
 4. Définissez les unités SU pour le travail à l’aide du curseur. Notez que vous êtes limité à des paramètres d’unité SU spécifiques. 
+5. Vous pouvez modifier le nombre d’unités SU affectées à votre travail, même s’il est en cours d’exécution. Cela n’est pas possible si votre travail utilise une [sortie non partitionnée](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou dispose d’une[ requête à plusieurs étapes avec différentes valeurs PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Vote travail doit également disposer d’au moins 6 unités SU pour modifier ce paramètre lorsque le travail est en cours d’exécution. Vous pouvez éventuellement choisir parmi un ensemble de valeurs SU lorsque le travail est en cours d’exécution. 
 
 ## <a name="monitor-job-performance"></a>Surveillance des performances du travail
 À l’aide du portail Azure, vous pouvez suivre le débit d’un travail :
@@ -110,7 +111,7 @@ Le nombre d’événements sans correspondance de la jointure affecte la consomm
 
 Dans cet exemple, il est possible qu’un grand nombre de publicités s’affichent et que quelques personnes cliquent dessus ; cette configuration est requise pour conserver l’ensemble des événements dans la fenêtre de temps. La consommation de mémoire est proportionnelle à la taille de la fenêtre et au taux d’événements. 
 
-Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (id dans ce cas) et augmentez la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
+Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (ID dans ce cas) et augmentez la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
 
    ```sql
    SELECT clicks.id

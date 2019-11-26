@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4bdf496995e8b466f1346bfe16365b251c6853c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490424"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076050"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
@@ -98,6 +98,9 @@ Chaque élément du manifeste de déploiement contient des informations sur un m
    * `on-failure` : si le module se bloque, l’agent IoT Edge le redémarre. Si le module se ferme correctement, l’agent IoT Edge ne le redémarre pas.
    * `on-unhealthy` : si le module plante ou est considéré comme non sain, l’agent IoT Edge le redémarre.
    * `always` : si le module plante, est considéré comme non sain ou s’arrête d’une façon quelconque, l’agent IoT Edge le redémarre. 
+* **imagePullPolicy** : indique si l’agent IoT Edge tente d’extraire automatiquement la dernière image d’un module. Si vous ne spécifiez aucune valeur, la valeur par défaut est *onCreate*. Les valeurs possibles incluent : 
+   * `on-create` : lorsque vous démarrez un module ou que vous mettez à jour un module basé sur un nouveau manifeste de déploiement, l’agent IoT Edge tente d’extraire l’image du module à partir du registre de conteneurs.
+   * `never` : l’agent IoT Edge ne tentera jamais d’extraire l’image du module à partir du registre de conteneurs. L’image du module devrait être mise en cache sur l’appareil et toutes les mises à jour de celle-ci devraient être effectuées manuellement ou gérées par une solution tierce. 
 
 L’agent IoT Edge envoie la réponse d’exécution à IoT Hub. Voici une liste de réponses possibles :
   * 200 - OK

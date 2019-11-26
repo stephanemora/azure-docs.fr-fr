@@ -1,6 +1,6 @@
 ---
-title: Sortie et points de terminaison dans Azure Digital Twins | Microsoft Docs
-description: Instructions pour la création de points de terminaison avec Azure Digital Twins.
+title: Sortie et points de terminaison - Azure Digital Twins | Microsoft Docs
+description: Découvrez comment créer et sortir des points de terminaison d’événement dans Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822271"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010052"
 ---
-# <a name="egress-and-endpoints"></a>Sortie et points de terminaison
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Sortie et points de terminaison dans Azure Digital Twins
 
 Les *points de terminaison* Azure Digital Twins représentent un répartiteur de messages ou d’événements au sein d’un abonnement Azure. Les événements et les messages peuvent être envoyés aux rubriques Azure Event Hubs, Azure Event Grid et Azure Service Bus.
 

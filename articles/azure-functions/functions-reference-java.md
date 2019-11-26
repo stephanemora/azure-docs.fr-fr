@@ -1,22 +1,19 @@
 ---
 title: Information de référence pour les développeurs Java sur Azure Functions | Microsoft Docs
 description: Découvrez comment développer des fonctions à l’aide de Java.
-services: functions
-documentationcenter: na
-author: rloutlaw
-manager: justhe
+author: ggailey777
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: routlaw
-ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: glenga
+ms.openlocfilehash: 97c721c504c460856796e296fefc33bf01f002f8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299394"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176439"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -30,33 +27,44 @@ Cet article suppose que vous ayez déjà lu l’article [Informations de référ
 
 Les concepts de [déclencheurs et liaisons](functions-triggers-bindings.md) sont fondamentaux pour Azure Functions. Les déclencheurs démarrent l’exécution de votre code. Les liaisons vous permettent de transmettre des données et de retourner des données à partir d’une fonction, sans avoir à écrire du code d’accès aux données personnalisées.
 
-## <a name="project-scaffolding"></a>Génération de modèles automatique du projet
+## <a name="create-java-functions"></a>Créer des fonctions Java
 
-La façon la plus simple de générer un modèle automatique pour un projet de Fonction Azure basé sur Java consiste à utiliser des archétypes `Apache Maven`. Vous pouvez également trouver des assistants de génération de projet sur Visual Studio Code, ainsi que les boîtes à outils Azure pour Eclipse et IntelliJ.
+Pour faciliter la création de fonctions Java, il existe des outils basés sur Maven et des archétypes qui utilisent des modèles Java prédéfinis pour permettre de créer des projets avec un déclencheur de fonction spécifique.    
 
-Il existe actuellement deux archétypes Azure Functions pour Maven :
+### <a name="maven-based-tooling"></a>Outils basés sur Maven
 
-### <a name="java-archetype"></a>Archétype Java
+Les environnements de développement suivants comportent des outils Azure Functions qui permettent de créer des projets de fonctions Java : 
 
-Cet archétype est publié sou les groupId et artifactId suivants [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Eclipse](functions-create-maven-eclipse.md)
++ [IntelliJ](functions-create-maven-intellij.md)
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
-```
+Les liens d’articles ci-dessus vous montrent comment créer vos premières fonctions dans l’environnement IDE de votre choix. 
 
-### <a name="kotlin-archetype-preview"></a>Archétype Kotlin (préversion)
+### <a name="project-scaffolding"></a>Génération de modèles automatique du projet
 
-Cet archétype est publié sou les groupId et artifactId suivants [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+Si vous préférez le développement en ligne de commande dans le terminal, le moyen le plus simple de définir la structure de projets de fonctions Java consiste à utiliser des archétypes `Apache Maven`. Il existe actuellement deux archétypes Functions pour Maven :
 
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
++ **Archétype Java** : publié sous le groupId et l’artifactId suivants [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/) :
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-archetype 
+    ```
+
+    Pour apprendre à utiliser cet archétype, voir le [démarrage rapide Java](functions-create-first-java-maven.md). 
+
++ **Archétype Kotlin (préversion)** : publié sous le groupId et l’artifactId suivants [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/) :
+
+    ```
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.microsoft.azure \
+        -DarchetypeArtifactId=azure-functions-kotlin-archetype
+    ```
 
 Le code source de ces archétypes se trouve dans le [dépôt GitHub Archétypes Azure Maven](https://github.com/microsoft/azure-maven-archetypes).
+
 
 ## <a name="folder-structure"></a>Structure de dossiers
 

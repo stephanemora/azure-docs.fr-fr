@@ -1,5 +1,5 @@
 ---
-title: IllegalArgumentException pour l’activité Apache Spark dans Azure HDInsight
+title: Erreur IllegalArgumentException pour Apache Spark – Azure HDInsight
 description: IllegalArgumentException pour l’activité Apache Spark dans Azure HDInsight pour Azure Data Factory
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 57ba285b7de34dd548128b1f58644a32e153d056
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f922df5d5d7bbd6d90a2b7e208a346b773a3dc2f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087160"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241827"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Scénario : IllegalArgumentException pour l’activité Apache Spark dans Azure HDInsight
 

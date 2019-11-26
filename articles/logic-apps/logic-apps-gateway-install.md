@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796306"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076937"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
 Pour pouvoir vous [connecter à des sources de données locales à partir d’Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), téléchargez et installez la [passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer) sur un ordinateur local. La passerelle fonctionne comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. Vous pouvez utiliser la même installation de passerelle pour d’autres services cloud, comme Power BI, Power Automate, Power Apps et Azure Analysis Services. Pour plus d’informations sur l’utilisation de la passerelle avec ces services, consultez ces articles :
 
-* [Passerelle de données locale Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Passerelle de données locale Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Passerelle de données locale Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Passerelle de données locale Microsoft Power Automate](/power-automate/gateway-reference)
+* [Passerelle de données locale Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Passerelle de données locale Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 Cet article explique comment télécharger, installer et configurer votre passerelle de données locale afin de pouvoir accéder à des sources de données locales à partir d’Azure Logic Apps. Vous pouvez également en savoir plus sur le [fonctionnement de la passerelle de données](#gateway-cloud-service) plus loin dans cette rubrique. Pour obtenir des informations détaillées sur la passerelle, voir [Qu’est-ce qu’une passerelle de données locale ?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem).

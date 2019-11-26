@@ -1,33 +1,28 @@
 ---
-title: Utiliser des groupes de placements de proximité en préversion pour les machines virtuelles Linux | Microsoft Docs
+title: Utiliser des groupes de placements de proximité pour des machines virtuelles Linux
 description: En savoir plus sur la création et l’utilisation de groupes de placements de proximité pour les machines virtuelles Linux dans Azure.
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: a3009c9863d8322e3fe34bd99d64b93f0aa3d858
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385732"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171055"
 ---
-# <a name="preview-deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Aperçu : Déployer des machines virtuelles dans des groupes de placements avec Azure CLI
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Déployer des machines virtuelles dans des groupes de placements avec Azure CLI
 
-Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](co-location.md#preview-proximity-placement-groups).
+Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](co-location.md#proximity-placement-groups).
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
 
-> [!IMPORTANT]
-> Les groupes de placements de proximité sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Les groupes de placements de proximité ne sont pas disponibles dans ces régions en préversion : **Japon Est**, **Australie Est** et **Inde Centre**.
 
 ## <a name="create-the-proximity-placement-group"></a>Créer le groupe de placements de proximité
 Créez un groupe de placements de proximité à l’aide de [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
@@ -52,6 +47,7 @@ az ppg list -o table
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
 Créez une machine virtuelle dans le groupe placements de proximité avec la commande [new az vm](/cli/azure/vm#az-vm-create).
+
 ```azurecli-interactive
 az vm create \
    -n myVM \

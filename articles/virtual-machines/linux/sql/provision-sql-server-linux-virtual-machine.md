@@ -4,19 +4,19 @@ description: Ce didacticiel montre comment créer une machine virtuelle Linux S
 services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
-ms.date: 12/5/2018
+ms.date: 10/22/2019
 ms.topic: conceptual
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cd87477da15d5c18f94b66cac855672b4a2a3523
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 85d2396a05e7496b56bd83bd834150aa6d864c62
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091345"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882683"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -49,23 +49,19 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
    ![Afficher toutes les images de machines virtuelles](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. Dans la zone de recherche, tapez **SQL Server 2017**, puis sélectionnez **Entrée** pour démarrer la recherche.
+1. Dans la zone de recherche, tapez **SQL Server 2019**, puis sélectionnez **Entrée** pour lancer la recherche.
 
-1. Limitez les résultats de recherche en sélectionnant **Système d’exploitation** > **Redhat**. Ensuite, sous **Éditeur**, choisissez **Microsoft**.
+1. Limitez les résultats de recherche en sélectionnant **Système d’exploitation** > **Redhat**.
 
-    ![En filtrant, chercher les images de machines virtuelles SQL Server 2017](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![Filtre de recherche pour les images de machines virtuelles SQL Server 2019](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Sélectionnez une image Linux SQL Server 2017 dans les résultats de la recherche. Ce tutoriel utilise **Licence gratuite SQL Server : SQL Server 2017 Developer sur Red Hat Enterprise Linux 7.4**.
+1. Sélectionnez une image Linux SQL Server 2019 dans les résultats de la recherche. Ce tutoriel utilise **SQL Server 2019 sur RHEL74**.
 
    > [!TIP]
    > L’édition Developer vous permet de tester ou de développer en utilisant les fonctionnalités de l’édition Enterprise, sans les coûts liés à une licence SQL Server. Vous payez uniquement pour le coût d’exécution de la machine virtuelle Linux.
 
-1. Sous **Sélectionner un modèle de déploiement**, choisissez un modèle qui correspond à vos besoins en charge de travail.
+1. Sélectionnez **Create** (Créer). 
 
-    > [!Note]
-    > Pour les nouvelles charges de travail, utilisez **Resource Manager**. Pour vous connecter à un réseau virtuel existant, sélectionnez la méthode de déploiement du réseau virtuel pour votre charge de travail. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure Resource Manager et modèles de déploiement classique](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
-
-1. Sélectionnez **Create** (Créer).
 
 ### <a name="set-up-your-linux-vm"></a>Configurer votre machine virtuelle Linux
 
@@ -91,9 +87,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
    * **Nom d’utilisateur** : indiquez le nom d’administrateur pour la machine virtuelle.
    * **Clé publique SSH** : entrez votre clé publique RSA.
-   * **Ports d’entrée publics** : sélectionnez **Autoriser les ports sélectionnés** et choisissez le port **SSH (22)** dans la liste **Sélectionner les ports d’entrée publics**. Dans ce guide de démarrage rapide, cette étape est nécessaire pour établir une connexion à SQL Server et terminer la configuration. Si vous souhaitez vous connecter à distance à SQL Server, sélectionnez également **MS SQL (1433)** afin d’ouvrir le port 1433 pour les connexions sur Internet.
+   * **Ports d’entrée publics** : sélectionnez **Autoriser les ports sélectionnés** et choisissez le port **SSH (22)** dans la liste **Sélectionner les ports d’entrée publics**. Dans ce guide de démarrage rapide, cette étape est nécessaire pour établir une connexion à SQL Server et terminer la configuration. Si vous souhaitez vous connecter à distance à SQL Server, vous devrez autoriser manuellement le trafic vers le port par défaut (1433) utilisé par Microsoft SQL Server pour les connexions Internet une fois la machine virtuelle créée.
 
-   ![Ports entrants](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+     ![Ports entrants](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Apportez les modifications que vous souhaitez aux paramètres des onglets supplémentaires suivants ou conservez les paramètres par défaut.
     * **Disques**

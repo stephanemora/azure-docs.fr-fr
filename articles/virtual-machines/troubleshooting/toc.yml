@@ -59,6 +59,8 @@
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Résoudre les problèmes de démarrage liés au noyau
       href: 'https://support.microsoft.com/help/4091524'
+    - name: Récupérer les machines virtuelles configurées par LVM et sans démarrage
+      href: chroot-logical-volume-manager.md
     - name: Résoudre les erreurs fstab
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Étapes de dépannage détaillées pour SSH

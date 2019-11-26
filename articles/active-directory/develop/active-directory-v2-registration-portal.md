@@ -1,5 +1,6 @@
 ---
-title: Rubriques d’aide du portail d’inscription des applications | Microsoft Docs
+title: Rubriques d’aide du portail d’inscription d’applications
+titleSuffix: Microsoft identity platform
 description: Description de différentes fonctionnalités dans le portail d’inscription des applications Microsoft.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49675d8b18020c73a27a41fedff47697e29d829e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 61787e7a86a1c40ec04fb7a3d605158c85782d94
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988489"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803397"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
 Ce document fournit le contexte et les descriptions de différentes fonctionnalités figurant dans l’expérience [Inscriptions des applications](https://aka.ms/appregistrations) du portail Azure.

@@ -1,5 +1,5 @@
 ---
-title: FAQ – Sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure
+title: FAQ - Sauvegarde de bases de données SQL Server sur des machines virtuelles Azure - Sauvegarde Azure
 description: Trouvez des réponses aux questions courantes sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.reviewer: vijayts
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 27f416d4ed16de0277952f82c3f7dbac607890d6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750227"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074058"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -74,7 +74,7 @@ Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alert
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
 
-Le menu **Travail de sauvegarde** affiche uniquement les travaux de sauvegarde ad hoc. Pour les travaux planifiés, utilisez [Surveillance à l'aide d'Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Le menu **Travail de sauvegarde** affiche uniquement les travaux de sauvegarde à la demande. Pour les travaux planifiés, utilisez [Surveillance à l'aide d'Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
 

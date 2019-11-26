@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1a5871a052998e9dd32d698c5a89f57064cc7d6b
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972926"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987563"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Utiliser Azure AD comme fournisseur d’identité pour vCenter sur un cloud privé CloudSimple
 
@@ -87,15 +87,22 @@ Vous pouvez éventuellement configurer d’autres fonctionnalités d’Azure AD.
     |------------|-----------------|
     | **Nom** | Nom de la source d’identité. |
     | **DN de base pour les utilisateurs** | Nom unique de base pour les utilisateurs.  Pour Azure AD, utilisez : `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Exemple : `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **Nom de domaine** | Nom de domaine complet (FDQN) du domaine, par exemple, exemple.com. Ne fournissez pas d’adresse IP dans cette zone de texte. |
+    | **Nom de domaine** | Nom de domaine complet (FDQN) du domaine, par exemple « exemple.com ». Ne fournissez pas d’adresse IP dans cette zone de texte. |
     | **Alias de domaine** | *(facultatif)* Nom NetBIOS du domaine. Ajoutez le nom NetBIOS du domaine Active Directory en tant qu’alias de la source d’identité si vous utilisez des authentifications SSPI. |
     | **DN de base pour les groupes** | Nom unique de base pour les groupes. Pour Azure AD, utilisez : `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Exemple : `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **URL du serveur principal** | Serveur LDAP du contrôleur de domaine principal pour le domaine.<br><br>Utilisez le format  `ldaps://hostname:port`. Le port est généralement 636 pour les connexions LDAPS. <br><br>Un certificat établissant une relation de confiance pour le point de terminaison LDAPS du serveur Active Directory est requis lorsque vous utilisez `ldaps://` dans l’URL LDAP principale ou secondaire. |
     | **URL du serveur secondaire** | Adresse d’un serveur LDAP de contrôleur de domaine secondaire utilisé pour le basculement. |
-    | **Choisir un certificat** | Si vous souhaitez utiliser LDAPS avec votre serveur LDAP Active Directory ou votre source d’identité serveur OpenLDAP, un bouton Choisir un certificat s’affiche une fois que vous avez entré `ldaps://` dans la zone de texte URL. Une URL secondaire n’est pas requise. |
-    | **Nom d’utilisateur** | ID d’un utilisateur dans le domaine qui possède au minimum un accès en lecture seule au DN de base pour les utilisateurs et les groupes. |
+    | **Choisir un certificat** | Si vous souhaitez utiliser LDAPS avec votre serveur LDAP Active Directory ou votre source d’identité serveur OpenLDAP, un bouton Choisir un certificat s’affiche une fois que vous avez entré `ldaps://` dans la zone de texte URL. Une URL secondaire n’est pas nécessaire. |
+    | **Nom d’utilisateur** | ID d’un utilisateur dans le domaine qui dispose au minimum d’un accès en lecture seule au DN de base pour les utilisateurs et les groupes. |
     | **Mot de passe** | Mot de passe de l’utilisateur spécifié par le nom d’utilisateur. |
 
 3. Connectez-vous à votre cloud privé vCenter une fois les privilèges élevés.
 4. Suivez les instructions dans [Ajouter une source d’identité sur vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) en utilisant les valeurs de l’étape précédente pour configurer Azure Active Directory comme source d’identité.
 5. Ajoutez des utilisateurs/groupes à partir d’Azure AD à des groupes vCenter comme décrit dans la rubrique VMware [Ajouter des membres à un groupe d’authentification unique vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
+
+> [!CAUTION]
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs*.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Découvrir le modèle d’autorisation de cloud privé](learn-private-cloud-permissions.md)

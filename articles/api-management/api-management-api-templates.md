@@ -11,19 +11,19 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073816"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176876"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modèles d’API dans Gestion des API Azure
 
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
-  
+
 Les modèles de cette section vous permettent de personnaliser le contenu des pages API dans le portail des développeurs.  
   
 -   [Liste d’API](#APIList)  
@@ -41,12 +41,14 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 > [!NOTE]
 >  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="APIList"></a> Liste d’API  
  Le modèle **Liste d’API** vous permet de personnaliser le corps de la page Liste d’API dans le portail des développeurs.  
   
- ![Liste d’API dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modèles Liste d’API dans le portail des développeurs APIM")  
+ ![Liste d’API du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Liste d’API des modèles du portail des développeurs APIM")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   
@@ -114,7 +116,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 ## <a name="Product"></a> Opération  
  Le modèle **Opération** vous permet de personnaliser le corps de la page Opération dans le portail des développeurs.  
   
- ![Page Opération dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Modèles de page Opération dans le portail des développeurs APIM")  
+ ![Page Opération du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Page Opération des modèles du portail des développeurs APIM")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   
@@ -644,7 +646,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 ## <a name="CodeSamples"></a> Exemples de code  
  Les modèles suivants vous permettent de personnaliser le corps des exemples de code sur la page Opération.  
   
- ![Modèles Exemples de code dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Modèles Exemples de code dans le portail des développeurs APIM")  
+ ![Exemples de code des modèles du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemples de code des modèles du portail des développeurs APIM")  
   
 -   [Curl](#Curl)  
   

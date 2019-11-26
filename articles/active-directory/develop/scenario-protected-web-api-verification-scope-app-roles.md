@@ -1,5 +1,6 @@
 ---
-title: API web protégée - Configuration de code d’application | Azure Active Directory
+title: Vérifier les étendues et les rôles d’application avec l’API web protégée
+titleSuffix: Microsoft identity platform
 description: Découvrez comment créer une API web protégée et configurer le code de votre application.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b249b99faa62e73b9aa3247f71f88767fca96f01
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488851"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149237"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>API web protégée : ajout d’une autorisation à votre API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protégée : Vérifier les étendues et les rôles d’application
 
 Cet article décrit comment ajouter une autorisation à votre API web. Cette protection garantit que l’API est appelée uniquement par :
 

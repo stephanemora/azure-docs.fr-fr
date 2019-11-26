@@ -1,5 +1,5 @@
 ---
-title: Hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager | Microsoft Docs
+title: Hiérarchie des pays/régions utilisée par le routage géographique - Azure Traffic Manager
 description: Cet article répertorie la hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: d16529e966fb2e16d1012f4aa0aafcff204a3093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13f4101c17d78a59e8cde724863d237ba888e6a4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071163"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037202"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hiérarchie de pays/région utilisée par Azure Traffic Manager pour la méthode de routage du trafic géographique
 

@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec le jumeau de module et l’identité de module Azure IoT Hub (Python) | Microsoft Docs
+title: Identité de module et jumeau de module Azure IoT Hub (Python)
 description: Découvrez comment créer une identité de module et mettre à jour un jumeau de module à l’aide des SDK IoT pour Python.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: d9aeb5130f565c5fc24e2d0ced9c7ce16d2927ef
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e18d448d9aee0137f1167d23a2bbf53486d0c764
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001164"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953843"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Python)
 

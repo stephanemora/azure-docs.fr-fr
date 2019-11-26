@@ -1,18 +1,19 @@
 ---
-title: Utiliser Log Analytics pour examiner les journaux du pare-feu d’applications web sur Application Gateway
+title: Examiner les journaux WAF à l’aide d’Azure Log Analytics
+titleSuffix: Azure Application Gateway
 description: Cet article vous montre comment utiliser Log Analytics pour examiner les journaux du pare-feu d’applications web sur Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: aa867e33ef0faa96b6a66a9075a3a5b8b0b0bca4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9fe4462a71852e5f66268f798f6f0418f2dd39c4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048081"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Utiliser Azure Log Analytics pour examiner les journaux du pare-feu d’applications web sur Application Gateway
 

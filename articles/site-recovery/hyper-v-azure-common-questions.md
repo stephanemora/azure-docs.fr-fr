@@ -1,19 +1,18 @@
 ---
-title: Questions courantes sur la reprise d’activité d’Hyper-V sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Questions courantes sur la récupération d’urgence pour Hyper-V avec Azure Site Recovery
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles Hyper-V locales sur Azure à l’aide du site Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a6d38a9196d640ebc823b4f25e089cc04193212b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845758"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954058"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -147,16 +146,16 @@ Vous pouvez répliquer toute application ou charge de travail en cours d’exéc
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Puis-je répliquer vers Azure avec un VPN de site à site ?
 
-Site Recovery réplique les données en local vers le stockage Azure via un point de terminaison public, ou à l’aide du peering public ExpressRoute. La réplication sur un réseau VPN de site à site n’est pas prise en charge.
+Site Recovery réplique les données en local vers le stockage Azure via un point de terminaison public, ou à l’aide du peering Microsoft ExpressRoute. La réplication sur un réseau VPN de site à site n’est pas prise en charge.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Puis-je répliquer vers Azure avec ExpressRoute ?
 
-Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer le [peering public](../expressroute/expressroute-circuit-peerings.md#publicpeering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide du [peering privé](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer le [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide du [peering privé](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Pourquoi ne puis-je pas répliquer via VPN ?
 
-Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un compte de stockage Azure. Par conséquent, vous pouvez uniquement répliquer uniquement via les réseaux Internet publics avec ExpressRoute (peering public) et VPN ne fonctionne pas. 
+Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un compte de stockage Azure. Par conséquent, vous pouvez uniquement répliquer via les réseaux Internet publics avec ExpressRoute (peering Microsoft) et VPN ne fonctionne pas. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
 

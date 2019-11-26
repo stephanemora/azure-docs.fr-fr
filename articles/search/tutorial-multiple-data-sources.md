@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel C# : Indexer plusieurs sources de données'
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment importer des données à partir de plusieurs sources de données dans un seul index Recherche cognitive Azure.
+description: Découvrez comment importer des données à partir de plusieurs sources de données dans un seul index Recherche cognitive Azure à l’aide d’indexeurs. Ce didacticiel et cet exemple de code utilisent le langage C#.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69b18cdd4d0bb8e3d13bbacd5d21764004308786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fbe3b9ada556f26bd559f040bf2ba5b22367abd0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795639"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112210"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>Tutoriel C# : Combiner des données provenant de plusieurs sources de données dans un index Recherche cognitive Azure
 

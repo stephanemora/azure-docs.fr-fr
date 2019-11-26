@@ -1,5 +1,5 @@
 ---
-title: Mettre à niveau des hôtes Windows Server 2012 R2 et des serveurs SCVMM configurés avec Azure Site Recovery vers Windows Server 2016
+title: Mettre à niveau Windows Server/System Center VMM 2012 R2 vers Windows Server 2016 - Azure Site Recovery
 description: Découvrez comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack avec le service Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d94935db542a0e64754ab8769996fe906f88b46
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61275521"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954407"
 ---
-# <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Mettre à niveau des hôtes Windows Server 2012 R2 et des serveurs SCVMM 2012 R2 configurés avec Azure Site Recovery vers Windows Server 2016 et SCVMM 2016
+# <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Mettre à niveau Windows Server/System Center 2012 R2 VMM vers Windows Server/VMM 2016 
 
 Cet article explique comment mettre à niveau des hôtes Windows Server 2012 R2 et des serveurs SCVMM 2012 R2 configurés avec Azure Site Recovery vers Windows Server 2016 et SCVMM 2016.
 

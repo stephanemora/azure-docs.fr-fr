@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 610e0088fe97bdda1dce7f7391530c5128428b29
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529031"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73096972"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -102,6 +102,8 @@ Si vous déployez des appareils contraints avec une quantité de mémoire dispon
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>Ne pas optimiser les performances sur les appareils contraints
 
 Le hub IoT Edge, optimisé par défaut du point de vue des performances, tente d’allouer de grands blocs de mémoire. Cette configuration risque provoquer des problèmes de stabilité sur les petits appareils, comme le Raspberry Pi. Si vous déployez des appareils offrant des ressources limitées, vous pouvez si vous le souhaitez définir la variable d’environnement **OptimizeForPerformance** sur **false** sur le hub IoT Edge. 
+
+Lorsque **OptimizeForPerformance** a la valeur **true**, l’en-tête du protocole MQTT utilise PooledByteBufferAllocator, qui offre de meilleures performances, mais alloue plus de mémoire. L’allocateur ne fonctionne pas correctement sur les systèmes d’exploitation 32 bits et sur les appareils ne disposant pas d’assez de mémoire. En outre, en cas d’optimisation des performances, RocksDB alloue plus de mémoire pour son rôle de fournisseur de stockage local. 
 
 Pour plus d’informations, voir [Problèmes de stabilité sur les appareils avec contraintes de ressources](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 

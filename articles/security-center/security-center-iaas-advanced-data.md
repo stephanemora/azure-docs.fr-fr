@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571571"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907065"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security pour SQL Server sur les machines virtuelles Azure (préversion)
 Advanced Data Security pour les serveurs SQL Server est un package unifié de fonctionnalités de sécurité SQL avancées. Cette fonctionnalité en préversion inclut des fonctions qui permettent d’identifier et d’atténuer les vulnérabilités potentielles de votre base de données, et de détecter les activités anormales susceptibles de présenter des menaces pour votre base de données. 
@@ -54,7 +54,7 @@ Activez Advanced Data Security pour SQL Server sur les machines virtuelles au ni
     Advanced Data Security pour SQL Server est activé sur toutes les machines SQL Server qui sont connectées à l’espace de travail sélectionné ou à l’espace de travail par défaut de l’abonnement sélectionné.
 
     >[!NOTE]
-    > La solution sera active après le premier redémarrage de SQL Server. 
+    > La solution sera complètement active après le premier redémarrage de SQL Server. 
 
 Pour créer un espace de travail, suivez les instructions fournies dans [Créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Vous pouvez définir une liste de destinataires devant recevoir une notification
 1. Dans le menu Paramètres, cliquez sur **Notifications par e-mail**. 
 1. Dans la zone de texte **Adresse e-mail**, entrez les adresses e-mail devant recevoir les notifications. Vous pouvez entrer plusieurs adresses e-mail en les séparant par une virgule (,).  Par exemple admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com.
 
-      ![Paramètres de courrier électronique](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Paramètres de courrier électronique](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Dans les paramètres de **Notifications par e-mail**, définissez les options suivantes :
   
@@ -88,29 +88,27 @@ Vous pouvez définir une liste de destinataires devant recevoir une notification
 
 Le tableau de bord Évaluation des vulnérabilités fournit une vue d’ensemble des résultats de votre évaluation sur vos bases de données. Vous pouvez afficher la distribution des bases de données en fonction de la version de SQL Server, une synthèse des bases de données ayant échoué ou satisfait aux tests, et une synthèse générale des tests ayant échoué en fonction de la distribution des risques.
 
-Vous pouvez afficher vos rapports et résultats d’Évaluation des vulnérabilités directement à partir de Log Analytics.
+Vous pouvez consulter les résultats de l’évaluation des vulnérabilités directement à partir de Security Center.
 
-1. Accédez à votre espace de travail Log Analytics avec la solution Advanced Data Security.
-1. Accédez à **Solutions** et sélectionnez la solution **Évaluation des vulnérabilités SQL**.
-1. Dans le volet **Résumé**, cliquez sur **Afficher le résumé** et sélectionnez votre **rapport d’évaluation des vulnérabilités SQL**.
+1. Dans la barre latérale de Security Center, sous HYGIÈNE DE SÉCURITÉ DES RESSOURCES, sélectionnez **Données et stockage**.
 
-    ![Rapport d’évaluation SQL](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. Sélectionnez la recommandation **Les vulnérabilités sur vos bases de données SQL dans les machines virtuelles doivent être corrigées (préversion)** . Pour plus d’informations, consultez [Recommandations de Security Center](security-center-recommendations.md). 
 
-    Le tableau de bord de rapport se charge. Vérifiez que la fenêtre de temps est définie au moins sur **Les 7 derniers jours**, car les analyses d’évaluation des vulnérabilités sont exécutées sur vos bases de données selon une planification fixe une fois tous les sept jours.
+    [![Recommandation **Les vulnérabilités sur vos bases de données SQL dans les machines virtuelles doivent être corrigées (préversion)**](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![Définir Les 7 derniers jours](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    L’affichage détaillé de cette recommandation s’affiche.
 
-1. Pour afficher davantage de détails, cliquez sur l’un des éléments du tableau de bord. Par exemple :
+    [![Affichage détaillé de la recommandation **Les vulnérabilités sur vos bases de données SQL dans les machines virtuelles doivent être corrigées (préversion)**](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. Cliquez sur une vérification de vulnérabilité dans la section **Synthèse des vérifications ayant échoué** pour afficher un tableau Log Analytics contenant les résultats de cette vérification parmi toutes les bases de données. Celles qui ont des résultats sont listées en premier.
+1. À explorer pour plus de détails :
 
-   1. Ensuite, cliquez pour afficher les détails de chaque vulnérabilité, notamment la description de la vulnérabilité, son impact, l’état, les risques associés et les résultats réels sur cette base de données. Vous pouvez également voir la requête réelle qui a été exécutée pour effectuer cette vérification, ainsi que les informations de correction pour résoudre cette vulnérabilité.
+    * Pour obtenir une vue d’ensemble des ressources analysées (bases de données) ainsi que la liste des vérifications de sécurité qui ont été testées, cliquez sur le serveur de votre choix.
+    [![Vulnérabilités regroupées par SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![Sélectionner un espace de travail](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * Pour obtenir une vue d’ensemble des vulnérabilités regroupées en fonction d’une base de données SQL spécifique, cliquez sur la base de données de votre choix.
+    [![Vulnérabilités regroupées par SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![Sélectionner un espace de travail](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. Vous pouvez exécuter n’importe quelle requête Log Analytics sur vos données de résultats d’évaluation des vulnérabilités, afin de segmenter et découper les données en fonction de vos besoins.
+    Dans chaque affichage, les vérifications de sécurité sont triées par **Gravité**. Cliquez sur une vérification de sécurité spécifique pour afficher un volet d’informations contenant une **Description**, une méthode de **Correction** ainsi que d’autres informations associées, telles que l’**Impact** ou les **Références**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Alertes Advanced Threat Protection pour SQL Server sur les machines virtuelles Azure
 Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des serveurs SQL. Ces événements peuvent déclencher les alertes suivantes :

@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668138"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884967"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -116,6 +116,12 @@ Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un n
 Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Actuellement, vous ne pouvez pas utiliser de restrictions de réseau virtuel sur ce compte. La configuration d’un point de terminaison de service de réseau virtuel sur le compte de stockage que vous utilisez pour votre application de fonction entraînera l’arrêt de votre application.
 
 [Apprenez-en davantage sur les exigences liées aux comptes de stockage.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>Utiliser des références Key Vault 
+
+Les références Key Vault vous permettent d’utiliser des secrets d’Azure Key Vault dans votre application Azure Functions, sans avoir à modifier le code. Azure Key Vault est un service qui fournit une gestion centralisée des secrets, avec un contrôle total sur les stratégies d’accès et l’historique d’audit.
+
+Actuellement, les références [Key Vault](../app-service/app-service-key-vault-references.md) ne fonctionneront pas si votre Key Vault est sécurisé à l’aide de points de terminaison de service. Pour vous connecter à un Key Vault à l’aide de l’intégration de réseau virtuel, vous devez appeler le coffre de clés dans votre code d’application.
 
 ## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
 

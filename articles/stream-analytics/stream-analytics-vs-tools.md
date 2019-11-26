@@ -1,6 +1,6 @@
 ---
 title: Afficher les tâches Azure Stream Analytics dans Visual Studio
-description: Cet article explique comment afficher et gérer les travaux Azure Stream Analytics dans Visual Studio.
+description: Découvrez comment afficher, lancer, arrêter et exporter vos travaux Azure Stream Analytics avec Visual Studio, ainsi que tester les connexions et vérifier les résultats.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: ae532ed19c2273e43aa739e84d5a68cadb717b86
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173024"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893552"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics
 
@@ -38,8 +38,6 @@ Vous pouvez utiliser la vue des tâches pour interagir avec les tâches Azure St
 
     ![Liste de l’Explorateur de serveurs de Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-
-
 2. Développez le nœud de votre travail et double-cliquez sur le nœud **Vue des travaux** pour ouvrir une vue des travaux.
     
    ![Nœud de tâche développé](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
@@ -50,13 +48,11 @@ Les tâches Azure Stream Analytics peuvent être entièrement gérées à partir
     
    ![Contrôles de tâche Stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-
 ## <a name="check-job-results"></a>Vérifier les résultats d’une tâche
 
 Le service Azure Stream Analytics Tools pour Visual Studio prend actuellement en charge une préversion de sortie pour Azure Data Lake Storage et Stockage Blob. Pour afficher le résultats, double-cliquez simplement sur le nœud de sortie du diagramme de tâche dans la **vue des tâches**, puis entrez les informations d’identification appropriées.
 
    ![Sortie de blob de tâche Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
-
 
 ## <a name="export-jobs-to-a-project"></a>Exporter des tâches vers un projet
 

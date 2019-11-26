@@ -1,5 +1,5 @@
 ---
-title: Utiliser Terraform pour créer une machine virtuelle Linux complète dans Azure | Microsoft Docs
+title: Utiliser Terraform pour créer une machine virtuelle Linux complète dans Azure
 description: Découvrez comment utiliser Terraform pour créer et gérer un environnement de machine virtuelle Linux complète dans Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: bb4628477719d0aa2f176c466047531b42d7cfc3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924889"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034704"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Créer une infrastructure de machine virtuelle Linux complète dans Azure avec Terraform
 

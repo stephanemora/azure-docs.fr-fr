@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637751"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023885"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 
@@ -42,6 +42,15 @@ ms.locfileid: "68637751"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Amélioration de la stabilité et de la capacité de diagnostic :
+  * Ajout de la possibilité de détecter lorsque la lecture du flux de modification prend beaucoup de temps. Lorsqu’elle est plus longue que la valeur spécifiée par la propriété `ChangeFeedProcessorOptions.ChangeFeedTimeout`, les actions suivantes sont effectuées :
+    * L’opération de lecture du flux de modification sur la partition problématique est abandonnée.
+    * L’instance du processeur de flux de modification abandonne la propriété du bail problématique. Le bail supprimé sera récupéré au cours de la prochaine étape d’acquisition de bail effectuée ou non par la même instance de processeur de flux de modification. Ainsi, la lecture du flux de modification recommencera.
+    * Un problème est signalé au moniteur d’intégrité. Le moniteur d’intégrité par défaut envoie tous les problèmes signalés au journal des traces.
+  * Ajout d’une nouvelle propriété publique : `ChangeFeedProcessorOptions.ChangeFeedTimeout`. La valeur par défaut de cette propriété est de 10 min.
+  * Ajout d’une nouvelle valeur enum publique : `Monitoring.MonitoredOperation.ReadChangeFeed`. Lorsque la valeur de `HealthMonitoringRecord.Operation` est définie sur `Monitoring.MonitoredOperation.ReadChangeFeed`, cela indique que le problème d’intégrité est lié à la lecture du flux de modification.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * La stratégie d’équilibrage de charge améliorée pour le scénario lors de l’obtention de tous les baux prend plus de temps que l’intervalle d’expiration de bail, par exemple, en raison de problèmes réseau :
@@ -170,6 +179,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |28 octobre 2019 |--- |
 | [2.2.7](#2.2.7) |14 mai 2019 |--- |
 | [2.2.6](#2.2.6) |29 janvier 2019 |--- |
 | [2.2.5](#2.2.5) |13 décembre 2018 |--- |

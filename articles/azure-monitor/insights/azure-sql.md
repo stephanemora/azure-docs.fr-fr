@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/17/2018
+ms.date: 11/12/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899123"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961966"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -39,6 +39,21 @@ Azure SQL Analytics est une solution de monitoring entièrement dans le cloud qu
 | [Agents Windows](../platform/agent-windows.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Non | La solution n’utilise pas de connexion directe entre l’Agent Operations Manager et Azure Monitor. |
+
+## <a name="azure-sql-analytics-options"></a>Options Azure SQL Analytics
+
+Le tableau ci-après présente les options prises en charge pour deux versions du tableau de bord Azure SQL Analytics : l’une pour les bases de données Azure SQL et les pools élastiques, et l’autre pour Managed Instance.
+
+| Option Azure SQL Analytics | Description | Prise en charge pour les instances SQL Database et les pools élastiques | Prise en charge pour les instances Managed Instance |
+| --- | ------- | ----- | ----- |
+| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. | OUI | OUI |
+| Insights | Permet une exploration hiérarchique des performances dans Intelligent Insights. | OUI | OUI |
+| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | OUI | OUI |
+| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | OUI | Non |
+| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | OUI | Non |
+| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |OUI | OUI |
+| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | OUI | OUI |
+| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. | OUI | OUI |
 
 ## <a name="configuration"></a>Configuration
 Procédez de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md) pour ajouter la solution Azure SQL Analytics (préversion) à votre espace de travail Log Analytics.
@@ -94,21 +109,6 @@ En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’u
 La sélection de la vue des instances Managed Instance présente les détails concernant l’utilisation des instances Managed Instance, les bases de données qu’elles contiennent et les données de télémétrie relatives aux requêtes exécutées sur les instances.
 
 ![Délais d’expiration d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics-mi.png)
-
-### <a name="perspectives"></a>Perspectives
-
-Le tableau ci-après présente les perspectives prises en charge pour les deux versions du tableau de bord, l’une pour les bases de données Azure SQL et les pools élastiques, et l’autre pour les instances managées.
-
-| Perspective | Description | Prise en charge pour les instances SQL Database et les pools élastiques | Prise en charge pour les instances Managed Instance |
-| --- | ------- | ----- | ----- |
-| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. | OUI | OUI |
-| Insights | Permet une exploration hiérarchique des performances dans Intelligent Insights. | OUI | OUI |
-| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | OUI | OUI |
-| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | OUI | Non |
-| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | OUI | Non |
-| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |OUI | OUI |
-| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | OUI | OUI |
-| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. | OUI | OUI |
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 

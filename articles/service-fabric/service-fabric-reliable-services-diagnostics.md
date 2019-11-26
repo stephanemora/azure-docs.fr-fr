@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772956"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242878"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -50,7 +50,7 @@ StatefulRunAsyncSlowCancellation est émis à chaque fois qu’une requête d’
 ## <a name="performance-counters"></a>Compteurs de performances
 Le runtime Reliable Services définit les catégories de compteurs de performances suivantes :
 
-| Catégorie | Description |
+| Category | Description |
 | --- | --- |
 | Réplicateur transactionnel Service Fabric |Compteurs spécifiques au réplicateur transactionnel Azure Service Fabric |
 | Service Fabric TStore |Compteurs spécifiques à Azure Service Fabric TStore |
@@ -71,7 +71,7 @@ Pour la catégorie `Service Fabric Transactional Replicator`, les noms d'instanc
 
 *ServiceFabricPartitionId* est la représentation sous forme de chaîne de l'ID de partition Service Fabric associée à l'instance de compteur de performances. L'ID de partition est un GUID et sa représentation sous forme de chaîne est générée via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) avec le spécificateur de format « D ».
 
-*ServiceFabricReplicaId* est l’ID associé à un réplica donné d’un service fiable. L’ID de réplica est inclus dans le nom de l'instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d'autres instances de compteur de performances générées par la même partition. Vous trouverez [ici](service-fabric-concepts-replica-lifecycle.md) d’autres détails sur les réplicas et leur rôle dans les services fiables.
+*ServiceFabricReplicaId* est l’ID associé à un réplica donné d’un service fiable. L’ID de réplica est inclus dans le nom de l’instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d’autres instances de compteur de performances générées par la même partition. Vous trouverez [ici](service-fabric-concepts-replica-lifecycle.md) d’autres détails sur les réplicas et leur rôle dans les services fiables.
 
 Le nom d’instance de compteur suivant est typique d’un compteur de la catégorie `Service Fabric Transactional Replicator` :
 
@@ -82,21 +82,23 @@ Dans l’exemple précédent, `00d0126d-3e36-4d68-98da-cc4f7195d85e` est la repr
 #### <a name="service-fabric-tstore-category"></a>Catégorie Service Fabric TStore
 Pour la catégorie `Service Fabric TStore`, les noms d'instance de compteur ont le format suivant :
 
-`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+`ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
 *ServiceFabricPartitionId* est la représentation sous forme de chaîne de l'ID de partition Service Fabric associée à l'instance de compteur de performances. L'ID de partition est un GUID et sa représentation sous forme de chaîne est générée via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) avec le spécificateur de format « D ».
 
-*ServiceFabricReplicaId* est l’ID associé à un réplica donné d’un service fiable. L’ID de réplica est inclus dans le nom de l'instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d'autres instances de compteur de performances générées par la même partition. Vous trouverez [ici](service-fabric-concepts-replica-lifecycle.md) d’autres détails sur les réplicas et leur rôle dans les services fiables.
+*ServiceFabricReplicaId* est l’ID associé à un réplica donné d’un service fiable. L’ID de réplica est inclus dans le nom de l’instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d’autres instances de compteur de performances générées par la même partition. Vous trouverez [ici](service-fabric-concepts-replica-lifecycle.md) d’autres détails sur les réplicas et leur rôle dans les services fiables.
 
-*ServiceFabricStateProviderId* est l’ID associé à un fournisseur d’état au sein d’un service fiable. L’ID du fournisseur d’état est inclus dans le nom d’une instance de compteur de performances pour différencier un TStore d’un autre.
+*StateProviderId* est l’ID associé à un fournisseur d’état au sein d’un service fiable. L’ID du fournisseur d’état est inclus dans le nom de l’instance de compteur de performances pour différencier un TStore d’un autre.
 
 *PerformanceCounterInstanceDifferentiator* est un ID de différenciation associé à une instance de compteur de performances au sein d’un fournisseur d’état. Cet élément différenciateur est inclus dans le nom de l’instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d’autres instances de compteur de performances générées par le même fournisseur d’état.
 
+*StateProviderName* est le nom associé à un fournisseur d’état au sein d’un service fiable. Le nom du fournisseur d’état est inclus dans le nom de l’instance de compteur de performance pour permettre aux utilisateurs d’identifier facilement l’état qu’il fournit.
+
 Le nom d’instance de compteur suivant est typique d’un compteur de la catégorie `Service Fabric TStore` :
 
-`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-Dans l’exemple précédent, `00d0126d-3e36-4d68-98da-cc4f7195d85e` est la représentation sous forme de chaîne de l’ID de partition Service Fabric, `131652217797162571` est l’ID de réplica, `142652217797162571` est l’ID de fournisseur d’état et `1337` est l’élément différenciateur d’instance de compteur de performances.
+Dans l’exemple précédent, `00d0126d-3e36-4d68-98da-cc4f7195d85e` est la représentation sous forme de chaîne de l’ID de partition Service Fabric, `131652217797162571` est l’ID de réplica, `142652217797162571` est l’ID de fournisseur d’état et `1337` est l’élément différenciateur d’instance de compteur de performances. `urn:MyReliableDictionary/dataStore` est le nom du fournisseur d’état qui stocke les données pour la collection nommée `urn:MyReliableDictionary`.
 
 ### <a name="transactional-replicator-performance-counters"></a>Compteurs de performance du réplicateur transactionnel
 

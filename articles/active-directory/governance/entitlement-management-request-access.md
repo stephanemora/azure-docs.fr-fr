@@ -1,6 +1,6 @@
 ---
-title: Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion) - Azure Active Directory
-description: Découvrez comment utiliser le portail Mon Accès pour demander l’accès à un package d’accès pour la gestion des droits d’utilisation de Azure Active Directory (préversion).
+title: Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+description: Découvrez comment utiliser le portail Mon Accès pour demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389086"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173704"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
 Avec la gestion des droits d'utilisation d’Azure AD, un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. 
 
@@ -58,12 +53,13 @@ Une fois que vous avez trouvé le package d’accès dans le portail Mon Accès,
 
 1. Recherchez le package d’accès dans la liste.  Si nécessaire, vous pouvez effectuer une recherche en tapant une chaîne de recherche, puis en sélectionnant le filtre **Nom**, **Catalogue** ou **Ressources**.
 
-    ![Portail Mon Accès - Recherche de ressource](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![Portail Mon Accès - Recherche de ressource](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. Cochez la case pour sélectionner le package d’accès.
 
-    ![Portail Mon Accès - Packages d’accès](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. Cliquez sur **Demander l’accès** pour ouvrir le volet Demander l’accès.
+
+    ![Portail Mon Accès - Packages d’accès](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. Si la case **Justification métier** s’affiche, fournissez une justification pour obtenir l’accès.
 
@@ -78,6 +74,12 @@ Une fois que vous avez trouvé le package d’accès dans le portail Mon Accès,
 1. Cliquez sur **Historique des demandes** pour afficher la liste de vos demandes et leur état.
 
     Si le package d’accès nécessite une approbation, l’état de la demande est désormais en attente d’approbation.
+
+### <a name="select-a-policy"></a>Sélectionner une stratégie
+
+Si vous demandez l’accès à un package d’accès auquel plusieurs stratégies s’appliquent, il pourra vous être demandé de sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec deux stratégies pour deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès pendant 2 jours et ne nécessiter aucune approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
+
+![Portail Mon Accès – Demander l’accès – plusieurs stratégies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>Annuler une demande
 
@@ -94,12 +96,6 @@ Si vous envoyez une demande d’accès et que l’état de la demande est toujou
     ![Portail Mon Accès - Annuler la demande](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Cliquez sur **Historique des demandes** pour confirmer que la demande a bien été annulée.
-
-## <a name="select-a-policy"></a>Sélectionner une stratégie
-
-Si vous demandez l’accès à un package d’accès qui contient plusieurs stratégies qui s’appliquent, vous devrez peut-être sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec deux stratégies pour deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès pendant 2 jours et ne nécessiter aucune approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
-
-**Rôle prérequis :** Demandeur
 
 ## <a name="next-steps"></a>Étapes suivantes
 

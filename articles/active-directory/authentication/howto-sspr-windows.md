@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 519993be873e7864dab4de4f66919c56aebfc379
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304212"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171866"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Activation Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
 
@@ -24,30 +24,10 @@ Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les
 
 ![Exemples d’écrans de connexion Windows 7 et 10 avec le lien vers la réinitialisation de mot de passe en libre-service affiché](./media/howto-sspr-windows/windows-reset-password.png)
 
-## <a name="general-prerequisites"></a>Conditions préalables
-
-- Un administrateur doit activer la réinitialisation de mot de passe en libre-service Azure AD à partir du portail Azure.
-- **Les utilisateurs doivent s’inscrire à la réinitialisation de mot de passe en libre-service avant d’utiliser cette fonctionnalité**
-- Conditions requises du proxy réseau
-   - Appareils Windows 10 
-       - Port 443 vers `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com`
-       - Les appareils Windows 10 prennent uniquement en charge la configuration du proxy au niveau de la machine
-   - Appareils Windows 7, 8 et 8.1
-       - Port 443 vers `passwordreset.microsoftonline.com`
-
 ## <a name="general-limitations"></a>Limitations générales
 
 - Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un bureau à distance ou des sessions améliorées Hyper-V.
-- Le déverrouillage de compte, les notifications d’applications mobiles et le code d’application mobile ne sont pas pris en charge.
 - Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
-
-## <a name="windows-10-password-reset"></a>Réinitialisation de mot de passe de Windows 10
-
-### <a name="windows-10-specific-prerequisites"></a>Conditions préalables spécifiques à Windows 10
-
-- Exécutez au moins Windows 10, avec la mise à jour d’avril 2018 (v1803), et les appareils doivent être :
-    - Appareil joints Azure AD
-    - Appareils joints Azure AD hybrides
 - Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache.
 - Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations au sujet de cette étape dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Les paramètres suivants sont connus pour leur interférence avec la fonctionnalité de réinitialisation des mots de passe sur les appareils Windows 10
@@ -61,7 +41,21 @@ Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les
 - La combinaison des trois paramètres spécifiques suivants peut empêcher le fonctionnement de cette fonctionnalité.
     - Ouverture de session interactive : N’exige pas la combinaison de touches CTRL + ALT + SUPPR = Désactivé
     - DisableLockScreenAppNotifications = 1 ou Activé
-    - IsContentDeliveryPolicyEnforced = 1 ou True 
+    - IsContentDeliveryPolicyEnforced = 1 ou True
+
+## <a name="windows-10-password-reset"></a>Réinitialisation de mot de passe de Windows 10
+
+### <a name="windows-10-prerequisites"></a>Prérequis pour Windows 10
+
+- Un administrateur doit activer la réinitialisation de mot de passe en libre-service Azure AD à partir du portail Azure.
+- **Les utilisateurs doivent s’inscrire à la réinitialisation de mot de passe en libre-service avant d’utiliser cette fonctionnalité**
+- Conditions requises du proxy réseau
+   - Appareils Windows 10 
+       - Port 443 vers `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com`
+       - Les appareils Windows 10 prennent uniquement en charge la configuration du proxy au niveau de la machine
+- Exécutez au moins Windows 10, avec la mise à jour d’avril 2018 (v1803), et les appareils doivent être :
+    - Appareil joints Azure AD
+    - Appareils joints Azure AD hybrides
 
 ### <a name="enable-for-windows-10-using-intune"></a>Activez pour Windows 10 à l’aide de Intune
 
@@ -95,7 +89,6 @@ Déployer la modification de la configuration est la méthode la plus souple pou
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-
 #### <a name="troubleshooting-windows-10-password-reset"></a>Résolution des problèmes de réinitialisation de mot de passe de Windows 10
 
 Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
@@ -106,8 +99,13 @@ Quand des utilisateurs réinitialisent leur mot de passe à partir de l’écran
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Réinitialisation de mot de passe de Windows 7, 8 et 8.1
 
-### <a name="windows-7-8-and-81-specific-prerequisites"></a>Conditions préalables spécifiques à Windows 7, 8 et 8.1
+### <a name="windows-7-8-and-81-prerequisites"></a>Prérequis pour Windows 7, 8 et 8.1
 
+- Un administrateur doit activer la réinitialisation de mot de passe en libre-service Azure AD à partir du portail Azure.
+- **Les utilisateurs doivent s’inscrire à la réinitialisation de mot de passe en libre-service avant d’utiliser cette fonctionnalité**
+- Conditions requises du proxy réseau
+   - Appareils Windows 7, 8 et 8.1
+       - Port 443 vers `passwordreset.microsoftonline.com`
 - Système d’exploitation Windows 7 ou Windows 8.1 corrigé.
 - TLS 1.2 activé à l’aide des instructions fournies dans l’article [Paramètres de Registre TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
 - Si plusieurs fournisseurs tiers d’informations d’identification sont activés sur votre machine, les utilisateurs verront plusieurs profils utilisateur sur l’écran de connexion.
@@ -152,7 +150,7 @@ Maintenant que vous avez configuré la réinitialisation de mot de passe pour vo
 
 Quand des utilisateurs tentent de se connecter, ils voient maintenant un lien de **Réinitialisation du mot de passe** ou de **Mot de passe oublié** qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
-Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

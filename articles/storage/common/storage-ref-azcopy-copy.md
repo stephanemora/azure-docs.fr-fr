@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514762"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029998"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -23,16 +23,23 @@ Copie les données sources vers un emplacement de destination.
 
 Copie les données sources vers un emplacement de destination. Les directions prises en charge sont les suivantes :
 
-  - Local <-> Objet blob Azure (authentification SAS ou OAuth)
+  - Local <-> Objet blob Azure (authentification SAP ou OAuth)
   - Local <-> Azure Files (authentification SAS pour répertoire/partage)
-  - Local <-> ADLS Gen 2 (authentification SAS, OAuth ou SharedKey)
+  - Local <-> ADLS Gen 2 (authentification SAP, OAuth ou SharedKey)
   - Objet blob Azure (SAS ou public) -> Objet blob Azure (authentification SAS ou OAuth)
   - Objet blob Azure (SAS ou public) -> Azure Files (SAS)
   - Azure Files (SAS) -> Azure Files (SAS)
   - Azure Files (SAS) -> Objet blob Azure (authentification SAS ou OAuth)
-  - AWS S3 (clé d’accès) -> Objet blob de blocs Azure (authentification SAS ou OAuth)
+  - AWS S3 (clé d’accès) -> Objet blob de blocs Azure (authentification SAP ou OAuth)
 
 Pour plus d’informations, consultez les exemples.
+
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Transférer des données avec AzCopy et le stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>Avancé
 
@@ -74,7 +81,7 @@ Charger un répertoire entier à l’aide d’un jeton SAS :
   
 - azcopy cp "/path/to/dir" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true
 
-ou
+or
 
 - azcopy cp "/path/to/dir" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true --put-md5
 
@@ -172,7 +179,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--check-length**                         Vérifier la longueur d’un fichier sur la destination après le transfert. En cas d’incompatibilité entre la source et la destination, le transfert est marqué comme ayant échoué. (par défaut : « true »).
 
-**--check-md5** string                     Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Options disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut : « FailIfDifferent »)
+**--check-md5** string                     Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Options disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut « FailIfDifferent »)
 
 **--content-disposition** string           Définir l’en-tête content-disposition. Retourné au moment du téléchargement.
 
@@ -204,15 +211,15 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--include-pattern** string                  Inclut uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un signe « ; ».
 
-**--log-level** string                     Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO ») (par défaut : « INFO »)
+**--log-level** string                     Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO »)
 
 **--metadata** string                      Charge dans Stockage Azure avec ces paires clé-valeur en tant que métadonnées.
 
 **--no-guess-mime-type**                   Empêche AzCopy de détecter le type de contenu (content-type) en fonction de l’extension ou du contenu du fichier.
 
-**--overwrite** string                     Si cet indicateur a la valeur true, remplace les fichiers et objets blob qui sont en conflit dans la destination. (par défaut : « true ») Les valeurs possibles sont « true », « false » et « prompt ». (par défaut : « true »)
+**--overwrite** string                     Si cet indicateur a la valeur true, remplace les fichiers et objets blob qui sont en conflit dans la destination. Les valeurs possibles sont « true », « false » et « prompt ». (par défaut : « true »)
 
-**--page-blob-tier** string               Charger un objet blob de pages dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »). (par défaut : « None »).
+**--page-blob-tier** string               Charger un objet blob de pages dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »).
 
 **--preserve-last-modified-time**          Disponible uniquement quand la destination est un système de fichiers.
 
@@ -222,9 +229,9 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--s2s-detect-source-changed**           Vérifier si la source a changé après l’énumération.
 
-**--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut : « ExcludeIfInvalid »). (par défaut : « ExcludeIfInvalid »)
+**--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut : « ExcludeIfInvalid »)
 
-**--s2s-preserve-access-tier**             Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut : true)  (par défaut : « true »).
+**--s2s-preserve-access-tier**             Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut : true)
 
 **--s2s-preserve-properties**             Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : « true »).
 

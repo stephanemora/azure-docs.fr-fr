@@ -1,6 +1,6 @@
 ---
-title: Créer un équilibrage de charge Internet avec IPv6 - PowerShell
-titlesuffix: Azure Load Balancer
+title: Créer un équilibreur de charge Internet avec IPv6 - Azure PowerShell
+titleSuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274982"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077053"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 
@@ -28,6 +28,8 @@ ms.locfileid: "68274982"
 > * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
+>[!REMARQUE : changement de meilleure pratique pour IPv6] Cet article décrit une fonction d’introduction IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6.  Une connectivité IPv6 plus complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 à vos réseaux virtuels et inclut des fonctionnalités clés telles que les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, le partage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la meilleure pratique recommandée pour les applications IPv6 dans Azure. 
+>Consultez [IPv6 pour le déploiement PowerShell de réseau virtuel Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). 
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
@@ -230,10 +232,4 @@ Pour plus d’informations sur la création d’une machine virtuelle, consultez
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-ps.md)
-
-[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
-
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)

@@ -1,5 +1,5 @@
 ---
-title: Échec de la création du cluster en raison d’un nombre insuffisant de domaines d’erreur dans la région dans Azure HDInsight
+title: Nombre insuffisant de domaines d’erreur dans la région dans Azure HDInsight
 description: Échec de la création du cluster en raison d’un nombre insuffisant de domaines d’erreur dans la région dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e0fae699752f5e2417a4a3cbd42f4f1d2bd891f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: defb0666a6537d62b22dca301f69a5163e887d3f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091245"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241906"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scénario : Échec de la création du cluster en raison `not sufficient fault domains in region` dans Azure HDInsight
 

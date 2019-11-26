@@ -10,34 +10,51 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844303"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024782"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
-Cet article vous explique comment gérer le cycle de vie des groupes Office 365 en définissant une stratégie d’expiration. Vous pouvez définir la stratégie d’expiration uniquement pour les groupes Office 365 d’Azure Active Directory (Azure AD).
+Cet article vous explique comment gérer le cycle de vie des groupes Office 365 en définissant une stratégie d’expiration. Vous pouvez définir une stratégie d’expiration uniquement pour les groupes Office 365 d’Azure Active Directory (Azure AD).
 
 Une fois que vous avez défini l’expiration d’un groupe :
 
-- Les propriétaires du groupe sont invités à renouveler le groupe à l’approche de l’expiration
+- Les groupes présentant des activités utilisateur sont automatiquement renouvelés à l’approche de l’expiration.
+- En l’absence de renouvellement automatique, les propriétaires du groupe sont invités à le renouveler.
 - Les groupes non renouvelés sont supprimés
 - Les groupes Office 365 qui sont supprimés peuvent être restaurés dans les 30 jours qui suivent par les propriétaires des groupes ou l’administrateur
 
-Une seule stratégie d’expiration peut être configurée pour les groupes Office 365 sur un même locataire.
+À l’heure actuelle, il n’est possible de configurer qu’une seule stratégie d’expiration pour tous les groupes Office 365 d’une organisation Azure AD.
 
 > [!NOTE]
 > La configuration et l’utilisation de la stratégie d’expiration pour les groupes Office 365 vous impose de posséder (mais pas forcément d’attribuer) des licences Azure AD Premium pour les membres de tous les groupes auxquels la stratégie d’expiration est appliquée.
 
 Pour plus d’informations sur le téléchargement et l’installation des applets de commande Azure AD PowerShell, consultez [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="activity-based-automatic-renewal"></a>Renouvellement automatique en fonction de l’activité
+
+Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Office 365, comme Outlook, SharePoint, Teams ou Yammer. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
+
+### <a name="activities-that-automatically-renew-group-expiration"></a>Activités qui renouvellent automatiquement l’expiration du groupe
+
+Les actions utilisateur suivantes entraînent le renouvellement automatique du groupe :
+
+- SharePoint : afficher, modifier, télécharger, déplacer, partager ou charger des fichiers
+- Outlook : rejoindre un groupe, lire/écrire un message de groupe sur l’espace de groupe, liker un message (dans Outlook Web Access)
+- Teams : accéder à un canal Teams
+
+### <a name="auditing-and-reporting"></a>Audit et création de rapports
+
+Les administrateurs trouveront la liste des groupes renouvelés automatiquement dans les journaux d’audit d’activité dans Azure AD.
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 
@@ -60,16 +77,16 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
 
 3. Sur la page **Expiration**, vous pouvez :
 
-  - Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus).
-  - Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire.
-  - Sélectionnez les groupes Office 365 qui expirent. Vous pouvez définir l’expiration pour :
-    - **Tous** les groupes Office 365
-    - Une liste de groupes Office 365 **sélectionnés**
-    - **Aucun** pour limiter l’expiration de tous les groupes
-  - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
+    - Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus).
+    - Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire.
+    - Sélectionnez les groupes Office 365 qui expirent. Vous pouvez définir l’expiration pour :
+      - **Tous** les groupes Office 365
+      - Une liste de groupes Office 365 **sélectionnés**
+      - **Aucun** pour limiter l’expiration de tous les groupes
+    - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 > [!NOTE]
-> Quand vous définissez l’expiration pour la première fois, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 30 jours avant expiration, à moins que le propriétaire les renouvelle. La première notification par e-mail est envoyée dans la journée qui suit.
+> Lors de la première configuration de l’expiration, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 35 jours avant expiration, à moins qu’ils soient renouvelés automatiquement ou renouvelés par le propriétaire.
 >
 > Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un nouveau groupe et complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
 >
@@ -77,7 +94,7 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 
-Les notifications par e-mail comme celle-ci sont envoyées aux propriétaires de groupes Office 365 30 jours, 15 jours et 1 jour avant l’expiration du groupe. La langue de l’e-mail est déterminée par la langue par défaut du propriétaire des groupes ou par les paramètres de langue d’Azure AD. Si le propriétaire du groupe a défini une langue préférée ou si plusieurs propriétaires ont la même langue préférée, alors cette langue est utilisée. Dans tous les autres cas, les paramètres de langue d’Azure AD sont utilisés.
+Si les groupes ne sont pas renouvelés automatiquement, des notifications par e-mail comme celle-ci sont envoyées aux propriétaires de groupes Office 365 30 jours, 15 jours et 1 jour avant l’expiration du groupe. La langue de l’e-mail est déterminée par la langue par défaut du propriétaire des groupes ou par les paramètres de langue d’Azure AD. Si le propriétaire du groupe a défini une langue préférée ou si plusieurs propriétaires ont la même langue préférée, alors cette langue est utilisée. Dans tous les autres cas, les paramètres de langue d’Azure AD sont utilisés.
 
 ![Notifications par e-mail de l’expiration](./media/groups-lifecycle/expiration-notification.png)
 
@@ -92,18 +109,22 @@ Le groupe peut être restauré dans les 30 jours suivant sa suppression. Pour ce
 Si le groupe que vous restaurez contient des documents, des sites SharePoint ou d’autres objets persistants, la restauration du groupe et de son contenu peut nécessiter jusqu’à 24 heures.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Comment récupérer la date d’expiration du groupe Office 365
+
 En plus du Volet d’accès dans lequel les utilisateurs peuvent afficher les détails du groupe, tels que la date d’expiration et la dernière date de renouvellement, la date d’expiration d’un groupe Office 365 peut être récupérée à partir de la version bêta de l’API REST Microsoft Graph. expirationDateTime a été activé en tant que propriété de groupe dans la version bêta de Microsoft Graph. Il peut être récupéré à l’aide d’une requête GET. Pour plus d’informations, consultez [cet exemple](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Pour gérer les appartenances aux groupes dans le Volet d’accès, « Restreindre l’accès aux groupes dans le volet d’accès » doit être défini sur « Non » dans les paramètres généraux des groupes Azure Active Directory.
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Fonctionnement de l’expiration des groupes Office 365 avec une boîte aux lettres en conservation légale
-Quand un groupe expire et est supprimé, les données du groupe issues des applications comme Planner, Sites ou Teams sont supprimées définitivement au bout de 30 jours, ce qui n’est pas le cas de la boîte aux lettres de groupe en conservation légale. L’administrateur peut utiliser les applets de commande Exchange pour restaurer la boîte aux lettres afin d’en extraire les données. 
+
+Quand un groupe expire et est supprimé, les données du groupe issues des applications comme Planner, Sites ou Teams sont supprimées définitivement au bout de 30 jours, ce qui n’est pas le cas de la boîte aux lettres de groupe en conservation légale. L’administrateur peut utiliser les applets de commande Exchange pour restaurer la boîte aux lettres afin d’en extraire les données.
 
 ## <a name="how-office-365-group-expiration-works-with-retention-policy"></a>Fonctionnement de l’expiration des groupes Office 365 avec la stratégie de conservation
+
 La stratégie de conservation est configurée dans le Centre de conformité et de sécurité. Si vous avez configuré une stratégie de conservation pour des groupes Office 365, lorsqu’un groupe expire et est supprimé, les conversations de groupe situées dans la boîte aux lettres de groupe et les fichiers situés dans le site de groupe sont conservés dans le conteneur de conservation pendant le nombre de jours défini dans la stratégie de conservation. Les utilisateurs ne verront pas le groupe et son contenu après son expiration. Toutefois, ils peuvent récupérer les données de site et de boîte aux lettres via découverte électronique.
 
 ## <a name="powershell-examples"></a>Exemples PowerShell
+
 Voici des exemples de la façon dont vous pouvez utiliser les applets de commande PowerShell pour configurer les paramètres d’expiration des groupes Office 365 dans votre organisation Azure AD :
 
 1. Installez le module PowerShell v2.0 et connectez-vous à l’invite de PowerShell :
@@ -145,7 +166,7 @@ Voici des exemples de la façon dont vous pouvez utiliser les applets de command
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Supprimez la stratégie existante. Remove-AzureADMSGroupLifecyclePolicy : cette applet de commande supprime les paramètres d’expiration du groupe Office 365, mais nécessite l’ID de stratégie. Cela va désactiver l’expiration des groupes Office 365.
+1. Supprimez la stratégie existante. Remove-AzureADMSGroupLifecyclePolicy : cette applet de commande supprime les paramètres d’expiration du groupe Office 365, mais nécessite l’ID de stratégie. Cette cmdlet désactive l’expiration des groupes Office 365.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

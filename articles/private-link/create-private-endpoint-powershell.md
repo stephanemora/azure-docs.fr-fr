@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376171"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053923"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Créer une instance Private Endpoint à l’aide d’Azure PowerShell
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
-Azure déploie des ressources dans un sous-réseau au sein d’un réseau virtuel. C’est pourquoi vous devez créer un sous-réseau. Créez une configuration de sous-réseau nommée *mySubnet* avec  [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). L’exemple suivant crée un sous-réseau nommé *mySubnet* avec l’indicateur de stratégie réseau Private Endpoint défini sur **Désactivé**.
+Azure déploie des ressources dans un sous-réseau au sein d’un réseau virtuel. C’est pourquoi vous devez créer un sous-réseau. Créez une configuration de sous-réseau nommée *mySubnet* avec [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). L’exemple suivant crée un sous-réseau nommé *mySubnet* avec l’indicateur de stratégie réseau Private Endpoint défini sur **Désactivé**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associer le sous-réseau au réseau virtuel
 
-Vous pouvez écrire la configuration du sous-réseau dans le réseau virtuel à l’aide de la commande  [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Cette commande crée le sous-réseau :
+Vous pouvez écrire la configuration du sous-réseau dans le réseau virtuel avec [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Cette commande crée le sous-réseau :
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -164,10 +164,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
-Utilisez  [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)  pour retourner l’adresse IP publique d’une machine virtuelle. Cet exemple retourne l’adresse IP publique de la machine virtuelle *myVM* :
+Utilisez [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) pour retourner l’adresse IP publique d’une machine virtuelle. Cet exemple retourne l’adresse IP publique de la machine virtuelle *myVM* :
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Ouvrez une invite de commandes sur votre ordinateur local. Exécutez la commande mstsc. Remplacez  <publicIpAddress> par l’adresse IP publique renvoyée à l’étape précédente : 
+Ouvrez une invite de commandes sur votre ordinateur local. Exécutez la commande mstsc. Remplacez <publicIpAddress> par l’adresse IP publique renvoyée à l’étape précédente : 
 
 
 > [!NOTE]
@@ -187,15 +187,15 @@ mstsc /v:<publicIpAddress>
 1. Si vous y êtes invité, sélectionnez **Connexion**. 
 2. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
   > [!NOTE]
-  > Vous devrez peut-être sélectionner Plus de choix > Utiliser un autre compte, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle. 
+  > Vous devrez peut-être sélectionner Plus de choix > Utiliser un autre compte pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle. 
   
 3. Sélectionnez **OK**. 
 4. Vous allez peut-être recevoir un avertissement de certificat. Si vous en recevez un, sélectionnez **Oui** ou **Continuer**. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Accéder au serveur de base de données SQL en privé à partir de la machine virtuelle
 
-1. Dans le Bureau à distance de myVm, ouvrez PowerShell.
-2. Entrez `nslookup myserver.database.windows.net`. 
+1. Dans le Bureau à distance de myVM, ouvrez PowerShell.
+2. Entrez `nslookup myserver.database.windows.net`. 
 
     Vous recevez un message similaire à celui ci :
     ```azurepowershell

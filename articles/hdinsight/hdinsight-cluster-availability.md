@@ -1,20 +1,20 @@
 ---
-title: Comment surveiller la disponibilité de cluster avec les journaux Azure Monitor et Ambari
+title: 'Monitorage : Journaux Apache Ambari et Azure Monitor – Azure HDInsight'
 description: Découvrez comment utiliser les journaux Ambari et Azure Monitor pour surveiller la disponibilité et l’intégrité du cluster.
 keywords: surveillance, ambari, surveiller, analytique des journaux d’activité, alerte, disponibilité, intégrité
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076550"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044478"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Comment surveiller la disponibilité de cluster avec les journaux Azure Monitor et Ambari
 

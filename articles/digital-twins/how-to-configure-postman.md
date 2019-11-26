@@ -1,19 +1,19 @@
 ---
-title: Guide pratique pour configurer Postman pour Azure Digital Twins | Microsoft Docs
-description: Guide pratique pour configurer Postman pour Azure Digital Twins
+title: Comment configurer Postman - Azure Digital Twins | Microsoft Docs
+description: Découvrez comment configurer et utiliser Postman pour tester les API Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/13/2019
+ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090506"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -56,16 +56,17 @@ Configurez votre application Azure Active Directory pour utiliser le flux d’oc
 
 1. Selon les paramètres de votre organisation, vous devrez peut-être prendre des mesures supplémentaires pour autoriser l’accès de l’administrateur à cette API. Contactez votre administrateur pour obtenir plus d’informations. Une fois l’accès administrateur approuvé, la colonne **CONSENTEMENT ADMINISTRATEUR REQUIS** du volet **API autorisées** s’affichera comme suit pour vos API :
 
-    [![Ajouter des autorisations d’API](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![Approbation de consentement administrateur](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. Configurez un deuxième **URI de redirection** sur `https://www.getpostman.com/oauth2/callback`.
 
-1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application pour votre application. Définissez *oauth2AllowImplicitFlow* sur `true`.
+    [![Ajouter un URI de redirection Postman](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-    [![Flux implicite Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+1. Pour vous assurer que [l’application est inscrite comme **client public**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), ouvrez le volet **Authentification** de votre inscription d’application, et faites défiler vers le bas dans ce volet. Dans la section **Type de client par défaut**, choisissez **Oui** pour **Considérer l’application comme un client public** et appuyez sur **Enregistrer**.
 
-1. Configurez une **URL de réponse** sur `https://www.getpostman.com/oauth2/callback`.
+    Activez la case à cocher **Jetons d’accès** pour activer le paramètre **oauth2AllowImplicitFlow** dans votre fichier Manifest.json.
 
-    [![URL de réponse Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Paramètres de configuration du client public](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Copiez et conservez l’**ID d’application** de votre application Azure Active Directory. Vous l’utiliserez lors des étapes qui suivent.
 
@@ -106,10 +107,6 @@ Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, ad
     [![Exemple de client Postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Sélectionnez **Jeton de demande**.
-
-    >[!TIP]
-    >Si vous recevez le message d’erreur « OAuth 2 couldn’t be completed » (Impossible d’exécuter OAuth 2), essayez ce qui suit :
-    > * Fermez Postman, rouvrez-le et réessayez.
   
 1. Faites défiler la page et sélectionnez **Use Token** (Utiliser le jeton).
 
@@ -117,13 +114,13 @@ Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, ad
 
 Après avoir effectué les étapes précédentes, configurez Postman pour effectuer une requête HTTP POST authentifiée multipart :
 
-1. Sous l’onglet **En-tête**, ajoutez une clé d’en-tête de requête HTTP **Content-Type** avec la valeur `multipart/mixed`.
+1. Sous l’onglet **En-têtes**, ajoutez une clé d’en-tête de requête HTTP **Content-Type** avec la valeur `multipart/mixed`.
 
    [![Type de contenu multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Sérialisez les données non textuelles dans des fichiers. Les données JSON seraient enregistrées dans un fichier JSON.
 1. Sous l’onglet **Corps**, sélectionnez `form-data`. 
-1. Ajoutez chaque fichier en attribuant un nom de **clé** et en sélectionnant `file`.
+1. Ajoutez chaque fichier en attribuant un nom de **clé** et en sélectionnant `File`.
 1. Ensuite, sélectionnez chaque fichier à l’aide du bouton **Choisir un fichier**.
 
    [![Exemple de client Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -133,7 +130,7 @@ Après avoir effectué les étapes précédentes, configurez Postman pour effect
    > * Vous n’avez pas besoin de spécifier ces en-têtes pour chaque partie.
    > * Vous devez sélectionner `multipart/mixed` ou un autre **Content-Type** approprié pour l’ensemble de la requête.
 
-1. Pour finir, sélectionnez **Envoyer** pour envoyer votre requête HTTP POST multipart.
+1. Pour finir, sélectionnez **Envoyer** pour envoyer votre requête HTTP POST multipart. Un code d’état `200` ou `201` indique une demande réussie. Un message de réponse approprié s’affichera également.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

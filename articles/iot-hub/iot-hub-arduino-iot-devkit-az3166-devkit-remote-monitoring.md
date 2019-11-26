@@ -1,5 +1,5 @@
 ---
-title: DevKit IoT vers cloud -- Connecter le DevKit IoT MXChip à Azure IoT Hub | Microsoft Docs
+title: Connecter DevKit MXChip IoT à la supervision à distance Azure IoT Hub
 description: Dans ce tutoriel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 vers l’accélérateur de solution de supervision à distance Azure IoT.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484054"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953734"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit à l’accélérateur de solution de supervision à distance Azure IoT
 

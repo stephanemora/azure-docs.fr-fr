@@ -1,19 +1,19 @@
 ---
-title: Modèles Microsoft Azure Resource Manager
-description: Décrit comment utiliser des modèles Azure Resource Manager pour le déploiement de ressources.
+title: Vue d’ensemble des modèles Azure Resource Manager
+description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager pour le déploiement de ressources.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300148"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074384"
 ---
-# <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
+# <a name="azure-resource-manager-templates-overview"></a>Vue d’ensemble des modèles Azure Resource Manager
 
 Avec la migration vers le cloud, de nombreuses équipes ont adopté des méthodes de développement agile. Ces équipes effectuent des itérations rapides. Elles doivent déployer à plusieurs reprises leurs solutions dans le cloud et savoir que leur infrastructure est dans un état fiable. Comme l’infrastructure fait partie intégrante du processus itératif, la séparation entre les opérations et le développement a disparu. Les équipes doivent gérer le code d’infrastructure et le code d’application à l’aide d’un processus unifié.
 
@@ -125,5 +125,6 @@ Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez [Didacticiel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md).
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

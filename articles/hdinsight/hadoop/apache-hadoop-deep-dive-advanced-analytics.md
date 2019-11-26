@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066980"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241656"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -78,7 +78,7 @@ Dans le cadre de HDInsight, vous pouvez créer un cluster HDInsight avec [ML Se
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning et Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) fournit des outils de modélisation d’analytiques prédictives, ainsi qu’un service entièrement managé vous permettant de déployer vos modèles prédictifs sous la forme de services web prêts à l’emploi. Azure Machine Learning fournit des outils pour créer des solutions complètes d’analyse prédictive sur le cloud afin de créer, tester, mettre en service et gérer rapidement des modèles prédictifs. Effectuez une sélection dans une volumineuse bibliothèque d’algorithmes, utilisez un studio web pour générer des modèles et déployez facilement votre modèle en tant que service web.
+[Azure Machine Learning Studio (classique)](https://studio.azureml.net/) fournit des outils de modélisation d’analytique prédictive, ainsi qu’un service complètement managé permettant de déployer des modèles prédictifs sous la forme de services web prêts à l’emploi. Azure Machine Learning fournit des outils pour créer des solutions complètes d’analyse prédictive sur le cloud afin de créer, tester, mettre en service et gérer rapidement des modèles prédictifs. Effectuez une sélection dans une volumineuse bibliothèque d’algorithmes, utilisez un studio web pour générer des modèles et déployez facilement votre modèle en tant que service web.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark et Deep Learning
 

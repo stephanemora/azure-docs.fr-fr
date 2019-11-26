@@ -1,5 +1,5 @@
 ---
-title: 'Obtenir des tables ARP – Dépannage – ExpressRoute : Azure| Microsoft Docs'
+title: 'Azure ExpressRoute : Tables ARP - Dépannage'
 description: Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4f1bd064dbc0909be3deba9180be1d8b3c066fd4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748165"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076578"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement Resource Manager
 > [!div class="op_single_selector"]

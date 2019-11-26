@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1d147dcee31fa4b84b28ab62e8cd41aebc134a9b
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757249"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043947"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -184,4 +184,4 @@ Content Moderator fournit une [API de liste de termes](https://westus.dev.cognit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Évaluez la [Console d’API Modération du texte](try-text-api.md) et utilisez les exemples de code API REST. Consultez également le [démarrage rapide .NET de l’API de modération du texte](text-moderation-quickstart-dotnet.md) si vous connaissez déjà Visual Studio et C#.
+Évaluez la [Console d’API Modération du texte](try-text-api.md) et utilisez les exemples de code API REST. Consultez également la section Modération de texte du [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) si vous connaissez déjà Visual Studio et C#.

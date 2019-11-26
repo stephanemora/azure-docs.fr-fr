@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 467bf7fe26df2f826d6d44d42a9e30b98795232f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754200"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043928"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
@@ -61,9 +61,6 @@ Pour **Content-Type**, sélectionnez le type de contenu à passer au crible. Pou
 ### <a name="sample-text-to-scan"></a>Exemple de texte à analyser
 
 Dans la zone **Request body** (Corps de la requête), entrez du texte. L’exemple suivant montre une faute de frappe intentionnelle dans le texte.
-
-> [!NOTE]
-> Le numéro de sécurité sociale non valide dans l’exemple de texte suivant est intentionnel. Le but est d’exprimer le format de l’exemple d’entrée et de sortie.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -176,4 +173,4 @@ Pour obtenir une explication détaillée de toutes les sections de la réponse J
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez l’API REST dans votre code ou commencez par le [Guide de démarrage rapide de modération du texte pour .NET](text-moderation-quickstart-dotnet.md) pour l’intégrer à votre application.
+Utilisez l’API REST dans votre code ou suivez le [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) pour l’intégrer à votre application.

@@ -1,5 +1,6 @@
 ---
-title: Initialiser des applications clientes (bibliothèque d’authentification Microsoft pour JavaScript) | Azure
+title: Initialiser des applications clientes (bibliothèque d’authentification Microsoft pour JavaScript)
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur l’initialisation d’applications clientes à l’aide de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 25f2776b9b5683a345c55af4bc0020fef8109edd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073840"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150668"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initialiser des applications clientes avec MSAL.js
 Cet article décrit l’initialisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec une instance d’application agent utilisateur. L’application agent utilisateur est une forme d'application cliente publique dans laquelle le code client est exécuté dans un agent utilisateur, par exemple un navigateur web. Ces clients ne stockent pas de secrets car le contexte du navigateur est directement accessible. Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
@@ -45,7 +46,7 @@ Pour les méthodes d’authentification avec flux de redirection (`loginRedirect
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 
@@ -90,6 +91,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -138,6 +140,8 @@ Voici l’ensemble des options configurables actuellement prises en charge dans 
 - **loadFrameTimeout** : facultatif.  Le nombre de millisecondes d’inactivité avant qu’une réponse de renouvellement de jeton provenant d’Azure AD doit être considérée comme expirée. La valeur par défaut est 6 secondes.
 
 - **tokenRenewalOffsetSeconds** : facultatif. Le nombre de millisecondes qui définit la fenêtre de décalage nécessaire pour renouveler le jeton avant son expiration. La valeur par défaut est de 300 millisecondes.
+
+- **navigateFrameWait** : facultatif. Nombre de millisecondes définissant le délai d’attente avant que les iframes masqués accèdent à leur destination. La valeur par défaut est de 500 millisecondes.
 
 Ces valeurs doivent uniquement être transmises à partir de la bibliothèque wrapper MSAL Angular :
 - **unprotectedResources** : facultatif.  Tableau des URI représentant des ressources non protégées. MSAL ne joindra pas de jeton aux demandes sortantes affichant ces URI. La valeur par défaut est `null`.

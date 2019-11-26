@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: atsenthi
-ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166547"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242933"
 ---
 # <a name="resource-governance"></a>Gouvernance des ressources
 
@@ -110,6 +110,18 @@ Pour des performances optimales, le paramètre suivant doit également être act
 </Section>
 ```
 
+> [!IMPORTANT]
+> À compter de Service Fabric version 7.0, nous avons mis à jour la règle de calcul de la capacité des ressources de nœud dans les cas où l’utilisateur fournit manuellement la valeur de cette capacité. Considérons le scénario suivant :
+>
+> * Il y a au total 10 cœurs de processeur sur le nœud.
+> * SF est configuré pour utiliser 80 % du total des ressources pour les services d’utilisateurs (paramètre par défaut), ce qui laisse une mémoire tampon de 20 % pour les autres services qui s’exécutent sur le nœud (y compris les services système Service Fabric).
+> * L’utilisateur décide de remplacer manuellement la capacité des ressources de nœud pour la métrique des cœurs de processeur et de lui affecter la valeur 5 cœurs.
+>
+> Nous avons modifié ainsi la règle de calcul de la capacité disponible pour les services d’utilisateurs Service Fabric :
+>
+> * Avant Service Fabric 7.0, la capacité disponible pour les services utilisateur était évaluée à **5 cœurs** (la mémoire tampon de capacité de 20 % était ignorée).
+> * À compter de Service Fabric 7.0, la capacité disponible pour les services d’utilisateurs est évaluée à **4 cœurs** (la mémoire tampon de capacité de 20 % n’est pas ignorée).
+
 ## <a name="specify-resource-governance"></a>Spécifier la gouvernance des ressources
 
 Les limites de gouvernance des ressources sont spécifiées dans le manifeste d’application (section ServiceManifestImport), comme indiqué dans l’exemple suivant :
@@ -141,7 +153,7 @@ Les limites de mémoire sont absolues, ce qui signifie que les deux packages de 
 
 ### <a name="using-application-parameters"></a>Utilisation des paramètres d'application
 
-Lorsque vous spécifiez la gouvernance des ressources, il est possible d’utiliser les [Paramètres de l’application](service-fabric-manage-multiple-environment-app-configuration.md) pour gérer plusieurs configurations d’application. L’exemple suivant illustre l’utilisation de paramètres d’application :
+Lorsque l’on spécifie les paramètres de gouvernance des ressources, il est possible d’utiliser les [Paramètres de l’application](service-fabric-manage-multiple-environment-app-configuration.md) pour gérer plusieurs configurations d’application. L’exemple suivant illustre l’utilisation de paramètres d’application :
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,6 +197,27 @@ Dans cet exemple, les valeurs par défaut sont définies pour l’environnement 
 > La spécification de la gouvernance des ressources avec des paramètres d’application est disponible à partir de Service Fabric version 6.1.<br>
 >
 > Lorsque les paramètres de l’application sont utilisés pour spécifier la gouvernance des ressources, Service Fabric ne peut pas être rétrogradé à une version antérieure à la version 6.1.
+
+## <a name="enforcing-the-resource-limits-for-user-services"></a>Appliquer les limites de ressources des services d’utilisateurs
+
+Bien que l’application de la gouvernance des ressources à des services Service Fabric garantit que ces services régis par les ressources ne peuvent pas dépasser leur quota de ressources, de nombreux utilisateurs ont besoin d’exécuter certains de leurs services Service Fabric en mode non régi. Avec des services Service Fabric non régis, il est possible de rencontrer des situations dans lesquelles des services non régis « en perte de contrôle » consomment toutes les ressources disponibles sur les nœuds Service Fabric, ce qui peut entraîner de graves problèmes :
+
+* insuffisance de ressources d’autres services qui s’exécutent sur les nœuds (y compris les services système Service Fabric) ;
+* nœuds se retrouvant dans un état non sain ;
+* API de gestion de clusters Service Fabric qui ne répondent pas.
+
+Pour éviter ces cas de figure, Service Fabric offre la possibilité  *d’appliquer les limites de ressources pour tous les services d’utilisateurs Service Fabric qui s’exécutent sur le nœud* (régis ou non) afin de garantir qu’ils n’utiliseront jamais plus de ressources que la quantité spécifiée. Pour cela, définissez sur true la valeur de la configuration EnforceUserServiceMetricCapacities dans la section PlacementAndLoadBalancing de ClusterManifest. Le paramètre est désactivé par défaut.
+
+```xml
+<SectionName="PlacementAndLoadBalancing">
+    <ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+</Section>
+```
+
+Remarques supplémentaires :
+
+* L’application de limites de ressources s’applique uniquement aux métriques de ressource `servicefabric:/_CpuCores` et `servicefabric:/_MemoryInMB`.
+* L’application de limites de ressources ne fonctionne que si les capacités de nœud des métriques de ressource sont accessibles à Service Fabric, par le biais d’un mécanisme de détection automatique ou d’utilisateurs qui les spécifient manuellement (comme l’explique la section [Configuration de cluster pour activer la gouvernance des ressources](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)). Si les capacités de nœud ne sont pas configurées, la capacité d’application de limites de ressources n’est pas utilisable, car Service Fabric ne connaît pas le volume de ressources à réserver pour les services d’utilisateurs. Service Fabric émet un avertissement d’intégrité si « EnforceUserServiceMetricCapacities » a la valeur true, mais que les capacités de nœud ne sont pas configurées.
 
 ## <a name="other-resources-for-containers"></a>Autres ressources pour les conteneurs
 

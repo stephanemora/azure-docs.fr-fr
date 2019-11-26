@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5e0904cc2fd9866a9f8354eac9815945043eca5c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194129"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987588"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter
 
@@ -41,6 +41,9 @@ Un groupe nommé **Cloud-owner-Group** est créé lors du déploiement d’un cl
 | Cloud-Global-VM-Admin-Group | Les membres de ce groupe peuvent gérer des machines virtuelles sur le cloud privé vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
 Pour accorder à des utilisateurs individuels des autorisations leur permettant de gérer le cloud privé, créez des comptes d’utilisateur à ajoutez-les aux groupes appropriés.
+
+> [!CAUTION]
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs*.
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>Liste des privilèges vCenter pour les rôles par défaut
 

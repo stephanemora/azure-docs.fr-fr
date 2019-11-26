@@ -1,17 +1,17 @@
 ---
-title: Conserver les adresses IP pendant le basculement des machines virtuelles Azure avec Azure Site Recovery | Microsoft Docs
+title: Conserver des adresses IP après un basculement des machines virtuelles Azure avec Azure Site Recovery
 description: Décrit comment conserver les adresses IP en cas de défaillance des machines virtuelles Azure pour la reprise après sinistre dans une région secondaire avec Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479958"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083690"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter des ID de corrélation aux messages IoT avec le traçage distribué (préversion)
-description: ''
+title: Ajouter des ID de corrélation aux messages IoT avec le traçage distribué (préversion)
+description: Découvrez comment utiliser la fonctionnalité de traçage distribué pour suivre les messages IoT dans tous les services Azure utilisés par votre solution.
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259351"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953154"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -28,7 +28,7 @@ L’activation du traçage distribué pour IoT Hub vous permet de :
 - Mesurer et comprendre le flux et la latence des messages entre les appareils, IoT Hub et les points de terminaison de routage.
 - Commencer à réfléchir à la manière dont vous souhaitez implémenter le traçage distribué pour les services non Azure dans votre solution IoT.
 
-Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](./iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
+Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](
   - **Asie Sud-Est**
   - **USA Ouest 2**
 
-- Cet article suppose que vous savez envoyer des messages de télémétrie aux hubs IoT. Vous devez avoir suivi le [guide de démarrage rapide sur l’envoi de données de télémétrie en C](./quickstart-send-telemetry-c.md).
+- Cet article suppose que vous savez envoyer des messages de télémétrie aux hubs IoT. Vous devez avoir suivi le [guide de démarrage rapide sur l’envoi de données de télémétrie en C](quickstart-send-telemetry-c.md).
 
 - Inscrivez un appareil auprès de votre hub IoT (les étapes sont indiquées dans tous les guides de démarrage rapide), puis notez la chaîne de connexion.
 

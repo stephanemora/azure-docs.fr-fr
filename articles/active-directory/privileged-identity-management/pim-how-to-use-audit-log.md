@@ -1,29 +1,29 @@
 ---
-title: Voir l’historique des audits pour les rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+title: Afficher le rapport d’audit pour les rôles Azure AD dans PIM - Azure AD | Microsoft Docs
 description: Découvrez comment afficher l’historique des audits des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022059"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Voir l’historique d’audit pour les rôles Azure AD dans PIM
 
-Vous pouvez utiliser l’historique d’audit PIM Azure Active Directory (Azure AD) pour voir toutes les activations et toutes les affectations de rôles qui ont été effectuées au cours des 30 derniers jours pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre annuaire, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’activité et de sécurité d’Azure Active Directory](../reports-monitoring/overview-reports.md).
+Vous pouvez utiliser l’historique d’audit PIM (Privileged Identity Management) pour voir toutes les activations et toutes les affectations de rôles qui ont été effectuées au cours des 30 derniers jours pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre organisation Azure Active Directory (Azure AD), notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’activité et de sécurité d’Azure Active Directory](../reports-monitoring/overview-reports.md).
 
 ## <a name="view-audit-history"></a>Afficher l’historique d'audit
 
@@ -63,7 +63,7 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
 
 1. Dans **Intervalle de temps**, sélectionnez un intervalle de temps.
 
-1. Dans **Rôles**, cochez les rôles que vous souhaitez afficher.
+1. Dans **Rôles**, activez les cases à cocher pour indiquer les rôles que vous souhaitez afficher.
 
     ![Volet Mettre à jour les paramètres du graphique](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -71,4 +71,4 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM](azure-pim-resource-rbac.md)
+- [Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management](azure-pim-resource-rbac.md)

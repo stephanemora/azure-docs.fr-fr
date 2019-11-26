@@ -1,5 +1,5 @@
 ---
-title: Le serveur de sauvegarde Azure protège l’état du système et effectue une récupération complète de celui-ci
+title: Protéger l’état du système et restauration complète – Serveur de sauvegarde Azure
 description: Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 author: dcurwin
 manager: carmonm
@@ -8,22 +8,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dacurwin
-ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639674"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969033"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
 Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectue une récupération complète de celui-ci.
 
-*   **Sauvegarde de l’état du système** : sauvegarde les fichiers du système d’exploitation, afin que vous puissiez récupérer celui-ci au démarrage de l’ordinateur, mais les fichiers système et le Registre sont perdus. Une sauvegarde de l’état du système inclut ces élément suivants :
-    * Membre de domaine : fichiers de démarrage, base de données d’inscription de classe COM+, Registre
-    * Contrôleur de domaine : Windows Server Active Directory (NTDS), fichiers de démarrage, base de données d’inscription de classe COM+, Registre, volume système (SYSVOL)
-    * Ordinateur qui exécute les services de cluster : Métadonnées du serveur de cluster
-    * Ordinateur exécutant les services de certificats : Données du certificat
+* **Sauvegarde de l’état du système** : sauvegarde les fichiers du système d’exploitation, afin que vous puissiez récupérer celui-ci au démarrage de l’ordinateur, mais les fichiers système et le Registre sont perdus. Une sauvegarde de l’état du système inclut ces élément suivants :
+  * Membre de domaine : fichiers de démarrage, base de données d’inscription de classe COM+, Registre
+  * Contrôleur de domaine : Windows Server Active Directory (NTDS), fichiers de démarrage, base de données d’inscription de classe COM+, Registre, volume système (SYSVOL)
+  * Ordinateur qui exécute les services de cluster : Métadonnées du serveur de cluster
+  * Ordinateur exécutant les services de certificats : Données du certificat
 * **Sauvegarde complète** : sauvegarde les fichiers du système d’exploitation et toutes les données sur les volumes critiques (sauf les données utilisateur). Par définition, une sauvegarde complète inclut une sauvegarde de l’état du système. Elle offre une protection quand un ordinateur ne démarre pas et que vous devez récupérer tous les éléments nécessaires.
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application qui peuvent être protégées avec l’état du système et une récupération complète, voir [Qu’est-ce que le Serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
@@ -69,59 +69,59 @@ Une fois la sauvegarde terminée, le fichier est transféré vers l’ordinateur
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
--   La récupération complète n’est pas prise en charge pour les ordinateurs exécutant Windows Server 2003 ou un système d’exploitation de client.
+* La récupération complète n’est pas prise en charge pour les ordinateurs exécutant Windows Server 2003 ou un système d’exploitation de client.
 
--   Vous ne pouvez pas protéger la récupération complète et l’état du système pour le même ordinateur dans des groupes de protection différents.
+* Vous ne pouvez pas protéger la récupération complète et l’état du système pour le même ordinateur dans des groupes de protection différents.
 
--   Un ordinateur Serveur de sauvegarde ne peut pas se protéger lui-même pour une récupération complète.
+* Un ordinateur Serveur de sauvegarde ne peut pas se protéger lui-même pour une récupération complète.
 
--   Une protection à court terme sur bande (D2T ou de disque à bande) n’est pas prise en charge pour la récupération complète. Un stockage à long terme sur bande (D2D2T ou disque à disque à bande) est pris en charge.
+* Une protection à court terme sur bande (D2T ou de disque à bande) n’est pas prise en charge pour la récupération complète. Un stockage à long terme sur bande (D2D2T ou disque à disque à bande) est pris en charge.
 
--   Pour la protection de la récupération complète, l’application Sauvegarde Windows Server doit être installée sur l’ordinateur protégé.
+* Pour la protection de la récupération complète, l’application Sauvegarde Windows Server doit être installée sur l’ordinateur protégé.
 
--   Pour la protection complète, à la différence de la protection de l’état du système, le Serveur de sauvegarde n’impose pas de conditions d’espace disque requis sur l’ordinateur protégé. L’application Sauvegarde Windows Server transfère directement les sauvegardes vers l’ordinateur Serveur de sauvegarde. Le travail de transfert de la sauvegarde n’apparaît pas dans l’affichage des **travaux** du Serveur de sauvegarde.
+* Pour la protection complète, à la différence de la protection de l’état du système, le Serveur de sauvegarde n’impose pas de conditions d’espace disque requis sur l’ordinateur protégé. L’application Sauvegarde Windows Server transfère directement les sauvegardes vers l’ordinateur Serveur de sauvegarde. Le travail de transfert de la sauvegarde n’apparaît pas dans l’affichage des **travaux** du Serveur de sauvegarde.
 
--   Le Serveur de sauvegarde réserve 30 Go d’espace sur le volume du réplica pour la récupération complète. Vous pouvez modifier cette valeur via la page **Allocation de disque** de l’Assistant Modification d’un groupe de protection, ou en utilisant les applets de commande Get-DatasourceDiskAllocation et Set-DatasourceDiskAllocation PowerShell. Sur le volume des points de récupération, la protection de la récupération complète nécessite environ 6 Go pour une durée de rétention de cinq jours.
-    * Notez que vous ne pouvez pas réduire la taille du volume du réplica à moins de 15 Go.
-    * Le Serveur de sauvegarde ne calcule pas la taille de la source de données de récupération complète. Il suppose qu’elle est de 30 Go pour tous les serveurs. Modifiez la valeur en fonction de la taille des sauvegardes complètes que vous anticipez dans votre environnement. La taille d’une sauvegarde complète peut être calculée approximativement comme la totalité de l’espace utilisé sur tous les volumes critiques. Volumes critiques = volume de démarrage + volume système + volume hébergeant les données d’état du système, tel qu’Active Directory.
+* Le Serveur de sauvegarde réserve 30 Go d’espace sur le volume du réplica pour la récupération complète. Vous pouvez modifier cette valeur via la page **Allocation de disque** de l’Assistant Modification d’un groupe de protection, ou en utilisant les applets de commande Get-DatasourceDiskAllocation et Set-DatasourceDiskAllocation PowerShell. Sur le volume des points de récupération, la protection de la récupération complète nécessite environ 6 Go pour une durée de rétention de cinq jours.
+  * Notez que vous ne pouvez pas réduire la taille du volume du réplica à moins de 15 Go.
+  * Le Serveur de sauvegarde ne calcule pas la taille de la source de données de récupération complète. Il suppose qu’elle est de 30 Go pour tous les serveurs. Modifiez la valeur en fonction de la taille des sauvegardes complètes que vous anticipez dans votre environnement. La taille d’une sauvegarde complète peut être calculée approximativement comme la totalité de l’espace utilisé sur tous les volumes critiques. Volumes critiques = volume de démarrage + volume système + volume hébergeant les données d’état du système, tel qu’Active Directory.
 
--   Si vous passez d’une protection de l’état du système à une protection complète, celle-ci nécessite moins d’espace sur le *volume des points de récupération*. Toutefois, l’espace restant sur le volume n’est pas récupéré. Vous pouvez réduire manuellement la taille du volume via la page **Allocation de disque** de l’Assistant Modification d’un groupe de protection, ou en utilisant les applets de commande Get-DatasourceDiskAllocation et Set-DatasourceDiskAllocation PowerShell.
+* Si vous passez d’une protection de l’état du système à une protection complète, celle-ci nécessite moins d’espace sur le *volume des points de récupération*. Toutefois, l’espace restant sur le volume n’est pas récupéré. Vous pouvez réduire manuellement la taille du volume via la page **Allocation de disque** de l’Assistant Modification d’un groupe de protection, ou en utilisant les applets de commande Get-DatasourceDiskAllocation et Set-DatasourceDiskAllocation PowerShell.
 
     Si vous passez d’une protection de l’état du système à une protection complète, celle-ci nécessite davantage d’espace sur le *volume du réplica*. Le volume est automatiquement étendu. Si vous souhaitez modifier les allocations d’espace par défaut, utilisez l’applet de commande PowerShell Modify-DiskAllocation.
 
--   Si vous passez d’une protection complète à un protection de l’état du système, vous avez besoin de davantage d’espace sur le volume des points de récupération. Le Serveur de sauvegarde peut tenter d’augmenter automatiquement le volume. Si l’espace est insuffisant dans le pool de stockage, une erreur se produit.
+* Si vous passez d’une protection complète à un protection de l’état du système, vous avez besoin de davantage d’espace sur le volume des points de récupération. Le Serveur de sauvegarde peut tenter d’augmenter automatiquement le volume. Si l’espace est insuffisant dans le pool de stockage, une erreur se produit.
 
     Si vous passez d’une protection complète à un protection de l’état du système, vous avez besoin d’espace sur l’ordinateur protégé. Cela résulte du fait que la protection de l’état du système commence par écrire le réplica sur l’ordinateur local, avant de le transférer vers l’ordinateur Serveur de sauvegarde.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-1.  **Déployez le Serveur de sauvegarde Azure**. Vérifiez que le Serveur de sauvegarde est correctement déployé. Pour plus d'informations, consultez les pages suivantes :
+1. **Déployez le Serveur de sauvegarde Azure**. Vérifiez que le Serveur de sauvegarde est correctement déployé. Pour plus d'informations, consultez les pages suivantes :
     * [Configuration requise pour le Serveur de sauvegarde Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matrice de protection du Serveur de sauvegarde](backup-mabs-protection-matrix.md)
 
-2.  **Configurez le stockage**. Vous pouvez stocker les données de sauvegarde sur disque, sur bande et dans le cloud avec Azure. Pour plus d’informations, voir [Préparer l’espace de stockage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+2. **Configurez le stockage**. Vous pouvez stocker les données de sauvegarde sur disque, sur bande et dans le cloud avec Azure. Pour plus d’informations, voir [Préparer l’espace de stockage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
-3.  **Configurez l’agent de protection**. Installez l’agent de protection sur l’ordinateur que vous souhaitez sauvegarder. Pour plus d’informations, voir [Déployer l’agent de protection DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+3. **Configurez l’agent de protection**. Installez l’agent de protection sur l’ordinateur que vous souhaitez sauvegarder. Pour plus d’informations, voir [Déployer l’agent de protection DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Sauvegarde de l’état du système et récupération complète
+
 Configurez un groupe de protection comme décrit dans [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Notez que vous ne pouvez pas protéger la récupération complète et l’état du système pour un même ordinateur dans des groupes différents. Par ailleurs, lorsque vous sélectionnez la récupération complète, la protection de l’état du système est automatiquement activée.
 
+1. Pour ouvrir l’Assistant Création d’un groupe de protection dans la Console Administrateur du Serveur de sauvegarde, sélectionnez **Protection** > **Actions** > **Créer un groupe de Protection**.
 
-1.  Pour ouvrir l’Assistant Création d’un groupe de protection dans la Console Administrateur du Serveur de sauvegarde, sélectionnez **Protection** > **Actions** > **Créer un groupe de Protection**.
+2. Dans la page **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis **Suivant**.
 
-2.  Dans la page **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis **Suivant**.
-
-3.  Dans la page **Sélectionner les membres du groupe**, développez l’ordinateur, puis sélectionnez **Récupération complète** ou **État du système**.
+3. Dans la page **Sélectionner les membres du groupe**, développez l’ordinateur, puis sélectionnez **Récupération complète** ou **État du système**.
 
     N’oubliez pas que vous ne pouvez pas protéger la récupération complète et l’état du système pour un même ordinateur dans des groupes différents. Par ailleurs, lorsque vous sélectionnez la récupération complète, la protection de l’état du système est automatiquement activée. Pour plus d’informations, voir [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
 
-4.  Dans la page **Sélectionner la méthode de protection des données**, sélectionnez la façon dont vous souhaitez gérer les sauvegardes à court terme et à long terme. La sauvegarde à court terme est toujours effectuée d’abord sur disque, avec l’option de sauvegarder du disque dans le cloud Azure à l’aide de Sauvegarde Microsoft Azure (à court ou long terme). Une alternative à la sauvegarde à long terme dans le cloud consiste à configurer la sauvegarde à long terme sur un lecteur de bandes ou dans une bibliothèque de bandes autonomes connectés au Serveur de sauvegarde.
+4. Dans la page **Sélectionner la méthode de protection des données**, sélectionnez la façon dont vous souhaitez gérer les sauvegardes à court terme et à long terme. La sauvegarde à court terme est toujours effectuée d’abord sur disque, avec l’option de sauvegarder du disque dans le cloud Azure à l’aide de Sauvegarde Microsoft Azure (à court ou long terme). Une alternative à la sauvegarde à long terme dans le cloud consiste à configurer la sauvegarde à long terme sur un lecteur de bandes ou dans une bibliothèque de bandes autonomes connectés au Serveur de sauvegarde.
 
-5.  Dans la page **Sélectionner les objectifs à court terme**, sélectionnez la manière dont vous voulez sauvegarder dans le stockage à court terme sur disque :
-    1. Pour **Durée de rétention**, sélectionnez la durée pendant laquelle vous souhaitez conserver les données sur disque. 
+5. Dans la page **Sélectionner les objectifs à court terme**, sélectionnez la manière dont vous voulez sauvegarder dans le stockage à court terme sur disque :
+    1. Pour **Durée de rétention**, sélectionnez la durée pendant laquelle vous souhaitez conserver les données sur disque.
     2. Pour **Fréquence de synchronisation**, sélectionnez la fréquence à laquelle vous souhaitez exécuter une sauvegarde incrémentielle sur disque. Si vous ne souhaitez pas définir un intervalle de sauvegarde, vous pouvez activer l’option **Juste avant un point de récupération**. Le Serveur de sauvegarde exécute une sauvegarde complète rapide juste avant chaque point de récupération planifié.
 
-6.  Si vous souhaitez stocker des données sur bande pour un stockage à long terme, dans la page **Spécifier les objectifs à long terme**, sélectionnez la durée pendant laquelle vous souhaitez conserver les données sur bande (1 à 99 ans). 
+6. Si vous souhaitez stocker des données sur bande pour un stockage à long terme, dans la page **Spécifier les objectifs à long terme**, sélectionnez la durée pendant laquelle vous souhaitez conserver les données sur bande (1 à 99 ans).
     1. Pour **Fréquence de sauvegarde**, sélectionnez la fréquence à laquelle la sauvegarde sur bande doit être exécutée. La fréquence est basée sur la durée de rétention que vous avez sélectionnée :
         * Lorsque la durée de rétention est de 1 à 99 ans, vous pouvez opter pour des sauvegardes quotidiennes, hebdomadaires, bihebdomadaires, mensuelles, trimestrielles, semestrielles ou annuelles.
         * Lorsque la durée de rétention est de 1 à 11 mois, vous pouvez opter pour des sauvegardes quotidiennes, hebdomadaires, bihebdomadaires ou mensuelles.
@@ -129,13 +129,13 @@ Configurez un groupe de protection comme décrit dans [Déployer des groupes de 
 
     2. Dans la page **Sélectionner la bande et les détails de la bibliothèque**, sélectionnez la bande et la bibliothèque à utiliser, et indiquez si les données doivent être compressées et chiffrées.
 
-7.  Dans la page **Vérifier l’allocation de disque**, vérifiez l’espace disque de pool de stockage alloué pour ce groupe de protection.
+7. Dans la page **Vérifier l’allocation de disque**, vérifiez l’espace disque de pool de stockage alloué pour ce groupe de protection.
 
     1. La **Taille totale des données** est la taille des données que vous souhaitez sauvegarder.
-    2. L’**Espace disque à approvisionner sur le Serveur de sauvegarde Azure** est l’espace que le Serveur de sauvegarde recommande pour le groupe de protection. Le Serveur de sauvegarde choisit le volume de sauvegarde idéal en fonction des paramètres. Toutefois, vous pouvez modifier les choix de volume de sauvegarde dans **Détails de l’allocation de disque**. 
+    2. L’**Espace disque à approvisionner sur le Serveur de sauvegarde Azure** est l’espace que le Serveur de sauvegarde recommande pour le groupe de protection. Le Serveur de sauvegarde choisit le volume de sauvegarde idéal en fonction des paramètres. Toutefois, vous pouvez modifier les choix de volume de sauvegarde dans **Détails de l’allocation de disque**.
     3. Pour les charges de travail, dans le menu déroulant, sélectionnez le stockage par défaut. Vos modifications changent les valeurs de **Stockage Total** et **Stockage libre** dans le volet **Stockage sur disque disponible**. L’espace sous-approvisionné est la quantité de stockage que le Serveur de sauvegarde suggère que vous ajoutiez au volume pour garantir des sauvegardes sans heurt.
 
-8.  Dans la page **choisir la méthode de création de réplica**, sélectionnez la façon dont vous souhaitez gérer la réplication initiale complète des données. Si vous choisissez de répliquer sur le réseau, nous vous recommandons de choisir une heure creuse. Si les quantités de données sont importantes ou si les conditions réseau ne sont pas optimales, envisagez de répliquer les données hors connexion à l’aide d’un support amovible.
+8. Dans la page **choisir la méthode de création de réplica**, sélectionnez la façon dont vous souhaitez gérer la réplication initiale complète des données. Si vous choisissez de répliquer sur le réseau, nous vous recommandons de choisir une heure creuse. Si les quantités de données sont importantes ou si les conditions réseau ne sont pas optimales, envisagez de répliquer les données hors connexion à l’aide d’un support amovible.
 
 9. Dans la page **Sélectionner les options de vérification de cohérence**, indiquez comment vous voulez automatiser les vérifications de cohérence. Vous pouvez choisir d’exécuter une vérification uniquement lorsque les données du réplica deviennent incohérentes, ou selon une planification. Si vous ne voulez pas configurer un vérification de cohérence automatique, vous pouvez effectuer une vérification manuelle à toute moment. Pour effectuer une vérification manuelle, dans la zone **Protection** de la Console Administrateur du Serveur de sauvegarde, cliquez avec le bouton droit sur le groupe de protection, puis sélectionnez **Effectuer une vérification de cohérence**.
 
@@ -150,74 +150,75 @@ Configurez un groupe de protection comme décrit dans [Déployer des groupes de 
 14. Dans la page **Résumé**, vérifiez vos paramètres. Après que vous avez sélectionné **Créer un groupe**, la réplication initiale des données est effectuée. Une fois la réplication des données terminée, dans la page **État**, l’état du groupe de protection est **OK**. La sauvegarde a alors lieu conformément aux paramètres du groupe de protection.
 
 ## <a name="recover-system-state-or-bmr"></a>Récupérer l’état du système ou la récupération complète
+
 Vous pouvez récupérer la récupération complète ou l’état du système dans un emplacement réseau. Si vous avez sauvegardé une récupération complète, utilisez l’environnement de récupération Windows (WinRE) pour démarrer votre système et le connecter au réseau. Ensuite, utilisez l’application Sauvegarde Windows Server pour récupérer à partir de l’emplacement réseau. Si vous avez sauvegardé l’état du système, utilisez simplement l’application Sauvegarde Windows Server pour récupérer à partir de l’emplacement réseau.
 
 ### <a name="restore-bmr"></a>Restaurer une récupération complète
+
 Exécutez la récupération sur l’ordinateur Serveur de sauvegarde :
 
-1.  Dans le volet **Récupération**, recherchez l’ordinateur à récupérer, puis sélectionnez **Récupération complète**.
+1. Dans le volet **Récupération**, recherchez l’ordinateur à récupérer, puis sélectionnez **Récupération complète**.
 
-2.  Les points de récupération disponibles sont indiqués en gras dans le calendrier. Sélectionnez la date et l’heure du point de récupération à utiliser.
+2. Les points de récupération disponibles sont indiqués en gras dans le calendrier. Sélectionnez la date et l’heure du point de récupération à utiliser.
 
-3.  Dans la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
+3. Dans la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
 
-4.  Dans la page **Spécifier la destination**, sélectionnez l’emplacement où vous souhaitez copier les données. N’oubliez pas que la destination sélectionnée doit offrir suffisamment d’espace. Nous vous recommandons de créer un dossier.
+4. Dans la page **Spécifier la destination**, sélectionnez l’emplacement où vous souhaitez copier les données. N’oubliez pas que la destination sélectionnée doit offrir suffisamment d’espace. Nous vous recommandons de créer un dossier.
 
-5.  Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité à appliquer. Ensuite, indiquez si vous souhaitez utiliser des instantanés matériels basés sur le réseau de zone de stockage (SAN) pour accélérer la récupération (cette option est disponible uniquement si vous avez un SAN avec cette fonctionnalité, et la possibilité de créer et de fractionner un clone pour le rendre accessible en écriture ; en outre, l’ordinateur protégé et l’ordinateur Serveur de sauvegarde doivent être connectés au même réseau).
+5. Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité à appliquer. Ensuite, indiquez si vous souhaitez utiliser des instantanés matériels basés sur le réseau de zone de stockage (SAN) pour accélérer la récupération (cette option est disponible uniquement si vous avez un SAN avec cette fonctionnalité, et la possibilité de créer et de fractionner un clone pour le rendre accessible en écriture ; en outre, l’ordinateur protégé et l’ordinateur Serveur de sauvegarde doivent être connectés au même réseau).
 
-6.  Configurez les options de notification. Dans la page **Confirmation**, sélectionnez **Récupérer**.
+6. Configurez les options de notification. Dans la page **Confirmation**, sélectionnez **Récupérer**.
 
 Configurez l’emplacement du partage :
 
-1.  Dans l’emplacement de restauration, accédez au dossier contenant la sauvegarde.
+1. Dans l’emplacement de restauration, accédez au dossier contenant la sauvegarde.
 
-2.  Partagez le dossier situé un niveau au-dessus de WindowsImageBackup, de façon à ce que la racine du dossier partagé soit le dossier WindowsImageBackup. Si vous ne le faites pas, la restauration ne trouve pas la sauvegarde. Pour vous connecter en utilisant l’environnement de récupération Windows (WinRE), vous avez besoin d’un partage auquel vous pouvez accéder dans WinRE avec l’adresse IP et les informations d’identification correctes.
+2. Partagez le dossier situé un niveau au-dessus de WindowsImageBackup, de façon à ce que la racine du dossier partagé soit le dossier WindowsImageBackup. Si vous ne le faites pas, la restauration ne trouve pas la sauvegarde. Pour vous connecter en utilisant l’environnement de récupération Windows (WinRE), vous avez besoin d’un partage auquel vous pouvez accéder dans WinRE avec l’adresse IP et les informations d’identification correctes.
 
 Restaurez le système :
 
-1.  Démarrez l’ordinateur sur lequel vous souhaitez restaurer l’image à l’aide du DVD Windows du système que vous restaurez.
+1. Démarrez l’ordinateur sur lequel vous souhaitez restaurer l’image à l’aide du DVD Windows du système que vous restaurez.
 
-2.  Dans la première page, vérifiez les paramètres linguistiques et régionaux. Dans la page **Installer**, sélectionnez **Réparer votre ordinateur**.
+2. Dans la première page, vérifiez les paramètres linguistiques et régionaux. Dans la page **Installer**, sélectionnez **Réparer votre ordinateur**.
 
-3.  Dans la page **Options de récupération système**, sélectionnez **Restaurer votre ordinateur avec une image système créée précédemment**.
+3. Dans la page **Options de récupération système**, sélectionnez **Restaurer votre ordinateur avec une image système créée précédemment**.
 
-4.  Dans la page **Sélectionner une sauvegarde d’image système**, choisissez **Sélectionner une image système** > **Avancé** > **Chercher une image système sur le réseau**. Si un avertissement s’affiche, sélectionnez **Oui**. Accédez au chemin d’accès du partage, entrez les informations d’identification, puis sélectionnez le point de récupération. Cette action déclenche une analyse des sauvegardes spécifiques disponibles dans ce point de récupération. Sélectionnez le point de récupération que vous souhaitez utiliser.
+4. Dans la page **Sélectionner une sauvegarde d’image système**, choisissez **Sélectionner une image système** > **Avancé** > **Chercher une image système sur le réseau**. Si un avertissement s’affiche, sélectionnez **Oui**. Accédez au chemin d’accès du partage, entrez les informations d’identification, puis sélectionnez le point de récupération. Cette action déclenche une analyse des sauvegardes spécifiques disponibles dans ce point de récupération. Sélectionnez le point de récupération que vous souhaitez utiliser.
 
-5.  Dans la page **Choisissez comment restaurer la sauvegarde**, sélectionnez **Formater et repartitionner les disques**. Dans la page suivante, vérifiez les paramètres. 
+5. Sur la page **Choisir comment restaurer la sauvegarde**, sélectionnez **Formater et repartitionner les disques**. Dans la page suivante, vérifiez les paramètres.
 
-6.  Pour commencer la restauration, sélectionnez **Terminer**. Un redémarrage est requis.
+6. Pour commencer la restauration, sélectionnez **Terminer**. Un redémarrage est requis.
 
 ### <a name="restore-system-state"></a>Restaurer l’état du système
 
 Exécutez la récupération dans le Serveur de sauvegarde :
 
-1.  Dans le volet **Récupération**, recherchez l’ordinateur à récupérer, puis sélectionnez **Récupération complète**.
+1. Dans le volet **Récupération**, recherchez l’ordinateur à récupérer, puis sélectionnez **Récupération complète**.
 
-2.  Les points de récupération disponibles sont indiqués en gras dans le calendrier. Sélectionnez la date et l’heure du point de récupération à utiliser.
+2. Les points de récupération disponibles sont indiqués en gras dans le calendrier. Sélectionnez la date et l’heure du point de récupération à utiliser.
 
-3.  Dans la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
+3. Sur la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
 
-4.  Dans la page **Spécifier la destination**, sélectionnez l’emplacement où vous souhaitez copier les données. N’oubliez pas que la destination sélectionnée doit offrir un espace suffisant. Nous vous recommandons de créer un dossier.
+4. Dans la page **Spécifier la destination**, sélectionnez l’emplacement où vous souhaitez copier les données. N’oubliez pas que la destination sélectionnée doit offrir un espace suffisant. Nous vous recommandons de créer un dossier.
 
-5.  Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité à appliquer. Ensuite, indiquez si vous souhaitez utiliser des instantanés matériels basés sur le SAN pour accélérer la récupération (cette option est disponible uniquement si vous disposez d’un SAN avec cette fonctionnalité, et de la possibilité de créer et de fractionner un clone pour le rendre accessible en écriture ; en outre, l’ordinateur protégé et le Serveur de sauvegarde doivent être connectés au même réseau).
+5. Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité à appliquer. Ensuite, indiquez si vous souhaitez utiliser des instantanés matériels basés sur le SAN pour accélérer la récupération (cette option est disponible uniquement si vous disposez d’un SAN avec cette fonctionnalité, et de la possibilité de créer et de fractionner un clone pour le rendre accessible en écriture ; en outre, l’ordinateur protégé et le Serveur de sauvegarde doivent être connectés au même réseau).
 
-6.  Configurez les options de notification. Dans la page **Confirmation**, sélectionnez **Récupérer**.
+6. Configurez les options de notification. Dans la page **Confirmation**, sélectionnez **Récupérer**.
 
 Exécutez l’application Sauvegarde Windows Server :
 
-1.  Sélectionnez **Actions** > **Récupérer** > **Ce serveur** > **Suivant**.
+1. Sélectionnez **Actions** > **Récupérer** > **Ce serveur** > **Suivant**.
 
-2.  Sélectionnez **Un autre serveur**, choisissez la page **Spécifier un type d’emplacement**, puis sélectionnez **Dossier partagé distant**. Entrez le chemin d’accès au dossier contenant le point de récupération.
+2. Sélectionnez **Un autre serveur**, choisissez la page **Spécifier un type d’emplacement**, puis sélectionnez **Dossier partagé distant**. Entrez le chemin d’accès au dossier contenant le point de récupération.
 
-3.  Dans la page **Sélectionner le type de récupération**, choisissez **État du système**. 
+3. Dans la page **Sélectionner le type de récupération**, choisissez **État du système**.
 
 4. Dans la page **Sélectionner l’emplacement pour la récupération de l’état du système**, choisissez **Emplacement d’origine**.
 
-5.  Dans la page **Confirmation**, sélectionnez **Récupérer**. Après la restauration, redémarrez le serveur.
+5. Dans la page **Confirmation**, sélectionnez **Récupérer**. Après la restauration, redémarrez le serveur.
 
-6.  Vous pouvez également exécuter la restauration de l’état du système à une invite de commandes. Pour ce faire, démarrez l’application Sauvegarde Windows Server sur l’ordinateur que vous souhaitez récupérer. Pour obtenir l’identificateur de version, à une invite de commandes, entrez ce qui suit :```wbadmin get versions -backuptarget \<servername\sharename\>```.
+6. Vous pouvez également exécuter la restauration de l’état du système à une invite de commandes. Pour ce faire, démarrez l’application Sauvegarde Windows Server sur l’ordinateur que vous souhaitez récupérer. Pour obtenir l’identificateur de version, à une invite de commandes, entrez ce qui suit :```wbadmin get versions -backuptarget \<servername\sharename\>```.
 
     Utilisez l’identificateur de version pour démarrer la restauration de l’état du système. À l’invite de commandes, entrez ce qui suit : ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```.
 
     Confirmez que vous souhaitez démarrer la récupération. Vous pouvez voir le processus dans la fenêtre d’invite de commandes. Un journal de restauration est créé. Après la restauration, redémarrez le serveur.
-

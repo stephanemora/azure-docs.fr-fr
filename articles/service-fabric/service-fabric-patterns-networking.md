@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 638ee162b770f949eaf0a0fc34b745698364d019
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073949"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900090"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -30,6 +30,8 @@ Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctio
 - [Équilibreur de charge interne et externe](#internalexternallb)
 
 Service Fabric s’exécute dans un groupe de machines virtuelles identiques standard. Toutes les fonctionnalités que vous pouvez utiliser dans un groupe de machines virtuelles identiques sont utilisables avec un cluster Service Fabric. Les sections de mise en réseau des modèles Azure Resource Manager pour Service Fabric et les groupes de machines virtuelles identiques sont strictement les mêmes. Après avoir effectué le déploiement sur un réseau virtuel existant, il est facile d’intégrer d’autres fonctionnalités de mise en réseau, comme Azure ExpressRoute, la passerelle VPN Azure, un groupe de sécurité réseau et le peering de réseau virtuel.
+
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Autoriser le fournisseur de ressources Service Fabric à interroger le cluster
 
 Service Fabric se distingue d’autres fonctionnalités de mise en réseau sur un aspect. Le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications. Le fournisseur de ressources Service Fabric requiert un accès entrant accessible publiquement au port de la passerelle HTTP (port 19080, par défaut) sur le point de terminaison de gestion. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utilise le point de terminaison de gestion pour gérer votre cluster. Le fournisseur de ressources Service Fabric utilise également ce port pour demander des informations sur votre cluster, à afficher sur le Portail Azure. 
 
@@ -293,7 +295,7 @@ Après le déploiement, votre équilibreur de charge est lié à l’adresse IP 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Équilibreur de charge interne uniquement
 
-Ce scénario remplace l’équilibreur de charge externe dans le modèle Service Fabric par défaut par un équilibreur de charge interne uniquement. Pour connaître les implications pour le Portail Azure et le fournisseur de ressources Service Fabric, consultez la section précédente.
+Ce scénario remplace l’équilibreur de charge externe dans le modèle Service Fabric par défaut par un équilibreur de charge interne uniquement. Pour connaître les implications pour le Portail Azure et le fournisseur de ressources Service Fabric, voir [cette section de l’article](#allowing-the-service-fabric-resource-provider-to-query-your-cluster).
 
 1. Supprimez le paramètre `dnsName`. (Il n’est pas nécessaire.)
 
@@ -391,7 +393,7 @@ Après le déploiement, votre équilibreur de charge utilise l’adresse IP stat
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Équilibreur de charge interne et externe
 
-Dans ce scénario, vous commencez avec l’équilibreur de charge externe à type de nœud unique existant et vous ajoutez un équilibreur de charge interne pour le même type de nœud. Un port back-end associé à un pool d’adresses back-end ne peut être affecté qu’à un seul équilibreur de charge. Choisissez quel équilibreur de charge doit avoir vos ports d’application et lequel doit avoir vos points de terminaison de gestion (ports 19000 et 19080). Si vous placez les points de terminaison de gestion sur l’équilibreur de charge interne, gardez à l’esprit les restrictions du fournisseur de ressources Service Fabric décrites précédemment dans cet article. Dans l’exemple que nous utilisons, les points de terminaison de gestion restent sur l’équilibreur de charge externe. Vous ajoutez également un port d’application 80 et le placez sur l’équilibreur de charge interne.
+Dans ce scénario, vous commencez avec l’équilibreur de charge externe à type de nœud unique existant et vous ajoutez un équilibreur de charge interne pour le même type de nœud. Un port back-end associé à un pool d’adresses back-end ne peut être affecté qu’à un seul équilibreur de charge. Choisissez quel équilibreur de charge doit avoir vos ports d’application et lequel doit avoir vos points de terminaison de gestion (ports 19000 et 19080). Si vous placez les points de terminaison de gestion sur l’équilibreur de charge interne, gardez à l’esprit les restrictions du fournisseur de ressources Service Fabric décrites dans [cette section de l’article](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). Dans l’exemple que nous utilisons, les points de terminaison de gestion restent sur l’équilibreur de charge externe. Vous ajoutez également un port d’application 80 et le placez sur l’équilibreur de charge interne.
 
 Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’équilibreur de charge externe. L’autre type de nœud est sur l’équilibreur de charge interne. Pour utiliser un cluster à deux types de nœuds, modifiez le deuxième équilibreur de charge en équilibreur de charge interne dans le modèle à deux types de nœuds créé sur le portail (fourni avec deux équilibreurs de charge). Pour plus d’informations, consultez la section [Équilibreur de charge interne uniquement](#internallb).
 

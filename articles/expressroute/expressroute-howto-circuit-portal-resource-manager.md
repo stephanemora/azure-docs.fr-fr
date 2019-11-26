@@ -1,5 +1,5 @@
 ---
-title: 'Création et modification d’un circuit ExpressRoute - portail : Azure | Microsoft Docs'
+title: 'ExpressRoute : Créer et modifier un circuit : Portail Azure'
 description: Créez, approvisionnez, vérifiez, mettez à jour, supprimez et déprovisionnez un circuit ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 42fe0a91261453251d56f1c556083e93f5c76bec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846585"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083565"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 
@@ -60,7 +58,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
      > [!IMPORTANT]
      > En revanche, vous ne pouvez pas modifier le type de **Illimité** à **Limité**.
 
-   * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
+   * L’**Emplacement de peering** est l’emplacement physique où vous effectuez le peering auprès de Microsoft.
 
      > [!IMPORTANT]
      > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.

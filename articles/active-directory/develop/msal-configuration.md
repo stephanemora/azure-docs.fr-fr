@@ -1,5 +1,6 @@
 ---
-title: Comprendre le fichier de configuration Microsoft Authentication Library (MSAL) Android | Azure
+title: Comprendre le fichier de configuration de la bibliothèque d’authentification Microsoft (MSAL) Android
+titleSuffix: Microsoft identity platform
 description: Vue d’ensemble du fichier de configuration Microsoft Authentication Library (MSAL) Android, qui représente la configuration d’une application dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2851adf14f5ccaec576a325cefcef8523be03bc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678829"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803160"
 ---
 # <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Fichier de configuration Microsoft Authentication Library (MSAL) Android
 

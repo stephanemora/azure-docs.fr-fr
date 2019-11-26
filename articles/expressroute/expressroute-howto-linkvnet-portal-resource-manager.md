@@ -1,6 +1,6 @@
 ---
-title: 'Lier un réseau virtuel à un circuit - ExpressRoute : Portail Azure | Microsoft Docs'
-description: Connexion d’un réseau virtuel à un circuit Azure ExpressRoute. Étapes de la procédure.
+title: 'ExpressRoute : Connecter un réseau virtuel à un circuit : Portail Azure'
+description: Connecter un réseau virtuel à un circuit Azure ExpressRoute. Étapes de la procédure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088914"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022188"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 > [!div class="op_single_selector"]
@@ -54,10 +54,10 @@ Cet article vous aide à créer une connexion pour lier un réseau virtuel à un
 
 1. Assurez-vous que votre circuit ExpressRoute et le peering privé Azure ont été correctement configurés. Suivez les instructions fournies dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et [Créer et modifier le peering pour un circuit ExpressRoute](expressroute-howto-routing-arm.md). Votre circuit ExpressRoute doit être similaire à l’image suivante :
 
-   [![Capture d’écran d’un circuit ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Vue d’un circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
+   [![Capture d’écran Circuit ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Afficher le circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. Vous pouvez maintenant commencer à approvisionner une connexion pour lier votre passerelle de réseau virtuel à votre circuit ExpressRoute. Cliquez sur **Connexion** > **Ajouter** pour ouvrir la page **Ajouter une connexion**, puis configurez les valeurs.
 
-   [![Capture d’écran de la page Ajouter une connexion](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Capture d’écran de la page Ajouter une connexion")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
+   [![Capture d’écran Ajouter une connexion](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Capture d’écran Ajouter une connexion")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. Une fois votre connexion correctement configurée, votre objet de connexion affiche les informations de la connexion.
 
    ![Capture d’écran Objet de connexion](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)

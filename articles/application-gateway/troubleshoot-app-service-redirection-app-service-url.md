@@ -1,18 +1,19 @@
 ---
-title: Résoudre les problèmes d’Azure Application Gateway avec App Service – Redirection vers l’URL d’App Service
+title: Résoudre les problèmes relatifs à la redirection vers le scénario de l’URL App Service
+titleSuffix: Azure Application Gateway
 description: Cet article fournit des informations sur la façon de résoudre les problèmes de redirection lorsque vous utilisez Azure Application Gateway avec Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051425"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074492"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
@@ -48,7 +49,7 @@ En outre, lorsque vous utilisez des App Services derrière une passerelle d’ap
 
 App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Le nom de domaine par défaut des App Services, *.azurewebsites.net (par exemple, contoso.azurewebsites.net), est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). 
 
-La demande d’origine du client a le nom de domaine de la passerelle d’application, contoso.com, en tant que nom d’hôte. Vous devez configurer la passerelle d’application pour remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte de l’App Service lors du routage de la demande vers le serveur principal du service. Utilisez le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** dans la configuration du paramètre HTTP de la passerelle d’application. Utilisez le commutateur **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal** dans la configuration de la sonde d’intégrité.
+La demande d’origine du client a le nom de domaine de la passerelle d’application, contoso.com, en tant que nom d’hôte. Vous devez configurer la passerelle d’application pour remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte de l’App Service lors de du routage de la demande vers le serveur principal du service. Utilisez le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** dans la configuration du paramètre HTTP de la passerelle d’application. Utilisez le commutateur **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal** dans la configuration de la sonde d’intégrité.
 
 
 
@@ -76,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’état 301 pour la redirection. L’en-tête d’emplacement a le nom d’hôte de l’App Service au lieu du nom d’hôte d’origine www.contoso.com.
+Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’état 301 pour la redirection. L’en-tête d’emplacement contient le nom d’hôte App Service au lieu du nom d’hôte d’origine `www.contoso.com`.
 
 ## <a name="solution-rewrite-the-location-header"></a>Solution : Réécrire l’en-tête d’emplacement
 
@@ -97,9 +98,9 @@ Vous devez posséder un domaine personnalisé et procéder comme suit :
 
     ![Liste de domaines personnalisés d’App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Votre App Service est prêt à accepter le nom d’hôte www.contoso.com. Modifiez votre entrée CNAMe en DNS pour qu’elle repointe vers le nom de domaine complet de la passerelle d’application, par exemple appgw.eastus.cloudapp.azure.com.
+- Votre App Service est prêt à accepter le nom d’hôte `www.contoso.com`. Modifiez votre entrée CNAME dans le DNS afin qu’elle pointe vers le nom de domaine complet de la passerelle d’application (par exemple, `appgw.eastus.cloudapp.azure.com`).
 
-- Assurez-vous que votre domaine www.contoso.com est résolu avec le nom de domaine complet de la passerelle d’application lorsque vous effectuez une requête DNS.
+- Assurez-vous que votre domaine `www.contoso.com` est résolu avec le nom de domaine complet de la passerelle d’application lorsque vous effectuez une requête DNS.
 
 - Configurez votre sonde personnalisée pour désactiver **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal**. Dans le portail Azure, désactivez la case à cocher dans les paramètres de sonde. Dans PowerShell, n’utilisez pas le commutateur **-PickHostNameFromBackendHttpSettings** dans la commande **Set-AzApplicationGatewayProbeConfig**. Dans le champ du nom d’hôte de la sonde, entrez le nom de domaine complet de App Service, example.azurewebsites.net. Les demandes de sondage envoyées par la passerelle d’application transportent ce nom de domaine complet dans l’en-tête de l’hôte.
 
@@ -110,7 +111,7 @@ Vous devez posséder un domaine personnalisé et procéder comme suit :
 
 - Associez à nouveau la sonde personnalisée aux paramètres HTTP du serveur principal, et vérifiez l’intégrité de celui-ci.
 
-- La passerelle d’application doit maintenant transférer le même nom d’hôte, www.contoso.com, vers l’App Service. La redirection a lieu sur le même nom d’hôte. Examinez les exemples suivants d’en-tête de requête et de réponse.
+- La passerelle d’application doit maintenant transférer le même nom d’hôte (`www.contoso.com`) vers le service App Service. La redirection a lieu sur le même nom d’hôte. Examinez les exemples suivants d’en-tête de requête et de réponse.
 
 Pour implémenter les étapes précédentes à l’aide de PowerShell pour une configuration existante, suivez l’exemple de script PowerShell ci-dessous. Notez que nous n’avons pas utilisé les commutateurs **-PickHostname** dans la configuration de la sonde et des paramètres HTTP.
 

@@ -1,6 +1,7 @@
 ---
-title: Considérations Xamarin Android (Microsoft Authentication Library pour .NET) | Azure
-description: En savoir plus sur les considérations spécifiques lors de l’utilisation de Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+title: Considérations relatives aux navigateurs système Xamarin Android (bibliothèque d’authentification Microsoft pour .NET)
+titleSuffix: Microsoft identity platform
+description: Découvrez les considérations spécifiques à savoir pour utiliser des navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL .NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -12,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0c810097913e896027245b15600ed75aabcd25
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532581"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150362"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considérations spécifiques à Xamarin Android avec MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considérations relatives aux navigateurs système Xamarin Android avec MSAL.NET
+
 Cet article traite des considérations spécifiques lors de l’utilisation du navigateur système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 
 Depuis MSAL.NET 2.4.0-preview, MSAL.NET prend en charge d’autres navigateurs en plus de Chrome, et ne nécessite plus l’installation de Chrome sur l’appareil Android pour s’authentifier.

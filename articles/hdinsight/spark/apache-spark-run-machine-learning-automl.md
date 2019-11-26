@@ -1,5 +1,5 @@
 ---
-title: Exécuter des charges de travail Azure Machine Learning sur Apache Spark dans Azure HDInsight
+title: Exécuter des charges de travail Azure Machine Learning sur Apache Spark dans HDInsight
 description: Découvrez comment exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé (AutoML) sur Apache Spark dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 14cb4f02bc18bda24f022f1ccf41a06776a5136b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814040"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241486"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Exécuter des charges de travail Azure Machine Learning avec Machine learning automatisé sur Apache Spark dans HDInsight
 
@@ -76,5 +76,5 @@ Dans la [configuration de Machine Learning automatisé](https://docs.microsoft.c
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la motivation pour le Machine Learning automatisé, consultez [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (Mettre régulièrement en production des modèles à l’aide du Machine Learning automatisé de Microsoft)
-* Pour plus d’informations sur l’utilisation des fonctionnalités ML automatisées d’Azure ML, consultez [New automated machine learning capabilities in Azure Machine Learning service](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) (Nouvelles fonctionnalités de Machine Learning automatisé dans Azure Machine Learning service)
+* Pour plus d’informations sur les fonctionnalités de ML automatisé d’Azure ML, voir [Nouvelles fonctionnalités de Machine Learning automatisé dans Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/).
 * [Projet AutoML de Microsoft Research](https://www.microsoft.com/research/project/automl/)

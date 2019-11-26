@@ -1,5 +1,5 @@
 ---
-title: Déployer des hôtes dédiés Azure à l’aide de la CLI | Microsoft Docs
+title: Déployer des hôtes dédiés Azure à l’aide de CLI
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827293"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036405"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Aperçu : Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
  

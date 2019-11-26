@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 10/08/2019
+ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286697"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933697"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -105,8 +105,8 @@ Vous pouvez obtenir et définir les valeurs de ces variables définies par le se
 | Variables définies par le service en lecture-écriture | Description |
 | --- | --- |
 | $TargetDedicatedNodes |Nombre cible de nœuds de calcul dédiés pour le pool. Le nombre de nœuds dédiés est spécifié en tant que cible, car un pool peut ne pas toujours atteindre le nombre de nœuds souhaité. Par exemple, si le nombre cible de nœuds dédiés est modifié par une évaluation de la mise à l’échelle automatique avant que le pool n’ait atteint la cible initiale, le pool risque de ne pas atteindre la cible. <br /><br /> Un pool dans un compte créé avec la configuration de service Batch peut ne pas atteindre sa cible si la cible dépasse un quota de nœuds ou de cœurs défini pour le compte Batch. Un pool dans un compte créé avec la configuration d’abonnement utilisateur peut ne pas atteindre sa cible si la cible dépasse le quota de nœuds partagé pour l’abonnement.|
-| $TargetLowPriorityNodes |Nombre cible de nœuds de calcul de faible priorité pour le pool. Le nombre de nœuds de faible priorité est spécifié en tant que cible, car un pool peut ne pas toujours atteindre le nombre de nœuds souhaité. Par exemple, si le nombre cible de nœuds de faible priorité est modifié par une évaluation de la mise à l’échelle automatique avant que le pool n’ait atteint la cible initiale, le pool risque de ne pas atteindre la cible. Un pool peut également ne pas atteindre sa cible si la cible dépasse un quota de nœuds ou de cœurs défini pour le compte Batch. <br /><br /> Pour plus d’informations sur les nœuds de calcul de faible priorité, consultez [Utiliser des machines virtuelles de faible priorité avec Batch (préversion)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont les suivantes :<ul><li>**requeue**-- La valeur par défaut. Arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées. Cette action garantit que le nombre cible de nœuds est atteint aussi rapidement que possible, mais peut être moins efficace, car toutes les tâches en cours d’exécution sont interrompues et doivent être redémarrées, ce qui gaspille tout le travail déjà effectué. <li>**terminate** : arrête immédiatement les tâches et les supprime de la file d’attente des travaux.<li>**taskcompletion** : attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool. Utilisez cette option pour éviter l’interruption et la remise en file d’attente des tâches, ce qui gaspille le travail effectué par la tâche. <li>**retaineddata** : attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</ul> |
+| $TargetLowPriorityNodes |Nombre cible de nœuds de calcul de faible priorité pour le pool. Le nombre de nœuds de faible priorité est spécifié en tant que cible, car un pool peut ne pas toujours atteindre le nombre de nœuds souhaité. Par exemple, si le nombre cible de nœuds de faible priorité est modifié par une évaluation de la mise à l’échelle automatique avant que le pool n’ait atteint la cible initiale, le pool risque de ne pas atteindre la cible. Un pool peut également ne pas atteindre sa cible si la cible dépasse un quota de nœuds ou de cœurs défini pour le compte Batch. <br /><br /> Pour plus d’informations sur les nœuds de calcul basse priorité, voir [Utiliser des machines virtuelles basse priorité avec Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont les suivantes :<ul><li>**requeue**-- La valeur par défaut. Arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées. Cette action garantit que le nombre cible de nœuds est atteint aussi rapidement que possible, mais peut être moins efficace, car toutes les tâches en cours d’exécution sont interrompues et doivent être redémarrées, ce qui gaspille tout le travail déjà effectué. <li>**terminate** : arrête immédiatement les tâches et les supprime de la file d’attente des travaux.<li>**taskcompletion** : attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool. Utilisez cette option pour éviter l’interruption et la remise en file d’attente des tâches, qui gaspillent le travail effectué par la tâche. <li>**retaineddata** : attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</ul> |
 
 > [!NOTE]
 > La variable `$TargetDedicatedNodes` peut également être spécifiée à l’aide de l’alias `$TargetDedicated`. De même, la variable `$TargetLowPriorityNodes` peut être spécifiée à l’aide de l’alias `$TargetLowPriority`. Si la variable entièrement nommée et son alias sont définis par la formule, la valeur assignée à la variable entièrement nommée est prioritaire.

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e368894d7036d071285ebc7ba85056676d8d670d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2d0f92f7bf5b015a30e431354edb0c29f5e103f6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692640"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046433"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données officielles prenant en charge Azure SQL Data Warehouse.
@@ -33,7 +33,7 @@ Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi 
 | ![Générateurs d’informations][5] |**Générateurs d’informations (gestion des données Omni-Gen)**<br>La plateforme de gestion des données Omni-Gen du générateur d’informations fournit des solutions pour l’intégration de données, la qualité des données et la gestion des données de référence. Il facilite l’accès, le déplacement et la fusion de toutes les données, quel que soit leur format, leur emplacement, leur volume ou leur latence.|[Page du produit][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
 | ![Qubole][9] |**Qubole**<br>Qubole fournit une plateforme cloud native qui permet aux utilisateurs d’effectuer des opérations d’ETL, des analyses et des charges de travail IA/ML. Il prend en charge plusieurs moteurs open source : Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive et bien plus encore. Il fournit des outils faciles à utiliser destinés aux utilisateurs finaux qui permettent de traiter des données, notamment des outils de requête SQL, des notebooks et des tableaux de bord utilisant des moteurs open source puissants.|[Page du produit][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
 | ![Segment][10] |**Segment**<br>Segment est une solution de gestion des données et d’analytique qui vous permet de mieux comprendre les données client provenant de sources différentes. Il vous permet de connecter vos données à plus de 200 outils pour créer des décisions, des produits et des expériences de meilleure qualité. Segment transformera et chargera pour vous plusieurs sources de données dans votre entrepôt à l’aide de ses connecteurs de données intégrés.|[Page du produit][segment_website]<br> |
-| ![Skyvia][11] |**Skyvia (intégration de données)**<br>Skyvia (intégration de données) fournit un Assistant qui automatise les importations de données. Cet Assistant vous permet de migrer des données entre plusieurs sources, notamment des CRM, des bases de données d’application, des fichiers CSV et bien plus encore. |[Page du produit][segment_website]<br> |
+| ![Skyvia][11] |**Skyvia (intégration de données)**<br>Skyvia (intégration de données) fournit un Assistant qui automatise les importations de données. Cet Assistant vous permet de migrer des données entre plusieurs sources différentes, notamment des CRM, des bases de données d’application, des fichiers CSV et bien plus encore. |[Page du produit][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>La plateforme SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. Elle offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution.|[Page du produit][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][15] |**StreamSets**<br>StreamSets propose une plateforme d’intégration de données pour le DataOps. Elle opérationnalise la totalité du cycle de vie conception-déploiement-fonctionnement de l’intégration de données dans Azure SQL Data Warehouse. Elle permet non seulement d’ingérer et d’intégrer rapidement des données à destination et en provenance de l’entrepôt, par le biais de méthodes de distribution de données par diffusion en continu, par lots ou par capture des changements de données, mais également d’assurer la continuité des opérations avec des pipelines de données intelligentes qui offrent une visibilité sur le flux de données de bout en bout et en assurent la résilience.|[Page du produit][streamsets_website]|
 | ![Talend][12] |**Talend Cloud**<br>Talend Cloud est une plateforme d’intégration de données professionnelle permettant de se connecter à tous types de données, d’y accéder et de les transformer sur le cloud et en local. Il s’agit d’une offre de platform-as-a-service d’intégration (iPaaS) qui propose une connectivité large, une qualité des données intégrée et une prise en charge native des dernières technologies cloud et Big Data. |[Page du produit][talend_website]<br> [Azure Marketplace][talend_marketplace] |
@@ -95,7 +95,7 @@ Pour plus d’informations sur d’autres partenaires, voir [Partenaires Busines
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
 [denodo_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter
 [informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/
 [snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 [omnigen_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm

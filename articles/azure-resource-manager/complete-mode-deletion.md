@@ -4,14 +4,14 @@ description: Montre comment les types de ressources gèrent la suppression du mo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 34e6ee348a6e15e1178f5e7cb65edfb946c1280c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528592"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953269"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -20,6 +20,8 @@ Cet article décrit la manière dont les types de ressources gèrent la suppress
 Les types de ressources marqués d’un **Oui** sont supprimés lorsque le type n’est pas présent dans le modèle déployé en mode complet.
 
 Les types de ressources marqués d’un **Non** ne sont pas automatiquement supprimés lorsqu'ils ne sont pas présents dans le modèle, mais sont supprimés si la ressource parente est supprimée. Pour une description complète du comportement, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
+
+Si vous déployez sur [plusieurs groupes de ressources dans un modèle](resource-manager-cross-resource-group-deployment.md), les ressources du groupe de ressources spécifié dans le déploiement peuvent être supprimées. Les ressources dans les groupes de ressources secondaires ne sont pas supprimées.
 
 Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="op_single_selector"]
@@ -61,7 +63,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +278,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | dataAliases | Non |
 > | denyAssignments | Non |
 > | elevateAccess | Non |
+> | findOrphanRoleAssignments | Non |
 > | locks | Non |
 > | Autorisations | Non |
 > | policyAssignments | Non |
@@ -394,6 +396,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts/createBillingRoleAssignment | Non |
 > | billingAccounts/createInvoiceSectionOperations | Non |
 > | billingAccounts/customers | Non |
+> | billingAccounts/customers/billingPermissions | Non |
 > | billingAccounts/customers/billingSubscriptions | Non |
 > | billingAccounts/customers/initiateTransfer | Non |
 > | billingAccounts/customers/policies | Non |
@@ -451,6 +454,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | blockchainMembers | OUI |
+> | cordaMembers | OUI |
 > | watchers | OUI |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -641,6 +645,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | proximityPlacementGroups | OUI |
 > | restorePointCollections | OUI |
 > | restorePointCollections/restorePoints | Non |
+> | sharedVMExtensions | OUI |
+> | sharedVMExtensions/versions | Non |
 > | sharedVMImages | OUI |
 > | sharedVMImages/versions | Non |
 > | snapshots | OUI |
@@ -700,6 +706,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries/buildTasks | OUI |
 > | registries/buildTasks/steps | Non |
 > | registries/eventGridFilters | Non |
+> | registries/generateCredentials | Non |
 > | registries/getBuildSourceUploadUrl | Non |
 > | registries/GetCredentials | Non |
 > | registries/importImage | Non |
@@ -710,7 +717,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries/runs | Non |
 > | registries/runs/cancel | Non |
 > | registries/scheduleRun | Non |
+> | registries/scopeMaps | Non |
 > | registries/tasks | OUI |
+> | registries/tokens | Non |
 > | registries/updatePolicies | Non |
 > | registries/webhooks | OUI |
 > | registries/webhooks/getCallbackConfig | Non |
@@ -724,14 +733,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | containerServices | OUI |
 > | managedclusters | OUI |
 > | openShiftManagedClusters | OUI |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Effectuer la suppression du mode |
-> | ------------- | ----------- |
-> | applications | OUI |
-> | updateCommunicationPreference | Non |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -821,8 +822,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | datacatalogs/datasources/scans | Non |
 > | datacatalogs/datasources/scans/datasets | Non |
 > | datacatalogs/datasources/scans/triggers | Non |
-> | datacatalogs/scantargets | Non |
-> | datacatalogs/scantargets/datasets | Non |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -887,6 +886,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | servers | OUI |
 > | servers/advisors | Non |
+> | servers/privateEndpointConnectionProxies | Non |
+> | servers/privateEndpointConnections | Non |
+> | servers/privateLinkResources | Non |
 > | servers/queryTexts | Non |
 > | servers/recoverableServers | Non |
 > | servers/topQueryStatistics | Non |
@@ -900,6 +902,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | servers | OUI |
 > | servers/advisors | Non |
+> | servers/privateEndpointConnectionProxies | Non |
+> | servers/privateEndpointConnections | Non |
+> | servers/privateLinkResources | Non |
 > | servers/queryTexts | Non |
 > | servers/recoverableServers | Non |
 > | servers/topQueryStatistics | Non |
@@ -914,6 +919,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | serverGroups | OUI |
 > | servers | OUI |
 > | servers/advisors | Non |
+> | servers/keys | Non |
 > | servers/privateEndpointConnectionProxies | Non |
 > | servers/privateEndpointConnections | Non |
 > | servers/privateLinkResources | Non |
@@ -943,6 +949,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | applicationgroups | OUI |
 > | applicationgroups/applications | Non |
+> | applicationgroups/desktops | Non |
 > | applicationgroups/startmenuitems | Non |
 > | hostpools | OUI |
 > | hostpools/sessionhosts | Non |
@@ -1088,6 +1095,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | OUI |
+> | configurationProfileAssignments | Non |
 > | guestConfigurationAssignments | Non |
 > | software | Non |
 > | softwareUpdateProfile | Non |
@@ -1129,6 +1137,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | machines | OUI |
+> | machines/extensions | OUI |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1235,6 +1244,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | workspaces | OUI |
 > | workspaces/computes | Non |
+> | workspaces/eventGridFilters | Non |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1322,6 +1332,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | mediaservices/liveEvents | OUI |
 > | mediaservices/liveEvents/liveOutputs | Non |
 > | mediaservices/liveOutputOperations | Non |
+> | mediaservices/mediaGraphs | Non |
 > | mediaservices/streamingEndpointOperations | Non |
 > | mediaservices/streamingEndpoints | OUI |
 > | mediaservices/streamingLocators | Non |
@@ -1439,7 +1450,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | publicIPPrefixes | OUI |
 > | routeFilters | OUI |
 > | routeTables | OUI |
-> | secureGateways | OUI |
 > | serviceEndpointPolicies | OUI |
 > | trafficManagerGeographicHierarchies | Non |
 > | trafficmanagerprofiles | OUI |
@@ -1520,6 +1530,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | policyEvents | Non |
+> | policyMetadata | Non |
 > | policyStates | Non |
 > | policyTrackedResources | Non |
 > | remediations | Non |
@@ -1610,6 +1621,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | deployments | Non |
 > | deployments/operations | Non |
+> | deploymentScripts | OUI |
+> | deploymentScripts/logs | Non |
 > | links | Non |
 > | notifyResourceJobs | Non |
 > | fournisseurs | Non |
@@ -1659,6 +1672,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | applicationWhitelistings | Non |
 > | assessmentMetadata | Non |
 > | assessments | Non |
+> | automations | OUI |
 > | AutoProvisioningSettings | Non |
 > | Compliances | Non |
 > | dataCollectionAgents | Non |

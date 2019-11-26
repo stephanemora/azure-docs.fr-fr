@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757201"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043975"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Modérer des images à partir de la console d’API
 
@@ -102,4 +102,4 @@ Vous pouvez utiliser la fonctionnalité d’OCR de Content Moderator pour détec
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez l’API REST dans votre code ou commencez par le [démarrage rapide de .NET de la modération d’images](image-moderation-quickstart-dotnet.md) pour l’intégrer à votre application.
+Utilisez l’API REST dans votre code ou suivez le [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) pour ajouter la modération d’images à votre application.

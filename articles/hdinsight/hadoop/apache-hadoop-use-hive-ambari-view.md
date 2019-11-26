@@ -1,19 +1,19 @@
 ---
-title: Utiliser les vues Apache Ambari pour travailler avec Hive sur HDInsight (Apache Hadoop) - Azure
+title: Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans Azure HDInsight
 description: Découvrez comment utiliser la vue Hive à partir de votre navigateur web pour envoyer des requêtes Hive. La vue Hive fait partie de l’interface utilisateur web Ambari fournie avec votre cluster HDInsight sous Linux.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077007"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097097"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -30,9 +30,9 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans un nouveau panneau du portail.
 
-2. Dans **Tableaux de bord du cluster**, sélectionnez **Vues Ambari**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
+1. Dans **Tableaux de bord du cluster**, sélectionnez **Vues Ambari**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster. Vous pouvez également accéder à `https://CLUSTERNAME.azurehdinsight.net/#/main/views` dans votre navigateur, où `CLUSTERNAME` est le nom de votre cluster.
 
-3. Dans la liste des vues, sélectionnez __Affichage Hive__.
+1. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
     ![Apache Ambari - Sélectionner la vue Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
     ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
+1. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
    > [!IMPORTANT]  
    > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
-5. Pour démarrer la requête, sélectionnez **Exécuter** au-dessous de la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
+1. Pour démarrer la requête, sélectionnez **Exécuter** au-dessous de la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 
-6. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
+1. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
 
         loglevel       count
         [ERROR]        3

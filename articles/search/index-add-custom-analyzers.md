@@ -1,5 +1,5 @@
 ---
-title: Ajouter des analyseurs personnalisés à des champs de chaîne dans un index
+title: Ajouter des analyseurs personnalisés à des champs de chaîne
 titleSuffix: Azure Cognitive Search
 description: Configurer les générateurs de jetons de texte et les filtres de caractères utilisés dans les requêtes de recherche en texte intégral de Recherche cognitive Azure.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bed011d62fa227697562f552ecb649c4b1fc00c9
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9bf0fb1a33a98031a78155a3956ac6d6abe33029
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790160"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113636"
 ---
-# <a name="add-custom-analyzers-to-an-azure-cognitive-search-index"></a>Ajouter des analyseurs personnalisés à un index de Recherche cognitive Azure
+# <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs personnalisés à des champs de chaîne dans l’index de Recherche cognitive Azure
 
 Un *analyseur personnalisé* est un type spécifique d’[analyseur de texte](search-analyzers.md) qui se compose d’une combinaison définie par l’utilisateur du générateur de jetons existant et des filtres facultatifs. En combinant des générateurs de jetons et des filtres de manière innovante, vous pouvez personnaliser le traitement du texte dans le moteur de recherche pour obtenir des résultats spécifiques. Par exemple, vous pouvez créer un analyseur personnalisé avec un *filtre de caractères* pour supprimer le balisage HTML avant que les entrées de texte soient tokenisées.
 

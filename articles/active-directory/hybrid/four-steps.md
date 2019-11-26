@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d2cd080602ec879affb3ece978f14d5afc33ef9d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373496"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173088"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -41,7 +41,7 @@ Cette section décrit vos options de gestion de l’accès utilisateur aux appli
 
 ### <a name="make-apps-available-to-your-users-seamlessly"></a>Mettre des applications à disposition de vos utilisateurs en toute transparence
 
-Azure AD permet aux administrateurs d’[ajouter des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) à la galerie d’applications d’entreprise dans le [portail Azure](https://portal.azure.com/). L’ajout d’applications à la galerie d’applications d’entreprise vous permet de configurer plus facilement les applications pour qu’elles utilisent Azure AD comme fournisseur d’identité. Cela vous permet également de gérer l’accès utilisateur à l’application avec des stratégies d’accès conditionnel et de configurer l’authentification unique (SSO) aux applications afin que les utilisateurs ne soient pas obligés de saisir plusieurs fois leur mot de passe plusieurs fois et qu’ils se connectent automatiquement aux applications locales et basées sur le cloud.
+Azure AD permet aux administrateurs d’[ajouter des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) à la galerie d’applications d’entreprise dans le [portail Azure](https://portal.azure.com/). L’ajout d’applications à la galerie d’applications d’entreprise vous permet de configurer plus facilement les applications pour qu’elles utilisent Azure AD comme fournisseur d’identité. Cela permet également de gérer l’accès utilisateur à l’application avec des stratégies d’accès conditionnel et de configurer l’authentification unique (SSO) sur les applications afin que les utilisateurs ne soient pas obligés d’entrer à chaque fois leur mot de passe et qu’ils soient automatiquement connectés aux applications locales et cloud.
 
 Lorsque des applications sont ajoutées à la galerie Azure AD, les utilisateurs peuvent voir les applications qui leur sont attribuées, et rechercher et demander d’autres applications si nécessaire. Azure AD propose aux utilisateurs [plusieurs méthodes](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) d’accès à leurs applications :
 
@@ -71,7 +71,7 @@ Le proxy d’application Azure AD offre les avantages suivants :
 
 * L’extension d’Azure AD à des ressources locales
   * La protection et la sécurité à l’échelle du cloud
-  * Des fonctionnalités telles que l’accès conditionnel et Multi-Factor Authentication faciles à activer
+  * Des fonctionnalités comme l’accès conditionnel et l’authentification multifacteur, faciles à activer
 * Aucun composant dans le réseau de périmètre tel que des solutions de VPN et de proxy inversé traditionnelles
 * Aucune connexion entrante nécessaire
 * Authentification unique (SSO) sur les appareils, ressources et applications dans le cloud et localement
@@ -81,7 +81,7 @@ Le proxy d’application Azure AD offre les avantages suivants :
 
 Dans les entreprises modernes, les services informatiques n’ont souvent pas connaissance de toutes les applications cloud utilisées par les utilisateurs pour effectuer leur travail. Lorsque l’on demande aux administrateurs informatiques quel nombre d’applications les employés utilisent, selon eux, ils répondent généralement 30 ou 40. En réalité, plus de 1 000 applications distinctes sont en moyenne utilisées par les employés de votre organisation. 80 % des employés utilisent des applications non approuvées que personne n’a révisées et qui peuvent ne pas être conformes à vos stratégies de sécurité et de conformité.
 
-[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) peut vous aider à identifier les applications utiles qui sont couramment utilisées par les utilisateurs que l’équipe informatique peut approuver et ajouter à la galerie d’applications d’entreprise pour que les utilisateurs bénéficient de fonctionnalités telles que l’authentification unique et l’accès conditionnel.
+[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) peut vous aider à identifier les applications utiles et couramment utilisées par les utilisateurs que l’équipe informatique peut approuver et ajouter à la galerie des applications d’entreprise pour que les utilisateurs bénéficient de fonctionnalités comme l’authentification unique et l’accès conditionnel.
 
 <em>« **Cloud App Security** nous permet de nous assurer que nos collaborateurs utilisent correctement nos applications cloud et SaaS, d’une manière conforme aux stratégies de sécurité fondamentales qui permettent de protéger Accenture. »</em> --- [John Blasi, Directeur général, Sécurité des informations, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 

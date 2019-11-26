@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248302"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893436"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 
 Pour gérer la sécurité des utilisateurs dans Azure AD DS (Azure Active Directory Domain Services), vous pouvez définir des stratégies de mot de passe affinées qui contrôlent les paramètres de verrouillage des comptes ou la longueur minimale et la complexité des mots de passe. Une stratégie de mot de passe affinée par défaut est créée et appliquée à tous les utilisateurs membres d’un domaine managé Azure AD DS. Pour assurer un contrôle précis et répondre à des besoins métier ou de conformité spécifiques, il est possible de créer et d’appliquer des stratégies supplémentaires à des groupes d’utilisateurs spécifiques.
 
 Cet article montre comment créer et configurer une stratégie de mot de passe affinée dans Azure AD DS à partir du Centre d’administration Active Directory.
+
+> [!NOTE]
+> Les stratégies de mot de passe ne sont disponibles que pour les domaines managés Azure AD DS créés suivant le modèle de déploiement Resource Manager. Dans le cas des anciens domaines managés créés suivant le modèle Classic, [migrez du modèle de réseau virtuel Classic vers le modèle Resource Manager][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -34,7 +37,8 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
   * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
   * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
+  * L’instance Azure AD DS doit avoir été créée suivant le modèle de déploiement Resource Manager. Si nécessaire, [Migrez du modèle de réseau virtuel Classic vers le modèle Resource Manager][migrate-from-classic].
+* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
   * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
@@ -130,3 +134,4 @@ Pour plus d’informations sur les stratégies de mot de passe et l’utilisatio
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

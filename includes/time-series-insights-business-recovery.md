@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259096"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990883"
 ---
 ## <a name="business-disaster-recovery"></a>Récupération d'urgence
 
@@ -23,8 +24,8 @@ Les fonctionnalités de haute disponibilité supplémentaires fournies par l’i
 
 - **Basculement** : Azure fournit la [géoréplication et l’équilibrage de charge](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauration des données** et **restauration du stockage** : Azure fournit [plusieurs options pour préserver et récupérer les données](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Récupération de site** : Azure fournit des fonctionnalités de récupération de site via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Sauvegarde Azure** : [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-architecture) prend en charge la sauvegarde locale et dans le cloud des machines virtuelles Azure.
+- **Azure Site Recovery** : Azure fournit des fonctionnalités de récupération de site via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Sauvegarde Azure** : la [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-architecture) prend en charge la sauvegarde locale et dans le cloud des machines virtuelles Azure.
 
 Veillez à activer les fonctionnalités pertinentes d’Azure pour offrir une haute disponibilité mondiale, interrégionale pour vos utilisateurs et appareils.
 
@@ -35,8 +36,8 @@ Veillez à activer les fonctionnalités pertinentes d’Azure pour offrir une ha
 
 Certains services Azure IoT incluent également des fonctionnalités de récupération d’urgence intégrées :
 
-- [Haute disponibilité et récupération d’urgence IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), notamment la redondance interrégionale
-- [Stratégies Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Récupération d’urgence haute disponibilité Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), qui englobe la redondance intrarégionale
+- [Stratégies Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Redondance de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 L’intégration de Time Series Insights à d’autres services fournit des opportunités de récupération d’urgence supplémentaires. Par exemple, les données de télémétrie envoyées à votre Event Hub peuvent conservées dans une base de données de stockage Blob Azure de sauvegarde.

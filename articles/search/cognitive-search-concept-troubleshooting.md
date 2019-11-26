@@ -1,5 +1,5 @@
 ---
-title: Conseils de dépannage pour l’enrichissement de l’IA
+title: Conseils sur la conception de l’enrichissement par IA
 titleSuffix: Azure Cognitive Search
 description: Conseils et résolution des problèmes pour la configuration des pipelines d’enrichissement de l’IA dans la Recherche cognitive Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787699"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113830"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils de résolution des problèmes pour l’enrichissement de l’IA dans la Recherche cognitive Azure
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
 Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités d’enrichissement de l’IA dans la Recherche cognitive Azure. 
 

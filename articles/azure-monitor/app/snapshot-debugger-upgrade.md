@@ -4,52 +4,62 @@ description: Guide pratique pour mettre à niveau le Débogueur de capture insta
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: MarioHewardt
-ms.author: marioh
+author: pharring
+ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e2b21b7cbb6b04da0c93e73c0cacb8a05c338bde
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899847"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936016"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Mise à niveau du Débogueur de capture instantanée
 
-Pour assurer une sécurité optimale de vos données, Microsoft abandonne les protocoles TLS 1.0 et TLS 1.1, qui se sont révélés vulnérables aux attaquants les plus déterminés. Si vous utilisez une version antérieure de l’extension de site, elle nécessitera une mise à niveau pour continuer à fonctionner. Ce document décrit les étapes nécessaires pour mettre à niveau votre Débogueur de capture instantanée vers la dernière version. Il existe deux chemins de mise à niveau principaux selon que vous avez activé le Débogueur de capture instantanée à l’aide d’une extension de site ou que vous avez utilisé un SDK/NuGet ajouté à votre application. Ces deux chemins de mise à niveau sont décrits ci-dessous. 
+Pour assurer une sécurité optimale de vos données, Microsoft abandonne les protocoles TLS 1.0 et TLS 1.1, qui se sont révélés vulnérables aux attaquants les plus déterminés. Si vous utilisez une version antérieure de l’extension de site, elle devra être mise à niveau pour continuer à fonctionner. Ce document décrit les étapes nécessaires pour mettre à niveau votre Débogueur de capture instantanée vers la dernière version. Il existe deux chemins de mise à niveau principaux selon que vous avez activé le Débogueur de capture instantanée à l’aide d’une extension de site ou que vous avez utilisé un SDK/NuGet ajouté à votre application. Ces deux chemins de mise à niveau sont décrits ci-dessous. 
 
 ## <a name="upgrading-the-site-extension"></a>Mise à niveau de l’extension de site
 
-Si vous avez activé le Débogueur de capture instantanée à l’aide de l’extension de site, vous pouvez facilement effectuer la mise à niveau en effectuant les étapes suivantes :
+> [!IMPORTANT]
+> Les versions antérieures d’Application Insights utilisent une extension de site privée intitulée _extension Application Insights pour Azure App Service_. Pour l’activation de l’expérience Application Insights actuelle, les paramètres de l’application sont définis de façon à optimiser une extension de site pré-installée.
+> Pour éviter les conflits susceptibles d’entraîner un arrêt du fonctionnement de votre site, il est important de commencer par supprimer l’extension de site privée. Consultez l’étape 4 ci-dessous.
+
+Si vous avez activé le Débogueur de capture instantanée à l’aide de l’extension de site, vous pouvez effectuer la mise à niveau en effectuant les étapes suivantes :
 
 1. Connectez-vous au portail Azure.
 2. Accédez à votre ressource pour laquelle Application Insights et le Débogueur de capture instantanée sont activés. Par exemple, pour une application web, accédez à la ressource App Service :
 
    ![Capture d’écran d’une ressource App Service individuelle nommée DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. Une fois que vous avez accédé à votre ressource, cliquez sur Application Insights dans le panneau Vue d’ensemble :
+3. Une fois que vous avez accédé à votre ressource, cliquez sur le panneau Extensions et attendez que la liste des extensions se remplisse :
+
+   ![Capture d’écran des extensions App Service montrant l’extension Application Insights pour Azure App Service installée](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
+
+4. Si une version de l’_extension Application Insights pour Azure App Service_ est installée, sélectionnez-la et cliquez sur supprimer. Cliquez sur **Oui** pour confirmer la suppression de l’extension, puis attendez la fin de l’opération avant de passer à l’étape suivante.
+
+   ![Capture d’écran des extensions App Service montrant l’extension Application Insights pour Azure App Service avec le bouton Supprimer encadré](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
+
+5. Accédez au panneau Vue d’ensemble de votre ressource, puis cliquez sur Application Insights :
 
    ![Capture d’écran de trois boutons. Bouton Centrer avec le nom Application Insights sélectionné](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. Un nouveau panneau s’ouvre avec les paramètres actuels. Vous pouvez les conserver en l’état, sauf si vous voulez en profiter pour modifier vos paramètres. Le bouton **Appliquer** en bas du panneau n’est pas activé par défaut et vous devez activer/désactiver l’un des paramètres pour activer le bouton. Vous n’avez pas besoin de changer les paramètres réels. Au lieu de cela, vous pouvez changer le paramètre, puis le rétablir immédiatement. Nous vous recommandons d’activer/de désactiver le paramètre de Profiler, puis de sélectionner **Appliquer**.
+6. S’il s’agit de la première fois que vous affichez le panneau Application Insights pour cet App Service, vous serez invité à activer Application Insights. Sélectionnez **Activer Application Insights**.
+ 
+   ![Capture d’écran de la première ouverture du panneau Application Insights avec le bouton Activer Application Insights encadré](./media/snapshot-debugger-upgrade/turn-on-application-insights.png)
+
+7. Les paramètres actuels d’Application Insights sont affichés. Vous pouvez les conserver en l’état, sauf si vous voulez en profiter pour modifier vos paramètres. Le bouton **Appliquer** en bas du panneau n’est pas activé par défaut et vous devez activer/désactiver l’un des paramètres pour l’activer. Vous n’avez pas besoin de changer les paramètres réels. Au lieu de cela, vous pouvez changer le paramètre, puis le rétablir immédiatement. Nous vous recommandons d’activer/de désactiver le paramètre de Profiler, puis de sélectionner **Appliquer**.
 
    ![Capture d’écran de la page Configuration d’Application Insights App Service avec le bouton Appliquer surligné en rouge](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. Une fois que vous cliquez sur **Appliquer**, vous devez confirmer les changements apportés.
+8. Après avoir cliqué sur **Appliquer**, vous serez invité à confirmer les changements apportés.
 
     > [!NOTE]
     > Le site sera redémarré dans le cadre du processus de mise à niveau.
 
    ![Capture d’écran de l’invite d’application de la supervision d’App Service. La zone de texte affiche le message : « Nous allons maintenant appliquer les changements de vos paramètres d’application et installer nos outils pour lier votre ressource Application Insights à l’application web. Cette opération redémarre le site. Voulez-vous continuer ?](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. Cliquez sur **Oui** pour appliquer les changements. Pendant le processus, une notification s’affiche, indiquant que les changements sont appliqués :
-
-   ![Capture d’écran du message Appliquer les changements - Mise à niveau des extensions qui s’affiche en haut à droite](./media/snapshot-debugger-upgrade/updating-extensions.png)
-
-Une fois l’opération terminée, une notification **« Les changements sont appliqués. »** s’affiche.
-
-   ![Capture d’écran d’un message indiquant que les changements sont appliqués](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+9. Cliquez sur **Oui** pour appliquer les modifications, puis attendez la fin du processus.
 
 Le site a maintenant été mis à niveau et est prêt à être utilisé.
 

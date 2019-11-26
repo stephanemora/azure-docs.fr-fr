@@ -1,33 +1,32 @@
 ---
-title: Importation de données pour ingestion dans un index de recherche - Recherche Azure
-description: Remplissez et chargez des données dans un index dans Recherche Azure à partir de sources de données externes.
-author: HeidiSteen
+title: Importation et ingestion des données dans les index de recherche
+titleSuffix: Azure Cognitive Search
+description: Remplissez et chargez des données dans un index dans Recherche cognitive Azure à partir de sources de données externes.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 71ee63dfbe880cbf6018f3dd13d360850ed994f9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647331"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113783"
 ---
-# <a name="data-import-overview---azure-search"></a>Vue d’ensemble de l’importation des données - Recherche Azure
+# <a name="data-import-overview---azure-cognitive-search"></a>Vue d’ensemble de l’importation des données - Recherche cognitive Azure
 
-Dans Recherche Azure, les requêtes s’exécutent sur le contenu chargé et enregistré dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour remplir un index : *envoyer* les données dans l’index par programme ou pointer un [indexeur Recherche Azure](search-indexer-overview.md) à une source de données prise en charge pour *extraire* les données.
+Dans Recherche cognitive Azure, les requêtes s’exécutent sur le contenu chargé et enregistré dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour remplir un index : *envoyer* (push) les données dans l’index par programme ou pointer un [indexeur Recherche cognitive Azure](search-indexer-overview.md) vers une source de données prise en charge pour *extraire* les données.
 
-Ces deux approches ont pour objectif de *charger des données* entre une source de données externe et un index Recherche Azure. Recherche Azure vous permet de créer un index vide, mais ce dernier ne pourra être interrogé qu'après envoi (push) ou extraction de données.
+Ces deux approches ont pour objectif de *charger des données* depuis une source de données externe vers un index Recherche cognitive Azure. Recherche cognitive Azure vous permet de créer un index vide, mais ce dernier ne pourra être interrogé qu’après envoi (push) ou extraction des données.
 
 ## <a name="pushing-data-to-an-index"></a>Envoyer des données à un index
-Le modèle d’émission, utilisé pour envoyer vos données Recherche Azure par programme, est l’approche la plus flexible. Tout d’abord, il n’y a pas de restrictions sur le type de source de données. Tout jeu de données composé de documents JSON peut être appliqué à un index Recherche Azure, en supposant que chaque document dans le jeu de données possède des champs mappant des champs définis dans votre schéma d’index. En second lieu, il n’y a aucune restriction sur la fréquence d’exécution. Vous pouvez transmettre des modifications à un index aussi souvent que vous le souhaitez. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
+Le modèle d’envoi (push), utilisé pour envoyer vos données à Recherche cognitive Azure par programme, constitue l’approche la plus flexible. Tout d’abord, il n’y a pas de restrictions sur le type de source de données. Tout jeu de données composé de documents JSON peut être envoyé (push) à un index Recherche cognitive Azure, en supposant que chaque document dans le jeu de données possède des champs mappés sur des champs définis dans votre schéma d’index. En second lieu, il n’y a aucune restriction sur la fréquence d’exécution. Vous pouvez transmettre des modifications à un index aussi souvent que vous le souhaitez. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
 
-Cette approche est plus flexible que le modèle d’extraction, car vous pouvez charger des documents individuellement ou par lots (jusqu’à 1 000 par lot ou 16 Mo, quelle que soit la limite atteinte en premier). Le modèle d’émission vous permet également de charger des documents dans Azure Search indépendamment de l’emplacement des données.
+Cette approche est plus flexible que le modèle d’extraction, car vous pouvez charger des documents individuellement ou par lots (jusqu’à 1 000 par lot ou 16 Mo, quelle que soit la limite atteinte en premier). Le modèle d’envoi (push) vous permet également de charger des documents dans Recherche cognitive Azure indépendamment de l’emplacement des données.
 
-### <a name="how-to-push-data-to-an-azure-search-index"></a>Comment envoyer des données à un index Recherche Azure
+### <a name="how-to-push-data-to-an-azure-cognitive-search-index"></a>Comment envoyer (push) des données à un index Recherche cognitive Azure
 
 Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents dans un index :
 
@@ -36,7 +35,7 @@ Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents da
 
 Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche Azure à l’aide de PowerShell](search-create-index-rest-api.md) ou [Guide de démarrage rapide C# : Création d’un index Recherche Azure à l’aide du Kit de développement logiciel (SDK) .NET](search-get-started-dotnet.md).
+Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche cognitive Azure à l’aide de PowerShell](search-create-index-rest-api.md) ou [Guide de démarrage rapide C# : Créer un index Recherche cognitive Azure à l’aide du Kit de développement logiciel (SDK) .NET](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +43,9 @@ Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide
 
 Vous pouvez contrôler le type d’action d’indexation par document, en spécifiant si le document doit être chargé en intégralité, fusionné avec du contenu de document existant ou supprimé.
 
-Dans l’API REST, émettez des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Recherche Azure. Chaque objet JSON du tableau « valeur » contient la clé du document et spécifie qu’une action d’indexation doit ajouter, mettre à jour ou supprimer le contenu d’un document. Pour un exemple de code, consultez [Charger des documents](search-get-started-dotnet.md#load-documents).
+Dans l’API REST, émettez des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Recherche cognitive Azure. Chaque objet JSON du tableau « valeur » contient la clé du document et spécifie qu’une action d’indexation doit ajouter, mettre à jour ou supprimer le contenu d’un document. Pour un exemple de code, consultez [Charger des documents](search-get-started-dotnet.md#load-documents).
 
-Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Recherche Azure les actions à effectuer sur ce document. Pour obtenir un exemple de code, consultez le [guide de démarrage rapide C#](search-get-started-dotnet.md).
+Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans un objet `IndexBatch`. Un objet `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Recherche cognitive Azure les actions à effectuer sur ce document. Pour obtenir un exemple de code, consultez le [guide de démarrage rapide C#](search-get-started-dotnet.md).
 
 
 | @search.action | Description | Champs requis pour chaque document | Notes |
@@ -71,7 +70,7 @@ La méthode POST suit un format identique, mais seule la version d’API figure 
 
 
 ## <a name="pulling-data-into-an-index"></a>Extraction de données dans un index
-Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index. Dans Recherche Azure, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour ces plateformes :
+Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index. Dans Recherche cognitive Azure, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour ces plateformes :
 
 + [Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 + [Stockage Table](search-howto-indexing-azure-tables.md)
@@ -81,18 +80,18 @@ Le modèle d’extraction analyse une source de données prise en charge et char
 Les indexeurs connectent un index à une source de données (généralement une table, une vue ou une structure équivalente) et mappent les champs source aux champs équivalents de l’index. Pendant l’exécution, l’ensemble de lignes est automatiquement transformé en JSON et chargé dans l’index spécifié. Tous les indexeurs prennent en charge la planification de sorte que vous puissiez spécifier la fréquence à laquelle les données sont à actualiser. La plupart des indexeurs fournissent le suivi des modifications si la source de données le prend en charge. En suivant les modifications et les suppressions effectuées dans les documents existants, et en reconnaissant les nouveaux documents, les indexeurs suppriment la nécessité de gérer activement les données de votre index. 
 
 
-### <a name="how-to-pull-data-into-an-azure-search-index"></a>Comment extraire des données dans un index Recherche Azure
+### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Comment extraire des données dans un index Recherche cognitive Azure
 
 La fonctionnalité de l’indexeur est exposée dans le [Portail Azure](search-import-data-portal.md), ainsi que dans [l’API REST](/rest/api/searchservice/Indexer-operations) et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
 
-L’avantage du portail est qu’Azure Search peut générer un schéma d’index par défaut pour vous en lisant les métadonnées du jeu de données source. Vous pouvez modifier l’index généré jusqu’à ce que l’index soit traité, après quoi les seules modifications de schéma autorisées sont celles qui ne nécessitent pas la réindexation. Si les modifications que vous souhaitez apporter impactent directement le schéma, vous devez reconstruire l’index. 
+Grâce au portail, Recherche cognitive Azure peut générer un schéma d’index par défaut pour vous en lisant les métadonnées du jeu de données source. Vous pouvez modifier l’index généré jusqu’à ce que l’index soit traité, après quoi les seules modifications de schéma autorisées sont celles qui ne nécessitent pas la réindexation. Si les modifications que vous souhaitez apporter impactent directement le schéma, vous devez reconstruire l’index. 
 
 ## <a name="verify-data-import-with-search-explorer"></a>Vérifier l’importation de données avec l’Explorateur de recherche
 
 Un moyen rapide d’effectuer une vérification préliminaire sur le téléchargement de document consiste à utiliser **l’Explorateur de recherche** dans le portail. L’Explorateur vous permet d’interroger un index sans avoir à écrire du code. L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) et le [paramètre de requête searchMode](/rest/api/searchservice/search-documents). Les résultats sont retournés au format JSON afin que vous puissiez inspecter le document dans son intégralité.
 
 > [!TIP]
-> De nombreux [exemples de code Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluent des jeux de données incorporés ou disponibles rapidement, offrant ainsi une prise en main simplifiée. Le portail fournit également un exemple d’indexeur et de source de données composée d’un petit jeu de données immobilières (nommé « realestate-us-sample »). Lorsque vous exécutez l’indexeur préconfiguré sur l’exemple de source de données, un index est créé et chargé avec des documents qui peuvent ensuite être interrogés dans l’Explorateur de recherche ou par le code que vous écrivez.
+> De nombreux [exemples de code Recherche cognitive Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluent des jeux de données incorporés ou disponibles rapidement, offrant ainsi une prise en main simplifiée. Le portail fournit également un exemple d’indexeur et de source de données composée d’un petit jeu de données immobilières (nommé « realestate-us-sample »). Lorsque vous exécutez l’indexeur préconfiguré sur l’exemple de source de données, un index est créé et chargé avec des documents qui peuvent ensuite être interrogés dans l’Explorateur de recherche ou par le code que vous écrivez.
 
 ## <a name="see-also"></a>Voir aussi
 

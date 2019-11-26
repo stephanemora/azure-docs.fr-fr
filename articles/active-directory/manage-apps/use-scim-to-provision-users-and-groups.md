@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c9c15a462692c257fac759998698679d9e59dc53
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001728"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242292"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>Provisionnement d’utilisateurs SCIM avec Azure Active Directory
 
@@ -261,7 +261,7 @@ Cette section fournit des exemples de requêtes SCIM émises par le client SCIM 
 ###### <a name="request-1"></a>Requête
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response-1"></a>Réponse
+###### <a name="response-1"></a>Réponse (Utilisateur trouvé)
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -285,6 +285,21 @@ Cette section fournit des exemples de requêtes SCIM émises par le client SCIM 
         "type": "work",
         "primary": true
     }]
+}
+```
+
+###### <a name="request"></a>Requête
+*GET /Users/5171a35d82074e068ce2* 
+
+###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Réponse (Utilisateur introuvable. Notez que seul l’état est requis, et non les détails.)
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:Error"
+    ],
+    "status": "404",
+    "detail": "Resource 23B51B0E5D7AE9110A49411D@7cca31655d49f3640a494224 not found"
 }
 ```
 
@@ -472,7 +487,6 @@ Cette section fournit des exemples de requêtes SCIM émises par le client SCIM 
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
     "displayName": "displayName",
-    "members": [],
     "meta": {
         "resourceType": "Group"
     }

@@ -1,5 +1,5 @@
 ---
-title: 'Lier un réseau virtuel à un circuit ExpressRoute : Interface CLI : Azure| Microsoft Docs'
+title: 'Azure ExpressRoute : Connecter un réseau virtuel au circuit : Interface de ligne de commande'
 description: Cet article vous montre comment lier des réseaux virtuels à des circuits ExpressRoute en utilisant le modèle de déploiement Resource Manager et l’interface CLI.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621062"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076537"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Connecter un réseau virtuel à un circuit ExpressRoute à l’aide de l’interface CLI
 

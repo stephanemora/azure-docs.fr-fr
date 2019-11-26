@@ -1,5 +1,6 @@
 ---
-title: Initialiser des applications clientes (bibliothèque d’authentification Microsoft pour .NET) | Azure
+title: Initialiser des applications clientes (bibliothèque d’authentification Microsoft pour .NET)
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5012da8f2ff41971df674fd35162fe14e1de8fc9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532642"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927075"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
 Cet article décrit l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
@@ -100,7 +101,7 @@ Dans les extraits de code à l’aide de générateurs d’applications, un cert
 
 Les modificateurs que vous pouvez définir sur un client public ou un générateur d’applications clientes confidentielles sont les suivants :
 
-|Paramètre | Description|
+|Modificateur | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 remplace | Définit l’autorité par défaut de l’application sur une autorité Azure AD, avec la possibilité de choisir le cloud Azure, l’audience, le locataire (ID de locataire ou nom de domaine), ou de fournir directement l’URI de l’autorité.|
 |`.WithAdfsAuthority(string)` | Définit l’autorité par défaut de l’application sur une autorité ADFS.|
@@ -119,7 +120,7 @@ Les modificateurs que vous pouvez définir sur un client public ou un générate
 
 Les modificateurs que vous pouvez définir sur un générateur d’applications clientes publiques sur Xamarin.iOS sont les suivants :
 
-|Paramètre | Description|
+|Modificateur | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS uniquement** : Définit le groupe de sécurité de la chaîne de clés iOS (pour la persistance du cache).|
 
@@ -127,7 +128,7 @@ Les modificateurs que vous pouvez définir sur un générateur d’applications 
 
 Les modificateurs que vous pouvez définir sur un générateur d’applications clientes confidentielles sont les suivants :
 
-|Paramètre | Description|
+|Modificateur | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Définit le certificat identifiant l’application avec Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Définit la clé secrète client (mot de passe de l’application) identifiant l’application avec Azure AD.|

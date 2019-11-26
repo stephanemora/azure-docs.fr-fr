@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948712b684d1cd1b072862b7253d745f89b0cc56
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245926"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064007"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
@@ -26,15 +26,12 @@ Vous pouvez appliquer le chiffrement de disque uniquement aux machines virtuelle
 - [Exigences de stratégies de groupe](disk-encryption-overview.md#group-policy-requirements)
 - [Exigences liées au stockage des clés de chiffrement](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-
-
 >[!IMPORTANT]
 > - Si vous avez déjà utilisé Azure Disk Encryption avec Azure AD pour chiffrer une machine virtuelle, vous devez continuer à utiliser cette option pour chiffrer votre machine virtuelle. Pour plus d’informations, consultez [Azure Disk Encryption avec Azure AD (version précédente)](disk-encryption-overview-aad.md). 
 >
 > - Vous devez [prendre un instantané](snapshot-copy-managed-disk.md) et/ou créer une sauvegarde avant le chiffrement des disques. Les sauvegardes vous garantissent une possibilité de récupération en cas de défaillance inattendue lors du chiffrement. Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) pour chiffrer des disques managés en spécifiant le paramètre -skipVmBackup. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarder et restaurer une machine virtuelle Azure chiffrée](../../backup/backup-azure-vms-encryption.md). 
 >
 > - Le chiffrement ou la désactivation du chiffrement peut entraîner le redémarrage d’une machine virtuelle.
-
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installer les outils et se connecter à Azure
 
@@ -244,7 +241,8 @@ Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un mo
 Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et technologies suivants :
 
 - Chiffrement de machines virtuelles de niveau de base ou de machines virtuelles créées par le biais de la méthode de création de machine virtuelle classique
-- Chiffrement de machines virtuelles Windows configurées avec des systèmes RAID logiciels
+- Chiffrement de machines virtuelles configurées avec des systèmes RAID logiciels
+- Chiffrement de machines virtuelles configurées avec des espaces de stockage direct (S2D) ou des versions de Windows Server antérieures à 2016 configurées avec des espaces de stockage Windows.
 - Intégration à un système de gestion de clés local
 - Azure Files (système de fichiers partagés).
 - NFS (système de gestion de fichiers en réseau).

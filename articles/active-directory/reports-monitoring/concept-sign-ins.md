@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619251"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014487"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -30,22 +30,24 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 - **Activité** 
     - **Connexions** – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
-    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) – Fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
+    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
 - **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
+    - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
     - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](concept-user-at-risk.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
-Cette rubrique présente une vue d’ensemble du rapport de connexions.
+Cet article présente une vue d’ensemble du rapport de connexions.
 
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+
 * Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
 * Les administrateurs généraux
-* De plus, tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
+* Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
-* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Notez que si vous n’aviez aucune donnée d’activité avant la mise à niveau, l’affichage des données dans les rapports prendra quelques jours une fois la mise à niveau vers une licence premium effectuée.
+
+* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Quelques jours seront nécessaires pour que les données s’affichent dans les rapports après la mise à niveau vers une licence premium s’il n’y a aucune activité de données avant la mise à niveau.
 
 ## <a name="sign-ins-report"></a>Rapport de connexions
 
@@ -55,9 +57,9 @@ Le rapport de connexions des utilisateurs permet de répondre aux questions suiv
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
-Vous pouvez accéder au rapport de connexions en sélectionnant **Connexions** dans la section **Activités** du panneau **Azure Active Directory** du [Portail Azure](https://portal.azure.com). Il peut s’écouler jusqu’à deux heures pour que certains enregistrements de connexion s’affichent dans le portail.
+Commencez avec le [portail Azure](https://portal.azure.com). Pour accéder au rapport de connexions, sélectionnez **Connexions**, puis rendez-vous sur **Supervision**. Il peut s’écouler jusqu’à deux heures avant que certains enregistrements de connexion s’affichent dans le portail.
 
-![Activité de connexion](./media/concept-sign-ins/61.png "Activité de connexion")
+![Activité de connexion](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Activité de connexion")
 
 > [!IMPORTANT]
 > Le rapport des connexions montre seulement les connexions **interactives**, c’est-à-dire les connexions où un utilisateur se connecte manuellement avec son nom d’utilisateur et son mot de passe. Les connexions non interactives, comme l’authentification de service à service, n’apparaissent pas dans le rapport des connexions. 
@@ -71,19 +73,19 @@ Un journal de connexion inclut un mode Liste par défaut, qui indique :
 - L’état de la détection de risque
 - L’état de l’exigence de l’authentification multifacteur (MFA)
 
-![Activité de connexion](./media/concept-sign-ins/01.png "Activité de connexion")
+![Activité de connexion](./media/concept-sign-ins/sign-in-activity.png "Activité de connexion")
 
 Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la barre d’outils.
 
 ![Activité de connexion](./media/concept-sign-ins/19.png "Activité de connexion")
 
-Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des champs qui sont déjà affichés.
+Affiche des champs supplémentaires ou supprime des champs déjà affichés.
 
 ![Activité de connexion](./media/concept-sign-ins/02.png "Activité de connexion")
 
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
-![Activité de connexion](./media/concept-sign-ins/03.png "Activité de connexion")
+![Activité de connexion](./media/concept-sign-ins/basic-sign-in.png "Activité de connexion")
 
 > [!NOTE]
 > Les clients peuvent maintenant résoudre les problèmes de stratégies d’accès conditionnel grâce à tous les rapports de connexion. Les clients peuvent examiner l’état de l’accès conditionnel et consulter en détail les stratégies applicables à la connexion et les résultats de chaque stratégie en cliquant sur l’onglet **Accès conditionnel** pour obtenir un rapport de connexion.
@@ -93,7 +95,7 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 
 ## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion
 
-Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données de connexion à l’aide des champs de date comme filtre par défaut. De plus, Azure AD vous offre une large gamme de filtres supplémentaires que vous pouvez définir.
+Commencez par réduire les données signalées jusqu’au niveau qui vous convient. Ensuite, filtrez les données de connexions en utilisant le champ de date comme filtre par défaut. Azure AD vous offre une large gamme de filtres supplémentaires que vous pouvez définir.
 
 ![Activité de connexion](./media/concept-sign-ins/04.png "Activité de connexion")
 
@@ -117,7 +119,7 @@ Le filtre **Accès conditionnel** vous permet de sélectionner l’état de stra
 Le filtre **Date** vous permet de définir un intervalle de temps pour les données renvoyées.  
 Les valeurs possibles sont les suivantes :
 
-- 1 mois
+- Un mois
 - 7 jours
 - 24 heures
 - Intervalle de temps personnalisé
@@ -128,19 +130,19 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 ![Activité de connexion](./media/concept-sign-ins/12.png "Activité de connexion")
 
 - **Browser**  
-    Ce filtre montre tous les événements où des tentatives de connexion ont été effectuées à l’aide des flux de navigateur.
+    Ce filtre affiche tous les événements où des tentatives de connexion ont été effectuées à l’aide des flux de navigateur.
 - **Exchange ActiveSync (pris en charge)**  
     Ce filtre affiche toutes les tentatives de connexion où le protocole Exchange ActiveSync (EAS) a été tenté depuis des plateformes prises en charge comme iOS, Android et Windows Phone.
 - **Exchange ActiveSync (non pris en charge)**  
     Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été tenté depuis des plateformes non prises en charge comme les distributions Linux.
-- **Clients Mobile Apps et Desktop** : ce filtre affiche toutes les tentatives de connexion qui n’utilisaient pas de flux de navigateur. Il peut s’agir d’applications mobiles de n’importe quelle plateforme utilisant n’importe quel protocole ou de n’importe quelle application cliente Desktop comme Office sur Windows ou MacOS.
+- **Clients Mobile Apps et Desktop** : ce filtre affiche toutes les tentatives de connexion qui n’utilisaient pas de flux de navigateur. Par exemple, des applications mobiles provenant de n’importe quelle plateforme et utilisant n’importe quel protocole ou n’importe quelle application cliente Desktop comme Office sur Windows ou MacOS.
   
 - **Autres clients**
     - **IMAP**  
         Un client de messagerie hérité qui utilise IMAP pour récupérer le courrier électronique.
     - **MAPI**  
         Office 2013, où la bibliothèque ADAL est activée et utilise MAPI.
-    - **Clients Office plus anciens**  
+    - **Anciens clients Office**  
         Office 2013 dans sa configuration par défaut où la bibliothèque ADAL n’est pas activée et utilise MAPI, ou Office 2016, où la bibliothèque ADAL a été désactivée.
     - **POP**  
         Un client de messagerie hérité qui utilise POP3 pour récupérer le courrier électronique.
@@ -149,9 +151,9 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. Cliquer sur **Télécharger** vous donne la possibilité de créer un fichier CSV ou JSON des 250 000 enregistrements plus récents.  
+Cliquez sur l’option **Télécharger** pour créer un fichier CSV ou JSON des 250 000 enregistrements les plus récents. Commencez par [télécharger les données de connexions](quickstart-download-sign-in-report.md) si vous souhaitez les utiliser en dehors du portail Azure.  
 
-![Télécharger](./media/concept-sign-ins/71.png "Télécharger")
+![Télécharger](./media/concept-sign-ins/71.png "Téléchargement")
 
 > [!IMPORTANT]
 > Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).  
@@ -159,7 +161,7 @@ Vous pouvez [télécharger les données de connexion](quickstart-download-sign-i
 
 ## <a name="sign-ins-data-shortcuts"></a>Raccourcis vers les données de connexions
 
-En plus d’Azure AD, le portail Azure vous offre d’autres points d’entrée pour accéder aux données de connexion :
+Azure AD et le portail Azure vous offrent d’autres points d’entrée pour accéder aux données de connexions :
 
 - Vue d’ensemble de la protection de la sécurité des identités
 - Utilisateurs
@@ -168,7 +170,7 @@ En plus d’Azure AD, le portail Azure vous offre d’autres points d’entré
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Données de connexion des utilisateurs dans la protection de la sécurité des identités
 
-Le graphique des connexions des utilisateurs figurant sur la page **Protection de la sécurité des identités** affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+Le graphique des connexions des utilisateurs figurant sur la page de présentation **Protection de la sécurité des identités** affiche les agrégations hebdomadaires des connexions. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/06.png "Activité de connexion")
 
@@ -207,30 +209,28 @@ Sur la page **Utilisateurs**, vous obtenez une vue d’ensemble complète de tou
 En disposant d’une vue centrée sur les applications de vos données de connexion, vous pouvez répondre aux questions telles que :
 
 * Qui utilise mes applications ?
-* Quelles sont les 3 principales applications dans votre organisation ?
-* J’ai récemment déployé une application. Comment se comporte-t-elle ?
+* Quelles sont les trois principales applications dans votre organisation ?
+* Comment fonctionne mon application la plus récente ?
 
-Les 3 principales applications de votre organisation dans le rapport sur les 30 derniers jours apparaissant dans la section **Vue d’ensemble** sous **Enterprise applications** (Applications d’entreprise) constituent votre point d’entrée.
+Le point d’entrée de ces données correspond aux trois principales applications de votre organisation. Les données sont contenues dans le rapport sur les 30 derniers jours dans la section **Vue d’ensemble** sous **Applications d’entreprise**.
 
 ![Activité de connexion](./media/concept-sign-ins/10.png "Activité de connexion")
 
-Le graphique d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos 3 principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+Les graphiques d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos trois principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
-![Activité de connexion](./media/concept-sign-ins/47.png "Activité de connexion")
+![Activité de connexion](./media/concept-sign-ins/graph-chart.png "Activité de connexion")
 
 Si vous le souhaitez, vous pouvez définir la focalisation sur une application spécifique.
 
-![Reporting](./media/concept-sign-ins/single_spp_usage_graph.png "Reporting")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applications, vous obtenez une liste détaillée des activités de connexion.
 
 L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.
 
-![Activité de connexion](./media/concept-sign-ins/11.png "Activité de connexion")
-
 ## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
 
-Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Office 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Office 365. 
+Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). N’oubliez pas que les journaux d’activité d’Office 365 et d’Azure AD partagent un nombre important de ressources de répertoire. Seul le centre d’administration Microsoft 365 fournit une vue complète des journaux d’activité d’Office 365. 
 
 Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 en utilisant les [API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
