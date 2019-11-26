@@ -1,5 +1,6 @@
 ---
-title: Créer une identité pour l’application Azure avec PowerShell | Microsoft Docs
+title: Créer une identité pour l’application Azure avec PowerShell
+titleSuffix: Microsoft identity platform
 description: Explique comment utiliser Azure PowerShell pour créer une application et un principal du service Azure Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Il explique comment authentifier l’application avec un certificat.
 services: active-directory
 documentationcenter: na
@@ -17,12 +18,12 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7c75a567dbefc71b4b0fea595dae56a03def5ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fcf52bc5a6d177c18d9ebb792d1a147d09746afd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295448"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803818"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Activation Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 

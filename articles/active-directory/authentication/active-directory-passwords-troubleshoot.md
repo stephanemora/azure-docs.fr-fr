@@ -4,7 +4,7 @@ description: Résolution des problèmes relatifs à la réinitialisation de mot 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ecb2086f15159142ea55f96b2405b464c1f23a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 003ceb19fafade4972ebb0cf4e60ceda34dc1928
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786808"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893445"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -142,7 +142,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 | 33001| ADUnKnownError| Cet événement indique qu’une erreur inconnue a été retournée par Active Directory. Pour plus d’informations, recherchez les événements issus de la source ADSync dans le journal des événements du serveur Azure AD Connect.|
 | 33002| ADUserNotFoundError| Cet événement indique que l’utilisateur qui essaie de réinitialiser ou modifier un mot de passe est introuvable dans l’annuaire local. Cette erreur peut se produire quand l’utilisateur a été supprimé localement, mais pas sur le cloud. Cette erreur peut également se produire s’il existe un problème de synchronisation. Vérifiez vos journaux d’activité de synchronisation, ainsi que les détails de la dernière synchronisation pour plus d’informations.|
 | 33003| ADMutliMatchError| Quand une demande de réinitialisation ou modification de mot de passe vient du cloud, nous utilisons l’ancrage cloud spécifiée pendant le processus d’installation d’Azure AD Connect pour déterminer comment lier cette demande à un utilisateur dans votre environnement local. Cet événement indique que nous avons trouvé deux utilisateurs dans votre annuaire local avec le même attribut d’ancrage cloud. Vérifiez vos journaux d’activité de synchronisation, ainsi que les détails de la dernière synchronisation pour plus d’informations.|
-| 33004| ADPermissionsError| Cet événement indique que le compte de service de l’agent de gestion Active Directory (ADMA) n’a pas les autorisations appropriées sur le compte en question pour définir un nouveau mot de passe. Assurez-vous que le compte ADMA dans la forêt de l’utilisateur possède des autorisations de réinitialisation et modification de mot de passe sur tous les objets de la forêt. Pour obtenir plus d’informations sur la définition des autorisations, reportez-vous à l’étape 4 : Configuration des autorisations Active Directory adéquates.|
+| 33004| ADPermissionsError| Cet événement indique que le compte de service de l’agent de gestion Active Directory (ADMA) n’a pas les autorisations appropriées sur le compte en question pour définir un nouveau mot de passe. Assurez-vous que le compte ADMA dans la forêt de l’utilisateur possède des autorisations de réinitialisation et modification de mot de passe sur tous les objets de la forêt. Pour obtenir plus d’informations sur la définition des autorisations, reportez-vous à l’étape 4 : Configuration des autorisations Active Directory adéquates. Cette erreur peut également se produire lorsque l’attribut AdminCount de l’utilisateur a la valeur 1.|
 | 33005| ADUserAccountDisabled| Cet événement indique que nous avons tenté de réinitialiser ou changer un mot de passe pour un compte qui a été désactivé localement. Activez le compte et recommencez l’opération.|
 | 33006| ADUserAccountLockedOut| Cet événement indique que nous avons tenté de réinitialiser ou changer un mot de passe pour un compte qui a été verrouillé localement. Des verrouillages peuvent se produire quand un utilisateur a tenté une opération de modification ou réinitialisation de mot de passe un nombre de fois trop élevé sur un court laps de temps. Déverrouillez le compte et recommencez l’opération.|
 | 33007| ADUserIncorrectPassword| Cet événement indique que l’utilisateur a spécifié un mot de passe actuel incorrect lors de l’opération de modification du mot de passe. Spécifiez le mot de passe correct actuel et réessayez.|

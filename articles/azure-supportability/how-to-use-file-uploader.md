@@ -1,6 +1,6 @@
 ---
-title: Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure | Microsoft Docs
-description: Décrit les recommandations d’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
+title: Demande de support Azure - Instructions de chargement de fichier
+description: Décrit les recommandations d’utilisation de l’option de chargement de fichiers dans le cadre d’une demande de support Microsoft Azure
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -8,22 +8,22 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248686"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936073"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
-Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de chargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
+Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’option de chargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  
 
 > [!NOTE]
 > Pour protéger votre confidentialité, évitez d’inclure des informations personnelles dans votre téléchargement.
 >
 >
 
-Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement de fichiers :
+Suivez ces instructions lorsque vous utilisez l’option de chargement de fichiers :
 
 * Tous les fichiers doivent avoir une extension de nom de fichier, telle que .docx ou .xlsx. Consultez le tableau pour obtenir la liste des extensions de fichier autorisées.
 * Le nom de fichier doit être inférieur à 110 caractères.

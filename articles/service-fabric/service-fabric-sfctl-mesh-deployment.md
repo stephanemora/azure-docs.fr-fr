@@ -3,22 +3,23 @@ title: 'CLI Azure Service Fabric : déploiement cloud sfctl | Microsoft Doc
 description: Décrit les commandes de déploiement cloud sfctl de l’interface de ligne de commande CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: b3f506b46ef563f47fc7c67b759d3fcd08b7509d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: dbecf8e96c6cb5d0d6d873309d848304fe33eaaa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035176"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901253"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Créer des ressources Service Fabric Mesh.
@@ -52,25 +53,22 @@ Crée un déploiement de ressources Service Fabric Mesh.
 ### <a name="examples"></a>Exemples
 
 Consolide et déploie toutes les ressources en cluster en remplaçant les paramètres mentionnés dans le fichier yaml
-
-```
-sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters
-./param.yaml
+``` 
+sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters  
+./param.yaml    
 ```
 
 Consolide et déploie toutes les ressources d’un répertoire en cluster en remplaçant les paramètres mentionnés dans le fichier yaml
 
-```
+``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
 Consolide et déploie toutes les ressources d’un répertoire en cluster en remplaçant les paramètres mentionnés, qui sont transmis directement sous forme d’objet json
-
+``` 
+sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
+{'value' : 'my_value'} }"   
 ```
-sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :
-{'value' : 'my_value'} }"
-```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.

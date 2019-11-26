@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861968"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968736"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identifier et transcrire automatiquement du contenu multilingue (préversion)
 
@@ -86,9 +86,8 @@ Par ailleurs, chaque instance de la section de transcription inclut la langue da
 * La création et la modification de projets ne sont actuellement pas disponibles pour les vidéos multilingues.
 * Les modèles linguistiques personnalisés ne sont pas disponibles lors de l’utilisation de la détection multilingue.
 * L’ajout de mots clés n’est pas pris en charge.
-* L’API de mise à jour de la transcription n’est pas prise en charge.
 * Lorsque vous exportez des fichiers de sous-titres, la langue n’est pas indiquée.
-
+* L’API de mise à jour de la transcription ne prend pas en charge les fichiers de plusieurs langues.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

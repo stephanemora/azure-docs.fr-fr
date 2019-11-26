@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596329"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062670"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -221,9 +221,9 @@ Le tableau ci-dessous présente la configuration minimale requise pour l’ordin
 | Entre 300 000 et 600 000 |1,6 GHz |32 Go |450 Go |
 | Plus de 600 000 |1,6 GHz |32 Go |500 Go |
 
-La configuration minimale requise pour les ordinateurs exécutant les services de fédération Active Directory ou les serveurs d’applications web est la suivante :
+La configuration minimale requise pour les ordinateurs exécutant les services de fédération Active Directory (AD FS) ou les serveurs proxy d’applications web est la suivante :
 
-* Processeur : double cœur 1,6 GHz ou supérieur
+* Processeur : double cœur 1,6 GHz ou supérieur
 * Mémoire : 2 Go ou plus
 * Machine virtuelle Azure : configuration A2 ou supérieure
 

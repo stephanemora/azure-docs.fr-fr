@@ -1,5 +1,6 @@
 ---
-title: Guide pratique pour demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS | Plateforme d’identités Microsoft
+title: Comment demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS
+titleSuffix: Microsoft identity platform
 description: Découvrez comment demander des revendications personnalisées.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e09d58742bffd74f07f79b3ec55c1e81533632
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269363"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802596"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Guide pratique pour demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Activation demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS
 
 OpenID Connect vous permet de demander éventuellement le retour de revendications individuelles à partir du point de terminaison UserInfo et/ou dans le jeton d’ID. Une demande de revendications est représentée sous la forme d’un objet JSON qui contient une liste des revendications demandées. Pour plus d’informations, consultez [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter).
 

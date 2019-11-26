@@ -1,5 +1,5 @@
 ---
-title: Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
+title: Utiliser les données de référence SQL Database dans une tâche Azure Stream Analytics
 description: Cet article décrit comment utiliser une base de données SQL comme entrée de données de référence pour une tâche Azure Stream Analytics dans le portail Azure et dans Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461732"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926690"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 

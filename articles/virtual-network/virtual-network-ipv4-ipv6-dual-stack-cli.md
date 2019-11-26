@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 265a14fa216741a5a5994389e671e7558a527261
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d4ca26606eb8be5b9092f40b70b57b9d5d85385c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013716"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804000"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Déployer une application double pile IPv6 avec Basic Load Balancer - CLI (préversion)
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Si vous décidez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite que vous utilisiez Azure CLI version 2.0.49 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Pour des informations d'installation ou de mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
-Pour utiliser la fonctionnalité IPv6 pour un réseau virtuel Azure, vous devez configurer votre abonnement à l’aide d’Azure PowerShell comme suit :
+Pour utiliser la fonctionnalité IPv6 pour un réseau virtuel Azure, vous devez configurer votre abonnement à l’aide d’Azure CLI comme suit :
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -55,7 +55,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myRGDualStack* à l’emplacement *eastus* :
+Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *DsResourceGroup01* à l’emplacement *eastus* :
 
 ```azurecli
 az group create \
@@ -64,7 +64,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Créer des adresses IP publiques IPv4 et IPv6 pour l’équilibreur de charge
-Pour accéder à vos points de terminaison IPv4 et IPv6 sur Internet, vous avez besoin d’adresses IP publiques IPv4 et IPv6 pour l’équilibreur de charge. Créez une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip). L’exemple suivant crée des adresses IP publiques IPv4 et IPv6 nommées *dsPublicIP_v4* and *dsPublicIP_v6* dans le groupe de ressources *myRGDualStack* :
+Pour accéder à vos points de terminaison IPv4 et IPv6 sur Internet, vous avez besoin d’adresses IP publiques IPv4 et IPv6 pour l’équilibreur de charge. Créez une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip). L’exemple suivant crée des adresses IP IPv4 et IPv6 publiques nommées *dsPublicIP_v4* and *dsPublicIP_v6* dans le groupe de ressources *DsResourceGroup01* :
 
 ```azurecli
 # Create an IPV4 IP address
@@ -384,7 +384,7 @@ Vous pouvez afficher le réseau virtuel double pile IPv6 dans le Portail Microso
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
- az group delete --name DsRG1
+ az group delete --name DsResourceGroup01
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

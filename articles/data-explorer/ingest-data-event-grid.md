@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028365"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881548"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
@@ -53,7 +53,7 @@ Cet article vous montre comment définir un abonnement [Azure Event Grid](/azure
     | Point de terminaison | *test-hub* | Hub d’événements que vous avez créé. |
     | | |
 
-1. Sélectionnez l’onglet **Fonctionnalités supplémentaires** si vous voulez effectuer le suivi des fichiers d’un conteneur spécifique. Définissez les filtres pour les notifications comme suit :
+1. Sélectionnez l’onglet **Filtres** si vous voulez effectuer le suivi des fichiers d’un conteneur spécifique. Définissez les filtres pour les notifications comme suit :
     * Le champ **Le sujet commence par** est le préfixe *littéral* du conteneur d’objets blob. Comme le modèle appliqué est *startswith*, il peut s’étendre sur plusieurs conteneurs. Les caractères génériques ne sont pas autorisés.
      Il *doit* être défini comme suit : *`/blobServices/default/containers/`* [préfixe de conteneur]
     * Le champ **Le sujet se termine par** est le suffixe *littéral* de l’objet blob. Les caractères génériques ne sont pas autorisés.

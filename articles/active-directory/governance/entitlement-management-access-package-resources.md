@@ -1,6 +1,6 @@
 ---
-title: Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
-description: Découvrez comment changer les rôles de ressources pour un package d’accès existant dans la gestion des droits d’utilisation d’Azure Active Directory (préversion).
+title: Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory - Azure Active Directory
+description: Découvrez comment changer les rôles de ressources pour un package d’accès existant dans la gestion des droits d’utilisation d’Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429811"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174643"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
 En tant que gestionnaire des packages d'accès, vous pouvez à tout moment modifier les ressources d'un package d'accès sans vous soucier de donner à l'utilisateur l’accès aux nouvelles ressources ou de supprimer son accès aux ressources précédentes. Cet article explique comment changer les rôles de ressources pour un package d’accès existant.
 

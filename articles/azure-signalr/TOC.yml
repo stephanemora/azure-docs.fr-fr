@@ -61,6 +61,8 @@
   items:
     - name: Scale
       items:
+        - name: Instance unique
+          href: signalr-howto-scale-signalr.md
         - name: Instances multiples
           href: signalr-howto-scale-multi-instances.md
     - name: Sécuriser

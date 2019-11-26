@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854615"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882636"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## <a name="download-storage-logging-log-data"></a>Télécharger les données du journal de journalisation du stockage
 
- Pour afficher et analyser vos données de journal, vous devez télécharger les objets Blob qui contiennent les données de journal souhaitées sur un ordinateur local. De nombreux outils de consultation du stockage vous permettent de télécharger des objets Blob de votre compte de stockage. Vous pouvez également utiliser l’outil de copie Azure de ligne de commande fourni par l’équipe de Stockage Azure (**AzCopy**) pour télécharger vos données de journal.  
+ Pour afficher et analyser vos données de journal, vous devez télécharger les objets Blob qui contiennent les données de journal souhaitées sur un ordinateur local. De nombreux outils de consultation du stockage vous permettent de télécharger des objets Blob de votre compte de stockage. Vous pouvez également utiliser l’outil de copie Azure de ligne de commande fourni par l’équipe de Stockage Azure [AzCopy](storage-use-azcopy-v10.md) pour télécharger vos données de journal.  
 
  Pour vous assurer de télécharger les données de journal souhaitées et éviter de télécharger les mêmes données plusieurs fois :  
 
@@ -187,20 +187,17 @@ queueClient.SetServiceProperties(serviceProperties);
 
 -   Utilisez les métadonnées des objets Blob contenant des données de journal pour identifier la période pendant laquelle l’objet Blob conserve les données de journal afin d’identifier l’objet Blob exact que vous devez télécharger.  
 
-> [!NOTE]
->  AzCopy fait partie du Kit de développement logiciel (SDK) Azure, mais vous pouvez toujours télécharger la dernière version à partir de [https://aka.ms/AzCopy](https://aka.ms/AzCopy). Par défaut, AzCopy est installé dans le dossier **C:\Program Files (x86)\Microsoft SDKs\Windows Azure\AzCopy**, et vous devez ajouter ce dossier à votre chemin avant d’essayer d’exécuter l’outil dans une invite de commandes ou une fenêtre PowerShell.  
+Pour commencer à utiliser AzCopy, consultez [Prise en main d’AzCopy](storage-use-azcopy-v10.md) 
 
- L’exemple suivant montre comment vous pouvez télécharger les données de journal du service de file d’attente pour les heures en commençant à 9h, 10h et 11h le 20 mai 2014. Avec le paramètre **/S**, AzCopy génère une structure de dossier local basée sur les dates et heures dans les noms de fichiers journaux. Avec le paramètre **/V**, AzCopy produit une sortie détaillée. Avec le paramètre **/Y**, AzCopy remplace tous les fichiers locaux. Remplacez **<yourstorageaccount\>** par le nom de votre compte de stockage et remplacez **<yourstoragekey\>** par votre clé de compte de stockage.  
+L’exemple suivant montre comment vous pouvez télécharger les données de journal du service de file d’attente pour les heures en commençant à 9h, 10h et 11h le 20 mai 2014.
 
 ```
-AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
-```  
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
+```
 
- AzCopy inclut également d’autres paramètres utiles qui déterminent comment elle définit l’heure de dernière modification sur les fichiers téléchargés, et si elle tentera de télécharger des fichiers plus anciens ou plus récents que des fichiers existant déjà sur votre ordinateur local. Vous pouvez également l’exécuter en mode de redémarrage. Pour des informations complètes, consultez l’aide en exécutant la commande **AzCopy /?** .  
+Pour en savoir plus sur le téléchargement de fichiers spécifiques, consultez [Télécharger des fichiers spécifiques](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
- Pour un exemple montrant comment télécharger vos données de journal par programmation, consultez le billet de blog [Windows Azure Storage Logging: Using Logs to Track Storage Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (Journalisation du stockage Windows Azure : utilisation de journaux pour suivre des requêtes de stockage) et recherchez le mot « DumpLogs » sur la page.  
-
- Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux utilisent un format de texte délimité que de nombreux outils de lecture de journaux sont en mesure d’analyser, dont Microsoft Message Analyzer (pour plus d’informations, consultez le guide [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Différents outils possèdent des fonctionnalités différentes de mise en forme, de filtrage, de tri et de recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format du fichier journal de journalisation du stockage et son contenu, consultez [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format) et [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux utilisent un format de texte délimité que de nombreux outils de lecture de journaux sont en mesure d’analyser, dont Microsoft Message Analyzer (pour plus d’informations, consultez le guide [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Différents outils possèdent des fonctionnalités différentes de mise en forme, de filtrage, de tri et de recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format du fichier journal de journalisation du stockage et son contenu, consultez [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format) et [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

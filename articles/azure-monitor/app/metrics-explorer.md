@@ -1,23 +1,18 @@
 ---
 title: Exploration des mesures dans Azure Application Insights | Microsoft Docs
 description: Comment interpréter les graphiques dans Metric Explorer et comment personnaliser les panneaux de Metrics Explorer.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/22/2019
+ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700706"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820793"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploration des mesures dans Application Insights
 Les mesures dans [Application Insights][start] sont des mesures et le nombre des événements envoyés par la télémétrie de votre application. Elles vous permettent de détecter les problèmes de performances et de constater les tendances dans l'utilisation de votre application. Il existe un large éventail de mesures standard et vous pouvez également créer vos propres mesures personnalisées et vos propres événements personnalisés.
@@ -89,7 +84,7 @@ Sélectionnez un graphique ou une grille, basculez vers le regroupement et chois
 >
 >
 
-Si vous avez ajouté des [mesures personnalisées][track] au code de votre application et qu'elles incluent des valeurs de propriétés, vous pourrez sélectionner la propriété dans la liste.
+Si vous avez ajouté des [mesures personnalisées][track] au code de votre application et qu’elles incluent des valeurs de propriétés, vous pourrez sélectionner la propriété dans la liste.
 
 Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
 

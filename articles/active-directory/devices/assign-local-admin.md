@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983663"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062260"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -59,10 +59,10 @@ Pour modifier le rôle d’administrateur d’appareils, configurez **Administra
 >[!NOTE]
 > Cette option nécessite un locataire Azure AD Premium. 
 
-Les administrateurs d’appareil sont affectés à toutes les appareils joints à Azure AD. Vous ne pouvez pas limiter l’étendue des administrateurs d’appareil à un jeu spécifique d’appareils. La mise à jour du rôle d’administrateur d’appareil n’a pas nécessairement un impact immédiat sur les utilisateurs affectés. Pour les appareils auxquels un utilisateur est déjà connecté, la mise à jour du privilège a lieu :
+Les administrateurs d’appareil sont affectés à toutes les appareils joints à Azure AD. Vous ne pouvez pas limiter l’étendue des administrateurs d’appareil à un jeu spécifique d’appareils. La mise à jour du rôle d’administrateur d’appareil n’a pas nécessairement un impact immédiat sur les utilisateurs affectés. Sur les appareils où un utilisateur est déjà connecté, la mise à jour des privilèges a lieu lorsque les *deux* actions ci-dessous se produisent :
 
-- Quand un utilisateur se déconnecte.
-- Après 4 heures, quand un nouveau jeton d’actualisation principal est émis. 
+- 4 heures ont passé pour qu’Azure AD émette un nouveau jeton d’actualisation principal avec les privilèges appropriés. 
+- L’utilisateur se déconnecte, puis se reconnecte, sans verrouillage/déverrouillage, pour actualiser son profil.
 
 ## <a name="manage-regular-users"></a>Gérer les utilisateurs réguliers
 

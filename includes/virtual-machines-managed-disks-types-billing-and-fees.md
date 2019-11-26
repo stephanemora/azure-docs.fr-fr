@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a416d1c6e813be558f034e15576c57efa6073788
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 2303d36e93cecfca03894a8b0e55458c03b13d78
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968571"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73412964"
 ---
 **Transferts de données sortants** : [transferts de données sortants](https://azure.microsoft.com/pricing/details/bandwidth/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
@@ -29,3 +29,7 @@ Les machines virtuelles Azure peuvent indiquer si elles sont compatibles avec le
 > Pour les [tailles de machine virtuelle avec des cœurs restreints](../articles/virtual-machines/linux/constrained-vcpu.md), les frais de réservation sont basés sur le nombre réel de processeurs virtuels et non sur les cœurs restreints. Pour Standard_E32-8s_v3, les frais de réservation sont basés sur 32 cœurs. 
 
 Pour plus d’informations sur la tarification des disques Ultra, consultez la [page relative à la tarification des disques Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="azure-disk-reservation"></a>Réservation de disque Azure
+
+La réservation de disque est la possibilité d’acheter à l’avance un an de stockage sur disque avec une remise, ce qui réduit le coût total pour vous. Lors de l’achat d’une réservation de disque, vous sélectionnez une référence SKU de disque spécifique dans une région cible, par exemple 10 disques SSD P30 (1 Tio) Premium dans la région USA Est 2 pour une période d’un an. L’expérience de réservation est similaire aux instances de machines virtuelles réservées. Vous pouvez regrouper les réservations de machines virtuelles et de disques pour optimiser vos économies. Pour le moment, la réservation de disques Azure offre un plan d’engagement d’un an pour les références (SKU) de disques SSD Premium de P30 (1 Tio) à P80 (32 Tio) dans toutes les régions de production. Pour plus d’informations sur la tarification des disques réservés, consultez [Page de tarification des disques Azure](https://azure.microsoft.com/pricing/details/managed-disks/).

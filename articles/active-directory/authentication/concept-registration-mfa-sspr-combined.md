@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162419"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808472"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 
@@ -35,6 +35,9 @@ L’inscription combinée d’informations de sécurité Azure AD n’est pas d
 
 > [!IMPORTANT]
 > Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+
+> [!NOTE] 
+> Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité. Par exemple, « Désolé, nous ne pouvons pas vous connecter ». Dans ce cas, vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur Web. 
 
 Les pages Mon profil sont localisées sur la base des paramètres de langue de l’ordinateur qui accède à ces pages. Microsoft stocke la dernière langue utilisée dans le cache du navigateur, afin que les tentatives suivantes d’accès aux pages continuent de s’afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages seront réaffichées. Pour imposer l’utilisation d’une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez utiliser.
 

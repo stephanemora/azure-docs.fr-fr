@@ -5,14 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b77fd082be43b8cbdedf7cbe5875a8931eb0474a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2a2b8b71e07e5dac74d73d3a81c150ac5d980ea2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837899"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935351"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versions prises en charge de la base de données PostgreSQL
 Microsoft entend prendre en charge les versions n-2 du moteur PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique. Autrement dit, la version principale actuellement publiée (n) et les deux principales versions antérieures (-2).
@@ -20,16 +20,16 @@ Microsoft entend prendre en charge les versions n-2 du moteur PostgreSQL dans Az
 Azure Database pour PostgreSQL prend actuellement en charge les versions principales suivantes :
 
 ## <a name="postgresql-version-11"></a>PostgreSQL Version 11
-La version mineure actuelle est 11.4. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-4.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 11.5. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-5.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ## <a name="postgresql-version-10"></a>PostgreSQL Version 10
-La version mineure actuelle est 10.9. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-9.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 10.10. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-10.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ## <a name="postgresql-version-96"></a>PostgreSQL version 9.6
-La version mineure actuelle est 9.6.14. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-14.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 9.6.15. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ## <a name="postgresql-version-95"></a>PostgreSQL Version 9.5
-La version mineure actuelle est 9.5.18. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-18.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 9.5.19. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ## <a name="managing-upgrades"></a>Gestion des mises à niveau
 Azure Database pour PostgreSQL gère automatiquement les mises à niveau des versions mineures. 

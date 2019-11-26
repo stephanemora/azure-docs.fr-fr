@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058323"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933767"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -106,10 +106,10 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-La stratégie de sécurité des pods *privileged* est appliquée à tout utilisateur authentifié dans le cluster AKS. Cette affectation est contrôlée par ClusterRoles et ClusterRoleBindings. Utilisez la commande [kubectl get clusterrolebindings][kubectl-get] et recherchez la liaison *default:priviledged* :
+La stratégie de sécurité des pods *privileged* est appliquée à tout utilisateur authentifié dans le cluster AKS. Cette affectation est contrôlée par ClusterRoles et ClusterRoleBindings. Utilisez la commande [kubectl get clusterrolebindings][kubectl-get] et recherchez la liaison *default:privileged* :
 
 ```console
-kubectl get clusterrolebindings default:priviledged -o yaml
+kubectl get clusterrolebindings default:privileged -o yaml
 ```
 
 Comme indiqué dans la sortie condensée suivante, le ClusterRole *psp:restricted* est attribué à tous les utilisateurs *system:authenticated*. Cette capacité offre un niveau de base pour les restrictions sans avoir à définir vos propres stratégies.
@@ -119,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:priviledged
+  name: default:privileged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:priviledged
+  name: psp:privileged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group

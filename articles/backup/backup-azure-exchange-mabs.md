@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
+title: Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
 description: Découvrez comment sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure.
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,28 +8,32 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ed88f069c110795c2c5561196c41d3d75640bd53
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689278"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968464"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
+
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de continuer, assurez-vous que le serveur de sauvegarde Azure est [installé et prêt](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>Agent de protection du serveur de sauvegarde Azure
+
 Pour installer l’agent de protection du serveur de sauvegarde Azure sur le serveur Exchange, procédez comme suit :
 
 1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](https://technet.microsoft.com/library/Hh758204.aspx).
 2. Installez l’agent sur le serveur Exchange, en cliquant sur **Gestion > Agents > Installer** dans la console administrateur du serveur de sauvegarde Azure. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection du serveur de sauvegarde Azure](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396).
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Créer un groupe de protection pour le serveur Exchange
+
 1. Dans la console administrateur du serveur de sauvegarde Azure, cliquez sur **Protection**, puis sélectionnez **Nouveau** dans la barre d’outils pour ouvrir l’assistant **Créer un groupe de protection**.
-2. Dans l’écran d’**accueil** de l’assistant, cliquez sur **Suivant**.
+2. Dans l’écran d’**accueil** de l’Assistant, cliquez sur **Suivant**.
 3. Dans l’écran **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**.
 4. Sélectionnez la base de données du serveur Exchange que vous souhaitez protéger, puis cliquez sur **Suivant**.
 
@@ -89,6 +93,7 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 19. Cliquez sur **Fermer**.
 
 ## <a name="recover-the-exchange-database"></a>Récupérer la base de données Exchange
+
 1. Pour récupérer une base de données Exchange, cliquez sur **Récupération** dans la console administrateur du serveur de sauvegarde Azure.
 2. Localisez la base de données Exchange que vous souhaitez récupérer.
 3. Sélectionnez un point de récupération en ligne dans la liste déroulante *Heure de récupération* .
@@ -105,4 +110,5 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
     ![Choisir la réplication en ligne](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)

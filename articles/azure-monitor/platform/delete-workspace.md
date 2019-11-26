@@ -1,24 +1,18 @@
 ---
-title: Supprimer et restaurer un espace de travail Azure Log Analytics | Microsoft Docs
+title: Supprimer et récupérer un espace de travail Azure Log Analytics | Microsoft Docs
 description: Découvrez comment supprimer votre espace de travail Log Analytics si vous en avez créé un dans votre abonnement personnel ou restructurer votre modèle d’espace de travail.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: fb6714a52a65ef5efe4725b99acb30cb67af20c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/28/2019
+ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299281"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044238"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Supprimer et restaurer un espace de travail Azure Log Analytics
 
@@ -60,12 +54,14 @@ Vous pouvez supprimer un espace de travail à l'aide de [PowerShell](https://doc
 
 Si vous disposez d'autorisations Contributeur pour l'abonnement et le groupe de ressources auxquels l'espace de travail était associé avant l'opération de suppression réversible, vous pouvez le récupérer (avec ses données, sa configuration et les agents connectés) pendant la période de suppression réversible. À l'issue de la période de suppression réversible, l'espace de travail devient irrécupérable et il est mis en file d'attente pour être définitivement supprimé. Les noms des espaces de travail supprimés sont conservés pendant toute la période de suppression réversible ; ils ne peuvent alors pas être utilisés pour tenter de créer un nouvel espace de travail.  
 
-Vous pouvez récupérer un espace de travail en le recréant à l’aide des méthodes de création de l’espace de travail [PowerShell ](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate), à condition que ces propriétés soient remplies avec les détails de l’espace de travail supprimé, notamment :
+Vous pouvez récupérer un espace de travail en le recréant à l’aide de l’une des méthodes de création suivantes : [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) tant que les propriétés suivantes sont remplies avec les détails de l’espace de travail supprimé :
 
 * Identifiant d’abonnement
 * Nom du groupe ressources
 * Nom de l’espace de travail
 * Région
+
+L’espace de travail et toutes ses données sont restaurés après l’opération de récupération. Les solutions et les services liés ont été définitivement supprimés de l’espace de travail lors de la suppression de ce dernier. Ils doivent être reconfigurés pour ramener l’espace de travail à son état précédemment configuré. Certaines des données peuvent ne pas être disponibles pour la requête après la récupération de l’espace de travail jusqu’à ce que les solutions associées soient réinstallées et que leurs schémas soient ajoutés à l’espace de travail.
 
 > [!NOTE]
 > * La récupération de l’espace de travail n’est pas prise en charge dans le [portail Azure](https://portal.azure.com). 

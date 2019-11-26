@@ -1,6 +1,7 @@
 ---
 let application: MSALPublicClientApplication!
-title: Migrer des applications vers MSAL.ObjectiveC | Plateforme d’identités Microsoft
+title: Migrer les applications vers MSAL.ObjectiveC
+titleSuffix: Microsoft identity platform
 description: Découvrez les différences entre Microsoft Authentication Library pour ObjectiveC (MSAL pour iOS et macOS) et Azure AD Authentication Library pour ObjectiveC (ADAL.ObjC) et comment migrer vers MSAL pour iOS et macOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcceec31785b3d8ebc6d9566e7d2eba857d792ef
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 8ccf88bcffdf484772f5f3ad35316d2c74fb104e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269375"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175639"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrer des applications vers MSAL pour iOS et macOS
 
@@ -72,7 +73,7 @@ Il existe deux façons de fournir des étendues dans MSAL :
 
 * Fournissez une liste de toutes les autorisations dont votre application a besoin. Par exemple : 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     Dans ce cas, l’application demande les autorisations `directory.read` et `directory.write`. L’utilisateur sera invité à donner son consentement pour ces autorisations s’il ne l’a pas encore fait pour cette application. L’application peut également recevoir des autorisations supplémentaires pour lesquelles l’utilisateur lui a déjà accordé son consentement. L’utilisateur sera invité à donner son consentement uniquement pour les nouvelles autorisations ou celles qui n’ont pas été accordées.
 
@@ -327,7 +328,7 @@ Par défaut, MSAL met en cache les jetons de votre application dans le trousseau
 Pour activer la mise en cache des jetons
 1. Vérifiez que votre application est correctement signée.
 2. Accédez à vos paramètres de projet Xcode > **onglet Fonctionnalités** > **Activer le partage de trousseau**.
-3. Cliquez sur **+** et fournissez une entrée **Groupes de trousseaux** suivante : 3.a. Pour iOS, entrez `com.microsoft.adalcache` 3.b. Pour macOS, entrez `com.microsoft.identity.universalstorage`.
+3. Cliquez sur **+** et fournissez l’une des entrées **Groupes de trousseaux** suivantes : 3.a. Pour iOS, entrez `com.microsoft.adalcache` 3.b. Pour macOS, entrez `com.microsoft.identity.universalstorage`.
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Créer MSALPublicClientApplication et basculer vers ses appels acquireToken et acquireTokeSilent
 

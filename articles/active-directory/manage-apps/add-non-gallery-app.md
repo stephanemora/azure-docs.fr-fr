@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8d8d6df16c5df7e29d8bb870c5d5eda6d8a2d3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477260"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062822"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Ajouter une application non répertoriée (hors galerie) à votre organisation Azure AD
 
@@ -33,21 +33,36 @@ Cet article explique comment ajouter une application ne figurant pas dans la gal
 ## <a name="add-a-non-gallery-application"></a>Ajouter une application ne figurant pas dans la galerie
 
 1. Connectez-vous au [Portail Azure Active Directory](https://aad.portal.azure.com/) à l’aide de votre compte d’administrateur de plateforme d’identité Microsoft.
-1. Sélectionnez **Applications d’entreprise** > **Nouvelle application**.
-2. (Facultatif mais recommandé) Dans la zone de recherche **Ajouter à partir de la galerie**, entrez le nom complet de l’application. Si l’application apparaît dans les résultats de recherche, sélectionnez-la et ignorez le reste de cette procédure.
-3. Sélectionnez **Application ne figurant pas dans la galerie**. La page **Ajouter votre propre application** s’affiche.
 
-   ![Ajouter l’application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Entrez le nom complet de votre nouvelle application.
-6. Sélectionnez **Ajouter**. La page **Vue d’ensemble** de l’application s’ouvre.
+2. Sélectionnez **Applications d’entreprise** > **Nouvelle application**.
+
+3. (Facultatif mais recommandé) Dans la zone de recherche **Parcourir la galerie Azure AD**, entrez le nom complet de l’application. 
+
+4. Sélectionnez **Créer votre propre application**. La page **Créer votre propre application** s’affiche.
+
+   ![Ajouter l’application](media/add-non-gallery-app/create-your-own-application.png)
+
+5. Commencez à saisir le nom complet de votre nouvelle application. Si des applications de la galerie ont des noms similaires, elles apparaissent dans une liste de résultats de recherche.
+
+   > [!NOTE]
+   > Nous vous recommandons d’utiliser la version galerie de votre application chaque fois que cela est possible. Si l’application que vous voulez ajouter apparaît dans les résultats de recherche, sélectionnez-la et ignorez le reste de cette procédure.
+
+6. Sous **Que voulez-vous faire avec votre application ?** choisissez **Intégrer une autre application que vous ne trouvez pas dans la galerie**. Cette option est généralement utilisée pour les applications SAML et WS-Fed.
+
+   > [!NOTE]
+   > Les deux autres options sont utilisées dans les scénarios suivants :
+   >* **Configurer le proxy d’application pour un accès à distance sécurisé à une application locale** ouvre la page de configuration pour Proxy d’application Azure Active Directory et les connecteurs.
+   >* **Inscrire une application sur laquelle vous travaillez pour l’intégrer dans Azure AD** ouvre la page **Inscriptions d’applications**. Cette option est généralement utilisée pour les applications OpenID Connect.
+
+7. Sélectionnez **Create** (Créer). La page **Vue d’ensemble** de l’application s’ouvre.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurer les propriétés de connexion de l’utilisateur
 
 1. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés pour la modification.
 
-    ![Volet Modifier des propriétés](media/add-application-portal/edit-properties.png)
+    ![Volet Modifier des propriétés](media/add-non-gallery-app/edit-properties.png)
 
-1. Définissez les options suivantes pour déterminer comment les utilisateurs qui sont affectés ou non affectés à l’application peuvent s’y connecter, et si un utilisateur peut voir l’application dans le volet d’accès.
+2. Définissez les options suivantes pour déterminer comment les utilisateurs qui sont affectés ou non affectés à l’application peuvent s’y connecter, et si un utilisateur peut voir l’application dans le volet d’accès.
 
     - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
     - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
@@ -83,11 +98,11 @@ Cet article explique comment ajouter une application ne figurant pas dans la gal
 
      \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 
-1. Pour utiliser un logo personnalisé, créez un logo de 215 x 215 pixels et enregistrez-le au format PNG. Accédez ensuite à votre logo et chargez-le.
+3. Pour utiliser un logo personnalisé, créez un logo de 215 x 215 pixels et enregistrez-le au format PNG. Accédez ensuite à votre logo et chargez-le.
 
-    ![Modifier le logo](media/add-application-portal/change-logo.png)
+    ![Modifier le logo](media/add-non-gallery-app/change-logo.png)
 
-1. Quand vous avez terminé, Sélectionnez **Enregistrer**.
+4. Quand vous avez terminé, Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

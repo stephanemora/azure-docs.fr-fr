@@ -1,5 +1,5 @@
 ---
-title: Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager | Microsoft Docs
+title: Créer un paramètre de diagnostic dans Azure à l’aide du modèle Resource Manager
 description: Créez des paramètres de diagnostic à l’aide d’un modèle Resource Manager pour transférer les journaux de la plateforme Azure vers les journaux Azure Monitor, le Stockage Azure ou Azure Event Hubs.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597286"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200491"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) dans le cadre de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations. Cela vous permet de démarrer automatiquement la collecte des journaux de plateforme lors de la création d’une ressource.

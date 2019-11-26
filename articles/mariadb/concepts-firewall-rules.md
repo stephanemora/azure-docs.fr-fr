@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 89c4bce33b80e988a9da363a89854e921bee30b0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 82e07edc615fd8c1ef0ebc84cf57035727bbcdf6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973658"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965255"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Règles de pare-feu d’un serveur Azure Database for MariaDB
 Le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
@@ -43,10 +43,13 @@ Pour autoriser des applications provenant d’Azure à se connecter à votre ser
 
 ![Configurer Autoriser l’accès aux services Azure dans le portail](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Connexion à partir d’un réseau virtuel
+Pour vous connecter de manière sécurisée à votre serveur Azure Database for MariaDB à partir d’un réseau virtuel, vous pouvez utiliser des [points de terminaison de service de réseau virtuel](./concepts-data-access-security-vnet.md). 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Gestion par programmation des règles de pare-feu
 En dehors du Portail Azure, les règles de pare-feu peuvent être gérées par programmation à l’aide d’Azure CLI. 
 
-<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+Voir aussi [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure](./howto-manage-firewall-cli.md).
 
 ## <a name="troubleshooting-firewall-issues"></a>Résolution des problèmes de pare-feu
 Tenez compte des points suivants quand l’accès au service de serveur Azure Database for MariaDB présente un comportement anormal :
@@ -65,6 +68,5 @@ Tenez compte des points suivants quand l’accès au service de serveur Azure Da
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du portail Azure](./howto-manage-firewall-portal.md)
-
-<!--
-- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md) (Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l’interface de ligne de commande Azure)
+- [Points de terminaison de service de réseau virtuel dans Azure Database for MariaDB](./concepts-data-access-security-vnet.md)

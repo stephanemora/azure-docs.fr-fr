@@ -1,5 +1,5 @@
 ---
-title: Workflows Apache Oozie avec le Pack Sécurité Entreprise - Azure HDInsight
+title: Workflows Apache Oozie et Sécurité Entreprise - Azure HDInsight
 description: Sécurisez les workflows Apache Oozie à l’aide du Pack Sécurité Entreprise Azure HDInsight. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 03826d1005253c408374ea4c78266eef97aab2aa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918125"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044834"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise
 
@@ -61,9 +61,9 @@ Les définitions des workflows Oozie sont écrites en hPDL (langage de définiti
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Remplacez `DomainUser` par le nom de l’utilisateur de domaine. 
-   Remplacez `DomainUserPath` par le chemin du répertoire de base de l’utilisateur de domaine. 
-   Remplacez `ClusterVersion` par votre version de Hortonworks Data Platform (HDP) dans le cluster.
+   Remplacez `DomainUser` par le nom de l’utilisateur de domaine.
+   Remplacez `DomainUserPath` par le chemin du répertoire de base de l’utilisateur de domaine.
+   Remplacez `ClusterVersion` par votre version de plateforme de données de cluster.
 
 2. Pour créer et modifier un fichier, utilisez l’instruction suivante :
    ```bash

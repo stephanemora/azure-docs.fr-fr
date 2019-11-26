@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999044"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159880"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -34,28 +34,14 @@ Cet article fournit des informations qui vous permettent :
 [Développer des applications sécurisées sur Azure](abstract-develop-secure-apps.md) est un guide général des questions de sécurité et des contrôles que vous devez prendre en compte à chaque phase du cycle de vie du développement logiciel lors du développement d’applications pour le cloud.
 
 ## <a name="cloud-security-advantages"></a>Avantages du cloud en matière de sécurité
-Le cloud offre certains avantages pour la sécurité. Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.
+Il est important de comprendre la [répartition des responsabilités](shared-responsibility.md) entre vous et Microsoft. Localement, vous avez toute la responsabilité, mais, lorsque vous vous déplacez vers le cloud, certaines responsabilités sont transférées à Microsoft.
 
-![Les avantages de l’ère du cloud en matière de sécurité](./media/paas-deployments/advantages-of-cloud.png)
+Le cloud offre [certains avantages pour la sécurité](shared-responsibility.md#cloud security advantages). Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.
 
 Les organisations peuvent améliorer la détection des menaces et leur temps de réponse à l’aide de fonctionnalités de sécurité basées sur le cloud d’un fournisseur et l'intelligence du cloud.  En transférant les responsabilités au fournisseur de cloud, les organisations peuvent optimiser leur couverture de sécurité, ce qui leur permet de réaffecter des ressources de sécurité et leur budget à d'autres priorités de l’entreprise.
 
-## <a name="division-of-responsibility"></a>Répartition de la responsabilité
-Il est important de comprendre la répartition des responsabilités entre vous et Microsoft. Localement, vous avez toute la responsabilité, mais, lorsque vous vous déplacez vers le cloud, certaines responsabilités sont transférées à Microsoft. La matrice de responsabilité suivante montre les zones de la pile dans un déploiement SaaS, PaaS et IaaS dont vous êtes responsable et celles dont Microsoft est responsable.
-
-![Zones de responsabilité](./media/paas-deployments/responsibility-zones.png)
-
-Vous avez vos données et les identités pour tous les types de déploiement dans le cloud. Vous êtes chargé de protéger la sécurité de vos données et des identités, des ressources locales, et des composants du cloud que vous contrôlez (qui varient selon le type de service).
-
-Les responsabilités qui sont toujours les vôtres quel que soit le type de déploiement sont les suivantes :
-
-- Données
-- Points de terminaison
-- Compte
-- gestion de l’accès
-
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Avantages d'un modèle de service cloud PaaS en matière de sécurité
-À l’aide de la même matrice de responsabilité, passons en revue les avantages pour la sécurité d’un déploiement PaaS Azure par rapport à un déploiement local.
+Passons en revue les avantages pour la sécurité d’un déploiement PaaS Azure par rapport à un déploiement local.
 
 ![Les avantages d'une PaaS en matière de sécurité](./media/paas-deployments/advantages-of-paas.png)
 
@@ -181,5 +167,3 @@ Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécu
 Les ressources suivantes fournissent des informations générales sur la sécurité Azure et les services Microsoft associés :
 * [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : pour obtenir des informations à jour sur les dernières actualités sur la sécurité Azure
 * [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : emplacement où les vulnérabilités de sécurité Microsoft, dont les problèmes rencontrés avec Azure, peuvent être rapportées ou signalées par e-mail à l’adresse secure@microsoft.com
-
-

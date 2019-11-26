@@ -1,6 +1,6 @@
 ---
-title: Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
-description: Découvrez comment afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion).
+title: Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory - Azure Active Directory
+description: Découvrez comment afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392024"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174899"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
 Dans la gestion des droits d'utilisation Azure AD, vous pouvez voir qui a été affecté aux packages d’accès, ainsi que leur stratégie et leur état. Si un package d’accès a une stratégie appropriée, vous pouvez également affecter directement l’utilisateur à un package d’accès. Cet article explique comment afficher, ajouter et supprimer des affectations pour des packages d’accès.
 
@@ -70,11 +65,9 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
     ![Affectations - Ajouter un utilisateur au package d’accès](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Cliquez sur **Ajouter des utilisateurs** pour sélectionner les utilisateurs auxquels vous voulez affecter le package d'accès.
+1. Cliquez sur **Ajouter des utilisateurs** pour sélectionner les utilisateurs auxquels vous voulez affecter ce package d’accès.
 
-1. Dans la liste **Sélectionner une stratégie**, choisissez une stratégie avec le paramètre [Aucun (attributions directes d'administrateur uniquement)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only).
-
-    Si ce package d'accès n'offre pas ce type de stratégie, vous pouvez cliquer sur **Créer une nouvelle stratégie** pour en ajouter une.
+1. Dans la liste **Sélectionner une stratégie**, sélectionnez une stratégie selon laquelle les requêtes et le cycle de vie des utilisateurs seront régis et suivis. Si vous souhaitez que les utilisateurs sélectionnés aient des paramètres de stratégie différents, vous pouvez cliquer sur **Créer une nouvelle stratégie** pour ajouter une nouvelle stratégie.
 
 1. Définissez la date et l'heure de début et de fin de l'affectation des utilisateurs sélectionnés. Si aucune date de fin n’est fournie, les paramètres du cycle de vie de la stratégie seront utilisés.
 

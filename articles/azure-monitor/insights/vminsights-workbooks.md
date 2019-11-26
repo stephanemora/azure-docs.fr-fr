@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des classeurs Azure Monitor | Microsoft Docs
+title: Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs | Microsoft Docs
 description: Simplifier la création de rapports complexes grâce à des classeurs paramétrés prédéfinis et personnalisés pour Azure Monitor pour machines virtuelles.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553731"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200535"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
 
 Les classeurs regroupent du texte, des  [requêtes de journal](../log-query/query-language.md), des métriques et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
 
