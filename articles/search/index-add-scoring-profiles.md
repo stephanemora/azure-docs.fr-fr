@@ -1,5 +1,5 @@
 ---
-title: Ajouter des profils de score pour favoriser les documents pertinents dans les résultats de la recherche
+title: Améliorer le classement de recherche avec des profils de score
 titleSuffix: Azure Cognitive Search
 description: Améliorer le classement par ordre de priorité des scores des résultats de Recherche cognitive Azure en ajoutant des profils de score.
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790123"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113607"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 

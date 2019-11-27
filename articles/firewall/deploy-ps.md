@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114778"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831837"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
 
@@ -241,7 +241,7 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   En principe, les requêtes sur www.google.com réussissent, et les requêtes sur www.microsoft.com échouent. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
+   Les requêtes `www.google.com` doivent réussir, et les requêtes `www.microsoft.com` échouer. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
 
 Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 

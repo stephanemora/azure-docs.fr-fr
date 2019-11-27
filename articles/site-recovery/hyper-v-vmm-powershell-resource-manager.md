@@ -1,5 +1,5 @@
 ---
-title: Configurer la reprise d’activité de machines virtuelles Hyper-V dans des clouds VMM sur un site secondaire avec Azure Site Recovery et PowerShell | Microsoft Docs
+title: Configurer la reprise d’activité après sinistre pour Hyper-V (avec VMM) sur un site secondaire avec Azure Site Recovery/PowerShell
 description: Décrit comment configurer la reprise d’activité de machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire avec Azure Site Recovery et PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362354"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084903"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
 

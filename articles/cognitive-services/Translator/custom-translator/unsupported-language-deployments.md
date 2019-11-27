@@ -1,7 +1,7 @@
 ---
 title: Déploiements de langues non prises en charge – Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Comment déployer des paires de langages non prises en charge dans Custom Translator.
+description: Cet article explique comment déployer des paires de langues non prises en charge dans Azure Cognitive Services Custom Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 284a7e98c088edb73a2c770a4c14bb0a479a6621
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837453"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 

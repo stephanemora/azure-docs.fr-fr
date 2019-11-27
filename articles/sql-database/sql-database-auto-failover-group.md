@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821953"
+ms.locfileid: "73839336"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -246,7 +246,7 @@ Si votre application utilise une instance gérée comme couche Données, suivez 
 
 - **Reconnaître les limites connues des groupes de basculement**
 
-  Les opérations consistant à renommer la base de données et à redimensionner des instances ne sont pas prises en charge pour les instances d’un groupe de basculement. Vous devrez supprimer temporairement le groupe de basculement pour pouvoir effectuer ces actions.
+  Le renommage d’une base de données n’est pas pris en charge pour les instances situées dans un groupe de basculement. Vous devez supprimer temporairement le groupe de basculement pour pouvoir renommer une base de données.
 
 ## <a name="failover-groups-and-network-security"></a>Groupes de basculement et sécurité réseau
 
@@ -296,7 +296,7 @@ Lorsque vous configurez des groupes de basculement entre les instances gérées 
    > [!IMPORTANT]
    > La configuration incorrecte des règles de groupes de sécurité réseau bloque les opérations de copie sur les bases de données.
 
-7. L’instance secondaire est configurée avec l’ID de zone DNS approprié. La zone DNS est une propriété d’une instance gérée et son ID est inclus dans l’adresse du nom d’hôte. L’ID de zone est généré sous forme de chaîne aléatoire lors de la création de la première instance gérée de chaque réseau virtuel. De plus, le même ID est attribué à toutes les autres instances dans le même sous-réseau. Une fois attribué, la zone DNS ne peut pas être modifiée. Les instances gérées d’un même groupe de basculement doivent partager la zone DNS. Pour cela, vous devez transmettre l’ID de zone de l’instance principale en tant que valeur du paramètre DnsZonePartner lors de la création de l’instance secondaire. 
+7. L’instance secondaire est configurée avec l’ID de zone DNS approprié. La zone DNS est une propriété d’une instance managée et d’un cluster virtuel, et son ID est inclus dans l’adresse du nom d’hôte. L’ID de zone est généré sous forme de chaîne aléatoire lors de la création de la première instance gérée de chaque réseau virtuel. De plus, le même ID est attribué à toutes les autres instances dans le même sous-réseau. Une fois attribué, la zone DNS ne peut pas être modifiée. Les instances gérées d’un même groupe de basculement doivent partager la zone DNS. Pour cela, vous devez transmettre l’ID de zone de l’instance principale en tant que valeur du paramètre DnsZonePartner lors de la création de l’instance secondaire. 
 
    > [!NOTE]
    > Pour obtenir un tutoriel détaillé sur la configuration des groupes de basculement avec instance gérée, consultez [Ajouter une instance gérée à un groupe de basculement](sql-database-managed-instance-failover-group-tutorial.md).

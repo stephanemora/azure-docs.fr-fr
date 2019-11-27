@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 04/18/2019
-ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 52e7a3408c231ba8a38fdc22c2fcac65ee26bb82
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821142"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082507"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de ressources SQL Database des serveurs Azure SQL Database
 
@@ -41,11 +41,13 @@ Cet article contient une vue d’ensemble des limites de ressources SQL Database
 > Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur.
 > [!IMPORTANT]
 > Le nombre de bases de données approchant la limite par serveur SQL Database, les éléments suivants peuvent se produire :
+>
 > - Augmentation de latence dans l’exécution de requêtes sur la base de données master.  Cela inclut les vues de statistiques d’utilisation des ressources telles que sys.resource_stats.
 > - Augmentation de latence des opérations de gestion et le rendu des points de vue de portails qui impliquent des bases de données sur le serveur.
 
 ### <a name="storage-size"></a>Taille de stockage
-- Pour les sources de bases de données uniques, consultez les [limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits-single-databases.md) ou les [limites de ressources basées sur vCore](sql-database-vcore-resource-limits-single-databases.md) pour connaître les tailles de stockage limites associées à chaque niveau de tarification.
+
+- Pour connaître les limites de taille de stockage de chaque niveau tarifaire dans le cas de ressources de bases de données uniques, voir [Limites de ressources par DTU](sql-database-dtu-resource-limits-single-databases.md) ou [Limites de ressources par vCore](sql-database-vcore-resource-limits-single-databases.md).
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Que se passe-t-il lorsque les limites de ressources d’une base de données sont atteintes ?
 
@@ -59,7 +61,7 @@ En cas d’utilisation élevée des calculs, voici certaines des options d’att
 
 ### <a name="storage"></a>Stockage
 
-Lorsque l’espace de base de données utilisé atteint la limite de taille maximale, les insertions et mises à jour de base de données qui augmentent la taille des données échouent et les clients reçoivent un [message d’erreur](sql-database-develop-error-messages.md). Les opérations de type SELECT et DELETE sur la base de données continuent à aboutir.
+Lorsque l’espace de base de données utilisé atteint la limite de taille maximale, les insertions et mises à jour de base de données qui augmentent la taille des données échouent et les clients reçoivent un [message d’erreur](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). Les opérations de type SELECT et DELETE sur la base de données continuent à aboutir.
 
 En cas d’utilisation élevée de l’espace, voici certaines des options d’atténuation à votre disposition :
 
@@ -76,17 +78,18 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 - Augmenter le niveau de service ou la taille de calcul du pool élastique ou de la base de données. Consultez [Mise à l’échelle des ressources d’une base de données unique](sql-database-single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](sql-database-elastic-pool-scale.md).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="transaction-log-rate-governance"></a>Gouvernance relative au taux de journalisation des transactions 
-Ce type de gouvernance est un processus utilisé dans Azure SQL Database pour réduire les taux d’ingestions élevés des charges de travail de type bulk Insert, opérations SELECT INTO et création d’index. Ces limites font l’objet d’un suivi et sont appliquées à une vitesse inférieure à la seconde, selon le taux de génération des enregistrements de journal, ce qui limite le débit, quel que soit le nombre d’E/S générées par rapport aux fichiers de données.  Les taux de génération des journaux des transactions évoluent actuellement de manière linéaire, selon le matériel. Le taux maximal autorisé est de 96 Mo/s avec le modèle d’achat vCore. 
+## <a name="transaction-log-rate-governance"></a>Gouvernance relative au taux de journalisation des transactions
+
+Ce type de gouvernance est un processus utilisé dans Azure SQL Database pour réduire les taux d’ingestions élevés des charges de travail de type bulk Insert, opérations SELECT INTO et création d’index. Ces limites font l’objet d’un suivi et sont appliquées à une vitesse inférieure à la seconde, selon le rythme de génération des enregistrements de journal, ce qui limite le débit quel que soit le nombre d’E/S générées sur les fichiers de données.  Les vitesses de génération des journaux des transactions évoluent actuellement de manière linéaire, en fonction du matériel. La vitesse maximale autorisée est de 96 Mbit/s avec le modèle d’achat vCore.
 
 > [!NOTE]
-> Les E/S physiques réelles pour les fichiers journaux des transactions ne sont pas régies ou limitées. 
+> Les E/S physiques réelles pour les fichiers journaux des transactions ne sont pas régies ou limitées.
 
 Les taux de journalisation sont configurés de sorte qu’il soit possible de les obtenir et de les maintenir dans un large éventail de scénarios, tandis que l’ensemble du système peut gérer ses fonctionnalités avec un impact réduit sur la charge utilisateur. La gouvernance des taux de journalisation garantit que les sauvegardes de fichier journal des transactions respectent les SLA publiés en matière de récupérabilité.  Cette gouvernance empêche également tout backlog excessif sur les réplicas secondaires.
 
 Lorsque des enregistrements de journaux sont générés, chaque opération est évaluée, dans le but de déterminer si elle doit être différée afin que le taux de journalisation maximum souhaité soit maintenu (en Mo/s par seconde). Les retards ne sont pas ajoutés lorsque les enregistrements de journaux sont vidés dans le stockage : la gouvernance du taux de journalisation est appliquée lors de la génération du taux de journalisation lui-même.
 
-Les taux de génération de journaux réels imposés lors de l’exécution peuvent également être influencés par des mécanismes de commentaires, ce qui réduit temporairement les taux de journalisation disponibles afin de permettre au système de se stabiliser. La gestion de l’espace des fichiers journaux, l’absence d’exécution en cas de saturation de l’espace de journalisation disponible et les mécanismes de réplication des groupes de disponibilité peuvent réduire temporairement les limites totales du système. 
+Les taux de génération de journaux réels imposés lors de l’exécution peuvent également être influencés par des mécanismes de commentaires, ce qui réduit temporairement les taux de journalisation disponibles afin de permettre au système de se stabiliser. La gestion de l’espace des fichiers journaux, l’absence d’exécution en cas de saturation de l’espace de journalisation disponible et les mécanismes de réplication des groupes de disponibilité peuvent réduire temporairement les limites totales du système.
 
 La mise en forme du trafic de l’administrateur des taux de journalisation est présentée par le biais des types d’attente suivants (exposés dans le DMV [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)) :
 
@@ -100,9 +103,10 @@ La mise en forme du trafic de l’administrateur des taux de journalisation est 
 |||
 
 Lorsque vous rencontrez une limite de taux de journalisation qui entrave l’évolutivité du système, envisagez les options suivantes :
-- Montez en puissance vers un niveau supérieur afin d’obtenir le taux de journalisation maximal, qui est de 96 Mo/s. 
-- Si les données en cours de chargement sont temporaires, par exemple, des données de processus de site dans un processus ETL, vous pouvez les charger dans la base de données tempdb (qui présente une journalisation minime). 
-- Pour les scénarios d’analyse, chargez les données dans une table columnstore en cluster couverte. Cela réduit le taux de journalisation requis en raison de la compression. Cette technique augmente l’utilisation de l’UC et s’applique uniquement aux jeux de données qui bénéficient d’index columnstore en cluster. 
+
+- Montez en puissance vers un niveau supérieur afin d’obtenir le taux de journalisation maximal, qui est de 96 Mo/s.
+- Si les données en cours de chargement sont temporaires, par exemple, des données de processus de site dans un processus ETL, vous pouvez les charger dans la base de données tempdb (qui présente une journalisation minime).
+- Pour les scénarios d’analyse, chargez les données dans une table columnstore en cluster couverte. Cela réduit le taux de journalisation requis en raison de la compression. Cette technique augmente l’utilisation de l’UC et s’applique uniquement aux jeux de données qui bénéficient d’index columnstore en cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,23 +5,27 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495778"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085237"
 ---
-Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour les références SKU de passerelle réseau virtuel dans des zones de disponibilité Azure, consultez [Références SKU de passerelle pour les zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour connaître les références SKU des passerelles de réseau virtuel dans les Zones de disponibilité Azure, voir [Références SKU des passerelles pour les Zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> Les références SKU VpnGw (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 et VpnGw5AZ) sont prises en charge uniquement pour le modèle de déploiement Resource Manager. Les réseaux virtuels classiques doivent continuer à utiliser les anciennes références SKU (héritées).
+>  * Pour plus d’informations sur l’utilisation des références (SKU) de passerelle héritées (Basic, Standard et HighPerformance), voir [Utilisation des références (SKU héritées) de passerelle VPN](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+>  * Pour les références (SKU) de passerelle ExpressRoute, voir [Passerelles de réseau virtuel pour ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+>
 
 ###  <a name="feature"></a>Références SKU de passerelle par ensemble de fonctionnalités
 

@@ -1,7 +1,7 @@
 ---
 title: Tableau de bord - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
-description: Corrigez les intentions avec le tableau de bord d’analytique, un outil de création de rapports avec visualisation.
+description: Corriger les intentions et les entités avec le tableau de bord de votre application entraînée. Le tableau de bord affiche des informations sur l’application globale, en soulignant les intentions qui doivent être corrigées.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735048"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888211"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
 

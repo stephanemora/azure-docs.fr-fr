@@ -1,5 +1,5 @@
 ---
-title: Utilisation de disques managés dans les modèles Azure Resource Manager pour les machines virtuelles Linux | Microsoft Docs
+title: Utilisation de disques managés dans les modèles Azure Resource Manager pour les machines virtuelles Linux
 description: Explique comment utiliser les disques managés dans les modèles Azure Resource Manager pour les machines virtuelles Linux
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 002dddde1402f418f7db8bd98b39d7f1dd5565dc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e258bd7663a7ca270494adf7224a7922ce65b1c4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081351"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034265"
 ---
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

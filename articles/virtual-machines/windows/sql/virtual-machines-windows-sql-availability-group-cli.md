@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure CLI pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
+title: Configurer un groupe de disponibilité (Azure CLI)
 description: Utilisez Azure CLI pour créer le cluster de basculement Windows, l’écouteur de groupe de disponibilité et l’équilibreur de charge interne sur une machine virtuelle SQL Server dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022367"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser Azure CLI pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
 Cet article explique comment utiliser [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) pour déployer un cluster de basculement Windows, ajouter des machines virtuelles SQL Server au cluster et créer l’équilibreur de charge interne et l’écouteur pour un groupe de disponibilité Always On. Le déploiement du groupe de disponibilité Always On s’effectue encore manuellement via SQL Server Management Studio (SSMS). 

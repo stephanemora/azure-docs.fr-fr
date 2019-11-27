@@ -1,5 +1,5 @@
 ---
-title: 'Visualisation en temps réel des données de capteur depuis Azure IoT Hub : Power BI | Documents Microsoft'
+title: Visualisation des données en temps réel depuis Azure IoT Hub – Power BI
 description: Power BI permet d’afficher des données sur les températures et l’humidité collectées par le capteur et envoyées à votre instance Azure IoT Hub.
 author: robinsh
 keywords: visualisation de données en temps réel, visualisation de données en direct, visualisation de données de capteurs
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/06/2019
 ms.author: robinsh
-ms.openlocfilehash: 7deb1b501d30c8af0cb190f4722d46435afa9b8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0b909d10790511408e090546fd3359889ea5aca
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065948"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954625"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
 
@@ -64,7 +64,7 @@ Commençons par la création d’une tâche Stream Analytics. Une fois la tâche
 
    ![Créer un travail Stream Analytics dans Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job-azure.png)
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée à la tâche Stream Analytics
 

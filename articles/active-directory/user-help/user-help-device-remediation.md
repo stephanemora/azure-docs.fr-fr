@@ -1,6 +1,6 @@
 ---
-title: Dépannage de l’erreur « Vous ne pouvez pas y accéder à partir d’ici » dans Azure Active Directory | Microsoft Docs
-description: Identifiez et traitez les raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
+title: Corrections pour l’erreur « Vous ne pouvez pas y accéder à partir d’ici » - Azure AD
+description: Trouvez les corrections possibles à la cause de l’affichage du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473813"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028562"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Raisons potentielles du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Corrections possibles par rapport au message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
+
 Lorsque vous accédez aux applications ou services web internes de votre organisation, le message d’erreur **Vous ne pouvez pas y accéder à partir d’ici** peut s’afficher. Ce message signifie que votre organisation a mis en place une stratégie qui empêche votre appareil d’accéder à ses ressources. Avant de contacter votre service d’assistance pour résoudre le problème, voici un certain nombre de choses que vous pouvez essayer préalablement.
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>Assurez-vous d’utiliser un navigateur pris en charge

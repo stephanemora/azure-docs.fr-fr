@@ -1,5 +1,5 @@
 ---
-title: Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404 | Microsoft Docs
+title: Résolution des problèmes des points de terminaison Azure CDN – Code de statut 404
 description: Dépannez les codes de réponse 404 avec les points de terminaison de CDN Azure.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b665c2f72f50b2d72fd625b49c4212785ab3301d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593272"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083128"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404
 Cet article vous permet de résoudre les problèmes liés aux points de terminaison du réseau de distribution de contenu (CDN) Azure qui retournent des codes d’état HTTP 404.

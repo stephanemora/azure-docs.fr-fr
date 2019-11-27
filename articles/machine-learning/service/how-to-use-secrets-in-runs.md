@@ -9,19 +9,19 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e2074cec65ea4c1df803999c6a995f73ea4227ee
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f4420824192ff3fd967cb6676cbe1de81ce7ad4c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796686"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953920"
 ---
 # <a name="use-secrets-in-training-runs"></a>Utiliser des secrets dans les cycles d’apprentissage
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article explique comment utiliser des secrets dans des cycles d’apprentissage en toute sécurité. Par exemple, pour vous connecter à une base de données externe pour interroger des données d’apprentissage, vous devez transmettre un nom d’utilisateur et un mot de passe permettant d’accéder au contexte d’exécution à distance. La programmation de telles valeurs dans des scripts d’entraînement en texte clair n’est pas sécurisée, car elle exposerait le secret. 
+Cet article explique comment utiliser des secrets dans des cycles d’apprentissage en toute sécurité. Par exemple, pour vous connecter à une base de données externe pour interroger des données d’apprentissage, vous devez transmettre vos nom d’utilisateur et mot de passe permettant d’accéder au contexte d’exécution à distance. La programmation de telles valeurs dans des scripts d’entraînement en texte clair n’est pas sécurisée, car elle exposerait le secret. 
 
 Au lieu de cela, votre espace de travail Azure Machine Learning a [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) pour ressource associée. Ce coffre de clés peut être utilisé pour passer des secrets de façon sécurisée aux exécutions distantes via un ensemble d’API dans le SDK Python pour Azure Machine Learning.
 
@@ -45,7 +45,7 @@ keyvault = ws.get_default_keyvault()
 keyvault.set_secret(name="mysecret", value = my_secret)
 ```
 
-Ne placez pas la valeur du secret dans le code Python, car il n’est pas sûr de la stocker dans un fichier en texte clair. Au lieu de cela, obtenez la valeur du secret à partir d’une variable d’environnement telle qu’un secret de la build Azure DevOps, ou à partir d’une entrée d’utilisateur interactive.
+Ne placez pas la valeur du secret dans votre code Python, car il n’est pas sûr de la stocker dans un fichier en texte clair. Au lieu de cela, obtenez la valeur du secret à partir d’une variable d’environnement telle qu’un secret de la build Azure DevOps, ou à partir d’une entrée d’utilisateur interactive.
 
 Vous pouvez obtenir la liste des noms de secret à l’aide de la méthode [list_secrets.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) La méthode __set_secret__ met à jour la valeur de secret si le nom existe.
 

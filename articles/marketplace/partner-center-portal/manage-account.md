@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 60837171e3f59312895a76f68c660228697529ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825521"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891095"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Comment gérer votre compte Place de marché commerciale dans l’Espace partenaires 
 
@@ -145,6 +145,11 @@ Les rapports sont établis à l'aide de la valeur de partenaire (ID partenaire M
 Pour plus d’informations, consultez le [FAQ Suivi de l’utilisation d’Azure des clients avec des GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
+## <a name="create-a-billing-profile"></a>Créer un profil de facturation
+
+Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) ou [Dynamics 365 for Operations](./create-new-operations-offer.md), vous devez compléter votre **profil de facturation**.
+
+L’adresse de facturation est préremplie avec votre entité légale et vous pouvez la mettre à jour ultérieurement. Les champs Taxe et N° de T.V.A. sont facultatifs.  Le nom du pays et le nom de la société ne peuvent pas être modifiés.
 
 ## <a name="multi-user-account-management"></a>Gestion des comptes multi-utilisateurs
 

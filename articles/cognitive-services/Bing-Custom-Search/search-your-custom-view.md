@@ -1,7 +1,7 @@
 ---
 title: Rechercher une vue personnalisée | Recherche personnalisée Bing
 titleSuffix: Azure Cognitive Services
-description: Explique comment rechercher une vue personnalisée du web.
+description: Une fois votre expérience de recherche personnalisée configurée, vous pouvez la tester à partir du portail Recherche personnalisée Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 814f57d4011823da80e53cce41ffcb523fc0bf1b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f04bfc306a89c7bb6caf3f928f5fdfec66358649
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405004"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072738"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Appeler votre instance de Recherche personnalisée Bing à partir du portail
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2716d8515abc52ccadd321414eb7d34df2064709
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601313"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123008"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -22,7 +22,8 @@ Cet article explique comment résoudre les problèmes courants de gestion ou de 
 
 Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="naming-conventions"></a>Conventions d’affectation de noms
+## <a name="issues-during-container-group-deployment"></a>Problèmes lors du déploiement du groupe de conteneurs
+### <a name="naming-conventions"></a>Conventions d’affectation de noms
 
 Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans le centre Azure Architecture Center.
 
@@ -35,7 +36,7 @@ Lorsque vous définissez la spécification du conteneur, certains paramètres re
 | Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
 | Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
 
-## <a name="os-version-of-image-not-supported"></a>La version du système d’exploitation de l’image n’est pas prise en charge
+### <a name="os-version-of-image-not-supported"></a>La version du système d’exploitation de l’image n’est pas prise en charge
 
 Si l’image spécifiée n’est pas prise en charge par Azure Container Instances, une erreur `OsVersionNotSupported` est renvoyée. L’erreur est semblable à ce qui suit, où `{0}` est le nom de l’image que vous avez tentée de déployer :
 
@@ -50,7 +51,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 
 Cette erreur se produit généralement lors du déploiement d'images Windows basées sur les versions 1709 ou 1803 du canal semi-annuel, qui ne sont pas prises en charge. Pour les images Windows prises en charge dans Azure Container Instances, consultez le [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
+### <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
 Si Azure Container Instances ne parvient pas à extraire votre image initialement, il réessaie pendant une certaine période, sans succès. Si l’opération d’extraction image continue à échouer, le déploiement ACI risque d’échouer, et vous verrez une erreur `Failed to pull image`.
 
@@ -86,8 +87,21 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
   }
 ],
 ```
+### <a name="resource-not-available-error"></a>Erreur : ressource non disponible
 
-## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Le conteneur s’arrête et redémarre en permanence (pas de processus au long cours)
+En raison d’une charge de ressources régionales variable dans Azure, vous pouvez recevoir l’erreur suivante quand vous tentez de déployer une instance de conteneur :
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+Cette erreur indique qu’en raison d’une charge importante dans la région dans laquelle vous tentez de déployer, les ressources spécifiées pour votre conteneur ne peuvent pas être allouées à ce moment-là. Utilisez une ou plusieurs des étapes d’atténuation suivantes pour vous aider à résoudre votre problème.
+
+* Vérifier que les paramètres de votre déploiement de conteneur correspondent à ceux définis dans [Disponibilité des régions pour Azure Container Instances](container-instances-region-availability.md)
+* Spécifier des paramètres de processeur et de mémoire inférieurs pour le conteneur
+* Déployer sur une autre région Azure
+* Déployer plus tard
+
+## <a name="issues-during-container-group-runtime"></a>Problèmes lors de l’exécution du groupe de conteneurs
+### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Le conteneur s’arrête et redémarre en permanence (pas de processus au long cours)
 
 Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md) **Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
@@ -147,16 +161,17 @@ L’API Container Instances et le portail Azure incluent une propriété `restar
 > [!NOTE]
 > La plupart des images conteneur pour les distributions Linux définissent un interpréteur de commandes, tel que bash, comme commande par défaut. Un interpréteur de commandes n’étant pas en soi un service de longue durée, ces conteneurs quittent la procédure immédiatement et entrent dans une boucle de redémarrage lorsqu’ils sont configurés avec la stratégie de redémarrage par défaut (**Always**).
 
-## <a name="container-takes-a-long-time-to-start"></a>Le démarrage du conteneur prend beaucoup de temps
+### <a name="container-takes-a-long-time-to-start"></a>Le démarrage du conteneur prend beaucoup de temps
 
-Les deux principaux facteurs qui contribuent à l’heure de démarrage dans Azure Container Instances sont :
+Les trois principaux facteurs qui contribuent à l’heure de démarrage dans Azure Container Instances sont :
 
 * [Taille de l'image](#image-size)
 * [Emplacement de l’image](#image-location)
+* [Images mises en cache](#cached-images)
 
 Les images Windows ont des [considérations supplémentaires](#cached-images).
 
-### <a name="image-size"></a>Taille de l'image
+#### <a name="image-size"></a>Taille de l'image
 
 Si le démarrage de votre conteneur prend beaucoup de temps, commencez par examiner la taille de votre image conteneur. Étant donné qu’Azure Container Instances extrait l’image conteneur à la demande, le temps de démarrage est directement lié à la taille de cette image.
 
@@ -170,39 +185,26 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 Pour que l’image conserve une petite taille, faites en sorte que l’image finale ne contienne aucun élément qui soit superflu au moment de l’exécution. Pour ce faire, vous pouvez utiliser des [builds à plusieurs étapes][docker-multi-stage-builds]. Grâce aux builds à plusieurs étapes, vous pouvez facilement faire en sorte que l’image finale ne contienne que les artefacts nécessaires à votre application, à l’exclusion de tout contenu supplémentaire qui était requis au moment de la génération.
 
-### <a name="image-location"></a>Emplacement de l’image
+#### <a name="image-location"></a>Emplacement de l’image
 
 Il existe une autre façon de réduire l’impact de l’extraction de l’image sur le temps de démarrage de votre conteneur. Elle consiste à héberger l’image du conteneur dans [Azure Container Registry](/azure/container-registry/) dans la région où vous envisagez de déployer Azure Container Instances. Cette opération raccourcit le chemin réseau que l’image conteneur doit parcourir, réduisant considérablement le temps de téléchargement.
 
-### <a name="cached-images"></a>Images mises en cache
+#### <a name="cached-images"></a>Images mises en cache
 
 Azure Container Instances utilise un mécanisme de mise en cache afin d'accélérer le démarrage des conteneurs pour les images générées à partir d'[images Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) courantes, notamment `nanoserver:1809`, `servercore:ltsc2019` et `servercore:1809`. Les images Linux couramment utilisées, telles que `ubuntu:1604` et `alpine:3.6`, sont également mises en cache. Pour obtenir une liste à jour des images et balises mises en cache, utilisez l'API [Liste des images mises en cache][list-cached-images].
 
 > [!NOTE]
 > L’utilisation d’images basées sur Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
 
-### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
+#### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 
 Lors de la création initiale, les conteneurs Windows peuvent n’avoir aucune connectivité entrante ou sortante pendant 30 secondes (ou plus longtemps dans de rares cas). Si votre application conteneur requiert une connexion Internet, ajoutez un retard et réessayez la logique afin de laisser 30 secondes pour établir la connectivité Interne. Après l’installation initiale, la mise en réseau de conteneur devrait reprendre correctement.
 
-## <a name="resource-not-available-error"></a>Erreur : ressource non disponible
-
-En raison d’une charge de ressources régionales variable dans Azure, vous pouvez recevoir l’erreur suivante quand vous tentez de déployer une instance de conteneur :
-
-`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
-
-Cette erreur indique qu’en raison d’une charge importante dans la région dans laquelle vous tentez de déployer, les ressources spécifiées pour votre conteneur ne peuvent pas être allouées à ce moment-là. Utilisez une ou plusieurs des étapes d’atténuation suivantes pour vous aider à résoudre votre problème.
-
-* Vérifier que les paramètres de votre déploiement de conteneur correspondent à ceux définis dans [Disponibilité des régions pour Azure Container Instances](container-instances-region-availability.md)
-* Spécifier des paramètres de processeur et de mémoire inférieurs pour le conteneur
-* Déployer sur une autre région Azure
-* Déployer plus tard
-
-## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Ne peut pas se connecter à l’API Docker sous-jacent ou exécuter des conteneurs privilégiés
+### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Ne peut pas se connecter à l’API Docker sous-jacent ou exécuter des conteneurs privilégiés
 
 Azure Container Instances n’expose pas un accès direct à l’infrastructure sous-jacente qui héberge les groupes de conteneurs. Cela inclut l’accès à l’API Docker en cours d’exécution sur l’hôte du conteneur et les conteneurs privilégiés en cours d’exécution. Si vous avez besoin d’interaction avec le Docker, vérifiez la [Documentation de référence REST](https://aka.ms/aci/rest) pour voir ce que l’API ACI prend en charge. S’il manque des informations, envoyez une requête sur le [Forum Internet de commentaires ACI](https://aka.ms/aci/feedback).
 
-## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Il se peut que l’adresse IP d’un groupe de conteneurs soit inaccessible en raison d’une discordance de ports
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Il se peut que l’adresse IP d’un groupe de conteneurs soit inaccessible en raison d’une discordance de ports
 
 Azure Container Instances ne prend pas encore en charge le mappage de ports, contrairement à une configuration Docker classique. Si vous constatez que l’adresses IP d’un groupe de conteneurs n’est pas accessible alors que vous pensez qu’elle devrait l’être, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
 
@@ -230,7 +232,7 @@ Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port
 Apprenez à [récupérer les journaux d'activité et les événements de conteneur](container-instances-get-logs.md) pour vous aider à déboguer vos conteneurs.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore

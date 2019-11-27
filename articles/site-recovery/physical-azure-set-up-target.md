@@ -1,5 +1,5 @@
 ---
-title: Configurer l’environnement cible pour la récupération d’urgence des serveurs physiques locaux sur Azure | Microsoft Docs'
+title: Configurer l’environnement cible pour des serveurs physiques dans Azure Site Recovery
 description: Cet article décrit comment configurer l’environnement Azure cible pour la récupération d’urgence des serveurs physiques à l’aide d’Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60949067"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953901"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 
@@ -21,7 +21,7 @@ Cet article décrit comment préparer votre environnement Azure pour lancer la r
 ## <a name="prerequisites"></a>Prérequis
 
 L’article suppose que :
-- Vous avez créé un coffre Recovery Services pour protéger vos serveurs physiques. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").
+- Vous avez créé un coffre Recovery Services pour protéger vos serveurs physiques. Vous pouvez créer un coffre Recovery Services sur le [portail Azure](https://portal.azure.com "Portail Azure").
 - Vous avez [configuré votre environnement local](physical-azure-disaster-recovery.md) pour répliquer les serveurs physiques vers Azure.
 
 ## <a name="prepare-target"></a>Préparer la cible

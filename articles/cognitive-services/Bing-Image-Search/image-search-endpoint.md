@@ -1,7 +1,7 @@
 ---
 title: Points de terminaison pour l’API Recherche d’images Bing
 titleSuffix: Azure Cognitive Services
-description: Une liste des points de terminaison disponibles pour l’API Recherche d’images Bing.
+description: L’API Recherche d’images inclut trois points de terminaison. Le point de terminaison 1 retourne des images à partir du web. Le point de terminaison 2 renvoie les informations ImageInsights. Le point de terminaison 3 renvoie des images populaires.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: fc1a0670767b134ad6e330fb41fc5564c754d91c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883417"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072624"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Points de terminaison pour l’API Recherche d’images Bing
 

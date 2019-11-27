@@ -1,5 +1,5 @@
 ---
-title: Configurer l’indexation incrémentielle (préversion) du suivi des modifications basé sur le contenu enrichi
+title: Ajouter l’indexation incrémentielle (préversion)
 titleSuffix: Azure Cognitive Search
 description: Activez le suivi des modifications et préservez l'état du contenu enrichi pour un traitement contrôlé dans un ensemble de compétences cognitives. Cette fonctionnalité est actuellement disponible en préversion publique.
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719945"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112579"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Configuration de l'indexation incrémentielle de documents enrichis dans la Recherche cognitive Azure
 

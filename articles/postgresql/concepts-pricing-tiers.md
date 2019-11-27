@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 11/08/2019
+ms.openlocfilehash: 4f8bbf22d1081948cf6effd5fdbd8b6a6b7d5332
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624841"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903293"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -22,7 +22,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Mémoire par vCore | 2 Go | 5 GO | 10 Go |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 16 To | 5 Go à 16 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
@@ -47,9 +47,15 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 16 To | 5 Go à 16 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
-| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
+| E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS |
+
+> [!NOTE]
+> Un stockage d’une capacité maximale de 16 To et 20 000 IOPS sont pris en charge dans les régions suivantes : USA Est, USA Est 2, USA Centre, USA Ouest, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Asie-Pacifique, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est.
+>
+> Toutes les autres régions prennent en charge une capacité de stockage maximale de 4 TO et 6 000 IOPS.
+>
 
 Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et après la création du serveur et autoriser le système à faire évoluer le stockage automatiquement en fonction de la consommation de votre charge de travail. 
 
@@ -59,26 +65,6 @@ Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et aprè
 Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Stockage volumineux (préversion)
-
-Nous avons augmenté les limites de stockage dans nos niveaux de service Usage général et Mémoire optimisée. Les serveurs nouvellement créés qui ont opté pour la préversion peuvent configurer jusqu’à 16 To de stockage. Les IOPS évoluent à un taux de 3:1 jusqu’à 20 000. Comme pour le stockage à disponibilité générale actuel, vous pouvez ajouter de la capacité de stockage supplémentaire après la création du serveur et autoriser le système à faire évoluer le stockage automatiquement en fonction de la consommation de votre charge de travail.
-
-|              | **Usage général** | **Mémoire optimisée** |
-|:-------------|:--------------------|:---------------------|
-| Type de stockage | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 32 Go à 16 To| 32 Go à 16 To |
-| Taille d’incrément de stockage | 1 Go | 1 Go |
-| E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS |
-
-> [!IMPORTANT]
-> Le stockage volumineux est actuellement en préversion publique dans les régions suivantes : USA Est, USA Est 2, USA Centre, USA Ouest, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Asie-Pacifique, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est.
->
-> La préversion du stockage volumineux ne prend actuellement pas en charge :
->
-> * Les connexions entrantes via des points de terminaison de service de réseau virtuel
-> * Sauvegardes géographiquement redondantes
-> * Réplicas en lecture
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 

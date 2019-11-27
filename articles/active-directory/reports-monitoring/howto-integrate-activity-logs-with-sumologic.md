@@ -1,9 +1,9 @@
 ---
-title: Diffuser en continu les journaux d’activité Azure Active Directory vers SumoLogic à l’aide d’Azure Monitor | Microsoft Docs
-description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor.
+title: Envoyer en streaming les journaux vers SumoLogic avec Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1645415a8cfd86b142c25dc145c60e8b986d1013
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6cdfc4e393ca7bf4bcbd523b4fad72690d5f2744
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989754"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014383"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor
 

@@ -1,5 +1,5 @@
 ---
-title: Réinitialiser l’accès à une machine virtuelle Linux Azure | Microsoft Docs
+title: Réinitialiser l’accès à une machine virtuelle Linux Azure
 description: Comment gérer les utilisateurs administratifs et réinitialiser l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et d’Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173953"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073604"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gérer les utilisateurs administratifs, SSH, et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI
 ## <a name="overview"></a>Vue d'ensemble

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614885"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904061"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide des entités durables en .NET pour les développeurs
 
@@ -117,7 +117,7 @@ Par exemple, nous pouvons modifier l’entité Counter pour qu’elle démarre u
 
 ## <a name="accessing-entities-directly"></a>Accès direct aux entités
 
-Vous pouvez accéder directement aux entités basées sur les classes, à l’aide de noms de chaînes explicites pour l’entité et ses opérations. Nous fournissons quelques exemples ci-dessous. Pour une explication plus approfondie des concepts sous-jacents (par exemple la différence entre les signaux et les appels), consultez la discussion dans [Accès aux entités](durable-functions-entities.md#accessing-entities). 
+Vous pouvez accéder directement aux entités basées sur les classes, à l’aide de noms de chaînes explicites pour l’entité et ses opérations. Nous donnons quelques exemples ci-dessous ; pour une explication plus approfondie des concepts sous-jacents (par exemple, la différence entre les signaux et les appels), voir la discussion dans [Accéder aux entités](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Dans la mesure du possible, nous vous recommandons d’[accéder aux entités via des interfaces](#accessing-entities-through-interfaces), car cela permet un meilleur contrôle de type.

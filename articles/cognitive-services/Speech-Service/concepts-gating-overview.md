@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: c0a097c17a24c68f7ebe4ec06a01b9ab7d9943b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506552"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836788"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Vue d’ensemble sur le contrôle de la voix neuronale personnalisée
 
@@ -28,7 +28,7 @@ Dans le cadre de l’engagement de Microsoft à concevoir une IA responsable, no
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Guide de déploiement de la voix neuronale personnalisée
 
 - [Instructions pour un déploiement responsable](concepts-guidelines-responsible-deployment-synthetic.md) : nos principales recommandations d’après nos recherches
-- [Note de transparence sur le système de synthèse vocale (TTS) neuronal](https://aka.ms/neural-tts-transparency-note) : ce que vous devez savoir sur la technologie pour l’utiliser de manière responsable
+- [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent) : ce que vous devez savoir et transmettre au talent vocal sur la technologie pour l’utiliser de manière responsable
 - [Conception de la divulgation](concepts-disclosure-guidelines.md) : comment concevoir des expériences de sorte que les utilisateurs sachent quand une voix de synthèse est utilisée et fassent confiance à votre service
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Pourquoi la voix neuronale personnalisée est une technologie contrôlée
@@ -41,11 +41,11 @@ Pour accéder à la voix neuronale personnalisée, vous devez commencer par remp
 
 L’accès au service Voix neuronale personnalisée est soumis à l’entière discrétion de Microsoft selon nos critères d’admissibilité, notre processus de vérification et notre capacité à prendre en charge un nombre limité de clients pendant cette version préliminaire contrôlée.
 
-Dans le cadre du processus de demande, vous devez vous engager à obtenir une autorisation écrite explicite de la part des talents vocaux avant de créer une police de la voix, qui comprend le partage de la [note de transparence sur le TTS neuronal](https://aka.ms/neural-tts-transparency-note). Vous devez également accepter que, lors du déploiement de la police de la voix, votre implémentation [divulguera la nature synthétique](concepts-disclosure-guidelines.md) du service aux utilisateurs, attribuera ladite police au service de synthèse vocale de Microsoft dans vos conditions d’utilisation du service et prendra en charge un canal de commentaires qui permettra aux utilisateurs du service de signaler les problèmes et de partager des informations avec Microsoft. En savoir plus sur nos conditions d’utilisation [ici](https://aka.ms/neural-tts-transparency-note).
+Dans le cadre du processus de demande, vous devez vous engager à obtenir une autorisation écrite explicite de la part des talents vocaux avant de créer une police de la voix, qui comprend le partage de la [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent). Vous devez également accepter que, lors du déploiement de la police de la voix, votre implémentation [divulguera la nature synthétique](concepts-disclosure-guidelines.md) du service aux utilisateurs, attribuera ladite police au service de synthèse vocale de Microsoft dans vos conditions d’utilisation du service et prendra en charge un canal de commentaires qui permettra aux utilisateurs du service de signaler les problèmes et de partager des informations avec Microsoft. En savoir plus sur nos conditions d’utilisation [ici](https://aka.ms/custom-neural-code-of-conduct).
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Note de transparence](https://aka.ms/neural-tts-transparency-note)
+* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
 * [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Comment divulguer](concepts-disclosure-guidelines.md)
 

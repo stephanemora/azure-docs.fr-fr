@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d59646a87727409d759cc1903046fb3cdeade2e0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465731"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847391"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Ressources du développeur pour implémenter Language Understanding
 
@@ -41,8 +41,10 @@ Apprenez-en davantage sur le [point de terminaison de prédiction V3](luis-migra
 
 Les API de création et de point de terminaison de prédiction sont disponibles à partir d’API REST :
 
-* [Documentation de référence](https://go.microsoft.com/fwlink/?linkid=2092087) sur la création
-* [Documentation de référence](https://go.microsoft.com/fwlink/?linkid=2092356) sur le runtime de prédiction
+|Type|Version|
+|--|--|
+|Création|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[V3 en préversion](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Prédiction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>Kits SDK basés sur le langage
 

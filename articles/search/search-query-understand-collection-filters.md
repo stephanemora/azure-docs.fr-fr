@@ -1,7 +1,7 @@
 ---
 title: Présentation des filtres de collection OData
 titleSuffix: Azure Cognitive Search
-description: Présentation de la façon dont des filtres de collection OData fonctionnent dans les requêtes Recherche cognitive Azure.
+description: Découvrez les mécanismes de fonctionnement des filtres de collection OData dans les requêtes Azure Cognitive Search, y compris les limitations et les comportements propres aux collections.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794390"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113075"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
 
@@ -190,6 +190,6 @@ Pour obtenir des exemples spécifiques des types de filtres qui sont autorisés 
 
 - [Résolution de problèmes liés aux filtres de collection OData dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md)
 - [Filtres dans Recherche cognitive Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

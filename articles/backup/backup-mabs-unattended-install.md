@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210166"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074790"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure
 
 Découvrez comment effectuer une installation sans assistance du Serveur de sauvegarde Azure.
 
-Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azure V1.
+Ces étapes ne s’appliquent pas si vous installez le serveur de sauvegarde Azure v1.
 
 ## <a name="install-backup-server"></a>Installer le Serveur de sauvegarde
 
@@ -60,6 +60,7 @@ Vous pouvez utiliser les indicateurs suivants pour l’installation :</br>
 **/x** : chemin de désinstallation</br>
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Après avoir installé le Serveur de sauvegarde, apprenez à préparer votre serveur ou commencez à protéger une charge de travail.
 
 - [Préparer les charges de travail du Serveur de sauvegarde](backup-azure-microsoft-azure-backup.md)

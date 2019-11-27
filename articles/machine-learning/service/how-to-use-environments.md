@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489329"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123554"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Créez et gérez des environnements réutilisables pour l’entraînement et le déploiement avec Azure Machine Learning.
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Réutilisez des environnements pour l’entraînement et le déploiement avec Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, découvrez comment créer et gérer des [environnements](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning afin de pouvoir suivre et reproduire les dépendances logicielles de vos projets à mesure qu’elles évoluent.
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 Vous pouvez utiliser des environnements lors du déploiement de votre modèle en tant que service web. Cela permet d’exploiter un workflow connecté et reproductible dans lequel vous pouvez entraîner, tester et déployer votre modèle en utilisant exactement les mêmes bibliothèques à la fois dans vos calculs d’entraînement et d’inférence.
 
-Pour déployer un service web, combinez l’environnement, le calcul d’inférence, le script de scoring et le modèle inscrit dans votre objet de déploiement, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Apprenez-en davantage sur le [déploiement de services web](how-to-deploy-and-where.md).
+Pour déployer un service web, combinez l’environnement, le calcul d’inférence, le script de scoring et le modèle inscrit dans votre objet de déploiement, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Apprenez-en davantage sur le [déploiement de services web](how-to-deploy-and-where.md).
 
 Dans cet exemple, supposons que vous avez effectué une exécution d’entraînement et que vous voulez déployer ce modèle sur une instance de conteneur Azure. Lors de la génération du service web, les fichiers de modèle et de scoring sont montés sur l’image, à laquelle la pile d’inférence Azure Machine Learning est ajoutée.
 

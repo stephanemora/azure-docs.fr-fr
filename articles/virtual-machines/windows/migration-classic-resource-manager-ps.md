@@ -1,5 +1,5 @@
 ---
-title: Migrer vers Resource Manager avec PowerShell | Microsoft Docs
+title: Migrer vers Resource Manager avec PowerShell
 description: Cet article décrit pas à pas la procédure de migration de ressources IaaS, comme les machines virtuelles (VM), les réseaux virtuels (VNET) et les comptes de stockage, prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager (ARM) à l’aide de commandes Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749331"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033207"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.

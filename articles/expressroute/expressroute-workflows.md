@@ -1,5 +1,5 @@
 ---
-title: 'Workflows de configuration de circuit - ExpressRoute : Azure| Microsoft Docs'
+title: 'Azure ExpressRoute : Workflows de configuration de circuit'
 description: Cette page vous présente les workflows pour la configuration du circuit ExpressRoute et des peerings
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123376"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083326"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
@@ -27,9 +26,9 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 3. Assurez-vous que le circuit a été correctement approvisionné en vérifiant l’état approvisionnement du circuit ExpressRoute via PowerShell. 
 4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
    
-   * Activer l’homologation privée Azure : activez cette homologation pour vous connecter aux machines virtuelles/services cloud déployés au sein de réseaux virtuels.
+   * Activer le peering privé Azure : activez ce peering pour vous connecter aux machines virtuelles/services cloud déployés au sein de réseaux virtuels.
 
-   * Activer l’appairage Microsoft - Activer cette option pour accéder aux services Office 365. De plus, tous les services Azure PaaS sont accessibles via l’homologation Microsoft.
+   * Activer l’appairage Microsoft - Activer cette option pour accéder aux services Office 365. De plus, tous les services Azure PaaS sont accessibles via le peering Microsoft.
      
      > [!IMPORTANT]
      > Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
@@ -93,9 +92,9 @@ Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de
 > 
 
 ## <a name="routing-session-configuration-state"></a>État de configuration d’une session de routage
-Le protocole d’approvisionnement BGP vous indique si la session BGP a été activée sur le matériel edge Microsoft. L'état doit être activé pour que vous puissiez utiliser l'homologation.
+Le protocole d’approvisionnement BGP vous indique si la session BGP a été activée sur le matériel edge Microsoft. L'état doit être activé pour que vous puissiez utiliser le peering.
 
-Il est important de vérifier l'état de la session BGP, en particulier pour l'homologation Microsoft. En plus de l'état d’approvisionnement BGP, il existe un autre état appelé *état des préfixes publics publiés*. Les préfixes publics publiés doivent afficher l’état *configured* , à la fois pour que la session BGP soit opérationnelle et pour que votre routage fonctionne de bout en bout. 
+Il est important de vérifier l'état de la session BGP, en particulier pour le peering Microsoft. En plus de l'état d’approvisionnement BGP, il existe un autre état appelé *état des préfixes publics publiés*. Les préfixes publics publiés doivent afficher l’état *configured* , à la fois pour que la session BGP soit opérationnelle et pour que votre routage fonctionne de bout en bout. 
 
 Si l'état du préfixe public publié indique qu’une *validation est nécessaire* , la session BGP n'est pas activée car les préfixes publiés ne correspondent pas au numéro AS dans un des registres de routage. 
 

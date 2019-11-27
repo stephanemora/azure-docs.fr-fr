@@ -1,18 +1,17 @@
 ---
-title: À propos de la reprise d’activité de machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Reprise d’activité après sinistre de VMware avec Azure Site Recovery
 description: Cet article fournit une vue d’ensemble de la reprise d’activité de machines virtuelles VMware sur Azure à l’aide du service Azure Site Recovery.
-author: raynew
+author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 9/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814312"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954394"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 

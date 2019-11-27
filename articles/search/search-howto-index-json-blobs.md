@@ -1,5 +1,5 @@
 ---
-title: Indexer les objets blob JSON à partir de l’indexeur Azure Blob pour une recherche en texte intégral
+title: Effectuer des recherches sur les objets blob JSON
 titleSuffix: Azure Cognitive Search
 description: Analyser les objets blob Azure JSON pour le contenu de texte à l’aide de l’indexeur d’objets blob Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789506"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112730"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -65,17 +65,11 @@ Dans la page **Source de données**, la source doit être **Stockage Blob Azure*
 
    ![Définition de la source de données des objets blob](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Passez la page « Ajouter la recherche cognitive » dans l’Assistant
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – Ignorer la page « Enrichir le contenu » de l’Assistant
 
-L’ajout de compétences cognitives n’est pas nécessaire pour l’importation de documents JSON. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
+L’ajout de compétences cognitives (ou enrichissement) n’est pas une condition d’importation. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
 
-Pour ignorer cette étape, accédez d’abord à la page suivante.
-
-   ![Bouton de page suivante pour la recherche cognitive](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Dans cette page, vous pouvez passer directement à la personnalisation de l’index.
-
-   ![Ignorer l’étape des compétences cognitives](media/search-get-started-portal/skip-cog-skill-step.png)
+Pour ignorer cette étape, cliquez sur les boutons bleus au bas de la page pour « Suivant » et « Ignorer ».
 
 ### <a name="5---set-index-attributes"></a>5 - Définissez les attributs de l’index
 

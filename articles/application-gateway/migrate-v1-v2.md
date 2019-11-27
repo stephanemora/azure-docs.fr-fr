@@ -1,18 +1,18 @@
 ---
-title: Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
+title: Effectuer la migration de la version 1 à la version 2 - Azure Application Gateway
 description: Cet article montre comment migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: c4bc0ec2bf15a29962909f14f55854c06f0a6561
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 75d041f8ef0d6593a5ff1c696777b68c5f513bf5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932500"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047623"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -156,7 +156,7 @@ Voici quelques scénarios où votre passerelle d’application actuelle (Standar
 
   * Si vous utilisez des adresses IP publiques sur votre passerelle d’application, vous pouvez effectuer une migration granulaire contrôlée en utilisant un profil Traffic Manager pour acheminer de façon incrémentielle le trafic (méthode de routage du trafic par pondération) vers la nouvelle passerelle v2.
 
-    Vous pouvez procéder en ajoutant les étiquettes DNS des deux passerelles d’application v1 et v2 au [profil Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method) et en liant via CNAME votre enregistrement DNS personnalisé (par exemple, www.contoso.com) au domaine Traffic Manager (par exemple, contoso.trafficmanager.net).
+    Vous pouvez procéder en ajoutant les étiquettes DNS des deux passerelles d’application v1 et v2 au [profil Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method) et en liant via CNAME votre enregistrement DNS personnalisé (par exemple, `www.contoso.com`) au domaine Traffic Manager (par exemple, contoso.trafficmanager.net).
   * Ou, vous pouvez mettre à jour votre enregistrement DNS de domaine personnalisé pour pointer vers l’étiquette DNS de la nouvelle passerelle d’application v2. Selon la durée de vie configurée sur votre enregistrement DNS, la migration de tout votre trafic client vers votre nouvelle passerelle v2 peut prendre un certain temps.
 * **Vos clients se connectent à l’adresse IP de front-end de votre passerelle d’application**.
 

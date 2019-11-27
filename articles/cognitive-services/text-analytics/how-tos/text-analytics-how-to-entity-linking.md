@@ -1,21 +1,21 @@
 ---
 title: Utiliser une reconnaissance d’entité avec l’API Analyse de texte
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment reconnaître des entités à l’aide de l’API Analyse de texte.
+description: Découvrez comment identifier et désambiguïser l’identité d’une entité trouvée dans le texte avec l’API REST Analyse de texte.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488634"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031426"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -33,7 +33,7 @@ La reconnaissance d’entité nommée (NER) est la capacité d’identifier diff
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Préversion publique de la reconnaissance d’entité nommée v3
 
-La [prochaine version de la reconnaissance d’entité nommée](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) est désormais disponible en préversion publique. Elle offre des mises à jour des liaisons d’entités et une reconnaissance d’entité nommée. 
+La [prochaine version de la reconnaissance d’entité nommée]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) est désormais disponible en préversion publique. Elle offre des mises à jour des liaisons d’entités et une reconnaissance d’entité nommée. 
 
 :::row:::
     :::column span="":::

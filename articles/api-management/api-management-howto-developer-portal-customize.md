@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620437"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012908"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accéder au portail des développeurs et le personnaliser
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur le portail des développeurs, voir la [Vue d’en
 
 > [!WARNING]
 > Le portail des développeurs est actuellement en cours de déploiement dans les services Gestion des API.
-> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités s’achèvera lundi 11 novembre 2019. 
+> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités doit être effectué avant le vendredi 22 novembre 2019. 
 
 ## <a name="prerequisites"></a>Prérequis
 

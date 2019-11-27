@@ -1,7 +1,7 @@
 ---
 title: À propos du kit de développement logiciel (SDK) de dispositifs vocaux – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Démarrez avec le kit SDK Speech Devices. Le service Speech fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
+description: Démarrez avec le kit SDK Speech Devices. Le service Speech fonctionne avec une large gamme d’appareils et de sources audio. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 243072477c7d249d7066a7a448061c51a0bd2f34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468722"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072376"
 ---
 # <a name="about-the-speech-devices-sdk"></a>À propos du kit de développement logiciel (SDK) de dispositifs vocaux
 
@@ -23,9 +23,9 @@ Les [services Speech](overview.md) fonctionnent avec une large gamme d’apparei
 
 Le SDK Speech Devices vous permet d’effectuer les opérations suivantes :
 
-* Tester rapidement de nouveaux scénarios de voix.
-* Intégrer plus facilement les services Speech basés sur le cloud à votre appareil.
-* Créer une expérience utilisateur exceptionnelle pour vos clients.
+- Tester rapidement de nouveaux scénarios de voix.
+- Intégrer plus facilement les services Speech basés sur le cloud à votre appareil.
+- Créer une expérience utilisateur exceptionnelle pour vos clients.
 
 Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il l’utilise pour envoyer l’audio qui est traité par notre algorithme de traitement audio avancé du réseau de microphones de l’appareil vers les [services Speech](overview.md). Il utilise l’audio multicanal pour fournir une [reconnaissance vocale](speech-to-text.md) à champ lointain plus précise, par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
 
@@ -52,7 +52,6 @@ L’application est créée avec le package du SDK Speech et l’IDE Eclipse Jav
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Choisir un Speech Device](get-speech-devices-sdk.md)
->
+> [Choisir votre appareil vocal](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+> [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)

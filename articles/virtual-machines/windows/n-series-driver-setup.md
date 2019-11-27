@@ -1,5 +1,5 @@
 ---
-title: Configuration des pilotes GPU de série N Azure pour Windows | Microsoft Docs
+title: Configuration des pilotes GPU de série N Azure pour Windows
 description: Procédure de configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Windows Serveur ou Windows dans Azure
 services: virtual-machines-windows
 author: cynthn
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 9f6286f0a9c15b8089ff5ce9d6f3879b40aceaef
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207355"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033157"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles de série N exécutant Windows 
 

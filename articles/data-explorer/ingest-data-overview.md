@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285915"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091795"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -117,11 +117,9 @@ Pour les organisations disposant d’une infrastructure existante basée sur un 
 
 ## <a name="supported-data-formats"></a>Formats de données pris en charge
 
-Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. les formats de données pris en charge sont :
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON (séparé par une ligne, multiligne), Avro
-* ZIP et GZIP 
+Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. 
+* les formats de données pris en charge sont : TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (séparé par une ligne, multiligne), Avro et Parquet. 
+* Prend en charge la compression ZIP et GZIP.
 
 > [!NOTE]
 > Quand des données sont ingérées, les types de données sont déduits d’après les colonnes de la table cible. Si un enregistrement est incomplet ou un champ ne peut pas être analysé en tant que type de données requis, les colonnes correspondantes de la table sont remplies avec des valeurs null.

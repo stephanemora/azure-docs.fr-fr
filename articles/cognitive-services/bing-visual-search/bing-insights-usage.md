@@ -1,7 +1,7 @@
 ---
 title: Exemples d’insights Bing - Recherche visuelle Bing
 titleSuffix: Azure Cognitive Services
-description: Présente des exemples d’insights affichés sur Bing.com.
+description: Cet article contient des exemples de la manière dont la recherche visuelle utilise et présente des insights d’images sur Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df66dbeebb04209921ff91c4b99a14580f026718
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610345"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111637"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemples d’utilisation d’insights de Bing
 

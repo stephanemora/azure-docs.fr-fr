@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 titleSuffix: Azure Cognitive Services
-description: Décrit les éléments de programmation de l’API Recherche d’entreprises locales Bing.
+description: Cet article donne des détails techniques sur les objets de réponse, les paramètres de la requête et les en-têtes qui affectent les résultats de recherche.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: db764a73aa1bb18ef2fc0f8f6e5ffe8fd60d388c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906351"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075694"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
@@ -76,7 +76,7 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
 |<a name="count" />count|Nombre de résultats à retourner, en commençant par l’index spécifié par le paramètre `offset`.|Chaîne|Non|   
 |<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|Chaîne|Non|  
 |<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|OUI|
-|<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Entier|Non|  
+|<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Integer|Non|  
 |<a name="query" />q|Critère de recherche de l’utilisateur.|Chaîne|Non|  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non|  
 |<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non|  
@@ -191,7 +191,7 @@ Définit un élément de résultat de recherche à afficher.
 
 |Nom|Valeur|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier|
+|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Integer|
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
 |textualIndex|Index de la réponse dans textualAnswers à afficher.| Entier non signé|
 |value|ID qui identifie une réponse ou un élément de réponse à afficher. Si l’ID identifie une réponse, affiche tous les éléments de la réponse.|Identifiable|

@@ -1,21 +1,21 @@
 ---
-title: Tutoriel C# pour appeler des API Cognitive Services dans un pipeline d’enrichissement par IA
+title: 'Didacticiel : Créer un ensemble de compétences en C# en utilisant .NET'
 titleSuffix: Azure Cognitive Search
-description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement d’images par IA dans le pipeline d’indexation de l’enrichissement de la Recherche cognitive Azure.
+description: Parcourez un exemple de code montrant une extraction de données, un langage naturel et un traitement d’images par IA dans le pipeline d’indexation d’enrichissement de la Recherche cognitive Azure.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790223"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111737"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>Tutoriel C# : Appeler des API Cognitive Services dans un pipeline d’indexation de la Recherche cognitive Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Didacticiel : Créer un pipeline d’enrichissement par IA en utilisant C# et le SDK .NET
 
 Dans ce tutoriel, vous découvrez les mécanismes de programmation de l’enrichissement des données dans la Recherche cognitive Azure avec des *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat final est un contenu supplémentaire riche dans un index de recherche, créé par un pipeline d’indexation par intelligence artificielle.
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous utilisez le kit de développement logiciel (SDK) .NET pou
 > * Exécuter des demandes et passer en revue les résultats
 > * Réinitialiser l’index et les indexeurs pour un développement ultérieur
 
-La sortie obtenue est un index de recherche en texte intégral sur la Recherche cognitive Azure. Vous pouvez améliorer cet index avec d’autres fonctionnalités standard, telles que des [synonymes](search-synonyms.md), des [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [analyseurs](search-analyzers.md) et des [filtres](search-filters.md).
+La sortie obtenue est un index de recherche en texte intégral sur Recherche cognitive Azure. Vous pouvez améliorer cet index avec d’autres fonctionnalités standard, telles que des [synonymes](search-synonyms.md), des [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [analyseurs](search-analyzers.md) et des [filtres](search-filters.md).
 
 Ce tutoriel s’exécute sur le service gratuit. Toutefois, le nombre de transactions gratuites est limité à 20 documents par jour. Si vous souhaitez exécuter ce tutoriel plusieurs fois par jour, utilisez un ensemble de fichiers plus petit pour pouvoir intégrer davantage d’exécutions.
 

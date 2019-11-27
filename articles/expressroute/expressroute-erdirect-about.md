@@ -1,5 +1,5 @@
 ---
-title: À propos d'ExpressRoute Direct | Microsoft Docs
+title: À propos d’Azure ExpressRoute Direct
 description: Cette page propose une vue d’ensemble d’ExpressRoute Direct.
 services: expressroute
 author: jaredr80
@@ -7,17 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123397"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083607"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
-ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements d’homologation qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbits/s ou 10 Gbits/squi prend en charge la connectivité Active/Active à grande échelle.
+ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements de peering qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbits/s ou 10 Gbits/squi prend en charge la connectivité Active/Active à grande échelle.
 
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
@@ -30,7 +29,7 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
 
 * Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
-* Préférences d’emplacement : consultez l’article [Partenaires et emplacements d’homologation](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
+* Préférences d’emplacement : consultez l’article [Partenaires et emplacements de peering](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
 * Chronologie d'implémentation
 * D’autres questions
 
@@ -47,7 +46,7 @@ Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser Express
 
 Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services cloud Microsoft, tels que Microsoft Azure et Office 365.
 
-Chaque emplacement d’homologation dispose d’un accès au réseau global Microsoft, à n’importe quelle région d’une zone géopolitique par défaut et à toutes les régions du monde à l’aide d’un circuit premium.  
+Chaque emplacement de peering dispose d’un accès au réseau global Microsoft, à n’importe quelle région d’une zone géopolitique par défaut et à toutes les régions du monde à l’aide d’un circuit premium.  
 
 Dans la plupart des scénarios, la fonctionnalité se comporte comme des circuits qui utilisent un fournisseur de services ExpressRoute. Afin d’offrir un contrôle plus précis et de nouvelles fonctionnalités à l’aide d’ExpressRoute Direct, les circuits sont dotés de certaines fonctions clés.
 
@@ -74,15 +73,15 @@ ExpressRoute Direct prend en charge des scénarios d’ingestion massive de donn
     * Vous devez ajouter la balise VLAN externe (STAG) en fonction de l’ID de VLAN spécifié par Microsoft - *Applicable uniquement sur QinQ*
     * Doit prendre en charge plusieurs sessions BGP (VLAN) par port et par appareil
     * Connectivité IPv4 et IPv6. *Pour IPv6, aucune sous-interface supplémentaire n’est créée. L’adresse IPv6 sera ajoutée à la sous-interface existante*. 
-    * Facultatif : Prise en charge du protocole [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd), qui est configurée par défaut sur l’ensemble des appairages privés et des circuits ExpressRoute
+    * Facultatif : Prise en charge du protocole [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd), qui est configurée par défaut sur l’ensemble des peerings privés et des circuits ExpressRoute
 
 ## <a name="vlan-tagging"></a>Balisage VLAN
 
 ExpressRoute Direct prend en charge le balisage VLAN QinQ et Dot1Q.
 
-* Grâce au **balisage VLAN QinQ**, il est possible d’isoler des domaines de routage individuellement pour chaque circuit ExpressRoute. Azure alloue dynamiquement une balise-S (S-Tag) non modifiable lors de la création du circuit. Chaque homologation du circuit (privé et Microsoft) utilise une balise-C (C-Tag) unique en tant que VLAN. La balise-C (C-Tag) n’a pas besoin d’être unique sur les circuits des ports ExpressRoute Direct.
+* Grâce au **balisage VLAN QinQ**, il est possible d’isoler des domaines de routage individuellement pour chaque circuit ExpressRoute. Azure alloue dynamiquement une balise-S (S-Tag) non modifiable lors de la création du circuit. Chaque peering du circuit (privé et Microsoft) utilise une balise-C (C-Tag) unique en tant que VLAN. La balise-C (C-Tag) n’a pas besoin d’être unique sur les circuits des ports ExpressRoute Direct.
 
-* Grâce au **balisage VLAN Dot1Q**, il est possible d’avoir un VLAN balisé unique pour chaque paire de ports ExpressRoute Direct. Une balise-C (C-Tag) utilisée sur une homologation doit être unique sur tous les circuits et homologations de la paire de ports ExpressRoute Direct.
+* Grâce au **balisage VLAN Dot1Q**, il est possible d’avoir un VLAN balisé unique pour chaque paire de ports ExpressRoute Direct. Une balise-C (C-Tag) utilisée sur un peering doit être unique sur tous les circuits et peerings de la paire de ports ExpressRoute Direct.
 
 ## <a name="workflow"></a>Workflow
 

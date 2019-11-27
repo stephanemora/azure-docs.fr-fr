@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569874"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066030"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
 Cet article vous explique comment gérer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque version d’Azure Multi-Factor Authentication.
 
-Vous pouvez accéder aux paramètres liés à Azure Multi-Factor Authentication à partir du portail Azure en accédant à **Azure Active Directory** > **MFA**.
+Vous pouvez accéder aux paramètres liés à Azure Multi-Factor Authentication à partir du portail Azure en accédant à **Azure Active Directory** > **Sécurité** > **MFA**.
 
 ![Portail Azure - Paramètres d’Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -62,7 +62,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 ### <a name="block-a-user"></a>Bloquer un utilisateur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **MFA** > **Bloquer/débloquer des utilisateurs**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 3. Sélectionnez **Ajouter** pour bloquer un utilisateur.
 4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué sous la forme **nom_utilisateur\@domain.com**. Entrez un commentaire dans le champ **Motif**.
 5. Sélectionnez **Ajouter** pour achever de bloquer l’utilisateur.
@@ -70,7 +70,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 ### <a name="unblock-a-user"></a>Débloquer un utilisateur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **MFA** > **Bloquer/débloquer des utilisateurs**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 3. Sélectionnez **Débloquer** dans la colonne **Action** en regard de l’utilisateur à débloquer.
 4. Entrez un commentaire dans le champ **Motif du déblocage**.
 5. Sélectionnez **Débloquer** pour achever de débloquer l’utilisateur.
@@ -82,7 +82,7 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 ### <a name="turn-on-fraud-alerts"></a>Activer les alertes de fraude
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **MFA** > **Alerte fraude**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Alerte fraude**.
 3. Réglez **Autoriser les utilisateurs à envoyer des alertes de fraude** sur **Activé**.
 4. Sélectionnez **Enregistrer**.
 
@@ -124,7 +124,7 @@ Vous pouvez utiliser vos propres enregistrements ou messages d’accueil pour la
 Avant de commencer, tenez compte des restrictions suivantes :
 
 * Les formats de fichiers pris en charge sont .wav et .mp3.
-* La taille limite des fichiers est de 5 Mo.
+* La taille limite des fichiers est de 1 Mo.
 * Les messages d’authentification doivent durer moins de 20 secondes. Les messages de plus de 20 secondes peuvent faire échouer la vérification. L’utilisateur peut ne pas répondre avant la fin du message et de la durée de vérification.
 
 ### <a name="custom-message-language-behavior"></a>Comportement lié à la langue du message personnalisé
@@ -145,7 +145,7 @@ Par exemple, s’il n’existe qu’un seul message personnalisé et que la lang
 ### <a name="set-up-a-custom-message"></a>Configurer un message personnalisé
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-1. Accédez à **Azure Active Directory** > **MFA** > **Paramètres de l’appel téléphonique**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Paramètres de l’appel téléphonique**.
 1. Sélectionnez **Ajouter un message d’accueil**.
 1. Choisissez le type de message d’accueil.
 1. Choisissez la langue.
@@ -184,7 +184,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 ### <a name="create-a-one-time-bypass"></a>Créer un contournement à usage unique
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **MFA** > **Contournement à usage unique**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Contournement à usage unique**.
 3. Sélectionnez **Ajouter**.
 4. Si nécessaire, sélectionnez le groupe de réplication de ce contournement.
 5. Entrez le nom d’utilisateur **nom_utilisateur\@domain.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
@@ -193,7 +193,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Accédez à **Azure Active Directory** > **MFA** > **Contournement à usage unique**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Contournement à usage unique**.
 
 ## <a name="caching-rules"></a>Règles de mise en cache
 
@@ -205,7 +205,7 @@ Vous pouvez définir une période pendant laquelle autoriser les tentatives d’
 ### <a name="set-up-caching"></a>Configurer la mise en cache
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **MFA** > **Règles de mise en cache**.
+2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Règles de mise en cache**.
 3. Sélectionnez **Ajouter**.
 4. Dans la liste déroulante, sélectionnez le **type de cache**. Entrez le nombre maximum de **secondes de mise en cache**.
 5. Au besoin, sélectionnez un type d’authentification et spécifiez une application.
@@ -213,9 +213,11 @@ Vous pouvez définir une période pendant laquelle autoriser les tentatives d’
 
 ## <a name="mfa-service-settings"></a>Paramètres du service MFA
 
-Les paramètres pour les mots de passe des applications, les adresses IP approuvées, les options de vérification et la mémorisation de l’authentification multifacteur pour Azure Multi-Factor Authentication se trouvent dans les paramètres du service. Vous pouvez accéder aux paramètres du service à partir du portail Azure via **Azure Active Directory** > **MFA** > **Mise en route**  >  **Configurer** > **Paramètres de MFA basé dans le cloud supplémentaires**.
+Les paramètres pour les mots de passe des applications, les adresses IP approuvées, les options de vérification et la mémorisation de l’authentification multifacteur pour Azure Multi-Factor Authentication se trouvent dans les paramètres du service. Vous pouvez accéder aux paramètres du service à partir du portail Azure via **Azure Active Directory** > **Sécurité** > **MFA** > **Mise en route** > **Configurer** > **Paramètres de MFA basé dans le cloud supplémentaires**.
 
 ![Paramètres du service Azure Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+Les plages d'adresses IP approuvées peuvent être privées ou publiques.
 
 ## <a name="app-passwords"></a>Mots de passe d'application
 

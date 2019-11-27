@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715377"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091888"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice de prise en charge pour l’évaluation et la migration de serveurs physiques
 
@@ -28,7 +28,7 @@ Le tableau récapitule les scénarios pris en charge pour les serveurs physiques
 
 **Déploiement** | **Détails***
 --- | ---
-**Évaluer les serveurs physiques locaux** | [Configurez](tutorial-prepare-physical.md) votre première évaluation.
+**Évaluer les serveurs physiques locaux** | [Configurez](tutorial-prepare-physical.md) votre première évaluation.<br/><br/> [Exécutez](tutorial-assess-physical.md) une évaluation.
 **Migrate physical servers to Azure (Migrer des serveurs physiques vers Azure)** | [Testez](tutorial-migrate-physical-virtual-machines.md) une migration vers Azure.
 
 
@@ -37,7 +37,7 @@ Le tableau récapitule les scénarios pris en charge pour les serveurs physiques
 **Support** | **Détails**
 --- | ---
 **Autorisations Azure** | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
-**Serveurs physiques** | Évaluez jusqu’à 250 serveurs physiques dans un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des serveurs physiques et des machines virtuelles VMware et Hyper-V, jusqu’aux limites d’évaluation.
+**Serveurs physiques** | Évaluez jusqu’à 35 000 serveurs physiques dans un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des serveurs physiques et des machines virtuelles VMware et Hyper-V, jusqu’aux limites d’évaluation.
 **Zone géographique** | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous pouvez créer des projets dans des zones géographiques spécifiques, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
   **Zone géographique** | **Emplacement de stockage des métadonnées**
@@ -66,7 +66,7 @@ Le tableau récapitule les scénarios pris en charge pour les serveurs physiques
 | :-------------------       | :------------------- |
 | **Déploiement de serveur physique**       | Le serveur physique peut être autonome ou déployé dans un cluster. |
 | **autorisations**           | **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces utilisateurs du Bureau à distance, utilisateurs de l’Analyseur de performances et utilisateurs du journal de performances. <br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
-| **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) pris en charge par Azure. |
+| **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) sont pris en charge, à l’exception des suivants :<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>Évaluation - Exigences relatives à l’appliance
@@ -77,7 +77,7 @@ Pour l’évaluation, Azure Migrate exécute une appliance légère pour découv
 | :-------------------       | :------------------- |
 | **Étapes de déploiement d’appliance**   |  Vous déployez l’appliance sur un serveur physique ou une machine virtuelle.<br/>  La machine hôte doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> L’hôte a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
 | **Projet Azure Migrate**  |  Une appliance peut être associée à un seul projet.<br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines par projet.
-| **Découverte**              | Une seule appliance peut découvrir jusqu’à 200 serveurs.
+| **Découverte**              | Une seule appliance peut découvrir jusqu’à 250 serveurs.
 | **Groupe d’évaluation**       | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.
 | **Évaluation**             | Vous pouvez évaluer jusqu’à 35 000 machines par évaluation.
 

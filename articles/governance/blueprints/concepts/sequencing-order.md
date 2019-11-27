@@ -1,17 +1,14 @@
 ---
 title: Comprendre l’ordre de la séquence de déploiement
-description: Découvrez le cycle de vie que traverse une définition de blueprint ainsi que les détails de chaque phase.
-author: DCtheGeek
-ms.author: dacoulte
+description: Découvrez l’ordre par défaut dans lequel les artefacts de blueprint sont déployés lors d’une affectation de blueprint, et comment personnaliser l’ordre de déploiement.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981015"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128820"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 

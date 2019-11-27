@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: f1a5d0d98a442fab80744636eea05d4c2d26f919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8bb3ac1905167989e27d47304ae539e49a1412e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478873"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132343"
 ---
 # <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -320,3 +320,5 @@ Vous accédez à ces classeurs en les sélectionnant dans la liste déroulante *
 - Consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md) pour découvrir comment créer des alertes pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps.
 
 - Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
+
+- Consultez [Superviser l’intégrité des clusters](container-insights-health.md) pour en savoir plus sur l’affichage de l’état d’intégrité de votre cluster Kubernetes.

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 10/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 91e6f08d1dc3dc829dd7c6a58c651d453121e240
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511538"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839966"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -82,7 +82,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Par conséquent, si l'URL **http://www.contoso.com/?user%281%29=fdafdasfda** est passée au WAF, elle n'évaluera pas la chaîne **fdafdasfda**, mais évaluera toujours le nom du paramètre **user%281%29**. 
+Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est transmise au WAF, elle n'évaluera pas la chaîne **fdafdasfda**, mais évaluera toujours le nom de paramètre **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Limites de la taille des demandes adressées au WAF
 

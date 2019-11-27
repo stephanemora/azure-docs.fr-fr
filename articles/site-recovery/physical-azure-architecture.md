@@ -1,18 +1,18 @@
 ---
-title: Architecture de la récupération d’urgence de serveurs physiques sur Azure à l’aide d’Azure Site Recovery | Microsoft Docs
+title: Architecture de la reprise d’activité après sinistre de serveurs physiques dans Azure Site Recovery
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la récupération d’urgence de serveurs physiques locaux sur Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814469"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084686"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Serveur physique pour l’architecture de récupération d’urgence sur Azure
 

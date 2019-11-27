@@ -1,5 +1,5 @@
 ---
-title: Passer l’affichage de session d’une machine virtuelle en plein écran dans Azure Bastion | Microsoft Docs
+title: 'Azure Bastion : Afficher une session de machine virtuelle en plein écran'
 description: Dans cet article, vous apprenez à passer l’affichage en plein écran.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498044"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014231"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Passez en plein écran pour une session d’une machine virtuelle : Azure Bastion
 

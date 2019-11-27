@@ -8,23 +8,20 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 07123fd5701e9041ff377ea5309cf1291e737ca6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693810"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112828"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 
 L’objectif du flux de modification est de fournir des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Le flux de modification fournit un journal **ordonné**, **garanti**, **durable**, **immuable** et **en lecture seule** de ces changements. Les applications clientes peuvent lire ces journaux à tout moment, soit en diffusion en continu, soit en mode de traitement par lot. Le flux de modification vous permet de créer des solutions efficaces et évolutives qui traitent les événements de modification qui se produisent dans votre compte Stockage Blob à moindre coût.
 
-> [!NOTE]
-> Le flux de modification est en préversion publique et est disponible dans les régions **westcentralus** et **westus2**. Consultez la section [Conditions](#conditions) de cet article. Pour vous inscrire à la préversion, consultez la section [Inscrire votre abonnement](#register) de cet article.
-
 Le flux de modification est stocké en tant que [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) dans un conteneur spécial dans votre compte de stockage au [tarif standard des objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/). Vous pouvez contrôler la période de rétention de ces fichiers en fonction de vos exigences (voir les [conditions](#conditions) de la version actuelle). Les événements de modification sont ajoutés au flux de modification sous forme d’enregistrements dans la spécification de format [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : un format binaire, compact et rapide qui fournit des structures de données enrichies avec un schéma inlined. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory.
 
-Vous pouvez traiter ces journaux de manière asynchrone, incrémentielle ou complète. Un nombre quelconque d’applications clientes peuvent lire indépendamment le flux de modification, en parallèle, et à leur propre rythme. Les applications d’analytique telles que [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) peuvent utiliser des journaux directement en tant que fichiers Avro, ce qui vous permet de les traiter à un coût moindre, avec une bande passante élevée et sans avoir à écrire une application personnalisée.
+Vous pouvez traiter ces journaux de manière asynchrone, incrémentielle ou complète. Un nombre quelconque d’applications clientes peuvent lire indépendamment le flux de modification, en parallèle, et à leur propre rythme. Les applications d’analytique que sont notamment [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) peuvent utiliser des journaux directement comme fichiers Avro, ce qui vous permet de les traiter à très faible coût, avec une bande passante élevée et sans avoir à écrire une application personnalisée.
 
 La prise en charge des flux de modification convient parfaitement aux scénarios qui traitent les données en fonction d’objets qui ont été modifiés. Par exemple, les applications peuvent :
 
@@ -41,9 +38,22 @@ La prise en charge des flux de modification convient parfaitement aux scénarios
 > [!NOTE]
 > [Blob Storage Events](storage-blob-event-overview.md) fournit des événements uniques en temps réel qui permettent à vos Azure Functions ou applications de réagir aux modifications apportées à un objet blob. Le flux de modification fournit un modèle de journal durable et ordonné des modifications. Les modifications apportées à votre flux de modification sont rendues accessibles dans votre flux de modification quelques minutes après la modification. Si votre application doit réagir aux événements plus rapidement que cela, envisagez d’utiliser des [événements Stockage Blob](storage-blob-event-overview.md) à la place. Les événements Stockage Blob permettent à vos Azure Functions ou applications de réagir à des événements individuels en temps réel.
 
-## <a name="enabling-and-disabling-the-change-feed"></a>Activation et désactivation du flux de modification
+## <a name="enable-and-disable-the-change-feed"></a>Activer et désactiver le flux de modification
 
-Vous devez activer le flux de modification pour commencer la capture des modifications. Désactivez le flux de modification pour arrêter la capture des modifications. Vous pouvez activer et désactiver les modifications à l’aide de modèles Azure Resource Manager sur le Portail ou sur PowerShell.
+Vous devez activer le flux de modification sur votre compte de stockage pour commencer la capture des modifications. Désactivez le flux de modification pour arrêter la capture des modifications. Vous pouvez activer et désactiver les modifications à l’aide de modèles Azure Resource Manager sur le Portail ou sur PowerShell.
+
+Voici quelques éléments à prendre en compte lorsque vous activez le flux de modification.
+
+- Il n’existe qu’un seul flux de modification pour le service blob dans chaque compte de stockage stocké dans le conteneur **$blobchangefeed**.
+
+- Les modifications sont capturées uniquement au niveau du service blob.
+
+- Le flux de modification capture *toutes* les modifications pour tous les événements disponibles qui se produisent sur le compte. Les applications clientes peuvent filtrer les types d’événements selon les besoins. (Voir les [conditions](#conditions) de la version actuelle).
+
+- Seuls les comptes de stockage GPv2 et Blob peuvent activer le flux de modification. Les comptes de stockage GPv1, les comptes BlockBlobStorage Premium et les comptes prenant en charge les espaces de noms hiérarchiques ne sont actuellement pas pris en charge.
+
+> [!IMPORTANT]
+> Le flux de modification est en préversion publique et est disponible dans les régions **westcentralus** et **westus2**. Consultez la section [Conditions](#conditions) de cet article. Pour vous inscrire à la préversion, consultez la section [Inscrire votre abonnement](#register) de cet article. Vous devez inscrire votre abonnement avant de pouvoir activer le flux de modification sur vos comptes de stockage.
 
 ### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -55,27 +65,28 @@ Pour déployer le modèle à l’aide du portail Azure :
 
 3. Choisissez **Template deployment**, **Créer**, puis **Créer votre propre modèle dans l’éditeur**.
 
-5. Dans l’éditeur de modèle, collez le code JSON suivant. Remplacez la valeur d’espace réservé `<accountName>` par le nom de votre compte de stockage.
+4. Dans l’éditeur de modèle, collez le code JSON suivant. Remplacez la valeur d’espace réservé `<accountName>` par le nom de votre compte de stockage.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [{
-        "type": "Microsoft.Storage/storageAccounts/blobServices",
-        "apiVersion": "2019-04-01",
-        "name": "<accountName>/default",
-        "properties": {
-            "changeFeed": {
-            "enabled": true
-            }
-        } 
-     }]
-}
-```
-4. Choisissez le bouton **Enregistrer**, spécifiez le groupe de ressources du compte, puis choisissez le bouton **Achat** pour activer le flux de modification.
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Choisissez le bouton **Enregistrer**, spécifiez le groupe de ressources du compte, puis choisissez le bouton **Acheter** pour déployer le modèle et activer le flux de modification.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -84,7 +95,7 @@ Pour déployer le modèle à l’aide de PowerShell :
 1. Installez la dernière version de PowerShellGet.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
 2. Fermez, puis rouvrez la console PowerShell.
@@ -109,36 +120,15 @@ Pour déployer le modèle à l’aide de PowerShell :
 
 ---
 
-Voici quelques éléments à prendre en compte lorsque vous activez le flux de modification.
-
-- Il n’existe qu’un seul flux de modification pour le service blob dans chaque compte de stockage. 
-
-- Les modifications sont capturées uniquement au niveau du service blob.
-
-- Le flux de modification capture *toutes* les modifications pour tous les événements disponibles qui se produisent sur le compte. Les applications clientes peuvent filtrer les types d’événements selon les besoins. (Voir les [conditions](#conditions) de la version actuelle).
-
-- Les comptes qui ont un espace de noms hiérarchique ne sont pas pris en charge.
-
-## <a name="consuming-the-change-feed"></a>Consommation du flux de modification
-
-Le flux de modification produit plusieurs métadonnées et fichiers journaux. Ces fichiers se trouvent dans le conteneur **$blobchangefeed** du compte de stockage. 
-
->[!NOTE]
-> Dans la version actuelle, le conteneur **$blobchangefeed** n’est pas visible dans Explorateur Stockage ou dans le Portail Azure. 
-
-Vos applications clientes peuvent utiliser le flux de modification à l’aide de la bibliothèque du processeur de flux de modification d’objets blob fournie avec le Kit de développement logiciel (SDK). 
-
-Consultez [Traiter les journaux de flux de modification dans Stockage Blob Azure](storage-blob-change-feed-how-to.md).
-
-## <a name="understanding-change-feed-organization"></a>Compréhension de l’organisation du flux de modification
+## <a name="understand-change-feed-organization"></a>Comprendre l’organisation du flux de modification
 
 <a id="segment-index"></a>
 
 ### <a name="segments"></a>Segments
 
-Le flux de modification est un journal des modifications qui est organisé en *segments* **horaires** (voir [Spécifications](#specifications)). Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier.
+Le flux de modification est un journal de modifications, lesquelles sont organisées en *segments* **horaires**, mais ajoutées et mises à jour à intervalles réguliers de quelques minutes. Ces segments sont créés uniquement quand des événements de modification d’objet blob se produisent dans l’heure. Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier. Pour en savoir plus, consultez [Spécifications](#specifications).
 
-Un segment horaire disponible du flux de modification est décrit dans un fichier manifeste qui spécifie les chemins d’accès aux fichiers de flux de modification pour ce segment. La liste du répertoire virtuel `$blobchangefeed/idx/segments/` montre ces segments dans l’ordre chronologique. Le chemin d’accès du segment décrit le début de l’intervalle horaire représenté par le segment. (Voir les [Spécifications](#specifications)). Vous pouvez utiliser cette liste pour filtrer les segments de journaux qui vous intéressent.
+Un segment horaire disponible du flux de modification est décrit dans un fichier manifeste qui spécifie les chemins d’accès aux fichiers de flux de modification pour ce segment. La liste du répertoire virtuel `$blobchangefeed/idx/segments/` montre ces segments dans l’ordre chronologique. Le chemin d’accès du segment décrit le début de l’intervalle horaire représenté par le segment. Vous pouvez utiliser cette liste pour filtrer les segments de journaux qui vous intéressent.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -150,7 +140,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> Le fichier `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` est automatiquement créé lorsque vous activez le flux de modification. Vous pouvez ignorer sans risque ce fichier. Il est toujours vide. 
+> Le fichier `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` est automatiquement créé lorsque vous activez le flux de modification. Vous pouvez ignorer sans risque ce fichier. Il s’agit d’un fichier d’initialisation toujours vide. 
 
 Le fichier manifeste de segment (`meta.json`) affiche le chemin d’accès des fichiers de flux de modification pour ce segment dans la propriété `chunkFilePaths`. Voici un exemple d’un fichier manifeste de segment.
 
@@ -220,12 +210,23 @@ Voici un exemple d’enregistrement d’événement de modification à partir d�
          }
   }
 }
-
 ```
+
 Pour obtenir une description de chaque propriété, consultez [Schéma d’événement Azure Event Grid pour Stockage Blob](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > Les fichiers de flux de modification d’un segment n’apparaissent pas immédiatement après la création d’un segment. La durée du délai est comprise dans l’intervalle normal de latence de publication du flux de modification, ce qui représente quelques minutes après la modification.
+
+## <a name="consume-the-change-feed"></a>Utiliser le flux de modification
+
+Le flux de modification produit plusieurs métadonnées et fichiers journaux. Ces fichiers se trouvent dans le conteneur **$blobchangefeed** du compte de stockage. 
+
+> [!NOTE]
+> Dans la version actuelle, le conteneur **$blobchangefeed** n’est pas visible dans l’Explorateur Stockage Azure ou sur le portail Azure. Pour l’heure, vous ne pouvez pas voir le conteneur $blobchangefeed quand vous appelez l’API ListContainers, mais vous pouvez appeler l’API ListBlobs directement sur le conteneur pour voir les objets blob.
+
+Vos applications clientes peuvent consommer le flux de modification en utilisant la bibliothèque du processeur de flux de modification d’objets blob fournie avec le SDK du processeur de flux de modification. 
+
+Consultez [Traiter les journaux de flux de modification dans Stockage Blob Azure](storage-blob-change-feed-how-to.md).
 
 <a id="specifications"></a>
 
@@ -239,13 +240,13 @@ Pour obtenir une description de chaque propriété, consultez [Schéma d’évé
 
 - Les enregistrements d’événements de modification sont sérialisés dans le fichier journal à l’aide de la spécification de format [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html).
 
-- Les enregistrements d’événements de modification pour lesquelles `eventType`a une valeur de `Control` sont des enregistrements système internes et ne reflètent pas une modification apportée aux objets de votre compte. Vous devez les ignorer.
+- Les enregistrements d’événements de modification pour lesquelles `eventType`a une valeur de `Control` sont des enregistrements système internes et ne reflètent pas une modification apportée aux objets de votre compte. Vous pouvez ignorer ces enregistrements sans risque.
 
-- Les valeurs du conteneur des propriétés `storageDiagnonstics` sont destinées à un usage interne uniquement et ne sont pas conçues pour être utilisées par votre application. Vos applications ne doivent pas avoir de dépendance contractuelle sur ces données.
+- Les valeurs du conteneur des propriétés `storageDiagnonstics` sont destinées à un usage interne uniquement et ne sont pas conçues pour être utilisées par votre application. Vos applications ne doivent pas avoir de dépendance contractuelle sur ces données. Vous pouvez ignorer ces propriétés sans risque.
 
-- Le temps représenté par le segment est **approximatif** avec des limites de 15 minutes. Ainsi, pour garantir la consommation de tous les enregistrements dans un intervalle de temps spécifié, consommez le segment consécutif de l’heure précédente et de l’heure suivante.
+- Le temps représenté par le segment est **approximatif** avec des limites de 15 minutes. Ainsi, pour garantir l’utilisation de tous les enregistrements dans un intervalle de temps spécifié, utilisez le segment consécutif de l’heure précédente et de l’heure suivante.
 
-- Chaque segment peut avoir un nombre différent de `chunkFilePaths`. Cela est dû au partitionnement interne du flux de journaux pour gérer le débit de publication. Les fichiers journaux de chaque `chunkFilePath` sont assurés de contenir des objets blob mutuellement exclusifs et peuvent être consommés et traités en parallèle sans violer l’ordre des modifications par blob pendant l’itération.
+- Chaque segment peut avoir un nombre différent de `chunkFilePaths`. Cela est dû au partitionnement interne du flux de journaux pour gérer le débit de publication. Les fichiers journaux de chaque `chunkFilePath` sont assurés de contenir des objets blob mutuellement exclusifs et peuvent être utilisés et traités en parallèle sans violer l’ordre des modifications par blob pendant l’itération.
 
 - Les segments commencent avec l’état `Publishing`. Une fois que l’ajout des enregistrements au segment est terminé, l’état est `Finalized`. Les fichiers journaux d’un segment dont la date est postérieure à celle de la propriété `LastConsumable` du fichier `$blobchangefeed/meta/Segments.json` ne doivent pas être consommés par votre application. Voici un exemple de la propriété `LastConsumable`dans un fichier `$blobchangefeed/meta/Segments.json` :
 
@@ -275,10 +276,11 @@ Pour obtenir une description de chaque propriété, consultez [Schéma d’évé
 
 Dans une console PowerShell, exécutez ces commandes :
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
+```powershell
+Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+   
 ### <a name="register-by-using-azure-cli"></a>S’inscrire à l’aide d’Azure CLI
 
 Dans Azure Cloud Shell, exécutez ces commandes :
@@ -293,14 +295,23 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Conditions et problèmes connus (préversion)
 
 Cette section décrit les problèmes connus et les conditions de la préversion publique actuelle du flux de modification.
-
-- Le flux de modification capture uniquement les opérations de création, de mise à jour, de suppression et de copie.
+- Pour la préversion, vous devez d’abord [inscrire votre abonnement](#register) avant de pouvoir activer le flux de modification pour votre compte de stockage dans les régions westcentralus ou westus2. 
+- Le flux de modification capture uniquement les opérations de création, de mise à jour, de suppression et de copie. Les mises à jour de métadonnées ne sont actuellement pas capturées dans la préversion.
 - Les enregistrements d’événements de modification d’une modification unique peuvent apparaître plusieurs fois dans votre flux de modification.
 - Vous ne pouvez pas encore gérer la durée de vie des fichiers journaux du flux de modification en définissant une stratégie de rétention basée sur la durée.
 - La propriété `url` du fichier journal est toujours vide.
 - La propriété `LastConsumable` du fichier segments.json ne répertorie pas le tout premier segment que le flux de modification finalise. Ce problème se produit uniquement après la finalisation du premier segment. Tous les segments suivants après la première heure sont capturés avec précision dans la propriété `LastConsumable`.
 
+## <a name="faq"></a>Forum Aux Questions
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Quelle est la différence entre le flux de modification et la journalisation Storage Analytics ?
+Le flux de modification est optimisé pour le développement d’applications, car seuls les événements de création, de modification et de suppression d’objets blob sont enregistrés dans le journal de flux de modification. La journalisation Analytics enregistre toutes les demandes ayant réussi ou échoué, quelles que soient les opérations, y compris celles de lecture et de listage. En faisant usage du flux de modification, vous n’avez pas à vous soucier du filtrage des informations inutiles du journal sur un compte très actif et vous pouvez vous concentrer uniquement sur les événements de modification d’objets blob.
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>Dois-je utiliser le flux de modification ou les événements de stockage ?
+Vous pouvez exploiter les deux fonctionnalités, car le flux de modification et les [événements Stockage Blob](storage-blob-event-overview.md) sont par nature similaires, leur principale différence étant la latence, le classement et le stockage des enregistrements d’événements. Le flux de modification écrit des enregistrements dans le journal de flux de modification en bloc à intervalles réguliers de quelques minutes tout en garantissant l’ordre des opérations de modification des objets blob. Les événements de stockage sont envoyés (push) en temps réel et peuvent ne pas être classés. Les événements de flux de modification sont stockés durablement dans votre compte de stockage, tandis que les événements de stockage sont temporaires et utilisés par le gestionnaire d’événements, à moins que vous les stockiez de façon explicite.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez un exemple de lecture du flux de modification à l’aide d’une application cliente .NET. Consultez [Traiter les journaux de flux de modification dans Stockage Blob Azure](storage-blob-change-feed-how-to.md).
 - Découvrez comment réagir aux événements en temps réel. Consultez [Réaction aux événements Stockage Blob](storage-blob-event-overview.md)
+- Apprenez-en plus sur les informations de journalisation détaillées des opérations ayant réussi et échoué pour toutes les demandes. Consultez [Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md).

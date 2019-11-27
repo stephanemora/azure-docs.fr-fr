@@ -1,5 +1,5 @@
 ---
-title: Erreurs et avertissements courants
+title: Erreurs et avertissements de l’indexeur
 titleSuffix: Azure Cognitive Search
 description: Cet article fournit des informations et des solutions aux erreurs et aux avertissements courants que vous pourriez rencontrer lors de l’enrichissement de l’IA dans Recherche cognitive Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bbaec55666b877e1d9343d8b80ea44a189c0c5b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0230fbb2cb94001f7965cf1756a8a0d1061978da
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806120"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133217"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erreurs et avertissements courants du pipeline d’enrichissement de l’IA dans Recherche cognitive Azure
+# <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
-Cet article fournit des informations et des solutions aux erreurs et aux avertissements courants que vous pourriez rencontrer lors de l’enrichissement de l’IA dans Recherche cognitive Azure.
+Cet article fournit des informations et des solutions pour les erreurs et avertissements courants que vous pourriez rencontrer pendant l’indexation et l’enrichissement par IA dans Recherche cognitive Azure.
 
 ## <a name="errors"></a>Errors
 L’indexation s’arrête quand le nombre d’erreurs dépasse la valeur de ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -229,6 +229,9 @@ Il est possible de modifier ce comportement en activant la progression incrémen
 
 Pour plus d’informations, consultez [Progression incrémentielle et requêtes personnalisées](search-howto-index-cosmosdb.md#IncrementalProgress).
 
+### <a name="some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Certaines données ont été perdues pendant la projection. La ligne« X » dans la table « Y » présente la propriété de chaîne « Z » qui était trop longue.
+Le [service Stockage Table](https://azure.microsoft.com/services/storage/tables) impose des limites sur la taille des [propriétés d’entité](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types). Les chaînes peuvent comporter 32 000 caractères ou moins. Si une ligne présentant une propriété de chaîne de plus de 32 000 caractères est en cours de projection, seuls les 32 000 premiers caractères sont conservés. Pour contourner ce problème, évitez de projeter des lignes comportant des propriétés de chaîne de plus de 32 000 caractères.
+
 ### <a name="truncated-extracted-text-to-x-characters"></a>Texte extrait tronqué à X caractères
 Les indexeurs limitent la quantité de texte qui peut être extraite d’un document. Cette limite dépend du niveau tarifaire : 32 000 caractères pour le niveau gratuit, 64 000 pour le niveau De base et 4 millions pour les niveaux Standard, Standard S2 et Standard S3. Le texte qui a été tronqué ne sera pas indexé. Pour éviter cet avertissement, essayez en scindant les documents avec de grandes quantités de texte en plusieurs documents plus petits. 
 
@@ -237,4 +240,5 @@ Pour plus d’informations, consultez [Limites des indexeurs](search-limits-quot
 ### <a name="could-not-map-output-field-x-to-search-index"></a>Impossible de mapper le champ de sortie « X » à l’index de recherche
 Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
 
-Indexer a pu exécuter une compétence dans l’ensemble de compétences, mais la réponse à la demande de l’API web indique qu’il y a eu des avertissements durant l’exécution. Examinez les avertissements pour comprendre l’impact sur vos données et déterminer si une action est requise ou non.
+### <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>La stratégie de détection des modifications de données est configurée pour utiliser la colonne clé « X ».
+Pour détecter les modifications, les [stratégies de détection des modifications de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) ont des exigences spécifiques pour les colonnes qu’elles utilisent. L’une de ces exigences est que la colonne est mise à jour chaque fois que l’élément source est modifié. Une autre exigence est que la nouvelle valeur de cette colonne est supérieure à la valeur précédente. Les colonnes clés ne respectent pas cette exigence, car elles ne changent pas à chaque mise à jour. Pour contourner ce problème, sélectionnez une autre colonne pour la stratégie de détection des modifications.

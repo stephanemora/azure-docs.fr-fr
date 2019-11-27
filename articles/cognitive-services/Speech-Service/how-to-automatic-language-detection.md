@@ -1,5 +1,5 @@
 ---
-title: 'Procédure : Utiliser la détection automatique de la langue pour la reconnaissance vocale – Service de reconnaissance vocale'
+title: Guide pratique pour détecter automatiquement la langue de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
 description: Le Kit de développement logiciel (SDK) Speech prend en charge la détection automatique de la langue pour la reconnaissance vocale. Quand vous utilisez cette fonctionnalité, l’audio fourni est comparé à une liste de langues fournie, et la correspondance la plus probable est déterminée. Vous pouvez utiliser la valeur retournée pour sélectionner le modèle de langage utilisé pour la reconnaissance vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506488"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110182"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Détection automatique de la langue pour la reconnaissance vocale
 
@@ -30,7 +30,7 @@ Dans cet article, vous allez apprendre à utiliser `AutoDetectSourceLanguageConf
 
 La détection automatique de la langue a actuellement une limite côté services de deux langues par détection. Gardez cette limitation à l’esprit lors de la construction de votre objet `AudoDetectSourceLanguageConfig`. Dans les exemples ci-dessous, vous allez créer un `AutoDetectSourceLanguageConfig`, puis l’utiliser pour construire une `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > Vous pouvez également spécifier un modèle personnalisé à utiliser lors de l’exécution de la reconnaissance vocale. Pour plus d’informations, voir [Utiliser un modèle personnalisé pour la détection automatique de la langue](#use-a-custom-model-for-automatic-language-detection).
 
 Les extraits de code suivants montrent comment utiliser la détection automatique de la langue dans vos applications :
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Documentation de référence du SDK Speech](speech-sdk.md)
+- [Documentation de référence du SDK Speech](speech-sdk.md)

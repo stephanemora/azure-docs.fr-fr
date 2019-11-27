@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Router le trafic pour améliorer la réponse d’un site web à l’aide d’Azure Traffic Manager
+title: 'Tutoriel : Améliorer la réponse d’un site web – Traffic Manager'
 description: Cet article de didacticiel explique comment créer un profil Traffic Manager pour développer un site web très réactif.
 services: traffic-manager
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
-ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a988b16bb07b1486c4434114eb8653c959aefc6a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258353"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023293"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Didacticiel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 
@@ -143,9 +143,9 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Performances**.                                       |
-    | Abonnement            | Sélectionnez votre abonnement.                          |
-    | Groupe de ressources          | Sélectionnez le groupe de ressources *myResourceGroupTM1*. |
-    | Lieu                | Sélectionnez **USA Est**. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
+    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Resource group          | Sélectionnez le groupe de ressources *myResourceGroupTM1*. |
+    | Location                | Sélectionnez **USA Est**. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
     |
 
     ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)

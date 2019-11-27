@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de Sauvegarde Azure PowerShell
+title: Sauvegarde et restauration de bases de données SQL dans une machine virtuelle Azure via PowerShell - Sauvegarde Azure
 description: Sauvegardez et restaurez des bases de données SQL dans des machines virtuelles Azure à l’aide de Sauvegarde Azure et PowerShell.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,20 +10,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 242eaf06b9cd0b3783a626ab13eb0cb92300652f
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249068"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090946"
 ---
-# <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
+# <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 
 Cet article explique comment utiliser Azure PowerShell pour sauvegarder et restaurer une base de données SQL au sein d’une machine virtuelle Azure à l’aide du coffre Recovery Services [Sauvegarde Azure](backup-overview.md).
 
 Ce didacticiel explique comment :
 
 > [!div class="checklist"]
+>
 > * Configurer PowerShell et inscrire le fournisseur Azure Recovery Services.
 > * Créez un coffre Recovery Services.
 > * Configurer la sauvegarde pour la base de données SQL au sein d’une machine virtuelle Azure.
@@ -270,8 +271,8 @@ Une fois l’intention d’autoprotection donnée, la demande faite à la machin
 
 Sauvegarde Azure peut restaurer des bases de données SQL Server s’exécutant sur des machines virtuelles Azure comme suit :
 
-1. Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement la sauvegarde différentielle complète appropriée, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
-2. Restaurez une sauvegarde complète ou différentielle spécifique sur un point de récupération spécifique.
+* Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement la sauvegarde différentielle complète appropriée, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
+* Restaurez une sauvegarde complète ou différentielle spécifique sur un point de récupération spécifique.
 
 Vérifiez les prérequis mentionnés [ici](restore-sql-database-azure-vm.md#prerequisites) avant de restaurer des bases de données SQL.
 
@@ -335,9 +336,9 @@ La sortie ci-dessus signifie que l’utilisateur peut effectuer une restauration
 
 Pour la restauration de bases de données SQL, les scénarios de restauration suivants sont pris en charge.
 
-1. Remplacement de la base de données SQL sauvegardée par des données d’un autre point de récupération - OriginalWorkloadRestore
-2. Restauration de la base de données SQL en tant que nouvelle base de données dans la même instance SQL - AlternateWorkloadRestore
-3. Restauration de la base de données SQL en tant que nouvelle base de données dans une autre machine virtuelle SQL - AlternateWorkloadRestore
+* Remplacement de la base de données SQL sauvegardée par des données d’un autre point de récupération - OriginalWorkloadRestore
+* Restauration de la base de données SQL en tant que nouvelle base de données dans la même instance SQL - AlternateWorkloadRestore
+* Restauration de la base de données SQL en tant que nouvelle base de données dans une autre machine virtuelle SQL - AlternateWorkloadRestore
 
 Après la récupération du point de récupération approprié (distinct ou point dans le temps de journal), utilisez la cmdlet PS [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) pour récupérer l’objet de configuration de récupération conformément au plan de récupération souhaité.
 
@@ -459,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-La commande de sauvegarde ad hoc renvoie un travail à suivre.
+La commande de sauvegarde à la demande renvoie un travail à suivre.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -471,7 +472,7 @@ Si la sortie est perdue ou si vous souhaitez obtenir l’ID de travail pertinent
 
 ### <a name="change-policy-for-backup-items"></a>Modifier la stratégie pour les éléments de sauvegarde
 
-L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer les stratégies d’un élément sauvegardé, il suffit de récupérer la stratégie et l’élément sauvegardé pertinent et d’utiliser la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément sauvegardé en tant que paramètre.
+L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément de sauvegarde comme paramètre.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -540,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Il est important de noter que Sauvegarde Azure suit uniquement les travaux déclenchés par l’utilisateur dans la sauvegarde SQL. Les sauvegardes planifiées (y compris les sauvegardes de fichiers journaux) ne sont pas visibles dans le portail/powershell. Toutefois, si un travail planifié échoue, une [alerte de sauvegarde](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) est générée et affichée dans le portail. [Utilisez Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) pour suivre tous les travaux planifiés et autres informations pertinentes.
 
-Les utilisateurs peuvent suivre des opérations ad hoc/déclenchées avec le JobID renvoyé dans la [sortie](#on-demand-backup) des travaux asynchrones comme une sauvegarde. Utilisez la cmdlet PS [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) pour suivre le travail et ses informations.
+Les utilisateurs peuvent suivre des opérations à la demande/déclenchées avec le JobID renvoyé dans la [sortie](#on-demand-backup) des travaux asynchrones comme une sauvegarde. Utilisez la cmdlet PS [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) pour suivre le travail et ses informations.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Pour obtenir la liste des travaux ad hoc et des états associés dans le service Sauvegarde Azure, utilisez la cmdlet PS [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0). L’exemple suivant renvoie tous les travaux SQL en cours d’exécution.
+Pour obtenir la liste des travaux à la demande et des états associés dans le service Sauvegarde Azure, utilisez la cmdlet PS [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0). L’exemple suivant renvoie tous les travaux SQL en cours d’exécution.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -560,13 +561,13 @@ Pour les groupes de disponibilité SQL AlwaysOnS, veillez à [inscrire tous les 
 
 Supposons par exemple qu’un groupe de disponibilité SQL a deux nœuds : « sql-server-0 » et « sql-server-1 » et une base de données de groupe de disponibilité SQL. Une fois que les deux nœuds sont inscrits, si l’utilisateur [répertorie les éléments protégeables](#fetching-sql-dbs), il répertorie les composants suivants
 
-1. Un objet de groupe de disponibilité SQL : type d’élément protégeable intitulé SQLAvailabilityGroup
-2. Une base de données de groupe de disponibilité SQL : type d’élément protégeable intitulé SQLDatabase
-3. sql-server-0 : type d’élément protégeable intitulé SQLInstance
-4. sql-server-1 : type d’élément protégeable intitulé SQLInstance
-5. Les bases de données SQL par défaut (master, modèle, msdb) sous sql-server-0 : type d’élément protégeable intitulé SQLDatabase
-6. Les bases de données SQL par défaut (master, modèle, msdb) sous sql-server-1 : type d’élément protégeable intitulé SQLDatabase
+* Un objet de groupe de disponibilité SQL : type d’élément protégeable intitulé SQLAvailabilityGroup
+* Une base de données de groupe de disponibilité SQL : type d’élément protégeable intitulé SQLDatabase
+* sql-server-0 : type d’élément protégeable intitulé SQLInstance
+* sql-server-1 : type d’élément protégeable intitulé SQLInstance
+* Les bases de données SQL par défaut (master, modèle, msdb) sous sql-server-0 : type d’élément protégeable intitulé SQLDatabase
+* Les bases de données SQL par défaut (master, modèle, msdb) sous sql-server-1 : type d’élément protégeable intitulé SQLDatabase
 
 sql-server-0 et sql-server-1 seront également répertoriés sous la forme « AzureVMAppContainer » dans la [liste des conteneurs de sauvegarde](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Récupérez simplement la base de données SQL pour [activer la sauvegarde](#configuring-backup) et les [cmdlets PS de sauvegarde ad hoc](#on-demand-backup) et de [restauration](#restore-sql-dbs) restent identiques.
+Récupérez simplement la base de données SQL pour [activer la sauvegarde](#configuring-backup) et les [cmdlets PS de sauvegarde à la demande](#on-demand-backup) et de [restauration](#restore-sql-dbs) restent identiques.

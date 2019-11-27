@@ -1,22 +1,23 @@
 ---
-title: Surveiller les journaux d’activité d’accès, les journaux d’activité de performances, l’intégrité du serveur principal et les métriques pour Azure Application Gateway
+title: Journaux de diagnostic et de l’intégrité back-end
+titleSuffix: Azure Application Gateway
 description: Découvrez comment activer et gérer les journaux d’activité d’accès et les journaux d’activité des performances pour Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075297"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
-À l’aide de la passerelle Azure Application Gateway, vous pouvez surveiller les ressources des manières suivantes :
+Vous pouvez superviser les ressources Azure Application Gateway des manières suivantes :
 
 * [Intégrité du serveur principal](#back-end-health) : Application Gateway permet de superviser l’intégrité des serveurs dans les pools de back-ends au moyen du portail Azure et de PowerShell. Vous pouvez également accéder à l’intégrité des pools principaux via les journaux de diagnostic des performances.
 
@@ -33,7 +34,7 @@ La passerelle Application Gateway permet de surveiller l’intégrité des membr
 Le rapport d’intégrité du serveur principal reflète les résultats de la sonde d’intégrité de la passerelle Application Gateway sur les instances de serveur principal. Si la détection réussit et que le trafic peut être orienté vers le serveur principal, ce dernier est considéré comme intègre. Sinon, il est considéré comme défaillant.
 
 > [!IMPORTANT]
-> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), ouvrez les plages de ports 65503-65534 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
+> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), ouvrez les plages de ports 65503-65534 pour les références SKU v1 et 65200-65535 pour les références SKU v2 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Affichage de l’intégrité du serveur principal via le portail

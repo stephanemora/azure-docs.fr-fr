@@ -1,21 +1,21 @@
 ---
 title: Référence de l’API de traduction de texte Translator Text V3.0
 titleSuffix: Azure Cognitive Services
-description: Documentation de référence pour l’API de traduction de texte Translator Text V3.0.
+description: Documentation de référence pour l’API de traduction de texte Translator Text V3.0. La version 3 de l’API de traduction de texte Translator Text fournit une API web moderne basée sur JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252978"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123040"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -165,3 +165,21 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 500000| Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 | 503000| Le service est temporairement indisponible. Veuillez réessayer. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 
+## <a name="metrics"></a>Mesures 
+Les métriques vous permettent de voir des informations sur l’utilisation et la disponibilité du traducteur dans le portail Azure, sous la section des métriques, comme illustré dans la capture d’écran ci-dessous. Pour plus d’informations, consultez [Métriques de données et de plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Métriques de traducteur](../media/translatormetrics.png)
+
+Ce tableau liste les métriques disponibles et décrit la façon dont elles sont utilisées pour superviser les appels d’API de traduction.
+
+| Mesures | Description |
+|:----|:-----|
+| TotalCalls| Nombre total d’appels d’API.|
+| TotalTokenCalls| Nombre total d’appels d’API par le biais du service de jeton qui utilisent un jeton d’authentification.|
+| SuccessfulCalls| Nombre d’appels réussis.|
+| TotalErrors| Nombre d’appels avec réponse d’erreur.|
+| BlockedCalls| Nombre d’appels ayant dépassé la limite de débit ou de quota.|
+| ServerErrors| Nombre d’appels avec erreur interne du serveur (5XX).|
+| ClientErrors| Nombre d’appels avec erreur côté client (4XX).|
+| Latence| Durée d’exécution de la demande en millisecondes.|
+| CharactersTranslated| Nombre total de caractères dans la requête de texte entrante.|

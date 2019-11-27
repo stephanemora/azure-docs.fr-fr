@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492831"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961938"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -73,7 +73,7 @@ Continuez à utiliser l’API V2 de point de terminaison de prédiction jusqu’
 
 ## <a name="v2-api-deprecation"></a>Dépréciation de l’API V2 
 
-L’API de prédiction V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3, à savoir le 8 juin 2020. 
+L’API de prédiction V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3, à savoir le 8 juin 2020. 
 
 ## <a name="endpoint-url-changes"></a>Modifications de l’URL de point de terminaison 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496349"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927180"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -129,7 +129,11 @@ Image Store Viewer est une fonctionnalité proposée si vous utilisez Native Ima
 ![Mappage de cluster de Service Fabric Explorer][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
-Service Fabric Explorer offre la possibilité d’interagir avec [Sauvegarde et de restauration](./service-fabric-reliable-services-backup-restore.md). Les opérations suivantes sont possibles :
+Service Fabric Explorer offre la possibilité d’interagir avec [Sauvegarde et de restauration](./service-fabric-reliable-services-backup-restore.md). Pour afficher les fonctionnalités de sauvegarde et de restauration dans SFX, vous devez activer le mode avancé.
+
+![Activer le mode avancé][0]
+ 
+Les opérations suivantes sont possibles :
 
 * Créer, modifier et supprimer une stratégie de sauvegarde.
 * Activer et désactiver la sauvegarde pour une application, un service ou une partition.
@@ -151,3 +155,4 @@ Pour plus d’informations sur le service Sauvegarde et restauration, consultez 
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

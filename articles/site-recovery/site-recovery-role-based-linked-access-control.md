@@ -1,17 +1,17 @@
 ---
-title: Gérer l’accès à Azure Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC) | Microsoft Docs
+title: Gérer le contrôle d’accès en fonction du rôle Azure dans Azure Site Recovery
 description: Cet article décrit comment appliquer le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471432"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083777"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gérer l’accès à Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC)
 
@@ -37,6 +37,9 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 
 > [!IMPORTANT]
 >Assurez-vous que les autorisations pertinentes sont ajoutées pour chaque modèle de déploiement (Resource Manager/classique) utilisé pour le déploiement des ressources.
+
+> [!NOTE]
+> Si vous activez la réplication pour une machine virtuelle Azure et souhaitez autoriser Site Recovery à gérer les mises à jour, tout en activant la réplication, vous pouvez également créer un nouveau compte Automation, auquel cas vous devrez obtenir l'autorisation de créer un compte Automation dans le même abonnement que le coffre.
 
 | **Type de ressource** | **Modèle de déploiement** | **Permission** |
 | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de machines virtuelles VMware sur Azure | Microsoft Docs
+title: Planificateur de déploiement Azure Site Recovery pour la reprise d’activité après sinistre de VMware
 description: En savoir plus sur le planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de machines virtuelles VMware sur Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 50a236154a0340bd49e84a8ca02f656e3cd9994a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620060"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084526"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.

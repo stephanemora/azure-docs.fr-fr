@@ -1,19 +1,18 @@
 ---
 title: Requête sur le routage des messages IoT Hub | Microsoft Docs
-description: Guide du développeur - Syntaxe des requêtes pour le routage de messages sur IoT Hub.
+description: Découvrez plus en détail le langage de requête de routage des messages IoT Hub que vous pouvez utiliser pour appliquer des requêtes riches à des messages afin de recevoir les données qui vous intéressent.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877071"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890497"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 

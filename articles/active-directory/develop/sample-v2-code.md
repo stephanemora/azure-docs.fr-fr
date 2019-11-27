@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ed7383515a725816679acb405b2ff3b1dc8e92
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817231"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927189"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -105,6 +105,18 @@ Les exemples suivants montrent comment protéger une API web avec le point de te
 | -------- | ------------------- |
 | ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | API web ASP.NET Core (service) associée à [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Cette image affiche le logo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | API web (service) associée à [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
+
+## <a name="azure-functions-as-web-apis"></a>Fonctions Azure en tant qu’API web
+
+Les exemples suivants montrent comment protéger une fonction Azure en utilisant HttpTrigger et en exposant une API web avec le point de terminaison de la plateforme d’identité Microsoft, et comment appeler une API en aval à partir de l’API web.
+
+| Plateforme | Exemple |
+| -------- | ------------------- |
+| ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | Fonction Azure avec API web ASP.NET Core (service) de [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Cette image affiche le logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API web (service) de [NodeJS and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png)</p>Python | API web (service) de [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Cette image affiche le logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API web (service) de [NodeJS and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+
 
 ## <a name="other-microsoft-graph-samples"></a>Autres exemples Microsoft Graph
 

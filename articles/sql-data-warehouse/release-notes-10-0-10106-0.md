@@ -5,18 +5,18 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 09/18/2019
+ms.date: 11/12/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 967263bde459739482100524e5f85bed96cee6f9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 468a61c83948033905b3727add528520611b8bd4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824295"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092231"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
@@ -28,9 +28,23 @@ Au fur et à mesure que de nouvelles fonctionnalités sont déployées dans tout
 
 Exemple de sortie :
 
-![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+![Version de SQL Data Warehouse](./media/release-notes/t47-1-version.png)
 
-Utilisez la date prévue pour confirmer quelle version a été appliquée à votre version d’Azure SQL DW.
+Utilisez la version identifiée pour confirmer la version qui a été appliquée à votre version d’Azure SQL DW.
+
+## <a name="october-2019"></a>Octobre 2019
+
+| Améliorations du service | Détails |
+| --- | --- |
+|**Copie (préversion)**|Nous avons le plaisir d’annoncer la préversion publique d’une instruction COPY simple et flexible pour l’ingestion de données. Avec une seule instruction, vous pouvez désormais ingérer des données sans interruption avec davantage de flexibilité et sans que les utilisateurs aient besoin de privilèges élevés. Pour plus d’informations, consultez la [documentation sur la commande COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).|
+|**Isolation des charges de travail (préversion)**|Pour accompagner les clients dans la démocratisation de leurs entrepôts de données, nous annonçons de nouvelles fonctionnalités de gestion intelligente des charges de travail. La nouvelle fonctionnalité d’[isolation des charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) vous permet de gérer l’exécution de charges de travail hétérogènes tout en offrant la flexibilité et le contrôle des ressources d’entrepôt de données. Cela se traduit par une prévisibilité de l’exécution améliorée et augmente la capacité à honorer les contrats SLA prédéfinis. </br>Outre l’isolation des charges de travail, des options supplémentaires sont désormais disponibles pour la [classification des charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-classification).  Au-delà de la classification des connexions, la syntaxe de [Create Workload Classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) permet de classifier les demandes en fonction de l’étiquette de requête, du contexte de session et de l’heure de la journée.|
+|**PREDICT (préversion)**|Vous pouvez désormais scorer les modèles de Machine Learning dans votre entrepôt de données, ce qui vous dispense des opérations de déplacement de données complexes et d’envergure. La fonction T-SQL PREDICT s’appuie sur une infrastructure à modèle ouvert et prend les données et le modèle Machine Learning comme entrée pour générer des prédictions.
+|**CI/CD SSDT (mise à la disposition générale)**|Aujourd’hui, nous avons le plaisir d’annoncer la mise à la disponibilité générale de la [fonctionnalité la plus demandée](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t) pour les projets de base de données SQL Data Warehouse – SQL Server Data Tools (SSDT). Ce lancement inclut la prise en charge de SSDT avec Visual Studio 2019 ainsi que l’intégration de plateforme en mode natif avec Azure DevOps, offrant des capacités d’intégration et déploiement continus (CI/CD) pour les déploiements de niveau entreprise. |
+|**Vue matérialisée (mise à la disposition générale)**|Une vue matérialisée conserve les données renvoyées par la requête de définition de vue et est automatiquement mise à jour à mesure que les données changent dans les tables sous-jacentes. Elle améliore les performances des requêtes complexes (généralement des requêtes contenant des jointures et agrégations) tout en offrant des opérations de maintenance simples. Pour plus d’informations, consultez la section [Optimisation des performances avec les vues matérialisées](/azure/sql-data-warehouse/performance-tuning-materialized-views).  Installez [SQL Server Management Studio 18.4 ou version ultérieure](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) pour scripter des vues matérialisées.|
+|**Dynamic Data Masking (mise à la disposition générale)**|La fonctionnalité Dynamic Data Masking (DDM) empêche l’accès non autorisé à vos données sensibles dans votre entrepôt de données en les obfusquant à la volée dans les résultats de requête, en fonction de règles de masquage que vous définissez. Pour en savoir plus, consultez [Masquage de données dynamiques dans une base de données SQL](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Isolement de capture instantanée Read Commited (mise à la disposition générale)**|Vous pouvez utiliser ALTER DATABASE pour activer ou désactiver l’isolement de capture instantanée pour une base de données utilisateur. Pour éviter tout impact sur votre charge de travail en cours, vous pouvez définir cette option lors de la fenêtre de maintenance de la base de données ou attendre qu’il n’y ait aucune autre connexion active à la base de données. Pour plus d'informations, consultez [Options Alter database set](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
+|**Index columnstore en cluster ordonné (mise à la disposition générale)**|Columnstore est un activateur clé pour le stockage et l’interrogation efficace de grandes quantités de données. Les index columnstore cluster ordonnés optimisent l’exécution des requêtes en permettant une élimination efficace des segments.   Pour plus d’informations, consultez [Optimisation des performances avec un index columnstore en cluster ordonné](/azure/sql-data-warehouse/performance-tuning-ordered-cci).|
+|**Mise en cache du jeu de résultats (mise à la disposition générale)**|Lorsque la mise en cache du jeu de résultats est activée, Azure SQL Data Warehouse met automatiquement en cache les résultats de la requête dans la base de données utilisateur ce qui permet de les utiliser de façon répétée. Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire. La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul. De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache. Pour plus d’informations, consultez [Optimisation des performances avec la mise en cache du jeu de résultats](/azure/sql-data-warehouse/performance-tuning-result-set-caching). S’applique à la version 10.0.10783.0 et supérieures.|
 
 ## <a name="september-2019"></a>Septembre 2019
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e8a8170023c8f529894522e27a4c6231325089af
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: caee247dfb1f7068e935be9c293a28870cfb98ce
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190985"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069324"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge
 
@@ -55,6 +55,7 @@ Le jumeau de module de l’agent IoT Edge est appelé `$edgeAgent` et coordonne 
 | modules.{moduleId}.type | Doit être "docker" | OUI |
 | modules.{moduleId}.status | {"running" \| "stopped"} | OUI |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | OUI |
+| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | Non |
 | modules.{moduleId}.settings.image | URI de l’image du module. | OUI |
 | modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | modules.{moduleId}.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |

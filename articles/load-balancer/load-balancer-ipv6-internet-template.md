@@ -1,7 +1,7 @@
 ---
 title: Déployer un équilibreur de charge accessible sur Internet avec IPv6 - modèle Azure
-titlesuffix: Azure Load Balancer
-description: Comment déployer la prise en charge du protocole IPv6 pour l’équilibrage de charge et les machines virtuelles à charge équilibrée.
+titleSuffix: Azure Load Balancer
+description: Découvrez comment déployer la prise en charge IPv6 pour un équilibreur de charge Azure et des machines virtuelles à charge équilibrée à l’aide d’un modèle Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f92011a6955398ef85e44fae1ce8f782cc9cc12c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274997"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076001"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -29,6 +29,8 @@ ms.locfileid: "68274997"
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
 
+>[!REMARQUE : changement de meilleure pratique pour IPv6] Cet article décrit une fonction d'introduction IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6.  Une connectivité IPv6 plus complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 à vos réseaux virtuels et inclut des fonctionnalités clés telles que les règles de groupe de sécurité réseau IPv6, le routage défini par l'utilisateur IPv6, le partage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la meilleure pratique recommandée pour les applications IPv6 dans Azure. 
+>Voir [IPv6 pour le déploiement du modèle de réseau virtuel Azure](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 

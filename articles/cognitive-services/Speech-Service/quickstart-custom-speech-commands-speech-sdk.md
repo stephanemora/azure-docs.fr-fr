@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)'
+title: 'Démarrage rapide : Se connecter à une application Commandes personnalisées avec le SDK Speech - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous allez créer une application cliente du kit de développement logiciel (SDK) Speech avec Commandes personnalisées.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506680"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111161"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)
 
@@ -46,7 +46,7 @@ Ce guide de démarrage rapide explique, étape par étape, comment créer une ap
 
 1. Ouvrez votre [application Commandes personnalisées précédemment créée](./quickstart-custom-speech-commands-create-new.md), puis sélectionnez **Publier**
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ![Publication de l’application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copiez l’ID d’application à partir de la notification de publication pour utilisation ultérieure
@@ -320,7 +320,7 @@ Ajoutez la source du code-behind en procédant comme suit :
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ Ajoutez la source du code-behind en procédant comme suit :
 1. Ajoutez l’extrait de code suivant au corps de la méthode `ListenButton_ButtonClicked` dans la classe `MainPage`
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -415,7 +415,7 @@ Ajoutez la source du code-behind en procédant comme suit :
 1. Sélectionnez **Talk** (Parler) et prononcez une phrase ou quelques mots en anglais dans le micro de votre appareil. Votre production orale est transmise au canal Direct Line Speech, et transcrite en texte qui apparaît dans la fenêtre.
 
 ## <a name="next-steps"></a>Étapes suivantes
-> [!div class="nextstepaction"]
-> [Guide pratique pour effectuer les commandes sur le client avec le kit de développement logiciel (SDK) Speech (préversion)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)](./how-to-custom-speech-commands-validations.md)
 
+> [!div class="nextstepaction"]
+> [Guide pratique pour effectuer les commandes sur le client avec le SDK Speech (préversion)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)](./how-to-custom-speech-commands-validations.md)

@@ -1,5 +1,5 @@
 ---
-title: Autorités de certification autorisées pour le protocole HTTPS personnalisé sur Azure CDN | Microsoft Docs
+title: Autorité de certification autorisée pour le protocole HTTPS personnalisé sur Azure CDN
 description: Si vous utilisez votre propre certificat pour activer HTTPS sur un domaine personnalisé, vous devrez utiliser une autorité de certification autorisée (CA) pour le créer.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 754941163ddce9512870f0b76a96207472e5b2aa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593356"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083103"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autorités de certification autorisées pour le protocole HTTPS personnalisé sur Azure CDN
 

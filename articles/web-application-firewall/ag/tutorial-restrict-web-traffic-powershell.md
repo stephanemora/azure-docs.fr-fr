@@ -1,18 +1,19 @@
 ---
-title: Limiter le trafic web avec un pare-feu d’applications web - Azure PowerShell
+title: Restreindre le trafic web avec PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Découvrez comment limiter le trafic web avec un pare-feu d’applications web sur une passerelle d’application avec Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: b96065b6551f604cfd817a00e6a39cec37c71377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.topic: conceptual
+ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495509"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046291"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Activer le pare-feu d’applications web avec Azure PowerShell
 

@@ -1,7 +1,7 @@
 ---
 title: Migrer un espace de travail et des projets Microsoft Translator Hub - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Migrez votre espace de travail et vos projets Hub vers Custom Translator.
+description: Cet article explique comment migrer votre espace de travail et vos projets Hub vers Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675501"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836590"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 

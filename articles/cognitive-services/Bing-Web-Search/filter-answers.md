@@ -1,7 +1,7 @@
 ---
 title: 'Comment filtrer les résultats de la recherche : API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment filtrer et afficher les résultats de recherche obtenus avec l’API Recherche Web Bing.
+description: Vous pouvez filtrer les types de réponses que Bing inclut dans la réponse (par exemple, des images, des vidéos et des actualités) à l’aide du paramètre de requête responseFilter.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626023"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111417"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
 

@@ -1,7 +1,7 @@
 ---
 title: Méthode Languages de l’API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
-description: Utilisez la méthode Languages de l’API de traduction de texte Translator Text.
+description: La méthode Languages permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API Traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934012"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835827"
 ---
 # <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
@@ -271,7 +271,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>503</td>
-    <td>Serveur temporairement indisponible. relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
+    <td>Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

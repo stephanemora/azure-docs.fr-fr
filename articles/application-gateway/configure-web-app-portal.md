@@ -1,18 +1,19 @@
 ---
-title: Gérer le trafic vers les applications multilocataires comme les applications web App Service avec Azure Application Gateway - Portail
+title: Gérer le trafic vers les applications multilocataires à l’aide du portail
+titleSuffix: Azure Application Gateway
 description: Cet article fournit de l’aide sur la configuration des applications web Azure App Service en tant que membres du pool de back-ends sur une passerelle d’application nouvelle ou existante.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68370416"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075164"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 

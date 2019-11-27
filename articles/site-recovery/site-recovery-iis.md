@@ -1,5 +1,5 @@
 ---
-title: Configurer la reprise d’activité pour une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery | Microsoft Docs
+title: Configurer la récupération d’urgence d’une application web IIS avec Azure Site Recovery
 description: Découvrez comment répliquer les machines virtuelles d’une batterie de serveurs web IIS avec Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480296"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954663"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 

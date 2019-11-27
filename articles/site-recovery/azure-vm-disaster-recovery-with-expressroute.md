@@ -1,5 +1,5 @@
 ---
-title: Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure avec le service Azure Site Recovery | Microsoft Docs
+title: Intégrer la récupération d'urgence de machines virtuelles Azure ExpressRoute avec Azure Site Recovery
 description: Décrit comment configurer la reprise d’activité pour des machines virtuelles Azure avec Azure Site Recovery et Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722103"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954079"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer ExpressRoute avec la récupération d'urgence pour les machines virtuelles Azure
 
 
 Cet article décrit comment intégrer Azure ExpressRoute à [Azure Site Recovery](site-recovery-overview.md) lors de la configuration de la reprise d’activité pour des machines virtuelles Azure dans une région Azure secondaire.

@@ -1,19 +1,18 @@
 ---
-title: 'Créer et modifier un circuit ExpressRoute : Azure CLI | Microsoft Docs'
+title: 'Créer et modifier un circuit ExpressRoute : D’Azure CLI'
 description: Cet article explique comment créer, provisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface CLI.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 75729811b63e8de3047e45e9b90f5fa3ec657901
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657066"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083217"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 
@@ -142,8 +141,8 @@ L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s p
 
 Assurez-vous que vous spécifiez le niveau de référence (SKU) et la famille de références corrects :
 
-* Le niveau de référence détermine si ExpressRoute standard ou un module complémentaire ExpressRoute Premium est activé. Vous pouvez spécifier « Standard » pour obtenir la référence SKU standard ou « Premium » pour le module complémentaire Premium.
-* La famille de références détermine le type de facturation. Vous pouvez spécifier « Metereddata » pour définir un forfait de données limité et « Unlimiteddata » pour un forfait de données illimité. Vous pouvez remplacer le type de facturation « Metereddata » par « Unlimiteddata », mais que vous ne pouvez pas le changer de « Unlimiteddata » en « Metereddata ».
+* Le niveau SKU détermine si un circuit ExpressRoute est [local](expressroute-faqs.md#expressroute-local), standard ou [premium](expressroute-faqs.md#expressroute-premium). Vous pouvez définir sur *Local*, *Standard* ou *Premium*.
+* La famille de références détermine le type de facturation. Vous pouvez spécifier *Metereddata* pour définir un forfait de données limité et *Unlimiteddata* pour un forfait de données illimité. Vous pouvez changer le type de facturation de *Metereddata* en *Unlimiteddata*, mais que vous ne pouvez pas le changer de *Unlimiteddata* en *Metereddata*. Un circuit *local* est uniquement *Unlimiteddata*.
 
 
 Votre circuit ExpressRoute est facturé à partir de l’émission d'une clé de service. Voici un exemple de demande pour une nouvelle clé de service :

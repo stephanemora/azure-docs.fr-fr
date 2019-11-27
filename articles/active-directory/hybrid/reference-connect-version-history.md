@@ -2,26 +2,22 @@
 title: 'Azure AD Connect : Historique de publication des versions | Microsoft Docs'
 description: Cet article répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025836"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73944223"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -35,17 +31,25 @@ Rubrique |  Détails
 --------- | --------- |
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](how-to-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](reference-connect-accounts-permissions.md#upgrade).
-
-Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Téléchargement| [Téléchargez Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >La publication d’une nouvelle version d’Azure AD Connect est un processus qui nécessite plusieurs étapes de contrôle qualité pour garantir la fonctionnalité de l’opération du service. Pendant que nous effectuons ce processus, le numéro d’une nouvelle version ainsi que l’état de la version sont mis à jour pour refléter l’état le plus récent.
 Pendant que nous effectuons ce processus, le numéro de la version s’affiche avec un « X » en position de numéro de version mineure, comme dans « 1.3.X.0 ». Cela indique que les notes de publication de ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous aurons finalisé le processus de publication, le numéro de version sera mis à jour vers la version la plus récente, et l’état de lancement sera mis à jour vers « Lancé pour le téléchargement et la mise à niveau automatique ».
-La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](how-to-connect-install-automatic-upgrade.md)
+
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>État de la version
+08/11/2019 : publiée pour téléchargement. Non disponible pour la mise à niveau automatique
+
+>[!IMPORTANT]
+>En raison d’une modification de schéma interne dans cette version d’Azure AD Connect, si vous gérez les paramètres de configuration d’une relation d’approbation ADFS à l’aide de MSOnline PowerShell, vous devez mettre à jour votre module MSOnline PowerShell vers la version 1.1.183.57 ou ultérieure
+### <a name="fixed-issues"></a>Problèmes résolus
+
+Cette version résout un problème avec les appareils Azure AD Hybride joints existants. Cette version contient une nouvelle règle de synchronisation d’appareil qui corrige ce problème.
+Notez que cette modification de règle peut entraîner la suppression d’appareils obsolètes d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces objets d’appareil durant l’autorisation d’accès conditionnel. Pour certains clients, le nombre d’appareils qui seront supprimés par le biais de cette modification de règle peut dépasser le seuil de suppression. Si vous constatez que les suppressions d’objets d’appareil dans Azure AD dépassent le seuil de suppression des exportations, il est conseillé d’autoriser la poursuite de ces suppressions. [Guide pratique pour autoriser le déroulement des suppressions quand elles dépassent le seuil de suppression](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>État de la version
 28/09/2019 : Mise en production pour la mise à niveau automatique afin de sélectionner des locataires. Non disponible pour téléchargement.
@@ -80,8 +84,8 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 - Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées par le biais de l’Assistant AADC.
 - Ajout d’une nouvelle erreur pour les problèmes liés à la stratégie de mot de passe d’un utilisateur.
 - Prévention d’une erreur de configuration du filtrage de groupe par les filtres de domaine et d’UO. Le filtrage de groupe affiche une erreur lorsque le domaine ou l’unité d’organisation du groupe entré est déjà filtré et empêche l’utilisateur de poursuivre tant que le problème n’est pas résolu.
-- Les utilisateurs ne peuvent plus créer de connecteur pour Active Directory Domain Services ou Windows Azure Active Directory dans l’ancienne interface utilisateur.
-- Résolution du problème d’accessibilité des contrôles d’interface utilisateur personnalisés dans Synchronization Service Manager
+- Les utilisateurs ne peuvent plus créer de connecteur pour Active Directory Domain Services ou Windows Azure Active Directory dans l’interface utilisateur Synchronization Service Manager.
+- Résolution du problème d’accessibilité des contrôles d’interface utilisateur personnalisés dans Synchronization Service Manager.
 - Activation de six tâches de gestion de la fédération pour toutes les méthodes de connexion dans Azure AD Connect.  (Auparavant, seule la tâche « Mettre à jour le certificat SSL AD FS » était disponible pour l’ensemble des connexions.)
 - Ajout d’un avertissement lors de la modification de la méthode de connexion, qui passe de la fédération à la synchronisation de hachage de mot de passe (PHS) ou à l’authentification directe (PTA), convertissant tous les utilisateurs et domaines Azure AD en authentification managée.
 - Suppression des certificats de signature de jeton dans la tâche « Réinitialiser Azure AD et l’approbation AD FS » et ajout d’une sous-tâche distincte pour mettre à jour ces certificats.
@@ -120,7 +124,7 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
 
-- Correction d’une vulnérabilité avec élévation de privilège qui existe dans Microsoft Azure Active Directory Connect build 1.3.20.0.  Sous certaines conditions, cette vulnérabilité peut permettre à un attaquant d’exécuter deux cmdlets PowerShell dans le contexte d’un compte privilégié et d’effectuer des actions privilégiées.  Cette mise à jour de sécurité résout le problème en désactivant ces cmdlets. Pour plus d’informations, reportez-vous à la [mise à jour de sécurité](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
+- Correction d’une vulnérabilité avec élévation de privilège qui existe dans Microsoft Azure Active Directory Connect build 1.3.20.0.  Sous certaines conditions, cette vulnérabilité peut permettre à un attaquant d’exécuter deux cmdlets PowerShell dans le contexte d’un compte privilégié et d’effectuer des actions privilégiées.  Cette mise à jour de sécurité résout le problème en désactivant ces cmdlets. Pour plus d’informations, reportez-vous à la [mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -133,7 +137,7 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 - Ajout de la prise en charge de l’actualisation de domaine 
 - Disponibilité générale des dossiers publics de messagerie Exchange 
 - Amélioration de la gestion des erreurs de l’Assistant pour les échecs de service 
-- Ajout d’un lien d’avertissement pour l’ancienne interface utilisateur dans la page de propriétés de connecteur 
+- Lien d’avertissement ajouté à l’interface utilisateur Synchronization Service Manager dans la page Propriétés du connecteur. 
 - Disponibilité générale de la fonctionnalité d’écriture différée des groupes unifiés 
 - Message d’erreur SSPR amélioré lorsqu’un contrôle LDAP est absent du contrôleur de domaine 
 - Ajout de diagnostics pour les erreurs de Registre DCOM pendant l’installation  
@@ -159,7 +163,7 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 - Correction des erreurs VSS avec base de données locale  
 - Correction du message d’erreur trompeur lorsque le type d’objet n’est pas dans la portée 
 - Correction d’un problème où l’installation d’Azure AD PowerShell sur un serveur pouvait provoquer un conflit d’assembly avec Azure AD Connect. 
-- Correction du bogue de synchronisation de hachage de mot de passe sur le serveur intermédiaire lorsque les informations d’identification du connecteur sont mises à jour dans l’ancienne interface utilisateur. 
+- Correction du bogue de synchronisation de hachage de mot de passe sur le serveur intermédiaire lorsque les informations d’identification du connecteur sont mises à jour dans l’interface utilisateur Synchronization Service Manager. 
 - Correction de certaines fuites de mémoire 
 - Divers correctifs de mise à niveau automatique 
 - Divers correctifs pour le traitement des importations non confirmées et des exportations 
@@ -1177,7 +1181,7 @@ Publication : Novembre 2015
 
 **Nouveau scénario pris en charge :**
 
-* Prise en charge de plusieurs organisations Exchange locales Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://technet.microsoft.com/library/jj873754.aspx).
+* Prise en charge de plusieurs organisations Exchange locales Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Problèmes résolus :**
 

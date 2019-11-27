@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519331"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082929"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformation de réception des flux de données
 
@@ -28,7 +28,7 @@ Pour réceptionner tous les champs entrants, activez le **Mappage automatique**.
 ## <a name="output"></a>Output 
 Pour les récepteurs Azure Storage Blob et Data Lake Storage, envoyez les données transformées vers un dossier. Spark génère des fichiers de données de sortie partitionnés, selon le schéma de partition utilisé par la transformation de réception. 
 
-Vous pouvez configurer le schéma de partition depuis l’onglet **Optimiser**. Si vous voulez que Data Factory fusionne vos résultats dans un seul fichier, sélectionnez **Partition unique**.
+Vous pouvez configurer le schéma de partition depuis l’onglet **Optimiser**. Si vous voulez que Data Factory fusionne vos résultats dans un seul fichier, sélectionnez **Partition unique**. Si vous souhaitez gérer ou créer des dossiers partitionnés, utilisez le **Partitionnement par clé** et définissez les clés que vous souhaitez utiliser pour les structures de dossiers partitionnées.
 
 ![Options de l’onglet Optimiser](media/data-flow/opt001.png "Options du récepteur")
 
@@ -110,7 +110,7 @@ Choisissez les Paramètres de base de données :
 
 Lors de l’arrivée de données dans CosmosDB, vous devez prendre en compte les options supplémentaires suivantes :
 
-* Clé de partition : ce champ est obligatoire. Entrez une chaîne qui représente la clé de partition de votre collection. Exemple : ```/movies/title```
+* Clé de partition : Ce champ est obligatoire. Entrez une chaîne qui représente la clé de partition de votre collection. Exemple : ```/movies/title```
 * Débit : définissez une valeur facultative du nombre de RU que vous souhaitez appliquer à votre collection CosmosDB pour chaque exécution de ce flux de données. La valeur minimale est 400.
 
 ## <a name="next-steps"></a>Étapes suivantes

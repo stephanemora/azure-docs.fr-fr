@@ -1,21 +1,21 @@
 ---
-title: Mise en réseau dans Azure pour la récupération d’urgence Azure dans Azure Site Recovery | Microsoft Docs
+title: Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure avec Azure Site Recovery
 description: Fournit une vue d’ensemble de la mise en réseau en vue d’une réplication des machines virtuelles Azure avec Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/29/2019
+ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736396"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954207"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
 
 
@@ -48,7 +48,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 **URL** | **Détails**  
 --- | ---
-*.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache pour vos machines virtuelles, vous pouvez autoriser les URL de compte de stockage spécifique (Ex : cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *. blob.core.windows.net
+*.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache de vos machines virtuelles, vous pouvez autoriser l’accès aux URL de compte de stockage spécifiques (par exemple, cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *.blob.core.windows.net.
 login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
 *.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de supervision de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
@@ -62,7 +62,7 @@ Si vous utilisez des règles de groupe de sécurité réseau, de proxy ou de par
     - Autorisez ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
 - Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
     - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
-- Adresses IP des points de terminaison du service Site Recovery, [disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips), qui dépendent de votre emplacement cible.
+- Adresses IP des points de terminaison du service Site Recovery, [disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips), qui dépendent de votre emplacement cible. 
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
 
 
@@ -117,6 +117,8 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    Allemagne Centre-Ouest | 51.116.156.176 | 51.116.154.192
    Suisse Ouest | 51.107.231.223| 51.107.154.128
    Suisse Nord | 51.107.68.31| 51.107.58.128
+   Norvège Est | 51.120.100.64| 51.120.98.128
+   Norvège Ouest | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
@@ -154,6 +156,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
    USA Est | 13.82.88.226 | 104.45.147.24
+
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 

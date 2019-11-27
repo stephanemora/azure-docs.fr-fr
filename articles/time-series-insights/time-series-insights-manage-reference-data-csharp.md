@@ -1,6 +1,6 @@
 ---
-title: Gérer des données de référence dans un environnement Azure Time Series Insights avec C# | Microsoft Docs
-description: Cet article décrit comment gérer des données de référence pour un environnement Azure Time Series Insights en créant une application personnalisée écrite dans le langage C# (c-sharp) .NET.
+title: Gérer des données de référence dans un environnement GA en C# – Azure Time Series Insights | Microsoft Docs
+description: Découvrez comment gérer les données de référence de votre environnement GA en créant une application personnalisée écrite en C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a32bf00d21311a1a8041a901f70b9b400a49ab76
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990040"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012567"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gérer des données de référence GA pour un environnement Azure Time Series Insights à l’aide de C#
 

@@ -1,5 +1,5 @@
 ---
-title: Clés de création et d'exécution - LUIS
+title: Guide pratique pour utiliser les clés de création et de runtime avec LUIS
 titleSuffix: Azure Cognitive Services
 description: "LUIS utilise deux clés : la clé de création pour créer votre modèle et la clé d'exécution pour interroger le point de terminaison de prédiction avec des énoncés utilisateur."
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487493"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901700"
 ---
 # <a name="authoring-and-runtime-keys"></a>Clés de création et d'exécution
 

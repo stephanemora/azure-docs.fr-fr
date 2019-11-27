@@ -10,22 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552977"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091211"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
-En guise d’alternative à [SDK Speech](speech-sdk.md), Speech Services vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
+En guise d’alternative à [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
 
 Avant d’utiliser l’API REST de reconnaissance vocale, tenez compte des points suivants :
-* Les demandes qui utilisent l’API REST ne peuvent contenir que 10 secondes d’enregistrement audio.
+
+* Les demandes qui utilisent l’API REST et transmettent directement l’audio peuvent contenir jusqu’à 60 secondes d’audio.
 * L’API REST de reconnaissance vocale retourne uniquement les résultats finaux. Les résultats partiels ne sont pas fournis.
 
-Si vous devez envoyer un contenu audio plus long pour votre application, vous pouvez utiliser le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) ou une [transcription par lot](batch-transcription.md).
+Si vous devez envoyer un contenu audio plus long pour votre application, vous pouvez utiliser le [SDK Speech](speech-sdk.md) ou une API REST basée sur un fichier, comme une [transcription par lot](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -33,7 +34,7 @@ Si vous devez envoyer un contenu audio plus long pour votre application, vous po
 
 Ces régions sont prises en charge pour la transcription de reconnaissance vocale à l’aide de l’API REST. Veillez à sélectionner le point de terminaison correspondant à votre région d’abonnement.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## <a name="query-parameters"></a>Paramètres de requête
 
@@ -43,7 +44,7 @@ Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
 |-----------|-------------|---------------------|
 | `language` | Identifie la langue parlée qui est reconnue. Voir [Langues prises en charge](language-support.md#speech-to-text). | Obligatoire |
 | `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent plusieurs résultats avec des valeurs de niveau de confiance et quatre différentes représentations. Le paramètre par défaut est `simple`. | Facultatif |
-| `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les obscénités par des astérisques, `removed`, qui supprime les obscénités du résultat, ou `raw`, qui inclut les obscénités dans le résultat. Le paramètre par défaut est `masked`. | Facultatif |
+| `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. Le paramètre par défaut est `masked`. | Facultatif |
 
 ## <a name="request-headers"></a>En-têtes de requête
 
@@ -55,8 +56,8 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Cet en-tête ou `Ocp-Apim-Subscription-Key` est requis. |
 | `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codecs=audio/pcm; samplerate=16000` et `audio/ogg; codecs=opus`. | Obligatoire |
 | `Transfer-Encoding` | Spécifie que les données audio sont envoyées en bloc plutôt que dans un seul fichier. Utilisez uniquement cet en-tête si vous envoyez les données audio en bloc. | Facultatif |
-| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Speech Services accuse réception de la requête initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
-| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Speech Services fournit les résultats au format JSON. Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
+| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Les services Speech accusent réception de la requête initiale et attendent des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
+| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Les services Speech fournissent les résultats au format JSON. Certains frameworks de demande fournissent une valeur par défaut incompatible. Il est recommandé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
 
 ## <a name="audio-formats"></a>Formats audio
 
@@ -72,7 +73,7 @@ L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être da
 
 ## <a name="sample-request"></a>Exemple de requête
 
-Il s’agit d’une requête HTTP standard. L’exemple ci-dessous inclut le nom d’hôte et les en-têtes requis. Il est important de noter que le service attend également des données audio, ce qui n’est pas inclus dans cet exemple. Comme mentionné précédemment, l’envoi en bloc est recommandé, mais pas nécessaire.
+L’exemple ci-dessous inclut le nom d’hôte et les en-têtes requis. Il est important de noter que le service attend également des données audio, ce qui n’est pas inclus dans cet exemple. Comme mentionné précédemment, l’envoi en bloc est recommandé, mais pas nécessaire.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -92,13 +93,13 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 |------------------|-------------|-----------------|
 | 100 | Continue | La requête initiale a été acceptée. Passez à l’envoi du reste des données. (Utilisé avec le transfert en bloc.) |
 | 200 | OK | La requête a réussi ; le corps de réponse est un objet JSON. |
-| 400 | Demande incorrecte | Le code de langue n’est pas fourni ou n’est pas une langue prise en charge ; fichier audio non valide. |
+| 400 | Demande incorrecte | Le code de langue n’est pas fourni, la langue n’est pas prise en charge, le fichier audio est non valide, etc. |
 | 401 | Non autorisé | La clé d’abonnement ou le jeton d’autorisation n’est pas valide dans la région spécifiée, ou le point de terminaison n’est pas valide. |
 | 403 | Interdit | Clé d’abonnement ou jeton d’autorisation manquant. |
 
 ## <a name="chunked-transfer"></a>Transfert en bloc
 
-Le transfert en bloc (`Transfer-Encoding: chunked`) peut contribuer à réduire la latence de reconnaissance, car il permet à Speech Services de commencer le traitement du fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires. Cette option est destinée uniquement à améliorer la réactivité.
+Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de la reconnaissance. Il permet aux services Speech de commencer à traiter le fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires.
 
 Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 
@@ -177,7 +178,7 @@ Chaque objet de la liste `NBest` inclut :
 
 ## <a name="sample-responses"></a>Exemples de réponses
 
-Il s’agit d’une réponse classique pour la reconnaissance `simple`.
+Réponse classique pour la reconnaissance `simple` :
 
 ```json
 {
@@ -188,7 +189,7 @@ Il s’agit d’une réponse classique pour la reconnaissance `simple`.
 }
 ```
 
-Il s’agit d’une réponse classique pour la reconnaissance `detailed`.
+Réponse classique pour la reconnaissance `detailed` :
 
 ```json
 {

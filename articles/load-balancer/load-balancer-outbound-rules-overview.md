@@ -1,7 +1,6 @@
 ---
-title: Règles de trafic sortant dans Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Utiliser des règles de trafic sortant pour définir la traduction d’adresses réseau sortantes
+title: Règles de trafic sortant – Azure Load Balancer
+description: Dans ce parcours d’apprentissage, commencez à utiliser des règles de trafic sortant pour définir des traductions d’adresses réseau sortantes.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497991"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075906"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 

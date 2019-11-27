@@ -1,5 +1,5 @@
 ---
-title: 'Configurer le mode de transport IPsec pour les hôtes Windows - peering privé : ExpressRoute : Azure | Microsoft Docs'
+title: 'Peering privé Azure ExpressRoute : Configurer le mode de transport IPsec – Hôtes Windows'
 description: Découvrez comment activer le mode de transport IPsec entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux via le peering privé ExpressRoute, à l’aide d’objets de stratégie de groupe ou d’unités d’organisation.
 services: expressroute
 author: fabferri
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366925"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022011"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour le peering privé ExpressRoute
 

@@ -1,7 +1,7 @@
 ---
-title: Sélection d’un périphérique d’entrée audio avec le kit de développement logiciel (SDK) Speech – ServiceSpeech
+title: Guide pratique pour sélectionner un périphérique d’entrée audio avec le SDK Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez la sélection de périphériques d’entrée audio dans le SDK Speech.
+description: Découvrez-en plus sur la sélection de périphériques d’entrée audio dans le SDK Speech (C++, C#, Python, Objective-C, Java, JavaScript) en obtenant les ID des périphériques audio connectés à un système.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,18 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562727"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109981"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Sélectionner un périphérique d’entrée audio avec le SDK Speech
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Activation Sélectionner un périphérique d’entrée audio avec le SDK Speech
 
-La version 1.3.0 du SDK Speech introduit une API pour sélectionner l’entrée audio.
-Cet article décrit comment obtenir les ID des appareils audio connectés à un système.
-Vous pouvez ensuite les utiliser dans le SDK Speech en configurant le périphérique audio par le biais de l’objet `AudioConfig` :
+La version 1.3.0 du SDK Speech introduit une API pour sélectionner l’entrée audio. Cet article décrit comment obtenir les ID des appareils audio connectés à un système. Vous pouvez ensuite les utiliser dans le SDK Speech en configurant le périphérique audio par le biais de l’objet `AudioConfig` :
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -46,12 +44,14 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > L’utilisation du microphone n’est pas disponible pour JavaScript s’exécutant dans Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>ID de périphériques audio sur Windows pour les applications de bureau
 
 Vous pouvez récupérer les [chaînes d’ID de point de terminaison](/windows/desktop/CoreAudio/endpoint-id-strings) de périphériques audio à partir de l’objet [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) dans Windows pour les applications de bureau.
+
 L’exemple de code suivant montre comment l’utiliser pour énumérer les périphériques audio en C++ :
 
 ```cpp
@@ -176,6 +176,7 @@ Voici un exemple d’ID de périphérique : `{0.0.1.00000000}.{5f23ab69-6181-4f
 ## <a name="audio-device-ids-on-uwp"></a>ID de périphériques audio sur UWP
 
 Sur la plateforme Windows universelle (UWP), vous pouvez obtenir les périphériques d’entrée audio à l’aide de la propriété `Id()` de l’objet [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) correspondant.
+
 Les exemples de code suivants montrent comment effectuer cette opération en C++ et en C# :
 
 ```cpp
@@ -226,13 +227,16 @@ Voici un exemple d’ID de périphérique : `\\\\?\\SWD#MMDEVAPI#{0.0.1.0000000
 ## <a name="audio-device-ids-on-linux"></a>ID de périphériques audio sur Linux
 
 Les ID de périphérique sont sélectionnés à l’aide des ID de périphérique ALSA standard.
+
 Les ID des entrées attachées au système sont contenus dans la sortie de la commande `arecord -L`.
 Vous pouvez également les obtenir à l’aide de la [bibliothèque ALSA C](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+
 Voici des exemples d’ID : `hw:1,0` et `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>ID de périphériques audio sur macOS
 
 La fonction suivante implémentée en Objective-C crée une liste des noms et des ID des périphériques audio attachés à un Mac.
+
 La chaîne `deviceUID` permet d’identifier un périphérique dans le SDK Speech pour macOS.
 
 ```objc
@@ -361,8 +365,8 @@ Par exemple, l’UID pour le microphone intégré est `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>ID de périphériques audio sur iOS
 
-La sélection des périphériques audio avec le SDK Speech n’est pas prise en charge sur iOS.
-Toutefois, les applications utilisant le SDK peuvent influencer le routage audio par le biais du framework [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc).
+La sélection des périphériques audio avec le SDK Speech n’est pas prise en charge sur iOS. Toutefois, les applications utilisant le SDK peuvent influencer le routage audio par le biais du framework [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc).
+
 Par exemple, l’instruction
 
 ```objc

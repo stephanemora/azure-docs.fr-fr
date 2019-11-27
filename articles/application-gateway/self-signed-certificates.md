@@ -1,5 +1,6 @@
 ---
-title: Générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
+title: Générer un certificat auto-signé avec une autorité de certification racine personnalisée
+titleSuffix: Azure Application Gateway
 description: Découvrez comment générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967137"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075089"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
 
@@ -87,7 +88,7 @@ Utilisez la commande suivante pour générer la clé pour le certificat de serve
 La requête de signature de certificat est une clé publique qui est donnée à une autorité de certification lors de la demande d’un certificat. L’autorité de certification émet le certificat pour cette demande spécifique.
 
 > [!NOTE]
-> Le nom commun (CN) pour le certificat de serveur doit être différent du domaine de l’émetteur. Par exemple, dans ce cas, le nom commun de l’émetteur est www.contoso.com et le nom commun du certificat du serveur est www.fabrikam.com
+> Le nom commun (CN) pour le certificat de serveur doit être différent du domaine de l’émetteur. Par exemple, dans ce cas, le nom commun de l’émetteur est `www.contoso.com` et le nom commun du certificat du serveur est `www.fabrikam.com`.
 
 
 1. Utilisez la commande suivante pour générer la requête de signature de certificat :

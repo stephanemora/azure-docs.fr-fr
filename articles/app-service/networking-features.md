@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470263"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928502"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -91,7 +91,7 @@ Vous pouvez apprendre à définir une adresse sur votre application en suivant l
 
 ### <a name="access-restrictions"></a>Restrictions d’accès 
 
-La fonctionnalité Restrictions d’accès vous permet de filtrer les requêtes **entrantes** en fonction de l’adresse IP d’origine. L’action de filtrage a lieu sur les rôles frontend situés en amont des déploiements du rôle de travail où vos applications s’exécutent. Étant donné que les rôles frontend sont en amont des rôles de travail, la fonctionnalité Restrictions d’accès peut être considérée comme une protection de vos applications au niveau du réseau. La fonctionnalité vous permet de créer une liste de blocs d’adresses d’autorisation et de refus qui sont évalués par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau qui existe dans Mise en réseau Azure.  Vous pouvez utiliser cette fonctionnalité dans un ASE ou dans le service multilocataire. Lorsqu’elle est utilisée avec un ASE ILB, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
+La fonctionnalité Restrictions d’accès vous permet de filtrer les requêtes **entrantes** en fonction de l’adresse IP d’origine. L’action de filtrage a lieu sur les rôles front-end situés en amont des déploiements des rôles de travail où vos applications s’exécutent. Étant donné que les rôles frontend sont en amont des rôles de travail, la fonctionnalité Restrictions d’accès peut être considérée comme une protection de vos applications au niveau du réseau. La fonctionnalité vous permet de créer une liste de blocs d’adresses d’autorisation et de refus qui sont évalués par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau qui existe dans Mise en réseau Azure.  Vous pouvez utiliser cette fonctionnalité dans un ASE ou dans le service multilocataire. Lorsqu’elle est utilisée avec un ASE ILB, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
 
 ![Restrictions d’accès](media/networking-features/access-restrictions.png)
 

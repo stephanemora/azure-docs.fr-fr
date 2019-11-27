@@ -1,18 +1,18 @@
 ---
-title: Informations sur les serveurs de configuration, les serveurs de processus et les serveurs cible maîtres Azure Site Recovery | Microsoft Docs
+title: Informations sur les serveurs configuration/processus/cible maître Azure Site Recovery
 description: Cet article offre une vue d’ensemble sur l’utilisation des serveurs de configuration, des serveurs de processus et des serveurs cible maîtres lors de la configuration de la récupération d’urgence de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad816f39dd4182dfa41fca975c99824a5d77f860
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747822"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961306"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informations sur les composants Site Recovery (configuration, processus, cible maître)
 

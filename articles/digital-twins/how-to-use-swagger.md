@@ -1,5 +1,5 @@
 ---
-title: Comprendre comment utiliser les références relatives à Swagger sur Azure Digital Twins | Microsoft Docs
+title: Guide pratique pour utiliser la documentation de référence sur Swagger - Azure Digital Twins | Microsoft Docs
 description: Comprendre comment utiliser la documentation de référence relative à Swagger sur Azure Digital Twins
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958871"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009883"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentation de référence relative à Swagger sur Azure Digital Twins
 
@@ -95,7 +95,7 @@ Les exemples incluent également des codes d’erreur pour faciliter le débogag
 > [!NOTE]
 > * L’utilisateur principal qui a créé la ressource Azure Digital Twins se voit attribuer le rôle d’administrateur de l’espace, et est en mesure de créer des attributions de rôles supplémentaires pour d’autres utilisateurs. Ces utilisateurs et leurs rôles peuvent être autorisés à appeler les API.
 
-1. Suivez les étapes de [ce guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) ou [inscrivez l’application Azure Digital Twins auprès de l’instance Azure Active Directory héritée](./how-to-use-legacy-aad.md) pour créer et configurer une application Azure AD. Vous pouvez aussi réutiliser une inscription d’application existante.
+1. Suivez les étapes de [ce démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) pour créer et configurer une application Azure AD. Vous pouvez aussi réutiliser une inscription d’application existante.
 
 1. Ajoutez l’URL de réponse suivante à l’inscription d’application :
 

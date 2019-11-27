@@ -1,19 +1,19 @@
 ---
 title: Qu’est-ce qu’une notification Azure Service Health ?
 description: Les notifications Service Health vous permettent de voir les messages relatifs à l’intégrité du service publiés par Microsoft Azure.
-author: dkamstra
+author: stephbaron
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: dukek
+ms.author: stbaron
 ms.subservice: logs
-ms.openlocfilehash: 87efa7442b0c67f2ee5f83b6b3e8ac8530ce5285
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081802"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007085"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
@@ -22,7 +22,6 @@ Les notifications Service Health sont publiées par Azure et contiennent des inf
 Il existe plusieurs classes de notifications Service Health :  
 
 - **Action nécessaire :** Azure peut remarquer un événement inhabituel dans votre compte et vous aider à résoudre le problème. Azure vous envoie une notification contenant des informations sur les actions à effectuer, ou les coordonnées des ingénieurs ou du support Azure.  
-- **Récupération assistée :** un événement s’est produit et les ingénieurs ont confirmé que vous en subissez toujours l’impact. Les ingénieurs Azure doivent travailler directement avec vous pour restaurer vos services intégralement.  
 - **Incident :** un événement impactant le service affecte actuellement une ou plusieurs des ressources de votre abonnement.  
 - **Maintenance :** une activité de maintenance planifiée peut impacter une ou plusieurs ressources de votre abonnement.  
 - **Informations :** suggestions d’optimisations pouvant aider à améliorer l’utilisation de vos ressources. 
@@ -60,19 +59,18 @@ Properties.communicationId | Communication associée à cet événement.
 ### <a name="details-on-service-health-level-information"></a>Détails sur les informations au niveau de l’intégrité du service
 
 **Action Required** (properties.incidentType == ActionRequired)
-- Information - Action de l’administrateur nécessaire pour éviter un impact sur les services existants
+- Information – Une action de l’administrateur est nécessaire pour éviter un impact sur les services existants.
     
 **Maintenance** (properties.incidentType == Maintenance)
-- Avertissement - Maintenance d’urgence
-- Information - Maintenance planifiée de façon standard
+- Avertissement – Maintenance d’urgence
+- Information – Maintenance planifiée standard
 
 **Information** (properties.incidentType == Information)
-- Information - L'intervention de l’administrateur peut être nécessaire pour éviter un impact sur les services existants
+- Information – Une intervention de l’administrateur peut être nécessaire pour éviter un impact sur les services existants.
 
 **Sécurité** (properties.incidentType == Security)
-- Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
-- Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
-- Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
+- Avertissement – Avis de sécurité qui concerne les services existants et peut nécessiter une intervention de l’administrateur.
+- Information – Avis de sécurité qui concerne les services existants.
 
 **Problèmes liés aux services** (properties.incidentType == Incident)
 - Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.

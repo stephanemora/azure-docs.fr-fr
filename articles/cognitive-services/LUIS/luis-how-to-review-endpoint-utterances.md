@@ -9,88 +9,48 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 4a77ac26076fc1b1e4e94ee24dafb28a0e88c858
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 67953f552b5b2bcdd7d13253548227e57dab8548
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669378"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132645"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Comment passer en revue les énoncés de point de terminaison dans le portail LUIS pour l’apprentissage actif
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
-[L’apprentissage actif](luis-concept-review-endpoint-utterances.md) capture les requêtes de point de terminaison et sélectionne les énoncés de point de terminaison de l’utilisateur dont il n’est pas sûr. Vous passez en revue ces énoncés pour sélectionner l’intention et marquez des entités pour ces énoncés réalistes. Acceptez ces modifications dans vos exemples d’énoncés, puis formez et publiez. Ensuite, LUIS identifie les énoncés de manière plus précise.
+Le processus de vérification des énoncés de point de terminaison pour obtenir des prédictions correctes est appelé [apprentissage actif](luis-concept-review-endpoint-utterances.md). L’apprentissage actif capture les requêtes de point de terminaison et sélectionne les énoncés de point de terminaison de l’utilisateur dont il n’est pas sûr. Vous passez en revue ces énoncés pour sélectionner l’intention et marquez des entités pour ces énoncés réalistes. Acceptez ces modifications dans vos exemples d’énoncés, puis formez et publiez. Ensuite, LUIS identifie les énoncés de manière plus précise.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+Si vous avez de nombreuses personnes qui contribuent à une application LUIS, 
+
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="enable-active-learning"></a>Activer l’apprentissage actif
 
-Pour activer l’apprentissage actif, enregistrez des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=true` querystring.
+Pour activer l’apprentissage actif, vous devez enregistrer des requêtes utilisateur. Pour cela, vous appelez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) avec la valeur et le paramètre querystring `log=true`.
 
-## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
-
-Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=false` querystring.
-
-## <a name="filter-utterances"></a>Filtrer les énoncés
-
-1. Ouvrez votre application (par exemple, TravelAgent) en sélectionnant son nom sur la page **Mes applications**, puis sélectionnez **Générer** dans la barre supérieure.
-
-1. Sous **Improve app performance** (Améliorer les performances de l’application), sélectionnez **Review endpoint utterances** (Réviser les énoncés de point de terminaison).
-
-1. Sur la page **Review endpoint utterances** (Réviser les énoncés de point de terminaison), sélectionnez dans la zone de texte **Filter list by intent or entity** (Filtrer la liste par intention ou entité). Cette liste déroulante répertorie toutes les intentions sous **INTENTS** (INTENTIONS) et toutes les entités sous **ENTITIES** (ENTITÉS).
-
-    ![Filtre des énoncés](./media/label-suggested-utterances/filter.png)
-
-1. Sélectionnez une catégorie (intentions ou entités) dans la liste déroulante et passez en revue les énoncés.
-
-    ![Énoncés d’intention](./media/label-suggested-utterances/intent-utterances.png)
-
-## <a name="label-entities"></a>Étiqueter des entités
-LUIS remplace les jetons d’entité (mots) par des noms d’entités mis en surbrillance en bleu. Si un énoncé contient des entités sans étiquette, étiquetez-les dans l’énoncé. 
-
-1. Sélectionnez le ou les mots dans l’énoncé. 
-
-1. Sélectionnez une entité dans la liste.
-
-    ![Étiqueter l’entité](./media/label-suggested-utterances/label-entity.png)
-
-## <a name="align-single-utterance"></a>Aligner un énoncé unique
+## <a name="correct-intent-predictions-to-align-utterances"></a>Corriger les prédictions d’intention pour aligner les énoncés
 
 Chaque énoncé contient une intention suggérée affichée dans la colonne **Aligned intent** (Intention alignée). 
 
-1. Si vous acceptez cette suggestion, sélectionnez la coche.
+> [!div class="mx-imgBorder"]
+> [![Passez en revue les énoncés de point de terminaison dont LUIS n’est pas sûr](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-    ![Conserver l’intention alignée](./media/label-suggested-utterances/align-intent-check.png)
+Si vous acceptez cette intention, cochez la case. Si n’acceptez pas la suggestion, sélectionnez l’intention appropriée dans la liste déroulante de l’intention alignée, puis sélectionnez la coche à droite de l’intention alignée. Une fois que vous avez coché la case, l’énoncé est déplacé vers l’intention et supprimé de la liste **Réviser les énoncés de point de terminaison**. 
 
-1. Si n’acceptez pas la suggestion, sélectionnez l’intention appropriée dans la liste déroulante de l’intention alignée, puis sélectionnez la coche à droite de l’intention alignée. 
-
-    ![Intention alignée](./media/label-suggested-utterances/align-intent.png)
-
-1. Lorsque vous avez sélectionné la coche, l’énoncé est supprimé de la liste. 
-
-## <a name="align-several-utterances"></a>Aligner plusieurs énoncés
-
-Pour aligner plusieurs énoncés, cochez la case à gauche des énoncés, puis sélectionnez le bouton **Ajouter les éléments sélectionnés**. 
-
-![Aligner plusieurs](./media/label-suggested-utterances/add-selected.png)
-
-## <a name="verify-aligned-intent"></a>Vérifier l’intention alignée
-
-Vous pouvez vérifier l’énoncé qui a été aligné avec l’intention appropriée en accédant à la page **Intents** Intentions, en sélectionnant le nom de l’intention et en passant en revue les énoncés. L’énoncé **Review endpoint utterances** (Réviser les énoncés de point de terminaison) figure dans la liste.
+> [!TIP]
+> Il est important d’accéder à la page des détails de l’intention pour passer en revue et corriger les prédictions d’entité de tous les exemples d’énoncés de la liste **Réviser les énoncés de point de terminaison**.
 
 ## <a name="delete-utterance"></a>Supprimer l’énoncé
 
 Chaque énoncé peut être supprimé de la liste de révision. Une fois supprimé, il n’apparaîtra plus dans la liste. Cela est vrai même si l’utilisateur entre le même énoncé à partir du point de terminaison. 
 
-Si vous ne savez pas si vous devez supprimer l’énoncé, déplacez-le vers l’intention None (Aucune), ou créez une nouvelle intention telle que « divers » et déplacez l’énoncé vers cette intention. 
+Si vous ne savez pas si vous devez supprimer l’énoncé, déplacez-le vers l’intention None (Aucune), ou créez une nouvelle intention comme `miscellaneous` et déplacez l’énoncé vers cette intention. 
 
-## <a name="delete-several-utterances"></a>Supprimer plusieurs énoncés
+## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 
-Pour supprimer plusieurs énoncés, sélectionnez chaque élément et sélectionnez la corbeille à droite du bouton **Ajouter les éléments sélectionnés**.
-
-![Supprimer plusieurs](./media/label-suggested-utterances/delete-several.png)
-
+Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Pour cela, définissez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec le paramètre et la valeur querystring `log=false` ou n’utilisez pas la valeur querystring, car la valeur par défaut est false.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

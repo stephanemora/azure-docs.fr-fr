@@ -1,5 +1,5 @@
 ---
-title: Effectuer une restauration automatique à partir d’Azure pendant la reprise d’activité de machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Restaurer automatiquement des serveurs physiques/machines virtuelles VMware à partir d’Azure avec Azure Site Recovery
 description: Découvrez comment effectuer une restauration automatique sur le site local après un basculement vers Azure, pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ec2a4a91f4de0761f631bec393bb90c3feb82b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318119"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084055"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur un site local à partir d’Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4ac6ac52d6d950d814a37e94ea2801c2ba8e4170
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521201"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906860"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -68,7 +68,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
     1. Pour afficher et modifier la stratégie par défaut, cliquez sur **afficher la stratégie effective**, puis procédez comme décrit ci-dessous. 
 
-       ![écran des stratégies](./media/security-center-policies/policy-screen.png)
+       ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
        
        L’écran **Stratégie de sécurité** reflète l’action effectuée par les stratégies affectées sur l’abonnement ou le groupe d’administration que vous avez sélectionnés.
        
@@ -104,6 +104,10 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
    > [!NOTE]
    > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement, et que l’abonnement appartient à un groupe d’administration qui utilise toujours la même stratégie, vous continuerez à recevoir les suggestion de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
+
+1. Cliquez sur **Afficher la stratégie actuelle**.
+
+   ![désactiver une stratégie](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Cliquez sur la stratégie affectée.
 

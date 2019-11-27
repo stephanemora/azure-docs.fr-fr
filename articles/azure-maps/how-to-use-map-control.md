@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756548"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833819"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -179,11 +179,11 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
 
 ## <a name="localizing-the-map"></a>Localisation de la carte
 
-Azure Maps propose deux méthodes pour définir la langue et l’affichage régional de la carte. La première option consiste à ajouter ces informations à l’espace de noms `atlas` global, ce qui a pour effet que toutes les instances de contrôle de carte dans votre application ont ces paramètres par défaut. Le code suivant définit la langue sur le français (« fr-FR ») et l’affichage régional sur « auto » :
+Azure Maps propose deux méthodes pour définir la langue et l’affichage régional de la carte. La première option consiste à ajouter ces informations à l’espace de noms `atlas` global, ce qui a pour effet que toutes les instances de contrôle de carte dans votre application ont ces paramètres par défaut. Le code suivant définit la langue sur le français (« fr-FR ») et l’affichage régional sur « Auto » :
 
 ```javascript
 atlas.setLanguage('fr-FR');
-atlas.setView('auto');
+atlas.setView('Auto');
 ```
 
 La deuxième option consiste à transmettre ces informations dans les options de mappage lors du chargement de la carte, comme suit :
@@ -191,7 +191,7 @@ La deuxième option consiste à transmettre ces informations dans les options de
 ```javascript
 map = new atlas.Map('myMap', {
     language: 'fr-FR',
-    view: 'auto',
+    view: 'Auto',
 
     authOptions: {
         authType: 'aad',
@@ -205,7 +205,7 @@ map = new atlas.Map('myMap', {
 > [!Note]
 > Le Kit de développement logiciel (SDK) web permet de charger plusieurs instances de carte sur la même page avec des paramètres de langue et de région différents. De plus, ces paramètres peuvent être mis à jour une fois la carte chargée à l’aide de la fonction `setStyle` de la carte. 
 
-Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR » et l’affichage régional sur « auto ».
+Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR » et l’affichage régional sur « Auto ».
 
 ![Image de carte affichant des étiquettes en français](./media/how-to-use-map-control/websdk-localization.png)
 

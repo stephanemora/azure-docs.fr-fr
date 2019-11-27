@@ -1,5 +1,5 @@
 ---
-title: Extension de script personnalisé Azure pour Windows | Microsoft Docs
+title: Extension de script personnalisé Azure pour Windows
 description: Automatiser les tâches de configuration de machine virtuelle Windows à l’aide de l’extension de script personnalisé
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073824"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 

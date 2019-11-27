@@ -1,18 +1,18 @@
 ---
-title: Flux d’appareils Azure IoT Hub (préversion) | Microsoft Docs
-description: Vue d’ensemble des flux d’appareils IoT Hub
+title: Flux d’appareils Azure IoT Hub | Microsoft Docs
+description: Vue d’ensemble des flux d’appareils Azure IoT Hub, qui facilitent la création de tunnels TCP bidirectionnels sécurisés pour divers scénarios de communication cloud-à-appareil.
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672573"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890466"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -140,7 +140,7 @@ Pour configurer les journaux d’activité Azure Monitor pour les activités de 
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-Pendant la phase de préversion publique, les flux d’appareils IoT Hub sont disponibles dans les régions EUAP USA Centre et USA Centre. Veillez à créer votre hub dans l’une de ces régions.
+Pendant la phase de préversion publique, les flux d’appareils IoT Hub sont disponibles dans les régions USA Centre, EUAP USA Centre, Europe Nord et Asie Sud-Est. Veillez à créer votre hub dans l’une de ces régions.
 
 ## <a name="sdk-availability"></a>Disponibilité du kit de développement logiciel (SDK)
 

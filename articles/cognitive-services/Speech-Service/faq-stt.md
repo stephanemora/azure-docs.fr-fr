@@ -1,7 +1,7 @@
 ---
-title: Forum aux questions sur le service de reconnaissance vocale dans Azure
+title: Forum aux questions sur la reconnaissance vocale
 titleSuffix: Azure Cognitive Services
-description: Découvrez les réponses aux questions les plus fréquemment posées sur le service de reconnaissance vocale.
+description: Obtenez les réponses aux questions fréquentes sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579683"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110708"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -25,7 +25,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Quelle est la différence entre un modèle de reconnaissance vocale de référence et un modèle personnalisé ?**
 
-**R** : Un modèle de référence est un modèle formé à l’aide de données appartenant à Microsoft et déjà déployé dans le cloud.  Un modèle personnalisé permet d’adapter un modèle à un environnement spécifique se singularisant par un bruit ambiant ou un langage particuliers. Un atelier, une voiture ou une rue bruyante nécessiteraient d’utiliser un modèle acoustique adapté. Des thèmes tels que la biologie, la physique et la radiologie, ou dans le cadre desquels sont utilisés des noms de produits et autres acronymes personnalisés nécessiteraient un modèle linguistique adapté.
+**R** : Un modèle de référence est un modèle formé à l’aide de données appartenant à Microsoft et déjà déployé dans le cloud. Un modèle personnalisé permet d’adapter un modèle à un environnement spécifique se singularisant par un bruit ambiant ou un langage particuliers. Un atelier, une voiture ou une rue bruyante nécessiteraient d’utiliser un modèle acoustique adapté. Des thèmes tels que la biologie, la physique et la radiologie, ou dans le cadre desquels sont utilisés des noms de produits et autres acronymes personnalisés nécessiteraient un modèle linguistique adapté.
 
 **Q : Par où commencer si je souhaite utiliser un modèle de référence ?**
 
@@ -59,11 +59,11 @@ Vous pouvez déployer des modèles de référence et personnalisés dans le port
 
 L’ancien et le nouveau jeux de données doivent être combinés dans un seul fichier .zip (pour les données acoustiques) ou dans un fichier .txt (pour les données linguistiques). Une fois les adaptations apportées, le nouveau modèle mis à jour doit être redéployé afin d’obtenir un nouveau point de terminaison.
 
-**Q : Quand une nouvelle version d’un modèle de référence est disponible, mon déploiement est-il mis à jour automatiquement ?**
+**Q : Quand une nouvelle version d’une base de référence est disponible, mon déploiement est-il mis à jour automatiquement ?**
 
 **R** : Les déploiements ne sont PAS mis à jour automatiquement.
 
-Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de référence, puis redéployer leur nouveau modèle.
+Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente de la base de référence, puis redéployer leur nouveau modèle.
 
 **Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?**
 
@@ -71,26 +71,31 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 
 S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text).
 
-Pour augmenter la concurrence pour un modèle personnalisé, nous avons besoin des informations suivantes :
+Pour augmenter la concurrence d’un ***modèle personnalisé***, nous avons besoin des informations suivantes :
 
-- Région dans laquelle le modèle est déployé.
-- ID de point de terminaison du modèle déployé.
+- la région dans laquelle le modèle est déployé,
+- l’ID de point de terminaison du modèle déployé :
+  - Accédez au [portail Custom Speech](https://aka.ms/customspeech).
+  - Connectez-vous (si nécessaire).
+  - Sélectionnez votre projet et votre déploiement.
+  - Sélectionnez le point de terminaison pour lequel vous avez besoin d’augmenter la concurrence.
+  - Copiez le `Endpoint ID`.
 
-Pour augmenter la concurrence pour un modèle de base, nous avons besoin des informations suivantes :
+Pour augmenter la concurrence d’un ***modèle de base***, nous avons besoin des informations suivantes :
 
 - La région de votre service,
 
 et
 
-- un jeton d’accès pour votre abonnement (voir [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+- un jeton d’accès pour votre abonnement (voir [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
 
 or
 
 - l’ID de ressource de votre abonnement :
-  - Accédez à https://portal.azure.com,
+  - Accédez au [portail Azure](https://portal.azure.com).
   - sélectionnez `Cognitive Services` dans la zone de recherche,
   - parmi les services affichés, sélectionnez le service vocal pour lequel vous souhaitez augmenter la concurrence,
-  - affichez les propriétés de ce service,
+  - Affichez les `Properties` de ce service.
   - copiez le `Resource ID` complet.
 
 **Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
@@ -107,7 +112,7 @@ or
 
 **Q : Comment suis-je facturé pour l’audio à deux canaux ?**
 
-**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée de chaque fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
+**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée du fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
 
 > [!IMPORTANT]
 > Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
@@ -118,13 +123,13 @@ or
 
 **R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP.
 
-**Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
+**Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?**
 
 **R** :  Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
 **Q : Le rapport relatif aux données indique que des énoncés ont échoué. Quel est le problème ?**
 
-**R** : L’échec du chargement de 100 % des énoncés dans un fichier n’est pas un problème. Si la majeure partie des énoncés d’un jeu de données acoustiques ou linguistiques (par exemple, plus de 95 %) est importée avec succès, le jeu de données est utilisable. Toutefois, nous vous recommandons d’essayer de comprendre les raisons pour lesquelles le chargement de ces énoncés a échoué et de résoudre les problèmes rencontrés. La plupart des problèmes courants, comme les erreurs de mise en forme, sont faciles à corriger. 
+**R** : L’échec du chargement de 100 % des énoncés dans un fichier n’est pas un problème. Si la majeure partie des énoncés d’un jeu de données acoustiques ou linguistiques (par exemple, plus de 95 %) est importée avec succès, le jeu de données est utilisable. Toutefois, nous vous recommandons d’essayer de comprendre les raisons pour lesquelles le chargement de ces énoncés a échoué et de résoudre les problèmes rencontrés. La plupart des problèmes courants, comme les erreurs de mise en forme, sont faciles à corriger.
 
 ## <a name="creating-an-acoustic-model"></a>Création d’un modèle acoustique
 
@@ -134,11 +139,11 @@ or
 
 **Q : Quelles données dois-je collecter ?**
 
-**R** : Collectez des données aussi proches que possible du scénario et du cas d’usage de l’application. La collection de données doit correspondre à l’application et aux utilisateurs cibles en termes d’appareils, d’environnements et de types d’orateurs. En général, vous devez collecter des données d’un éventail d’orateurs aussi large que possible. 
+**R** : Collectez des données aussi proches que possible du scénario et du cas d’usage de l’application. La collection de données doit correspondre à l’application et aux utilisateurs cibles en termes d’appareils, d’environnements et de types d’orateurs. En général, vous devez collecter des données d’un éventail d’orateurs aussi large que possible.
 
 **Q : Comment collecter des données acoustiques ?**
 
-**R** : Vous pouvez créer une application de collecte de données autonome, ou utiliser n’importe que logiciel d’enregistrement audio du commerce. Vous pouvez également créer une version de votre application qui journalise les données audio, puis les utilise. 
+**R** : Vous pouvez créer une application de collecte de données autonome, ou utiliser n’importe que logiciel d’enregistrement audio du commerce. Vous pouvez également créer une version de votre application qui journalise les données audio, puis les utilise.
 
 **Q : Dois-je me charger de la transcription des données d’adaptation ?**
 
@@ -162,7 +167,7 @@ or
 
 **R** : Les résultats sont le fruit d’une comparaison entre le modèle de référence et le modèle personnalisé. Pour que la personnalisation soit pertinente, l’objectif doit être de surpasser le modèle de référence.
 
-**Q : Comment faire pour déterminer le taux d’erreur de mots d’un modèle de référence afin de voir s’il y a une amélioration ?** 
+**Q : Comment faire pour déterminer le taux d’erreur de mots d’un modèle de référence afin de voir s’il y a une amélioration ?**
 
 **R** : Les résultats de test hors connexion indiquent la précision de référence du modèle personnalisé, et l’amélioration obtenue par rapport à cette référence.
 
@@ -174,21 +179,21 @@ or
 
 **Q : Puis-je simplement charger une liste de mots ?**
 
-**R** : Le chargement d’une liste de mots a pour effet d’ajouter des mots au vocabulaire, mais n’enseigne pas au système la manière dont ceux-ci sont généralement utilisés. En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de prononcer), le modèle linguistique peut apprendre les mots nouveaux ainsi que la façon dont ils sont utilisés. Le modèle linguistique personnalisé convient, non seulement pour l’ajout de mots au système, mais aussi pour l’ajustement de la probabilité d’occurrence de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre. 
+**R** : Le chargement d’une liste de mots a pour effet d’ajouter des mots au vocabulaire, mais n’enseigne pas au système la manière dont ceux-ci sont généralement utilisés. En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de prononcer), le modèle linguistique peut apprendre les mots nouveaux ainsi que la façon dont ils sont utilisés. Le modèle linguistique personnalisé convient, non seulement pour l’ajout de mots au système, mais aussi pour l’ajustement de la probabilité d’occurrence de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre.
 
 ## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modèle de locataire (Custom Speech avec des données Office 365)
 
 **Q : Quelles sont les informations incluses dans le modèle de locataire et comment sont-elles créées ?**
 
-**R :** Un modèle de locataire est créé à l’aide d’un [groupe public](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) d’e-mails et de documents qui peuvent être consultés par toute personne de votre organisation. 
- 
+**R :** Un modèle de locataire est créé à l’aide d’un [groupe public](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) d’e-mails et de documents qui peuvent être consultés par toute personne de votre organisation.
+
 **Q : Quelles sont les améliorations apportées par le modèle de locataire aux expériences de reconnaissance vocale ?**
 
-**R :** Une fois le modèle de locataire activé, créé et publié, il permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service de reconnaissance vocale, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise. 
- 
+**R :** Une fois le modèle de locataire activé, créé et publié, il permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service de reconnaissance vocale, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise.
+
 La création d’un modèle de locataire pour vos applications de service de reconnaissance vocale ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Dépannage](troubleshooting.md)
-* [Notes de publication](releasenotes.md)
+- [Dépannage](troubleshooting.md)
+- [Notes de publication](releasenotes.md)

@@ -1,6 +1,6 @@
 ---
-title: Configurer la sécurité pour accéder à la préversion d’Azure Time Series Insights et la gérer | Microsoft Docs
-description: Cet article explique comment configurer la sécurité et les autorisations sous forme de stratégies d’accès de gestion et d’accès aux données pour sécuriser Azure Time Series Insights en préversion.
+title: Configurer la sécurité pour accorder l’accès aux données - Azure Time Series Insights en préversion | Microsoft Docs
+description: Découvrez comment configurer la sécurité, les autorisations et gérer des stratégies d’accès aux données dans votre environnement Azure Time Series Insights en préversion.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d835916ab1a9d99149800a50690876080a8c5fd
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990167"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012685"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 

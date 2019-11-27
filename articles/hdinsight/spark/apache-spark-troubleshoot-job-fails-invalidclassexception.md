@@ -1,5 +1,5 @@
 ---
-title: La tâche Apache Spark échoue avec InvalidClassException dans Azure HDInsight
+title: Erreur InvalidClassException d’Apache Spark – Azure HDInsight
 description: La tâche Apache Spark échoue avec InvalidClassException, incompatibilité de version de classe, dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: c32b6a5ed7e8c052096f6125a5246fc9685302d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 124d5586180258589c5db17454b8fbf1e465fc24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088685"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106492"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>La tâche Apache Spark échoue avec InvalidClassException, incompatibilité de version de classe, dans Azure HDInsight
 
@@ -34,7 +34,10 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Cause :
 
-Cette erreur peut être due à l’ajout d’un fichier jar supplémentaire à la configuration `spark.yarn.jars`, qui est un fichier jar « grisé » qui inclut une version différente du package `commons-lang3` et qui introduit une incompatibilité de classe. Par défaut, Spark 2.1/2/3 utilise la version 3.5 de `commons-lang3`.
+Cette erreur peut être due à l’ajout d’un fichier jar supplémentaire à la configuration `spark.yarn.jars`, spécifiquement un fichier jar grisé qui inclut une version différente du package `commons-lang3` et qui introduit une incompatibilité de classe. Par défaut, Spark 2.1/2/3 utilise la version 3.5 de `commons-lang3`.
+
+> [!TIP]
+> Ombrer une bibliothèque consiste à placer son contenu dans votre propre fichier jar, en modifiant son package. Cela diffère de l’empaquetage de la bibliothèque, qui consiste à placer la bibliothèque dans votre propre fichier jar sans réempaquetage.
 
 ## <a name="resolution"></a>Résolution :
 

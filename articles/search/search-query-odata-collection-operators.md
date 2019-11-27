@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur les opérateurs de collection OData
 titleSuffix: Azure Cognitive Search
-description: Opérateurs de collection OData, any et all et expressions lambda dans les requêtes de la Recherche cognitive Azure.
+description: Lorsque vous créez des expressions de filtre dans des requêtes Recherche cognitive Azure, utilisez les opérateurs « any » et « all » dans les expressions lambda si le filtre porte sur un champ de collection ou un champ de collection complexe.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793399"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113239"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Opérateurs de collection OData dans la Recherche cognitive Azure - `any` et `all`
 
@@ -97,4 +97,4 @@ Pour plus d’informations sur ces restrictions et pour obtenir des exemples, co
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

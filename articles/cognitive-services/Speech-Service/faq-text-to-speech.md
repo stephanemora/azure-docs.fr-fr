@@ -1,7 +1,7 @@
 ---
-title: Forum aux questions sur le service Synthèse vocale dans Azure
+title: Forum aux questions sur la synthèse vocale
 titleSuffix: Azure Cognitive Services
-description: Obtenez des réponses aux questions les plus posées sur le service Synthèse vocale.
+description: Obtenez les réponses aux questions fréquentes sur le service Synthèse vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606675"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110493"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
@@ -25,7 +25,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Quelle est la différence entre un modèle vocal standard et un modèle vocal personnalisé ?**
 
-**R** : Le modèle vocal standard (également appelé une *police de la voix*) a été formé à l’aide de données appartenant à Microsoft et est déjà déployé dans le cloud. Vous pouvez utiliser un modèle vocal personnalisé pour adapter un modèle moyen et transférer le timbre et l’expression du style de voix de l’orateur ou former un modèle entièrement nouveau basé sur les données d’apprentissage préparées par l’utilisateur. Aujourd’hui, de plus en plus de clients veulent une voix unique et reconnaissable pour leurs robots. Dans ce cas, la plateforme de création de voix personnalisées est la bonne option.
+**R** : Le modèle vocal standard (également appelé une _police de la voix_) a été formé à l’aide de données appartenant à Microsoft et est déjà déployé dans le cloud. Vous pouvez utiliser un modèle vocal personnalisé pour adapter un modèle moyen et transférer le timbre et l’expression du style de voix de l’orateur ou former un modèle entièrement nouveau basé sur les données d’apprentissage préparées par l’utilisateur. Aujourd’hui, de plus en plus de clients veulent une voix unique et reconnaissable pour leurs robots. Dans ce cas, la plateforme de création de voix personnalisées est la bonne option.
 
 **Q : Par où commencer si je souhaite utiliser un modèle vocal standard ?**
 
@@ -63,5 +63,5 @@ Nous fournissons des services supplémentaires afin de vous aider à préparer d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Dépannage](troubleshooting.md)
-* [Notes de publication](releasenotes.md)
+- [Dépannage](troubleshooting.md)
+- [Notes de publication](releasenotes.md)

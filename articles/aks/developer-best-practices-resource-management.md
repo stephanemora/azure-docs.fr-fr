@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfce7d77f214762a69857e74f0bb533ad1ce0f1b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073946"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107641"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
 
@@ -31,16 +31,24 @@ Cet article traite des bonnes pratiques relatives à l’exécution d’un clust
 
 L’un des principaux moyens de gérer les ressources de calcul au sein d’un cluster AKS consiste à utiliser des demandes et des limites de pod. Ces demandes et limites indiquent au planificateur Kubernetes les ressources de calcul à affecter à un pod.
 
-* Les **demandes de pod** définissent une quantité fixe d’UC et de mémoire dont le pod a besoin. Ces demandes doivent correspondre à la quantité de ressources de calcul nécessaire au pod pour fournir un niveau de performances acceptable.
-    * Quand le planificateur Kubernetes tente de placer un pod sur un nœud, les demandes de pod permettent de déterminer le nœud ayant suffisamment de ressources disponibles.
-    * Supervisez les performances de votre application pour ajuster ces demandes et veiller à ne pas définir une quantité de ressources inférieure à celle nécessaire pour maintenir un niveau de performances acceptable.
-* Les **limites de pod** représentent la quantité maximale d’UC et de mémoire qu’un pod peut utiliser. Ces limites empêchent qu’un ou deux pods dont le contrôle a été perdu ne consomment pas trop d’UC et de mémoire du nœud. Ce scénario réduirait les performances du nœud et des autres pods qui s’exécutent sur ce nœud.
+* Les **demandes d’UC/de mémoire pod** définissent une quantité fixe d’UC et de mémoire dont le pod a besoin régulièrement.
+    * Quand le planificateur Kubernetes tente de placer un pod sur un nœud, les demandes de pod permettent de déterminer le nœud ayant suffisamment de ressources disponibles pour la planification.
+    * Si vous ne définissez pas une requête de pod, elle est définie par défaut sur la limite définie.
+    * Il est très important de surveiller les performances de votre application pour ajuster ces requêtes. En cas de demandes insuffisantes, votre application peut subir une dégradation des performances en raison de la surplanification d’un nœud. Si les requêtes sont surestimées, votre application peut avoir des difficultés à être planifiées.
+* Les **limites de pod/de mémoire** représentent la quantité maximale d’UC et de mémoire qu’un pod peut utiliser. Ces limites permettent de définir les pods à supprimer en cas d’instabilité de nœud en raison de ressources insuffisantes. Sans les limites appropriées, les pods sont supprimés jusqu’à ce que la pression sur les ressources diminue.
+    * Les limites de pod permettent de définir le moment où un pod perd le contrôle de la consommation des ressources. Lorsqu’une limite est dépassée, le pod est prioritaire pour la mise à jour de l’intégrité du nœud et réduire l’impact sur les pods partageant le nœud.
+    * Si vous ne définissez pas de limite de pod, elle est définie par défaut sur la valeur disponible la plus élevée sur un nœud donné.
     * Ne définissez pas une limite de pod trop élevée ne pouvant pas être prise en charge par vos nœuds. Chaque nœud AKS réserve une quantité fixe d’UC et de mémoire pour les principaux composants de Kubernetes. Votre application peut tenter de consommer trop de ressources sur le nœud pour que les autres pods s’exécutent correctement.
-    * Là encore, supervisez les performances de votre application à différents moments de la journée ou de la semaine. Déterminer les pics de demande et aligner les limites de pod avec les ressources requises pour répondre aux besoins de l’application.
+    * Là encore, il est essentiel de superviser les performances de votre application à différents moments de la journée ou de la semaine. Déterminez les pics de demande et alignez les limites de pod avec les ressources requises pour répondre aux besoins maximum de l’application.
 
-Il est recommandé de définir ces demandes et limites dans les spécifications de pod. Si vous n’incluez pas ces valeurs, le planificateur Kubernetes ne comprend pas les ressources qui sont nécessaires. Le planificateur peut planifier le pod sur un nœud qui ne dispose pas de ressources suffisantes pour fournir un niveau de performance acceptable à votre application. L’administrateur de cluster peut définir des *quotas des ressources* sur un espace de noms qui vous oblige à définir des demandes et des limites de ressources. Pour plus d’informations, consultez [Quotas de ressources sur des clusters AKS][resource-quotas].
+Dans les spécifications de votre pod, il est **recommandé et essentiel** de définir ces requêtes et limites en fonction des informations ci-dessus. Si vous n’incluez pas ces valeurs, le planificateur Kubernetes ne peut pas prendre en compte les ressources dont vos applications ont besoin pour faciliter la planification des décisions.
 
-Quand vous définissez une demande ou une limite d’UC, la valeur est mesurée en unités d’UC. Une UC de *1.0* équivaut à un cœur de processeur virtuel sous-jacent sur le nœud. La même mesure est utilisée pour les GPU. Vous pouvez également définir une demande ou une limite fractionnaire, en général en millicpu. Par exemple, *100m* correspond à *0,1* d’un cœur de processeur virtuel sous-jacent.
+Si le planificateur place un pod sur un nœud dont les ressources sont insuffisantes, cela entraîne la dégradation des performances de l’application. Pour les administrateurs de cluster, il est vivement recommandé de définir des *quotas de ressources* sur un espace de noms qui vous oblige à définir des demandes et des limites de ressources. Pour plus d’informations, consultez [Quotas de ressources sur des clusters AKS][resource-quotas].
+
+Quand vous définissez une demande ou une limite d’UC, la valeur est mesurée en unités d’UC. 
+* Une UC de *1.0* équivaut à un cœur de processeur virtuel sous-jacent sur le nœud. 
+* La même mesure est utilisée pour les GPU.
+* Vous pouvez définir des fractions mesurées en millicœurs. Par exemple, *100 m* correspond à *0,1* pour un cœur de processeur virtuel sous-jacent.
 
 Dans l’exemple de base suivant pour un pod NGINX, le pod demande *100m* de temps UC et *128Mi* de mémoire. Les limites de ressources pour le pod sont définies avec *250m* comme UC et *256Mi* comme mémoire :
 
@@ -80,7 +88,7 @@ Le service Azure Dev Spaces est destiné à être utilisé avec les applications
 
 **Guide sur les bonnes pratiques** : installez et utilisez l’extension VS Code pour Kubernetes quand vous écrivez des manifestes YAML. Vous pouvez également utiliser l’extension en tant que solution de déploiement intégrée, ce qui peut être utile pour les propriétaires d’applications qui interagissent rarement avec le cluster AKS.
 
-L’[extension Visual Studio Code pour Kubernetes] [ vscode-kubernetes] vous permet de développer et déployer des applications sur AKS. L’extension fournit les informations IntelliSense pour les ressources Kubernetes ainsi que les graphiques et modèles Helm. Vous pouvez également parcourir, déployer et modifier des ressources Kubernetes à partir de VS Code. L’extension fournit une vérification IntelliSense pour les demandes ou limites de ressources définies dans les spécifications de pod :
+L’[extension Visual Studio Code pour Kubernetes][vscode-kubernetes] vous permet de développer et déployer des applications sur AKS. L’extension fournit les informations IntelliSense pour les ressources Kubernetes ainsi que les graphiques et modèles Helm. Vous pouvez également parcourir, déployer et modifier des ressources Kubernetes à partir de VS Code. L’extension fournit une vérification IntelliSense pour les demandes ou limites de ressources définies dans les spécifications de pod :
 
 ![Avertissement de l’extension VS Code pour Kubernetes concernant des limites de mémoire manquantes](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
@@ -90,7 +98,7 @@ L’[extension Visual Studio Code pour Kubernetes] [ vscode-kubernetes] vous per
 
 L’outil [kube-advisor][kube-advisor] est un projet open source AKS associé qui analyse un cluster Kubernetes et signale les problèmes trouvés. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
 
-L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquant dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquantes dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 Dans un cluster AKS qui héberge plusieurs applications et équipes de développement, il peut être difficile de suivre les pods sans ces demandes et limites de ressources. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS.
 

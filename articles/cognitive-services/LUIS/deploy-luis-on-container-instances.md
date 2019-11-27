@@ -1,5 +1,5 @@
 ---
-title: Exécuter des instances Azure Container
+title: Déployer un conteneur LUIS sur des instances Azure Container
 titleSuffix: Azure Cognitive Services
 description: Déployez le conteneur LUIS sur une instance Azure Container, et testez-le dans un navigateur web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 6a714178c9f8ec3f9239ba64bccbcf25b4aecf60
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aecbb9bb94fc251ee0142b611c54d16304793e50
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465957"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901817"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Déployer le conteneur Language Understanding (LUIS) sur des instances Azure Container
 

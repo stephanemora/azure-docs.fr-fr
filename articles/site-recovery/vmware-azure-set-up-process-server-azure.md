@@ -1,19 +1,19 @@
 ---
-title: Configurer un serveur de processus dans Azure pour la restauration automatique d’une machine virtuelle VMware et d’un serveur physique avec Azure Site Recovery | Microsoft Docs
+title: Configurer un serveur de processus de restauration automatique d’une machine VMware ou physique dans Azure Site Recovery
 description: Cet article explique comment configurer un serveur de processus dans Azure pour restaurer automatiquement des machines virtuelles Azure dans VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110028"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083953"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurer un serveur de processus dans Azure à des fins de restauration automatique
 
@@ -37,7 +37,7 @@ En savoir plus sur le processus de [reprotection](vmware-azure-reprotect.md) et 
 
 4. Dans **Nom du serveur**, **Nom d’utilisateur** et **Mot de passe**, spécifiez un nom pour le serveur de processus, ainsi que les informations d’identification pour lesquelles seront accordées des autorisations d’administrateur sur le serveur.
 5. Spécifiez un compte de stockage à utiliser pour les disques de machine virtuelle du serveur, le sous-réseau dans lequel se trouve la machine virtuelle du serveur de processus, ainsi que l’adresse IP de serveur qui sera attribuée au démarrage de la machine virtuelle.
-6. Cliquez sur le bouton **OK** pour commencer le déploiement de la machine virtuelle du serveur de processus.
+6. Cliquez sur le bouton **OK** pour commencer le déploiement de la machine virtuelle du serveur de processus. Le serveur de processus sera déployé sur la référence SKU Standard_A8_v2. Vérifiez que cette référence de machine virtuelle est disponible pour votre abonnement.
 
 >
 

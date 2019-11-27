@@ -1,5 +1,5 @@
 ---
-title: Conditions préalables à l’utilisation d’OpenShift Container Platform 3.11 | Microsoft Docs
+title: Prérequis d’OpenShift Container Platform 3.11 dans Azure
 description: Conditions préalables au déploiement d’OpenShift Container Platform 3.11 dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 591cc7a4b84f75536446abbcbe32a69a122ddf5a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392072"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035472"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Conditions préalables courantes au déploiement d’OpenShift Container Platform 3.11 dans Azure
 
@@ -113,14 +113,16 @@ az group create -l eastus -n openshiftrg
 Créez un principal de service :
 
 ```azurecli
-scope=`az group show --name openshiftrg --query id`
-az ad sp create-for-rbac --name openshiftsp \
-      --role Contributor --password {Strong Password} \
-      --scopes $scope \
+az group show --name openshiftrg --query id
 ```
-Si vous utilisez Windows, exécutez ```az group show --name openshiftrg --query id``` et utilisez la sortie à la place de $scope.
+Enregistrez la sortie de la commande et utilisez-la à la place de $scope dans la commande suivante.
 
-Prenez note de la propriété appId renvoyée par la commande :
+```azurecli
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --scopes $scope \
+```
+
+Prenez note de la propriété appId et du mot de passe renvoyés par la commande :
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -131,7 +133,7 @@ Prenez note de la propriété appId renvoyée par la commande :
 }
 ```
  > [!WARNING] 
- > Veillez à créer un mot de passe sécurisé. Suivez les conseils en matière de [Stratégies et restrictions de mot de passe dans Azure Active Directory](/azure/active-directory/active-directory-passwords-policy).
+ > Veillez à noter le mot de passe sécurisé, car il ne sera pas possible de le récupérer une nouvelle fois.
 
 Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 

@@ -10,16 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681884"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930574"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Démarrage rapide : Synthèse asynchrone pour l’audio long dans Python (préversion)
 
 Dans ce guide de démarrage rapide, vous utilisez l’API Audio long pour convertir du texte en parole de manière asynchrone et récupérer la sortie audio à partir de l’URI que le service retourne. Cette API REST est idéale pour les fournisseurs de contenu qui doivent convertir des fichiers texte d’une taille supérieure à 10 000 caractères ou 50 paragraphes en synthèse vocale. Pour plus d’informations, consultez [API Audio long](../../long-audio-api.md).
+
+> [!NOTE]
+> La synthèse asynchrone de l’audio de long peut uniquement être utilisée avec des [voix neuronales personnalisées](../../how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="prerequisites"></a>Prérequis
 

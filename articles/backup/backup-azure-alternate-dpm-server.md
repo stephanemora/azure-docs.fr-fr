@@ -8,24 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5742aaebe0a1314b229a2a0d33b1de51d5b6d4f4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955056"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091140"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
+
 Vous pouvez utiliser Azure Backup Server pour récupérer les données sauvegardées dans un coffre Recovery Services. Le processus pour cette opération est intégré dans la console de gestion Azure Backup Server et est similaire au flux de travail de récupération pour les autres composants Azure Backup.
 
 > [!NOTE]
-> Cet article est applicable à [System Center Data Protection Manager 2012 R2 avec UR7 ou ultérieur](https://support.microsoft.com/en-us/kb/3065246), combiné à l’agent [Sauvegarde Azure](https://aka.ms/azurebackup_agent) le plus récent.
+> Cet article est applicable à [System Center Data Protection Manager 2012 R2 avec UR7 ou ultérieur](https://support.microsoft.com/kb/3065246), combiné à l’agent [Sauvegarde Azure](https://aka.ms/azurebackup_agent) le plus récent.
 >
 >
 
 Pour récupérer des données depuis un serveur de sauvegarde Azure :
 
-1. Dans l’onglet **Récupération** de la console de gestion Azure Backup Server, cliquez sur **« Ajouter un DPM externe »** (dans la partie supérieure gauche de l’écran).   
+1. Dans l’onglet **Récupération** de la console de gestion Azure Backup Server, cliquez sur **« Ajouter un DPM externe »** (dans la partie supérieure gauche de l’écran).
+
     ![Ajouter un serveur DPM externe](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Téléchargez les nouvelles **informations d’identification du coffre** depuis le coffre associé au **serveur de sauvegarde Azure** où les données ont été récupérées, choisissez le serveur de sauvegarde Azure dans la liste des serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services et saisissez la **phrase secrète de chiffrement** associée au serveur pour lequel les données sont en cours de récupération.
 
@@ -80,6 +82,7 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
     ![Effacer un serveur DPM externe](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>Dépannage des messages d'erreur
+
 | Non. | Message d’erreur | Étapes de dépannage |
 |:---:|:--- |:--- |
 | 1. |Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre. |**Cause :** cette erreur apparaît lorsque le fichier des informations d’identification du coffre sélectionné n’appartient pas au coffre Recovery Services associé au serveur de sauvegarde Azure sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier des informations d’identification du coffre Recovery Services pour lequel le serveur de sauvegarde Azure est inscrit. |
@@ -91,5 +94,5 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 
 Lire les autres forums aux questions :
 
-- [Questions courantes](backup-azure-vm-backup-faq.md) sur la sauvegarde des machines virtuelles Azure
-- [Questions courantes](backup-azure-file-folder-backup-faq.md) sur l’agent Sauvegarde Azure.
+* [Questions courantes](backup-azure-vm-backup-faq.md) sur la sauvegarde des machines virtuelles Azure
+* [Questions courantes](backup-azure-file-folder-backup-faq.md) sur l’agent Sauvegarde Azure.

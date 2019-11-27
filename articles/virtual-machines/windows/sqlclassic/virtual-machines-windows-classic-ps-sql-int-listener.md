@@ -1,27 +1,28 @@
 ---
-title: Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure | Microsoft Docs
-description: Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et crée un écouteur de groupe de disponibilité Always On dans Azure utilisant un équilibreur de charge interne.
+title: Configurer un écouteur ILB pour des groupes de disponibilité (Classic)
+description: Ce tutoriel utilise des ressources créées avec le modèle de déploiement Classic, et crée un écouteur de groupe de disponibilité Always On pour une machine virtuelle SQL Server dans Azure qui utilise un équilibreur de charge interne.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101906"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032671"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurer un écouteur ILB pour des groupes de disponibilité sur des machines virtuelles Azure SQL Server
 > [!div class="op_single_selector"]
 > * [Écouteur interne](../classic/ps-sql-int-listener.md)
 > * [Écouteur externe](../classic/ps-sql-ext-listener.md)

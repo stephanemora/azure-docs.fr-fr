@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662596"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928978"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Le cluster AKS doit utiliser l’équilibreur de charge de la référence SKU Standard pour utiliser plusieurs pools de nœuds, la fonctionnalité n’est pas prise en charge avec les équilibreurs de charge de la référence SKU De base.
 * Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
 * Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
-* Le nom d’un pool de nœuds doit commencer par une lettre minuscule et ne peut contenir que des caractères alphanumériques. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
+* Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
 * Le cluster AKS peut avoir un maximum de huit pools de nœuds.
 * Le cluster AKS peut avoir un maximum de 400 nœuds dans ces huit pools de nœuds.
 * Tous les pools de nœuds doivent résider dans le même sous-réseau.
@@ -46,7 +46,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.10* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 > [!NOTE]
-> La référence SKU d’équilibreur de charge *De base* n’est pas prise en charge en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
+> La référence SKU d’équilibreur de charge *De base* **n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -191,28 +191,34 @@ En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Mettre à niveau un plan de contrôle de cluster avec plusieurs pools de nœuds
 
 > [!NOTE]
-> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et du pool de nœuds initial est définie lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle, mais les restrictions suivantes s'appliquent :
-> 
-> * La version du pool de nœuds doit avoir la même version principale que le plan de contrôle.
-> * La version du pool de nœuds peut être une version secondaire inférieure à la version du plan de contrôle.
-> * La version du pool de nœuds peut être n'importe quelle version de correctif tant que les deux autres contraintes sont respectées.
+> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et le pool de nœuds initial sont définis lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle.
 
-Un cluster AKS possède deux objets de ressource de cluster avec des versions Kubernetes associées. Le premier est une version Kubernetes du plan de contrôle. Le second est un pool d'agents avec une version de Kubernetes. Un plan de contrôle est mappé à un ou plusieurs pools de nœuds. Le comportement d’une opération de mise à niveau dépend de la commande Azure CLI utilisée.
+Un cluster AKS possède deux objets de ressource de cluster avec des versions Kubernetes associées.
 
-* La mise à niveau du plan de contrôle requiert l'utilisation de `az aks upgrade`
-   * Cela met à niveau la version du plan de contrôle et tous les pools de nœuds dans le cluster
-   * En transmettant `az aks upgrade` avec l’indicateur `--control-plane-only`, seul le plan de contrôle de cluster est mis à niveau et aucun des pools de nœuds associés n’est modifié.
-* La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az aks nodepool upgrade`
-   * Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée
+1. Un plan de contrôle de cluster est une version Kubernetes du plan de contrôle.
+2. Pool de nœuds avec une version de Kubernetes.
 
-La relation entre les versions de Kubernetes détenues par les pools de nœuds doit également suivre un ensemble de règles.
+Un plan de contrôle est mappé à un ou plusieurs pools de nœuds. Le comportement d’une opération de mise à niveau dépend de la commande Azure CLI utilisée.
 
-* Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.
-* Si une version de Kubernetes de pool de nœuds n’est pas spécifiée, le comportement dépend du client utilisé. Pour la déclaration dans un modèle Resource Manager, la version existante définie pour le pool de nœuds est utilisée. Si elle n’est définie, la version du plan de contrôle est utilisée.
-* Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre les deux opérations simultanément.
-* La version de Kubernetes d'un pool de nœuds doit correspondre à la version principale du plan de contrôle.
-* La version de Kubernetes d'un pool de nœuds peut être au maximum de deux (2) versions mineures inférieure à celle du plan de contrôle, mais jamais supérieure.
-* Un pool de nœuds peut utiliser n’importe quelle version d’un correctif Kubernetes à condition qu’elle soit inférieure ou égale à celle du plan de contrôle, mais jamais supérieure.
+La mise à niveau d’un plan de contrôle AKS requiert l'utilisation de `az aks upgrade`. Cela met à niveau la version du plan de contrôle et tous les pools de nœuds dans le cluster. 
+
+L’émission de la commande `az aks upgrade` avec l’indicateur `--control-plane-only` ne met à niveau que le plan de contrôle du cluster. Aucun des pools de nœuds associés dans le cluster n’est modifié.
+
+La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az aks nodepool upgrade`. Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée
+
+### <a name="validation-rules-for-upgrades"></a>Règles de validation pour les mises à niveau
+
+Les mises à niveau valides pour les versions de Kubernetes détenues par le plan de contrôle ou les pools de nœuds d’un cluster sont validées par les ensembles de règles suivants.
+
+* Règles pour la mise à niveau vers des versions valides :
+   * La version du pool de nœuds doit avoir la même version *principale* que le plan de contrôle.
+   * La version du pool de nœuds peut être située à deux versions *secondaires* inférieures à la version du plan de contrôle.
+   * La version du pool de nœuds peut être située à deux versions de *correctifs* inférieures à la version du plan de contrôle.
+
+* Règles pour l’envoi d’une opération de mise à niveau :
+   * Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.
+   * Si une version de Kubernetes de pool de nœuds n’est pas spécifiée, le comportement dépend du client utilisé. Dans les modèles Resource Manager, la déclaration revient à la version existante définie pour le pool de nœuds si elle est utilisée ; si aucune valeur n’est définie, la version du plan de contrôle est utilisée dans le cadre du rétablissement de la version antérieure.
+   * Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre plusieurs opérations sur un plan de contrôle ou une ressource de pools simultanément.
 
 ## <a name="scale-a-node-pool-manually"></a>Mettre manuellement à l'échelle un pool de nœuds
 
@@ -450,11 +456,11 @@ Seuls les pods qui ont cette teinte appliquée peuvent être planifiés sur les 
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gérer les pools de nœuds à l’aide d’un modèle Resource Manager
 
-Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer des ressources, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour la ressource. Avec les pools de nœuds dans AKS, le profil de pool de nœuds initial ne peut pas être mis à jour une fois que le cluster AKS a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apporter un changement aux pools de nœuds et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager distinct qui mette à jour uniquement les pools d’agents pour un cluster AKS existant.
+Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer des ressources, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour la ressource. Avec les pools de nœuds dans AKS, le profil de pool de nœuds initial ne peut pas être mis à jour une fois que le cluster AKS a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apporter un changement aux pools de nœuds et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager distinct qui mette à jour uniquement les pools de nœuds pour un cluster AKS existant.
 
 Créez un modèle tel que `aks-agentpools.json` et collez l’exemple de manifeste suivant. Cet exemple de modèle configure les paramètres suivants :
 
-* Met à jour le pool d’agents *Linux* nommé *myagentpool* pour exécuter trois nœuds.
+* Met à jour le pool de nœuds *Linux* nommé *myagentpool* pour exécuter trois nœuds.
 * Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version *1.13.10*.
 * Définit la taille de nœud en tant que *Standard_DS2_v2*.
 

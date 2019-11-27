@@ -1,5 +1,5 @@
 ---
-title: Installer un serveur cible maître Linux pour la restauration automatique vers un site local | Microsoft Docs
+title: Installer un serveur cible maître pour la restauration automatique de machines virtuelles Linux avec Azure Site Recovery
 description: Découvrez comment configurer un serveur cible maître Linux pour la restauration automatique vers un site local pendant la reprise d’activité de machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904410"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954376"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 

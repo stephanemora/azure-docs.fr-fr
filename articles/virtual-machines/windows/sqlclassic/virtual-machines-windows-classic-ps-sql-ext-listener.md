@@ -1,5 +1,5 @@
 ---
-title: Configurer un écouteur externe pour des groupes de disponibilité Always On | Microsoft Docs
+title: Configurer un écouteur externe pour des groupes de disponibilité
 description: Ce didacticiel vous guide tout au long des étapes de création d’un écouteur de groupe de disponibilité Always On dans Azure qui est accessible en externe à l’aide de l’adresse IP virtuelle publique du service cloud associé.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100412"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032716"
 ---
-# <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurer un écouteur externe pour des groupes de disponibilité sur des machines virtuelles Azure SQL Server
 > [!div class="op_single_selector"]
 > * [Écouteur interne](../classic/ps-sql-int-listener.md)
 > * [Écouteur externe](../classic/ps-sql-ext-listener.md)

@@ -1,5 +1,5 @@
 ---
-title: Partager des images de la bibliothèque entre locataires dans Azure | Microsoft Docs
+title: Partager des images de la bibliothèque entre locataires dans Azure
 description: Découvrez comment partager des images de machine virtuelle entre des locataires Azure à l’aide des galeries d’images partagées.
 services: virtual-machines-windows
 author: cynthn
@@ -10,14 +10,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: b921aabd8d71654d089c5f16aba27c286a1e91ec
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305038"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065515"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataires Azure
+
+Les galeries Shared Image Gallery vous permettent de partager des images à l’aise du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Pour plus d’informations sur cette option de partage simple, consultez [Partager la galerie](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -26,7 +28,6 @@ ms.locfileid: "68305038"
 > Vous ne pouvez pas utiliser le portail pour déployer une machine virtuelle à partir d’une image dans un autre locataire Azure. Pour créer une machine virtuelle à partir d’une image partagée entre des locataires, vous devez utiliser l’interface [Azure CLI](../linux/share-images-across-tenants.md) ou PowerShell.
 
 ## <a name="create-a-vm-using-powershell"></a>Créer une machine virtuelle avec PowerShell
-
 
 Ouvrez une session sur les deux clients avec l’ID d’application, le secret et l’ID de locataire. 
 

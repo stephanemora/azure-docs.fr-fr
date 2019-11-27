@@ -1,6 +1,6 @@
 ---
 title: Authentification basée sur un jeton (HTTP/2) pour APNS dans Azure Notification Hubs | Microsoft Docs
-description: Cette rubrique explique comment tirer parti de la nouvelle authentification de jeton pour APNS
+description: Cette rubrique explique comment utiliser la nouvelle authentification de jeton pour APNS
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: a7fdaae33e28bd543b44c54868324339d1269bc2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213123"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111948"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 
@@ -36,17 +36,14 @@ Les principaux avantages de l’utilisation du nouveau protocole sont notamment�
 * Les commentaires sont synchrones
 * Vous utilisez le dernier protocole d’Apple : les certificats utilisent toujours le protocole binaire, qui est marqué pour dépréciation
 
-L’utilisation de ce nouveau mécanisme peut être lancée en deux étapes et en quelques minutes :
+L’utilisation de ce nouveau mécanisme peut être effectuée en deux étapes :
 
-1. Obtenez les informations nécessaires auprès du portail du compte de développeur Apple
-2. Configurez votre hub de notification avec les nouvelles informations
+* Obtenez les informations nécessaires auprès du portail du compte de développeur Apple.
+* Configurez votre hub de notification avec les nouvelles informations.
 
-Notification Hubs est maintenant entièrement configuré pour utiliser le nouveau système d’authentification avec APNS.
+Notification Hubs est maintenant configuré pour utiliser le nouveau système d’authentification avec APNS.
 
-Notez que, si vous n’utilisez plus les informations d’identification de certificat pour APNS :
-
-* les propriétés de jeton remplacent votre certificat dans notre système,
-* mais votre application continue de recevoir des notifications sans interruption.
+Notez que si vous avez migré depuis l'utilisation des informations d'identification de certificat pour APNS, les propriétés du jeton écrasent votre certificat dans notre système, mais votre application continue de recevoir des notifications de manière transparente.
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Obtention d’informations d’authentification auprès d’Apple
 
@@ -54,75 +51,41 @@ Pour activer l’authentification basée sur un jeton, vous devez obtenir les pr
 
 ### <a name="key-identifier"></a>Identificateur de clé
 
-L’identificateur de clé peut être obtenu à partir de la page « Clés » dans le compte de développeur Apple
+L’identificateur de clé peut être obtenu à partir de la page **Clés** sous **Certificats, identificateurs et profils**, dans votre compte de développeur Apple :
+
+![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### <a name="application-identifier--application-name"></a>Identificateur de l’application et nom de l’application
+### <a name="application-identifier-and-application-name"></a>Identificateur de l’application et nom de l’application
 
-Le nom de l’application est disponible via la page des ID d’application dans le compte de développeur.
+Le nom et l'identificateur de l'application sont également disponibles dans la page **Certificats, identificateurs et profils** du compte développeur :
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-L’identificateur de l’application est disponible via la page des détails de l’adhésion dans le compte de développeur.
+### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Configurer via le Kit SDK .NET ou le portail Azure
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-id.png)
+Vous pouvez configurer votre hub pour utiliser l’authentification basée sur un jeton à l’aide de notre [dernier Kit SDK client](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs), ou dans le portail Azure. Pour activer l’authentification basée sur un jeton dans le portail, connectez-vous au portail Azure et accédez au panneau Hub de notification **Paramètres > Apple (APNS)** . Sélectionnez **Jeton** dans la propriété **Mode d’authentification** pour mettre à jour votre hub avec toutes les propriétés de jeton appropriées.
 
-### <a name="authentication-token"></a>Jeton d’authentification
+![Configurer le jeton](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-Le jeton d’authentification peut être téléchargé après avoir généré un jeton pour votre application. Pour plus d’informations sur la façon de générer ce jeton, reportez-vous à la [documentation du développeur Apple](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
+* Entrez les propriétés que vous avez récupérées à partir de votre compte de développeur Apple.
+* Choisissez le mode d’application (**Production** ou **Bac à sable (sandbox)** ).
+* Cliquez sur le bouton **Enregistrer** pour mettre à jour vos informations d’identification APNS.
 
-## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>Configuration de votre hub de notification pour utiliser l’authentification basée sur un jeton
+Les informations d'identification basées sur des jetons sont composées des champs suivants :
 
-### <a name="configure-via-the-azure-portal"></a>Configurer via le portail Azure
-
-Pour activer l’authentification basée sur un jeton dans le portail, connectez-vous au portail Azure et accédez au panneau Hub de notification > Services de notification > APNS.
-
-Il existe une nouvelle propriété : *Mode d’authentification*. La sélection de Jeton vous permet de mettre à jour votre hub avec toutes les propriétés de jeton appropriées.
-
-![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
-
-* Entrez les propriétés que vous avez récupérées à partir de votre compte de développeur Apple
-* Choisissez votre mode d’application : Production ou Bac à sable (sandbox)
-* Cliquez sur le bouton **Enregistrer** pour mettre à jour vos informations d’identification APNS
-
-### <a name="configure-via-management-api-rest"></a>Configurer via l’API de gestion (REST)
-
-Vous pouvez utiliser nos [API de gestion](https://msdn.microsoft.com/library/azure/dn495827.aspx) afin de mettre à jour votre hub de notification pour utiliser l’authentification basée sur un jeton.
-Selon que l’application que vous configurez est une application de production ou Bac à sable (sandbox), ce qui est indiqué dans votre compte de développeur Apple, utilisez l’un des points de terminaison correspondants :
-
-* Point de terminaison de bac à sable : [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
-* Point de terminaison de production : [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
-
-> [!IMPORTANT]
-> L’authentification basée sur un jeton nécessite la version d’API **2017-04 ou ultérieure**.
-
-Voici un exemple d’une demande PUT pour mettre à jour un hub avec l’authentification basée sur un jeton :
-
-    ```text
-    PUT https://{namespace}.servicebus.windows.net/{Notification Hub}?api-version=2017-04
-      "Properties": {
-        "ApnsCredential": {
-          "Properties": {
-            "KeyId": "<Your Key Id>",
-            "Token": "<Your Authentication Token>",
-            "AppName": "<Your Application Name>",
-            "AppId": "<Your Application Id>",
-            "Endpoint":"<Sandbox/Production Endpoint>"
-          }
-        }
-      }
-    ```
-
-### <a name="configure-via-the-net-sdk"></a>Configurer via le Kit SDK .NET
-
-Vous pouvez configurer votre hub pour utiliser l’authentification basée sur un jeton à l’aide de notre [dernier Kit SDK client](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.8).
+* **ID de la clé** : Identificateur de la clé privée générée dans le portail des développeurs Apple ; par exemple, `2USFGKSKLT`.
+* **ID de l’équipe** : Aussi appelé « Préfixe » ou « Préfixe de l'application ». C'est l'identificateur de l'organisation dans le portail des développeurs Apple ; par exemple, `S4V3D7CHJR`.
+* **ID de l’offre groupée** : Aussi appelé « ID de l’application ». C'est l'identificateur de l’offre groupée pour l'application ; par exemple, `com.microsoft.nhubsample2019`. Notez que vous pouvez utiliser une même clé pour plusieurs applications. Cette valeur est mappée à l'en-tête HTTP `apns-topic` lors de l'envoi d'une notification, et sert à cibler l'application spécifique.
+* **Jeton** : Aussi appelé « clé » « clé privée ». Il est obtenu à partir du fichier .p8 généré sur le portail des développeurs Apple. La clé doit avoir l'APNS activé (sélectionné dans le portail des développeurs Apple lors de la génération de la clé). L’en-tête ou le pied de page PEM doit être supprimé de la valeur lorsque vous la fournissez au portail NH ou à l’API.
+* **Point de terminaison** : Il s'agit d'un bouton bascule dans la volet du portail Notification Hubs, et d'un champ de chaîne dans l'API. Les valeurs autorisées sont `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. Notification Hubs utilise cette valeur soit pour l'environnement de production, soit pour l'environnement de bac à sable (sandbox), afin d’envoyer des notifications. Elle doit correspondre à l’autorisation `aps-environment` dans l'application , sinon, les jetons d’appareils APNS générés ne correspondent pas à l'environnement, et les notifications ne sont pas envoyées.
 
 Voici un exemple de code illustrant l’utilisation correcte :
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
-string token = "YOUR TOKEN HERE";
+string token = "YOUR PRIVATE KEY HERE";
 string keyId = "YOUR KEY ID HERE";
 string appName = "YOUR APP NAME HERE";
 string appId = "YOUR APP ID HERE";
@@ -132,6 +95,7 @@ desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/de
 nm.UpdateNotificationHubAsync(desc);
 ```
 
-## <a name="reverting-to-using-certificate-based-authentication"></a>Rétablissement de l’utilisation de l’authentification basée sur les certificats
+## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez rétablir à tout moment l’utilisation de l’authentification basée sur les certificats en utilisant l’une des méthodes précédentes et en passant le certificat au lieu des propriétés de jeton. Cette action remplace les informations d’identification précédemment stockées.
+* [Créer un hub de notification Azure dans le portail Azure](create-notification-hub-portal.md)
+* [Configurer un hub de notification dans le portail Azure](create-notification-hub-portal.md)

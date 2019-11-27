@@ -1,5 +1,5 @@
 ---
-title: Visualiser la télémétrie de simulation d’appareil avec Time Series Insights | Microsoft Docs
+title: Visualiser la télémétrie simulée avec Time Series Insights - Azure | Microsoft Docs
 description: Découvrez comment configurer votre environnement Time Series Insights pour explorer et analyser la télémétrie générée par l’accélérateur de solution Simulation d’appareil.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834872"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889348"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights permet de visualiser la télémétrie envoyée par l’accélérateur de solution Simulation d’appareil
 
@@ -66,9 +66,9 @@ Les étapes suivantes utilisent l’interface Azure CLI dans Azure Cloud Shell p
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **Contoso-TSI**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
-    | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
-    | Groupe de ressources | **contoso-simulation**. Utilisez le nom de votre accélérateur de solution. |
-    | Lieu | Cet exemple utilise la région **East US**. Créez votre environnement dans la même région que votre accélérateur de solution Simulation d’appareil. |
+    | Subscription | Sélectionnez votre abonnement Azure dans la liste déroulante. |
+    | Resource group | **contoso-simulation**. Utilisez le nom de votre accélérateur de solution. |
+    | Location | Cet exemple utilise la région **East US**. Créez votre environnement dans la même région que votre accélérateur de solution Simulation d’appareil. |
     | Sku |**S1** |
     | Capacité | **1** |
 

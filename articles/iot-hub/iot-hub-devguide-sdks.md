@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 7113914fe8681ca099fc0f3fc1e4a7d064c19480
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000252"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903308"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -164,7 +164,7 @@ Kits de développement logiciel (SDK) de services et d’appareils d’approvisi
 
 Les kits de développement logiciel IoT d’Azure fournissent également un ensemble d’outils pour faciliter le développement :
 * [iothub-diagnostic](https://github.com/Azure/iothub-diagnostics) : outil de ligne de commande multiplateforme permettant de diagnostiquer les problèmes liés à la connexion avec IoT Hub.
-* [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) : application de bureau Windows permettant de se connecter à son IoT Hub.
+* [azure-iot-explorer](https://github.com/Azure/azure-iot-explorer) : application de bureau multiplateforme qui se connecte à votre hub IoT pour ajouter/gérer/communiquer avec des appareils IoT.
 
 Documentation pertinente relative au développement à l’aide des kit Azure IoT SDK :
 * Découvrez comment [gérer la connectivité et la messagerie fiable](iot-hub-reliability-features-in-sdks.md) à l’aide des kits IoT Hub SDK.

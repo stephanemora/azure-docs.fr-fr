@@ -1,5 +1,5 @@
 ---
-title: Chiffrement des données au repos à l’aide de clés gérées par le client dans Azure Key Vault (préversion)
+title: Chiffrement des données au repos à l’aide de clés gérées par le client (préversion)
 titleSuffix: Azure Cognitive Search
 description: Complétez le chiffrement côté serveur des index et mappages de synonymes dans Recherche cognitive Azure grâce à des clés que vous créez et gérez dans Azure Key Vault. Cette fonctionnalité est actuellement disponible en préversion publique.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721756"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112924"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu de Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu au repos dans Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
 > [!IMPORTANT] 
 > La prise en charge du chiffrement au repos est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) et le [SDK .NET version 8.0-preview](search-dotnet-sdk-migration-version-9.md) fournissent cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail.

@@ -1,5 +1,5 @@
 ---
-title: Gérer les interfaces réseau dans Azure Site Recovery pour la reprise d’activité de machines locales sur Azure | Microsoft Docs
+title: Gérer les cartes réseau pour la récupération d'urgence locale avec Azure Site Recovery
 description: Décrit comment gérer les interfaces réseau pour la reprise d’activité de machines locales sur Azure avec Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471750"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954601"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gérer les interfaces réseau de machines virtuelles pour la reprise d’activité de machines locales sur Azure
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gérer des interfaces réseau de machines virtuelles pour la récupération d'urgence en local sur Azure
+
 Une machine virtuelle (VM) dans Azure doit être associée à au moins une interface réseau. Elle peut avoir autant d’interfaces réseau qu’en prend en charge la taille de machine virtuelle.
 
 Par défaut, la première interface réseau associée à une machine virtuelle Azure est définie comme interface réseau principale. Toutes les autres interfaces réseau de la machine virtuelle sont des interfaces réseau secondaires. Par défaut, tout le trafic sortant de la machine virtuelle est envoyé à partir de l’adresse IP affectée à la configuration IP principale de l’interface réseau principale.

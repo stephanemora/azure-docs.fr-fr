@@ -1,6 +1,6 @@
 ---
 title: Modèle de données des journaux Azure Monitor pour Sauvegarde Azure
-description: Cet article présente des informations détaillées sur le modèle de données des journaux Azure Monitor pour les données de Sauvegarde Azure.
+description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: dacurwin
-ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689234"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074949"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -53,7 +53,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux alertes.
 | ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’alerte (il s’agissait de ProtectedServerUniqueId_s dans V1)|
 | VaultUniqueId_s |Texte |Identificateur unique du coffre protégé associé à l’alerte |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur unique de la ressource sur laquelle les données sont collectées. Par exemple, un id de ressource de coffre Recovery Services |
+| ResourceId |Texte |Identificateur unique de la ressource sur laquelle les données sont collectées. Par exemple, un ID de ressource de coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
@@ -83,7 +83,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux éléments de 
 | Category |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
 | Ressource |Texte |Ressource pour laquelle les données sont collectées, par exemple le nom du coffre Recovery Services |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Id de ressource des données collectées, par exemple id de ressource du coffre Recovery Services |
+| ResourceId |Texte |ID de ressource des données collectées, par exemple ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) des données collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) des données collectées |
 | ResourceProvider |Texte |Fournisseur de ressources des données collectées, par exemple, Microsoft.RecoveryServices |
@@ -108,7 +108,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 | ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’élément de sauvegarde (il s’agissait de ProtectedServerUniqueId_s dans V1) |
 | VaultUniqueId_s |Texte |Identificateur unique du coffre contenant l’élément de sauvegarde |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources des données collectées, par exemple, Microsoft.RecoveryServices |
@@ -127,7 +127,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 |BackupManagementServerType_s     |Texte         |Type du serveur de gestion des sauvegardes, par exemple as MABS et SC DPM|
 |BackupManagementServerUniqueId_s     |Texte         |Champ qui identifie de façon unique le serveur de gestion des sauvegardes       |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources des données collectées, par exemple, Microsoft.RecoveryServices |
@@ -163,7 +163,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | RecoveryJobRPDateTime_s |DateTime | Date et heure de la création du point de récupération en cours de récupération |
 | RecoveryJobRPLocation_s |Texte | Emplacement auquel a été stocké le point de récupération en cours de récupération|
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services|
+| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services|
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
@@ -211,7 +211,7 @@ Ce tableau fournit plus d’informations sur les champs liés à la stratégie.
 | LogBackupRetentionDuration_s |Nombre décimal |v2|Durée de conservation des sauvegardes de fichier journal pour SQL dans une sauvegarde de machine virtuelle Azure|
 | DiffBackupDaysofTheWeek_s |Texte |v2|Jours de la semaine où sont effectuées les sauvegardes différentielles pour SQL dans une sauvegarde de machine virtuelle Azure|
 | SourceSystem |Texte ||Système source des données actuelles - Azure |
-| ResourceId |Texte ||Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte ||Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte ||Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte ||Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte ||Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
@@ -234,7 +234,7 @@ Ce tableau fournit des détails sur les associations de stratégies avec différ
 | VaultUniqueId_s |Texte ||ID unique du coffre auquel cette stratégie appartient |
 | BackupManagementServerUniqueId_s |Texte |v2 |Champ qui identifie de manière unique le serveur de gestion des sauvegardes par le biais duquel l’élément de sauvegarde est protégé, le cas échéant        |
 | SourceSystem |Texte ||Système source des données actuelles - Azure |
-| ResourceId |Texte ||Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte ||Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte ||Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte ||Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte ||Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
@@ -277,7 +277,7 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | ProtectedServerUniqueId_s |Texte |ID unique du serveur protégé pour lequel le stockage est calculé |
 | VaultUniqueId_s |Texte |ID unique du coffre pour lequel le stockage est calculé |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
@@ -318,7 +318,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | AzureDataCenter_s |Texte |Centre de données dans lequel se trouve le coffre |
 | StorageReplicationType_s |Texte |Type de réplication de stockage pour le coffre, par exemple, Géoredondant |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
-| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
+| ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, ID de ressource du coffre Recovery Services |
 | SubscriptionId |Texte |Identificateur d’abonnement de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |

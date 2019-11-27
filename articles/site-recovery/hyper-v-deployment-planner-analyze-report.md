@@ -1,19 +1,19 @@
 ---
-title: Analyser le rapport du planificateur de déploiement Azure Site Recovery pour la reprise d’activité de machines virtuelles Hyper-V sur Azure | Microsoft Docs
+title: Analyser le rapport du planificateur de déploiement Hyper-V dans Azure Site Recovery
 description: Cet article décrit comment analyser un rapport généré par le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de machines virtuelles Hyper-V sur Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084960"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -246,7 +246,7 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 * Les IOPS sources dépassent la limite des IOPS prises en charge par le stockage qui s’élève à 80 000 par disque.
 
-* L’activité moyenne des données de la machine virtuelle source dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 10 Mo/s pour la taille d’E/S moyenne.
+* L’activité moyenne des données de la machine virtuelle source dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 20 Mo/s pour la taille d’E/S moyenne.
 
 * Les IOPS d’écriture moyennes effectives de la machine virtuelle source dépassent la limite d’IOPS prise en charge par Site Recovery, qui est de 840.
 

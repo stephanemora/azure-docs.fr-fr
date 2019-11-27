@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur les opérateurs logiques OData
 titleSuffix: Azure Cognitive Search
-description: Opérateurs logiques OData, et, ou, et pas, dans les requêtes de Recherche cognitive Azure.
+description: Documentation de référence et de la syntaxe pour l’utilisation des opérateurs logiques OData (and, or et not), dans les requêtes Recherche cognitive Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793324"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113191"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Opérateurs logiques OData dans Recherche cognitive Azure - `and`, `or`, `not`
 
@@ -112,4 +112,4 @@ Correspondance des documents pour les hôtels à Vancouver, au Canada, qui compr
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

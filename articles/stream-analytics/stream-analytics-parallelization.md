@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612216"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932286"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -60,7 +60,7 @@ Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure
 
 1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour Event Hubs ou IoT Hub, cela signifie que vous devez définir la valeur de **PartitionKey** pour les données d’événement. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête ne requiert pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette condition. Un exemple de cette logique serait une requête simple du type select/project/filter.  
 
-2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Aux niveau de compatibilité 1.0 et 1.1, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle. Pour les travaux dont le niveau de compatibilité est supérieur ou égal à 1.2, vous pouvez spécifier une colonne personnalisée en tant que Clé de partition dans les paramètres d’entrée, de façon à ce que le travail soit automatiquement exécuté en parallèle, même sans la clause PARTITION BY.
+2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Aux niveau de compatibilité 1.0 et 1.1, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle. Pour les travaux dont le niveau de compatibilité est supérieur ou égal à 1.2, vous pouvez spécifier une colonne personnalisée en tant que Clé de partition dans les paramètres d’entrée, de sorte que le travail soit automatiquement exécuté en parallèle, même sans la clause PARTITION BY. Pour la sortie de hub d’événements, la propriété « Colonne de clé de partition » doit être définie de façon à utiliser « PartitionId ».
 
 3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
 
@@ -77,7 +77,7 @@ Les sections ci-après présentent quelques exemples de parallélisme massif.
 ### <a name="simple-query"></a>Requête simple
 
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
+* Sortie : le hub d’événements à huit partitions (« Colonne de clé de partition » doit être défini de façon à utiliser « PartitionId »)
 
 Requête :
 
@@ -144,7 +144,7 @@ Les exemples précédents décrivent des travaux Stream Analytics qui respecten
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Niveau de compatibilité 1.2 – Requête multiétape avec différentes valeurs PARTITION BY 
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
+* Sortie : le hub d’événements à huit partitions (« Colonne de clé de partition » doit être défini de façon à utiliser « TollBoothId »)
 
 Requête :
 

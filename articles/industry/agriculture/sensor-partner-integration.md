@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1e819c94732e1cbc2de39e6400f8305b7df5aca1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797230"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927654"
 ---
 # <a name="sensor-partner-integration"></a>Intégration de partenaire de capteur
-Cet article fournit des informations sur le composant Azure FarmBeats **Translator**.
+
+Cet article fournit des informations sur le composant Azure FarmBeats **Translator**, qui permet l'intégration de partenaire de capteur.
 
 À l’aide de ce composant, les partenaires peuvent développer des capteurs qui s’intègrent à FarmBeats, en tirant parti de notre API et en envoyant des données de télémétrie et des données d’appareil client au Data Hub FarmBeats. Les données sont visualisées à l’aide de l’accélérateur FarmBeats. Les données peuvent être utilisées pour la fusion de données et pour la création de modèles d’intelligence artificielle ou de langage machine.
 
 ## <a name="link-farmbeats-account"></a>Lier un compte FarmBeats
 
-Une fois que les clients ont acheté et déployé des appareils/capteurs, ils peuvent accéder aux données de l’appareil et aux données de télémétrie depuis le portail SaaS des partenaires d’appareils. Les partenaires d’appareils doivent permettre aux clients de lier leur compte à leur instance FarmBeats sur Azure. Les informations d’identification suivantes doivent être renseignées par client/SI :
+Une fois que les clients ont acheté et déployé des appareils/capteurs, ils peuvent accéder aux données de l’appareil et aux données de télémétrie depuis le portail SaaS des partenaires d’appareils. Les partenaires d’appareils doivent permettre aux clients de lier leur compte à leur instance FarmBeats sur Azure. Les informations d’identification suivantes doivent être renseignées par client/intégrateur système :
 
    - Nom complet (champ facultatif permettant à l’utilisateur de définir un nom pour cette intégration)
    - Point de terminaison d’API
@@ -41,14 +42,11 @@ Les clients ont la possibilité de dissocier une intégration FarmBeats existant
 
 ## <a name="edit-farmbeats-integration"></a>Modifier l’intégration de FarmBeats
 
-Le client peut modifier l’intégration de FarmBeats. Le scénario principal pour la modification est lorsque la clé secrète client ou la chaîne de connexion change en raison de l’expiration. Dans ce cas, le client ne peut modifier que les champs suivants.
+Le client peut modifier les paramètres d'intégration de FarmBeats, si le secret du client ou la chaîne de connexion change. Dans ce cas, le client peut uniquement modifier les champs suivants :
 
    - Nom complet (le cas échéant)
    - Clé secrète client (doit être affichée dans le format « 2x8 * * * * * * * * * * * » ou dans la fonctionnalité Afficher/masquer au lieu du texte en clair)
    - Chaîne de connexion (doit être affichée dans le format « 2x8 * * * * * * * * * * * » ou dans la fonctionnalité Afficher/masquer au lieu du texte en clair)
-
-   > [!NOTE]
-   > La modification ne doit pas interrompre la création d’objets de métadonnées.
 
 ## <a name="view-last-telemetry-sent"></a>Afficher les dernières données de télémétrie envoyées
 
@@ -126,14 +124,14 @@ Si vous le souhaitez, vous pouvez inclure des paramètres de requête à des app
 
 L’exemple de requête ci-dessous porte sur l’obtention de la liste des appareils :
 
-```
-curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
+```bash
+curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
 La plupart des appels GET, POST et PUT nécessitent un corps de requête JSON.
 
 L’exemple de requête ci-dessous porte sur la création d’un appareil (cette exemple comporte un code JSON d’entrée avec le corps de la requête).
 
-```
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -192,7 +190,7 @@ ParentDeviceId | ID de l’appareil parent auquel cet appareil est connecté. Pa
   description  | Description explicite
   properties  | Propriétés supplémentaires fournies par le fabricant
 
- Pour plus d’informations sur chacun des objets et leurs propriétés, consultez [Swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
+ Pour plus d’informations sur chacun des objets et leurs propriétés, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > Les API retournent des ID uniques pour chaque instance créée. Cet ID doit être conservé par le traducteur pour la gestion des périphériques et la synchronisation des métadonnées.
@@ -243,35 +241,34 @@ write_client.stop()
 
 Le format de message canonique se présente comme suit :
 
-```
+```json
 {
-“deviceid”: “<id of the Device created>”,
- "timestamp": "<timestamp in ISO 8601 format>",
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
-      "id": "<id of the sensor created>”
+      "id": "<id of the sensor created>",
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
+ ]
 }
-
 ```
-
 Tous les noms clés dans le JSON des données de télémétrie doivent être en minuscules, par exemple deviceid, sensordata, etc.
 
 Par exemple, message de données de télémétrie :
 
 
-```
+```json
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",

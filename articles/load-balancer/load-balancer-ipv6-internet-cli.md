@@ -1,7 +1,7 @@
 ---
 title: Créer un équilibreur de charge public avec IPv6 – Azure CLI
-titlesuffix: Azure Load Balancer
-description: Découvrez comment créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI.
+titleSuffix: Azure Load Balancer
+description: Dans ce parcours d’apprentissage, familiarisez-vous avec la création d’un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f7c0eb9bd258d2efbdb4df78f2cf86861f77a975
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274953"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076010"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI
 
+>[!REMARQUE : changement de meilleure pratique pour IPv6] Cet article décrit une fonctionnalité de découverte IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6.  Une connectivité IPv6 plus complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 aux réseaux virtuels et inclut des fonctionnalités clés comme les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, l’équilibrage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la meilleure pratique recommandée pour les applications IPv6 dans Azure. 
+>Voir [IPv6 pour le déploiement CLI de réseaux virtuels Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). Les équilibreurs de charge offrent une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibreur de charge. Les équilibreurs de charge peuvent également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
@@ -296,8 +298,4 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)  
-[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)  
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)

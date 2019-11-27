@@ -1,26 +1,19 @@
 ---
-title: Créer une sonde personnalisée - Passerelle Application Gateway Azure - Portail Azure | Microsoft Docs
+title: Créer une sonde personnalisée à l’aide du portail
+titleSuffix: Azure Application Gateway
 description: Découvrez comment créer une sonde personnalisée pour Application Gateway à l’aide du portail
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b92b9d953b6dd941b8b5f445ad64059f557c2980
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074610"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
@@ -29,40 +22,93 @@ ms.locfileid: "70061795"
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’application existante via le portail Azure. Les sondes personnalisées sont utiles pour les applications qui ont une page de contrôle d’intégrité spécifique ou pour les applications qui ne fournissent pas de réponse correcte dans l’application web par défaut.
+Dans cet article, une sonde d’intégrité personnalisée est ajoutée à une passerelle d’application existante via le portail Azure. À l’aide des sondes d’intégrité, Azure Application Gateway surveille l’intégrité des ressources dans le pool back-end.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Si vous ne disposez pas déjà d’une passerelle d’application, consultez [Créer une passerelle d’application](application-gateway-create-gateway-portal.md) pour créer une passerelle d’application fonctionnelle.
 
-## <a name="createprobe"></a>Créer la sonde
+## <a name="create-probe-for-application-gateway-v2-sku"></a>Créer une sonde pour la référence SKU Application Gateway v2
 
-Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http backend de la passerelle d’application.
+Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à entrer les valeurs requises pour la configuration de la sonde. Dans la deuxième étape, vous testez l’intégrité du serveur back-end à l’aide de la configuration de cette sonde et enregistrez la sonde. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois](https://azure.microsoft.com/free).
+### <a name="createprobe"></a>Entrer les propriétés de la sonde
 
-1. Dans le volet Favoris du portail Azure, cliquez sur Toutes les ressources. Cliquez sur la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
 
-1. Cliquez sur **Sondes**, puis cliquez sur le bouton **Ajouter** pour ajouter une sonde.
+2. Dans le volet Favoris du portail Azure, cliquez sur Toutes les ressources. Cliquez sur la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
 
-   ![Ajouter un panneau Sonde contenant toutes les informations][1]
+3. Sélectionnez **Sondes d’intégrité**, puis sélectionnez **Ajouter** pour ajouter une nouvelle sonde d’intégrité.
 
-1. Dans le panneau **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis cliquez sur **OK** une fois que vous avez terminé.
+   ![Ajouter une nouvelle sonde][4]
+
+4. Sur la page **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
 
    |**Paramètre** | **Valeur** | **Détails**|
    |---|---|---|
-   |**Nom**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
-   |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité.|
-   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.|
+   |**Nom**|customProbe|Cette valeur est le nom convivial donné à la sonde accessible par le biais du portail.|
+   |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
+   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».|
+   |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *hôte* dans la sonde sur le nom d’hôte de la ressource back-end dans le pool back-end associé au paramètre HTTP auquel cette sonde est liée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
    |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
-   |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible.|
-   |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
+   |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
+|**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
+   |**Utiliser des conditions de correspondance de sonde**|Oui ou Non|Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Vous pouvez modifier la plage acceptable du code de réponse back-end ou du corps de la réponse back-end. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Paramètres HTTP**|sélection dans une liste déroulante|La sonde est associée au(x) paramètre(s) HTTP sélectionné(s) ici et, par conséquent, surveille l’intégrité de ce pool back-end qui est associé au paramètre HTTP sélectionné. Le port utilisé pour la requête de la sonde est le même que celui utilisé dans le paramètre HTTP sélectionné. Vous ne pouvez choisir que le ou les paramètres HTTP qui ne sont associés à aucune autre sonde personnalisée. <br>Notez que seuls les paramètres HTTP qui ont le même protocole que celui choisi dans cette configuration de sonde et qui ont le même état pour le commutateur *Choisir un nom d’hôte à partir du paramètre HTTP back-end* sont disponibles pour l’association.|
+   
+   > [!IMPORTANT]
+   > La sonde surveille l’intégrité du back-end uniquement lorsqu’elle est associée à un ou plusieurs paramètres HTTP. Elle surveille les ressources back-end de ces pools back-end qui sont associés aux paramètres HTTP auxquels cette sonde est liée. La requête de la sonde est envoyée à http://(nom d’hôte):(port de httpsetting)/urlPath.
+
+### <a name="test-backend-health-with-the-probe"></a>Tester l’intégrité du back-end avec la sonde
+
+Après avoir entré les propriétés de la sonde, vous pouvez tester l’intégrité des ressources back-end pour vérifier que la configuration de la sonde est correcte et que les ressources back-end fonctionnent comme prévu.
+
+1. Sélectionnez **Tester** et notez le résultat de la sonde. Application Gateway teste l’intégrité de toutes les ressources back-end dans les pools back-end associés aux paramètres HTTP utilisés pour cette sonde. 
+
+   ![Tester l’intégrité du back-end][5]
+
+2. S’il existe des ressources back-end non intègres, vérifiez la colonne **Détails** pour comprendre la raison de l’état non intègre de la ressource. Si la ressource a été marquée comme non intègre en raison d’une configuration de sonde incorrecte, sélectionnez le lien **Revenir à la sonde** et modifiez la configuration de la sonde. Sinon, si la ressource a été marquée comme non intègre en raison d’un problème avec le back-end, résolvez les problèmes avec la ressource back-end, puis testez de nouveau le back-end en sélectionnant le lien **Revenir à la sonde** et **Tester**.
+
+   > [!NOTE]
+   > Vous pouvez choisir d’enregistrer la sonde même avec des ressources back-end non intègres, mais cela n’est pas recommandé. Cela est dû au fait qu’Application Gateway supprime les ressources back-end qui sont considérées comme non intègres par la sonde du pool back-end. Dans le cas où il n’y a pas de ressources intègres dans un pool back-end, vous ne pourrez pas accéder à votre application et obtiendrez une erreur 502.
+
+   ![Afficher le résultat de la sonde][6]
+
+3. Sélectionnez **Ajouter** pour enregistrer la sonde. 
+
+## <a name="create-probe-for-application-gateway-v1-sku"></a>Créer une sonde pour la référence SKU Application Gateway v1
+
+Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http backend de la passerelle d’application.
+
+### <a name="createprobe"></a>Créer la sonde
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
+
+2. Dans le volet Favoris du portail Azure, sélectionnez **Toutes les ressources**. Sélectionnez la passerelle d’application dans la page **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
+
+3. Sélectionnez **Sondes** puis sélectionnez **Ajouter** pour ajouter une sonde.
+
+   ![Ajouter un panneau Sonde contenant toutes les informations][1]
+
+4. Dans le volet **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
+
+   |**Paramètre** | **Valeur** | **Détails**|
+   |---|---|---|
+   |**Nom**|customProbe|Cette valeur est le nom convivial donné à la sonde accessible par le biais du portail.|
+   |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
+   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».|
+   |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *hôte* dans la sonde sur le nom d’hôte de la ressource back-end dans le pool back-end associé au paramètre HTTP auquel cette sonde est liée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
+   |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
+   |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
+|**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
+   |**Utiliser des conditions de correspondance de sonde**|Oui ou Non|Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Vous pouvez modifier la plage acceptable du code de réponse back-end ou du corps de la réponse back-end. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
    > Le nom d’hôte n’est pas identique au nom du serveur. Cette valeur est le nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à http://(nom d’hôte):(port des paramètres http)/urlPath
 
-## <a name="add-probe-to-the-gateway"></a>Ajouter une sonde à la passerelle
+### <a name="add-probe-to-the-gateway"></a>Ajouter une sonde à la passerelle
 
 Maintenant que la sonde a été créée, il est temps de l’ajouter à la passerelle. Les paramètres de la sonde sont définis sur les paramètres http principaux de la passerelle d’application.
 
@@ -70,15 +116,15 @@ Maintenant que la sonde a été créée, il est temps de l’ajouter à la passe
 
    ![fenêtre de paramètres https][2]
 
-1. Dans le panneau des paramètres **appGatewayBackEndHttpSettings**, cochez la case **Utiliser la sonde personnalisée**, puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
+2. Dans la page des paramètres **appGatewayBackEndHttpSettings**, cochez la case **Utiliser la sonde personnalisée**, puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
    Quand vous avez terminé, cliquez sur **Enregistrer** pour appliquer les paramètres.
-
-La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin personnalisé défini pour contrôler l’intégrité des serveurs backend. En fonction des critères qui ont été définis, la passerelle d’application vérifie le chemin spécifié dans la sonde. Si l’appel à host:Port/path ne retourne pas de réponse d’état HTTP 200-399, le serveur est mis hors service après avoir atteint le seuil de défaillance sur le plan de l’intégrité. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure Application Gateway, consultez la [configuration du déchargement SSL](application-gateway-ssl-portal.md)
+Affichez l’intégrité des ressources back-end comme déterminé par la sonde à l’aide de la [vue d’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
-
+[4]: ./media/application-gateway-create-probe-portal/figure4.png
+[5]: ./media/application-gateway-create-probe-portal/figure5.png
+[6]: ./media/application-gateway-create-probe-portal/figure6.png

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030419"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108800"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
 
@@ -46,11 +46,11 @@ Le fichier et les paramètres spécifiques à configurer peuvent varier en fonct
 Par exemple, pour la configuration de serveur BIND par défaut, modifiez le fichier /etc/named.conf sur votre serveur DNS et ajoutez les informations de zone suivantes.
 
 ```
-zone “cloudsimple.io”
+zone "az.cloudsimple.io"
 {
     type stub;
     masters { IP address of DNS servers; };
-    file “slaves/cloudsimple.io.db”;
+    file "slaves/cloudsimple.io.db";
 };
 ```
 
@@ -80,14 +80,14 @@ zone “cloudsimple.io”
 
 Un redirecteur conditionnel transfère toutes les requêtes de résolution de noms DNS au serveur désigné. Avec cette configuration, toute requête pour *.cloudsimple.io est transférée aux serveurs DNS situés sur le cloud privé. Les exemples suivants montrent comment configurer des redirecteurs sur différents types de serveurs DNS.
 
-### <a name="create-a-conditional-forwarded-on-a-bind-dns-server"></a>Créer une redirection conditionnelle sur un serveur DNS BIND
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Créer un redirecteur conditionnel sur un serveur DNS BIND
 
 Le fichier et les paramètres spécifiques à configurer peuvent varier en fonction de votre configuration DNS individuelle.
 
 Par exemple, pour la configuration de serveur BIND par défaut, modifiez le fichier /etc/named.conf sur votre serveur DNS et ajoutez les informations de redirection conditionnelle suivantes.
 
 ```
-zone “cloudsimple.io” {
+zone "az.cloudsimple.io" {
     type forward;
     forwarders { IP address of DNS servers; };
 };

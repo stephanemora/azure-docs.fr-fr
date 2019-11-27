@@ -1,7 +1,7 @@
 ---
 title: Envoi de demandes à l’API Suggestion automatique Bing
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment envoyer des demandes à l’API Suggestion automatique Bing.
+description: L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. Découvrez-en plus sur l’envoi de demandes.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882434"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072863"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envoi de demandes à l’API Suggestion automatique Bing.
 

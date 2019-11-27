@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586990"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048208"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>Collecter le journal d’activité Azure avec les paramètres de diagnostic (préversion)
 Le [journal d’activité Azure](activity-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Jusqu’à présent, vous avez créé un profil de journal pour envoyer des entrées de journal d’activité à un [Event Hub ou à un compte de stockage](activity-log-export.md) et utilisé un connecteur pour les collecter dans un [espace de travail Log Analytics](activity-log-collect.md).
@@ -22,6 +22,8 @@ Vous pouvez maintenant configurer la collecte du journal d’activité Azure à 
 - Méthode cohérente pour collecter tous les journaux de plateforme.
 - Collecte du journal d’activité pour plusieurs abonnements et locataires.
 - Filtrage de la collecte pour collecter uniquement les journaux de catégories spécifiques.
+- Collecte de toutes les catégories du journal d’activité. Certaines catégories ne sont pas collectées à l’aide de la méthode précédente.
+- Latence plus rapide pour l’ingestion des journaux. La méthode précédente a une latence d’environ 15 minutes, tandis que les paramètres de diagnostic n’ajoutent qu’environ 1 minute.
 
 ## <a name="considerations"></a>Considérations
 Avant d’activer cette fonctionnalité, tenez compte des détails suivants de la collecte des journaux d’activité à l’aide des paramètres de diagnostic.

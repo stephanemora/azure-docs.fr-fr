@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931313"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832016"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -98,6 +98,42 @@ NPM utilise un mécanisme probabiliste pour attribuer des probabilités d'erreur
 ### <a name="how-can-i-create-alerts-in-npm"></a>Comment puis-je créer des alertes dans NPM ?
 Pour des instructions pas à pas, reportez-vous à la [section relatives aux alertes de la documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts).
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quelles sont les requêtes Log Analytics par défaut pour les alertes ?
+Requête de l’analyseur de performances
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+Requête du moniteur de connectivité de service
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+Requêtes du moniteur ExpressRoute : Requête de circuits
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Peering privé
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Peering Microsoft
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Requête courante   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM peut-il surveiller les routeurs et serveurs en tant qu’appareils individuels ?
 NPM identifie uniquement l’adresse IP et le nom d’hôte des tronçons réseau sous-jacents (commutateurs, routeurs, serveurs, etc.) entre les adresses IP source et de destination. Il identifie également la latence entre ces tronçons identifiés. Il ne surveille pas individuellement ces tronçons sous-jacents.
 
@@ -110,17 +146,23 @@ L'utilisation de la bande passante correspond au total de bande passante entrant
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Est-il possible d'obtenir des informations de bande passante entrante et sortante pour ExpressRoute ?
 Les valeurs entrantes et sortantes des bandes passantes principale et secondaire peuvent être capturées.
 
-Pour des informations sur le peering, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux.
+Pour des informations sur le peering MS, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+Pour des informations sur le peering privé, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Pour des informations sur le circuit, utilisez la requête mentionnée ci-dessous. 
+Pour des informations sur le niveau du circuit, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quelles régions sont-elles prises en charge pour la fonctionnalité Analyseur de performances de NPM ?
 NPM peut surveiller la connectivité entre les réseaux dans n’importe quelle partie du monde, à partir d’un espace de travail hébergé dans une des [régions prises en charge](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -142,7 +184,7 @@ Un tronçon peut ne pas répondre à une détermination d’itinéraire dans un 
 * Les périphériques réseau n'autorisent pas le trafic ICMP_TTL_EXCEEDED.
 * Un pare-feu bloque la réponse ICMP_TTL_EXCEEDED à partir du périphérique réseau.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Je reçois des alertes de tests non sains, mais aucune valeur élevée n'apparaît sur le graphique de perte et de latence de NPM. Comment vérifier ce qui n'est pas sain ?
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Je reçois des alertes de tests non sains, mais aucune valeur élevée n'apparaît sur le graphique de perte et de latence de NPM. Comment vérifier ce qui n'est pas sain ?
 NPM déclenche une alerte si une latence de bout en bout entre une source et une destination dépasse le seuil de tout chemin qui les sépare. Certains réseaux disposent de plusieurs chemins pour relier la même source et la même destination. NPM déclenche une alerte si un chemin n'est pas sain. La perte et la latence représentées sur les graphiques correspondent à la valeur moyenne de tous les chemins. Par conséquent, la valeur exacte d'un chemin individuel n'est pas nécessairement indiquée. Pour comprendre où le seuil a été dépassé, recherchez la colonne « SubType » dans l'alerte. Si le problème est dû à un chemin, la valeur de SubType est NetworkPath (pour les tests de Performance Monitor), EndpointPath (pour les tests de Service Connectivity Monitor) et ExpressRoutePath (pour les tests d'ExpressRoute Monitor). 
 
 Exemple de requête pour déterminer si un chemin n'est pas sain :

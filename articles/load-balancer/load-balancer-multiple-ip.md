@@ -1,7 +1,7 @@
 ---
 title: Équilibrage de charge sur plusieurs configurations IP - Portail Azure
-titlesuffix: Azure Load Balancer
-description: Équilibrage de charge sur des configurations IP principales et secondaires.
+titleSuffix: Azure Load Balancer
+description: Dans cet article, vous en apprendrez plus sur l’équilibrage de charge sur des configurations IP principales et secondaires à l’aide du Portail Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274731"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077004"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 

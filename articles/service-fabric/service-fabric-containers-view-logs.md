@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599732"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832621"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’activité d’un service de conteneurs Service Fabric
 Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux d’activité de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
 
 ## <a name="access-the-logs-of-a-running-container"></a>Accéder aux journaux d’activité d’un conteneur en cours d’exécution
-Les fichiers journaux d’activité de conteneurs sont accessibles via [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Dans un navigateur web, ouvrez Service Fabric Explorer à partir du point de terminaison de gestion du cluster, en accédant à [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+Les fichiers journaux d’activité de conteneurs sont accessibles via [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Dans un navigateur web, ouvrez Service Fabric Explorer à partir du point de terminaison de gestion du cluster, en accédant à `http://mycluster.region.cloudapp.azure.com:19080/Explorer`.  
 
 Les fichiers journaux d’activité de conteneurs sont hébergés sur le nœud de cluster sur lequel est exécutée l’instance du service de conteneurs. Par exemple, récupérez les journaux d’activité du conteneur web frontal de l’[exemple d’application Linux Voting](service-fabric-quickstart-containers-linux.md). Dans l’arborescence, développez **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Ensuite, développez la partition (d1aa737e-f22a-e347-be16-eec90be24bc1, dans cet exemple) et vérifiez que le conteneur est exécuté sur le nœud de cluster *_lnxvm_0*.
 

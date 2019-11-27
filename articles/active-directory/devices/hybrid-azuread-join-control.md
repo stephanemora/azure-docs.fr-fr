@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851793"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073627"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -33,7 +33,7 @@ Pour effectuer une validation contrôlée de la jonction Azure AD hybride sur de
 1. Effacer l’entrée de point de connexion de service (SCP) à partir d’Active Directory (AD) le cas échéant
 1. Configurer le paramètre de Registre côté client pour le point de connexion de service sur vos ordinateurs joints au domaine à l’aide d’un objet de stratégie de groupe
 1. Si vous utilisez AD FS, vous devez également configurer le paramètre de Registre côté client pour le point de connexion de service sur votre serveur AD FS à l’aide d’un objet de stratégie de groupe  
-
+1. Vous devrez peut-être [personnaliser les options de synchronisation](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) dans Azure AD Connect pour activer la synchronisation des appareils. 
 
 
 ### <a name="clear-the-scp-from-ad"></a>Effacer le point de connexion de service d’AD
@@ -82,7 +82,7 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, mais en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Lorsque cette configuration est configurée pour AD FS, la source des objets d’appareil est définie comme Azure AD.
 
 > [!NOTE]
-> Si vous n’avez pas pu configurer SCP côté client sur vos serveurs AD FS, la source des identités d’appareil est considérée comme locale et AD FS commencerait à supprimer des objets d’appareil à partir de l’annuaire local après une période prévue.
+> Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validation contrôlée de la jonction Azure AD hybride sur des appareils Windows de bas niveau
 

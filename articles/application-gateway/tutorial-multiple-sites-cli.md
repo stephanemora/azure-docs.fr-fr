@@ -1,19 +1,20 @@
 ---
-title: Créer une passerelle d’application qui héberge plusieurs sites web - Azure CLI
+title: Héberger plusieurs sites web avec l’interface CLI
+titleSuffix: Azure Application Gateway
 description: Découvrez comment créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eceb380112002ef951d6d5e74998d944da01bd7a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688230"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047357"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 

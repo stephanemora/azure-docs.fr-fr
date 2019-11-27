@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Création d’une compétence cognitive personnalisée avec l’API Recherche d’entités Bing'
+title: Exemple de compétence personnalisée utilisant l’API Recherche d’entités Bing
 titleSuffix: Azure Cognitive Search
 description: Présente l’utilisation du service Recherche d’entités Bing dans une compétence personnalisée mappée à un pipeline d’indexation IA dans Recherche cognitive Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466816"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113819"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : Créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 

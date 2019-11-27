@@ -1,5 +1,5 @@
 ---
-title: Extension de l’agent Linux Azure pour Stackify Retrace |Microsoft Docs
+title: Extension de l’agent Azure Linux pour Stackify Retrace
 description: Déployer l’agent Linux pour Stackify Retrace sur une machine virtuelle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173976"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073636"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extension de l’agent Linux pour Stackify Retrace
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guide pratique pour configurer le peering d’un circuit - ExpressRoute : Azure CLI | Microsoft Docs'
+title: 'Azure ExpressRoute : Configurer le peering : Interface de ligne de commande'
 description: Cet article est conçu pour vous aider à créer et à provisionner le peering privé, public et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des peerings pour votre circuit.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1683b57aa50cff00d26cc3400b8ab7a903a2c8e0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717038"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083241"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de l’interface CLI
 
@@ -23,9 +23,9 @@ Cet article vous aide à créer et gérer la configuration de routage/le peering
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interface de ligne de commande Azure](howto-routing-cli.md)
-> * [Vidéo - Homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
 
@@ -39,7 +39,7 @@ Ces instructions s'appliquent uniquement aux circuits créés avec des fournisse
 
 Vous pouvez configurer un, deux ou les trois peerings (privé Azure, public Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les peerings dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md).
 
-## <a name="msft"></a>Homologation Microsoft
+## <a name="msft"></a>Peering Microsoft
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering Microsoft pour un circuit ExpressRoute.
 
@@ -117,13 +117,19 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
    ```
 
-### <a name="getmsft"></a>Pour afficher les détails de l’homologation Microsoft
+### <a name="getmsft"></a>Pour afficher les détails du peering Microsoft
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
 ```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
+> [!IMPORTANT]
+> Microsoft vérifie si les « préfixes publics publiés » et « ASN pairs » (ou « ASN client ») spécifiés vous sont attribués dans le registre de routage Internet. Si vous obtenez les préfixes publics d’une autre entité et si l’affectation n’est pas enregistrée avec le registre de routage, la validation automatique ne se termine pas et nécessite une validation manuelle. Si la validation automatique échoue, vous verrez « AdvertisedPublicPrefixesState » comme « validation requise » sur la sortie de la commande ci-dessus. 
+> 
+> Si vous voyez le message « Validation nécessaire », collectez le ou les documents qui affichent les préfixes publics qui sont attribués à votre organisation par l’entité répertoriée comme propriétaire des préfixes dans le registre de routage et soumettez ces documents pour validation manuelle en ouvrant un ticket de support comme indiqué ci-dessous. 
+> 
+>
 
 Le résultat ressemble à l’exemple suivant :
 
@@ -159,7 +165,7 @@ Le résultat ressemble à l’exemple suivant :
 }
 ```
 
-### <a name="updatemsft"></a>Pour mettre à jour la configuration d’homologation Microsoft
+### <a name="updatemsft"></a>Pour mettre à jour la configuration de peering Microsoft
 
 Vous pouvez mettre à jour toute partie de la configuration. Les préfixes publiés du circuit sont mis à jour de 123.1.0.0/24 à 124.1.0.0/24 dans l’exemple suivant :
 
@@ -167,13 +173,13 @@ Vous pouvez mettre à jour toute partie de la configuration. Les préfixes publi
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
-### <a name="addIPv6msft"></a>Pour ajouter des paramètres d’homologation Microsoft IPv6 à une configuration IPv4 existante
+### <a name="addIPv6msft"></a>Pour ajouter des paramètres de peering Microsoft IPv6 à une configuration IPv4 existante
 
 ```azurecli-interactive
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
-### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
+### <a name="deletemsft"></a>Pour supprimer le peering Microsoft
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
@@ -181,7 +187,7 @@ Vous pouvez supprimer votre configuration de peering en exécutant l’exemple s
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="private"></a>Homologation privée Azure
+## <a name="private"></a>Peering privé Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
@@ -262,7 +268,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    > 
    > 
 
-### <a name="getprivate"></a>Pour afficher les détails d’une homologation privée Azure
+### <a name="getprivate"></a>Pour afficher les détails d’un peering privé Azure
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
@@ -298,7 +304,7 @@ Le résultat ressemble à l’exemple suivant :
 }
 ```
 
-### <a name="updateprivate"></a>Pour mettre à jour la configuration d’homologation privée Azure
+### <a name="updateprivate"></a>Pour mettre à jour la configuration de peering privé Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 100 à 500.
 
@@ -306,7 +312,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’e
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### <a name="deleteprivate"></a>Pour supprimer une homologation privée Azure
+### <a name="deleteprivate"></a>Pour supprimer un peering privé Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
@@ -319,12 +325,12 @@ Vous pouvez supprimer votre configuration de peering en exécutant l’exemple s
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-## <a name="public"></a>Homologation publique Azure
+## <a name="public"></a>Peering public Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering public Azure pour un circuit ExpressRoute.
 
 > [!Note]
-> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d'informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
+> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d’informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
 >
 
 ### <a name="to-create-azure-public-peering"></a>Pour créer un peering public Azure
@@ -402,7 +408,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    > [!IMPORTANT]
    > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
 
-### <a name="getpublic"></a>Pour afficher les détails d’une homologation publique Azure
+### <a name="getpublic"></a>Pour afficher les détails d’un peering public Azure
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
@@ -437,7 +443,7 @@ Le résultat ressemble à l’exemple suivant :
 }
 ```
 
-### <a name="updatepublic"></a>Pour mettre à jour la configuration d’homologation publique Azure
+### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
@@ -445,7 +451,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’e
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### <a name="deletepublic"></a>Pour supprimer une homologation publique Azure
+### <a name="deletepublic"></a>Pour supprimer un peering public Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 

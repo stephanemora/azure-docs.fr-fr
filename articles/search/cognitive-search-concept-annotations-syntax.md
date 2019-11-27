@@ -1,5 +1,5 @@
 ---
-title: Référencer des entrées et sorties dans un pipeline d’enrichissement de l’IA
+title: Référencer des entrées et des sorties dans les ensembles de compétences
 titleSuffix: Azure Cognitive Search
 description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline d’enrichissement de l’IA dans Recherche cognitive Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787776"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113871"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences Recherche cognitive Azure
 

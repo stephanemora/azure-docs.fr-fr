@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177448"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847272"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -41,8 +41,8 @@ La référence SKU Standard_v2 et WAF_v2 est disponible dans les régions suivan
 
 Avec la référence SKU v2, le modèle de tarification est basé sur la consommation et n’est plus lié au nombre ou à la taille des instances. La tarification de la référence SKU v2 inclut deux composants :
 
-- **Prix fixe** : correspond au prix horaire (ou heure entamée) pour approvisionner une passerelle Standard_v2 ou WAF_v2.
-- **Prix des unités de capacité** : correspond au coût basé sur la consommation qui est facturé en plus du coût fixe. Les frais liés aux unités de capacité sont également calculés à l’heure ou partiellement à l’heure. Les unités de capacité incluent 3 dimensions : l’unité Compute, les connexions persistantes et le débit. L’unité Compute est une mesure de la capacité consommée du processeur. Les facteurs affectant l’unité Compute sont les connexions TLS/s, les calculs de réécriture d’URL et le traitement des règles WAF. Une connexion permanente est une mesure de connexions TCP établies vers la passerelle d’application à un intervalle de facturation donné. Le débit correspond à la moyenne des mégabits/s traités par le système à un intervalle de facturation donné.
+- **Prix fixe** : correspond au prix horaire (ou heure entamée) pour approvisionner une passerelle Standard_v2 ou WAF_v2. Notez que l’option 0 instance minimale supplémentaire garantit quand même une haute disponibilité du service, ce qui est toujours inclus avec le prix fixe.
+- **Prix des unités de capacité** : correspond à un coût basé sur la consommation qui est facturé en plus du coût fixe. Les frais liés aux unités de capacité sont également calculés à l’heure ou partiellement à l’heure. Les unités de capacité incluent 3 dimensions : l’unité Compute, les connexions persistantes et le débit. L’unité Compute est une mesure de la capacité consommée du processeur. Les facteurs affectant l’unité Compute sont les connexions TLS/s, les calculs de réécriture d’URL et le traitement des règles WAF. Une connexion permanente est une mesure de connexions TCP établies vers la passerelle d’application à un intervalle de facturation donné. Le débit correspond à la moyenne des mégabits/s traités par le système à un intervalle de facturation donné.  La facturation est effectuée à un niveau d’unité de capacité pour tout ce qui se trouve au-dessus du nombre d’instances réservées.
 
 Chaque unité de capacité est composée au maximum de ce qui suit : 1 unité Compute, 2 500 connexions permanentes ou 2,22 Mbits/s de débit.
 
@@ -77,7 +77,7 @@ Prix total = 148,8 $ + 297,6 $ = 446,4 $
 
 **Exemple 2**
 
-Une passerelle Application Gateway Standard_v2 est approvisionnée pour un mois et reçoit 25 nouvelles connexions SSL/s, avec une moyenne de transfert de données de 8,88 Mbits/s. En supposant que les connexions présentent une durée limitée, votre prix serait le suivant :
+Une passerelle Application Gateway Standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à zéro, et reçoit 25 nouvelles connexions SSL/s, avec une moyenne de transfert de données de 8,88 Mbits/s. En supposant que les connexions présentent une durée limitée, votre prix serait le suivant :
 
 Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
 
@@ -85,10 +85,37 @@ Prix d'unité de capacité = 744  (heures) * Max (25/50 unités Compute pour le
 
 Prix total = 148,8  + 23,81 $ = 172,61 $
 
+Comme vous pouvez le voir, vous êtes uniquement facturé pour quatre unités de capacité, et non pour l’ensemble de l’instance. 
+
 > [!NOTE]
 > La fonction Max renvoie la plus grande valeur dans une paire de valeurs.
 
+
 **Exemple 3**
+
+Une passerelle Application Gateway standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à cinq. En supposant qu’il n’y a pas de trafic et que les connexions présentent une durée limitée, votre prix serait le suivant :
+
+Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
+
+Prix d’unité de capacité = 744 (heures) * Max (0/50 unités Compute pour les connexions/s, 0/2,22 unités de capacité pour le débit) * 0,008 $ = 744 * 50 * 0,008 = 297,60 $
+
+Prix total = 148,80 $ + 297,60 $ = 446,4 $
+
+Dans ce cas, vous êtes facturé pour l’intégralité des cinq instances, même s’il n’y a pas de trafic.
+
+**Exemple 4**
+
+Une passerelle Application Gateway Standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à cinq, mais cette fois, il y a une moyenne de transfert de données de 125 Mbits/s et 25 connexions SSL par seconde. En supposant qu’il n’y a pas de trafic et que les connexions présentent une durée limitée, votre prix serait le suivant :
+
+Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
+
+Prix d’unité de capacité = 744  (heures) * Max (25/50 unités Compute pour les connexions/s, 125/2,22 unités de capacité pour le débit) * 0,008 $ = 744 * 57 * 0,008 = 339,26 $
+
+Prix total = 148,80 $ + 339,26 $ = 488,06 $
+
+Dans ce cas, vous êtes facturé pour les cinq instances complètes, plus sept unités de capacité (7/10 d’une instance).  
+
+**Exemple 5**
 
 Une passerelle Application Gateway WAF_v2 est approvisionnée pour un mois. Durant ce laps de temps, elle reçoit 25 nouvelles connexions SSL/s, avec une moyenne de transfert de données de 8,88 Mbits/s et effectue 80 requêtes par seconde. En supposant que les connexions présentent une durée limitée et que le calcul d'unités Compute pour l'application prenne en charge 10 RPS par unité Compute, votre prix serait le suivant :
 
@@ -105,7 +132,7 @@ Prix total = 267,84 $ + 85,71 $ = 353,55 $
 
 Application Gateway et WAF peuvent être configurés pour être mis à l'échelle dans deux modes :
 
-- **Mise à l’échelle automatique** - Lorsque la mise à l’échelle automatique est activée, les références SKU Application Gateway et WAF v2 sont mis à l'échelle (augmentation ou réduction) en fonction des besoins de trafic de l'application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir estimer la taille d'Application Gateway ou le nombre d'instances. En outre, ce mode vous évite de devoir exécuter des passerelles à la capacité maximale approvisionnée pour une charge de trafic maximale anticipée. Vous devez spécifier un nombre minimal d’instances et éventuellement un nombre maximal d'instances. Moyennant une capacité minimale, Application Gateway et WAF v2 ne descendent pas en dessous du nombre minimal d'instances spécifié, même en l’absence de trafic. Chaque instance compte pour 10 unités de capacité réservées supplémentaires. 0 signifie aucune capacité réservée, avec une mise à l’échelle purement automatique par nature. Notez que l’option 0 instance minimale supplémentaire garantit quand même une haute disponibilité du service, ce qui est toujours inclus avec le prix fixe. Vous pouvez également spécifier un nombre maximal d’instances pour vous assurer qu'Application Gateway n'effectue pas de mise à l'échelle au-delà du nombre d'instances spécifié. Vous continuez d'être facturé pour la quantité de trafic traité par Application Gateway. Le nombre d’instances peut varier de 0 à 125. Si elle n'est pas spécifiée, la valeur par défaut correspondant au nombre maximal d'instances est de 20. 
+- **Mise à l’échelle automatique** - Lorsque la mise à l’échelle automatique est activée, les références SKU Application Gateway et WAF v2 sont mis à l'échelle (augmentation ou réduction) en fonction des besoins de trafic de l'application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir estimer la taille d'Application Gateway ou le nombre d'instances. En outre, ce mode vous évite de devoir exécuter des passerelles à la capacité maximale approvisionnée pour une charge de trafic maximale anticipée. Vous devez spécifier un nombre minimal d’instances et éventuellement un nombre maximal d'instances. Moyennant une capacité minimale, Application Gateway et WAF v2 ne descendent pas en dessous du nombre minimal d'instances spécifié, même en l’absence de trafic. Chaque instance compte pour 10 unités de capacité réservées supplémentaires. Zéro signifie aucune capacité réservée, avec une mise à l’échelle purement automatique par nature. Notez que l’option zéro instance minimale supplémentaire garantit quand même une haute disponibilité du service, ce qui est toujours inclus avec le prix fixe. Vous pouvez également spécifier un nombre maximal d’instances pour vous assurer qu'Application Gateway n'effectue pas de mise à l'échelle au-delà du nombre d'instances spécifié. Vous continuez d'être facturé pour la quantité de trafic traité par Application Gateway. Le nombre d’instances peut varier de 0 à 125. Si elle n'est pas spécifiée, la valeur par défaut correspondant au nombre maximal d'instances est de 20.
 - **Manuel** - Vous pouvez aussi choisir le mode Manuel, sans mise à l’échelle automatique de la passerelle. Dans ce mode, un trafic supérieur à ce que Application Gateway ou WAF peut gérer est susceptible d'entraîner une perte de trafic. En mode Manuel, vous êtes tenu de spécifier un nombre d'instances. Le nombre d’instances peut varier de 1 à 125.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités des références SKU v1 et v2
@@ -124,6 +151,7 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque réf
 | Hébergement de plusieurs sites                             | &#x2713; | &#x2713; |
 | Redirection du trafic                               | &#x2713; | &#x2713; |
 | Pare-feu d’applications web (WAF)                    | &#x2713; | &#x2713; |
+| Règles personnalisées WAF                                  |          | &#x2713; |
 | Terminaison SSL (Secure Sockets Layer)            | &#x2713; | &#x2713; |
 | Chiffrement SSL de bout en bout                         | &#x2713; | &#x2713; |
 | Affinité de session                                  | &#x2713; | &#x2713; |

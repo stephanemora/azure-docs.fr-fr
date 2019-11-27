@@ -1,7 +1,7 @@
 ---
 title: Inspecter la qualité des données pour Custom Speech – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du portail Custom Speech, vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct.  Cet outil vous permet d’inspecter rapidement la qualité de notre modèle de reconnaissance vocale de référence ou d’un modèle entraîné personnalisé sans qu’il soit nécessaire de transcrire des données audio.
+description: Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. Vous pouvez lire le contenu audio chargé pour déterminer si le résultat proposé de la reconnaissance est correct.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801477"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072555"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 
@@ -43,18 +43,18 @@ Une fois que vous avez créé un test, vous pouvez comparer les modèles côte �
 
 ## <a name="side-by-side-model-comparisons"></a>Comparaisons côte à côte de modèles
 
-Quand l’état du test est *Succeeded* (Opération réussie), cliquez sur le nom du test pour en voir les détails. Cette page de détails liste tous les énoncés de votre jeu de données, indiquant les résultats de la reconnaissance des deux modèles avec la transcription du jeu de données soumis.
+Quand l’état du test est _Succeeded_ (Opération réussie), cliquez sur le nom du test pour en voir les détails. Cette page de détails liste tous les énoncés de votre jeu de données, indiquant les résultats de la reconnaissance des deux modèles avec la transcription du jeu de données soumis.
 
 Pour inspecter plus facilement la comparaison côte à côte, vous pouvez voir les différents types d’erreurs (insertion, suppression et substitution). En écoutant le contenu audio et en comparant les résultats de la reconnaissance dans chaque colonne (transcription étiquetée à la main et résultats des deux modèles de reconnaissance vocale), vous pouvez identifier le modèle qui répond à vos besoins et à quel niveau il est nécessaire d’apporter des améliorations.
 
-Le test d’inspection de la qualité est utile pour vérifier si la qualité d’un point de terminaison de reconnaissance vocale est suffisante pour une application.  Pour obtenir une mesure objective de la précision, ce qui nécessite que le contenu audio soit transcrit, suivez les instructions fournies dans [Évaluer la précision](how-to-custom-speech-evaluate-data.md).
+Le test d’inspection de la qualité est utile pour vérifier si la qualité d’un point de terminaison de reconnaissance vocale est suffisante pour une application. Pour obtenir une mesure objective de la précision, ce qui nécessite que le contenu audio soit transcrit, suivez les instructions fournies dans [Évaluer la précision](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Évaluer les données](how-to-custom-speech-evaluate-data.md)
-* [Entraîner un modèle](how-to-custom-speech-train-model.md)
-* [Déployer un modèle](how-to-custom-speech-deploy-model.md)
+- [Évaluer les données](how-to-custom-speech-evaluate-data.md)
+- [Entraîner un modèle](how-to-custom-speech-train-model.md)
+- [Déployer un modèle](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Préparer les données de test pour Custom Speech](how-to-custom-speech-test-data.md)
+- [Préparer les données de test pour Custom Speech](how-to-custom-speech-test-data.md)

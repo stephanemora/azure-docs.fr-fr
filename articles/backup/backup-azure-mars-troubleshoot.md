@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747414"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012835"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -119,11 +119,13 @@ Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Si la stratégie d’exécution de PowerShell pour `LocalMachine` est définie sur « restreinte », la cmdlet PowerShell qui déclenche la tâche de sauvegarde peut échouer. Exécutez ces commandes en mode avec élévation de privilèges pour vérifier la stratégie d’exécution et la définir sur `Unrestricted` ou `RemoteSigned` :
+- Si la stratégie d’exécution de PowerShell pour `LocalMachine` est définie sur `restricted`, la cmdlet PowerShell qui déclenche la tâche de sauvegarde risque d’échouer. Exécutez ces commandes en mode avec élévation de privilèges pour vérifier la stratégie d’exécution et la définir sur `Unrestricted` ou `RemoteSigned` :
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Vérifiez qu’il n’y a aucun fichier MSOnlineBackup de module PowerShell endommagé ou manquant. En cas de fichiers manquants ou endommagés, procédez comme suit :
 
@@ -165,9 +167,9 @@ Si celle-ci échoue encore, redémarrez votre serveur ou client. Si vous ne souh
 
 ## <a name="troubleshoot-cache-problems"></a>Résoudre les problèmes de cache
 
-L’opération de sauvegarde peut échouer si le dossier du cache (également nommé « dossier temporaire ») n’est pas configuré correctement, ne respecte pas la configuration requise ou a un accès restreint.
+L’opération de sauvegarde risque d’échouer si le dossier du cache (également nommé « dossier de travail ») n’est pas configuré correctement, ne respecte pas les prérequis ou présente un accès restreint.
 
-### <a name="pre-requisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter la configuration suivante :
 
@@ -215,13 +217,13 @@ L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplace
 
 Message d’erreur | Action recommandée |
 -- | --
-La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#pre-requisites)
+La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Message d’erreur | Action recommandée |
 -- | --
-Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#pre-requisites)
+Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747634"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903627"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Sauvegarder et restaurer Azure Files avec PowerShell
 
@@ -276,7 +276,7 @@ Lors des sauvegardes, nous utilisons les captures instantanées de partages de f
 
 ### <a name="using-on-demand-backups-to-extend-retention"></a>Utilisation de sauvegardes à la demande pour étendre la conservation
 
-Vous pouvez utiliser des sauvegardes à la demande pour conserver vos captures instantanées pendant 10 ans. Vous pouvez utiliser des planificateurs pour exécuter des scripts PowerShell à la demande avec la conservation choisie, puis pour prendre des captures instantanées à intervalles réguliers chaque semaine, mois ou année. Quand vous prenez régulièrement des captures instantanées, reportez-vous aux [limitations des sauvegardes à la demande](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) à l’aide de Sauvegarde Azure.
+Vous pouvez utiliser des sauvegardes à la demande pour conserver vos captures instantanées pendant 10 ans. Vous pouvez utiliser des planificateurs pour exécuter des scripts PowerShell à la demande avec la conservation choisie, puis pour prendre des captures instantanées à intervalles réguliers chaque semaine, mois ou année. Quand vous prenez régulièrement des captures instantanées, reportez-vous aux [limitations des sauvegardes à la demande](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) à l’aide de Sauvegarde Azure.
 
 Si vous recherchez des exemples de scripts, vous pouvez vous référer à l’exemple de script sur GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> qui utilise un runbook Azure Automation permettant de planifier des sauvegardes régulières et de les conserver jusqu’à 10 ans.
 

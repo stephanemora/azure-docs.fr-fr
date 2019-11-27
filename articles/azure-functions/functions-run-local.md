@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72abfef1f86fe47eb7817241a674741f56817f24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469063"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082721"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -177,12 +177,19 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--csx`** | Initialise un projet de Script C# (.csx). Vous devez spécifier `--csx` dans les commandes suivantes. |
+| **`--csharp`**<br/> **`--dotnet`** | Initialise un [projet de bibliothèque de classes C# (.cs)](functions-dotnet-class-library.md). |
+| **`--csx`** | Initialise un [projet de Script C# (.csx)](functions-reference-csharp.md). Vous devez spécifier `--csx` dans les commandes suivantes. |
 | **`--docker`** | Créez un fichier Dockerfile pour un conteneur à l’aide d’une image de base définie par le `--worker-runtime` choisi. Utiliser cette option lorsque vous projetez de publier sur un conteneur Linux personnalisé. |
+| **`--docker-only`** |  Ajoute un fichier Dockerfile à un projet existant. Demande le runtime Worker s’il n’est pas spécifié ou défini dans local.settings.json. Utiliser cette option lorsque vous projetez de publier un projet existant sur un conteneur Linux personnalisé. |
 | **`--force`** | Initialiser le projet même lorsque celui-ci contient des fichiers existants. Ce paramètre remplace les fichiers existants portant le même nom. D’autres fichiers dans le dossier du projet ne sont pas affectés. |
-| **`--no-source-control -n`** | Empêche la création par défaut d’un référentiel Git dans la version 1.x. Dans la version 2.x, le référentiel git n’est pas créé par défaut. |
+| **`--java`**  | Initialise un [projet Java](functions-reference-java.md). |
+| **`--javascript`**<br/>**`--node`**  | Initialise un [projet JavaScript](functions-reference-node.md). |
+| **`--no-source-control`**<br/>**`-n`** | Empêche la création par défaut d’un référentiel Git dans la version 1.x. Dans la version 2.x, le référentiel git n’est pas créé par défaut. |
+| **`--powershell`**  | Initialise un [projet PowerShell](functions-reference-powershell.md). |
+| **`--python`**  | Initialise un [projet Python](functions-reference-python.md). |
 | **`--source-control`** | Contrôle la création d’un référentiel git. Par défaut, un référentiel n’est pas créé. Un référentiel est créé lorsque `true`. |
-| **`--worker-runtime`** | Définit le runtime de langage pour le projet. Les valeurs prises en charge sont `dotnet`, `node` (JavaScript), `java` et `python`. Lorsqu’il n’est pas défini, vous êtes invité à choisir votre runtime pendant l’initialisation. |
+| **`--typescript`**  | Initialise un [projet TypeScript](functions-reference-node.md#typescript). |
+| **`--worker-runtime`** | Définit le runtime de langage pour le projet. Les valeurs prises en charge sont `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python` et `typescript`. Lorsqu’il n’est pas défini, vous êtes invité à choisir votre runtime pendant l’initialisation. |
 
 > [!IMPORTANT]
 > Par défaut, la version 2.x des outils Core crée les projets d’application de fonctions pour le runtime .NET en tant que [projets de classes C#](functions-dotnet-class-library.md) (.csproj). Ces projets C#, qui peuvent être utilisés avec Visual Studio ou Visual Studio Code, sont compilés pendant les tests et lors de la publication sur Azure. Si vous voulez plutôt créer et utiliser les mêmes fichiers de script C# (.csx) que ceux créés dans la version 1.x et dans le portail, vous devez inclure le paramètre `--csx` quand vous créez et que vous déployez des fonctions.
@@ -465,11 +472,11 @@ Les options de publication suivantes sont uniquement prises en charge dans la ve
 | **`--list-included-files`** | Affiche une liste de fichiers publiés basée sur le fichier .funcignore. |
 | **`--nozip`** | Désactive le mode par défaut `Run-From-Package`. |
 | **`--build-native-deps`** | Ignore la création du dossier .wheels dossier lors de la publication des applications de fonction python. |
-| **`--build [-b]`** | Exécute l’action de génération lors du déploiement dans une application de fonction Linux. (accepte : distante, locale) |
+| **`--build`**<br/>**`-b`** | Exécute l’action de génération lors du déploiement dans une application de fonction Linux. Accepte : `remote` et `local`. |
 | **`--additional-packages`** | Liste des packages à installer lors de la création des dépendances natives. Par exemple : `python3-dev libevent-dev`. |
 | **`--force`** | Ignorez la vérification de prépublication dans certains scénarios. |
 | **`--csx`** | Publiez un projet de Script C# (.csx). |
-| **`--no-build`** | Ignorez la génération de fonctions dotnet. |
+| **`--no-build`** | Ne générez pas de fonctions de bibliothèque de classes .NET. |
 | **`--dotnet-cli-params`** | Si les fonctions C# (.csproj) sont compilées lors de la publication, Core Tools appelle « dotnet build --output bin/publish ». Tous les paramètres transmis seront ajoutés à la ligne de commande. |
 
 ### <a name="deployment-custom-container"></a>Déploiement (conteneur personnalisé)

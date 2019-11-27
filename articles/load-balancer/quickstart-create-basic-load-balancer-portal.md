@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un équilibreur de charge de base public à l’aide du portail Azure'
-titlesuffix: Azure Load Balancer
+title: 'Démarrage rapide : Créer un équilibreur de charge de base public à l’aide du Portail Azure'
+titleSuffix: Azure Load Balancer
 description: Ce guide de démarrage rapide montre comment créer un équilibreur de charge de base public à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3cbb4271909cf739dc3ce13712e388f2fc8e20a5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274085"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048705"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base à l’aide du portail Azure
 
@@ -66,7 +66,7 @@ Créez ensuite un réseau virtuel et deux machines virtuelles pour le pool back-
    - **Groupe de ressources** : Faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
    - **Sous-réseau** > **Nom** : Entrez *MyBackendSubnet*.
    
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    ![Créez un réseau virtuel](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
 

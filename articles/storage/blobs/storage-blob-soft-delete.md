@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ece49ff749a3b51e2fd4982f2df2726c57c6bf3d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785206"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113732"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 
@@ -41,7 +41,7 @@ Vous pouvez modifier la période de rétention de suppression réversible à tou
 
 La suppression réversible préserve vos données dans les nombreux cas où les objets blob ou instantanés d’objets blob sont supprimés ou remplacés.
 
-Quand un objet blob est remplacé à l’aide d’une des commandes **Put Blob**, **Put Block**, **Put Block List** ou **Copy Blob**, un instantané de l’état de l’objet blob avant l’opération d’écriture est généré automatiquement. Cet instantané étant supprimé de manière réversible, il est invisible, sauf si les objets supprimés de manière réversible sont répertoriés explicitement. Pour savoir comment répertorier des objets supprimés de manière réversible, voir la section [Récupération](#recovery).
+Quand un objet blob est remplacé à l’aide d’une des commandes **Put Blob**, **Put Block**, **Put Block List** ou **Copy Blob**, une capture instantanée de l’état de l’objet blob avant l’opération d’écriture est générée automatiquement. Cet instantané étant supprimé de manière réversible, il est invisible, sauf si les objets supprimés de manière réversible sont répertoriés explicitement. Pour savoir comment répertorier des objets supprimés de manière réversible, voir la section [Récupération](#recovery).
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -92,7 +92,7 @@ Il est important de noter que l’appel de la commande « Put Page » pour rempl
 
 L’appel de l’opération [Undelete Blob](/rest/api/storageservices/undelete-blob) sur un objet blob de base supprimé de manière réversible a pour effet de restaurer comme actifs cet objet blob et tous les instantanés supprimés de manière réversible qui lui sont associés. L’appel de l’opération `Undelete Blob` sur un objet blob de base actif a pour effet de restaurer comme actifs tous les instantanés supprimés de manière réversible qui lui sont associés. Quand des instantanés sont restaurés comme actifs, ils ressemblent à des instantanés générés par l’utilisateur et ne remplacent pas l’objet blob de base.
 
-Pour restaurer un objet blob en instantané supprimé de manière réversible, vous pouvez appeler `Undelete Blob` sur l’objet blob de base. Ensuite, vous pouvez copier l’instantané sur l’objet blob ainsi activé. Vous pouvez également copier l’instantané vers un nouvel objet blob.
+Pour restaurer un objet blob en capture instantanée supprimée de manière réversible, vous pouvez appeler `Undelete Blob` sur l’objet blob de base. Ensuite, vous pouvez copier l’instantané sur l’objet blob ainsi activé. Vous pouvez également copier l’instantané vers un nouvel objet blob.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
@@ -150,7 +150,7 @@ Lorsque vous activez initialement la suppression réversible, nous vous recomman
 
 Les étapes suivantes montrent comment prendre en main la suppression réversible.
 
-### <a name="azure-portal"></a>Portail Azure
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Pour activer la suppression réversible, accédez à l’option **Suppression réversible** sous **Service Blob**. Cliquez ensuite sur **Activé**, puis entrez le nombre de jours pendant lesquels vous souhaitez retenir les données supprimées de manière réversible.
 
@@ -180,7 +180,7 @@ Après avoir annulé la suppression d’instantanés d’un objet blob, vous pou
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -217,7 +217,7 @@ Pour rechercher la stratégie actuelle de conservation de suppression réversibl
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>D’Azure CLI 
+# <a name="clitabazure-cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
@@ -231,7 +231,7 @@ Pour vérifier si la suppression réversible est activée, utilisez la commande 
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### <a name="python-client-library"></a>Bibliothèque de client Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
@@ -249,7 +249,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### <a name="net-client-library"></a>Bibliothèque de client .NET
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
@@ -291,9 +291,11 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?
+---
 
-S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez réduire ce coût supplémentaire en stockant les données fréquemment remplacées dans un compte de stockage distinct où la suppression réversible est désactivée. 
+## <a name="special-considerations"></a>Considérations spéciales
+
+S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez réduire ce coût et cette latence supplémentaires en stockant les données fréquemment remplacées dans un compte de stockage distinct où la suppression réversible est désactivée. 
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -344,6 +346,8 @@ Oui, la suppression réversible est disponible pour les objets blob de blocs, d�
 ### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>La suppression réversible est-elle disponible pour les disques de machine virtuelle ?  
 
 La suppression réversible est disponible pour les disques non managés Standard et Premium, qui sont des objets blob de pages en arrière-plan. La suppression réversible vous permettra de récupérer uniquement des données supprimées par les opérations **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** et **Copy Blob**. Les données remplacées par un appel de la commande **Put Page** ne sont pas récupérables.
+
+Étant donné qu’une machine virtuelle Azure écrit sur un disque non managé à l'aide d'appels à **Put Page**, la suppression réversible pour annuler des écritures sur un disque non managé à partir d'une machine virtuelle Azure n'est pas un scénario pris en charge.
 
 ### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>Dois-je modifier mes applications existantes pour utiliser la suppression réversible ?
 

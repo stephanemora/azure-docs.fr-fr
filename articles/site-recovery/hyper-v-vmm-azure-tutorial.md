@@ -1,18 +1,18 @@
 ---
-title: Configurer la reprise d’activité pour les machines virtuelles Hyper-V locales hébergées dans des clouds VMM sur Azure avec Site Recovery
+title: Configurer la reprise d’activité après sinistre pour Hyper-V (avec VMM) en utilisant Azure Site Recovery
 description: Découvrez comment configurer la reprise d’activité des machines virtuelles Hyper-V locales hébergées dans des clouds System Center VMM sur Azure avec Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59e6bbbca982d428d4e590cb647f186e1c3fec3a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813772"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039691"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
@@ -31,6 +31,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!NOTE]
 > Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez les articles de la section **Guides pratiques** de la [documentation sur Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+
+
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

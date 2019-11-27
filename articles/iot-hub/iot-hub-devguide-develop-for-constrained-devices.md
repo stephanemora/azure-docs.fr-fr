@@ -1,5 +1,5 @@
 ---
-title: Développer avec Azure IoT Hub pour des appareils limités avec le kit SDK IoT Hub C | Microsoft Docs
+title: Développer avec Azure IoT Hub pour des appareils contraints avec le kit SDK IoT Hub C
 description: Guide du développeur - Aide sur la façon de développer avec les kits SDK Azure IoT pour les appareils contraints.
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880968"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954698"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Développer pour des appareils limités avec le kit SDK Azure IoT C
 

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f26c18095dc745b9f562e3678b2f5f25276aec12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08e6d0c3516f16b72dc58e5dfe3f1e7da2eca154
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522762"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850344"
 ---
 | Category              | Banque de données                                                   | [Activité de copie](../articles/data-factory/copy-activity-overview.md) (source/récepteur) | [Mappage de flux de données](../articles/data-factory/concepts-data-flow-overview.md) | [Activité de recherche](../articles/data-factory/control-flow-lookup-activity.md) | [Activité d’obtention des métadonnées](../articles/data-factory/control-flow-get-metadata-activity.md) | [Supprimer l’activité](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -26,7 +26,7 @@ ms.locfileid: "73522762"
 | &nbsp;                | [Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                           | ✓ <br> <small>Authentification MSI non pris en charge</small>                                                            | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |                                                              |
-| &nbsp;                | [Index Recherche Azure](../articles/data-factory/connector-azure-search.md) | −/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [Index Recherche cognitive Azure](../articles/data-factory/connector-azure-search.md) | −/✓                                                          |                                                              |                                                              |                                                              |                                                              |
 | &nbsp;                | [Stockage de tables Azure](../articles/data-factory/connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **Base de données**          | [Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../articles/data-factory/connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

@@ -1,5 +1,5 @@
 ---
-title: Événements planifiés pour les machines virtuelles Windows dans Azure | Microsoft Docs
+title: Événements planifiés pour les machines virtuelles Windows dans Azure
 description: Événements planifiés avec le service de métadonnées Azure sur vos machines virtuelles Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 087f27b3857363c0b5f244ecd52ebd64105626b5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7889ee66ec80ee0b77b92efc5755e1a84a5cbf04
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102396"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073283"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
 

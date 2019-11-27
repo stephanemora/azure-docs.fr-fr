@@ -1,5 +1,5 @@
 ---
-title: Utiliser des modèles de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
+title: Configurer un groupe de disponibilité (modèle de démarrage rapide Azure)
 description: Utilisez des modèles de démarrage rapide Azure pour créer le cluster de basculement Windows, y joindre des machines virtuelles SQL Server, créer l’écouteur et configurer l’équilibreur de charge interne dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b44b51da11bc1c51fcbc60992a9b5b870daf02e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100576"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022377"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
+# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 Cet article explique comment utiliser les modèles de démarrage rapide Azure pour automatiser partiellement le déploiement d’une configuration de groupe de disponibilité Always On pour des machines virtuelles SQL Server dans Azure. Deux modèles de démarrage rapide Azure sont utilisés dans ce processus : 
 
    | Modèle | Description |

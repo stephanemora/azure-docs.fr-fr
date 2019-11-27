@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/01/2019
+ms.openlocfilehash: 1e115c59cab4c340f927da516b5f937abf42e985
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71936857"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839656"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -21,8 +21,6 @@ Pour analyser des données dans un cluster HDInsight, vous pouvez stocker les do
 Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans Stockage Azure comme système de fichiers par défaut ou, avec HDInsight 3.6, vous pouvez sélectionner Stockage Azure ou Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 en tant que système de fichiers par défaut avec quelques exceptions. Pour la prise en charge de l’utilisation de Data Lake Store Gen 1 en tant que stockage associé et par défaut, consultez [Disponibilités pour le cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
 Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des clusters HDInsight. Pour savoir comment Data Lake Storage Gen 1 fonctionne avec les clusters HDInsight, consultez [Utiliser Azure Data Lake Storage avec des clusters HDInsight](hdinsight-hadoop-use-data-lake-store.md). Pour plus d’informations sur la création d’un cluster HDInsight, consultez [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-
-Le stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS (Hadoop Distributed File System), l’ensemble des composants de HDInsight peut fonctionner directement sur les données structurées ou non structurées en tant qu’objets blob.
 
 > [!IMPORTANT]  
 > Le type de compte de stockage **BlobStorage** peut uniquement être utilisé comme stockage secondaire pour les clusters HDInsight.
@@ -40,92 +38,99 @@ Le partage d’un conteneur blob en tant que système de fichiers par défaut su
 > [!NOTE]  
 > Le niveau d’accès archive est un niveau hors connexion dont la latence de récupération de plusieurs heures n’est pas recommandée pour une utilisation avec HDInsight. Pour plus d’informations, voir [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
-Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage.
+## <a name="access-files-from-the-cluster"></a>Accès aux fichiers à partir du cluster
 
-## <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
+Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight. Le modèle d'URI offre à la fois un accès non chiffré (avec le préfixe *wasb:* ) et un accès chiffré SSL (avec *wasbs*). Dans la mesure du possible, nous vous recommandons d’utiliser *wasbs* , même lorsqu’il s’agit d’accéder à des données qui résident dans la même région Azure.
 
-Le schéma suivant résume l’architecture de stockage HDInsight relative au Stockage Azure :
+* **Utilisation du nom complet**. Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
 
-![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données et les stocker dans le stockage Blob](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architecture de stockage HDInsight")
+    ```
+    wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
+    wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
+    ```
 
-HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
-    hdfs://<namenodehost>/<path>
+    ```
+    wasb:///<file.path>/
+    wasbs:///<file.path>/
+    ```
 
-De plus, HDInsight permet d’accéder aux données stockées dans le stockage Azure. La syntaxe est :
+* **Utilisation du chemin d’accès relatif**. Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
 
-    wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
+    ```
+    /<file.path>/
+    ```
 
-Voici des points à prendre en compte lorsque vous utilisez un compte de stockage Azure avec des clusters HDInsight.
+### <a name="data-access-examples"></a>Exemples d'accès aux données
 
-* **Conteneurs dans les comptes de stockage connectés à un cluster :** Comme le nom et la clé du compte sont associés au cluster durant la création, vous disposez d’un accès complet aux blobs de ces conteneurs.
+Les exemples sont basés sur une [connexion ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) au nœud principal du cluster. Les exemples utilisent les trois schémas d’URI. Remplacez `CONTAINERNAME` et `STORAGEACCOUNT` par les valeurs correspondantes
 
-* **Conteneurs publics ou blobs publics dans les comptes de stockage qui ne sont PAS connectés à un cluster :** vous avez l’autorisation d’accès en lecture seule aux blobs dans les conteneurs.
-  
-> [!NOTE]  
-> Des conteneurs publics vous permettent d'obtenir une liste de tous les objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d’informations, consultez [Gérer l’accès aux conteneurs et aux objets blob](../storage/blobs/storage-manage-access-to-resources.md).
+#### <a name="a-few-hdfs-commands"></a>Quelques commandes hdfs
 
-* **Conteneurs privés dans les comptes de stockage qui ne sont PAS connectés à un cluster :** vous ne pouvez pas accéder aux objets blob situés dans les conteneurs, sauf si vous définissez le compte de stockage lors de l'envoi des travaux WebHCat. Une explication sera fournie plus loin dans cet article.
+1. Créez un fichier simple sur le stockage local.
 
-Les comptes de stockage définis lors du processus de création et leurs clés sont stockés dans `%HADOOP_HOME%/conf/core-site.xml` sur les nœuds du cluster. Le comportement par défaut de HDInsight consiste à utiliser les comptes de stockage définis dans le fichier core-site.xml. Vous pouvez modifier ce paramètre avec [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
+    ```bash
+    touch testFile.txt
+    ```
 
-Plusieurs travaux WebHCat, notamment Apache Hive, MapReduce, streaming Apache Hadoop et Apache Pig, peuvent véhiculer avec eux une description des comptes de stockage et des métadonnées. (cela fonctionne actuellement pour Pig, pour les comptes de stockage, mais pas pour les métadonnées.) Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+1. Créez des répertoires sur le stockage en cluster.
 
-Les objets blob peuvent être utilisés pour les données structurées et non structurées. Les conteneurs d’objets blob stockent des données en tant que paires clé/valeur et sans hiérarchie de répertoires. Cependant, vous pouvez utiliser la barre oblique (« / ») dans le nom de la clé pour la faire apparaître comme un fichier stocké dans une structure de répertoires. Par exemple, une clé d'objet blob peut être *input/log1.txt*. Il n'existe pas de répertoire *input* , mais la barre oblique figurant dans le nom de la clé lui donne l'aspect d'un chemin d'accès de fichier.
+    ```bash
+    hdfs dfs -mkdir wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -mkdir wasbs:///sampledata2/
+    hdfs dfs -mkdir /sampledata3/
+    ```
 
-## <a id="benefits"></a>Avantages du stockage Azure
+1. Copiez les données du stockage local vers le stockage en cluster.
 
-La réduction des performances entraînée par la séparation des clusters de calcul et des ressources de stockage est compensée par le fait que les clusters de calcul sont créés à proximité des ressources du compte de stockage dans la région Azure, où le réseau à haut débit permet aux nœuds de calcul d’accéder efficacement aux données dans Stockage Azure.
+    ```bash
+    hdfs dfs -copyFromLocal testFile.txt  wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -copyFromLocal testFile.txt  wasbs:///sampledata2/
+    hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
+    ```
 
-Voici les avantages offerts par le stockage de données dans un stockage Azure au lieu d’un système HDFS :
+1. Affichez le contenu du répertoire sur le stockage en cluster.
 
-* **Réutilisation et partage des données :** les données du système HDFS sont situées dans le cluster de calcul. Seules les applications pouvant accéder au cluster de calcul peuvent utiliser les données avec l'API HDFS. Vous pouvez accéder aux données du stockage Azure via les API HDFS ou les [API REST de stockage Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API). Vous pouvez donc utiliser un plus grand nombre d'applications (notamment d'autres clusters HDInsight) et d'outils pour produire et consommer des données.
-
-* **Archivage des données :** le stockage de données dans le stockage Azure permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
-
-* **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage Azure, car le coût d’un cluster de calcul est plus élevé que celui d’un stockage Azure. De plus, comme vous n’avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
-
-* **Scale-out élastique :** même si le système HDFS offre un système de fichiers scale-out, l’échelle est déterminée par le nombre de nœuds que vous créez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d’évolution flexible que vous obtenez automatiquement dans le stockage Azure.
-
-* **Géoréplication :** vous pouvez géorépliquer le stockage Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
-
-Certains packages et travaux MapReduce peuvent créer des résultats intermédiaires que vous ne voulez pas stocker dans un stockage Azure. Dans ce cas, vous pouvez choisir de stocker les données dans un système HDFS local. En fait, HDInsight utilise DFS pour plusieurs de ces résultats intermédiaires dans les tâches Hive et d'autres processus.
-
-> [!NOTE]  
-> La plupart des commandes HDFS (par exemple, `ls`, `copyFromLocal` et `mkdir`) fonctionnent toujours comme prévu. Seules les commandes propres à l’implémentation HDFS native (ou DFS), comme `fschk` et `dfsadmin`, se comportent différemment dans le stockage Azure.
-
-## <a name="address-files-in-azure-storage"></a>Adressage des fichiers dans le stockage Azure
-
-Le modèle d’URI pour accéder aux fichiers du stockage Azure à partir de HDInsight est le suivant :
-
-```config
-wasbs://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
-```
-
-Le modèle d'URI offre à la fois un accès non chiffré (avec le préfixe *wasb:* ) et un accès chiffré SSL (avec *wasbs*). Dans la mesure du possible, nous vous recommandons d’utiliser *wasbs* , même lorsqu’il s’agit d’accéder à des données qui résident dans la même région Azure.
-
-`<BlobStorageContainerName>` identifie le nom du conteneur d’objets blob dans le stockage Azure.
-`<StorageAccountName>` identifie le nom du compte Stockage Azure. Un nom de domaine complet (FQDN) est requis.
-
-Si `<BlobStorageContainerName>` et `<StorageAccountName>` ne sont pas spécifiés, le système de fichiers par défaut est utilisé. Pour les fichiers du système de fichiers par défaut, vous pouvez utiliser un chemin d'accès relatif ou absolu. Par exemple, le fichier *hadoop-mapreduce-examples.jar* fourni avec les clusters HDInsight peut être désigné pour l'une des utilisations suivantes :
-
-```config
-wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-wasbs:///example/jars/hadoop-mapreduce-examples.jar
-/example/jars/hadoop-mapreduce-examples.jar
-```
-
-> [!NOTE]  
-> Le nom du fichier est `hadoop-examples.jar` sur les clusters HDInsight version 2.1 et 1.6.
-
-Le chemin d'accès correspond au nom du chemin du fichier ou du répertoire HDFS. Comme les conteneurs du stockage Azure sont des magasins de valeurs de clés, il n'y a pas de système de fichiers hiérarchique. Une barre oblique (« / ») à l'intérieur d'une clé d'objet blob est interprétée comme un séparateur de répertoire. Par exemple, le nom d'objet blob pour *hadoop-mapreduce-examples.jar* est :
-
-```bash
-example/jars/hadoop-mapreduce-examples.jar
-```
+    ```bash
+    hdfs dfs -ls wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
+    hdfs dfs -ls wasbs:///sampledata2/
+    hdfs dfs -ls /sampledata3/
+    ```
 
 > [!NOTE]  
 > Lorsque vous utilisez des objets blob hors de HDInsight, la plupart des utilitaires ne reconnaissent pas le format WASB et attendent plutôt un format de chemin d’accès basique, comme `example/jars/hadoop-mapreduce-examples.jar`.
+
+#### <a name="creating-a-hive-table"></a>Création d'une table Hive
+
+Trois emplacements de fichiers sont indiqués à titre d'illustration. Pour l'exécution réelle, n'utilisez qu'une seule des entrées `LOCATION`.
+
+```hql
+DROP TABLE myTable;
+CREATE EXTERNAL TABLE myTable (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE
+LOCATION 'wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/example/data/';
+LOCATION 'wasbs:///example/data/';
+LOCATION '/example/data/';
+```
+
+## <a name="identify-storage-path-from-abmari"></a>Identifier le chemin de stockage à partir d’Abmari
+
+* Pour identifier le chemin d'accès complet à la mémoire par défaut configurée, naviguez jusqu'à :
+
+    **HDFS** > **Configs**, puis entrez `fs.defaultFS` dans la zone de saisie du filtre.
+
+* Pour vérifier si le magasin wasb est configuré comme stockage secondaire, naviguez jusqu'à :
+
+    **HDFS** > **Configs**, puis entrez `blob.core.windows.net` dans la zone de saisie du filtre.
 
 ## <a name="blob-containers"></a>Conteneurs d’objets blob
 
@@ -165,6 +170,6 @@ Pour plus d'informations, consultez les pages suivantes :
 * [Bien démarrer avec Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 08/19/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 587856be6ca1064e5d2487ba6740b51a8c645fee
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cf9a57b58740d1a759e00f10f6f327d605e91148
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716642"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123643"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -23,7 +23,54 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2019-11-11"></a>2019-11-11
 
+### <a name="azure-machine-learning-sdk-for-python-v1074"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.74
+ 
+  + **Fonctionnalités préliminaires**
+    + **azureml-contrib-dataset**
+      + Après l’importation de azureml-contrib-dataset, vous pouvez appeler `Dataset.Labeled.from_json_lines` au lieu de `._Labeled` pour créer un jeu de données étiqueté.
+      + Lorsque vous appelez `to_pandas_dataframe` sur un jeu de données étiqueté avec l’option de téléchargement, vous pouvez choisir de remplacer les fichiers existants.
+      + Lors de l’appel de `keep_columns` ou `drop_columns` qui entraîne la suppression d’une colonne TimeSeries, d’étiquette ou d’image, les fonctionnalités correspondantes seront également supprimées pour le jeu de données.
+      + Résolution des problèmes liés au chargeur PyTorch lors de l’appel de `dataset.to_torchvision()`.
+
++ **Résolutions de bogue et améliorations**
+  + **azure-cli-ml**
+    + Ajout du profilage de modèle à l’interface CLI en préversion.
+    + Corrige le changement cassant de Stockage Azure provoquant l’échec de l’interface CLI AzureML.
+    + Ajout du type d’équilibrage de charge à MLC pour les types AKS
+  + **azureml-automl-core**
+    + Correction du problème de détection de l’horizon maximal sur la série chronologique, avec des valeurs manquantes et des niveaux de précision multiples.
+    + Correction du problème lié aux échecs de génération de fractionnement de validation croisée.
+    + Remplacez cette section par un message sous forme de balisage Markdown qui apparaîtra dans les notes de publication : -Amélioration de la gestion des formats réduits dans les jeux de données de prévision.
+    + Correction du problème de masquage de certaines informations utilisateur lors de la journalisation. -Amélioration de la journalisation des erreurs lors des exécutions de prévisions.
+    + Ajout de psutil en tant que dépendance Conda au fichier de déploiement yml généré automatiquement.
+  + **azureml-contrib-mir**
+    + Corrige le changement cassant de Stockage Azure provoquant l’échec de l’interface CLI AzureML.
+  + **azureml-core**
+    + Correction d’un bogue dans lequel les modèles déployés sur Azure Functions produisaient des erreurs de type 500.
+    + Correction d’un problème dans lequel le fichier amlignore n’était pas appliqué sur les captures instantanées.
+    + Ajout d’une nouvelle API amlcompute. get_active_runs qui renvoie un générateur pour l’exécution et les exécutions en file d’attente sur un amlcompute donné.
+    + Ajout du type d’équilibrage de charge à MLC pour les types AKS.
+    + Ajout du paramètre booléen append_prefix à download_files dans run.py et download_artifacts_from_prefix dans artifacts_client. Cet indicateur est utilisé pour aplatir sélectivement le chemin d’accès d’origine de sorte que seul le nom du fichier ou du dossier est ajouté au output_directory
+    + Résolvez le problème de désérialisation pour `run_config.yml` avec l’utilisation du jeu de données.
+    + Lors de l’appel de `keep_columns` ou `drop_columns` qui entraîne la suppression d’une colonne TimeSeries, les fonctionnalités correspondantes seront également supprimées pour le jeu de données.
+  + **azureml-interpret**
+    + Mise à jour d’interpret-community version sur 0.1.0.3
+  + **azureml-train-automl**
+    + Correction d’un problème où automl_step peut ne pas imprimer les problèmes de validation.
+    + Correction de register_model pour qu’il aboutisse, même si les dépendances sont manquantes localement dans l’environnement du modèle.
+    + Résolution d’un problème où certaines exécutions à distance n’étaient pas activées pour le docker.
+    + Ajoutez la journalisation de l’exception qui provoque l’échec prématuré d’une exécution locale.
+  + **azureml-train-core**
+    + Envisagez l’exécution de resume_from dans le cadre du calcul de la meilleure exécution des enfants de paramétrage automatisé.
+  + **azureml-pipeline-core**
+    + Correction de la gestion des paramètres dans la construction d’arguments du pipeline.
+    + Ajout de la description du pipeline et du paramètre de type d’étape YAML.
+    + Nouveau format YAML pour l’étape de pipeline et ajout d’un avertissement de désapprobation pour l’ancien format.
+    
+    
+  
 ## <a name="2019-11-04"></a>2019-11-04
 
 ### <a name="web-experience"></a>Expérience web 
@@ -181,7 +228,7 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
     + Ajout de psutil en tant que dépendance de `automl` et psutil inclus en tant que dépendance conda dans amlcompute.
     + Correction du problème lié aux décalages heuristiques et aux tailles de fenêtre dynamique sur les jeux de données de prévisions, dont certaines séries peuvent provoquer des erreurs algébriques linéaires
       + Ajout de l’impression pour les paramètres déterminés de manière heuristique dans les exécutions de prévision.
-  + **[azureml-contrib-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+  + **azureml-contrib-datadrift**
     + Ajout de la protection lors de la création de métriques de sortie si la dérive du niveau de jeu de données ne figure pas dans la première section.
   + **azureml-contrib-interpret**
     + Le package azureml-contrib-explain-model a été renommé en azureml-contrib-interpret
@@ -233,16 +280,16 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        La méthode statique [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly--) dans Experiment peut accepter un filtre de nom et un filtre ViewType. Les valeurs ViewType sont « ACTIVE_ONLY », « ARCHIVED_ONLY » et « ALL ». Exemple : 
+        La méthode statique [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) dans Experiment peut accepter un filtre de nom et un filtre ViewType. Les valeurs ViewType sont « ACTIVE_ONLY », « ARCHIVED_ONLY » et « ALL ». Exemple : 
         
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + Prise en charge de l’utilisation de l’environnement pour le déploiement de modèle et la mise à jour du service.
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
-    + L’attribut show de la classe [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector) ne prend plus en charge l’argument facultatif « with_details ». L’attribut show affichera uniquement le coefficient de dérive des données et la contribution à la dérive des données des colonnes de caractéristiques.
-    + Modifications du comportement de la fonction DataDriftDetector [get_Output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-) :
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
+    + L’attribut show de la classe [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) ne prend plus en charge l’argument facultatif « with_details ». L’attribut show affichera uniquement le coefficient de dérive des données et la contribution à la dérive des données des colonnes de caractéristiques.
+    + Modifications du comportement de la fonction DataDriftDetector [get_Output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-)  :
       + les paramètres d’entrée start_time et end_time sont facultatifs au lieu d’obligatoires ;
       + Les entrée spécifiques start_time et/ou end_time avec un run_id spécifique dans le même appel entraînent une exception d’erreur de valeur, car elles s’excluent mutuellement ; 
       + lorsque vous entrez des valeurs spécifiques pour start_time et/ou end_time, seuls les résultats des exécutions planifiées sont retournés ; 
@@ -862,7 +909,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
 + **Fonctionnalités préliminaires**
     + Intégration avec le suivi [MLflow](https://mlflow.org) 1.0.0 via le package azureml-mlflow ([exemples de notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Soumettre un notebook Jupyter en tant qu’exécution. [Documentation de référence de l’API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Version préliminaire publique de [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) via le package azureml-contrib-datadrift ([exemples de notebooks](https://aka.ms/azureml-datadrift-example)). La dérive de données est l’une des principales raisons pour lesquelles la précision du modèle se dégrade au fil du temps. Elle se produit lorsque les données proposées dans un modèle en production sont différentes de celles utilisées pour former le modèle. Le détecteur de dérive de données AML aide le client à surveiller la dérive des données et envoie des alertes à chaque dérive détectée. 
+    + Version préliminaire publique de [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) via le package azureml-contrib-datadrift ([exemples de notebooks](https://aka.ms/azureml-datadrift-example)). La dérive de données est l’une des principales raisons pour lesquelles la précision du modèle se dégrade au fil du temps. Elle se produit lorsque les données proposées dans un modèle en production sont différentes de celles utilisées pour former le modèle. Le détecteur de dérive de données AML aide le client à surveiller la dérive des données et envoie des alertes à chaque dérive détectée. 
 
 + **Dernières modifications**
 

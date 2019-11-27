@@ -1,7 +1,7 @@
 ---
 title: Configurer votre expérience de Recherche personnalisée Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Décrit comment créer des services de site et de recherche verticale
+description: Le portail vous permet de créer une instance de recherche qui spécifie les tranches du web, domaines, sous-pages et pages web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854096"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072816"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -27,7 +27,7 @@ Utilisez les éléments suivants pour définir vos sections du web :
 
 | Nom de la section | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing retourne également les résultats de `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domain     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing retourne également les résultats de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Sous-page    | Une section de sous-page comprend tout le contenu trouvé dans la sous-page, et les chemins situés en dessous de celle-ci. Vous pouvez indiquer un maximum de deux sous-pages dans le chemin. Par exemple, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Page web    | Une section de page Web ne peut inclure que cette page Web dans une recherche personnalisée. Si vous le souhaitez, vous pouvez préciser s’il faut inclure ou non les sous-pages.                                                                                                                                                                                  |
 

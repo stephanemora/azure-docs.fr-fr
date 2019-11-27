@@ -1,20 +1,20 @@
 ---
-title: Exécuter une procédure de récupération d’urgence sur Azure avec Azure Site Recovery
-description: Découvrez l’exécution d’une procédure de récupération d’urgence à partir d’un site local vers Azure, à l’aide du service Azure Site Recovery.
+title: Exécuter un test de basculement (exercice de récupération d'urgence) sur Azure dans Azure Site Recovery
+description: Découvrez l’exécution d’un test de basculement à partir d’un site local vers Azure, à l’aide du service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814370"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091737"
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure 
+# <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Exécuter un test de basculement (exercice de récupération d'urgence) sur Azure 
 
 
 Cet article explique comment exécuter une simulation de récupération d’urgence vers Azure, à l’aide d’un test de basculement Site Recovery.  

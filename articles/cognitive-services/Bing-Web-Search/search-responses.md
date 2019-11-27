@@ -1,7 +1,7 @@
 ---
 title: Types et structure de la réponse de l’API Recherche Web Bing
 titleSuffix: Azure Cognitive Services
-description: Apprenez-en plus sur les types de réponses et sur les réponses utilisées par l’API Recherche Web Bing.
+description: Lorsque vous envoyez une demande de recherche à l’API Recherche Web Bing, celle-ci retourne un objet `SearchResponse` dans le corps de la réponse.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854727"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110620"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 

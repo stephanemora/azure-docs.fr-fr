@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747248"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074854"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -547,9 +547,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Exécution d’une sauvegarde ad hoc
+### <a name="performing-an-on-demand-backup"></a>Effectuer une sauvegarde à la demande
 
-Une fois qu’une stratégie de sauvegarde a été définie, les sauvegardes ont lieu selon la planification indiquée. Le déclenchement d’une sauvegarde ad hoc est également possible à l’aide de l’applet de commande [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
+Une fois qu’une stratégie de sauvegarde a été définie, les sauvegardes ont lieu selon la planification indiquée. Il est également possible de déclencher une sauvegarde à la demande avec la cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

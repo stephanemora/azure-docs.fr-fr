@@ -8,87 +8,93 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bce05b99c14fb464cd1a17587d9cf254909d87
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2f61792235d13ef801cffb3a69c32df54f058a9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473413"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073554"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
-Un abonnement Azure possède une relation d’approbation avec Azure Active Directory (Azure AD) : l’abonnement fait confiance à Azure AD pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même répertoire Azure AD, mais chaque abonnement n’approuve qu’un seul répertoire.
+Un abonnement Azure comprend une relation d’approbation avec Azure AD. Un abonnement fait confiance à Azure AD pour authentifier les utilisateurs, les services et les appareils.
 
-En cas d’expiration d’un abonnement, vous perdez l’accès aux autres ressources associées à cet abonnement. Toutefois, le répertoire Azure AD demeure dans Azure, vous permettant d’associer et de gérer le répertoire avec un abonnement Azure différent.
+Plusieurs abonnements peuvent approuver le même annuaire Azure AD. Chaque abonnement ne peut faire confiance qu’à un seul annuaire.
 
-Tous vos utilisateurs ont un seul répertoire *accueil* pour authentification. Toutefois, vos utilisateurs peuvent aussi être des invités d’autres répertoires. Vous pouvez voir les répertoires accueil et invité pour chaque utilisateur dans Azure AD.
+En cas d’expiration d’un abonnement, vous perdez l’accès aux autres ressources associées à cet abonnement. Toutefois, l’annuaire Azure AD reste dans Azure. Vous pouvez associer et gérer l’annuaire à l’aide d’un autre abonnement Azure.
+
+Tous vos utilisateurs ont un seul répertoire *accueil* pour authentification. Vos utilisateurs peuvent également être les invités d’autres annuaires. Vous pouvez voir les répertoires accueil et invité pour chaque utilisateur dans Azure AD.
 
 > [!Important]
-> Lorsque vous associez un abonnement à un autre répertoire, les utilisateurs qui ont des rôles attribués à l’aide du [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques (administrateur de services fédérés et coadministrateurs) perdront également leur accès. 
+> Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs possédant des rôles attribués à l’aide du [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
 >
 > Les attributions de stratégie sont également supprimées d’un abonnement lorsque celui-ci est associé à un autre répertoire.
-> 
-> En outre, le déplacement de votre cluster Azure Kubernetes Service (AKS) vers un autre abonnement, ou le déplacement de l’abonnement propriétaire du cluster vers un nouveau tenant, amène le cluster à perdre sa fonctionnalité en raison de la perte des attributions de rôles et des droits de principaux de service. Pour plus d’information sur AKS, consultez [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
+>
+> Le déplacement de votre cluster Azure Kubernetes Service (AKS) vers un autre abonnement, ou le déplacement de l’abonnement propriétaire du cluster vers un nouveau locataire, amène le cluster à perdre sa fonctionnalité en raison de la perte des attributions de rôles et des droits de principaux de service. Pour plus d’information sur AKS, consultez [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
+
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de pouvoir associer ou ajouter votre abonnement, vous devez effectuer les tâches suivantes :
+Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches suivantes :
 
-1. Passez en revue la liste suivante de modifications et leurs éventuelles répercussions :
+- Passez en revue la liste suivante de modifications et leurs éventuelles répercussions :
 
-    - Les utilisateurs dont le rôle a été attribué à l’aide de RBAC perdront leur accès
-    - L’administrateur de services fédérés et le coadministrateur perdront leur accès
-    - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association
-    - Si vous disposez d’identités managées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devrez les réactiver ou les recréer après l’association
-    - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association
+  - Les utilisateurs dont le rôle a été attribué à l’aide de RBAC perdront leur accès
+  - L’administrateur de services fédérés et le coadministrateur perdront leur accès
+  - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association
+  - Si vous disposez d’identités managées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association
+  - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association
 
-1. Connectez-vous avec un compte qui :
-    - Dispose d’une attribution de rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement. Pour plus d’informations sur l’attribution du rôle Propriétaire, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
-    - existe dans le répertoire actuellement associé à l’abonnement et dans le nouveau répertoire auquel vous souhaitez que l’abonnement soit associé. Pour plus d’informations sur l’accès à un autre répertoire, consultez [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](../b2b/add-users-administrator.md)
+- Connectez-vous avec un compte qui :
 
-1. Veillez à ne pas utiliser d’abonnement de fournisseur de services cloud (CSP) Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft interne ((MS-AZR-0015P), ou Microsoft Imagine (MS-AZR-0144P).
-    
-## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Pour associer un abonnement existant à votre annuaire Azure AD
+  - Dispose d’une attribution de rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement. Pour plus d’informations sur l’attribution du rôle Propriétaire, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+  - Existe à la fois dans l’annuaire actif et dans le nouvel annuaire. L’annuaire actif est associé à l’abonnement. Vous associerez le nouvel annuaire à l’abonnement. Pour plus d’informations sur l’accès à un autre annuaire, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](../b2b/add-users-administrator.md).
+
+- Veillez à ne pas utiliser d’abonnement de fournisseur de services cloud (CSP) Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft interne ((MS-AZR-0015P), ou Microsoft Imagine (MS-AZR-0144P).
+
+## Associer un abonnement à un annuaire<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
+
+Pour associer un abonnement existant à votre annuaire Azure AD, suivez ces étapes :
 
 1. Connectez-vous et sélectionnez l’abonnement que vous voulez utiliser dans la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-2. Sélectionnez **Changer de répertoire**.
+1. Sélectionnez **Changer de répertoire**.
 
-    ![Page Abonnements, avec l’option Changer de répertoire en surbrillance](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
+    ![Page Abonnements, avec l’option Changer de répertoire en surbrillance](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
-3. Examinez les avertissements qui s’affichent, puis sélectionnez **Changer**.
+1. Examinez les avertissements qui s’affichent, puis sélectionnez **Changer**.
 
     ![Page Changer de répertoire, montrant le nouveau répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
     Le répertoire est modifié pour l’abonnement et un message de réussite s’affiche.
 
     ![Message de réussite concernant la modification du répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Utilisez le **sélecteur de répertoire** pour passer à votre nouveau répertoire. Dans certains cas, l’affichage correct dans son intégralité peut prendre plusieurs heures. Si cette opération semble prendre trop longtemps, vérifiez que le **filtre d’abonnement Global** de l’abonnement déplacé n’est pas masqué. Vous devrez peut-être vous déconnecter du portail Azure et vous reconnecter pour que le nouveau répertoire soit visible. 
 
-    ![Page du sélecteur de répertoire, avec exemples d’informations](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+Utilisez **Changer d’annuaire** pour passer à votre nouvel annuaire. Dans certains cas, l’affichage correct dans son intégralité peut prendre plusieurs heures. S’il semble trop long, vérifiez le **Filtre d’abonnement global**. Assurez-vous que l’abonnement déplacé n’est pas masqué. Vous devrez peut-être vous déconnecter du portail Azure et vous reconnecter pour que le nouvel annuaire soit visible.
+
+![Page du sélecteur de répertoire, avec exemples d’informations](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 La modification du répertoire de l’abonnement est une opération de niveau de service. Elle n’affecte donc pas la propriété de facturation de l’abonnement. L’administrateur du compte peut toujours changer l’administrateur du service depuis le [centre du compte](https://account.azure.com/subscriptions). Pour supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md).
 
-## <a name="post-association-steps"></a>Étapes post-association
-Une fois que vous aurez associé un abonnement à un autre répertoire, vous devrez peut-être suivre des étapes supplémentaires pour reprendre les opérations.
+## <a name="post-association-steps"></a>Étapes postérieures à l’association
 
-1. Si vous avez des coffres de clés, vous devez modifier l’ID de tenant des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
+Après avoir associé un abonnement à un autre annuaire, vous pouvez être amené à effectuer les tâches suivantes pour reprendre le cours des opérations :
 
-2. Si vous utilisiez des identités managées attribuées par le système pour les ressources, vous devez les réactiver. Si vous utilisiez des identités managées attribuées par l’utilisateur, vous devez les recréer. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md).
+- Si vous avez des coffres de clés, vous devez modifier l’ID de tenant des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-3. Si vous avez inscrit un Azure Stack à l’aide de cet abonnement, vous devez procéder à une réinscription. Pour plus d’informations, consultez [Inscrire Azure Stack auprès d’Azure](/azure-stack/operator/azure-stack-registration).
+- Si vous utilisiez des identités managées affectées par le système pour les ressources, vous devez réactiver ces identités. Si vous utilisiez des identités managées affectées par l’utilisateur pour les ressources, vous devez réactiver ces identités. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../managed-identities-azure-resources/overview.md).
 
-
+- Si vous avez inscrit une instance Azure Stack à l’aide de cet abonnement, vous devez procéder à une réinscription. Pour plus d’informations, consultez [Inscrire Azure Stack auprès d’Azure](/azure-stack/operator/azure-stack-registration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer un locataire Azure AD, voir [Accéder à Azure Active Directory pour créer un locataire](active-directory-access-create-new-tenant.md)
+- Pour créer un locataire Azure AD, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- Pour en savoir plus sur la façon dont Microsoft Azure contrôle l’accès aux ressources, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-- Pour en savoir plu sur l’affectation de rôles dans Azure AD, voir [Affecter des rôles de répertoire à des utilisateurs avec Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+- Pour en apprendre davantage sur l’attribution de rôles dans Azure AD, consultez [Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

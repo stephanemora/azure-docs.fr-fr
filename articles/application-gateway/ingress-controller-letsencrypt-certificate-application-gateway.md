@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2e91a888d0dc98a4f94b956e15336d75291f733e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795917"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957985"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Utiliser des certificats avec LetsEncrypt.org sur Application Gateway pour des clusters AKS
 
@@ -130,8 +130,12 @@ Suivez les étapes ci-dessous pour installer [cert-manager](https://docs.cert-ma
     Après quelques secondes, vous pouvez accéder au service `guestbook` par le biais de l’URL HTTPS d’Application Gateway à l’aide du certificat `Lets Encrypt` **intermédiaire** émis automatiquement.
     Votre navigateur peut vous avertir qu’une autorité de certification est non valide. Le certificat intermédiaire est émis par `CN=Fake LE Intermediate X1`. Cela indique que le système a fonctionné comme prévu et que vous êtes prêt pour votre certificat de production.
 
-4. Certificat de production  Une fois que votre certificat intermédiaire est correctement configuré, vous pouvez basculer vers un serveur ACME de production :
+4. Certificat de production
+
+    Une fois que votre certificat de préproduction est correctement configuré, vous pouvez basculer vers un serveur ACME de production :
     1. Remplacez l’annotation intermédiaire de votre ressource d’entrée par : `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. Supprimez la ressource `ClusterIssuer` intermédiaire existante que vous avez créée à l’étape précédente et créez-en une nouvelle en remplaçant le serveur ACME du YAML ClusterIssuer ci-dessus par `https://acme-v02.api.letsencrypt.org/directory`
 
-5. Expiration et renouvellement du certificat Avant l’expiration du certificat `Lets Encrypt`, `cert-manager` mettra automatiquement à jour le certificat dans le magasin des secrets Kubernetes. À ce stade, le contrôleur d’entrée Application Gateway appliquera le secret mis à jour référencé dans les ressources d’entrée qu’il utilise pour configurer l’Application Gateway.
+5. Expiration et renouvellement du certificat
+
+    Avant l’expiration du certificat `Lets Encrypt`, `cert-manager` met automatiquement à jour le certificat dans le magasin des secrets Kubernetes. À ce stade, le contrôleur d’entrée Application Gateway appliquera le secret mis à jour référencé dans les ressources d’entrée qu’il utilise pour configurer l’Application Gateway.

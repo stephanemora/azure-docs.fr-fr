@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073656"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011670"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
@@ -85,7 +85,17 @@ Azure Active Directory B2C est une solution de gestion des identités de cloud 
 
     Après avoir enregistré les modifications, les développeurs pourront créer de nouveaux comptes et se connecter au portail des développeurs à l’aide d’Azure Active Directory B2C.
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Inscrire un compte de développeur avec Azure Active Directory B2C
+## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portail des développeurs : ajouter l’authentification de compte Azure AD B2C
+
+Dans le portail des développeurs, il est possible de se connecter avec AAD B2C à l’aide du widget **Boutons OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
+
+![Widget Boutons AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD B2C, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portail des développeurs hérité : comment s’inscrire avec Azure AD B2C
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. Pour inscrire un compte de développeur avec Azure Active Directory B2C, ouvrez une nouvelle fenêtre de navigateur et accédez au portail des développeurs. Cliquez sur le bouton **S’inscrire**.
 
@@ -136,7 +146,6 @@ Azure Active Directory B2C est une solution de gestion des identités de cloud 
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png

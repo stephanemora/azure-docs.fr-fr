@@ -1,19 +1,18 @@
 ---
-title: Fonctionnalités de demande de données client
-description: Résumé des fonctionnalités de demande de données client
+title: Demandes de données client pour les appareils Azure IoT Hub
+description: La plupart des appareils gérés dans Azure IoT Hub ne sont pas personnels, mais certains le sont. Cet article parle de la capacité des administrateurs à exporter ou supprimer des données personnelles d’un appareil.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1519637eddf909040131a1efac5738fc7cc8e565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b3ed46ffe7f2236fc63d65ed49385b29b1a08a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845798"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889481"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -41,7 +40,7 @@ Il est également possible d’effectuer des opérations de suppression pour les
 
 ## <a name="exporting-customer-data"></a>Exportation des données client
 
-Les administrateurs clients peuvent utiliser les opérations de copie et de collage dans le panneau des appareils IoT de l’extension Azure IoT Hub dans le Portail Azure pour exporter les données associées à un appareil.
+Les administrateurs de locataires peuvent utiliser les opérations de copie et de collage dans le volet des appareils IoT de l’extension Azure IoT Hub dans le Portail Azure pour exporter les données associées à un appareil.
 
 Il est également possible d’effectuer des opérations d’exportation pour les appareils à l’aide des API REST. Pour plus d’informations, consultez [Service - Obtenir un appareil](/rest/api/iothub/service/getdevice).
 

@@ -1,6 +1,6 @@
 ---
-title: Automatiser la compilation, les tests et les correctifs d’images à l’aide des tâches multiétapes d’Azure Container Registry
-description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des flux de travail basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
+title: Tâche multiétape pour compiler, tester et corriger des images - Azure Container Registry
+description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des workflows basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310564"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931492"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 

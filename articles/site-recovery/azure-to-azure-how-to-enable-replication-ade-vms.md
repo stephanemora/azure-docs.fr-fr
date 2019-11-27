@@ -1,5 +1,5 @@
 ---
-title: Configurer la réplication de machines virtuelles prenant en charge Azure Disk Encryption dans Azure Site Recovery
+title: Activer la réplication pour des machines virtuelles Azure chiffrées dans Azure Site Recovery
 description: Cet article décrit comment configurer la réplication pour les machines virtuelles prenant en charge Azure Disk Encryption, d’une région Azure à l’autre à l’aide de Site Recovery.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861320"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954680"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 

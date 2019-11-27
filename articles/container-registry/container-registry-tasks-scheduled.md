@@ -1,6 +1,6 @@
 ---
-title: Planifier des tâches Azure Container Registry
-description: Configurer des minuteurs pour exécuter une tâche Azure Container Registry selon une planification définie.
+title: Planifier des tâches Azure Container Registry Tasks
+description: Découvrez comment exécuter une tâche Azure Container Registry Tasks selon une planification définie en définissant un ou plusieurs déclencheurs de minuteur.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509069"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931465"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Exécuter une tâche ACR selon une planification définie
 
-Cet article vous explique comment exécuter un [tâche ACR](container-registry-tasks-overview.md) selon une planification. Planifiez une tâche en définissant un ou plusieurs *déclencheurs de minuteur*.
+Cet article montre comment exécuter une [tâche ACR Tasks](container-registry-tasks-overview.md) selon une planification. Planifiez une tâche en définissant un ou plusieurs *déclencheurs de minuteur*.
 
 Planifier une tâche est utile pour les scénarios tels que les suivants :
 

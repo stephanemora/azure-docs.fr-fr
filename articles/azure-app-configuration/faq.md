@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d286cbab33a1fb6a2d2a2cb70caed11b21af735
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469638"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904088"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -42,9 +42,19 @@ App Configuration et Key Fault sont complémentaires. D’ailleurs, il est conse
 
 Même si App Configuration offre une sécurité renforcée, Key Vault reste le meilleur emplacement de stockage pour les secrets d’application. Key Vault propose un chiffrement au niveau du matériel, des stratégies d’accès granulaires ainsi que des opérations de gestion, comme la rotation des certificats.
 
+Vous pouvez créer des valeurs App Configuration qui font référence à des secrets stockés dans Key Vault. Pour plus d’informations, consultez [Utiliser des références Key Vault dans une application ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+
 ## <a name="does-app-configuration-encrypt-my-data"></a>Mes données sont-elles chiffrées par App Configuration ?
 
 Oui. App Configuration chiffre toutes les valeurs de clés qu’il renferme, de même que les communications réseau. Les noms de clés servent d’index pour récupérer les données de configuration et ne sont pas chiffrés.
+
+## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>En quoi App Configuration est-il différent des paramètres Azure App Service ?
+
+Azure App Service vous permet de définir des paramètres d’application pour chaque instance App Service. Ces paramètres sont transmis en tant que variables d’environnement au code de l’application. Vous pouvez associer un paramètre à un emplacement de déploiement spécifique, si vous le souhaitez. Pour plus d’informations, consultez [Configuration des paramètres de l’application](/azure/app-service/configure-common#configure-app-settings).
+
+En revanche, Azure App Configuration vous permet de définir des paramètres qui peuvent être partagés entre plusieurs applications, y compris les applications qui s’exécutent dans App Service. Ces paramètres sont accessibles dans le code de l’application via les fournisseurs de configuration pour .NET et Java, par le biais du Kit de développement logiciel (SDK) Azure, ou directement via les API REST.
+
+Vous pouvez également importer et exporter des paramètres entre App Service et App Configuration. Cela vous permet de configurer rapidement un nouveau magasin App Configuration en fonction des paramètres App Service existants, ou de partager facilement la configuration avec une application existante qui s’appuie sur des paramètres d’App Service.
 
 ## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Existe-t-il des limitations de taille sur les clés et les valeurs stockées dans App Configuration ?
 

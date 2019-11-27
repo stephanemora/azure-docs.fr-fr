@@ -1,26 +1,26 @@
 ---
-title: Résolution des problèmes d’affectation de licence pour un groupe - Azure Active Directory | Microsoft Docs
+title: Résoudre des problèmes d’affectation de licence de groupe - Azure Active Directory | Microsoft Docs
 description: Identification et résolution des problèmes d’affectation de licences avec la licence basée sur le groupe Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815741"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025698"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -29,11 +29,6 @@ Les licences basées sur le groupe dans Azure Active Directory (Azure AD) introd
 Lorsque vous affectez directement des licences à des utilisateurs individuels, sans recourir à une licence basée sur le groupe, l’opération d’affectation peut échouer. Par exemple, lorsque vous exécutez la cmdlet PowerShell `Set-MsolUserLicense` sur le système d’un utilisateur, cette dernière peut échouer pour diverses raisons, liées à la logique métier. Par exemple, il peut y avoir un nombre insuffisant de licences ou bien un conflit entre deux plans de service qui ne peuvent pas être affectés en même temps. Le problème vous est immédiatement signalé.
 
 Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuvent se produire, mais elles apparaissent en arrière-plan lorsque le service Azure AD affecte les licences. C’est pourquoi les erreurs ne peuvent pas vous être communiquées immédiatement. Au lieu de cela, elles sont enregistrées sur l’objet utilisateur et signalées par le biais du portail d’administration. L’intention initiale, qui consiste à attribuer une licence à l’utilisateur, est toujours conservée, mais est enregistrée dans un état d’erreur. Elle fera l’objet d’un examen et d’une résolution ultérieurs.
-
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException dans les journaux d’audit
-
-**Problème :** L’utilisateur dispose de LicenseAssignmentAttributeConcurrencyException pour l’affectation de licence dans les journaux d’audit.
-Lorsque la gestion des licences basée sur les groupes tente d’affecter simultanément la même licence à un utilisateur, cette exception est enregistrée sur l’utilisateur. Cela se produit généralement lorsqu’un utilisateur est membre de plusieurs groupes avec la même licence affectée. Azure AD réessaiera de traiter la licence utilisateur et de résoudre le problème. Aucune action du client n’est requise pour résoudre ce problème.
 
 ## <a name="find-license-assignment-errors"></a>Rechercher des erreurs d’affectation de licence
 
@@ -121,6 +116,11 @@ Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs conc
 **Problème :** Lors de la mise à jour de l’attribution de licence sur un utilisateur ou un groupe, vous pouvez voir que les attributs Azure AD Mail et ProxyAddresses de certains utilisateurs sont modifiés.
 
 La mise à jour d’attribution de licence sur un utilisateur entraîne le déclenchement du calcul de l’adresse proxy, ce qui peut modifier les attributs de l’utilisateur. Pour comprendre la raison exacte de la modification et résoudre le problème, consultez cet article [Comment l’attribut proxyAddresses est renseigné dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException dans les journaux d’audit
+
+**Problème :** L’utilisateur dispose de LicenseAssignmentAttributeConcurrencyException pour l’affectation de licence dans les journaux d’audit.
+Lorsque la gestion des licences basée sur les groupes tente d’affecter simultanément la même licence à un utilisateur, cette exception est enregistrée sur l’utilisateur. Cela se produit généralement lorsqu’un utilisateur est membre de plusieurs groupes avec la même licence affectée. Azure AD réessaiera de traiter la licence utilisateur et de résoudre le problème. Aucune action du client n’est requise pour résoudre ce problème.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Plusieurs licences de produit affectées à un groupe
 

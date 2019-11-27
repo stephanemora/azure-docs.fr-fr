@@ -1,55 +1,48 @@
 ---
-title: Autorisations de rôle d’administrateur personnalisées pour la gestion de l’inscription des applications – Azure Active Directory | Microsoft Docs
+title: Autorisations de rôle administrateur personnalisé disponibles - Azure AD | Microsoft Docs
 description: Autorisations de rôle d’administrateur personnalisées pour la délégation de la gestion des identités.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033382"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025147"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Les sous-types et les autorisations d’inscription de l’application dans Azure Active Directory
 
 Cet article contient les autorisations d’inscription d’application actuellement disponibles pour les définitions de rôle personnalisées dans Azure Active Directory (Azure AD).
 
-## <a name="single-tenant-v-multi-tenant-permissions"></a>Autorisations monolocataire v. multi-locataires
+## <a name="permissions-for-managing-single-directory-applications"></a>Autorisations pour la gestion des applications mono-annuaires
 
-Les autorisations de rôle personnalisé diffèrent pour les applications monolocataires et multi-locataires. Les applications monolocataires sont uniquement disponibles pour les utilisateurs de l’organisation Azure AD dans laquelle l’application est inscrite. Les applications multi-locataires sont disponibles pour toutes les organisations Azure AD. Les applications monolocataires sont définies comme ayant des **types de comptes pris en charge** définis sur « Comptes dans ce répertoire d’organisation uniquement ». Dans l’API Graph, les applications monolocataires ont la propriété signInAudience définie sur « AzureADMyOrg ».
+Lorsque vous choisissez les autorisations pour votre rôle personnalisé, vous avez la possibilité d’accorder l’accès uniquement pour gérer les applications mono-annuaires. Les applications mono-annuaires sont seulement disponibles pour les utilisateurs de l’organisation Azure AD dans laquelle l’application est inscrite. Les applications mono-annuaires sont définies comme ayant des **types de comptes pris en charge** qui sont définis sur « Comptes dans cet annuaire d’organisation uniquement ». Dans l’API Graph, la propriété signInAudience est définie sur « AzureADMyOrg » pour les applications mono-annuaires.
 
-## <a name="application-registration-subtypes-and-permissions"></a>Autorisations et sous-types d’inscription d’application
+Pour accorder l’accès uniquement à la gestion des applications mono-annuaires, utilisez les autorisations ci-dessous avec le sous-type **applications.myOrganization**. Par exemple, microsoft.directory/applications.myOrganization/basic/update.
 
 Consultez la [vue d’ensemble des rôles personnalisés](roles-custom-overview.md) pour obtenir une explication des termes généraux du sous-type, de l’autorisation et du jeu de propriétés. Les informations suivantes sont spécifiques aux inscriptions d’applications.
-
-### <a name="subtypes"></a>Sous-types
-
-Il n’existe qu’un seul sous-type d’inscription d’application – applications.myOrganization. Par exemple, microsoft.directory/applications.myOrganization/basic/update. Ce sous-type est défini sur la page d’**authentification** pour une inscription d’application spécifique, et correspond à la définition de la propriété signInAudience sur « AzureADMyOrg » à l’aide de l’API Graph ou de PowerShell. Le sous-type restreint l’autorisation aux inscriptions d’applications qui sont marquées comme accessibles uniquement par les comptes de votre organisation (applications monolocataires).
-
-Vous pouvez utiliser l’autorisation restreinte pour accorder des autorisations de lecture ou de gestion aux applications internes uniquement sans accorder des autorisations de lecture ou de gestion aux applications accessibles par les comptes d’autres organisations.
-
-Il existe des versions d’applications.myOrganization de toutes les autorisations de lecture et de mise à jour, ainsi que de l’autorisation de suppression. Il n’existe aucune version de création d’application.myOrganization pour l’instant. Les autorisations standard (par exemple, microsoft.directory/applications/basic/update) accordent des autorisations de lecture ou de gestion pour tous les types d’inscription d’application.
-
-![Déclarer une application monolocataire ou une multi-locataire](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Les informations relatives aux autorisations suivantes pour la version préliminaire des rôles personnalisés sont répertoriées dans [Autorisations de rôle personnalisé disponibles dans Azure Active Directory](roles-custom-available-permissions.md).
 
 ### <a name="create-and-delete"></a>Créer et supprimer
 
 Deux autorisations sont disponibles pour accorder la possibilité de créer des inscriptions d’applications, chacune avec un comportement différent :
 
-- **microsoft.directory/applications/createAsOwner** : En attribuant cette autorisation, le créateur est ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur.
-- **microsoft.directory/applicationPolicies/create** : En attribuant cette autorisation, le créateur n’est pas ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur. Utilisez cette autorisation avec précaution, car rien n’empêche l’intervenant de créer des inscriptions d’applications tant que le quota au niveau du répertoire n’a pas été atteint. Si les deux autorisations sont affectées, l’autorisation est prioritaire.
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directory/applications/createAsOwner
+
+En attribuant cette autorisation, le créateur est ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur.
+
+#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
+
+En attribuant cette autorisation, le créateur n’est pas ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur. Utilisez cette autorisation avec précaution, car rien n’empêche l’intervenant de créer des inscriptions d’applications tant que le quota au niveau du répertoire n’a pas été atteint. Si les deux autorisations sont affectées, l’autorisation est prioritaire.
 
 Si les deux autorisations sont affectées, l’autorisation /create est prioritaire. Bien que l’autorisation /createAsOwner n’ajoute pas automatiquement le créateur comme premier propriétaire, les propriétaires peuvent être spécifiés lors de la création de l’inscription de l’application lors de l’utilisation des API Graph ou des cmdlets PowerShell.
 
@@ -78,19 +71,11 @@ Tous les utilisateurs membres de l’organisation peuvent lire les informations 
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>microsoft.directory/applications/allProperties/read
 
-Capacité de lire toutes les propriétés des applications monolocataires et multi-locataires en dehors des propriétés sensibles comme les informations d’identification.
+Capacité de lire toutes les propriétés des applications monolocataires et multilocataires, en dehors des propriétés qui ne doivent être lues en aucun cas, telles que les informations d’identification.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>microsoft.directory/applications.myOrganization/allProperties/read
 
 Octroie les mêmes autorisations que microsoft.directory/applications/allProperties/read, mais uniquement pour les applications monolocataires.
-
-#### <a name="microsoftdirectoryapplicationsstandardread-grants-access-to-all-fields-on-the-application-registration-branding-page"></a>microsoft.directory/applications/standard/read: Octroie l’accès à tous les champs de la page de personnalisation de l’inscription d’application
-
-![Cette autorisation accorde l’accès à la page de personnalisation de l’inscription des applications](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directory/applications.myOrganization/standard/read
-
-Octroie les mêmes autorisations que microsoft.directory/applications/standard/read, mais uniquement pour les applications monolocataire.
 
 #### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.directory/applications/owners/read
 
@@ -98,46 +83,19 @@ Accorde la possibilité de lire la propriété des propriétaires sur des applic
 
 ![Ces autorisations accordent l’accès à la page propriétaires d’inscription des applications.](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-Octroie l’accès aux propriétés suivantes sur l’entité application :
+#### <a name="microsoftdirectoryapplicationsstandardread"></a>microsoft.directory/applications/standard/read
 
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppCreatedDateTime
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
+Accorde l’accès en lecture des propriétés d’inscription d’application standard. Y sont comprises les propriétés des pages d’inscription d’application.
+
+#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directory/applications.myOrganization/standard/read
+
+Octroie les mêmes autorisations que microsoft.directory/applications/standard/read, mais uniquement pour les applications monolocataire.
 
 ### <a name="update"></a>Mettre à jour
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
+
+Capacité de mettre à jour toutes les propriétés des applications multi-annuaires et mono-annuaires.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -145,14 +103,9 @@ Octroie les mêmes autorisations que microsoft.directory/applications/allPropert
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Octroie l’accès à tous les champs de la page authentification de l’inscription de l’application :
+Capacité de mettre à jour la propriété (signInAudience) des types de comptes pris en charge dans les applications multi-annuaires et mono-annuaires.
 
-![Cette autorisation accorde l’accès à la page d’authentification de l’inscription de l’application](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-
-- AvailableToOtherTenants
-- SignInAudience
+![Cette autorisation accorde l’accès à la propriété des types de compte pris en charge dans l’inscription de l’application sur la page d’authentification](./media/roles-custom-available-permissions/supported-account-types.png)
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>microsoft.directory/applications.myOrganization/audience/update
 
@@ -164,20 +117,6 @@ Possibilité de mettre à jour les propriétés URL de réponse, URL de déconne
 
 ![Octroie l’accès à l’authentification d’inscription d’application, mais pas aux types de comptes pris en charge](./media/roles-custom-available-permissions/supported-account-types.png)
 
- Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-
-- AcceptMappedClaims
-- AccessTokenAcceptedVersion
-- AddIns
-- GroupMembershipClaims
-- IsDeviceOnlyAuthSupported
-- OAuth2LegacyUrlPathMatching
-- OauthOidcResponsePolicyBitmap
-- OptionalClaims
-- OrgRestrictions
-- PublicClient
-- UseCustomTokenSigningKey
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganization/authentication/update
 
 Octroie les mêmes autorisations que microsoft.directory/applications/authentication/update, mais uniquement pour les applications monolocataire.
@@ -187,42 +126,6 @@ Octroie les mêmes autorisations que microsoft.directory/applications/authentica
 Possibilité de mettre à jour le nom, le logo, l’URL de la page d’accueil, l’URL des conditions de service et les propriétés de l’URL de la déclaration de confidentialité sur les applications monolocataires et multilocataires. Octroie l’accès à tous les champs de la page de personnalisation de l’inscription d’application :
 
 ![Cette autorisation accorde l’accès à la page de personnalisation de l’inscription des applications](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>microsoft.directory/applications.myOrganization/basic/update
 
@@ -234,13 +137,6 @@ Possibilité de mettre à jour les propriétés des certificats et des secrets c
 
 ![Cette autorisation accorde l’accès à la page certificats et secrets d’inscription d’application](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-- AsymmetricKey
-- EncryptedSecretKey
-- KeyDescription
-- SharedKeyReference
-- TokenEncryptionKeyId
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directory/applications.myOrganization/credentials/update
 
 Octroie les mêmes autorisations que microsoft.directory/applications/credentials/update, mais uniquement pour les applications à un seul annuaire.
@@ -250,9 +146,6 @@ Octroie les mêmes autorisations que microsoft.directory/applications/credential
 Possibilité de mettre à jour la propriété du propriétaire sur les applications monolocataires et multi-locataires. Octroie l’accès à tous les champs de la page propriétaires de l’inscription de l’application :
 
 ![Ces autorisations accordent l’accès à la page propriétaires d’inscription des applications.](./media/roles-custom-available-permissions/app-registration-owners.png)
-
-Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-- Propriétaires
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>microsoft.directory/applications.myOrganization/owners/update
 
@@ -265,14 +158,6 @@ Possibilité de mettre à jour les autorisations déléguées, les autorisations
 ![Cette autorisation accorde l’accès à la page Autorisations de l’API d’inscription d’application](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
 ![Cette autorisation accorde l’accès à la page Exposer une API de l’inscription d’application](./media/roles-custom-available-permissions/app-registration-expose-api.png)
-
-Octroie l’accès aux propriétés suivantes sur la ressource d’application :
-
-- AppIdentifierUri
-- Entitlement
-- PreAuthorizedApplications
-- RecordConsentConditions
-- RequiredResourceAccess
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 

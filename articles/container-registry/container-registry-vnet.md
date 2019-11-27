@@ -1,5 +1,5 @@
 ---
-title: Restreindre l’accès à un registre de conteneurs Azure à partir d’un réseau virtuel
+title: Restreindre l’accès à Azure Container Registry avec un réseau virtuel
 description: Autorisez l’accès à un registre de conteneurs Azure uniquement à partir de ressources dans un réseau virtuel Azure ou de plages d’adresses IP publiques.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619888"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931334"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou de règles de pare-feu
 
@@ -54,7 +54,7 @@ Si vous devez plutôt configurer des règles d’accès pour permettre à des re
 
 ## <a name="about-network-rules-for-a-container-registry"></a>À propos des règles de réseau pour un registre de conteneurs
 
-Par défaut, un registre de conteneurs Azure accepte les connexions via Internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement des ressources Azure telles qu’un cluster AKS ou une machine virtuelle Azure à accéder de manière sécurisée au registre, sans avoir à franchir une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau pour placer sur liste verte des plages d’adresses IP Internet publiques. 
+Par défaut, un registre de conteneurs Azure accepte les connexions via Internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement des ressources Azure telles qu’un cluster AKS ou une machine virtuelle Azure à accéder de manière sécurisée au registre, sans avoir à franchir une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau pour autoriser uniquement certaines plages d’adresses IP Internet publiques. 
 
 Pour limiter l’accès à un registre, commencez par changer l’action par défaut du registre afin qu’il refuse toutes les connexions réseau. Ensuite, ajoutez des règles d’accès réseau. Les clients auxquels est accordé l’accès via les règles de réseau doivent continuer à [s’authentifier auprès du registre de conteneurs](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) et être autorisés à accéder aux données.
 

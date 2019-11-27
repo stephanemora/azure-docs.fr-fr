@@ -1,5 +1,5 @@
 ---
-title: Configurer la méthode de routage du trafic de sous-réseau à l’aide d’Azure Traffic Manager
+title: Configurer le routage du trafic de sous-réseau – Azure Traffic Manager
 description: Cet article explique comment configurer Traffic Manager pour router le trafic de certains sous-réseaux.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060963"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014609"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
@@ -55,8 +55,8 @@ Dans cette section, vous allez créer deux machines virtuelles *myEndpointVMEast
     |Nom|myIISVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Groupe de ressources| Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM1*.|
-    |Lieu| Sélectionnez **USA Est**.|
+    |Resource group| Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM1*.|
+    |Location| Sélectionnez **USA Est**.|
     |||
 
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
@@ -75,8 +75,8 @@ Dans cette section, vous allez créer deux machines virtuelles *myEndpointVMEast
 
     |Paramètre|Valeur|
     |---|---|
-    |Groupe de ressources | Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM2*|
-    |Lieu|Europe Ouest|
+    |Resource group | Sélectionnez **Nouveau**, puis tapez *myResourceGroupTM2*|
+    |Location|Europe Ouest|
     |Nom de la machine virtuelle | myIISVMWEurope|
     |Réseau virtuel | Sélectionnez **Réseau virtuel**, puis, dans **Créer un réseau virtuel**, pour le champ **Nom**, entrez *myVNet2*, et pour le sous-réseau, entrez *mySubnet*.|
     |||
@@ -141,7 +141,7 @@ Dans cette section, vous allez créer une machine virtuelle (*mVMEastUS* et *myV
     |Nom|myVMEastUS|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Groupe de ressources| Sélectionnez **Existant**, puis *myResourceGroupTM1*.|
+    |Resource group| Sélectionnez **Existant**, puis *myResourceGroupTM1*.|
     |||
 
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
@@ -161,7 +161,7 @@ Dans cette section, vous allez créer une machine virtuelle (*mVMEastUS* et *myV
     |Paramètre|Valeur|
     |---|---|
     |Nom de la machine virtuelle | *myVMWEurope*|
-    |Groupe de ressources | Sélectionnez **Existant**, puis tapez *myResourceGroupTM2*.|
+    |Resource group | Sélectionnez **Existant**, puis tapez *myResourceGroupTM2*.|
     |Réseau virtuel | Sélectionnez **Réseau virtuel**. Dans **Créer un réseau virtuel**, pour **Nom**, entrez *myVNet4*. Pour le sous-réseau, entrez *mySubnet4*.|
     |||
 
@@ -177,8 +177,8 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |
-    | Abonnement            | Sélectionnez votre abonnement.                          |
-    | Groupe de ressources          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
+    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Resource group          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
     | |                              |
     |
 

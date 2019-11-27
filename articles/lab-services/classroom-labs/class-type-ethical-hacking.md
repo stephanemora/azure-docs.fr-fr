@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330665"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133177"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurer un labo pour enseigner le piratage éthique 
 Cet article explique comment organiser un cours autour de l’analyse forensique du piratage éthique. Des tests d’intrusion, une pratique utilisée par la communauté de piratage éthique, sont effectués quand quelqu’un tente d’accéder au système ou au réseau pour détecter les vulnérabilités qu’un attaquant malveillant pourrait exploiter. 
 
-Dans une classe sur le piratage éthique, les étudiants apprennent les techniques modernes de défense face aux vulnérabilités. Chaque étudiant a accès à une machine virtuelle hôte Windows Server qui a deux machines virtuelles imbriquées : une machine virtuelle avec une image **Metaspoiltable** et une autre machine avec une image [Kali Linux](https://www.kali.org/). La machine virtuelle Metasploitable est utilisée pour les besoins de fonctionnement, et la machine virtuelle Kali sert à accéder aux outils nécessaires pour exécuter les tâches forensiques.
+Dans une classe sur le piratage éthique, les étudiants apprennent les techniques modernes de défense face aux vulnérabilités. Chaque étudiant a accès à une machine virtuelle hôte Windows Server qui comporte deux machines virtuelles imbriquées : une avec une image [Metasploitable3](https://github.com/rapid7/metasploitable3) et une autre avec une image [Kali Linux](https://www.kali.org/). La machine virtuelle Metasploitable est utilisée pour les besoins de fonctionnement, et la machine virtuelle Kali sert à accéder aux outils nécessaires pour exécuter les tâches forensiques.
 
 Cet article comprend deux sections principales. La première section explique comment créer le laboratoire. La deuxième section explique comment créer la machine modèle à l’aide de la virtualisation imbriquée, ainsi que des outils et des images nécessaires. Dans ce cas, il s’agit d’une image Metasploitable et d’une image Linux Kali présentes sur une machine où Hyper-V est activé pour héberger les images.
 
@@ -43,6 +43,8 @@ Une fois la machine modèle créée, démarrez-la et connectez-vous à celle-ci 
 1. Configurez la machine pour la virtualisation imbriquée. Cela active toutes les fonctionnalités Windows nécessaires, comme Hyper-V, et configure le réseau pour que les images Hyper-V puissent communiquer entre elles et avec Internet.
 2. Configurez l’image Linux [Kali](https://www.kali.org/). Kali est une distribution Linux qui comprend des outils pour le test d’intrusion et l’audit de sécurité.
 3. Configurez l’image Metasploitable. Dans cet exemple, l’image [Metasploitable3](https://github.com/rapid7/metasploitable3) est utilisée. Cette image a été créée à dessein avec des failles de sécurité.
+
+Un script permettant d’automatiser les tâches décrites ci-dessus est disponible dans [Lab Services Ethical Hacking Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
 
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>Préparer la machine modèle pour la virtualisation imbriquée
 Suivez les instructions de [cet article](how-to-enable-nested-virtualization-template-vm.md) afin de préparer votre machine virtuelle modèle pour la virtualisation imbriquée. 

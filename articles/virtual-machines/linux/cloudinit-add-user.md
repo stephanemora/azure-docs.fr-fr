@@ -1,5 +1,5 @@
 ---
-title: Utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux sur Azure | Microsoft Docs
+title: Utiliser cloud-init pour ajouter un utilisateur à une machine virtuelle Linux sur Azure
 description: Guide pratique pour utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux lors de la création avec l’interface Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: bcea130652789a84d332247445d8e25b2f7ac42e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 428f489a24c24b173cb1cef0980dd17c1d8483ce
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671790"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036779"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Utiliser cloud-init pour ajouter un utilisateur sur une machine virtuelle Linux sur Azure
 Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour ajouter un utilisateur sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ce script cloud-init s’exécute au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md).

@@ -1,5 +1,5 @@
 ---
-title: Créer un client pour consommer un service web déployé
+title: Créer un client pour le modèle déployé en tant que service web
 titleSuffix: Azure Machine Learning
 description: Apprenez à utiliser un service web généré dans le cadre du déploiement d'un modèle Azure Machine Learning. Le service web expose une API REST. Créez des clients pour cette API en utilisant le langage de programmation de votre choix.
 services: machine-learning
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387ba970aed68a5f4e682f932a362d3b04b35b8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 608f343166b528cacf3b1479d993466f6df7cb7e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671470"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932156"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

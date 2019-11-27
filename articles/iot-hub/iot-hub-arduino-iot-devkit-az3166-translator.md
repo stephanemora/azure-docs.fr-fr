@@ -1,20 +1,19 @@
 ---
-title: Créer un traducteur DevKit IoT utilisant Azure Functions et Cognitive Services | Microsoft Docs
+title: Créer un traducteur avec Azure Functions, Cognitive Services et IoT DevKit
 description: Utiliser le microphone sur un DevKit IoT pour recevoir un message vocal, puis utiliser Azure Cognitive Services pour le traiter et afficher le texte traduit en anglais
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60518699"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953351"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Utiliser le DevKit IoT AZ3166 avec Azure Functions et Cognitive Services pour créer un traducteur
 

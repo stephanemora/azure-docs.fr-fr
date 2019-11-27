@@ -1,7 +1,7 @@
 ---
 title: Point de terminaison Recherche Web
 titleSuffix: Azure Cognitive Services
-description: Synthèse sur le point de terminaison de l’API Recherche Web.
+description: Pour obtenir des résultats de recherche web, envoyez une requête `GET` au point de terminaison suivant. Les en-têtes et les paramètres d’URL définissent d’autres spécifications.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: be622c5636c253c48bec4d67fba58319262c2603
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2edc6a4cf4d4fb174c1b2067d8b3fb3b6f31859f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883558"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111334"
 ---
 # <a name="web-search-endpoint"></a>Point de terminaison Recherche Web
 

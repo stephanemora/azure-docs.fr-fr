@@ -1,5 +1,5 @@
 ---
-title: Utiliser des adresses IP publiques après un basculement avec Azure Site Recovery | Microsoft Docs
+title: Affecter des adresses IP publiques après le basculement avec Azure Site Recovery
 description: Cet article explique comment configurer des adresses IP publiques avec Azure Site Recovery et Azure Traffic Manager pour la migration et la reprise d’activité
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 1f20818f0b899eede9fff05d71e98c8bffb94b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101937"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084247"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurer des adresses IP publiques après un basculement
 

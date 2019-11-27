@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681507"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122947"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -78,6 +78,9 @@ Un runtime d’intégration auto-hébergé peut :
 
 > [!NOTE] 
 > Utilisez le runtime d’intégration auto-hébergé pour prendre en charge les magasins de données nécessitant l’utilisation de votre propre pilote tels que SAP, Hana, MySQL, etc.  Pour en savoir plus, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+> [!NOTE] 
+> Java Runtime Environment (JRE) est une dépendance de l’IR auto-hébergé. Vérifiez que vous avez installé JRE sur le même hôte.
 
 ### <a name="self-hosted-ir-network-environment"></a>Environnement réseau du runtime d'intégration auto-hébergé
 Si vous souhaitez intégrer vos données en toute sécurité dans un environnement réseau privé, qui n’a pas de ligne de vue directe depuis l’environnement cloud public, vous pouvez installer un runtime d’intégration auto-hébergé dans l’environnement local derrière votre pare-feu d’entreprise, ou à l’intérieur d’un réseau privé virtuel.  Le runtime d’intégration auto-hébergé établit uniquement des connexions HTTP sortantes pour l’accès à Internet.

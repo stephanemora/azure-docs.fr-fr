@@ -1,5 +1,5 @@
 ---
-title: Conseils pour atténuer l’exécution spéculative dans Azure | Microsoft Docs
+title: Aide pour prévenir l’exécution spéculative dans Azure
 description: Conseils pour atténuer les vulnérabilités par canal latéral de l’exécution spéculative dans Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 11/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 91e2fbe6ef8ea448205528aaec3be343f261ce89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e358140c4a6557ac5b37dc2f567f9ffc08ee1063
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089120"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033242"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Conseils pour atténuer les vulnérabilités par canal latéral de l’exécution spéculative dans Azure
 

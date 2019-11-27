@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/07/2019
+ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105427"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837938"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux d’activité pour un cluster HDInsight
 
@@ -45,8 +45,8 @@ Les informations de cluster suivantes sont utiles pour collecter des information
 Vous pouvez obtenir la plupart de ces informations de niveau supérieur à l’aide du portail Azure.  Vous pouvez aussi utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour obtenir des informations sur votre ou vos clusters HDInsight :
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 Vous pouvez également utiliser PowerShell pour afficher ces informations.  Pour en savoir plus, consultez [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
@@ -112,7 +112,7 @@ Outre les principaux fichiers journaux générés par HDInsight, les services in
 YARN regroupe les journaux d’activité de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Ce journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux d’activité de tous les conteneurs exécutés sur un nœud worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un fichier journal par nœud worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight version 3.0 et versions ultérieures. Les journaux d’activité agrégés sont situés dans le stockage par défaut pour le cluster.
 
 ```
-    /app-logs/<user>/logs/<applicationId>
+/app-logs/<user>/logs/<applicationId>
 ```
 
 Les journaux d’activité agrégés ne sont pas lisibles directement, car ils sont écrits dans un TFile, un format binaire indexé par conteneur. Utilisez les journaux d’activité ResourceManager YARN ou les outils CLI pour afficher ces journaux d’activité au format texte brut pour les applications ou les conteneurs qui présentent un intérêt.
@@ -122,8 +122,8 @@ Les journaux d’activité agrégés ne sont pas lisibles directement, car ils s
 Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Spécifiez les informations `<applicationId>`, `<user-who-started-the-application>`, `<containerId>` et `<worker-node-address>` lors de l’exécution de ces commandes. Vous pouvez afficher les journaux d’activité en texte brut en exécutant l’une des commandes suivantes :
 
 ```bash
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
 #### <a name="yarn-resourcemanager-ui"></a>Interface utilisateur de ResourceManager YARN
@@ -134,7 +134,7 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 2. Dans la liste des services sur la gauche, sélectionnez YARN.
 3. Dans la liste déroulante Liens rapides, sélectionnez un des nœuds principaux du cluster, puis **Journaux d’activité ResourceManager**. Une liste de liens menant vers les journaux d’activité YARN s’affiche.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
 
 Une fois que vous aurez effectué les étapes précédentes, vous comprendrez les types et les volumes de fichiers journaux produits par votre ou vos clusters HDInsight.
 
@@ -146,7 +146,7 @@ Vous avez maintenant suffisamment d’informations pour créer une stratégie de
 
 Une fois que vous avez déterminé quels fichiers journaux peuvent être supprimés, vous pouvez ajuster les paramètres de journalisation de nombreux services Hadoop pour supprimer automatiquement des fichiers journaux après une période donnée.
 
-Pour certains fichiers journaux, vous pouvez utiliser une approche d’archivage de fichiers journaux moins onéreuse. Pour les journaux d’activité Azure Resource Manager, vous pouvez explorer cette approche via le portail Azure.  Configurez l’archivage des journaux d’activité ARM en sélectionnant le lien **Journal d’activité** dans le portail Azure pour votre instance HDInsight.  En haut de la page de recherche de journal d’activité, sélectionnez l’élément de menu **Exporter** pour ouvrir le volet **Exporter le journal d’activité**.  Remplissez l’abonnement, la région, s’il faut exporter vers un compte de stockage et le nombre de jours pendant lesquels conserver les journaux d’activité. Dans ce même volet, vous pouvez également indiquer s’il faut exporter vers un Event Hub.
+Pour certains fichiers journaux, vous pouvez utiliser une approche d’archivage de fichiers journaux moins onéreuse. Pour les journaux d’activité Azure Resource Manager, vous pouvez explorer cette approche via le portail Azure.  Configurez l’archivage des journaux d’activité Resource Manager en sélectionnant le lien **Journal d’activité** dans le portail Azure pour votre instance HDInsight.  En haut de la page de recherche de journal d’activité, sélectionnez l’élément de menu **Exporter** pour ouvrir le volet **Exporter le journal d’activité**.  Remplissez l’abonnement, la région, s’il faut exporter vers un compte de stockage et le nombre de jours pendant lesquels conserver les journaux d’activité. Dans ce même volet, vous pouvez également indiquer s’il faut exporter vers un Event Hub.
 
 ![Portail Azure - Exporter le journal d’activité (préversion)](./media/hdinsight-log-management/hdi-export-log-files.png)
 

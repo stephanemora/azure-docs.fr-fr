@@ -1,19 +1,19 @@
 ---
 title: Créer une nouvelle offre SaaS dans la Place de marché commerciale existante
 description: Comment créer une nouvelle offre Software as a service (SaaS) pour répertorier ou vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825522"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076960"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -33,7 +33,6 @@ Si vous sélectionnez un autre type d’offre, vous pouvez être redirigé vers 
 La boîte de dialogue **Nouvelle offre** s’affiche. 
 
 ![Boîte de dialogue Nouvelle offre](./media/new-offer-popup.png)
-
 
 ## <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
@@ -75,7 +74,7 @@ L’onglet **Configuration de l’offre** nécessite les informations suivantes 
 
 La vente via Microsoft fournit une meilleure découverte et acquisition de client, permet à Microsoft d’héberger des transactions de la Place de marché, et tire profit des capacités commerciales mondiales disponibles de Microsoft.
 
-#### <a name="saas-offer-requirements"></a>Exigences de l’offre SaaS
+#### <a name="saas-offer-requirements"></a>Conditions des offres SaaS
 
 Afin de répertorier des offres SaaS avec la Place de marché commerciale sur Partner Center, les critères suivants doivent être respectés :
 
@@ -105,16 +104,6 @@ Le tableau suivant montre un exemple de répartition des coûts et des paiements
 > [!NOTE]
 > **Frais liés au service Place de marché réduits** : Pour certaines offres SaaS que vous avez publiées sur notre Place de marché commercial, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d’éditeur Microsoft) à 10 %. Afin que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP.  L’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin de chaque mois afin de recevoir ces frais liés au service Place de marché réduits pour le mois.  Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits ne sont disponibles qu’aux offres qualifiées pour les frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retournent à leur montant initial. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>Abonnement au programme CSP
-Le programme [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) permet aux offres d’être diffusées auprès de millions de clients Microsoft qualifiés avec un minimum d’investissement dans la vente et le marketing.
-
-- **Canaux : Rendre mon offre disponible dans le programme CSP** (Cocher la case)
-
-Choisir de rendre votre offre disponible dans le programme CSP permet aux fournisseurs de solutions Cloud de vendre votre produit dans une offre groupée de solution à leurs clients. 
-
 ### <a name="list-through-microsoft"></a>Répertorier via Microsoft
 
 Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de marché. Choisir de répertorier votre offre uniquement et de ne pas faire de transactions via Microsoft signifie que Microsoft ne participe pas directement dans les transactions de licences logicielles. Il n’y a aucun frais de transaction associé et l’éditeur récupère 100 % des frais de licence logicielle collectés auprès des clients. Toutefois, l’éditeur a la responsabilité et la charge de tous les aspects des transactions de licence logicielle, y compris mais sans s’y limiter, la commande, le traitement, le contrôle, la tarification, la facturation, le paiement et la collecte. 
@@ -131,7 +120,7 @@ Répertoriez votre offre aux clients avec un lien vers une version d’évaluati
 > Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure AD pour automatiser la création de comptes dans votre application. Les comptes Microsoft (MSA) ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
 
 ##### <a name="contact-me"></a>Me contacter
-Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la Place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
+Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Exemple d’annonce d’offre sur Place de marché
 
@@ -141,7 +130,7 @@ Collectez des informations de contact client en connectant votre système de ges
 
 Une version d’évaluation vous permet de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’« essayer avant de l’acheter », ce qui se traduit par une hausse du taux de conversion et par la génération de prospects hautement qualifiés. [Découvrez-en plus sur les versions d’évaluation.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Activer une version d’évaluation** (Cocher la case) 
+- **Activer une version d’évaluation** (Cocher la case)
 
 En activant une version d’évaluation, vous devrez configurer un environnement de démonstration pour que les clients puissent essayer votre offre pendant une période donnée. 
 
@@ -331,7 +320,6 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 - [Meilleures pratiques pour les annonces d’offre d’une place de marché](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>PRÉVERSION
 
 L’onglet **Préversion** vous permet de définir un **Public de préversion** limité avant de publier votre offre à un public plus important.
@@ -389,7 +377,7 @@ Sélectionnez l’une des langues de plan pour afficher les informations relativ
 
 Sélectionnez **Enregistrer** après avoir renseigné ces champs.
 
-#### <a name="plan-pricing-and-availability"></a>Tarification et disponibilité du plan
+#### <a name="plan-pricing-and-availability"></a>Tarif et disponibilité du plan
 
 L’onglet **Tarification et disponibilité** vous permet de configurer les marchés dans lesquels sera disponible ce plan, ainsi que le modèle de monétisation souhaité, le prix et la fréquence de facturation. De plus, vous pouvez indiquer si vous voulez que le plan soit visible à tous ou uniquement à des utilisateurs spécifiques (un public privé).
 
@@ -416,8 +404,7 @@ Pour obtenir des informations sur les abonnements clients qui participent actuel
 
 - **Modifier les marchés** (facultatif)
 
-Chaque plan doit être disponible sur au moins un marché. Cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Une zone de recherche et un bouton pour sélectionner les pays « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom, sont inclus pour vous aider. 
-
+Chaque plan doit être disponible sur au moins un marché. Cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Une zone de recherche et un bouton pour sélectionner les pays « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom, sont inclus pour vous aider.
 
 Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et ajouté un autre emplacement de marché, le prix de ce nouveau marché sera calculé selon le taux de change en vigueur. Vous devez toujours vérifier le prix de chaque marché avant toute publication. La tarification peut être vérifiée à l’aide du lien « Exporter les prix (xlsx) », après avoir enregistré vos changements.
 
@@ -475,17 +462,21 @@ Tandis que les offres SaaS utilisent des ID de locataire pour définir un public
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audience du revendeur CSP (fournisseur de solutions cloud)
+
+Choisir de rendre votre offre disponible dans le programme CSP permet aux fournisseurs de solutions Cloud de vendre votre produit dans une offre groupée de solution à leurs clients. Pour plus d’informations, consultez [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+
 ## <a name="publish"></a>Publish
 
-#### <a name="submit-offer-to-preview"></a>Soumettre l’offre en préversion
+Une fois que vous avez rempli toutes les sections nécessaires de l’offre, sélectionnez **Publier** en haut à droite du portail. Vous serez redirigé vers la page **Vérifier et publier**.
 
-Une fois que vous avez rempli toutes les sections nécessaires de l’offre, sélectionnez **Publier** en haut à droite du portail. Vous serez redirigé vers la page **Vérifier et publier**. 
+#### <a name="submit-offer-to-preview"></a>Soumettre l’offre en préversion
 
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
     - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
-    - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Veuillez revenir à la ou les sections et mettez-les à jour.
+    - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Veuillez revenir à la ou les sections et mettez-les à jour.
     - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Vous devez revenir à Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).

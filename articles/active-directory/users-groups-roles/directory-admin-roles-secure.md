@@ -1,12 +1,12 @@
 ---
-title: Meilleures pratiques pour sécuriser l’accès des administrateurs - Azure Active Directory | Microsoft Docs
+title: Bonnes pratiques pour sécuriser l’accès des administrateurs - Azure AD | Microsoft Docs
 description: Assurez-vous que l’accès des administrateurs et les comptes administrateur de votre organisation sont sécurisés. Pour les architectes de systèmes et les professionnels de l’informatique qui configurent Azure AD, Azure et Microsoft Online Services.
 services: active-directory
 keywords: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.author: curtand
-ms.date: 03/18/2019
+ms.date: 11/13/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259405"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028449"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 

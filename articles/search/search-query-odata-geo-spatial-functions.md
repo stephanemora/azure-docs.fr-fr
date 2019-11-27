@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur la fonction géospatiale OData
 titleSuffix: Azure Cognitive Search
-description: 'Il existe deux fonctions géospatiales OData dans les requêtes Recherche cognitive Azure : geo.distance et geo.intersects.'
+description: Documentation de syntaxe et de référence pour l’utilisation de fonctions géospatiales OData dans les requêtes Recherche cognitive Azure geo.distance et geo.intersects.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793331"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113165"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Fonctions géospatiales OData dans Recherche cognitive Azure - `geo.distance` et `geo.intersects`
 
@@ -126,4 +126,4 @@ Trier les hôtels par ordre décroissant sur `search.score` et `rating`, puis pa
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

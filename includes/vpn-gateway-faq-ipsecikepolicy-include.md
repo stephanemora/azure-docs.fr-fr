@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799827"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075412"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
-La stratégie personnalisée IPsec/IKE est prise en charge sur les passerelles VPN Azure **VpnGw1, VpnGw2, VpnGw3, Standard** et **HighPerformance**. La **référence SKU** de base **n’est pas** prise en charge.
+La stratégie IPsec/IKE personnalisée est prise en charge sur toutes les références SKU Azure, à l’exception de la référence SKU De base.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Combien de stratégies puis-je spécifier pour une connexion ?
 Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
@@ -27,22 +27,22 @@ Non, vous devez spécifier tous les algorithmes et paramètres pour IKE (mode pr
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Quels sont les algorithmes et les forces de clé pris en charge dans la stratégie personnalisée ?
 Le tableau suivant répertorie les algorithmes de chiffrement et les puissances de clé pris en charge et configurables par les clients. Vous devez sélectionner une option pour chaque champ.
 
-| **IPsec/IKEv1, IKEv2**  | **Options**                                                                   |
-| ---                     | ---                                                                           |
-| Chiffrement IKEv1, IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
-| Intégrité IKEv1, IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Groupe DH                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun  |
-| Chiffrement IPsec        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
-| Intégrité IPsec         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| Groupe PFS               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
-| Durée de vie de l’AS en mode rapide          | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko) |
-| Sélecteur de trafic        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                         |                                                                               |
+| **IPsec/IKEv2**  | **Options**                                                                   |
+| ---              | ---                                                                           |
+| Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
+| Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
+| Groupe DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun |
+| Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
+| Intégrité IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
+| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)           |
+| Sélecteur de trafic | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 et PFS2048 sont identiques en tant que groupe Diffie-Hellman **14** dans IKE et IPsec PFS. Voir [Groupes Diffie-Hellman](#DH) pour accéder aux mappages complets.
 > 2. Pour les algorithmes GCMAES, vous devez spécifier le même algorithme GCMAES et la longueur de clé pour le chiffrement IPsec et l’intégrité IPsec.
-> 3. La durée de vie de l’AS en mode principal IKEv1 et IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure.
+> 3. La durée de vie de l’AS en mode principal IKEv2 est fixée à 28 800 secondes pour les passerelles VPN Azure.
 > 4. Les durées de vie de l’AS en mode rapide sont des paramètres facultatifs. Si rien n’a été spécifié, les valeurs par défaut de 27 000 secondes (7,5 heures) et de 102 400 000 kilo-octets (102 Go) sont utilisées.
 > 5. UsePolicyBasedTrafficSelector est un paramètre d’option sur la connexion. Consultez le point suivant de la FAQ pour « UsePolicyBasedTrafficSelectors ».
 

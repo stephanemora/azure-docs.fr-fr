@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747422"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012930"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -185,14 +185,14 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     Utilisez les valeurs suivantes pour la configuration SSRS :
     * Compte de service : « Utiliser un compte intégré » doit être Service réseau
-    * URL du service web : « Répertoire virtuel » doit être ReportServer_<SQLInstanceName>
-    * Base de données : databasename doit être ReportServer$<SQLInstanceName>
-    * URL du portail web : « Répertoire virtuel » doit être Reports_<SQLInstanceName>
+    * URL du service web : « Répertoire virtuel » doit être ReportServer_\<NomInstanceSQL>
+    * Base de données : « Nom de la base de données » doit être ReportServer$\<NomInstanceSQL>
+    * URL du portail web : « Répertoire virtuel » doit être Reports_\<NomInstanceSQL>
 
     [En savoir plus](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sur la configuration de SSRS.
 
     > [!NOTE]
-    > La gestion des licences pour SQL Server utilisé comme base de données pour MABS est régie par les [conditions de services en ligne Microsoft](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). D’après OST, SQL Server fourni avec MABS peut être utilisé uniquement comme base de données pour MABS.
+    > La gestion des licences pour SQL Server utilisé comme base de données pour MABS est régie par les [conditions de services en ligne Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (OST). D’après OST, SQL Server fourni avec MABS peut être utilisé uniquement comme base de données pour MABS.
 
 4. Fournissez un emplacement pour l’installation des fichiers de serveur Microsoft Azure Backup, puis cliquez sur **Suivant**.
 
@@ -336,7 +336,7 @@ Procédez comme suit pour mettre à niveau MABS :
    >
    > Ne quittez pas pendant la mise à niveau de votre instance SQL, car ceci désinstallera l’instance de création de rapports SQL et, par conséquent, une tentative de nouvelle mise à niveau de MABS échouera.
 
-   Quelques points importants à prendre en considération :
+
 
    > [!IMPORTANT]
    >

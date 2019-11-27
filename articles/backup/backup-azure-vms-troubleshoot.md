@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747196"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090908"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -50,7 +50,7 @@ Message d’erreur : La copie des données sauvegardées du coffre a expiré.
 
 Cela peut se produire en raison d’erreurs de stockage temporaires ou d’un nombre insuffisant d’IOPS du compte de stockage pour que le service de sauvegarde transfère les données vers le coffre dans le délai imparti. Configurez la sauvegarde de machine virtuelle en appliquant ces [meilleures pratiques](backup-azure-vms-introduction.md#best-practices), puis relancez l’opération de sauvegarde.
 
-## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState – La machine virtuelle n’est pas dans un état qui autorise les sauvegardes.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState – La machine virtuelle n’est pas dans un état qui autorise les sauvegardes
 
 Code d’erreur : UserErrorVmNotInDesirableState <br/>
 Message d’erreur : La machine virtuelle n’est pas dans un état permettant les sauvegardes.<br/>
@@ -161,7 +161,7 @@ L’opération de capture instantanée a échoué parce que la limite de capture
   * Assurez-vous que la valeur **isanysnapshotfailed** est définie sur false dans /etc/azure/vmbackup.conf.
   * Planifiez l’exécution d’Azure Site Recovery à un autre moment, de sorte qu’elle ne soit pas en conflit avec l’opération de sauvegarde.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive – Échec de l’opération de capture instantanée en raison de ressources de machine virtuelle inadéquates.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive – Échec de l’opération de capture instantanée en raison de ressources de machine virtuelle inadéquates
 
 Code d’erreur : ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Message d’erreur : Échec de l’opération de capture instantanée en raison de ressources de machine virtuelle inadéquates.

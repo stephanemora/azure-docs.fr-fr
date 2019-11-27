@@ -1,27 +1,27 @@
 ---
-title: Copier des données vers ou depuis le stockage Blob Azure à l’aide de Data Factory
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers le stockage Blob Azure ou depuis le stockage Blob Azure vers des banques de données réceptrices prises en charge.
+title: Copier et transformer des données dans un stockage Azure Blob à l’aide de Data Factory
+description: Découvrez comment copier des données vers et depuis un stockage Blob, et comment transformer les données dans un stockage Blob en utilisant Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 7d17d1ee60f2049dccfb8bc711f3b76bb51689b6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 45fb61ee624ae5ab159f097c233907be7ec35c98
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681355"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075646"
 ---
-# <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Version actuelle](connector-azure-blob-storage.md)
 
-Cet article explique comment copier des données vers et à partir du Stockage Blob Azure. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers un stockage Azure Blob, et utiliser Data Flow pour transformer les données dans un stockage Azure Blob. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Ce connecteur Blob Azure est pris en charge pour les activités suivantes :
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 - [Supprimer l’activité](delete-activity.md)
 
-Plus précisément, ce connecteur de stockage Blob prend en charge ce qui suit :
+Pour cette activité de copie, ce connecteur de stockage Blob prend en charge ce qui suit :
 
 - La copie d’objets blob vers et depuis des comptes de stockage Azure à usage général et un stockage d’objets blob à chaud ou à froid. 
 - La copie d’objets blob à l’aide d’une clé de compte, d’une signature d’accès partagé de service ou d’identités managées pour les authentifications de ressources Azure.

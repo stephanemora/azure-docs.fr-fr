@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035251"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074344"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -120,7 +120,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
     - Seuls les blocs de données qui ont changé depuis la dernière sauvegarde sont copiés.
     - Les données ne sont pas chiffrées. Sauvegarde Azure peut sauvegarder des machines virtuelles Azure chiffrées avec Azure Disk Encryption.
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, la sauvegarde peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
-1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 Notez que les machines virtuelles Azure ont besoin d’un accès Internet pour les commandes de contrôle. Si vous sauvegardez des charges de travail à l’intérieur de la machine virtuelle (par exemple, si vous effectuez une sauvegarde de base de données SQL Server), les données principales ont également besoin d’un accès Internet.
 
@@ -134,7 +134,7 @@ Notez que les machines virtuelles Azure ont besoin d’un accès Internet pour l
     - L’agent MARS utilise uniquement l’opération d’écriture système Windows pour capturer l’instantané.
     - L’agent n’utilisant aucun enregistreur VSS d’application, il ne capture pas d’instantané de cohérence d’application.
 1. Après avoir pris l’instantané avec VSS, l’agent MARS crée un disque dur virtuel dans le dossier de cache que vous avez spécifié quand vous avez configuré la sauvegarde. L’agent stocke également des sommes de contrôle pour chaque bloc de données.
-1. Les sauvegardes incrémentielles s’exécutent conformément à la planification que vous spécifiez, sauf si vous exécutez une sauvegarde ad hoc.
+1. Les sauvegardes incrémentielles s’exécutent conformément à la planification que vous spécifiez, sauf si vous exécutez une sauvegarde à la demande.
 1. Dans les sauvegardes incrémentielles, les fichiers modifiés sont identifiés et un nouveau disque dur virtuel est créé. Le disque dur virtuel est compressé et chiffré, puis envoyé au coffre.
 1. Une fois la sauvegarde incrémentielle terminée, le nouveau disque dur virtuel est fusionné avec le disque dur virtuel créé après la réplication initiale. Ce disque dur virtuel fusionné fournit le dernier état à utiliser pour la comparaison dans le cadre de la sauvegarde en cours.
 
@@ -148,7 +148,7 @@ Notez que les machines virtuelles Azure ont besoin d’un accès Internet pour l
     - À l’aide de DPM/MABS, vous pouvez protéger des volumes, des partages, des fichiers et des dossiers. Vous pouvez également protéger l’état du système d’un ordinateur, ainsi que des applications spécifiques avec des paramètres de sauvegarde prenant en compte les applications.
 1. Quand vous configurez la protection d’une machine ou d’une application dans DPM/MABS, vous choisissez de sauvegarder sur le disque local MABS/DPM pour le stockage à court terme et sur Azure pour la protection en ligne. Vous spécifiez également quand doit s’exécuter la sauvegarde vers le stockage DPM/MABS local, et quand doit s’exécuter la sauvegarde en ligne sur Azure.
 1. Le disque de la charge de travail protégée est sauvegardé sur les disques MABS/DPM locaux, conformément à la planification que vous avez spécifiée.
-4. Les disques DPM/MABS sont sauvegardés dans le coffre par l’agent MARS en cours d’exécution sur le serveur DPM/MABS.
+1. Les disques DPM/MABS sont sauvegardés dans le coffre par l’agent MARS en cours d’exécution sur le serveur DPM/MABS.
 
 ![Sauvegarde de machines et charges de travail protégées par DPM ou MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

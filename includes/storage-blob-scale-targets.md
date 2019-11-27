@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/20/2019
+ms.date: 11/08/2019
 ms.author: tamram
-ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0fda881b805eb3a967cf3b05f6c6df8c65d20730
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177275"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905780"
 ---
 | Ressource | Cible        |
 |----------|---------------|
@@ -21,6 +21,8 @@ ms.locfileid: "67177275"
 | Taille maximale d’un objet blob d’ajout | 50 000 x 4 Mio (environ 195 Gio) |
 | Taille maximale d’un objet blob de pages | 8 Tio |
 | Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5\. |
-|Débit cible pour un objet blob unique |Jusqu’à la limite d’entrée/sortie du compte de stockage<sup>1</sup> |
+|Taux de requêtes cibles pour un seul objet blob | Jusqu’à 500 requêtes par seconde |
+|Débit cible pour un blob de page unique | Jusqu’à 60 Mio par seconde |
+|Débit cible pour un objet blob de blocs unique |Jusqu’à la limite d’entrée/sortie du compte de stockage<sup>1</sup> |
 
 <sup>1</sup> Le débit cible d’un objet unique dépend de plusieurs facteurs, dont et sans s’y limiter : concurrence, taille de la demande, niveau de performance, vitesse des chargements à la source et des téléchargements à la destination. Pour tirer parti des améliorations de performances des [objets blob de bloc à haut débit](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), utilisez une taille de demande Put Blob ou Put Block inférieure à 4 MiB (inférieure à 256 Kio pour le stockage d’objets blob de bloc ou le stockage Data Lake Gen2 avec performances premium).

@@ -1,24 +1,18 @@
 ---
 title: Vue d’ensemble de la redirection pour Azure Application Gateway
-description: En savoir plus sur la capacité de redirection dans Azure Application Gateway
+description: Découvrez la fonctionnalité de redirection dans Azure Application Gateway, qui permet de rediriger le trafic reçu sur un écouteur vers un autre écouteur ou vers un site externe.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5943d8aad4d5dd0d981fae9b2325dd3fc75b31e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715796"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129884"
 ---
 # <a name="application-gateway-redirect-overview"></a>Vue d’ensemble de la redirection Application Gateway
 

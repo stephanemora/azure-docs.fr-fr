@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337653"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903734"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installer un bloc-notes Jupyter sur votre ordinateur et le connecter à Apache Spark sur HDInsight
 
@@ -30,9 +30,9 @@ Pour plus d’informations sur les noyaux personnalisés et Spark Magic disponib
 
 ## <a name="prerequisites"></a>Prérequis
 
-La configuration requise indiquée ici ne concerne pas l’installation de Jupyter. Elle s’applique à la connexion du bloc-notes Jupyter à un cluster HDInsight une fois le bloc-notes installé.
+* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md). Il s’agit d’un prérequis pour la connexion du notebook Jupyter à un cluster HDInsight une fois le notebook installé.
 
-* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Connaissances sur l’utilisation des blocs-notes Jupyter Notebook avec Spark sur HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installer le bloc-notes Jupyter sur votre ordinateur
 
@@ -46,7 +46,7 @@ Téléchargez le [programme d’installation Anaconda](https://www.anaconda.com/
 
     |Version du cluster | Commande install |
     |---|---|
-    |versions 3.5 et 3.6 |`pip install sparkmagic==0.12.7`|
+    |versions 3.5 et 3.6 |`pip install sparkmagic==0.13.1`|
     |version 3.4|`pip install sparkmagic==0.2.3`|
 
 1. Assurez-vous que `ipywidgets` est correctement installé en exécutant la commande suivante :
@@ -116,6 +116,10 @@ Dans cette section, vous configurez Spark magic, que vous avez installé précé
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -146,7 +150,7 @@ Dans cette section, vous configurez Spark magic, que vous avez installé précé
 
     a. Créer un nouveau bloc-notes. En haut à droite, sélectionnez **New**. Vous devez voir le noyau par défaut **Python 2** ou **Python 3** et les noyaux que vous avez installés. Les valeurs réelles peuvent varier en fonction de vos choix d’installation.  Sélectionnez **PySpark**.
 
-    ![Noyaux disponibles dans un classeur Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Noyaux dans un classeur Jupyter")
+    ![Noyaux disponibles dans le notebook Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Noyaux dans le notebook Jupyter")
 
     > [!IMPORTANT]  
     > Après avoir sélectionné **New**, passez en revue le code dans votre interpréteur de commandes pour rechercher les erreurs éventuelles.  Si vous voyez l’erreur `TypeError: __init__() got an unexpected keyword argument 'io_loop'`, cela est probablement dû à un problème connu avec certaines versions de Tornado.  Dans ce cas, arrêtez le noyau, puis passez à une version antérieure de Tornado en utilisant la commande suivante : `pip install tornado==4.5.3`.

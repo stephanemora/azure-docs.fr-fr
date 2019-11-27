@@ -1,7 +1,7 @@
 ---
 title: Référence de la fonction search.score OData
 titleSuffix: Azure Cognitive Search
-description: fonction search.score OData dans les requêtes de Recherche cognitive Azure.
+description: Documentation de syntaxe et de référence pour l’utilisation de la fonction search.score dans les requêtes Recherche cognitive Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 500ac4f3a44d54e367ddc4ee5efc9514d603cab6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793269"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113140"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Fonction `search.score` OData dans Recherche cognitive Azure
 

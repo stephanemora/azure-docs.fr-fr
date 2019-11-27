@@ -1,23 +1,19 @@
 ---
-title: Créer une passerelle d’application avec redirection externe - Azure PowerShell | Microsoft Docs
+title: Redirection externe avec PowerShell
+titleSuffix: Azure Application Gateway
 description: Découvrez comment créer une passerelle d’application qui redirige le trafic web vers un site externe à l’aide d’Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 914d75f69b35f9f14503f232c2cf65519037d470
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6596cdb2df0a916c49086f80466db60b02a81467
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729618"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047751"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection externe à l’aide d’Azure PowerShell
 

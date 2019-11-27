@@ -1,6 +1,6 @@
 ---
-title: Copier des données vers ou à partir d’Azure Cosmos DB (API SQL) avec Data Factory
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers Azure Cosmos DB (API SQL), ou d’Azure Cosmos DB vers des banques de données réceptrices prises en charge.
+title: Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide de Data Factory
+description: Découvrez comment copier des données depuis et vers Azure Cosmos DB (API SQL) et comment transformer des données dans Azure Cosmos DB (API SQL) à l’aide de Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -10,36 +10,35 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 74bec61cbb69b17afddeb5abc1df16d8c1140234
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5e9db7c63e1493e1de5593262515040f071186e8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681297"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076793"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier des données depuis ou vers Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Version actuelle](connector-azure-cosmos-db.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Cosmos DB (API SQL). Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Cosmos DB (API SQL), et utiliser Data Flow pour transformer les données dans Azure Cosmos DB (API SQL). Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 >[!NOTE]
->Ce connecteur prend uniquement en charge la copie des données vers/depuis l’API SQL Cosmos DB. Pour l'API MongoDB, reportez-vous à [Connecteur de l'API Azure Cosmos DB pour MongoDB](connector-azure-cosmos-db-mongodb-api.md). Les autres types d’API ne sont pas pris en charge actuellement.
+>Ce connecteur prend uniquement en charge l’API SQL Cosmos DB. Pour l'API MongoDB, reportez-vous à [Connecteur de l'API Azure Cosmos DB pour MongoDB](connector-azure-cosmos-db-mongodb-api.md). Les autres types d’API ne sont pas pris en charge actuellement.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Ce connecteur Azure Cosmos DB (API SQL) est pris en charge pour les activités suivantes :
 
 - [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 
-Vous pouvez copier des données d’Azure Cosmos DB (API SQL) vers toute banque de données réceptrice prise en charge, ou copier des données de toute banque de données source prise en charge vers Azure Cosmos DB (API SQL). Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
-
-Vous pouvez utiliser le connecteur Azure Cosmos DB (API SQL) pour :
+Pour l'activité de copie, ce connecteur Azure Cosmos DB (API SQL) prend en charge :
 
 - Copier des données depuis et vers l’[API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) Azure Cosmos DB.
 - Écrire dans Azure Cosmos DB comme **insert** ou **upsert**.
@@ -118,16 +117,16 @@ Les propriétés prises en charge pour le service lié Azure Cosmos DB (API SQL)
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure Cosmos DB (API SQL). 
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données et services liés](concepts-datasets-linked-services.md).
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données et services liés](concepts-datasets-linked-services.md). 
-
-Pour copier des données à partir de ou vers Azure Cosmos DB (API SQL), affectez la valeur **DocumentDbCollection** à la propriété **type** du jeu de données. Les propriétés prises en charge sont les suivantes :
+Les propriétés prises en charge pour le jeu de données Azure Cosmos DB (API SQL) sont les suivantes : 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **DocumentDbCollection**. |OUI |
+| Type | La propriété **type** du jeu de données doit être définie sur **CosmosDbSqlApiCollection**. |OUI |
 | collectionName |Nom de la collection de documents Azure Cosmos DB. |OUI |
+
+Si vous utilisez un jeu de données de type « DocumentDbCollection », il est toujours pris en charge tel quel pour la compatibilité descendante dans l’activité de copie et de recherche, mais il n'est pas pris en charge pour le flux de données. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
 
 **Exemple**
 
@@ -135,11 +134,12 @@ Pour copier des données à partir de ou vers Azure Cosmos DB (API SQL), affecte
 {
     "name": "CosmosDbSQLAPIDataset",
     "properties": {
-        "type": "DocumentDbCollection",
+        "type": "CosmosDbSqlApiCollection",
         "linkedServiceName":{
             "referenceName": "<Azure Cosmos DB linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [],
         "typeProperties": {
             "collectionName": "<collection name>"
         }
@@ -151,12 +151,9 @@ Pour copier des données à partir de ou vers Azure Cosmos DB (API SQL), affecte
 
 Pour les banques de données sans schéma telles qu’Azure Cosmos DB, l’activité de copie déduit le schéma de l’une des manières décrites dans la liste suivante. Sauf si vous souhaitez [importer ou exporter des documents JSON en l’état](#import-or-export-json-documents), la bonne pratique consiste à spécifier la structure des données dans la section **structure**.
 
-* Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, Azure Data Factory respecte cette structure en tant que schéma. 
+Data Factory respecte le mappage que vous avez spécifié sur l'activité. Si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
 
-    Si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
-* Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. 
-
-    Si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
+Si vous ne spécifiez aucun mappage, le service Data Factory déduit le schéma à l’aide de la première ligne des données. Si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération d’activité.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -172,9 +169,12 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source de l’activité de copie doit être définie sur **DocumentDbCollectionSource**. |OUI |
+| Type | La propriété **type** de la source d’activité de copie doit être définie sur **CosmosDbSqlApiSource**. |OUI |
 | query |Spécifiez la requête Azure Cosmos DB pour lire les données.<br/><br/>Exemple :<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non <br/><br/>À défaut de spécification, cette instruction SQL est exécutée : `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Caractère spécial qui indique que le document est imbriqué et comment aplatir le jeu de résultats.<br/><br/>Par exemple, si une requête Azure Cosmos DB retourne le résultat imbriqué `"Name": {"First": "John"}`, l’activité de copie identifie le nom de colonne comme `Name.First` avec la valeur « John » quand la valeur de **nestedSeparator** est **.** (point). |Non<br />(la valeur par défaut est **.** (point)) |
+| preferredRegions | La liste préférée des régions auxquelles se connecter pour récupérer les données de Cosmos DB. | Non |
+| pageSize | nombre de documents par page du résultat de la requête. La valeur par défaut est « -1 », qui utilise la page dynamique côté service jusqu’à 1000. | Non |
+
+Si vous utilisez une source de type « DocumentDbCollectionSource », elle est toujours prise en charge telle quelle pour une compatibilité descendante. Nous vous suggérons d'utiliser le nouveau modèle à l'avenir, qui offre des fonctionnalités plus riches pour copier les données à partir de Cosmos DB.
 
 **Exemple**
 
@@ -197,8 +197,11 @@ Les propriétés prises en charge dans la section **source** de l’activité de
         ],
         "typeProperties": {
             "source": {
-                "type": "DocumentDbCollectionSource",
-                "query": "SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\""
+                "type": "CosmosDbSqlApiSource",
+                "query": "SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"",
+                "preferredRegions": [
+                    "East US"
+                ]
             },
             "sink": {
                 "type": "<sink type>"
@@ -216,14 +219,15 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du récepteur de l’activité de copie doit être définie sur **DocumentDbCollectionSink**. |OUI |
+| Type | La propriété **type** du récepteur d’activité de copie doit être définie sur **CosmosDbSqlApiSink**. |OUI |
 | writeBehavior |Décrit comment écrire des données dans Azure Cosmos DB. Les valeurs autorisées sont **insert** et **upsert**.<br/><br/>Le comportement de la valeur **upsert** consiste à remplacer le document si un document portant le même identificateur existe déjà ; sinon, le document est inséré.<br /><br />**Remarque**: Azure Data Factory génère automatiquement un ID pour un document s’il n’est pas spécifié dans le document d’origine ni par le mappage de colonnes. Cela signifie que vous devez vérifier que votre document comporte un ID afin qu’**upsert** fonctionne comme prévu. |Non<br />(la valeur par défaut est **insert**) |
 | writeBatchSize | Data Factory utilise la [bibliothèque d’exécuteur en bloc Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) pour écrire les données dans Azure Cosmos DB. La propriété **writeBatchSize** contrôle la taille des documents fournis par ADF à la bibliothèque. Vous pouvez essayer d’augmenter la valeur de **writeBatchSize** pour améliorer les performances et diminuer la valeur si la taille de votre document est grande (voir les conseils ci-dessous). |Non<br />(la valeur par défaut est **10 000**) |
-| nestingSeparator |Caractère spécial dans le nom de colonne **source** qui indique qu’un document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Azure Cosmos DB quand **nestedSeparator** a la valeur **.** (point) : `"Name": {"First": "[value maps to this column from source]"}`  |Non<br />(la valeur par défaut est **.** (point)) |
 | disableMetricsCollection | Data Factory collecte des métriques telles que les unités de requête Cosmos DB pour effectuer des suggestions et optimiser les performances de copie. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
 
 >[!TIP]
 >Cosmos DB limite la taille des demandes uniques à 2 Mo. La formule est la suivante : taille de la demande = taille de document unique * taille d’écriture Batch. Si vous rencontrez le message d’erreur **« La taille de la demande est trop grande »** , **réduisez la valeur de `writeBatchSize`** dans la configuration du récepteur de copie.
+
+Si vous utilisez une source de type « DocumentDbCollectionSink », elle est toujours prise en charge telle quelle pour une compatibilité descendante. Nous vous suggérons d'utiliser le nouveau modèle à l'avenir, qui offre des fonctionnalités plus riches pour copier les données à partir de Cosmos DB.
 
 **Exemple**
 
@@ -249,13 +253,18 @@ Les propriétés prises en charge dans la section **source** de l’activité de
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink",
+                "type": "CosmosDbSqlApiSink",
                 "writeBehavior": "upsert"
             }
         }
     }
 ]
 ```
+
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
+
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
@@ -271,7 +280,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 Pour obtenir une copie indépendante du schéma :
 
 * Lors de l’utilisation de l’outil de copie de données, sélectionnez l’option **Exporter en l’état dans des fichiers JSON ou une collection Cosmos DB**.
-* Lors de l’utilisation de la création d’activité, ne spécifiez pas la section **structure** (autrement appelée *schema*) dans le jeu de données Azure Cosmos DB. Ne spécifiez pas non plus la propriété **nestingSeparator** dans la source ou le récepteur Azure Cosmos DB de l’activité de copie. Lors de l’importation depuis ou de l’exportation vers des fichiers JSON, dans le jeu de données du magasin de fichiers correspondant, spécifiez le type **format** **JsonFormat** et configurez **filePattern** comme décrit dans la section [Format JSON](supported-file-formats-and-compression-codecs.md#json-format). Ne spécifiez pas la section **structure** et ignorez le reste des paramètres de format.
+* Lors de l’utilisation de la création d’activité, choisissez le format JSON avec le magasin de fichiers correspondant à la source ou au récepteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

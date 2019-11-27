@@ -1,25 +1,25 @@
 ---
-title: Règles automatiques d'appartenance de groupe dynamique - Azure Active Directory | Microsoft Docs
+title: Règles d’appartenance de groupe dynamique - Azure AD | Microsoft Docs
 description: Comment créer des règles d’appartenance pour remplir automatiquement des groupes, et documentation de référence sur les règles.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241171"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027127"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -357,7 +357,10 @@ Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire
 
 ## <a name="rules-for-devices"></a>Règles pour les appareils
 
-Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. L’attribut **organizationalUnit** n’est plus répertorié et ne doit pas être utilisé. Cette chaîne est définie par Intune dans des cas spécifiques mais n’est pas reconnue par Azure AD, donc aucun périphérique n’est ajouté aux groupes en fonction de cet attribut.
+Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. 
+
+> [!NOTE]
+> L’attribut **organizationalUnit** n’est plus répertorié et ne doit pas être utilisé. Cette chaîne est définie par Intune dans des cas spécifiques mais n’est pas reconnue par Azure AD, donc aucun périphérique n’est ajouté aux groupes en fonction de cet attribut.
 
 > [!NOTE]
 > systemlabels est un attribut en lecture seule qui ne peut pas être défini avec Intune.
@@ -380,7 +383,8 @@ Les attributs d’appareil suivants peuvent être utilisés.
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ devicePhysicalIds | toute valeur de chaîne utilisée par AutoPilot, par exemple tous les appareils AutoPilot, OrderID ou PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  

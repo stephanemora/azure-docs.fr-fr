@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 09/04/2019
-ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826654"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082479"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 
@@ -62,7 +62,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 Pour un exemple complet de script, consultez [Copier une base de données sur un nouveau serveur](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-La copie de la base de données est une opération asynchrone. Toutefois, la base de données cible est créée immédiatement après l’acceptation de la requête. Si vous devez annuler une opération de copie en cours, supprimez la base de données cible à l’aide de l’applet de commande [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).  
+La copie de la base de données est une opération asynchrone, mais la base de données cible est créée de suite après que la demande est acceptée. Si vous devez annuler une opération de copie en cours, supprimez la base de données cible à l’aide de l’applet de commande [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).  
 
 ## <a name="rbac-roles-to-manage-database-copy"></a>Rôles RBAC pour gérer la copie de la base de données
 
@@ -156,6 +156,26 @@ Une fois que la nouvelle base de données est en ligne sur le serveur de destina
 Tous les utilisateurs de la nouvelle base de données conservent les autorisations qu’ils avaient dans la base de données source. L'utilisateur qui a initié la copie de la base de données devient le propriétaire de celle-ci et reçoit un nouvel identificateur de sécurité (SID). Une fois la copie réussie et avant que les autres utilisateurs ne soient remappés, seule la connexion qui a initié la copie, le propriétaire de la base de données, peut se connecter à la nouvelle base de données.
 
 Pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la copie d’une base de données sur un autre serveur SQL Database, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
+
+## <a name="database-copy-errors"></a>Erreurs de copie de base de données
+
+Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données Azure SQL](sql-database-copy.md).
+
+| Code d'erreur | severity | Description |
+| ---:| ---:|:--- |
+| 40635 |16 |Le client avec l'adresse IP’%.&#x2a;ls’ est temporairement désactivé. |
+| 40637 |16 |La copie de base de données est actuellement désactivée. |
+| 40561 |16 |La copie de base de données a échoué. La base de données source ou cible n'existe pas. |
+| 40562 |16 |La copie de base de données a échoué. La base de données source a été supprimée. |
+| 40563 |16 |La copie de base de données a échoué. La base de données cible a été supprimée. |
+| 40564 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez. |
+| 40565 |16 |La copie de base de données a échoué. Pas plus d'une copie de base de données simultanée de la même source est autorisée. Supprimez la base de données cible et réessayez ultérieurement. |
+| 40566 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez. |
+| 40567 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez. |
+| 40568 |16 |La copie de base de données a échoué. La base de données source n'est plus disponible. Supprimez la base de données cible et réessayez. |
+| 40569 |16 |La copie de base de données a échoué. La base de données cible n'est plus disponible. Supprimez la base de données cible et réessayez. |
+| 40570 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement. |
+| 40571 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

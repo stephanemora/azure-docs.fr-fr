@@ -1,18 +1,18 @@
 ---
-title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - Azure CLI
+title: Personnaliser les règles à l’aide de CLI - Pare-feu d’applications web Azure
 description: Cet article fournit des informations sur le mode de personnalisation des règles de pare-feu d’applications web dans Application Gateway avec Azure CLI.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 58cc339e8f849a71fb01973e99dba936f6b53a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511546"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048529"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personnaliser les règles du pare-feu d’applications web à l’aide d’Azure CLI
 

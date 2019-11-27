@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une commande personnalisée (préversion)'
+title: 'Démarrage rapide : Créer une commande personnalisée (préversion) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Cet article explique comment créer et tester une application de commandes personnalisées hébergée.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506704"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111365"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Démarrage rapide : Créer une commande personnalisée (préversion)
 
 Cet article décrit comment créer et tester une application de commandes personnalisées hébergée.
 L’application reconnaît un énoncé tel que « Allume la télévision » et répond avec un simple message « D’accord, j’allume la télévision ».
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Speech. [Essayez le service Speech gratuitement](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -81,7 +81,7 @@ Une commande comprend les éléments suivants :
 | Groupe            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Exemples de phrases | Exemples d’énoncés que l’utilisateur peut prononcer pour déclencher la commande                                                                 |
-| Paramètres       | Informations requises pour exécuter la commande                                                                                |
+| parameters       | Informations requises pour exécuter la commande                                                                                |
 | Règles d’exécution | Actions à effectuer pour exécuter la commande. Par exemple, répondre à l’utilisateur ou communiquer avec un autre service web |
 | Règles avancées   | Règles supplémentaires pour gérer des situations plus spécifiques ou complexes                                                              |
 

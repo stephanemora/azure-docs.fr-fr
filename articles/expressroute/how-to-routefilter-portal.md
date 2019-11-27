@@ -1,5 +1,5 @@
 ---
-title: 'Configurer des filtres de routage pour le peering Microsoft : Azure ExpressRoute - Portail | Microsoft Docs'
+title: 'ExpressRoute : Filtres de routage – Peering Microsoft : Portail Azure'
 description: Cet article décrit comment configurer des filtres de routage pour le peering Microsoft à l’aide du portail Azure.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0b8e06ad5688374e5ab4aaa72d8485e6da797afe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122937"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037437"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour le peering Microsoft : Portail Azure
 > [!div class="op_single_selector"]
@@ -22,39 +22,39 @@ ms.locfileid: "71122937"
 > * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
 > 
 
-Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
+Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via le peering Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
 
-Des services Office 365 comme Exchange Online, SharePoint Online et Skype Entreprise, et des services Azure comme le stockage et SQL Database sont accessibles via un appairage Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
+Des services Office 365 comme Exchange Online, SharePoint Online et Skype Entreprise, et des services Azure comme le stockage et SQL Database sont accessibles via un appairage Microsoft. Lorsque le peering Microsoft est configuré dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
 
-Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais de l’homologation de Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
+Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais du peering Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
 
 - Filtrer les préfixes indésirables en appliquant des filtres de routage sur les communautés BGP. Ceci est une pratique standard et très courante de mise en réseau.
 
-- Définir des filtres de routage et les appliquer à votre circuit ExpressRoute. Un filtre de routage est une ressource qui vous permet de sélectionner la liste des services que vous envisagez d’utiliser via l’homologation Microsoft. Les routeurs ExpressRoute envoient uniquement la liste des préfixes qui appartiennent aux services identifiés dans le filtre de routage.
+- Définir des filtres de routage et les appliquer à votre circuit ExpressRoute. Un filtre de routage est une ressource qui vous permet de sélectionner la liste des services que vous envisagez d’utiliser via le peering Microsoft. Les routeurs ExpressRoute envoient uniquement la liste des préfixes qui appartiennent aux services identifiés dans le filtre de routage.
 
 ### <a name="about"></a>À propos des filtres de routage
 
-Lorsque l’homologation Microsoft est configurée sur votre circuit ExpressRoute, les routeurs de périphérie Microsoft établissent une paire de sessions BGP avec les routeurs de périphérie (les vôtres ou ceux de votre fournisseur de connectivité). Aucun routage n’est publié sur votre réseau. Pour activer les annonces de routage sur votre réseau, vous devez associer un filtre de routage.
+Lorsque le peering Microsoft est configuré sur votre circuit ExpressRoute, les routeurs de périphérie Microsoft établissent une paire de sessions BGP avec les routeurs de périphérie (les vôtres ou ceux de votre fournisseur de connectivité). Aucun routage n’est publié sur votre réseau. Pour activer les annonces de routage sur votre réseau, vous devez associer un filtre de routage.
 
-Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste de toutes les valeurs de communauté BGP que vous souhaitez autoriser. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
+Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via le peering Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste de toutes les valeurs de communauté BGP que vous souhaitez autoriser. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
 
 Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
 
 > [!IMPORTANT]
-> L’homologation Microsoft des circuits ExpressRoute ayant été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres d’itinéraire ne sont pas définis. L’homologation Microsoft des circuits ExpressRoute configurés à compter du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été joint au circuit.
+> Le peering Microsoft des circuits ExpressRoute configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via le peering Microsoft, même si les filtres de routage ne sont pas définis. Le peering Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit.
 > 
 > 
 
 ### <a name="workflow"></a>Flux de travail
 
-Pour pouvoir vous connecter aux services par le biais de l’homologation Microsoft, vous devez effectuer les étapes de configuration suivantes :
+Pour pouvoir vous connecter aux services par le biais du peering Microsoft, vous devez effectuer les étapes de configuration suivantes :
 
-- Vous devez disposer d’un circuit ExpressRoute actif où l’homologation Microsoft est approvisionnée. Vous pouvez utiliser les instructions suivantes pour accomplir ces tâches :
+- Vous devez disposer d’un circuit ExpressRoute actif où le peering Microsoft est provisionné. Vous pouvez utiliser les instructions suivantes pour accomplir ces tâches :
   - [Créez un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être approvisionné et activé.
-  - [Créez l’homologation Microsoft](expressroute-howto-routing-portal-resource-manager.md) si vous gérez la session BGP directement. Sinon, demandez à votre fournisseur de connectivité de configurer l’homologation Microsoft pour votre circuit.
+  - [Créez le peering Microsoft](expressroute-howto-routing-portal-resource-manager.md) si vous gérez la session BGP directement. Sinon, demandez à votre fournisseur de connectivité de configurer le peering Microsoft pour votre circuit.
 
 -  Vous devez créer et configurer un filtre de routage.
-    - Identifiez les services que vous souhaitez utiliser via l’homologation Microsoft.
+    - Identifiez les services que vous souhaitez utiliser via le peering Microsoft.
     - Identifiez la liste des valeurs de communauté BGP associées aux services.
     - Créez une règle pour autoriser la liste de préfixes correspondant aux valeurs de communauté BGP.
 
@@ -68,14 +68,14 @@ Avant de commencer la configuration, assurez-vous que les critères suivants son
 
  - Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être approvisionné et activé.
 
- - Vous devez disposer d’une homologation Microsoft active. Suivez les instructions de [création et modification de la configuration d’homologation](expressroute-howto-routing-portal-resource-manager.md).
+ - Vous devez disposer d’un peering Microsoft actif. Suivez les instructions de [création et modification de la configuration de peering](expressroute-howto-routing-portal-resource-manager.md).
 
 
 ## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtenir la liste des valeurs de communauté BGP
 
-Les valeurs de communauté BGP associées aux services accessibles via l’homologation Microsoft sont disponibles sur la page [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
+Les valeurs de communauté BGP associées aux services accessibles via le peering Microsoft sont disponibles sur la page [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Dresser la liste des valeurs que vous souhaitez utiliser
 
@@ -112,7 +112,7 @@ Vous pouvez joindre le filtre de routage à un circuit en cliquant sur le bouton
 
 ![Créer un filtre de routage](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
-Si le fournisseur de connectivité configure l’homologation pour votre circuit ExpressRoute, actualisez le circuit dans le panneau Circuit ExpressRoute avant de sélectionner le bouton Ajouter un circuit.
+Si le fournisseur de connectivité configure le peering pour votre circuit ExpressRoute, actualisez le circuit dans le panneau Circuit ExpressRoute avant de sélectionner le bouton Ajouter un circuit.
 
 ![Créer un filtre de routage](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 

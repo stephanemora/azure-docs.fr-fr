@@ -7,18 +7,21 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 278e9ff68fa20a0a99a6447bb4cf7ac7fddbfb7b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249115"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120966"
 ---
 # <a name="networking-limit-increase"></a>Augmentation de la limite réseau
 
 Pour afficher votre utilisation et votre quota de réseau actuels, vous pouvez consulter le panneau **Utilisation + Quotas** sur le portail Azure. Vous pouvez également utiliser l’[interface de ligne de commande](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) ou l’[API d’utilisation du réseau](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) pour afficher l’utilisation et les limites de votre réseau.
 
 Vous pouvez demander une augmentation via le panneau **Aide + Support** ou **Utilisation + Quotas** sur le portail.
+
+> [!Note]
+> Pour modifier la taille par défaut du préfixe des adresses IP publiques, sélectionnez « Longueur minimale du préfixe d’interconnexion des adresses IP publiques » dans la liste déroulante.
 
 ## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Demander une augmentation du quota de réseau au niveau de l’abonnement à l’aide du panneau **Aide + Support**
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer la récupération après sinistre dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et d’Azure Resource Manager | Microsoft Docs
+title: Reprise d’activité après sinistre pour Hyper-V à l’aide d’Azure Site Recovery et PowerShell
 description: Automatisez la récupération après sinistre des machines virtuelles Hyper-V sur Azure avec le service Azure Site Recovery à l’aide de PowerShell et d’Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200522"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082677"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 

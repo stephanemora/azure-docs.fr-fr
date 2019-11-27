@@ -8,25 +8,27 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: 28205d6db85d7a5051f283445d95dd2375e174c8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325864"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904433"
 ---
 # <a name="configure-liveness-probes"></a>Configurer les probe liveness
 
-Les applications en conteneur peuvent s’exécuter sur de longues périodes, ce qui provoque des états rompus qui nécessitent parfois une réparation (redémarrage du conteneur). Azure Container Instances prend en charge les sondes probe liveness pour inclure des configurations permettant le redémarrage du conteneur si des fonctionnalités critiques ne fonctionnent pas.
+Les applications conteneurisées peuvent s’exécuter sur de longues périodes, ce qui provoque des états rompus qui nécessitent parfois une réparation (redémarrage du conteneur). Azure Container Instances prend en charge les sondes probe liveness afin que vous puissiez configurer vos conteneurs dans votre groupe de conteneurs pour les redémarrer si des fonctionnalités critiques ne fonctionnent pas. La sonde probe liveness se comporte comme une [sonde probe liveness Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 Cet article explique comment déployer un groupe de conteneurs avec probe liveness, illustrant le redémarrage automatique d’un conteneur non intègre simulé.
+
+Azure Container Instances prend également en charge les [sondes probe readiness](container-instances-readiness-probe.md), que vous pouvez configurer pour vous assurer que le trafic atteint un conteneur uniquement quand ce dernier est prêt.
 
 ## <a name="yaml-deployment"></a>Déploiement YAML
 
 Créez un fichier `liveness-probe.yaml` avec l’extrait de code suivant. Ce fichier définit un groupe composé d’un conteneur NGNIX qui finit par devenir non intègre.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: livenesstest
 properties:
@@ -63,13 +65,13 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Commande de démarrage
 
-Le déploiement définit une commande de démarrage à lancer lorsque le conteneur s’exécute pour la première fois, définie par la propriété `command` qui prend en entrée un tableau de chaînes. Dans cet exemple, il démarre une session Bash et crée un fichier nommé `healthy` dans le répertoire `/tmp` en exécutant cette commande :
+Le déploiement définit une commande de démarrage à lancer quand le conteneur s’exécute pour la première fois, définie par la propriété `command` qui prend en entrée un tableau de chaînes. Dans cet exemple, il démarre une session Bash et crée un fichier nommé `healthy` dans le répertoire `/tmp` en exécutant cette commande :
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Il se met ensuite en veille pendant 30 secondes avant de supprimer le fichier, puis se remet en veille pendant 10 minutes.
+ Il se met ensuite en veille pendant 30 secondes avant de supprimer le fichier, puis se remet en veille pendant 10 minutes.
 
 ### <a name="liveness-command"></a>Commande d’activité
 
@@ -87,7 +89,7 @@ Vous pouvez voir ces événements dans le portail Azure et dans Azure CLI.
 
 ![Événement non intègre sur le Portail][portal-unhealthy]
 
-Si l’on consulte les événements sur le Portail Azure, les événements de type `Unhealthy` seront déclenchés à l’échec d’une commande d’activité. L’événement suivant sera de type `Killing`, ce qui signifie la suppression d’un conteneur, permettant ainsi le lancement d’un redémarrage. Le nombre de redémarrages du conteneur s’incrémentera à chaque fois.
+Si l’on consulte les événements sur le Portail Azure, les événements de type `Unhealthy` seront déclenchés à l’échec d’une commande d’activité. L’événement suivant sera de type `Killing`, ce qui signifie la suppression d’un conteneur, permettant ainsi le lancement d’un redémarrage. Le nombre de redémarrages du conteneur s’incrémente à chaque occurrence de cet événement.
 
 Les redémarrages sont effectués sur place afin de préserver les ressources comme les adresses IP publiques et les contenus propres aux nœuds.
 
@@ -97,7 +99,7 @@ Si la sonde probe liveness échoue constamment et déclenche trop de redémarrag
 
 ## <a name="liveness-probes-and-restart-policies"></a>Probe liveness et stratégies de redémarrage
 
-Les stratégies de redémarrage annulent et remplacent le comportement de redémarrage déclenché par les sondes probe liveness. Par exemple, si vous définissez `restartPolicy = Never` *et* une sonde probe liveness, le groupe de conteneurs ne redémarre pas en cas d’échec de la vérification de l’activité. Il respectera en revanche sa stratégie de redémarrage, soit `Never`.
+Les stratégies de redémarrage annulent et remplacent le comportement de redémarrage déclenché par les sondes probe liveness. Par exemple, si vous définissez `restartPolicy = Never` *et* une sonde probe liveness, le groupe de conteneurs ne redémarre pas en raison de l’échec de la vérification de l’activité. Il respectera en revanche sa stratégie de redémarrage, soit `Never`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

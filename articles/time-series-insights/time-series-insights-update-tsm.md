@@ -1,6 +1,6 @@
 ---
-title: Modèle de série chronologique dans Azure Time Series Insights en préversion | Microsoft Docs
-description: Comprendre le modèle de série chronologique d’Azure Time Series Insights.
+title: Modèle de série chronologique - Azure Time Series Insights | Microsoft Docs
+description: Découvrez le modèle de série chronologique dans Azure Time Series Insights en préversion.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585252"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112297"
 ---
-# <a name="time-series-model"></a>Modèle de série chronologique
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modèle de série chronologique dans Azure Time Series Insights en préversion
 
 Cet article décrit le modèle de série chronologique, les fonctionnalités et la façon de commencer à créer et à mettre à jour vos propres modèles dans l’environnement Azure Time Series Insights (préversion).
 
@@ -100,10 +100,10 @@ Les instances sont définies par **timeSeriesId**, **typeId**, **name**, **descr
 | --- | ---|
 | timeSeriesId | UUID de la série chronologique à laquelle l’instance est associée. |
 | typeId | UUID du type de modèle de série chronologique auquel l’instance est associée. Par défaut, toutes les nouvelles instances découvertes sont associées à un type par défaut.
-| Nom | La propriété **name** est facultative et sensible à la casse. Si **name** n’est pas disponible, la valeur par défaut est **timeSeriesId**. Si un nom est fourni, **timeSeriesId** est toujours disponible dans le [puits](time-series-insights-update-explorer.md#preview-well). |
+| Nom | La propriété **name** est facultative et sensible à la casse. Si **name** n’est pas disponible, la valeur par défaut est **timeSeriesId**. Si un nom est fourni, **timeSeriesId** est toujours disponible dans le [puits](time-series-insights-update-explorer.md#4-time-series-well). |
 | description | Texte de description de l’instance. |
 | hierarchyIds | Définit les hiérarchies auxquelles l’instance appartient. |
-| instanceFields | **instanceFields** représentent des propriétés d’une instance et toutes les données statiques qui définissent une instance. Ils définissent les valeurs des propriétés d’une hiérarchie ou non et prennent en charge l’indexation pour effectuer des opérations de recherche. |
+| instanceFields | Propriétés d’une instance et toutes les données statiques qui définissent une instance. Ils définissent les valeurs des propriétés d’une hiérarchie ou non et prennent en charge l’indexation pour effectuer des opérations de recherche. |
 
 > [!NOTE]
 > Les hiérarchies sont créées à l’aide de champs d’instance. D’autres **instanceFields** peuvent être ajoutés pour d’autres définitions de propriété d’instance.

@@ -4,20 +4,20 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 11/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: d249ed2a6a2acbb4d1fe1197637f1f65c549db44
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035546"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132308"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
 Cet article vous montre comment déplacer des ressources Azure vers un autre abonnement Azure ou un autre groupe de ressources sous le même abonnement. Vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou l’API REST pour déplacer des ressources.
 
-Le groupe source et le groupe cible sont verrouillés pendant l’opération de déplacement. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources, mais il ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données.
+Le groupe source et le groupe cible sont verrouillés pendant l’opération de déplacement. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources. Cela ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données. Le verrou peut durer jusqu’à quatre heures, mais la plupart des déplacements se terminent en moins de temps.
 
 Déplacer une ressource la déplace seulement vers un nouveau groupe de ressources ou un nouvel abonnement. Cette opération ne change pas l’emplacement de la ressource.
 
@@ -233,6 +233,51 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 ```
 
 Si vous recevez une erreur, consultez [Résoudre les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou un nouvel abonnement](troubleshoot-move.md).
+
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+**Question : Mon opération de déplacement de ressources, qui prend généralement quelques minutes, s’exécute depuis presque une heure. Y a-t-il un problème ?**
+
+Le déplacement d’une ressource est une opération complexe qui a des phases différentes. Elle peut impliquer davantage que le fournisseur de ressources de la ressource que vous essayez de déplacer. En raison des dépendances entre les fournisseurs de ressources, Azure Resource Manager accorde à l’opération 4 heures pour se terminer. Ce laps de temps donne aux fournisseurs de ressources la possibilité de récupérer des problèmes temporaires. Si votre demande de déplacement se situe dans le délai de 4 heures, l’opération continue de s’exécuter et peut encore aboutir. Les groupes de ressources sources et de destination sont verrouillés pendant ce temps afin d’éviter les problèmes de cohérence.
+
+**Question : Pourquoi mon groupe de ressources est-il verrouillé pendant 4 heures pendant le déplacement des ressources ?**
+
+Le délai de 4 heures correspond à la durée maximale autorisée pour le déplacement des ressources. Pour empêcher les ressources déplacées d’être modifiées, les groupes de ressources sources et de destination sont verrouillés pendant la durée du déplacement des ressources.
+
+Une demande de déplacement comporte deux phases. Dans la première phase, la ressource est déplacée. Dans la deuxième phase, des notifications sont envoyées à d’autres fournisseurs de ressources qui dépendent de la ressource déplacée. Un groupe de ressources peut être verrouillé durant l’intégralité du délai de 4 heures lorsqu’un fournisseur de ressources échoue dans l’une ou l’autre phase. Pendant le temps imparti, Resource Manager retente l’étape qui a échoué.
+
+Si une ressource ne peut pas être déplacée dans le délai de 4 heures, Resource Manager déverrouille les deux groupes de ressources. Les ressources qui ont été déplacées se trouvent dans le groupe de ressources de destination. Les ressources qui n’ont pas pu être déplacées sont conservées dans le groupe de ressources source.
+
+**Question : Quelles sont les implications des groupes de ressources sources et de destination verrouillés pendant le déplacement des ressources ?**
+
+Le verrou vous empêche de supprimer un groupe de ressources, de créer une nouvelle ressource dans un groupe de ressources ou de supprimer les ressources impliquées dans le déplacement.
+
+L’illustration suivante montre un message d’erreur du portail Azure lorsqu’un utilisateur tente de supprimer un groupe de ressources qui fait partie d’un déplacement en cours.
+
+![Message d’erreur lors du déplacement, tentative de suppression](./media/resource-group-move-resources/move-error-delete.png)
+
+**Question : Que signifie le code d’erreur « MissingMoveDependentResources » ?**
+
+Lors du déplacement d’une ressource, ses ressources dépendantes doivent exister dans l’abonnement ou le groupe de ressources de destination, ou elle doivent être incluses dans la demande de déplacement. Vous recevez le code d’erreur MissingMoveDependentResources quand une ressource dépendante n’est pas conforme à cette exigence. Le message d’erreur contient des détails sur la ressource dépendante qui doit être incluse dans la demande de déplacement.
+
+Par exemple, le déplacement d’une machine virtuelle peut nécessiter le déplacement de sept types de ressources avec trois fournisseurs de ressources différents. Ces types et fournisseurs de ressources sont les suivants :
+
+* Microsoft.Compute
+   * virtualMachines
+   * disks
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+Un autre exemple courant implique le déplacement d’un réseau virtuel. Vous devrez peut-être déplacer plusieurs autres ressources associées à ce réseau virtuel. La demande de déplacement peut nécessiter le déplacement d’adresses IP publiques, de tables de routage, de passerelles de réseau virtuel, de groupes de sécurité réseau, etc.
+
+**Question : Pourquoi ne puis-je pas déplacer certaines ressources dans Azure ?**
+
+Actuellement, toutes les ressources dans Azure prennent en charge le déplacement. Pour obtenir la liste des ressources prenant en charge l’opération de déplacement, consultez [Prise en charge de l’opération de déplacement pour les ressources](move-support-resources.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

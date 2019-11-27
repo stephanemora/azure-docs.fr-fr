@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer une machine virtuelle Azure à l’aide de C# | Microsoft Docs
+title: Créer et gérer une machine virtuelle Azure en C#
 description: Utiliser C# et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de soutien.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079608"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032790"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 

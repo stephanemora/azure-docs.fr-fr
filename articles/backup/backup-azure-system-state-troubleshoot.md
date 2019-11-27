@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5901cbe1e30eb1ce2334a7b935a3629c66c24b8a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747308"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091585"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
@@ -45,7 +45,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 - La récupération vers un autre composant matériel à l’aide de la fonction de récupération de l’état du système n’est pas recommandée par Microsoft
 - La fonctionnalité de sauvegarde de l’état du système prend actuellement en charge les serveurs Windows « locaux ». Elle n’est pas disponible pour les machines virtuelles Azure.
 
-## <a name="pre-requisite"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, effectuez la vérification des prérequis indiqués ci-dessous.  
 

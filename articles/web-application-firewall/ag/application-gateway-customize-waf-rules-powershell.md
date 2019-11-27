@@ -1,20 +1,21 @@
 ---
-title: Personnaliser les règles du pare-feu d’applications web dans Azure Application Gateway - PowerShell
+title: Personnaliser les règles à l’aide de PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Cet article fournit des informations sur la personnalisation des règles du pare-feu d’applications web dans Application Gateway avec PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 2930204cd322f3a8ba25eb6f3455a51f1d3d2ee9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511550"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048503"
 ---
-# <a name="customize-web-application-firewall-rules-through-powershell"></a>Personnaliser les règles du pare-feu d’applications web par le biais de PowerShell
+# <a name="customize-web-application-firewall-rules-using-powershell"></a>Personnaliser les règles du pare-feu d’applications web à l’aide de PowerShell
 
 Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Ces protections sont fournies par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel. Par conséquent, Application Gateway permet de personnaliser des règles et des groupes de règles. Pour plus d’informations sur les règles et groupes de règles spécifiques, consultez la [liste des règles et groupes de règles CRS de pare-feu d’applications web](application-gateway-crs-rulegroups-rules.md).
 

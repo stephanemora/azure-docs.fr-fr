@@ -1,18 +1,18 @@
 ---
-title: Superviser Azure Site Recovery avec les journaux Azure Monitor (Log Analytics) | Microsoft Docs
+title: Superviser Azure Site Recovery avec les journaux Azure Monitor
 description: Découvrez comment superviser Azure Site Recovery avec les journaux Azure Monitor (Log Analytics).
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331934"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133421"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -28,7 +28,7 @@ Pour Site Recovery, les journaux Azure Monitor vous permettent d’effectuer les
 L’utilisation des journaux Azure Monitor avec Site Recovery est prise en charge pour la réplication d’**Azure à Azure** et pour la réplication d’une **machine virtuelle VMware ou d’un serveur physique dans Azure**.
 
 > [!NOTE]
-> Les journaux de données d’évolution et les journaux de taux de chargement sont uniquement disponibles pour les machines virtuelles Azure répliquées dans une région Azure secondaire.
+> Pour obtenir les journaux de données d’évolution et les journaux de vitesse de chargement pour les machines physiques et VMware, vous devez installer un agent d’analyse Microsoft sur le serveur de processus. Cet agent envoie les journaux des machines de réplication à l’espace de travail. Cette fonctionnalité est disponible uniquement pour la version 9.30 de l’agent de mobilité.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -54,6 +54,24 @@ Avant de commencer, il est recommandé de consulter les [questions courantes con
     ![Sélectionner un espace de travail](./media/monitoring-log-analytics/select-workspace.png)
 
 Les journaux Site Recovery commencent à être alimentés dans une table (**AzureDiagnostics**) de l’espace de travail sélectionné.
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Configurer l’agent d’analyse Microsoft sur le serveur de processus afin d’envoyer les journaux de taux d’évolution et de chargement
+
+Vous pouvez capturer les informations relatives au taux d’évolution des données et au taux de chargement des données sources pour vos machines VMware/physiques locales. Pour ce faire, l’agent d’analyse Microsoft doit être installé sur le serveur de processus.
+
+1. Accédez à l’espace de travail Log Analytics et cliquez sur **Paramètres avancés**.
+2. Cliquez sur la page **Sources connectées**, puis sélectionnez **Serveurs Windows**.
+3. Téléchargez l’agent Windows (64 bits) sur le serveur de processus. 
+4. [Obtenir l’ID et la clé de l’espace de travail](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [Configurer l’Agent de façon à utiliser TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Terminez l’installation de l’agent](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) en fournissant l’ID et la clé de l’espace de travail obtenu.
+7. Une fois l’installation terminée, accédez à l’espace de travail Log Analytics, puis cliquez sur **Paramètres avancés**. Accédez à la page **Données**, puis cliquez sur **Compteur de performances Windows**. 
+8. Cliquez sur **« + »** pour ajouter les deux compteurs suivants avec un intervalle d’échantillonnage de 300 secondes :
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+Les données de taux d’évolution et de vitesse de chargement vont commencer à alimenter l’espace de travail.
 
 
 ## <a name="query-the-logs---examples"></a>Interroger les journaux - Exemples
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![Interroger les RPO des machines](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>Interroger le taux de changement des données (évolution) pour une machine virtuelle
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Taux de modification des données de requête (évolution) et vitesse de téléchargement pour une machine virtuelle Azure
 
-> [!NOTE] 
-> Ces informations d’évolution sont uniquement disponibles pour les machines virtuelles Azure qui sont répliquées dans une région Azure secondaire.
-
-Cette requête trace un graphique de tendance qui suit l’évolution du taux de changement des données (octets écrits par seconde) et du taux de chargement des données pour une machine virtuelle Azure (ContosoVM123). 
+Cette requête trace un graphique de tendance qui représente l’évolution du taux de changement des données (octets écrits par seconde) et du taux de chargement des données pour une machine virtuelle Azure (ContosoVM123). 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![Interroger le changement des données](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Taux de modification des données de requête (évolution) et vitesse de téléchargement pour une machine virtuelle VMware ou une machine physique
+
+> [!Note]
+> Veillez à configurer l’agent d’analyse sur le serveur de processus pour extraire ces journaux. Reportez-vous aux [étapes de configuration de l’agent d’analyse](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
+
+Cette requête trace un graphique de tendance du disque **disk0** d’un élément répliqué **win-9r7sfh9qlru**, qui suit l’évolution du taux de changement des données (octets écrits par seconde) et du taux de chargement des données pour une machine virtuelle Azure (disk0). Le nom du disque se trouve dans le panneau **Disques** de l’élément répliqué dans le coffre Recovery Services. Le nom d’instance à utiliser dans la requête est le nom DNS de l’ordinateur suivi de _ et du nom de disque, comme dans cet exemple.
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+Le serveur de processus transmet ces données toutes les 5 minutes à l’espace de travail Log Analytics. Ces points de données représentent la moyenne calculée pendant 5 minutes.
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Interroger le récapitulatif d’une reprise d’activité (au sein d’Azure)
 

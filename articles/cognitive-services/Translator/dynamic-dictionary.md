@@ -1,7 +1,7 @@
 ---
 title: Dictionnaire dynamique - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
-description: Comment utiliser la fonctionnalité du dictionnaire dynamique de l’API de traduction de texte Translator Text.
+description: Cet article explique comment utiliser la fonctionnalité de dictionnaire dynamique de l’API Traduction de texte Translator Text Azure Cognitive Services.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595294"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837352"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Comment utiliser un dictionnaire dynamique
 
@@ -23,7 +23,7 @@ Si vous connaissez déjà la traduction que vous souhaitez appliquer à un mot o
 
 **Syntaxe :**
 
-<mstrans:dictionary translation=”traduction de phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation=”traduction d’expression”>phrase</mstrans:dictionary>
 
 **Configuration requise :**
 

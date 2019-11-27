@@ -1,20 +1,20 @@
 ---
 title: Guide pratique pour ajouter des objets blob à des objets - Azure Digital Twins | Microsoft Docs
-description: Découvrez comment ajouter des objets blob à des objets dans Azure Digital Twins.
+description: Découvrez comment ajouter des objets blob à des utilisateurs, appareils et espaces dans Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a278501f1110da0ab332d0e1acf170892be26ee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949142"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082333"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
@@ -181,8 +181,6 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Pour finir, les utilisateurs [cURL](https://curl.haxx.se/) peuvent effectuer des requêtes de formulaire multipart de la même manière :
 
-[![Objets blob d’appareil](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
-
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -H "Authorization: Bearer YOUR_TOKEN" \
@@ -198,7 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | ID de l’espace avec lequel associer l’objet blob |
 | PATH_TO_FILE | Chemin de votre fichier texte |
 
-Une requête POST ayant réussi retourne l’ID du nouvel objet blob (marquée en rouge plus haut).
+[![Exemple cURL](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+
+Une requête POST ayant réussi retourne l’ID du nouvel objet blob.
 
 ## <a name="api-endpoints"></a>Points de terminaison d’API
 

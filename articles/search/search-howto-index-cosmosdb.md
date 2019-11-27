@@ -1,5 +1,5 @@
 ---
-title: Indexer une source de données Azure Cosmos DB
+title: Effectuer des recherches dans les données Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
 description: Analyser une source de données Azure Cosmos DB et ingérer des données dans un index de recherche en texte intégral dans Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour les sources de données sélectionnées telles qu’Azure Cosmos DB.
 author: mgottein
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719954"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112738"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
@@ -78,17 +78,11 @@ Dans la page **Source de données**, la source doit être **Cosmos DB**, avec le
 
    ![Définition de la source de données de Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Définition de la source de données de Cosmos DB")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Passez la page « Ajouter la recherche cognitive » dans l’Assistant
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – Ignorer la page « Enrichir le contenu » de l’Assistant
 
-L’ajout de compétences cognitives n’est pas nécessaire pour l’importation de documents. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
+L’ajout de compétences cognitives (ou enrichissement) n’est pas une exigence pour l’importation. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
 
-Pour ignorer cette étape, accédez d’abord à la page suivante.
-
-   ![Bouton Page suivante pour ajouter des compétences](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Dans cette page, vous pouvez passer directement à la personnalisation de l’index.
-
-   ![Ignorer l’étape des compétences cognitives](media/search-get-started-portal/skip-cog-skill-step.png)
+Pour ignorer cette étape, cliquez sur les boutons bleus au bas de la page pour « Suivant » et « Ignorer ».
 
 ### <a name="5---set-index-attributes"></a>5 - Définissez les attributs de l’index
 

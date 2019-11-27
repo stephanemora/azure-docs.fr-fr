@@ -1,24 +1,24 @@
 ---
-title: Accorder une autorisation individuelle pour dépasser les restrictions sur les inscriptions d’applications – Azure Active Directory | Microsoft Docs
-description: Assignez un rôle personnalisé pour accorder des inscriptions d’applications illimitées dans le Active Directory Azure AD.
+title: Supprimer les limites de création d’inscriptions d’applications – Azure AD | Microsoft Docs
+description: Affectez un rôle personnalisé pour accorder des inscriptions d’applications illimitées dans Azure AD Active Directory.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026287"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024406"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Démarrage rapide : Accorder l’autorisation de créer un nombre illimité d’inscriptions d’applications
 

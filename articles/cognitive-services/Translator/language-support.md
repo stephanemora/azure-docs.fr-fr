@@ -1,7 +1,7 @@
 ---
 title: Prise en charge linguistique - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
-description: Liste des langages naturels pris en charge par l’API de traduction de texte Translator Text.
+description: L’API de traduction de texte prend en charge les langues suivantes pour la traduction de texte en texte par traduction automatique neuronale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909978"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837326"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 

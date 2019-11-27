@@ -1,5 +1,5 @@
 ---
-title: Gérer et surveiller les bases de données SQL Server sur une machine virtuelle Azure avec Sauvegarde Azure
+title: Gérer et superviser des bases de données SQL Server sur une machine virtuelle Azure - Sauvegarde Azure
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1aba8777a5b0f5851922e292004a74d74065eabf
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934819"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090524"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -31,7 +31,6 @@ Sauvegarde Azure affiche tous les travaux déclenchés manuellement sur le porta
 >
 
 Pour plus d’informations sur les scénarios de surveillance, voir [Surveillance dans le portail Azure](backup-azure-monitoring-built-in-monitor.md) et [Surveillance à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
-
 
 ## <a name="view-backup-alerts"></a>Afficher les alertes de sauvegarde
 
@@ -57,14 +56,14 @@ Pour surveiller les alertes de sauvegarde de base de données :
 
 Pour arrêter la sauvegarde d'une base de données SQL Server, deux méthodes sont disponibles :
 
-* Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération.
-* Arrêter tous les travaux de sauvegarde à venir, mais conserver les points de récupération.
+- Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération.
+- Arrêter tous les travaux de sauvegarde à venir, mais conserver les points de récupération.
 
 Si vous choisissez de conserver les points de récupération, gardez à l’esprit les considérations suivantes :
 
-* Tous les points de récupération resteront intacts, toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
-* Vous serez facturé pour l’instance protégée et le stockage utilisé. Pour plus d’informations, voir [Tarification Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
-* Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes échouent.
+- Tous les points de récupération resteront intacts, toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
+- Vous serez facturé pour l’instance protégée et le stockage utilisé. Pour plus d’informations, voir [Tarification Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes échouent.
 
 Pour arrêter la protection de la base de données :
 
@@ -82,22 +81,20 @@ Pour arrêter la protection de la base de données :
 
     ![Sélectionner Arrêter la sauvegarde](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. Dans le menu **Arrêter la sauvegarde**, indiquez si vous souhaitez conserver ou supprimer les données. Vous pouvez également indiquer une raison ou formuler un commentaire.
 
     ![Conserver ou supprimer des données dans le menu Arrêter la sauvegarde](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Sélectionnez **Arrêter la sauvegarde**.
 
-
 > [!NOTE]
 >
 >Pour plus d’informations sur l’option de suppression de données, consultez le FAQ ci-dessous :
->* [Si je supprime une base de données d’une instance protégée automatiquement, qu’advient-il des sauvegardes ?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [Si j’arrête une opération de sauvegarde d’une base de données protégée automatiquement, comment se comportera-t-elle ?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [Si je supprime une base de données d’une instance protégée automatiquement, qu’advient-il des sauvegardes ?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Si j’arrête une opération de sauvegarde d’une base de données protégée automatiquement, comment se comportera-t-elle ?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>Rétablir la protection d’une base de données SQL
 
@@ -115,12 +112,13 @@ Pour réactiver la protection d’une base de données SQL :
 
 Vous pouvez exécuter différents types de sauvegardes à la demande :
 
-* Sauvegarde complète
-* Sauvegarde de copie uniquement
-* Sauvegarde différentielle
-* Sauvegarde du journal
+- Sauvegarde complète
+- Sauvegarde de copie uniquement
+- Sauvegarde différentielle
+- Sauvegarde du journal
 
-Si vous devez spécifier la durée de rétention de l’option Copier uniquement la sauvegarde complète, la durée de rétention pour la sauvegarde complète ad hoc sera automatiquement définie à 45 jours à partir de l’heure actuelle. <br/>
+Si vous devez spécifier la durée de conservation de l’option Copier uniquement la sauvegarde complète, la durée de conservation pour la sauvegarde complète à la demande est automatiquement définie à 45 jours à partir de l’heure actuelle.
+
 Pour plus d’informations, voir [Types de sauvegardes SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Supprimer l'inscription d'une instance SQL Server
@@ -141,8 +139,8 @@ Désinscrivez une instance SQL Server après avoir désactivé la protection, ma
 
    ![Sélectionner Supprimer](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>Modifier la stratégie
+
 Dans la stratégie, modifiez la fréquence de sauvegarde ou la plage de rétention.
 
 > [!NOTE]
@@ -154,22 +152,21 @@ Dans le tableau de bord du coffre, accédez à **Gérer** > **Stratégies de sau
 
   ![Modifier la stratégie de sauvegarde](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-La modification de la stratégie aura un impact sur tous les éléments de sauvegarde associés et déclenchera les tâches de **configuration de la protection** correspondantes. 
+La modification de la stratégie aura un impact sur tous les éléments de sauvegarde associés et déclenchera les tâches de **configuration de la protection** correspondantes.
 
-#### <a name="inconsistent-policy"></a>Stratégie incohérente 
+### <a name="inconsistent-policy"></a>Stratégie incohérente
 
 Parfois, une opération de modification de la stratégie peut aboutir à une version de stratégie **incohérente** pour certains éléments de sauvegarde. Cela se produit lorsque la tâche de **configuration de la protection** correspondante échoue pour l’élément de sauvegarde après le déclenchement d’une opération de modification de la stratégie. Elle se présente comme suit dans l’affichage des éléments de sauvegarde :
- 
+
   ![Stratégie incohérente](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 Vous pouvez corriger la version de la stratégie pour tous les éléments concernés en un seul clic :
 
   ![Corriger la stratégie incohérente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Réinscrire une extension sur la machine virtuelle SQL Server
 
-Parfois, l’extension de charge de travail sur la machine virtuelle peut être affectée pour une raison ou une autre. Dans ce cas, toutes les opérations déclenchées sur la machine virtuelle commencent à échouer. Vous devrez alors réinscrire l’extension sur la machine virtuelle. L’opération **Réinscrire** a pour effet de réinstaller l’extension de sauvegarde de charge de travail sur la machine virtuelle pour que les opérations se poursuivent.  <br>
+Parfois, l’extension de charge de travail sur la machine virtuelle peut être affectée pour une raison ou une autre. Dans ce cas, toutes les opérations déclenchées sur la machine virtuelle commencent à échouer. Vous devrez alors réinscrire l’extension sur la machine virtuelle. L’opération **Réinscrire** a pour effet de réinstaller l’extension de sauvegarde de charge de travail sur la machine virtuelle pour que les opérations se poursuivent.
 
 Utilisez cette option avec prudence car, une fois déclenchée sur une machine virtuelle avec une extension déjà saine, cette opération provoque le redémarrage de l’extension. Cela peut entraîner l’échec de tous les travaux en cours. Avant de déclencher l’opération de réinscription, vérifiez la présence d’un ou plusieurs des [symptômes](backup-sql-server-azure-troubleshoot.md#re-registration-failures).
 

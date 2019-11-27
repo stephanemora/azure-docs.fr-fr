@@ -1,7 +1,7 @@
 ---
 title: Utiliser la méthode d’évaluation hors connexion - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Créez une boucle de rétroaction dans ce guide de démarrage rapide C# avec le service Personalizer.
+description: Cet article explique comment utiliser l’évaluation hors connexion pour mesurer l’efficacité de votre application et analyser votre boucle d’apprentissage.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515574"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953091"
 ---
 # <a name="offline-evaluation"></a>Évaluation hors connexion
 

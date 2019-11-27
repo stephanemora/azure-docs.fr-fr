@@ -1,6 +1,6 @@
 ---
-title: Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
-description: Découvrez comment étendre la prise en charge de SQL Server 2008 et SQL Server 2008 R2 en procédant à la migration de votre instance SQL Server vers Azure, ou en achetant une prise en charge étendue pour conserver les instances en local.
+title: Étendre la prise en charge de SQL Server 2008 et 2008 R2
+description: Étendez la prise en charge de SQL Server 2008 et SQL Server 2008 R2 en procédant à la migration de votre instance SQL Server vers Azure, ou en achetant une prise en charge étendue pour conserver les instances en local.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100467"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132777"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 
@@ -63,7 +64,7 @@ Des captures instantanées Azure Site Recovery avec cohérence des applications 
 
 Les solutions de récupération d’urgence pour SQL Server en fin de support sur une machine virtuelle Azure sont les suivantes :
 
-- **Sauvegardes SQL Server** : utilisez la Sauvegarde Azure pour protéger votre instance SQL Server en fin de support contre les ransomwares, une suppression accidentelle et une altération des données. La solution est actuellement en préversion pour SQL Server en fin de support ; elle prend en charge SQL Server 2008 et 2008 R2 s’exécutant sur Windows 2008 R2 SP1. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
+- **Sauvegardes SQL Server** : utilisez la Sauvegarde Azure pour protéger votre instance SQL Server en fin de support contre les ransomwares, une suppression accidentelle et une altération des données. La solution est actuellement en préversion pour SQL Server en fin de support ; elle prend en charge SQL Server 2008 et 2008 R2 s’exécutant sur Windows 2008 R2 SP1. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
 - **Copie des journaux de transaction** : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
 - **Azure Site Recovery** : Vous pouvez répliquer votre machine virtuelle entre les zones et les régions par l’intermédiaire de la réplication d’Azure Site Recovery. Les captures instantanées avec cohérence des applications sont indispensables à SQL Server pour garantir une récupération en cas de sinistre. Azure Site Recovery offre un RPO d’une heure au minimum et un RTO de deux heures (plus le temps de récupération de SQL Server) pour la récupération d’urgence de SQL Server en fin de support.
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091975"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes de bases de données automatisées
 
@@ -108,11 +108,13 @@ Vous pouvez restaurer des bases de données supprimées à partir du portail Azu
 
 Pour récupérer une base de données unique ou mise en pool supprimée à l’aide du portail Azure, ouvrez la page de vue d’ensemble du serveur, puis sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
-  ![Capture d’écran des options de bases de données supprimées](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Capture d’écran de la restauration d’une base de données Azure SQL supprimée](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>Base de données d’instance managée
 
-Vous ne pouvez pas utiliser le portail Azure pour restaurer une base de données supprimée sur une instance managée. Cette opération doit être effectuée dans PowerShell. 
+Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de vue d’ensemble de l’instance managée, puis sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+
+  ![Capture d’écran de la restauration d’une base de données d’instance Azure SQL supprimée](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Restauration d’une base de données supprimée à l’aide de PowerShell
 

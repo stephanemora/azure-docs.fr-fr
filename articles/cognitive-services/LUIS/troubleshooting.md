@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488707"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123112"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -24,7 +24,7 @@ Cet article contient des réponses aux questions fréquemment posées sur Langua
 
 ## <a name="whats-new"></a>Nouveautés
 
-[En savoir plus](whats-new.md) sur les nouveauté du service Language Understanding.
+[Découvrez-en plus](whats-new.md) sur les nouveautés du service Language Understanding (LUIS).
 
 <a name="luis-authoring"></a>
 
@@ -50,7 +50,7 @@ Oui, il est conseillé de former votre intention **None** avec davantage d’én
 Consultez le didacticiel sur l’[API Vérification orthographique Bing v7](luis-tutorial-bing-spellcheck.md). LUIS applique les limites imposées par l’API Vérification orthographique v7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Comment faire pour modifier mon application LUIS par programmation ?
-Pour modifier votre application LUIS par programmation, utilisez l’[API Création](https://go.microsoft.com/fwlink/?linkid=2092087). Pour obtenir des exemples d’appel de l’API Création, voir [Appel de l’API Création de LUIS](./luis-quickstart-node-add-utterance.md) et [Créer une application LUIS par programmation à l’aide de Node.js](./luis-tutorial-node-import-utterances-csv.md). L’API Création exige que vous utilisiez une [clé de création](luis-concept-keys.md#azure-resources-for-luis) plutôt qu’une clé de point de terminaison. La création par programmation permet jusqu’à 1 000 000 d’appels par mois et cinq transactions par seconde. Pour plus d’informations sur les clés à utiliser avec LUIS, voir [Gérer les clés](./luis-concept-keys.md).
+Pour modifier votre application LUIS par programmation, utilisez l’[API Création](https://go.microsoft.com/fwlink/?linkid=2092087). Pour obtenir des exemples d’appel de l’API Création, voir [Appel de l’API Création de LUIS](./get-started-get-model-rest-apis.md) et [Créer une application LUIS par programmation à l’aide de Node.js](./luis-tutorial-node-import-utterances-csv.md). L’API Création exige que vous utilisiez une [clé de création](luis-concept-keys.md#azure-resources-for-luis) plutôt qu’une clé de point de terminaison. La création par programmation permet jusqu’à 1 000 000 d’appels par mois et cinq transactions par seconde. Pour plus d’informations sur les clés à utiliser avec LUIS, voir [Gérer les clés](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Où est la fonctionnalité Modèle qui assurait la mise en correspondance d’expression régulière ?
 La **fonctionnalité Modèle** précédente est actuellement désapprouvée. Elle est remplacée par **[Modèles](luis-concept-patterns.md)** .
@@ -74,7 +74,7 @@ Dans le portail LUIS, vous pouvez étiqueter le texte de l’entité exacte que 
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>J’ai essayé d’importer un fichier d’application ou de version, mais j’ai obtenu une erreur. Que s’est-il passé ? 
 
-Voir les [erreurs d’importation de version](luis-how-to-manage-versions.md#import-errors) et les [erreurs d’importation d’application](luis-how-to-start-new-app.md#import-errors).
+Découvrez-en plus sur les [erreurs d’importation de version](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 

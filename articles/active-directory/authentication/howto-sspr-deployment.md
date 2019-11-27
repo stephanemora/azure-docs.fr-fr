@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743242"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081517"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Déployer la réinitialisation de mot de passe en libre-service Azure AD
+
+> [!NOTE]
+> Ce guide décrit la réinitialisation de mot de passe en libre-service et explique comment la déployer. Si vous recherchez l’outil de réinitialisation de mot de passe en libre-service pour revenir à votre compte, accédez à [https://aka.ms/sspr](https://aka.ms/sspr). 
 
 La réinitialisation de mot de passe en libre-service (SSPR) est une fonctionnalité d’Azure Active Directory qui permet aux employés de réinitialiser leurs mots de passe sans devoir contacter le personnel informatique. Les employés doivent s’inscrire ou être inscrits à ce service avant de l’utiliser. Pendant l’inscription, l’employé choisit une ou plusieurs méthodes d’authentification activées par son organisation.
 

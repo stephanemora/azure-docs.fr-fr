@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815114"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012769"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -134,6 +134,21 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
 3. Dans la zone **TAPEZ LE NOM DU GROUPE DE RESSOURCES :** , entrez le nom du groupe de ressources et sélectionnez **Supprimer**.
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Si votre coffre de clés s’exécute sur un autre compte Microsoft que celui auquel vous êtes connecté à Visual Studio (par exemple, le coffre de clés s’exécute sur votre compte professionnel, alors que Visual Studio utilise votre compte privé), un message d’erreur indiquant que Visual Studio ne peut pas avoir accès au coffre de clés est ajouté à votre fichier Program.cs. Pour résoudre ce problème :
+
+1. Accédez au [Portail Azure](https://portal.azure.com) et accédez à votre coffre de clés.
+
+1. Choisissez **Stratégies d’accès**, puis **Ajouter une stratégie d’accès**et choisissez le compte avec lequel vous êtes connecté en tant que principal.
+
+1. Dans Visual Studio, choisissez **Fichier** > **Paramètres du compte**.
+Sélectionnez **Ajouter un compte** dans la section **Tous les comptes**. Connectez-vous avec le compte que vous avez choisi comme principal de votre stratégie d’accès.
+
+1. Choisissez **Outils** > **Options** et recherchez **Authentification du service Azure**. Sélectionnez ensuite le compte que vous venez d’ajouter à Visual Studio.
+
+Désormais, quand vous déboguez votre application, Visual Studio se connecte au compte sur lequel se trouve votre coffre de clés.
 
 ## <a name="how-your-aspnet-core-project-is-modified"></a>Modifications apportées à votre projet ASP.NET Core
 

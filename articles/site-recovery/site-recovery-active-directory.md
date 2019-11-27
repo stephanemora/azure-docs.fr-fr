@@ -1,20 +1,18 @@
 ---
-title: Configurer la reprise d’activité pour Active Directory et DNS avec Azure Site Recovery | Microsoft Docs
+title: Configurer la récupération d’urgence Active Directory/DNS avec Azure Site Recovery
 description: Cet article décrit comment implémenter une solution de reprise d’activité pour Active Directory et DNS avec Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038717"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084584"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 

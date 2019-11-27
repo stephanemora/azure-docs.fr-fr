@@ -1,23 +1,19 @@
 ---
-title: Créer une passerelle d’application avec redirection interne - Azure PowerShell | Microsoft Docs
+title: Redirection interne avec PowerShell
+titleSuffix: Azure Application Gateway
 description: Découvrez comment créer une passerelle d’application qui redirige le trafic web interne vers le pool backend de serveurs approprié à l’aide d’Azure Powershell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 266569494c58ac75371c1a891e9cbffb4c351056
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232121"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075122"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure PowerShell
 
@@ -296,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, [http://www.contoso.com](http://www.contoso.com).
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, [https://www.contoso.com](https://www.contoso.com).
 
 ![Tester le site contoso dans la passerelle d’application](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Remplacez l’adresse par celle de votre autre domaine, par exemple http://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www.contoso.com.
+Remplacez l’adresse par celle de votre autre domaine, par exemple https://www.contoso.org. Le trafic devrait être redirigé vers l’écouteur pour `www.contoso.com`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

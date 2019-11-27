@@ -1,17 +1,17 @@
 ---
-title: Gérer les serveurs VMWare vCenter pour la récupération après sinistre des machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Gérer des serveurs VMware vCenter dans Azure Site Recovery
 description: Cet article décrit comment ajouter et gérer VMware vCenter pour la récupération après sinistre des machines virtuelles VMware sur Azure avec Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904251"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083973"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gérer un serveur VMware vCenter
 

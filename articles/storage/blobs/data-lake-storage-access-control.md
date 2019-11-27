@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991907"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037237"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -90,7 +90,7 @@ Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Ex
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
 > [!NOTE]
-> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de service, vous devez donner au principal du service les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
+> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de sécurité, vous devez donner au principal de la sécurité les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
 
 #### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 

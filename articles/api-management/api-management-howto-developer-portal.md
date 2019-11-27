@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796018"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011481"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -27,7 +27,7 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 
 > [!WARNING]
 > Le nouveau portail des développeurs est actuellement en cours de déploiement dans les services Gestion des API.
-> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités s’achèvera lundi 11 novembre 2019.
+> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités devrait être effectué avant le vendredi 22 novembre 2019.
 >
 > [Découvrez comment migrer de la préversion à la version en disponibilité générale](#preview-to-ga) du portail des développeurs.
 

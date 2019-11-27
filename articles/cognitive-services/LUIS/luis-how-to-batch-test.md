@@ -1,5 +1,5 @@
 ---
-title: Tests par lot - LUIS
+title: Guide pratique pour effectuer un test par lot - LUIS
 titleSuffix: Azure Cognitive Services
 description: Utilisez des jeux de tests par lot Language Understanding (LUIS) pour rechercher des énoncés avec des intentions et des entités incorrectes.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467410"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904349"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 

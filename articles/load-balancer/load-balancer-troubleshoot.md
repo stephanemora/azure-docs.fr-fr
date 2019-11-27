@@ -1,7 +1,6 @@
 ---
 title: Résoudre les problèmes liés à Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Résoudre les problèmes connus liés à Azure Load Balancer
+description: Découvrez comment résoudre les problèmes connus liés à Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154922"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076921"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 

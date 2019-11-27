@@ -11,15 +11,16 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 97077b9f72de8792e6aba1d72ff34b9185b2d998
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683798"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092008"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformer des données dans Azure Data Factory
 > [!div class="op_single_selector"]
+> * [Mappage de flux de données](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
@@ -34,7 +35,7 @@ ms.locfileid: "73683798"
 > * [.NET personnalisé](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique les activités de transformation des données dans Azure Data Factory, que vous pouvez utiliser pour transformer et traiter vos données brutes pour en tirer des prévisions et des informations. Une activité de transformation s’exécute dans un environnement de calcul comme un cluster Azure HDInsight ou un Azure Batch. Elle fournit des liens vers des articles contenant des informations détaillées sur chaque activité de transformation.
+Cet article explique les activités de transformation des données dans Azure Data Factory, que vous pouvez utiliser pour transformer et traiter vos données brutes pour en tirer des prévisions et des informations à l’échelle. Une activité de transformation s’exécute dans un environnement de calcul tel que Azure Databricks ou Azure HDInsight. Elle fournit des liens vers des articles contenant des informations détaillées sur chaque activité de transformation.
 
 Data Factory prend en charge les activités de transformation des données suivantes, qui peuvent être ajoutées à des [pipelines](concepts-pipelines-activities.md) , soit individuellement soit de façon chaînée avec une autre activité.
 
@@ -49,6 +50,8 @@ Les mappages de flux de données sont des transformations de données conçues d
 Les flux de données de wrangling dans Azure Data Factory vous permettent d’effectuer une préparation de données sans code à l’échelle du cloud de manière itérative. Les flux de données de wrangling s’intègrent à [Power Query Online](https://docs.microsoft.com/power-query/) et rendent les fonctions Power Query M disponibles pour le wrangling de données à l’échelle du cloud via l’exécution Spark. Pour plus d’informations, consultez [Flux de données de wrangling](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Transformations externes
+
+Si vous le souhaitez, vous pouvez coder manuellement les transformations et gérer l’environnement de calcul externe vous-même.
 
 ### <a name="hdinsight-hive-activity"></a>Activité Hive HDInsight
 L’activité Hive HDInsight d’un pipeline Data Factory exécute des requêtes Hive sur votre propre cluster ou cluster à la demande HDInsight sous Windows ou Linux. Consultez l’article [Activité Hive](transform-data-using-hadoop-hive.md) pour obtenir plus de détails sur cette activité. 
@@ -80,7 +83,7 @@ L’activité U-SQL Data Lake Analytics exécute un script U-SQL sur un cluster 
 
 ### <a name="databricks-notebook-activity"></a>Activité Databricks Notebook
 
-L’activité Azure Databricks Notebook dans un pipeline Data Factory exécute un bloc-notes Databricks dans votre espace de travail Azure Databricks. Azure Databricks est une plateforme gérée destinée à exécuter Apache Spark. Consultez [Transformer des données en exécutant un bloc-notes Databricks](transform-data-databricks-notebook.md).
+L’activité Azure Databricks Notebook dans un pipeline Data Factory exécute un bloc-notes Databricks dans votre espace de travail Azure Databricks. Azure Databricks est une plateforme gérée pour exécuter Apache Spark. Consultez [Transformer des données en exécutant un bloc-notes Databricks](transform-data-databricks-notebook.md).
 
 ### <a name="databricks-jar-activity"></a>Activité Databricks Jar
 

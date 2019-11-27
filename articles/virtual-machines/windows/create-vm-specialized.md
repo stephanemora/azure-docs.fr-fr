@@ -1,8 +1,7 @@
 ---
-title: Créer une machine virtuelle Windows à partir d’un disque dur virtuel spécialisé dans Azure | Microsoft Docs
+title: Créer une machine virtuelle Windows à partir d’un disque dur virtuel spécialisé dans Azure
 description: Créez une machine virtuelle Windows en attachant un disque managé spécialisé comme disque du système d’exploitation à l’aide du modèle de déploiement Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
 editor: ''
@@ -12,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390608"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033860"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -63,100 +62,15 @@ Utilisez le disque dur virtuel en l’état pour créer une machine virtuelle.
   * Vérifiez que la machine virtuelle est configurée pour obtenir l’adresse IP et les paramètres DNS à partir de DHCP. De cette façon, le serveur obtient une adresse IP dans le réseau virtuel au démarrage. 
 
 
-### <a name="get-the-storage-account"></a>Obtention du compte de stockage
-Vous avez besoin d’un compte de stockage dans Azure pour stocker le disque dur virtuel chargé. Vous pouvez utiliser un compte de stockage existant ou en créer un. 
+### <a name="upload-the-vhd"></a>Charger le disque dur virtuel
 
-Affichez les comptes de stockage disponibles.
-
-```powershell
-Get-AzStorageAccount
-```
-
-Pour utiliser un compte de stockage existant, passez à la section [Charger le disque dur virtuel](#upload-the-vhd-to-your-storage-account).
-
-Créez un compte de stockage.
-
-1. Vous avez besoin du nom du groupe de ressources dans lequel doit être créé le compte de stockage. Utilisez Get-AzResourceGroup pour afficher tous les groupes de ressources de votre abonnement.
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    Créez un groupe de ressources nommé *MyResourceGroup* dans la région *USA Ouest*.
-
-    ```powershell
-    New-AzResourceGroup `
-       -Name myResourceGroup `
-       -Location "West US"
-    ```
-
-2. Créez un compte de stockage nommé *mystorageaccount* dans le nouveau groupe de ressources à l'aide de la cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount).
-   
-    ```powershell
-    New-AzStorageAccount `
-       -ResourceGroupName myResourceGroup `
-       -Name mystorageaccount `
-       -Location "West US" `
-       -SkuName "Standard_LRS" `
-       -Kind "Storage"
-    ```
-
-### <a name="upload-the-vhd-to-your-storage-account"></a>Téléchargement du disque dur virtuel vers votre compte de stockage 
-Utilisez la cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) pour charger le disque dur virtuel dans un conteneur de votre compte de stockage. Cet exemple charge le fichier *myVHD.vhd* à partir de "C:\Users\Public\Documents\Virtual\" sur un compte de stockage nommé *mystorageaccount* dans le groupe de ressources *myResourceGroup*. Le fichier est placé dans le conteneur nommé *mycontainer*, et le nouveau nom de fichier est *myUploadedVHD.vhd*.
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Si les commandes réussissent, vous obtenez une réponse semblable à celle-ci :
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-Cette commande peut prendre du temps, selon votre connexion réseau et la taille de votre fichier VHD.
-
-### <a name="create-a-managed-disk-from-the-vhd"></a>Créer un disque géré à partir du disque dur virtuel
-
-Créez un disque managé à partir du disque dur virtuel spécialisé de votre compte de stockage à l'aide de la commande [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Cet exemple utilise *myOSDisk1* pour le nom du disque, place le disque dans le stockage *Standard_LRS* et utilise *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* comme URI du disque dur virtuel source.
-
-Créez un groupe de ressources pour la nouvelle machine virtuelle.
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-Créez le disque de système d’exploitation à partir du disque dur virtuel chargé. 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-    -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+Vous pouvez désormais charger un disque dur virtuel directement dans un disque managé. Pour plus d’instructions, consultez [Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>Option 3 : Copier une machine virtuelle Azure existante
 
 Vous pouvez créer une copie d’une machine virtuelle qui utilise des disques managés en prenant une capture instantanée de la machine virtuelle, puis en utilisant cette capture instantanée pour créer un disque managé et une machine virtuelle.
 
+Si vous souhaitez copier une machine virtuelle existante dans une autre région, vous souhaiterez peut-être utiliser azcopy pour [créer une copie d’un disque dans une autre région](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Prendre une capture instantanée du disque de système d’exploitation
 

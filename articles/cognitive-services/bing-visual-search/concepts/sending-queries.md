@@ -1,7 +1,7 @@
 ---
 title: Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 titleSuffix: Azure Cognitive Services
-description: Apprenez-en davantage sur les paramètres de l’API REST utilisés dans l’API Recherche visuelle Bing.
+description: Cet article décrit les paramètres et attributs des requêtes envoyées à l’API Recherche visuelle Bing, ainsi que l’objet de réponse.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2a87bee4769111e01dc49e8fce14569233dfaef3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194311"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111616"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
@@ -57,7 +57,7 @@ L’objet `imageInfo` doit inclure le champ `url` ou `imageInsightsToken`, mais 
 
 Le champ `cropArea` est facultatif. La zone de rognage spécifie les coins supérieur gauche et inférieur droit d’une zone d’intérêt. Spécifiez les valeurs dans la plage entre 0,0 – 1,0. Les valeurs sont un pourcentage de la largeur ou hauteur globale. Par exemple, l’exemple ci-dessus marque la moitié droite de l’image en tant que zone d’intérêt. Incluez ce champ si vous souhaitez limiter la requête d’informations à la zone d’intérêt.
 
-L’objet `filters` contient un filtre de site (voir le champ `site`) que vous pouvez utiliser pour limiter les images similaires et les résultats de produits similaires pour un domaine spécifique. Par exemple, si l’image représente un ordinateur Surface Book, vous pouvez définir `site` sur www.microsoft.com.
+L’objet `filters` contient un filtre de site (voir le champ `site`) que vous pouvez utiliser pour limiter les images similaires et les résultats de produits similaires pour un domaine spécifique. Par exemple, si l’image représente un ordinateur Surface Book, vous pouvez définir `site` sur `www.microsoft.com`.
 
 Si vous souhaitez obtenir des informations sur une copie locale d’une image, chargez l’image en tant que données binaires.
 

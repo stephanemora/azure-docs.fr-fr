@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/14/2019
-ms.openlocfilehash: 24b40e5dfdef7bde65d326cb0d054365f730477e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 25e9848124b84822749d3be4d1ead7b86e6e584e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555275"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091772"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide des modèles Azure PowerShell ou Resource Manager
 
@@ -183,7 +183,7 @@ Si vous souhaitez activer Azure Monitor pour machines virtuelles sur plusieurs m
 - Le groupe de ressources à portée spécifié par *ResourceGroup*. 
 - Une machine virtuelle ou un groupe de machines virtuelles identiques unique spécifié par *Name*.
 
-Pour chaque machine virtuelle ou groupe de machines virtuelles identiques, le script vérifie si l’extension de machine virtuelle est déjà installée. Si l’extension de machine virtuelle n’est pas installée, le script tente de la réinstaller. Si l’extension de machine virtuelle est installée, le script installe les extensions de machine virtuelle Log Analytics Agent et Dependency Agent.
+Pour chaque machine virtuelle ou groupe de machines virtuelles identiques, le script vérifie si l’extension de machine virtuelle est déjà installée. Si l’extension de machine virtuelle est installée, le script tente de la réinstaller. Si l’extension de machine virtuelle n’est pas installée, le script installe les extensions de machine virtuelle Log Analytics Agent et Dependency Agent.
 
 Vérifiez que vous utilisez le module Azure PowerShell Az version 1.0.0 ou ultérieure avec les alias de compatibilité `Enable-AzureRM` activés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
 

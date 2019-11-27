@@ -1,7 +1,7 @@
 ---
 title: Paramètres d’application - LUIS
 titleSuffix: Azure Cognitive Services
-description: Apprenez à connaître les paramètres des applications Language Understanding.
+description: Les paramètres d’application pour des applications Language Understanding Azure Cognitive Services sont stockés dans l’application et le portail.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6d516590b90efd937789fa0847b707d2521f6459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932593"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961793"
 ---
 # <a name="application-settings"></a>Paramètres de l’application
 
@@ -150,9 +150,9 @@ Activez la normalisation de l’énoncé pour la ponctuation dans votre fichier 
 ] 
 ```
 
-Les énoncés suivants montrent l’impact des signes diacritiques sur les énoncés :
+Les énoncés suivants montrent l’impact de la ponctuation sur les énoncés :
 
-|Avec les signes diacritiques définis sur False|Avec les signes diacritiques définis sur True|
+|Avec la ponctuation définie sur False|Avec la ponctuation définie sur True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||

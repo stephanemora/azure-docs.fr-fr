@@ -1,19 +1,18 @@
 ---
-title: Configurer la reprise d’activité après sinistre vers Azure pour des serveurs locaux physiques avec Azure Site Recovery
+title: Configurer la récupération d'urgence de serveurs locaux physiques avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence vers Azure de serveurs Windows et Linux locaux avec le service Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814558"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936170"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 

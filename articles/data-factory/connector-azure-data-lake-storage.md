@@ -1,6 +1,6 @@
 ---
-title: Copier des données vers ou à partir d’Azure Data Lake Storage Gen2 à l’aide de Data Factory
-description: Découvrez comment copier des données vers et depuis Azure Data Lake Storage Gen2 avec Azure Data Factory.
+title: Copier et transformer des données dans Azure Data Lake Storage Gen2 avec Data Factory
+description: Découvrez comment copier des données vers et depuis Azure Data Lake Storage Gen2 et y transformer des données avec Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,20 +8,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e368597880bbbaee6c7aff7e72d88149840a23d8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fb21dbbe087f4dd1c210af1afbba19ba9df1242a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681284"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076780"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen2 à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
-Cet article explique comment copier des données vers et depuis Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Data Lake Storage Gen2 et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -33,9 +33,9 @@ Ce connecteur Azure Data Lake Storage Gen2 est pris en charge pour les activité
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 - [Supprimer l’activité](delete-activity.md)
 
-Concrètement, avec ce connecteur, vous pouvez effectuer les opérations suivantes :
+Pour l’activité de copie, avec ce connecteur, vous pouvez effectuer les opérations suivantes :
 
-- Copier des données avec une clé de compte, un principal de service ou des identités managées pour les authentifications de ressources Azure.
+- Copier des données depuis/vers Azure Data Lake Storage Gen2 avec une clé de compte, un principal de service ou des identités managées pour les authentifications de ressources Azure.
 - Copier des fichiers tels quels, ou analyser ou générer des fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 >[!IMPORTANT]
@@ -243,7 +243,7 @@ Les propriétés suivantes sont prises en charge pour Data Lake Storage Gen2 dan
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
 >[!NOTE]
->Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -352,7 +352,7 @@ Les propriétés suivantes sont prises en charge pour Data Lake Storage Gen2 dan
 #### <a name="legacy-source-model"></a>Modèle source hérité
 
 >[!NOTE]
->Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -442,7 +442,7 @@ Les propriétés suivantes sont prises en charge pour Data Lake Storage Gen2 dan
 #### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
 >[!NOTE]
->Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

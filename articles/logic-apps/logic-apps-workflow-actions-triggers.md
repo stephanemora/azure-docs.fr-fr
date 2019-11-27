@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7b4267f672ab5ad902c0f96dd7ba7e377316e4f5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679873"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839778"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -273,19 +273,21 @@ Cette définition de déclencheur s’abonne à l’API Office 365 Outlook, fou
 
 ### <a name="http-trigger"></a>Déclencheur HTTP
 
-Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’après la planification de périodicité spécifiée. La réponse du point de terminaison détermine si le workflow s’exécute.
+Ce déclencheur envoie une requête au point de terminaison HTTP ou HTTPS spécifié d’après la planification de périodicité définie. Le déclencheur vérifie ensuite la réponse pour déterminer si le workflow s’exécute.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -303,27 +305,27 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 
 *Obligatoire*
 
-| Valeur | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
-| <*endpoint-URL*> | String | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
-|||| 
+| Propriété | Valeur | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
+| `frequency` | <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| `interval` | <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. |
+|||||
 
 *Facultatif*
 
-| Valeur | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | Objet JSON | En-têtes à envoyer avec la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | String | Contenu du message à envoyer en tant que charge utile avec la requête | 
-| <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://login.windows.net`, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. |
-| <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec la requête <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à la requête. | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
-|||| 
+| Propriété | Valeur | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | Objet JSON | Tous les en-têtes que vous devez inclure avec la demande <p>Par exemple, pour définir la langue et le type : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | Objet JSON | Tous les paramètres de requête que vous devez utiliser dans la requête <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à la requête. |
+| `body` | <*body-content*> | Objet JSON | Contenu du message à envoyer en tant que charge utile avec la requête |
+| `authentication` | <*authentication-type-and-property-values*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://management.azure.com/`, mais vous pouvez utiliser une autre valeur. |
+| `retryPolicy` > `type` | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). |
+| `operationOptions` | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
+|||||
 
 *Sorties*
 
@@ -374,7 +376,7 @@ Le comportement du déclencheur varie en fonction des sections que vous incluez 
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -383,7 +385,7 @@ Le comportement du déclencheur varie en fonction des sections que vous incluez 
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -413,7 +415,7 @@ Certaines valeurs, telles que < *-method-type*>, sont disponibles pour les objet
 | <*method-type*> | String | Méthode HTTP utilisée pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*endpoint-unsubscribe-URL*> | String | URL du point de terminaison où envoyer la requête d’annulation | 
 | <*body-content*> | String | Tout contenu de message à envoyer dans la requête d’abonnement ou d’annulation | 
-| <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent toutes en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
@@ -688,7 +690,9 @@ Pour connaître le nombre maximal d’éléments de tableau que **SplitOn** peut
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser **SplitOn** avec un modèle de réponse synchrone. Les workflows qui utilisent **SplitOn** et incluent une réponse action s’exécutent de façon asynchrone et envoient immédiatement une réponse `202 ACCEPTED`.
-
+>
+> Lorsque la concurrence du déclencheur est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite. Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
+ 
 Si le fichier Swagger de votre déclencheur décrit une charge utile sous forme de tableau, la propriété **SplitOn** est automatiquement ajoutée à votre déclencheur. Sinon, ajoutez cette propriété à l’intérieur de la charge utile de la réponse qui contient le tableau à décomposer. 
 
 *Exemple*
@@ -950,7 +954,7 @@ Cette action envoie une demande d’abonnement à un point de terminaison par le
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -960,7 +964,7 @@ Cette action envoie une demande d’abonnement à un point de terminaison par le
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -986,7 +990,7 @@ Certaines valeurs, telles que < *-method-type*>, sont disponibles pour les objet
 | <*api-unsubscribe-URL*> | String | URI à utiliser pour annuler l’abonnement à l’API | 
 | <*header-content*> | Objet JSON | En-têtes à envoyer dans la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer dans la requête | 
-| <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
 | <*other-action-specific-input-properties*> | Objet JSON | Toutes autres propriétés d’entrée qui s’appliquent à cette action spécifique | 
@@ -1105,9 +1109,9 @@ Cette action exécute le code qui obtient le nom de votre application logique et
 
 *Exemple 2*
 
-Cette action exécute le code dans une application logique qui se déclenche lorsqu’un nouvel e-mail arrive sur un compte Office 365 Outlook. L’application logique utilise également une action Envoyer un e-mail d’approbation, qui transfère le contenu de l’e-mail reçu ainsi qu’une requête d’approbation. 
+Cette action exécute le code dans une application logique qui se déclenche lorsqu’un nouvel e-mail arrive sur un compte Office 365 Outlook. L’application logique utilise également une action Envoyer un e-mail d’approbation, qui transfère le contenu de l’e-mail reçu ainsi qu’une requête d’approbation.
 
-Le code extrait les adresses e-mail à partir de la propriété `Body` du déclencheur, et les renvoie avec la valeur de la propriété `SelectedOption` à partir de l’action d’approbation. L’action inclut de manière explicite l’action Envoyer un e-mail d’approbation en tant que dépendance dans l’attribut `explicitDependencies` > `actions`.
+Le code extrait les adresses e-mail à partir de la propriété `Body` du déclencheur, et renvoie les adresses avec la valeur de la propriété `SelectedOption` à partir de l’action d’approbation. L’action inclut de manière explicite l’action Envoyer un e-mail d’approbation en tant que dépendance dans l’attribut `explicitDependencies` > `actions`.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1206,14 +1210,21 @@ Cette définition d’action appelle la fonction « GetProductID » créée pr
 
 ### <a name="http-action"></a>Action HTTP
 
-Cette action envoie une requête au point de terminaison spécifique et vérifie la réponse pour déterminer si le workflow doit être exécuté. 
+Cette action envoie une requête au point de terminaison HTTP ou HTTPS spécifié et vérifie la réponse pour déterminer si le workflow s’exécute.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1221,23 +1232,24 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 
 *Obligatoire*
 
-| Valeur | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | Méthode à utiliser pour envoyer la requête : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
-|||| 
+| Propriété | Valeur | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
+|||||
 
 *Facultatif*
 
-| Valeur | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | Objet JSON | En-têtes à envoyer avec la requête <p>Par exemple, pour définir la langue et le type : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Objet JSON | Tout contenu de message à envoyer dans la requête | 
-| <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec la requête <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
-| <*other-action-specific-input-properties*> | Objet JSON | Toutes autres propriétés d’entrée qui s’appliquent à cette action spécifique | 
-| <*other-action-specific-properties*> | Objet JSON | Toutes autres propriétés qui s’appliquent à cette action spécifique | 
-|||| 
+| Propriété | Valeur | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | Objet JSON | Tous les en-têtes que vous devez inclure avec la demande <p>Par exemple, pour définir la langue et le type : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | Objet JSON | Tous les paramètres de requête que vous devez utiliser dans la requête <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. |
+| `body` | <*body-content*> | Objet JSON | Contenu du message à envoyer en tant que charge utile avec la requête |
+| `authentication` | <*authentication-type-and-property-values*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://management.azure.com/`, mais vous pouvez utiliser une autre valeur. |
+| `retryPolicy` > `type` | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*other-action-specific-input-properties*> | <*input-property*> | Objet JSON | Toutes autres propriétés d’entrée qui s’appliquent à cette action spécifique |
+| <*other-action-specific-properties*> | <*property-value*> | Objet JSON | Toutes autres propriétés qui s’appliquent à cette action spécifique |
+|||||
 
 *Exemple*
 
@@ -1538,7 +1550,7 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 |-------|------|-------------| 
 | <*array*> | Array | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
 | <*key-name*> | String | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
-| <*expression*> | Chaîne | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
+| <*expression*> | String | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
 |||| 
 
 L’action **Select** crée un tableau en tant que sortie. Par conséquent, toute action qui souhaite utiliser cette sortie doit accepter un tableau, ou vous devez convertir le tableau vers le type acceptée par l’action consommatrice. Par exemple, pour convertir le tableau de sortie en une chaîne, vous pouvez passer ce tableau à l’action **Compose**, puis référencer la sortie de l’action **Compose** dans vos autres actions.
@@ -2404,7 +2416,9 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 Par défaut, les instances d’applications logiques s’exécutent en même temps (de manière concurrentielle ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ainsi, chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de flux de travail précédente. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend. 
 
-Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. Voici quelques considérations liées à l’utilisation du contrôle d’accès concurrentiel :
+Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. Voici quelques considérations liées à l’activation du contrôle d’accès concurrentiel :
+
+* Lorsque la concurrence du déclencheur est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 
 * Quand la concurrence est activée, une instance d’application logique de longue durée peut amener de nouvelles instances d’application logique à entrer dans un état d’attente. Cet état empêche Azure Logic Apps de créer des instances et se produit même quand le nombre d’exécutions simultanées est inférieur au nombre maximal spécifié d’exécutions simultanées.
 
@@ -2665,134 +2679,11 @@ Pour une définition d’application logique unique, le nombre d’actions qui s
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## <a name="authenticate-http-triggers-and-actions"></a>Authentifier les actions et déclencheurs HTTP
+## <a name="authenticate-triggers-and-actions"></a>Authentifier les déclencheurs et les actions
 
-Les points de terminaison HTTP prennent en charge différents types d’authentification. Vous pouvez configurer l’authentification pour ces actions et déclencheurs HTTP :
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
-
-Voici les types d’authentification que vous pouvez configurer :
-
-* [Authentification de base](#basic-authentication)
-* [Authentification par certificat client](#client-certificate-authentication)
-* [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
-
-> [!IMPORTANT]
-> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="basic-authentication"></a>
-
-### <a name="basic-authentication"></a>Authentification de base
-
-Pour [l’authentification de base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) à l’aide d’Azure Active Directory, votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs). 
-
-| Propriété | Obligatoire | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | OUI | "Basic" | Type d’authentification à utiliser, en l’occurrence "Basic" | 
-| **nom d’utilisateur** | OUI | "@parameters('userNameParam')" | Nom d’utilisateur permettant d’authentifier l’accès au point de terminaison de service cible |
-| **mot de passe** | OUI | "@parameters('passwordParam')" | Mot de passe permettant d’authentifier l’accès au point de terminaison de service cible |
-||||| 
-
-Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `Basic` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="client-certificate-authentication"></a>
-
-### <a name="client-certificate-authentication"></a>Authentification par certificat client
-
-Pour [l’authentification basée sur un certificat](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) à l’aide d’Azure Active Directory, votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs). Pour connaître les limites du nombre de certificats clients que vous pouvez utiliser, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
-
-| Propriété | Obligatoire | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | OUI | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
-| **pfx** | OUI | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **mot de passe** | OUI | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
-||||| 
-
-Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `ClientCertificate` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ClientCertificate",
-         "pfx": "@parameters('pfxParam')",
-         "password": "@parameters('passwordParam')"
-      }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Authentification OAuth Azure Active Directory (AD)
-
-Pour [l’authentification Azure AD OAuth](../active-directory/develop/authentication-scenarios.md), votre définition de déclencheur ou d’action peut inclure un `authentication` objet JSON, qui a les propriétés spécifiées par le tableau suivant. Pour accéder aux valeurs de paramètre en cours d’exécution, vous pouvez utiliser l’expression `@parameters('parameterName')` fournie par le [Langage de définition du flux de travail](https://aka.ms/logicappsdocs).
-
-| Propriété | Obligatoire | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | OUI | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth |
-| **authority** | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |
-| **client** | OUI | <*ID de locataire*> | Identificateur du locataire Azure AD |
-| **public ciblé** | OUI | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
-| **clientId** | OUI | <*ID client*> | ID client pour l’application demandant l’autorisation |
-| **credentialType** | OUI | « Certificat » ou « Secret » | Type d’informations d’identification que le client utilise pour la demande d’autorisation. Ces propriété et valeur n’apparaissent pas dans votre définition sous-jacente, mais elles déterminent les paramètres requis pour le type d’informations d’identification. |
-| **pfx** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **mot de passe** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
-| **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | "@parameters('secretParam')" | Clé secrète client permettant de demander une autorisation |
-|||||
-
-Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `ActiveDirectoryOAuth` l’authentification et le type d’informations d’identification « Secret ». Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ActiveDirectoryOAuth",
-         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-         "audience": "https://management.core.windows.net/",
-         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-         "secret": "@parameters('secretParam')"
-     }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+Les points de terminaison HTTP et HTTPS prennent en charge différents types d’authentification. En fonction du déclencheur ou de l’action que vous utilisez pour effectuer des appels sortants ou des demandes qui accèdent à ces points de terminaison, vous pouvez choisir parmi différentes plages de types d’authentification. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

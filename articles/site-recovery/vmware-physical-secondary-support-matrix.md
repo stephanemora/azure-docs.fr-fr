@@ -1,19 +1,19 @@
 ---
-title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles VMware ou de serveurs physiques vers un site secondaire VMware avec Azure Site Recovery | Microsoft Docs
+title: Prise en charge de la reprise d’activité après sinistre VMware/physique sur un site secondaire avec Azure Site Recovery
 description: Résume la prise en charge de la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware sur un site secondaire avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255208"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082190"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 

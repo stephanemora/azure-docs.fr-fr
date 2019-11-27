@@ -1,5 +1,5 @@
 ---
-title: Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB | Microsoft Docs
+title: Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 description: Cet article décrit comment commander et enregistrer des événements de connexion d’appareils à partir d’Azure IoT Hub à l’aide d’Azure Cosmos DB pour conserver le dernier état de connexion
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988284"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954254"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 

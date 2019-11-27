@@ -1,26 +1,26 @@
 ---
-title: Inscription en libre-service pour les comptes d’utilisateurs vérifiés par e-mail - Azure Active Directory | Microsoft Docs
-description: Utilisez l’inscription en libre-service dans un locataire Azure Active Directory (Azure AD).
+title: Inscription en libre-service pour les utilisateurs vérifiés par e-mail - Azure AD | Microsoft Docs
+description: Utiliser l’inscription en libre-service dans un locataire Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d949b746f05eb440f5ae28f683dfc838217ab47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 953837e22cdd3ba8a54d702eac61461739db82d2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956511"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027632"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 

@@ -1,5 +1,5 @@
 ---
-title: Développer les disques durs virtuels sur une machine virtuelle Linux dans Azure | Microsoft Docs
+title: Développer les disques durs virtuels sur une machine virtuelle Linux dans Azure
 description: Découvrez comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3bd85048cf12760d5918544ed6aac803e9fe120a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828407"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036207"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6116ece6035b326440108c1f2b2effd1b6bb9258
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072541"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012961"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -98,7 +98,17 @@ Après avoir ajouté un groupe Azure AD externe, vous pouvez passer en revue ses
  
 Les utilisateurs de l’instance Azure AD configurée peuvent à présent se connecter au portail des développeurs. Ils peuvent afficher les groupes pour lesquels ils disposent d’une visibilité et s’abonner à ces groupes.
 
-## <a name="a-idlog_in_to_dev_portalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Se connecter au portail des développeurs avec un compte Azure AD
+## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portail des développeurs : ajouter l’authentification de compte Azure AD
+
+Dans le portail des développeurs, il est possible de se connecter avec AAD à l’aide du widget **Boutons OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
+
+![Widget Boutons AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portail des développeurs hérité : comment s’inscrire avec Azure AD
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 Pour vous connecter au portail des développeurs à l’aide d’un compte Azure AD que vous avez configuré dans les sections précédentes :
 

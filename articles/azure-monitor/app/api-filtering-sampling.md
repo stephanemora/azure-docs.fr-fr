@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677810"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847244"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -25,11 +25,11 @@ Vous pouvez écrire et configurer des plug-ins pour le kit de développement log
 
 Avant de commencer :
 
-* Installez le kit de développement logiciel (SDK) correspondant à votre application : [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md) ou [Java](../../azure-monitor/app/java-get-started.md).
+* Installez le kit de développement logiciel (SDK) correspondant à votre application : [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) ou [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>Filtrage : ITelemetryProcessor
+## <a name="filtering"></a>Filtrage
 
 Cette technique vous offre un contrôle direct sur ce qui est inclus ou exclu du flux de télémétrie. Le filtrage peut être utilisé ne pas envoyer certains éléments de télémétrie à Application Insights. Vous pouvez l'utiliser conjointement avec l'échantillonnage, ou séparément.
 
@@ -198,7 +198,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>Ajout de propriétés : ITelemetryInitializer
+### <a name="javascript-web-applications"></a>Applications web JavaScript
+
+**Filtrage à l’aide de ITelemetryInitializer**
+
+1. Créez une fonction de rappel de l’initialiseur de télémétrie. La fonction de rappel prend `ITelemetryItem` en tant que paramètre, qui est l’événement en cours de traitement. Le retour de `false` de ce rappel entraîne le filtrage de l’élément de télémétrie.  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. Ajoutez votre rappel de l’initialiseur de télémétrie :
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>Ajoutez/modifiez des propriétés : ITelemetryInitializer
+
 
 Utilisez les initialiseurs de télémétrie pour enrichir la télémétrie avec des informations supplémentaires et/ou remplacer les propriétés de télémétrie définies par les modules de télémétrie standard.
 

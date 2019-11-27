@@ -1,5 +1,5 @@
 ---
-title: Prise en charge des machines virtuelles de 2e génération dans Azure | Microsoft Docs
+title: Support Azure pour les machines virtuelles de 2e génération
 description: Vue d’ensemble de la prise en charge Azure pour les machines virtuelles de 2e génération
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d6fcbcb7f5d1b6bb25840ad1bddc5327b068c15d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491928"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075469"
 ---
-# <a name="support-for-generation-2-vms-on-azure"></a>Prise en charge des machines virtuelles de 2e génération dans Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
-La prise en charge des machines virtuelles de 2e génération est désormais disponible dans Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle après l’avoir créée. Passez bien en revue les considérations relatives sur cette page avant de choisir une génération.
+Le support des machines virtuelles de 2e génération est désormais disponible dans Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle après l’avoir créée. Passez bien en revue les considérations relatives sur cette page avant de choisir une génération.
 
-Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par des machines virtuelles de 1ère génération. Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM). Les machines virtuelles locales de 2e génération présentent des fonctionnalités qui ne sont pas prises en charge dans Azure à l’heure actuelle. Pour en savoir, consultez la section [Fonctionnalités et capacités](#features-and-capabilities).
+Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par des machines virtuelles de 1ère génération. Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM). Les machines virtuelles locales de 2e génération présentent des fonctionnalités qui ne sont pas encore prises en charge dans Azure. Pour en savoir, consultez la section [Fonctionnalités et capacités](#features-and-capabilities).
 
 Les machines virtuelles de 2e génération utilisent la nouvelle architecture de démarrage basée sur UEFI alors que les machines virtuelles de 1ère génération utilisaient l’architecture basée sur le BIOS. Comparées aux machines virtuelles de 1ère génération, les machines virtuelles de 2e génération peuvent avoir des temps d’installation et de démarrage améliorés. Pour obtenir une vue d’ensemble des machines virtuelles de 2e génération et de quelques-unes des différences entre 1ère et 2e génération, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -59,7 +59,9 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04,18.04, 19.04, 19.10
+* RHEL 8.0
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local Machines virtuelles de 2e génération Azure
 
@@ -90,7 +92,7 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 | Disque OS > 2 To                    | :x:                | :heavy_check_mark: |
 | Disque/image/système d’exploitation d’échange personnalisé         | :heavy_check_mark: | :heavy_check_mark: |
 | Prise en charge de groupes de machines virtuelles identiques | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Sauvegarde/restauration                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galerie d’images partagées              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |

@@ -6,14 +6,14 @@ author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026158"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085238"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -33,9 +33,10 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 | Ressource | Description|
 |----------|------------|
-| **Image managée** | Il s’agit d’une image de base qui peut être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
+| **Image managée** | Il s’agit d’une image de base qui peut être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles [généralisées](#generalized-and-specialized-images). Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
+| **Instantané** | Copie d’un disque dur virtuel qui peut être utilisée pour effectuer une **version d’image**. Les instantanés peuvent être extraits d’une machine virtuelle [spécialisée](#generalized-and-specialized-images) (qui n’a pas été généralisée), puis utilisés seuls ou avec des instantanés de disques de données afin de créer une version d’image spécialisée.
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation dans votre organisation. Vous pouvez inclure des informations telles que le type de système d’exploitation associé à l’image (Windows ou Linux), les exigences minimales et maximales et des notes de publication. Il s’agit d’une définition de type d’image. |
+| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation dans votre organisation. Vous pouvez inclure des informations telles que le type généralisé ou spécialisé de l’image, le système d'exploitation, les exigences minimales et maximales en matière de mémoire et des notes de publication. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 <br>
@@ -58,7 +59,7 @@ Ces trois définitions présentent des ensembles de valeurs uniques. Le format r
 
 Voici d’autres paramètres qui peuvent être configurés sur votre définition d’image de sorte à faciliter le suivi de vos ressources :
 
-* État de système d’exploitation : vous pouvez définir l’état du système d’exploitation sur la valeur Généralisée ou Spécialisée, mais la première est la seule prise en charge pour l’instant. Les images doivent être créées à partir de machines virtuelles qui ont été généralisées via Sysprep pour Windows ou `waagent -deprovision` pour Linux.
+* État de système d’exploitation : vous pouvez définir l’état du système d’exploitation sur la valeur [Généralisée ou Spécialisée](#generalized-and-specialized-images).
 * Système d’exploitation : Windows ou Linux.
 * Description : elle vous permet de fournir des informations plus détaillées sur la raison pour laquelle la définition d’image a été créée. Par exemple, vous avez peut-être besoin d’une définition d’image pour le serveur principal sur lequel l’application est préinstallée.
 * CLUF : il peut être utilisé pour pointer vers un contrat de licence utilisateur final spécifique à la définition d’image.
@@ -68,21 +69,43 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 * Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 * Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
 
+## <a name="generalized-and-specialized-images"></a>Images généralisées et spécialisées
+
+Il existe deux états de système d'exploitation pris en charge par Galerie d’images partagées. Généralement, les images nécessitent que la machine virtuelle utilisée pour créer l'image ait été généralisée avant de créer l'image. La généralisation est un processus qui supprime de la machine virtuelle les informations spécifiques à la machine et à l'utilisateur. Pour Windows, l’outil Sysprep est utilisé. Pour Linux, vous pouvez utiliser [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou les paramètres `-deprovision+user`.
+
+Les machines virtuelles spécialisées n'ont pas été soumises à un processus de suppression des informations et des comptes spécifiques aux machines. Par ailleurs, les machines virtuelles créées à partir d'images spécialisées ne sont associées à aucun `osProfile`. Cela signifie que les images spécialisées auront certaines limites.
+
+- Les comptes qui pourraient être utilisés pour se connecter à la machine virtuelle peuvent également être utilisés sur n'importe quelle machine virtuelle créée en utilisant l'image spécialisée créée à partir de celle-ci.
+- Les machines virtuelles porteront le **nom de l'ordinateur** de la machine virtuelle d’où est extraire l’image. Vous devriez renommer l’ordinateur pour éviter tout conflit.
+- Le `osProfile` représente la façon dont certaines informations sensibles sont transmises à la machine virtuelle, en utilisant `secrets`. Cela peut entraîner des problèmes lors de l'utilisation de KeyVault, WinRM et d'autres fonctionnalités qui utilisent `secrets` dans le `osProfile`. Dans certains cas, vous pouvez utiliser des identités de service managées (MSI) pour contourner ces limitations.
+
+> [!IMPORTANT]
+> Les images spécialisées sont actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Limitations connues de la préversion :** Les machines virtuelles peuvent uniquement être créées à partir d’images spécialisées à l’aide du portail ou de l’API. Il n'y a pas de support CLI ou PowerShell pour la préversion.
+
+
 ## <a name="regional-support"></a>Prise en charge régionale
 
 Les régions sources sont répertoriées dans la table ci-dessous. Tout les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Régions sources |
-|---------------------|-----------------|------------------|-----------------|
-| Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | Centre-USA Ouest |
-| Centre de l’Australie 2 | Asie Est       | Corée du Sud      | Europe Ouest     |
-| Australie Est      | USA Est         | Centre-Nord des États-Unis | Inde Ouest      |
-| Sud-Australie Est | USA Est 2       | Europe Nord     | USA Ouest         |
-| Brésil Sud        | USA Est 2 (EUAP)  | États-Unis - partie centrale méridionale | USA Ouest 2       |
-| Centre du Canada      | France Centre  | Inde Sud      | Chine orientale      |
-| Est du Canada         | France Sud    | Asie Sud-Est   | Chine orientale 2    |
-| Inde centrale       | Japon Est      | Sud du Royaume-Uni         | Chine du Nord     |
-| USA Centre          | OuJapon Est      | Ouest du Royaume-Uni          | Chine Nord 2   |
+
+| Régions sources        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Centre de l’Australie     | Chine orientale        | Inde Sud        | Europe Ouest        |
+| Centre de l’Australie 2   | Chine orientale 2      | Asie Sud-Est     | Sud du Royaume-Uni           |
+| Australie Est        | Chine du Nord       | Japon Est         | Ouest du Royaume-Uni            |
+| Sud-Australie Est   | Chine Nord 2     | OuJapon Est         | Centre des États-Unis – US DoD     |
+| Brésil Sud          | Asie Est         | Centre de la Corée      | Est des États-Unis – US DoD        |
+| Centre du Canada        | USA Est           | Corée du Sud        | Gouvernement des États-Unis – Arizona     |
+| Est du Canada           | USA Est 2         | Centre-Nord des États-Unis   | Gouvernement des États-Unis – Texas       |
+| Inde centrale         | USA Est 2 (EUAP)    | Europe Nord       | Gouvernement américain - Virginie    |
+| USA Centre            | France Centre    | États-Unis - partie centrale méridionale   | Inde Ouest         |
+| EUAP USA Centre       | France Sud      | Centre-USA Ouest    | USA Ouest            |
+|                       |                   |                    | USA Ouest 2          |
+
+
 
 ## <a name="limits"></a>limites 
 
@@ -163,7 +186,7 @@ Les SDK suivants prennent en charge la création de galeries d’images partagé
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -217,15 +240,16 @@ Oui. Il existe 3 scénarios basés sur les types d’images.
 
  Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image.
 
- Scénario 2 : Si vous avez une image généralisée non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
+ Scénario 2 : Si vous avez une image non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
- Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger, puis créer une image managée pour pouvoir ensuite créer une définition et une version de cette image.
-- Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel généralisé](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger sur une image managée pour pouvoir ensuite créer une définition et une version de cette image.
+
+- Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
-Non, nous ne prenons pas encore en charge les disques spécialisés sous forme d’images. Si vous avez un disque spécialisé, vous devez [créer une machine virtuelle à partir du disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) en attachant le disque spécialisé à une nouvelle machine virtuelle. Une fois la machine virtuelle en cours d’exécution, suivez les instructions pour créer une image managée à partir de la [machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou [machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Dès que vous avez une image managée généralisée, vous pouvez démarrer le processus de création d’une description et d’une version de l’image partagée.
+Oui, la prise en charge des disques spécialisés en tant qu’images est en préversion. Vous ne pouvez créer une machine virtuelle qu'à partir d'une image spécialisée en utilisant le portail ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) ou [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) et une API. Il n’y a pas de support PowerShell pour la préversion.
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Une fois la ressource de galerie d’images partagées créée, puis-je la déplacer vers un autre abonnement ?
 
@@ -235,7 +259,7 @@ Non, vous ne pouvez pas déplacer la ressource de galerie d’images partagées 
 
 Non, vous ne pouvez pas répliquer les versions d’image entre clouds.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Puis-je répliquer mes versions d’image entre abonnements ? 
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Puis-je répliquer mes versions d’image entre abonnements ?
 
 Non, vous pouvez répliquer les versions d’image entre régions dans un abonnement et les utiliser dans d’autres abonnements au moyen de RBAC.
 

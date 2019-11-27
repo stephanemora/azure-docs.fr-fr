@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: c9754c1d7fee5af13de6176dbf8a1ca6e57a71eb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213153"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076846"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostiquer les problèmes de perte des notifications dans Azure Notification Hubs
 
@@ -33,7 +33,7 @@ En premier lieu, il est essentiel de comprendre la manière dont Notification Hu
 
 Dans un flux de notification d’envoi type, le message est envoyé par le *serveur d’applications backend* à Notification Hubs. Notification Hubs traite toutes les inscriptions. Il prend en compte les balises configurées et les expressions de balise pour déterminer les cibles. Les cibles correspondent à toutes les inscriptions qui doivent recevoir la notification Push. Ces inscriptions peuvent s’étendre sur toutes les plateformes que nous prenons en charge : Android, Baidu (appareils Android en Chine), Fire OS (Amazon) iOS, Windows et Windows Phone.
 
-Une fois les cibles établies, Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour Apple ou de Firebase Cloud Messaging (FCM) pour Google. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Il s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez définies dans le Portail Azure, sous **Configurer un hub de notification**. Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants.
+Une fois les cibles établies, Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour iOS et macOS ou de Firebase Cloud Messaging (FCM) pour les appareils Android. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Il s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez définies dans le Portail Azure, sous **Configurer un hub de notification**. Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants.
 
 Le dernier tronçon de remise des notifications se situe entre le service de notifications Push de la plateforme et l’appareil. La remise des notifications peut échouer lors de l’une des quatre phases du processus de notifications Push (client, serveur d’applications principal, Notification Hubs et service de notifications Push de la plateforme). Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Vue d’ensemble de Notification Hubs].
 

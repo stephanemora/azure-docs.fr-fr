@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - Exclure des disques lors de la réplication de machines virtuelles Azure avec Azure PowerShell | Microsoft Docs
+title: Exclure des disques de machines virtuelles Azure de la réplication avec Azure Site Recovery et Azure PowerShell
 description: Découvrez comment exclure des disques pour les machines virtuelles Azure avec Azure Site Recovery à l’aide d’Azure PowerShell.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 81d22250262351e3c1bbb2fe28960b3d158bbf57
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147060"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084968"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Exclure des disques de la réplication Powershell de machines virtuelles Azure
 
@@ -29,6 +29,7 @@ Avant de commencer :
 - Vérifiez les [exigences de prise en charge](azure-to-azure-support-matrix.md) pour tous les composants.
 - Assurez-vous que vous disposez du module AzureRm PowerShell « Az ». Pour installer ou mettre à jour powerShell, consultez la section relative à [l’installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Assurez-vous d’avoir créé un coffre Recovery Services et des machines virtuelles protégées au moins une fois. Si tel n’est pas le cas, suivez le processus décrit dans [Configurer la récupération d’urgence pour les machines virtuelles Azure à l’aide d’Azure PowerShell](azure-to-azure-powershell.md).
+- Si vous recherchez des informations sur l’ajout de disques à une machine virtuelle Azure compatible avec la réplication, [consultez cet article](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>Pourquoi exclure des disques de la réplication ?
 Vous devrez peut-être exclure les disques de la réplication, car :

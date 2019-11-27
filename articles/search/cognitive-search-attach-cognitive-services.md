@@ -1,5 +1,5 @@
 ---
-title: Joindre une ressource Cognitive Services à un ensemble de compétences
+title: Joindre Cognitive Services à un ensemble de compétences
 titleSuffix: Azure Cognitive Search
 description: Instructions à suivre pour attacher un abonnement Cognitive Services tout-en-un à un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788029"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113936"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Attacher une ressource Cognitive Services à un ensemble de compétences dans Recherche cognitive Azure 
 

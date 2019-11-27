@@ -1,5 +1,5 @@
 ---
-title: Configurer la méthode de routage du trafic à valeurs multiples dans Azure Traffic Manager
+title: Configurer le routage du trafic à valeurs multiples – Azure Traffic Manager
 description: Cet article explique comment configurer Traffic Manager pour router le trafic vers des points de terminaison A/AAAA.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: allensu
-ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e5e6cb55b86df8a48f96771fb2436afa8acaa18
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050908"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040365"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager
 
@@ -45,9 +45,9 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Valeurs multiples**.                                       |
-    | Abonnement            | Sélectionnez votre abonnement.                          |
-    | Groupe de ressources          | Sélectionnez *myResourceGroupTM1*. |
-    | Lieu                | Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
+    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Resource group          | Sélectionnez *myResourceGroupTM1*. |
+    | Location                | Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
    |        |           | 
   
    ![Créer un profil Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)

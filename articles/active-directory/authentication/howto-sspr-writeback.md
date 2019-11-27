@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357498"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021771"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procédure : Configuration de l’écriture différée du mot de passe
 
@@ -59,7 +59,7 @@ Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l�
 > Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
 >
 
-## <a name="active-directory-permissions"></a>Autorisations Active Directory
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Autorisations Active Directory et stratégies de complexité de mot de passe local 
 
 Pour rester dans le cadre de la réinitialisation des mots de passe en libre-service, vous devez définir les éléments suivants dans le compte spécifié (utilitaire Azure AD Connect) :
 
@@ -98,6 +98,8 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
     * **Écrire lockoutTime**
     * **Écrire pwdLastSet**
 9. Cliquez sur **Appliquer/OK** pour appliquer les changements et fermer les boîtes de dialogue ouvertes.
+
+Étant donné que la source d’autorité est locale, les stratégies de complexité de mot de passe s’appliquent à partir de la même source de données connectée. Vérifiez que vous avez modifié les stratégies de groupe existantes pour « l’antériorité minimale du mot de passe ». La stratégie de groupe ne doit pas être définie sur 1, ce qui signifie que le mot de passe doit être âgé d’au moins un jour avant de pouvoir être mis à jour. Vous devez vérifier qu’elle est définie sur 0. Ces paramètres se trouvent dans `gpmc.msc` sous **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de compte**. Exécutez `gpupdate /force` pour vous assurer que la modification prend effet. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

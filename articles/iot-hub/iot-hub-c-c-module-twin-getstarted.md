@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec le jumeau de module et l’identité de module Azure IoT Hub (C) | Microsoft Docs
+title: Bien démarrer avec l’identité de module et le jumeau de module Azure IoT Hub (C)
 description: Découvrez comment créer une identité de module et mettre à jour un jumeau de module à l’aide des SDK IoT pour C.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 9bc64a2eefbd268c5d7eae9b32a992ed29151f61
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813846"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954222"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (C)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Nombre de caractères : API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Comment l’API de traduction de texte Translator Text compte les caractères.
+description: Cet article explique comment l’API Traduction de texte Translator Text Azure Cognitive Services compte les caractères pour vous permettre de comprendre comment elle ingère le contenu.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595985"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888157"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Comment l’API de traduction de texte Translator Text compte les caractères
 

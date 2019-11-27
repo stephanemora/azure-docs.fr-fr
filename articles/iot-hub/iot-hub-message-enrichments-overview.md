@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des enrichissements de messages Azure IoT Hub
-description: Vue d’ensemble des enrichissements de messages Azure IoT Hub
+description: Cet article présente les enrichissements de messages, qui donnent à IoT Hub la capacité de marquer les messages avec des informations supplémentaires avant que ces messages soient envoyés au point de terminaison désigné.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177989"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005841"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enrichissements de messages pour les messages IoT Hub-appareil-à-cloud (préversion)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enrichissements de messages pour les messages IoT Hub appareil-à-cloud
 
 Les *enrichissements de messages* sont la capacité du IoT Hub à *horodater* des messages avec des informations supplémentaires avant que les messages ne soient envoyés au point de terminaison désigné. Vous pouvez utiliser les enrichissements de messages pour inclure des données permettant de simplifier le traitement en aval. Par exemple, enrichir des messages de télémétrie d’appareil avec une balise de jumeau d’appareil peut réduire la charge de clients en leur évitant d’effectuer des appels d’API doubles pour cette information.
 
@@ -81,10 +81,6 @@ Pour essayer les enrichissements de messages, consultez le [didacticiel dédié 
 ## <a name="pricing"></a>Tarifs
 
 Les enrichissements de messages sont disponibles sans frais supplémentaires. Actuellement, vous êtes facturé lorsque vous envoyez un message à un IoT Hub. Vous n’êtes facturé qu’une fois pour ce message, même s’il est envoyé à plusieurs points de terminaison.
-
-## <a name="availability"></a>Disponibilité
-
-Cette fonctionnalité est disponible en préversion et dans toutes les régions à l’exception des suivantes : USA Est, USA Ouest, Europe Ouest, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china) et [Azure Allemagne](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

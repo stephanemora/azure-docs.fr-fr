@@ -1,7 +1,7 @@
 ---
-title: Retour des traductions N-Best - API de traduction de texte Translator Text
+title: Retour des n meilleures traductions - Traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
-description: Renvoyez les n meilleures traductions avec l’API de traduction de texte Microsoft Translator Text.
+description: Retournez les n meilleures traductions avec l’API Traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 7aec6bb81f3ca99ead744767668c2e4f1d1d4d53
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ROBOTS: NOINDEX
+ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594886"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837240"
 ---
 # <a name="how-to-return-n-best-translations"></a>Comment renvoyer les n meilleures traductions
 

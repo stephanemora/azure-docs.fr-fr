@@ -1,7 +1,7 @@
 ---
 title: Ordre OData par référence
 titleSuffix: Azure Cognitive Search
-description: Informations de référence sur le langage OData pour la syntaxe de tri par dans les requêtes de Recherche cognitive Azure.
+description: Documentation de référence de la syntaxe et du langage pour l’utilisation de order-by dans les requêtes Recherche cognitive Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793298"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113144"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Syntaxe OData $orderby dans Recherche cognitive Azure
 
@@ -83,4 +83,4 @@ Trier les hôtels par ordre décroissant sur search.score et l’évaluation, pu
 - [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md)
 - [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

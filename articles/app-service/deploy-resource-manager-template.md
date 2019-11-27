@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070457"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130591"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -46,7 +46,7 @@ Déployez des ressources dans l’ordre suivant :
 **Niveau 3**
 * Contrôle de code source (dépend de l’application web).
 * Extension de site MSDeploy (dépend de l’application web).
-* Instance Application Insights ciblant la batterie de serveurs (dépend de l’application web).
+* Instance Azure Application Insights ciblant l’application web (dépend de l’application web).
 
 **Niveau 4**
 * App Service Certificate (dépend du contrôle de code source ou de MSDeploy si l’un ou l’autre est présent ; sinon, dépend de l’application web).

@@ -1,7 +1,7 @@
 ---
-title: Créer un équilibreur de charge Azure Load Balancer à l’aide de l’API REST
-titlesuffix: Azure Load Balancer
-description: Découvrez comment créer un équilibreur de charge Azure à l’aide de l’API REST.
+title: Créer un équilibreur de charge à l’aide de l’API REST
+titleSuffix: Azure Load Balancer
+description: Dans cet article, découvrez comment créer un équilibreur de charge Azure à l’aide de l’API REST.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275556"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077092"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Créer un équilibreur de charge Azure de base à l’aide de l’API REST
 
@@ -55,7 +55,7 @@ Le seul paramètre requis est `location`. Si vous ne définissez pas la *SKU*, u
 
 Dans cet exemple, vous commencez par créer un équilibreur de charge ainsi que ses ressources. Ensuite, vous configurez les ressources de l’équilibreur de charge qui incluent une configuration d’adresses IP frontales, un pool d’adresses principales, une règle d’équilibrage de charge, une sonde d’intégrité et une règle NAT entrante.
 
-Avant de créer un équilibreur de charge à l’aide de l’exemple ci-dessous, créez un réseau virtuel nommé *vnetlb* avec un sous-réseau nommé *subnetlb* dans un groupe de ressources nommé *rg1* à l’emplacement **East US**.
+Avant de créer un équilibreur de charge à l’aide de l’exemple ci-dessous, créez un réseau virtuel nommé *vnetlb* avec un sous-réseau nommé *subnetlb* dans un groupe de ressources nommé *rg1* à l’emplacement **USA Est**.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>ÉTAPE 1. Créer un équilibreur de charge de base public
 Dans cette étape, vous créez un équilibreur de charge de base, nommée *lb* à l’emplacement **EAST US** dans le groupe de ressources *rg1*.

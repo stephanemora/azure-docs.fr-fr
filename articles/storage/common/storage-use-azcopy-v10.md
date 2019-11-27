@@ -4,15 +4,15 @@ description: AzCopy est un utilitaire de ligne de commande que vous pouvez utili
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274646"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111754"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -58,6 +58,8 @@ Pour afficher une liste de commandes, saisissez `azcopy -h` et appuyez sur la to
 Pour en savoir plus sur une commande spécifique, incluez simplement le nom de la commande (par exemple : `azcopy list -h`).
 
 ![Aide en ligne](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+Pour obtenir une documentation de référence détaillée pour chaque commande et paramètre de commande, consultez [azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Avant d’effectuer une opération pertinente avec AzCopy, vous devez choisir comment fournir les informations d’identification d’autorisation du service de stockage. 
@@ -295,16 +297,17 @@ L’URL apparaît dans la sortie de cette commande. Votre script peut alors tél
 
 Dans les fichiers de lot qui portent l’extension `.cmd`, vous devez placer dans une séquence d’échappement les caractères `%` qui apparaissent dans les jetons SAS. Pour ce faire, vous pouvez ajouter un caractère `%` d’addition à côté des caractères `%` existants dans la chaîne de jeton SAS.
 
-## <a name="use-azcopy-in-storage-explorer"></a>Utiliser AzCopy dans l’Explorateur de stockage
+### <a name="run-scripts-by-using-jenkins"></a>Exécuter des scripts à l’aide de Jenkins
 
-Si vous souhaitez tirer parti des avantages d’AzCopy en termes de performances, mais préférez utiliser l’Explorateur de stockage plutôt que la ligne de commande pour interagir avec vos fichiers, activez AzCopy dans l’Explorateur de stockage.
+Si vous envisagez d’utiliser [Jenkins](https://jenkins.io/) pour exécuter des scripts, veillez à placer la commande suivante au début du script.
 
-Dans l’Explorateur de stockage, choisissez **Préversion**->**Use AzCopy for Improved Blob Upload and Download** (Utiliser AzCopy pour le chargement et le téléchargement améliorés des blobs).
+```
+/usr/bin/keyctl new_session
+```
 
-![Activer AzCopy en tant que moteur de transfert dans l’Explorateur Stockage Microsoft Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Utiliser AzCopy dans l’Explorateur de stockage Azure
 
-> [!NOTE]
-> Vous n’êtes pas obligé d’activer ce paramètre si vous avez activé un espace de noms hiérarchique sur votre compte de stockage. En effet, l’Explorateur de stockage utilise automatiquement AzCopy sur les comptes de stockage qui disposent d’un espace de noms hiérarchique.  
+L’[Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/) utilise AzCopy pour effectuer toutes les opérations de transfert de données. Vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) si vous souhaitez tirer parti des avantages d’AzCopy en termes de performances, mais préférez utiliser l’interface graphique utilisateur plutôt que la ligne de commande pour interagir avec vos fichiers.
 
 L’Explorateur Stockage utilise votre clé de compte pour effectuer des opérations, donc après vous être connecté à Storage Explorer, vous n’aurez pas besoin de fournir des informations d’autorisation supplémentaires.
 

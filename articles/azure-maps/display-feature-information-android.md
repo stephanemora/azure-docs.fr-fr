@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour afficher des informations sur les caractéristiques dans l’Android SDK Azure Maps | Microsoft Docs
+title: Afficher des informations sur les caractéristiques dans l’Android SDK Azure Maps | Microsoft Docs
 description: Découvrez comment afficher des informations sur les caractéristiques dans l’Android SDK Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: dc72bb43752323576bed6e7991f33c4096ccabd4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0dcabb0e5141a92394f2be38cbe7e71fa6e03d58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976273"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928534"
 ---
-# <a name="display-feature-information"></a>Afficher des informations sur les caractéristiques
+# <a name="display-feature-information"></a>Afficher des informations sur les fonctionnalités
 
 Les données spatiales sont souvent représentées à l’aide de points, de lignes et de polygones. Ces données sont souvent associées à des informations de métadonnées. Par exemple, un point peut représenter l’emplacement d’un magasin et les métadonnées relatives à ce restaurant peuvent être son nom, son adresse et le type de nourriture proposé. Ces métadonnées peuvent être ajoutées en tant que propriétés de ces caractéristiques à l’aide d’un `JsonObject`. Le code suivant crée une caractéristique de point simple avec une propriété `title` dont la valeur est « Hello World! ».
 
@@ -79,7 +79,7 @@ Outre les messages Toast, il existe de nombreuses autres façons de présenter l
 Pour ajouter des données à votre carte :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de symboles](how-to-add-symbol-to-android-map.md)
+> [Ajouter une couche de symboles](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter des formes à une carte Android](how-to-add-shapes-to-android-map.md)

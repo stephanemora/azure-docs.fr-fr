@@ -1,5 +1,5 @@
 ---
-title: 'Configuration du peering pour un circuit - ExpressRoute : PowerShell : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute : Configurer le peering : PowerShell'
 description: Cet article vous guide tout au long des étapes de création et d’approvisionnement du peering privé, public et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des peerings pour votre circuit.
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9e03abc25ec5224006f41946e6514836e2b6d534
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748204"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080145"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de PowerShell
 

@@ -11,16 +11,16 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693090"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077102"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe.
-
+Éléments nouveaux concernant la vidéo ci-dessous depuis sa publication : la [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) est aussi disponible dans SQL Data Warehouse. 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux colonnes pour protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de restriction d’accès se situe dans la couche de base de données plutôt qu’à l’écart des données d’une autre couche d’application. La base de données applique les restrictions d’accès chaque fois qu’un accès aux données est tenté à partir d’un quelconque niveau. Cette restriction rend votre système de sécurité plus fiable et robuste en réduisant sa surface d’exposition. En outre, la sécurité au niveau des colonnes élimine la nécessité d’ajouter des vues pour filtrer les colonnes afin d’imposer des restrictions d’accès aux utilisateurs.

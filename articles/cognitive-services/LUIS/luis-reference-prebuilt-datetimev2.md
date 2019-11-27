@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837365"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
 
@@ -147,7 +147,7 @@ Chaque élément du tableau `values` peut comprendre les champs suivants :
 |--|--|
 |timex|Heure, date ou plage de dates exprimées au format TIMEX qui suit la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et les attributs TIMEX3 pour l’annotation à l’aide du langage TimeML. Cette annotation est décrite dans les [recommandations TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |Type|Sous-type, à savoir l’un des éléments suivants : `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration` ou `set`.|
-|value|**Facultatif.** Objet datetime au format aaaa:MM:jj (date), HH:mm:ss (heure), aaaa:MM:dd HH:mm:ss (dateheure). Si `type` est `duration`, la valeur est le nombre de secondes (durée). <br/> Utilisé uniquement si `type` est `datetime`, `date`, `time` ou une durée.|
+|value|**Facultatif.** Objet DateHeure au format aaaa-MM-jj (date), HH:mm:ss (heure), aaaa-MM-dd HH:mm:ss (DateHeure). Si `type` est `duration`, la valeur est le nombre de secondes (durée). <br/> Utilisé uniquement si `type` est `datetime`, `date`, `time` ou une durée.|
 
 ## <a name="valid-date-values"></a>Valeurs de date valides
 

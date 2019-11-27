@@ -1,5 +1,5 @@
 ---
-title: Applications multilocataires avec Azure Digital Twins | Microsoft Docs
+title: Autoriser les applications multitenants – Azure Digital Twins | Microsoft Docs
 description: Comment configurer des applications Azure Active Directory mutualisées pour Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958782"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005915"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Applications multilocataires avec Azure Digital Twins
 

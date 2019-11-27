@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473956"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046549"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -53,11 +53,11 @@ Les clients utilisent des jetons d’accès pour accéder à une ressource prot�
 
 ### <a name="saml-tokens"></a>Jetons SAML
 
-Les jetons SAML sont utilisés par de nombreuses applications SAAS basées sur le web, et sont obtenus à l’aide du point de terminaison du protocole SAML2 d’Azure Active Directory.  Ils sont également consommés par les applications utilisant WS-Federation.    La durée de vie par défaut du jeton est d’une heure. Vu sous l’angle des applications, la période de validité du jeton est spécifiée par la valeur NotOnOrAfter de l’élément <conditions ...> dans le jeton.  Après la période de validité du jeton, le client doit initier une nouvelle requête d’authentification, qui est souvent satisfaite sans connexion interactive en raison du jeton de session d’authentification unique (SSO).
+Les jetons SAML sont utilisés par de nombreuses applications SAAS basées sur le web, et sont obtenus à l’aide du point de terminaison du protocole SAML2 d’Azure Active Directory. Ils sont également consommés par les applications utilisant WS-Federation. La durée de vie par défaut du jeton est d’une heure. Du point de vue d’une application, la période de validité du jeton est spécifiée par la valeur NotOnOrAfter de l’élément `<conditions …>` dans le jeton. Au terme de la période de validité du jeton, le client doit initier une nouvelle requête d’authentification, qui est souvent satisfaite sans connexion interactive en raison du jeton de session d’authentification unique (SSO).
 
-La valeur de NotOnOrAfter peut être modifiée à l’aide du paramètre AccessTokenLifetime dans TokenLifetimePolicy.  Elle sera définie sur la durée de vie configurée dans la stratégie si elle existe, à laquelle sera ajouté un facteur de décalage de l’horloge de cinq minutes.
+La valeur de NotOnOrAfter peut être modifiée à l’aide du paramètre `AccessTokenLifetime` dans un élément `TokenLifetimePolicy`. Elle sera définie sur la durée de vie configurée dans la stratégie si elle existe, à laquelle sera ajouté un facteur de décalage de l’horloge de cinq minutes.
 
-Notez que la valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’élément <SubjectConfirmationData> n’est pas affectée par la configuration de la durée de vie du jeton. 
+Notez que la valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’élément `<SubjectConfirmationData>` n’est pas affectée par la configuration de la durée de vie du jeton. 
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 

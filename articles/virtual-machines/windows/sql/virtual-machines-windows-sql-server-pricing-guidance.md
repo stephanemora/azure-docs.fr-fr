@@ -1,10 +1,9 @@
 ---
-title: Optimiser les coûts pour SQL Server sur les machines virtuelles Azure | Microsoft Docs
+title: Aide sur les prix et gestion des coûts
 description: Fournit des meilleures pratiques pour choisir le bon modèle de tarification de machine virtuelle SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028628"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038872"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Aide sur les prix pour les machines virtuelles SQL Server Azure
 
 Cet article fournit des informations de tarification pour les [machines virtuelles SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) dans Azure. Plusieurs facteurs ont un impact sur le coût, et il est important de choisir le bon équilibre entre les coûts et les besoins de l’entreprise.
 

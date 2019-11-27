@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821772"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132422"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -64,6 +64,7 @@ Vous pouvez configurer les bases de données SQL Azure et les bases de données 
 | Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :------------------- | ----- | ----- |
 | [Métriques de base](#basic-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | OUI | Non |
+| [Métriques avancées d’instance et d’application](#advanced-metrics) :  contient la taille du fichier journal et des données de la base de données système tempdb ainsi que le pourcentage d’utilisation du fichier journal de tempdb. | OUI | Non |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | OUI | OUI |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes (ce que vos requêtes ont attendu) comme CPU, LOG et LOCKING. | OUI | OUI |
 | [Erreurs](#errors-dataset) : contient des informations sur les erreurs SQL au niveau d’une base de données. | OUI | OUI |
@@ -428,6 +429,16 @@ Pour plus d’informations sur les métriques de base par ressource, consultez l
 |**Ressource**|**Métriques**|
 |---|---|
 |Base de données Azure SQL|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
+
+## <a name="advanced-metrics"></a>Métriques avancées
+
+Consultez le tableau suivant pour obtenir des détails sur les métriques avancées.
+
+|**Mesure**|**Nom d’affichage de la métrique**|**Description**|
+|---|---|---|
+|tempdb_data_size| Taille du fichier de données tempdb en kilo-octets |Taille du fichier de données tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
+|tempdb_log_size| Taille du fichier journal de tempdb en kilo-octets |Taille du fichier journal de tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
+|tempdb_log_used_percent| Pourcentage d’utilisation du journal tempdb |Pourcentage d’utilisation du journal tempdb. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
 
 ## <a name="basic-logs"></a>Journaux de base
 

@@ -1,5 +1,5 @@
 ---
-title: Description des rôles et des autorisations des administrateurs - Azure Active Directory | Microsoft Docs
+title: Description des rôles et des autorisations des administrateurs - Azure AD | Microsoft Docs
 description: Le rôle de l’administrateur peut servir à ajouter des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 11/06/2019
+ms.date: 11/12/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e4fe4c06833302ac3ef9794981ee4a47fa454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5a53f2a0e5927a75c4d22ada5837da26bd8deeda
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747773"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028286"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 

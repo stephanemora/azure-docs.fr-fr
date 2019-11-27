@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 5a95350b8ac846f6db5288d1328d049f3e1c1aa8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608601"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123878"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
 
@@ -20,7 +20,7 @@ Faites des économies avec Azure Database pour PostgreSQL en utilisant le prépa
 Vous n’avez pas besoin d’attribuer la réservation à des serveurs Azure Database pour PostgreSQL spécifiques. Un serveur Azure Database pour PostgreSQL déjà en cours d’exécution ou plusieurs récemment déployés, bénéficient automatiquement du tarif réservé. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an. Dès que vous achetez une réservation, les charges de calcul Azure Database pour PostgreSQL qui correspondent aux attributs de la réservation ne sont plus facturées au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL. À l’issue de la période de réservation, la remise sur facturation expire et les serveurs Azure Database pour PostgreSQL sont facturés au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve Azure Database pour PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> La tarification de la capacité de réserve est disponible uniquement pour le déploiement d’un [serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) Azure Database pour PostgreSQL et non pour le déploiement [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus-preview).
+> La tarification de la capacité de réserve est disponible uniquement pour le déploiement d’un [serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) Azure Database pour PostgreSQL et non pour le déploiement [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus).
 
 Vous pouvez acheter une capacité de réserve Azure Database pour PostgreSQL sur le [Portail Azure](https://portal.azure.com/). Pour acheter une capacité de réserve :
 
@@ -35,7 +35,7 @@ Plus en savoir plus sur la facturation des achats de réservation pour les clien
 
 La taille de la réservation doit s’appuyer sur le nombre total de calculs utilisés par les serveurs existants ou sur le point d’être déployés dans une région spécifique et utilisant le même niveau de performance et la même génération de matériel.</br>
 
-Par exemple, supposons que vous exécutez un usage général ; une base de données PostgreSQL de 32 vCore Gen5 et deux bases de données PostgreSQL 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois suivant un usage général supplémentaire ; un pool élastique de 32 vCore Gen5, et un serveur de base de données élastique de 16 vCore Gen5 à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
+Par exemple, supposons que vous exécutez un usage général ; une base de données PostgreSQL de 32 vCore Gen5 et deux bases de données PostgreSQL 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois prochain un autre serveur de base de données Gen5 32 vCore à usage général et un serveur de base de données Gen5 16 vCore à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acheter une capacité de réserve Azure Database pour PostgreSQL
@@ -80,7 +80,7 @@ Pour savoir comment gérer la capacité réservée d’Azure Database pour Postg
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-* [Qu’est-ce qu’une réservation Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ?
+* [Qu’est-ce que des réservations Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ?
 * [Gérer les réservations Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Comprendre la remise sur réservation Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)

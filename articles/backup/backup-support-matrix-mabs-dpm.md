@@ -1,5 +1,5 @@
 ---
-title: Tableau de prise en charge pour le serveur de sauvegarde Microsoft Azure et System Center DPM
+title: Matrice de prise en charge pour le serveur de sauvegarde Microsoft Azure et System Center DPM
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous utilisez un serveur de sauvegarde Microsoft Azure ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981079"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012792"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -30,7 +30,7 @@ MABS est basé sur System Center DPM et fournit des fonctionnalités similaires,
 - Azure fournit un stockage de sauvegarde à long terme pour MABS et DPM. DPM vous permet aussi de sauvegarder des données sur bande pour le stockage à long terme. MABS n’offre pas cette fonctionnalité.
 - Vous pouvez sauvegarder un serveur DPM principal à l’aide d’un serveur DPM secondaire. Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
 
-Vous pouvez télécharger MABS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Il peut être exécuté localement ou sur une machine virtuelle Azure.
+Vous pouvez télécharger MABS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Il peut être exécuté localement ou sur une machine virtuelle Azure.
 
 DPM et MABS prennent en charge la sauvegarde d’un large éventail d’applications et de systèmes d’exploitation (serveur et clients). Ils proposent plusieurs scénarios de sauvegarde :
 

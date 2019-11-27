@@ -1,5 +1,5 @@
 ---
-title: Visualisation en temps réel de données de capteur à partir de votre hub Azure IoT dans une application web | Microsoft Docs
+title: Visualisation en temps réel de données IoT Hub dans une application web
 description: Utilisez une application web pour voir les données de température et d’humidité qui sont collectées par un capteur et envoyées à votre hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 22b15a95e529d4f09560e9b7e59d9f78f70651bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476006"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954649"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 

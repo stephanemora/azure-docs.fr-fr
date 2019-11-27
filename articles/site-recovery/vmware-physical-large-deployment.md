@@ -1,18 +1,18 @@
 ---
-title: Configurer la récupération d’urgence sur Azure de grands nombres de machines virtuelles VMware ou de serveurs physiques avec Azure Site Recovery | Microsoft Docs
+title: Mettre à l’échelle la récupération d'urgence de machines virtuelles physiques et VMware avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence sur Azure de grands nombres de machines virtuelles VMware ou de serveurs physiques locaux avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782653"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082221"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 

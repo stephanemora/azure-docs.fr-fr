@@ -1,5 +1,6 @@
 ---
-title: Journalisation dans les applications Microsoft Authentication Library (MSAL) | Azure
+title: Journalisation dans les applications Microsoft Authentication Library (MSAL)
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur la journalisation dans les applications Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678034"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902902"
 ---
 # <a name="logging-in-msal-applications"></a>Journalisation dans les applications MSAL
 
@@ -116,14 +117,15 @@ Pour désactiver la journalisation des données personnelles et organisationnell
 Logger.getInstance().setEnablePII(false);
 ```
 
-Par défaut, la journalisation dans logcat est désactivée. Pour activer : 
+Par défaut, la journalisation dans logcat est désactivée. Pour activer :
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>Journalisation dans MSAL.js
 
- Activez la journalisation dans MSAL.js en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
+ Activez la journalisation dans MSAL.js (Javascript) en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
 
 - `localCallback` : une instance de rappel qui peut être fournie par le développeur pour consommer et publier des journaux de manière personnalisée. Implémentez la méthode localCallback en fonction de la façon dont vous souhaitez rediriger les journaux.
 - `level` (facultatif) : le niveau de journalisation configurable. Les niveaux de journalisation pris en charge sont les suivants : `Error`, `Warning`, `Info` et `Verbose`. Par défaut, il s’agit de `Info`.
@@ -137,7 +139,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “<Enter your client id>”,
+        clientId: "<Enter your client id>",
     },
      system: {
              logger: new Msal.Logger(
@@ -201,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>Informations d’identification personnelle (PII)
+### <a name="personal-data"></a>Données à caractère personnel
 
-Par défaut, MSAL ne capture ou n’enregistre aucune information d'identification personnelle. La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une propriété de la classe MSALLogger. Lorsque vous activez la journalisation des informations d’identification personnelle, l’application devient responsable de la gestion des données hautement sensibles et du suivi des exigences réglementaires.
+Par défaut, MSAL ne capture et n’enregistre aucune information d’identification personnelle (PII). La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une propriété de la classe MSALLogger. Lorsque vous activez `pii.Enabled`, l’application devient responsable de la gestion de façon sécurisé des données hautement sensibles et du suivi des exigences réglementaires.
 
 Objective-C
 ```objc
@@ -237,7 +239,7 @@ Pour définir le niveau de journalisation lorsque vous utilisez MSAL pour iOS et
 | `MSALLogLevelError` | Niveau par défaut, affiche uniquement les informations lorsque des erreurs se produisent |
 | `MSALLogLevelWarning` | Avertissements |
 | `MSALLogLevelInfo` |  Points d’entrée de bibliothèque, avec paramètres et diverses opérations de trousseau |
-|`MSALLogLevelVerbose`     |  Suivi API       |
+|`MSALLogLevelVerbose`     |  Suivi API |
 
 Par exemple :
 
@@ -260,3 +262,51 @@ Par exemple :
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Les ID de corrélation et les timestamps facilitent le suivi des problèmes. Les informations de timestamp et d’ID de corrélation sont disponibles dans le message de journal. Seuls les messages de journalisation MSAL permettent de les récupérer de manière fiable.
+
+## <a name="logging-in-msal-for-java"></a>Journalisation dans MSAL pour Java
+
+MSAL pour Java (MSAL4J) vous permet d’utiliser la bibliothèque de journalisation que vous utilisez déjà avec votre application, à condition qu’elle soit compatible avec SLF4J. MSAL4j utilise la [façade de journalisation simple pour Java](http://www.slf4j.org/) (SLF4J) comme façade ou abstraction simple pour différents frameworks de journalisation, tels que [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) et [log4j](https://logging.apache.org/log4j/2.x/). SLF4J permet à l’utilisateur final de brancher le framework de journalisation souhaité au moment du déploiement.
+
+Par exemple, pour utiliser Logback comme framework de journalisation dans votre application, ajoutez la dépendance Logback au fichier pom Maven pour votre application :
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Ajoutez ensuite le fichier de configuration Logback :
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J est automatiquement lié à Logback au moment du déploiement. Les journaux MSAL seront écrits dans la console.
+
+Pour obtenir des instructions sur la liaison à d’autres frameworks de journalisation, consultez le [Manuel SLF4J](http://www.slf4j.org/manual.html).
+
+### <a name="personal-and-organization-information"></a>Informations personnelles et propres à l’organisation
+
+Par défaut, la journalisation MSAL ne capture et ne consigne dans un journal aucune donnée personnelle ou propres à une organisation. Dans l’exemple suivant, la journalisation des données personnelles ou organisationnelles est désactivée par défaut :
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Activez la journalisation des données personnelles et organisationnelles en définissant `logPii()` sur le générateur d’applications clientes. Si vous activez la journalisation des informations d’identification personnelles ou propres à l’organisation, votre application doit garantir la gestion de façon sécurisée des données hautement sensibles, et respecter les exigences réglementaires.
+
+Dans l’exemple suivant, la journalisation des informations d’identification personnelles ou organisationnelles est activée :
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

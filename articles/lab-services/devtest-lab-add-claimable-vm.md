@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311782"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123700"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Créer et gérer des machines virtuelles revendicables dans un laboratoire dans Azure DevTest Labs
 Vous ajoutez une machine virtuelle exigible à un laboratoire comme vous [ajouteriez une machine virtuelle standard](devtest-lab-add-vm.md), à partir d’une *base* qui est une [image personnalisée](devtest-lab-create-template.md), une [formule](devtest-lab-manage-formulas.md) ou une [image de la plateforme Place de marché](devtest-lab-configure-marketplace-images.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle revendicable à un laboratoire dans DevTest Labs, et vous présente la procédure qu’un utilisateur suit pour revendiquer ou cesser de revendiquer la machine virtuelle.
@@ -72,7 +72,7 @@ Un utilisateur peut revendiquer toute machine virtuelle dans la liste des « Mac
   ![Demandez n’importe quelle machine virtuelle exigible.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Une fois que l’utilisateur revendique une machine virtuelle, cette dernière est placée dans la liste « Mes machines virtuelles » et n’est plus exigible par un autre utilisateur.
+Après qu'un utilisateur revendique une machine virtuelle, DevTest Labs démarre la machine et la déplace vers le haut dans la liste des utilisateurs du laboratoire « Mes machines virtuelles ». Cela signifie que l'utilisateur du laboratoire aura désormais des privilèges de propriétaire sur cette machine. Le temps requis pour cette étape peut varier selon le temps de démarrage et toute autre action personnalisée effectuée pendant l'événement de revendication. Une fois revendiquée, la machine n'est plus disponible dans le pool revendicable.  
 
 ## <a name="unclaim-a-vm"></a>Cesser de revendiquer une machine virtuelle
 
@@ -86,7 +86,7 @@ Quand un utilisateur a fini d’utiliser une machine virtuelle revendiquée qu�
 
   ![Cessez de revendiquer un machine virtuelle dans le volet de gestion de celle-ci.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Quand un utilisateur cesse de revendiquer une machine virtuelle, il perd toute autorisation sur cette machine virtuelle de laboratoire.
+Lorsqu'un utilisateur cesse de revendiquer une machine virtuelle, il n'a plus de droits de propriété pour cette machine virtuelle de laboratoire spécifique, et celle-ci peut être revendiquée par tout autre utilisateur du laboratoire dans l'état où elle a été replacée dans le pool. 
 
 ### <a name="transferring-the-data-disk"></a>Transfert du disque de données
 Si un utilisateur cesse de revendiquer une machine virtuelle revendicable disposant d’un disque de données attaché, celui-ci reste avec la machine virtuelle. Ensuite, quand un autre utilisateur revendique cette machine virtuelle, il revendique également le disque de données.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327314"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928971"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Agrégation d’événements Azure Security Center pour IoT
 
@@ -44,7 +44,7 @@ Pour réduire l’empreinte mémoire de l’agent, chaque fois que l’agent col
 
 Les événements sont considérés comme identiques uniquement lorsque les conditions suivantes sont remplies : 
 
-* Événements ProcessCreate : quand **commandLine**, **executable**, **username et **userid** sont identiques
+* Événements ProcessCreate : quand **commandLine**, **executable**, **username** et **userid** sont identiques
 * Événements ConnectionCreate : quand **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol et **destination port** sont identiques
 * Événements ProcessTerminate : quand **executable** et **exit status** sont identiques
 

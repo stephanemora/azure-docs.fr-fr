@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685469"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049130"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
 Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
@@ -60,7 +60,7 @@ Vous pouvez envisager une distribution par tourniquet des données de votre tabl
 
 - lors de la mise en route sous forme de point de départ simple, puisqu’il s’agit de l’option par défaut ;
 - s’il n’existe aucune clé de jointure évidente ;
-- s’il n’existe aucune colonne adaptée à la distribution par hachage de la table ;
+- s’il n’existe aucune colonne adaptée à la distribution par hachage de la table ;
 - si la table ne partage aucune clé de jointure avec d’autres tables ;
 - si la jointure est moins importante que d’autres dans la requête ;
 - lorsque la table est une table temporaire intermédiaire ;

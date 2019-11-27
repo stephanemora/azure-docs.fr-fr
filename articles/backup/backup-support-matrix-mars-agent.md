@@ -1,5 +1,5 @@
 ---
-title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services (MARS)
+title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210133"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090548"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -21,9 +21,13 @@ Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauv
 ## <a name="the-mars-agent"></a>Agent MARS
 
 Sauvegarde Azure utilise l’agent MARS pour sauvegarder les données de machines locales et de machines virtuelles Azure dans un coffre Recovery Services de sauvegarde sur Azure. L’agent MARS peut :
+
 - Être exécuté sur des machines Windows locales pour les sauvegarder directement dans un coffre Recovery Services de sauvegarde sur Azure.
 - Être exécuté sur des machines virtuelles Windows pour les sauvegarder directement dans un coffre.
 - Être exécuté sur un serveur de sauvegarde Microsoft Azure (MABS) ou sur un serveur System Center Data Protection Manager (DPM). Dans ce scénario, les machines et les charges de travail sont sauvegardées vers MABS ou vers le serveur DPM. L’agent MARS sauvegarde ensuite ce serveur dans un coffre sur Azure.
+
+> [!NOTE]
+>La Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge pour le passage à l’heure d’été. Modifiez la stratégie pour vous assurer que l’heure d’été est prise en compte afin d’éviter les différences entre l’heure réelle et l’heure de sauvegarde planifiée.
 
 Vos options de sauvegarde varient en fonction de l’agent installé. Pour plus d’informations, consultez [Architecture de Sauvegarde Azure avec l’agent MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Pour plus d’informations sur l’architecture de sauvegarde de serveur de sauvegarde Azure et DPM, consultez [Sauvegarder dans DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consultez également les [exigences](backup-support-matrix-mabs-dpm.md) applicables à l’architecture de sauvegarde.
 
@@ -36,7 +40,6 @@ Installer sur un serveur de sauvegarde | Quand vous configurez DPM ou MABS pour 
 > [!NOTE]
 > L’extension Sauvegarde Azure est installée par défaut sur les machines virtuelles Azure activées pour la sauvegarde. Cette extension sauvegarde la totalité de la machine virtuelle. Si vous souhaitez plutôt sauvegarder des dossiers et des fichiers spécifiques, vous pouvez installer et exécuter l’agent MARS sur une machine virtuelle Azure aux côtés de l’extension.
 > Quand vous exécutez l’agent MARS sur une machine virtuelle Azure, celui-ci sauvegarde les fichiers ou dossiers situés dans le stockage temporaire de la machine virtuelle. La sauvegarde échoue si des fichiers ou des dossiers sont supprimés du stockage temporaire ou si ce dernier est supprimé.
-
 
 ## <a name="cache-folder-support"></a>Prise en charge du dossier de cache
 
@@ -55,7 +58,7 @@ Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en a
 
 L’agent MARS doit avoir accès à ces URL :
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.MicrosoftAzure.com
 - *.MicrosoftOnline.com
@@ -70,6 +73,9 @@ Limitation du réseau | Non disponible pour les machines sauvegardées qui exéc
 
 ## <a name="support-for-direct-backups"></a>Prise en charge des sauvegardes directes
 
+>[!NOTE]
+> L’agent MARS ne prend pas en charge les références SKU Windows Server Core.
+
 Vous pouvez utiliser l’agent MARS pour sauvegarder directement sur Azure, sur certains systèmes d’exploitation qui s’exécutent sur des machines locales et sur des machines virtuelles Azure. Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 bits et doivent utiliser les derniers Service Packs et les dernières mises à jour. Ces systèmes d’exploitation sont décrits dans le tableau suivant :
 
 **Système d’exploitation** | **Fichiers/dossiers** | **État du système** | **Configuration requise concernant les logiciels et les modules**
@@ -79,15 +85,14 @@ Windows 8.1 (Entreprise, Professionnel)| OUI |Non | Vérifier la version serveu
 Windows 8 (Entreprise, Professionnel) | OUI | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows 7 (Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium/Basique, Édition Starter) | OUI | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows Server 2016 (Standard, Datacenter, Essentials) | OUI | OUI | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | OUI | OUI | - .NET 4.5 <br> -   Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 (Standard, Datacenter, Foundation) | OUI | OUI |- .NET 4.5 <br> -   Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | OUI | OUI | - .NET 3.5, .Net 4.5 <br> - Windows PowerShell <br> - Package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | OUI | OUI | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | OUI | OUI |- .NET 4.5 <br> \- Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | OUI | OUI | - .NET 3.5, .Net 4.5 <br> \- Windows PowerShell <br> - Package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | OUI | Non | - .NET 3.5, .Net 4.5 <br> - Windows PowerShell <br> - Package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Base Virtual Server 2005 +  KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | OUI | Non | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | OUI | OUI | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 
 Pour plus d’informations, consultez [Systèmes d’exploitation pris en charge pour MABS et DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
-
 
 ## <a name="backup-limits"></a>Limites Azure Backup
 
@@ -95,38 +100,37 @@ Sauvegarde Azure limite la taille des sources de données (fichier ou dossier) p
 
 **Système d’exploitation** | **Limite de taille**
 --- | ---
-Windows Server 2012 ou version ultérieure |  54 400 Go
-Windows Server 2008 R2 SP1 |    1 700 Go
-Windows Server 2008 SP2 | 1 700 Go
-Windows 8 ou version ultérieure  | 54 400 Go
-Windows 7   | 1 700 Go
-
+Windows Server 2012 ou version ultérieure |54 400 Go
+Windows Server 2008 R2 SP1 |1 700 Go
+Windows Server 2008 SP2| 1 700 Go
+Windows 8 ou version ultérieure| 54 400 Go
+Windows 7| 1 700 Go
 
 ## <a name="supported-file-types-for-backup"></a>Types de fichiers pris en charge pour la sauvegarde
 
 **Type** | **Support**
 --- | ---
-Chiffré   | Pris en charge.
+Chiffré| Pris en charge.
 Compressé | Pris en charge.
 Partiellement alloué | Pris en charge.
-Compressé et partiellement alloué | Pris en charge.
-Liens physiques  | Non pris en charge. Ignoré.
-Point d’analyse   | Non pris en charge. Ignoré.
-Chiffré et partiellement alloué |  Non pris en charge. Ignoré.
-Flux compressé   | Non pris en charge. Ignoré.
-Flux partiellement alloué   | Non pris en charge. Ignoré.
-OneDrive (les fichiers synchronisés sont des flux partiellement alloués)  | Non pris en charge.
+Compressé et partiellement alloué |Pris en charge.
+Liens physiques| Non pris en charge. Ignoré.
+Point d’analyse| Non pris en charge. Ignoré.
+Chiffré et partiellement alloué |Non pris en charge. Ignoré.
+Flux compressé| Non pris en charge. Ignoré.
+Flux partiellement alloué| Non pris en charge. Ignoré.
+OneDrive (les fichiers synchronisés sont des flux partiellement alloués)| Non pris en charge.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Lecteurs ou volumes pris en charge pour la sauvegarde
 
 **Lecteur/volume** | **Support** | **Détails**
 --- | --- | ---
-Volumes en lecture seule   | Non pris en charge | Volume Copy Shadow Service (VSS) ne fonctionne que si le volume est accessible en écriture.
-Volumes hors connexion | Non pris en charge |   VSS ne fonctionne que si le volume est en ligne.
-Partage réseau   | Non pris en charge |   Le volume doit être local sur le serveur.
-Volumes protégés par BitLocker | Non pris en charge |   Le volume doit être déverrouillé pour que la sauvegarde démarre.
-Identification du système de fichiers  | Non pris en charge |   Seul le système NTFS est pris en charge.
-Médias amovibles | Non pris en charge |   Toutes les sources d’éléments de sauvegarde doivent avoir un état *fixe*.
+Volumes en lecture seule| Non pris en charge | Volume Copy Shadow Service (VSS) ne fonctionne que si le volume est accessible en écriture.
+Volumes hors connexion| Non pris en charge |VSS ne fonctionne que si le volume est en ligne.
+Partage réseau| Non pris en charge |Le volume doit être local sur le serveur.
+Volumes protégés par BitLocker| Non pris en charge |Le volume doit être déverrouillé pour que la sauvegarde démarre.
+Identification du système de fichiers| Non pris en charge |Seul le système NTFS est pris en charge.
+Médias amovibles| Non pris en charge |Toutes les sources d’éléments de sauvegarde doivent avoir un état *fixe*.
 Lecteurs dédupliqués | Pris en charge | Sauvegarde Azure convertit les données dédupliquées en données normales. Le service optimise les données, les chiffre, les stocke et les envoie au coffre.
 
 ## <a name="support-for-initial-offline-backup"></a>Prise en charge de la sauvegarde hors connexion initiale
@@ -145,5 +149,6 @@ La sauvegarde hors connexion ne peut pas être utilisée pour les fichiers d’�
 Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Vous pouvez par exemple restaurer une sauvegarde effectuée à partir d’un ordinateur Windows 7 sur Windows 8 ou version ultérieure. Mais les sauvegardes effectuées à partir d’un ordinateur qui exécute Windows 8 ne peuvent pas être restaurées sur les ordinateurs qui exécutent Windows 7.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - En savoir plus sur l’[architecture de sauvegarde avec l’agent MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Découvrez ce qui est pris en charge lorsque vous [exécutez l’agent MARS sur le serveur de sauvegarde AZURE ou sur un serveur DPM](backup-support-matrix-mabs-dpm.md).

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686989"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891046"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -43,7 +43,7 @@ Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez vo
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si j’achète un circuit ExpressRoute présentant une bande passante donnée, puis-je augmenter sa vitesse en cas de nécessité ?
 
-Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu’à deux fois la limite de la bande passante obtenue sans frais supplémentaire. Consultez votre fournisseur de services pour savoir si cette capacité est prise en charge. Ça n’est pas valable pour une période prolongée et n’est pas garanti. 
+Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu’à deux fois la limite de la bande passante obtenue sans frais supplémentaire. Consultez votre fournisseur de services pour savoir si cette capacité est prise en charge. Ça n’est pas valable pour une période prolongée et n’est pas garanti.  Si le trafic transite par une passerelle ExpressRoute, la bande passante de la référence est fixe et non modulable.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 
@@ -66,6 +66,7 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI.
 * Azure Active Directory
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>**Les services suivants ne sont pas pris en charge** :
     * CDN
@@ -87,12 +88,20 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
     * Serveur Multi-Factor Authentication (hérité)
     * Traffic Manager
 
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Pourquoi l’état « Préfixes publics publiés » est-il « Validation requise » lors de la configuration du peering Microsoft ?
+
+Microsoft vérifie si les « préfixes publics publiés » et « ASN pairs » (ou « ASN client ») spécifiés vous sont attribués dans le registre de routage Internet. Si vous obtenez les préfixes publics d’une autre entité et si l’affectation n’est pas enregistrée avec le registre de routage, la validation automatique ne se termine pas et nécessite une validation manuelle. Si la validation automatique échoue, le message « Validation nécessaire » s’affiche.
+
+Si vous voyez le message « Validation nécessaire », collectez le ou les documents qui affichent les préfixes publics qui sont attribués à votre organisation par l’entité répertoriée comme propriétaire des préfixes dans le registre de routage et soumettez ces documents pour validation manuelle en ouvrant un ticket de support comme indiqué ci-dessous.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Dynamics 365 est-il pris en charge dans ExpressRoute ?
 
 Les environnements Dynamics 365 et Common Data Service (CDS) sont hébergés dans Azure. Par conséquent, les clients bénéficient de la prise en charge ExpressRoute sous-jacente des ressources Azure. Vous pouvez vous connecter à ses points de terminaison de service si votre filtre de routeur contient les régions Azure où sont hébergés les environnements Dynamics 365/CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) n’est **pas** requis pour la connectivité de Dynamics 365 via Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) n’est **pas** requis pour la connectivité de Dynamics 365 via Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Données et connexions
 
@@ -303,7 +312,7 @@ Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit Expres
 
 ## <a name="expressroute-local"></a>Emplacements ExpressRoute Local
 ### <a name="what-is-expressroute-local"></a>Présentation d’ExpressRoute Local
-ExpressRoute Local est une référence SKU de circuit ExpressRoute disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md). Une fonctionnalité clé de Local est qu’un circuit Local à un emplacement de peering ExpressRoute vous donne accès uniquement à une ou deux régions Azure au sein ou à proximité du même metro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique, et un circuit Premium à toutes les régions Azure du monde. 
+ExpressRoute Local est une référence SKU du circuit ExpressRoute, en plus des références SKU Standard et Premium. Une fonctionnalité clé de Local est qu’un circuit Local à un emplacement de peering ExpressRoute vous donne accès uniquement à une ou deux régions Azure au sein ou à proximité du même metro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique, et un circuit Premium à toutes les régions Azure du monde. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages d’ExpressRoute Local ?
 Alors que vous devez payer le transfert de données de sortie pour votre circuit ExpressRoute Standard ou Premium, vous ne payez pas de transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix d’ExpressRoute Local inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer, et vous pouvez faire amener vos données à un emplacement de peering ExpressRoute proche de vos régions Azure souhaitées via une connexion privée. 
@@ -314,9 +323,6 @@ Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ens
 * ExpressRoute Global Reach n’est pas disponible sur Local
 
 ExpressRoute Local a les mêmes limites de ressources (par exemple, le nombre de réseaux virtuels par circuit) que Standard. 
-
-### <a name="how-to-configure-expressroute-local"></a>Comment configurer ExpressRoute Local ? 
-ExpressRoute Local est disponible uniquement sur ExpressRoute Direct. Vous devez donc tout d’abord configurer votre port ExpressRoute Direct. Une fois que votre port Direct est créé, vous pouvez créer un circuit Local en suivant les instructions données [ici](expressroute-howto-erdirect.md).
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Où ExpressRoute Local est-il disponible et à quelles régions Azure chaque emplacement de peering est-il mappé ?
 ExpressRoute Local est disponible aux emplacements de peering proches d’une ou de deux régions Azure. Il n’est pas disponible à un emplacement de peering situé dans un état, une province ou un pays où il n’y a pas de région Azure. Consultez les mappages exacts à [la page Emplacements](expressroute-locations-providers.md).  

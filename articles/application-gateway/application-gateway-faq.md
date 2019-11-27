@@ -7,13 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470078"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130574"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -290,10 +289,6 @@ Non, utilisez uniquement des caractères alphanumériques dans le mot de passe d
 
 Oui. Le pare-feu d’applications web prend en charge toutes les fonctionnalités de la référence Standard.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>Quelles sont les versions CRS prises en charge par Application Gateway ?
-
-Application Gateway prend en charge CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) et CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
-
 ### <a name="how-do-i-monitor-waf"></a>Comment puis-je surveiller le pare-feu d’application web ?
 
 Surveillez le pare-feu d'applications web via la journalisation des diagnostics. Pour plus d'informations, consultez [Journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
@@ -308,7 +303,7 @@ Oui. Pour plus d’informations, consultez [Personnaliser les règles et groupes
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>Quelles sont les règles actuellement disponibles pour WAF ?
 
-WAF prend actuellement en charge CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) et [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). Ces règles constituent un rempart contre la plupart des 10 principales vulnérabilités identifiées par l'OWASP (Open Web Application Security Project) : 
+WAF prend actuellement en charge CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30) et [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Ces règles constituent un rempart contre la plupart des 10 principales vulnérabilités identifiées par l'OWASP (Open Web Application Security Project) : 
 
 * Protection contre les injections de code SQL
 * Protection contre les scripts intersites

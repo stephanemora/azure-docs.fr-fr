@@ -1,18 +1,18 @@
 ---
 title: Nouveautés d’Azure Site Recovery
-description: Fournit un récapitulatif des nouvelles fonctionnalités introduites dans Azure Site Recovery
+description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383557"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091702"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -20,11 +20,60 @@ Le service [Azure Site Recovery](site-recovery-overview.md) fait l’objet de mi
 
 Vous pouvez suivre et vous abonner aux notifications de mise à jour Site Recovery dans le canal [Mises à jour Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 
+
+
+## <a name="supported-updates"></a>Mises à jour prises en charge
+
+Pour les composants Site Recovery, nous prenons en charge les versions N-4, où N correspond à la dernière version publiée. Celles-ci sont récapitulées dans le tableau ci-dessous.
+
+**Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
+--- | --- | --- | --- | --- | ---
+[Cumul 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
+[Cumul 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
+[Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+        
+
+[En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
+
+
+## <a name="updates-november-2019"></a>Mises à jour (novembre 2019)
+
+### <a name="update-rollup-42"></a>Correctif cumulatif 42
+
+La [mise à jour Cumul 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif)
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
+
+
+## <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité des machines virtuelles Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**UEFI** | Site Recovery prend désormais en charge la récupération d’urgence pour les machines virtuelles Azure avec une architecture de démarrage UEFI.
+**Linux** | Site Recovery prend désormais en charge les machines virtuelles Azure exécutant Linux avec Azure Disk Encryption (ADE).
+**Génération 2** | Toutes les machines virtuelles Azure de 2e génération sont désormais prises en charge pour la récupération d’urgence.
+**Régions** | Vous pouvez maintenant activer la récupération d’urgence pour les machines virtuelles Azure dans la zone de géolocalisation norvégienne.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Récupération d’urgence VMware vers Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité VMware vers Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**UEFI** | Site Recovery prend désormais en charge la récupération d’urgence pour les machines virtuelles VMware avec une architecture de démarrage UEFI.<br/><br/> Les systèmes d’exploitation pris en charge incluent Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, SLES 12 SP4 et RHEL 8.
+
 ## <a name="update-to-servicing-stack-updatesha-2"></a>Mise à jour vers la mise à jour de la pile de maintenance/SHA-2
 
 Pour la récupération d’urgence de machines virtuelles Azure vers une région secondaire ou la récupération d'urgence de machines virtuelles VMware locales ou des serveurs physiques vers Azure, notez les points suivants :
 
-- À partir de la version 9.30.x.x (attendue en novembre 2019) de l’extension du service Mobility (pour les machines virtuelles Azure) et de l’agent du service Mobility (pour VMware/ordinateurs physiques), certains systèmes d’exploitation d’ordinateur doivent exécuter la mise à jour de la pile de maintenance et SHA-2. Les détails sont indiqués dans le tableau ci-dessous.
+- À partir de la version 9.30.5407.1. de l’extension du service Mobility (pour les machines virtuelles Azure) et de l’agent du service Mobility (pour VMware/ordinateurs physiques), certains systèmes d’exploitation d’ordinateur doivent exécuter la mise à jour de la pile de maintenance et SHA-2. Les détails sont indiqués dans le tableau ci-dessous.
 - Installez la mise à jour et l’algorithme SHA-2 conformément à la base de connaissances liée. SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu.
 - En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
 
@@ -35,27 +84,43 @@ Pour la récupération d’urgence de machines virtuelles Azure vers une région
 **Windows 7 SP1** | [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
 
 
-## <a name="supported-updates"></a>Mises à jour prises en charge
 
-Pour les composants Site Recovery, nous prenons en charge les versions N-4, où N correspond à la dernière version publiée. Celles-ci sont récapitulées dans le tableau ci-dessous.
+## <a name="updates-october-2019"></a>Mises à jour (octobre 2019)
 
-**Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
---- | --- | --- | --- | --- | ---
-[Rollup 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
-[Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
-[Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[Correctif cumulatif 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-        
+### <a name="update-rollup-41"></a>Correctif cumulatif 41
 
-[En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
+Le [correctif cumulatif 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif)
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité des machines virtuelles Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**Paramètres de basculement de test** | Lors de la configuration d’un basculement de test, vous pouvez maintenant configurer les paramètres de la machine virtuelle et du réseau de basculement de test, y compris l’adresse IP, le groupe de sécurité réseau, l’équilibre de charge interne et l’adresse IP publique pour chaque carte réseau. Ces paramètres sont facultatifs et ne modifient pas le comportement actuel. Si vous ne configurez pas ces paramètres, vous pouvez choisir un réseau virtuel Azure au moment du test de basculement. [Plus d’informations](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/)
+**Plans de récupération** | Les plans de récupération sont désormais limités à 100 machines virtuelles afin de garantir la fiabilité du basculement.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Récupération d’urgence VMware vers Azure
+
+Les nouvelles fonctionnalités de la reprise d’activité VMware vers Azure sont résumées dans le tableau.
+
+**Fonctionnalité** | **Détails**
+--- | ---
+**Plans de récupération** | Les plans de récupération sont désormais limités à 100 machines virtuelles afin de garantir la fiabilité du basculement.
 
 
 ## <a name="updates-september-2019"></a>Mises à jour (septembre 2019)
 
 ### <a name="update-rollup-40"></a>Mise à jour Rollup 40
 
-La [mise à jour Rollup 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fournit les mises à jour suivantes.
+La [mise à jour Rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fournit les mises à jour suivantes.
 
 **Mettre à jour** | **Détails**
 --- | ---

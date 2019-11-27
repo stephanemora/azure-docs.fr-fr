@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1ddb947e9bcbdde655b5c83cffb67e8fc13d9d0e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941846"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048676"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -30,7 +30,9 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 ## <a name="create-a-device-template"></a>Créer un modèle d’appareil
 
-Dans votre application Azure IoT Central, vous avez besoin d’un modèle d’appareil avec les mesures, les propriétés d’appareil, les paramètres et les commandes suivantes :
+Dans votre application Azure IoT Central, il vous faut un modèle d’appareil comportant les mesures, les propriétés d’appareil, les paramètres et les commandes suivants.
+
+Pour plus d’informations sur les noms de propriété valides, voir [Format des balises et des propriétés](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
 

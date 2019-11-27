@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ef9b55dd17a6f1d190282f369ccb8b9386e65d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 34548b623317eff17bcbf5a7749cd411a44bd722
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324277"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935860"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -108,7 +108,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `hasgroups` | Boolean | Le cas échéant, toujours `true`, ce qui indique que l’utilisateur appartient à au moins un groupe. Utilisé à la place de la revendication `groups` pour JWT dans les flux d’octroi implicites si la revendication des groupes complets étend le fragment URI au-delà des limites de longueur d’URL (actuellement, 6 groupes ou plus). Indique que le client doit utiliser Graph pour déterminer les groupes de l’utilisateur (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objet JSON | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour les jetons JWT en tant que revendication distribuée, pour SAML en tant que nouvelle revendication à la place de la revendication `groups`. <br><br>**Exemple de valeur JWT** : <br> `"groups":"src1"` <br> `"_claim_sources` : `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `sub` | Chaîne, GUID | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné. Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. Consultez également la revendication `oid` (qui reste la même sur les applications d’un même locataire). |
-| `oid` | Chaîne, GUID | Identificateur immuable pour un objet dans la plateforme d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Ainsi, `oid` peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
+| `oid` | Chaîne, GUID | Identificateur immuable pour un objet dans la plateforme d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Ainsi, `oid` peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph. Microsoft Graph renverra cet ID en tant que propriété `id` pour un [compte d’utilisateur](/graph/api/resources/user) donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
 | `tid` | Chaîne, GUID | Représente le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `unique_name` | Chaîne | Uniquement dans les jetons v1.0. Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d’un client. Elle doit être utilisée uniquement à des fins d’affichage. |
 | `uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Les ressources ne doivent pas utiliser cette revendication. |
@@ -209,7 +209,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 Ce document de métadonnées :
 
 * Est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect.
-* Comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Le document JSON situé sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné. Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
+* Comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. La clé web JSON (JWK) située sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné.  Le format JWK est décrit dans la [RFC 7517](https://tools.ietf.org/html/rfc7517).  Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
 > [!NOTE]
 > Le point de terminaison v1.0 retourne à la fois les revendications `x5t` et `kid`, tandis que le point de terminaison v2.0 répond avec uniquement la revendication `kid`. Nous vous recommandons, à l’avenir, d’utiliser la revendication `kid` pour valider votre jeton.
@@ -264,9 +264,9 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 | [Authentification unique](v1-protocols-openid-connect-code.md#single-sign-out) sur le Web | Révoqué | Reste actif | Révoqué | Reste actif | Reste actif |
 
 > [!NOTE]
-> Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe. Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO ou un code PIN.
+> Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe. Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO2 ou un code PIN.
 >
-> Il existe un problème connu avec le jeton d’actualisation principal de Windows. Si le jeton d’actualisation principal est obtenu via un mot de passe, puis que l’utilisateur se connecte via Hello, cela ne modifie pas l’origine du jeton d’actualisation principal, et il sera révoqué si l’utilisateur modifie son mot de passe.
+> Les jetons d’actualisation principaux (PRT) sur Windows 10 sont séparés en fonction des informations d’identification. Par exemple, Windows Hello et le mot de passe ont leur PRT respectif, chacun isolé l’un de l’autre. Lorsqu’un utilisateur se connecte avec une information d’identification Hello (code confidentiel ou biométrie), puis modifie le mot de passe, le PRT basé sur le mot de passe obtenu précédemment est révoqué. La reconnexion avec un mot de passe invalide l’ancien PRT et demande un nouveau mot de passe.
 >
 > Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  
 

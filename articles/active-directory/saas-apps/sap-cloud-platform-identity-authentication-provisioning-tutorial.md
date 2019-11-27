@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f570cb6f945f403e77a36374cc9f82edb7b640c9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 266e68b2378db7148649fd4067f1da6172932367
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174536"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833850"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Didacticiel : Configurer SAP Cloud Platform Identity Authentication pour le provisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans SAP 
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* Un locataire Azure AD
+* un locataire Azure AD ;
 * [Un locataire SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/pricing.html)
 * Un compte d’utilisateur dans SAP Cloud Platform Identity Authentication disposant d’autorisations d’administrateur
 
@@ -150,6 +150,10 @@ Cette section vous guide tout au long des étapes de configuration du service de
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour analyser la progression et suivre les liens vers les rapports d’activité de provisionnement ; elle décrit toutes les actions effectuées par le service de provisionnement Azure AD sur SAP Cloud Platform Identity Authentication.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitations du connecteur
+
+* Le point de terminaison SCIM de l’authentification d’identité SAP Cloud Platform demande un format particulier pour certains attributs. Vous pouvez en savoir plus sur ces attributs et leur format spécifique [ici](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

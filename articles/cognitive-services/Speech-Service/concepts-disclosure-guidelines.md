@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: angle
-ms.openlocfilehash: d3b3f90be7dda28db9a27aa96282acee61e6c8fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506624"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837373"
 ---
 # <a name="disclosure-design-guidelines"></a>Guide de conception de la divulgation
 Apprenez à nouer et à entretenir une relation de confiance avec vos clients en étant transparent sur la nature synthétique de votre expérience vocale.
@@ -76,7 +76,7 @@ Utilisez le diagramme suivant pour déterminer si votre expérience de voix de s
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Note de transparence](https://aka.ms/neural-tts-transparency-note)
+* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
 * [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Vue d’ensemble du contingentement](concepts-gating-overview.md)
 

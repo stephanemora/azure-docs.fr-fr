@@ -1,5 +1,5 @@
 ---
-title: Planifier la capacité et la mise à l’échelle de la récupération d’urgence de VMware vers Azure avec Azure Site Recovery | Microsoft Docs
+title: Planifier la capacité pour la reprise d’activité de VMware avec Azure Site Recovery
 description: Cet article peut vous aider à planifier la capacité et la mise à l’échelle lorsque vous configurez la récupération d’urgence de machines virtuelles VMware vers Azure à l’aide d’Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747907"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961353"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 

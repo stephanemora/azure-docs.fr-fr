@@ -1,5 +1,5 @@
 ---
-title: Qualifications intégrées pour l’extraction de données, le langage naturel et le traitement des images pendant l’indexation.
+title: Traitement de texte et d'images intégré pendant l'indexation
 titleSuffix: Azure Cognitive Search
 description: Les compétences cognitives pour l’extraction de données, le langage naturel et le traitement des images renforcent la sémantique et la structure du contenu brut dans un pipeline Recherche cognitive Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2f03752c5fda366fc16b681d71ba68486527a30f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f419b19b576ebf6f7f853b41128908487f047df6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466802"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113376"
 ---
-# <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>Compétences cognitives intégrées pour l’enrichissement de contenu (Recherche cognitive Azure)
+# <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Compétences cognitives intégrées pour le traitement de texte et d'images pendant l'indexation (Recherche cognitive Azure)
 
-Cet article décrit les compétences cognitives fournies avec Recherche cognitive Azure. Une *compétence cognitive* est une opération qui transforme du contenu d’une certaine façon. Souvent, il s’agit d’un composant qui extrait des données ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. Presque toujours, la sortie est basée sur du texte. Un *ensemble de compétences* est la collection des compétences qui définissent le pipeline d’enrichissement. 
+Dans cet article, vous découvrirez les compétences cognitives fournies avec Recherche cognitive Azure et que vous pouvez inclure dans un ensemble de compétences afin d’extraire le contenu et la structure. Une *compétence cognitive* est un module ou une opération qui transforme du contenu d’une certaine façon. Souvent, il s’agit d’un composant qui extrait des données ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. Presque toujours, la sortie est basée sur du texte. Un *ensemble de compétences* est la collection des compétences qui définissent le pipeline d’enrichissement. 
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.

@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177693"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832047"
 ---
 ### <a name="record-names"></a>Noms d’enregistrement
 
-Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Un *nom de domaine complet (FQDN)* inclut le nom de la zone, contrairement à un *nom relatif*. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
+Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Un *nom de domaine complet (FQDN)* inclut le nom de la zone, contrairement à un *nom relatif*. Par exemple, le nom d’enregistrement relatif `www` dans la zone `contoso.com` donne le nom d’enregistrement complet `www.contoso.com`.
 
-Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif « \@ » est utilisé pour représenter des enregistrements apex.
+Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS `contoso.com`, un enregistrement apex porte également le nom complet `contoso.com` (on parle parfois de domaine *nu*).  Par convention, le nom relatif « \@ » est utilisé pour représenter des enregistrements apex.
 
 ### <a name="record-types"></a>Types d’enregistrements
 

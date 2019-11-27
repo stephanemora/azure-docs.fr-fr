@@ -1,18 +1,19 @@
 ---
-title: Configurer Azure Application Gateway avec une adresse IP frontale privée
+title: Configurer un point de terminaison d’équilibreur de charge interne (ILB)
+titleSuffix: Azure Application Gateway
 description: Cet article fournit des informations sur la configuration d’Application Gateway avec une adresse IP frontale privée.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9e3150a5382e4d690ddf66c43bbe51e125509d3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134610"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075214"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle Application Gateway avec un point de terminaison d’équilibreur de charge interne (ILB)
 

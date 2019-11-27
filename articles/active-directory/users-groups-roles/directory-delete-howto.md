@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439355"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961814"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Supprimer un annuaire dans Azure Active Directory
 
@@ -108,7 +108,7 @@ Lorsque vous déclenchez la suppression d’un produit attribué à des utilisat
 
 Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez  [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 État du produit | Données | Accès aux données
 ------------- | ---- | --------------
@@ -119,13 +119,13 @@ Deleted | Données supprimées | Les utilisateurs ne peuvent pas s’inscrire en
 
 Vous pouvez définir un produit accessible via une inscription en libre-service, comme Microsoft Power BI ou Azure Rights Management Services, dans un état **Supprimer**. Il sera alors immédiatement supprimé du portail Microsoft Azure AD.
 
-1. Connectez-vous au  [Centre d’administration Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte Administrateur d’entreprise de votre organisation. Si vous essayez de supprimer l’annuaire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général de votre organisation. Si vous essayez de supprimer l’annuaire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
 
-2. Sélectionnez **Licences**, puis  **Produits à l’inscription en libre-service**. Vous pouvez afficher tous les produits disponibles à l’inscription en libre-service séparément des abonnements par postes. Choisissez le produit que vous souhaitez supprimer définitivement. Voici un exemple dans Microsoft Power BI :
+2. Sélectionnez **Licences**, puis **Produits à l’inscription en libre-service**. Vous pouvez afficher tous les produits disponibles à l’inscription en libre-service séparément des abonnements par postes. Choisissez le produit que vous souhaitez supprimer définitivement. Voici un exemple dans Microsoft Power BI :
 
     ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/licenses-page.png)
 
-3. Sélectionnez **Supprimer** pour supprimer le produit, puis acceptez les termes du contrat stipulant que les données sont supprimées immédiatement et définitivement. Cette action de suppression supprime tous les utilisateurs et supprime l’accès de l’organisation au produit. Cliquez sur Oui pour poursuivre la suppression.  
+3. Sélectionnez **Supprimer** pour supprimer le produit, puis acceptez les termes du contrat stipulant que les données sont supprimées immédiatement et définitivement. Cette action de suppression supprime tous les utilisateurs et supprime l’accès de l’organisation au produit. Cliquez sur Oui pour poursuivre la suppression.  
 
     ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/delete-product.png)
 

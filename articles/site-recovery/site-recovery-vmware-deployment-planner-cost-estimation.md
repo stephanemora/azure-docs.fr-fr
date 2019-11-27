@@ -1,20 +1,20 @@
 ---
-title: Consulter le rapport d’estimation des coûts dans le planificateur de déploiement Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment consulter le rapport d’estimation des coûts dans le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure.
+title: Examiner les estimations de coût dans le planificateur de déploiement Azure Site Recovery
+description: Cet article explique comment examiner les estimations de coût dans le planificateur de déploiement Azure Site Recovery pour la reprise d’activité après sinistre de VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620078"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953336"
 ---
-# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Consulter le rapport d’estimation des coûts dans le planificateur de déploiement Site Recovery pour la reprise d’activité de VMware sur Azure
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examiner les estimations de coût dans le planificateur de déploiement VMware 
 
 Le rapport du planificateur de déploiement fournit le résumé de l’estimation des coûts dans les feuilles [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) et l’analyse des coûts détaillée dans la feuille Estimation du coût. Une analyse des coûts détaillée par machine virtuelle est proposée. 
 

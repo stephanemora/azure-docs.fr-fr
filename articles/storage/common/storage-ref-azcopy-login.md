@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034081"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -36,15 +36,22 @@ Pour plus d’informations, consultez les exemples.
 azcopy login [flags]
 ```
 
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Transférer des données avec AzCopy et Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
+
 ## <a name="examples"></a>Exemples
 
-Se connecter de manière interactive avec l’ID de locataire AAD par défaut qui est défini sur « common » :
+Connectez-vous de manière interactive avec l’ID de locataire AAD par défaut qui est défini sur « common » :
 
 ```azcopy
 azcopy login
 ```
 
-Se connecter de manière interactive avec un ID de locataire spécifié :
+Connectez-vous de manière interactive avec un ID de locataire spécifié :
 
 ```azcopy
 azcopy login --tenant-id "[TenantID]"

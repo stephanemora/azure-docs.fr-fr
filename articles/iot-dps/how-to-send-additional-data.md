@@ -7,12 +7,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 1ff06afd363745ae465a8f5b625c27a4a9e4a222
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608605"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123188"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Comment transférer des données supplémentaires entre l’appareil et le service DPS
 Parfois, DPS a besoin de recevoir plus de données des appareils afin de les provisionner correctement dans l’IoT Hub approprié, et ces données doivent être fournies par l’appareil. Inversement, DPS peut renvoyer des données à l’appareil afin de faciliter les logiques côté client. 
@@ -21,7 +21,7 @@ Parfois, DPS a besoin de recevoir plus de données des appareils afin de les pro
 Utilisez cette fonctionnalité pour améliorer [l’allocation personnalisée](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies), par exemple lorsque vous souhaitez allouer vos appareils en fonction du modèle d’appareil sans intervention humaine. Dans ce cas, utilisez [l’allocation personnalisée](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Vous pouvez configurer l’appareil pour qu’il transmette les informations sur le modèle dans le cadre de [l’appel d’enregistrement de l’appareil](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS transmet les informations sur l’appareil au webhook d’allocation personnalisé. Votre fonction peut alors décider vers quel IoT Hub cet appareil sera dirigé lorsqu’il recevra des informations sur le modèle de l’appareil. De même, si le webhook souhaite renvoyer certaines données à l’appareil, il les renvoie sous forme de chaîne dans la réponse webhook.  
 
 ## <a name="device-sends-data-to-dps"></a>L’appareil envoie des données à DPS
-Lorsque votre appareil envoie un [appel d’inscription d’appareil](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) à DPS. L’appel d’inscription peut être amélioré de manière à inclure d’autres champs dans le corps. Le corps ressemble à ce qui suit : 
+Lorsque votre appareil envoie un [appel d’inscription d’appareil](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) à DPS, l’appel d’inscription peut être amélioré pour prendre d’autres champs dans le corps. Le corps ressemble à ce qui suit : 
    ```
    { 
        “registrationId”: “mydevice”, 

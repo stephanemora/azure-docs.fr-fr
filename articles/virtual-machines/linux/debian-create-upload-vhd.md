@@ -1,5 +1,5 @@
 ---
-title: Préparer un disque dur virtuel Linux Debian dans Azure | Microsoft Docs
+title: Préparer un disque dur virtuel Linux Debian dans Azure
 description: Apprenez à créer des images de disque dur virtuel Debian pour un déploiement dans Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: 009918a95ca1ff6189553d502fd06773fcd0d402
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7f371e2681ecc2b3bb4bcb3e1a8b642061dc2449
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083463"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036472"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Préparer un disque dur virtuel Debian pour Azure
 ## <a name="prerequisites"></a>Prérequis

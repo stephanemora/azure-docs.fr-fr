@@ -1,20 +1,21 @@
 ---
-title: Protéger des applications web avec Azure Application Gateway - PowerShell
+title: Configurer App Service avec PowerShell
+titleSuffix: Azure Application Gateway
 description: Cet article explique comment configurer des applications web en tant qu’hôtes de serveur principal sur une application de passerelle nouvelle ou existante.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122215"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089509"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurer App Service avec Application Gateway à l’aide de PowerShell
 
 Application Gateway vous permet d’avoir une application App Service ou un autre service multilocataire en tant que membre du pool back-end. Dans cet article, vous allez apprendre à configurer une application App Service avec Application Gateway. Le premier exemple montre comment configurer une passerelle d’application existante pour qu’elle utilise une application web en tant que membre d’un pool de serveurs principaux. Le deuxième exemple montre comment créer une passerelle d’application avec une application web en tant que membre d’un pool de serveurs principaux.
 

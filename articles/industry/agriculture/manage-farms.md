@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797318"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128676"
 ---
 # <a name="manage-farms"></a>Gérer des fermes
 
@@ -58,7 +58,7 @@ La page de liste Farms présente la liste des fermes créées. Sélectionnez une
 La page **Farms** présente la liste des fermes créées.
 
 1.  Sélectionnez la ferme que vous souhaitez voir et modifier.
-2.  Sélectionnez **Edit Farm** (Modifier la ferme) pour modifier les informations sur la ferme. Dans la fenêtre **Farm Details**, vous pouvez modifier les champs **Name**, **Crops**, **Address** et **Farm Boundary**.
+2.  Sélectionnez **Edit Farm** (Modifier la ferme) pour modifier les informations sur la ferme. Dans la fenêtre **Farm Details** (Détails de la ferme), vous pouvez modifier les champs **Name** (Nom), **Crops** (Cultures), **Address** (Adresse) et **Define Farm Boundary** (Définir les limites de la ferme).
 
     ![Projet FarmBeats](./media/create-farms/edit-farm-1.png)
 

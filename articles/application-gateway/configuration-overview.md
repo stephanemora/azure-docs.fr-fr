@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389974"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108728"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -42,7 +42,7 @@ Azure réserve également 5 adresses IP dans chaque sous-réseau pour un usage 
 
 Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle d’application et d’une adresse front-end IP privée. Dans ce cas, vous avez besoin de 33 adresses IP : 27 pour les instances de passerelle d’application, 1 pour l’adresse front-end privée et 5 pour un usage interne. Donc, vous avez besoin d’une taille de sous-réseau /26 ou plus.
 
-Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28. Cette taille vous donne 11 adresses IP utilisables. Si la charge de votre application nécessite plus de 10 adresses IP, envisagez une taille de sous-réseau de/27 ou /26.
+Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28. Cette taille vous donne 11 adresses IP utilisables. Si la charge de votre application nécessite plus de 10 instances d’Application Gateway, envisagez une taille de sous-réseau de /27 ou /26.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Groupes de sécurité réseau sur le sous-réseau Application Gateway
 
@@ -61,7 +61,7 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
 
 Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-réseau Application Gateway. Placez les restrictions suivantes sur le sous-réseau dans cet ordre de priorité :
 
-1. Autorisez le trafic entrant à partir d’une plage IP/IP source vers l’ensemble du sous-réseau Application Gateway ou vers l’adresse IP front-end privée configurée spécifique. Le groupe de sécurité réseau ne fonctionne pas sur une adresse IP publique.
+1. Autorisez le trafic entrant à partir d’une plage d’adresses IP ou d’une adresse IP source vers la destination (l’ensemble du sous-réseau Application Gateway ou l’adresse IP front-end privée configurée spécifique). Le groupe de sécurité réseau ne fonctionne pas sur une adresse IP publique.
 2. Autorisez les requêtes entrantes de toutes les sources vers les ports 65503-65534 pour la référence SKU Application Gateway v1 et vers les ports 65200-65535 pour la référence SKU v2 de la [communication sur l'intégrité du serveur principal](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
 3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
@@ -83,13 +83,13 @@ Pour la référence SKU v2, les routages définis par l’utilisateur (UDR) ne s
 
 Vous pouvez configurer la passerelle d’application pour qu’elle ait une adresse IP publique, une adresse IP privée ou les deux. Une adresse IP publique est nécessaire quand vous hébergez un back-end auquel les clients doivent accéder par Internet par le biais d’une adresse IP virtuelle Internet. 
 
-Une adresse IP publique n’est pas nécessaire pour un point de terminaison interne non exposé à Internet. Ce dernier est appelé point de terminaison d’*équilibreur de charge interne*. L’équilibreur de charge interne de la passerelle d’application s’avère utile pour les applications métier internes non exposées à Internet. Il s’avère également utile pour les services et niveaux inclus dans une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui a besoin d’une distribution de charge par tourniquet, de l’adhérence de session ou de la terminaison SSL.
+Une adresse IP publique n’est pas nécessaire pour un point de terminaison interne non exposé à Internet. Ce dernier est appelé point de terminaison d’*équilibreur de charge interne* ou adresse IP front-end privée. L’équilibreur de charge interne de la passerelle d’application s’avère utile pour les applications métier internes non exposées à Internet. Il s’avère également utile pour les services et niveaux inclus dans une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui a besoin d’une distribution de charge par tourniquet, de l’adhérence de session ou de la terminaison SSL.
 
 Une seule adresse IP publique ou une seule adresse IP privée est prise en charge. Vous choisissez l’adresse IP front-end quand vous créez la passerelle d’application.
 
-- Concernant l’adresse IP publique, vous pouvez en créer une ou en utiliser une existante au même emplacement que la passerelle d’application. Si vous créez une adresse IP publique, le type d’adresse IP que vous sélectionnez (statique ou dynamique) n’est pas modifiable par la suite. Pour plus d’informations, consultez [Adresse IP statique ou dynamique](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- Concernant l’adresse IP publique, vous pouvez en créer une ou en utiliser une existante au même emplacement que la passerelle d’application. Pour plus d’informations, consultez [Adresse IP statique ou dynamique](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
-- Concernant l’adresse IP privée, vous pouvez spécifier une adresse IP privée du sous-réseau dans lequel la passerelle d’application est créée. Si vous n’en spécifiez aucune, une adresse IP arbitraire est automatiquement sélectionnée dans le sous-réseau. Pour plus d’informations, consultez [Créer une passerelle d’application avec un équilibreur de charge interne](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- Concernant l’adresse IP privée, vous pouvez spécifier une adresse IP privée du sous-réseau dans lequel la passerelle d’application est créée. Si vous n’en spécifiez aucune, une adresse IP arbitraire est automatiquement sélectionnée dans le sous-réseau. Le type d’adresse IP que vous sélectionnez (statique ou dynamique) n’est pas modifiable par la suite. Pour plus d’informations, consultez [Créer une passerelle d’application avec un équilibreur de charge interne](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
 Une adresse IP front-end est associée à un *écouteur*, qui vérifie les demandes entrantes sur l’adresse IP front-end.
 
@@ -97,19 +97,19 @@ Une adresse IP front-end est associée à un *écouteur*, qui vérifie les deman
 
 Un écouteur est une entité logique qui vérifie les demandes de connexion entrante en utilisant le port, le protocole, l’hôte et l’adresse IP. Quand vous configurez l’écouteur, vous devez entrer des valeurs qui correspondent aux valeurs indiquées dans la demande entrante sur la passerelle.
 
-Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez également un écouteur par défaut en choisissant le protocole et le port pour l’écouteur. Vous pouvez choisir d’activer ou non la prise en charge du protocole HTTP2 sur l’écouteur. Une fois que vous avez créé la passerelle d’application, vous pouvez modifier les paramètres de cet écouteur par défaut (*appGatewayHttpListener*/*appGatewayHttpsListener*) ou créer des écouteurs.
+Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez également un écouteur par défaut en choisissant le protocole et le port pour l’écouteur. Vous pouvez choisir d’activer ou non la prise en charge du protocole HTTP2 sur l’écouteur. Une fois que vous avez créé la passerelle d’application, vous pouvez modifier les paramètres de cet écouteur par défaut (*appGatewayHttpListener*) ou créer des écouteurs.
 
 ### <a name="listener-type"></a>Type d’écouteur
 
 Quand vous créez un écouteur, vous choisissez entre le type [*de base* et le type *multisite*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
 
-- Si vous hébergez un seul site derrière une passerelle d’application, choisissez le type de base. Découvrez [comment créer une passerelle d’application avec un écouteur de base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Si vous souhaitez que toutes vos demandes (pour tous les domaines) soient acceptées et transmises aux pools back-end, choisissez le type « de base ». Découvrez [comment créer une passerelle d’application avec un écouteur de base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si vous configurez plusieurs applications web ou sous-domaines du même domaine parent sur la même instance de passerelle d’application, choisissez un écouteur multisite. Pour un écouteur multisite, vous devez aussi entrer un nom d’hôte. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port.
+- Si vous souhaitez transférer les demandes vers des pools back-end différents en fonction de l’en-tête d’*hôte* ou du nom d’hôte, choisissez le type d’écouteur « multisite » ; dans ce cas, vous devez également spécifier un nom d’hôte qui correspond à la demande entrante. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port.
 
 #### <a name="order-of-processing-listeners"></a>Ordre de traitement des
 
-Pour la référence SKU v1, les écouteurs sont traités dans l’ordre dans lequel ils sont listés. Si un écouteur de base correspond à une demande entrante, l’écouteur traite cette demande en premier. Ainsi, configurez les écouteurs multisites avant les écouteurs de base pour vous assurer que le trafic est routé vers le back-end approprié.
+Pour la référence SKU v1, les demandes sont mises en correspondance en fonction de l’ordre des règles et du type d’écouteur. Si une règle avec un écouteur de base occupe la première place, elle est traitée en premier et accepte toutes les demandes pour ce port et cette combinaison d’adresses IP. Pour éviter cela, configurez d’abord les règles avec des écouteurs multisites et poussez la règle avec l’écouteur de base vers la dernière position de liste.
 
 Pour la référence SKU v2, les écouteurs multisites sont traités avant les écouteurs de base.
 
@@ -165,7 +165,7 @@ Pour configurer une page d’erreur personnalisée globale, consultez [Configura
 
 Vous pouvez centraliser la gestion des certificats SSL et réduire la surcharge de chiffrement-déchiffrement d’une batterie de serveurs back-end. Cette gestion SSL centralisée permet également de spécifier une stratégie SSL centrale adaptée à vos besoins de sécurité. Vous pouvez choisir une stratégie SSL *par défaut*, *prédéfinie* ou *personnalisée*.
 
-Vous configurez la stratégie SSL pour contrôler les versions du protocole SSL. Vous pouvez configurer une passerelle d’application pour refuser TLS1.0, TLS1.1 et TLS1.2. Par défaut, SSL 2.0 et 3.0 sont désactivés et ne sont pas configurables. Pour plus d’informations, consultez [Vue d’ensemble de la stratégie SSL Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Vous configurez la stratégie SSL pour contrôler les versions du protocole SSL. Vous pouvez configurer une passerelle d’application afin qu’elle utilise une version de protocole minimale pour les négociations TLS à partir de TLS 1.0, TLS 1.1 et TLS 1.2. Par défaut, SSL 2.0 et 3.0 sont désactivés et ne sont pas configurables. Pour plus d’informations, consultez [Vue d’ensemble de la stratégie SSL Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Après avoir créé un écouteur, vous l’associez à une règle de routage des demandes. Cette règle détermine la manière dont les demandes reçues sur l’écouteur sont routées vers le back-end.
 
@@ -199,10 +199,6 @@ Associez à la règle le pool de back-ends qui contient les cibles back-end qui 
  - Pour une règle basée sur un chemin, ajoutez plusieurs pools de back-ends qui correspondent à chaque chemin d’URL. Les demandes correspondant à ce chemin d’URL entré sont transférées au pool de back-ends correspondant. De plus, ajoutez un pool de back-ends par défaut. Les demandes qui ne correspondent à aucun chemin d’URL dans la règle sont transférées à ce pool.
 
 ### <a name="associated-back-end-http-setting"></a>Paramètre HTTP du back-end associé
-
-Ajoutez un paramètre HTTP de back-end pour chaque règle. Les demandes sont routées depuis la passerelle d’application vers les cibles back-end à l’aide du numéro de port, du protocole et d’autres informations spécifiées dans ce paramètre.
-
-Pour une règle de base, un seul paramètre HTTP du back-end est autorisé. Toutes les demandes sur l’écouteur associé sont transférées aux cibles back-end correspondantes en utilisant ce paramètre HTTP.
 
 Ajoutez un paramètre HTTP de back-end pour chaque règle. Les demandes sont routées depuis la passerelle d’application vers les cibles back-end à l’aide du numéro de port, du protocole et d’autres informations spécifiées dans ce paramètre.
 
@@ -245,10 +241,10 @@ Pour plus d’informations sur la redirection, consultez :
 
 #### <a name="rewrite-the-http-header-setting"></a>Réécrire le paramètre d’en-tête HTTP
 
-Ce paramètre ajoute, supprime et met à jour les en-têtes de demande et réponse HTTP pendant le déplacement des paquets de demande et réponse entre le pool client et le pool back-end. Vous pouvez uniquement configurer cette fonctionnalité par le biais de PowerShell. La prise en charge du portail Azure et de l’interface CLI ne sont pas encore disponibles. Pour plus d'informations, consultez les pages suivantes :
+Ce paramètre ajoute, supprime et met à jour les en-têtes de demande et réponse HTTP pendant le déplacement des paquets de demande et réponse entre le pool client et le pool back-end. Pour plus d'informations, consultez les pages suivantes :
 
  - [Vue d’ensemble de la réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurer la réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
+ - [Configurer la réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
 ## <a name="http-settings"></a>Paramètres HTTP
 
@@ -260,7 +256,7 @@ Cette fonctionnalité s’avère utile quand vous voulez garder une session util
 
 ### <a name="connection-draining"></a>Vidage des connexions
 
-Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Il garantit que toutes les instances de désinscription d’un pool de back-ends ne reçoivent pas de nouvelles demandes. Dans l’intervalle, les demandes existantes sont autorisées à se terminer dans un délai configuré. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends par un appel d’API. Il s’applique également aux instances back-end signalées comme étant *non saines* par les sondes d’intégrité.
+Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Il garantit que toutes les instances de désinscription d’un pool de back-ends ne reçoivent pas de nouvelles demandes. Dans l’intervalle, les demandes existantes sont autorisées à se terminer dans un délai configuré. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends.
 
 ### <a name="protocol"></a>Protocol
 
@@ -274,7 +270,7 @@ Ce paramètre spécifie le port où les serveurs back-end écoutent le trafic pr
 
 ### <a name="request-timeout"></a>Délai d’expiration de la demande
 
-Ce paramètre correspond au nombre de secondes pendant lesquelles la passerelle d’application attend de recevoir une réponse de la part du pool de back-ends avant de renvoyer un message d’erreur « Expiration du délai de connexion ».
+Ce paramètre correspond au nombre de secondes pendant lesquelles la passerelle d’application attend de recevoir une réponse de la part du serveur back-end.
 
 ### <a name="override-back-end-path"></a>Remplacer le chemin back-end
 
@@ -301,7 +297,7 @@ Ce paramètre vous permet de configurer un chemin de transfert personnalisé fac
 
 ### <a name="use-for-app-service"></a>Utiliser pour App Service
 
-Il s’agit d’un raccourci de l’interface utilisateur qui sélectionne les deux paramètres nécessaires au back-end Azure App Service. Ce raccourci permet de **choisir un nom d’hôte à partir d’une adresse back-end**, puis il crée une sonde personnalisée. (Pour plus d’informations, consultez la section du paramètre [Choisir un nom d’hôte à partir d’une adresse back-end](#pick) dans cet article.) Une nouvelle sonde est créée, puis l’en-tête de la sonde est choisie à partir de l’adresse du membre back-end.
+Il s’agit d’un raccourci d’interface utilisateur uniquement qui sélectionne les deux paramètres nécessaires au back-end Azure App Service. Ce raccourci permet de **choisir un nom d’hôte à partir d’une adresse back-end**, puis il crée une sonde personnalisée si vous n’en avez pas déjà une. (Pour plus d’informations, consultez la section du paramètre [Choisir un nom d’hôte à partir d’une adresse back-end](#pick) dans cet article.) Une nouvelle sonde est créée, puis l’en-tête de la sonde est choisie à partir de l’adresse du membre back-end.
 
 ### <a name="use-custom-probe"></a>Utiliser une sonde personnalisée
 
@@ -314,22 +310,22 @@ Ce paramètre associe une [sonde personnalisée](https://docs.microsoft.com/azur
 
 Cette fonctionnalité définit dynamiquement l’en-tête de l’*hôte* dans la demande sur le nom d’hôte du pool de back-ends. Elle utilise une adresse IP ou un nom de domaine complet.
 
-Cette fonctionnalité s’avère utile quand le nom de domaine du back end est différent du nom DNS de la passerelle d’application et que le back-end s’appuie sur un en-tête d’hôte spécifique ou une extension SNI (Indication du nom du serveur) pour se résoudre en point de terminaison correct.
+Cette fonctionnalité s’avère utile quand le nom de domaine du back end est différent du nom DNS de la passerelle d’application et que le back-end s’appuie sur un en-tête d’hôte spécifique pour se résoudre en point de terminaison correct.
 
 Exemple : des services multilocataires en tant que back-end. Un service d’application est un service multilocataire qui utilise un espace partagé avec une seule adresse IP. Ainsi, un service d’application est uniquement accessible par le biais des noms d’hôte configurés dans les paramètres du domaine personnalisé.
 
-Par défaut, le nom de domaine personnalisé est *example.azurewebsites.<i></i>net*. Pour accéder à votre service d’application à l’aide d’une passerelle d’application par le biais d’un nom d’hôte qui n’est pas explicitement inscrit dans le service d’application ou par le biais du nom de domaine complet de la passerelle d’application, vous remplacez le nom d’hôte dans la demande d’origine par celui du service d’application. Pour cela, activez le paramètre **Choisir un nom d’hôte à partir d’une adresse back-end**.
+Par défaut, le nom de domaine personnalisé est *example.azurewebsites.net*. Pour accéder à votre service d’application à l’aide d’une passerelle d’application par le biais d’un nom d’hôte qui n’est pas explicitement inscrit dans le service d’application ou par le biais du nom de domaine complet de la passerelle d’application, vous remplacez le nom d’hôte dans la demande d’origine par celui du service d’application. Pour cela, activez le paramètre **Choisir un nom d’hôte à partir d’une adresse back-end**.
 
 Pour un domaine personnalisé dont le nom DNS personnalisé existant est mappé au service d’application, vous n’êtes pas obligé d’activer ce paramètre.
 
 > [!NOTE]
-> Il n’est pas nécessaire pour App Service Environment pour PowerApps, qui est un déploiement dédié.
+> Il n’est pas nécessaire pour App Service Environment, qui est un déploiement dédié.
 
 ### <a name="host-name-override"></a>Remplacement du nom d’hôte
 
 Cette fonctionnalité remplace l’en-tête de l’*hôte* dans la demande entrante sur la passerelle d’application par le nom d’hôte que vous spécifiez.
 
-Par exemple, si *www.contoso<i></i>.com* est spécifié dans le paramètre **Nom d’hôte**, la demande d’origine *https:/<i></i>/appgw.eastus.cloudapp.net/path1* est remplacée par *https:/<i></i>/www.contoso.com/path1* quand la demande est transférée au back-end.
+Par exemple, si *www.contoso.com* est spécifié dans le paramètre **Nom d’hôte**, la demande d’origine * https://appgw.eastus.cloudapp.azure.com/path1 est remplacée par * https://www.contoso.com/path1 quand la demande est transférée au back-end.
 
 ## <a name="back-end-pool"></a>Pool de back-ends
 
@@ -342,7 +338,7 @@ Après avoir créé un pool de back-ends, vous devez l’associer à une ou plus
 Par défaut, une passerelle d’application supervise l’intégrité de toutes les ressources dans son back-end. Mais nous vous recommandons vivement de créer une sonde personnalisée pour chaque paramètre HTTP de back-end afin de mieux contrôler la supervision de l’intégrité. Pour savoir comment configurer une sonde personnalisée, consultez [Paramètres de sonde d’intégrité personnalisée](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 
 > [!NOTE]
-> Une fois que vous avez créé une sonde d’intégrité personnalisée, vous avez besoin de l’associer à un paramètre HTTP de back-end. Une sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur.
+> Une fois que vous avez créé une sonde d’intégrité personnalisée, vous avez besoin de l’associer à un paramètre HTTP de back-end. Une sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur à l’aide d’une règle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754467"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890438"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -116,6 +116,38 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événement sur le canal **Surveillance des opérations** . Cet événement comporte des informations supplémentaires qui peuvent vous aider à résoudre les problèmes de connectivité.
 
 L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType**, à laquelle une valeur de **Will** est affectée.
+
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Un exemple de code C utilisant MQTT sans le SDK C Azure IoT
+Ce [référentiel](https://github.com/Azure-Samples/IoTMQTTSample) vous propose quelques projets de démonstration C/C++ montrant comment envoyer des messages de télémétrie, recevoir des événements avec un hub IoT sans utiliser le SDK C Azure IoT. 
+
+Ces exemples utilisent la bibliothèque Eclipse Mosquitto pour envoyer des messages au répartiteur MQTT implémenté dans le hub IoT.
+
+Ce référentiel contient les éléments suivants :
+
+**Pour Windows :**
+
+•   TelemetryMQTTWin32 : contient le code pour envoyer un message de télémétrie à un hub Azure IoT, construit et exécuté sur une machine Windows.
+
+•   SubscribeMQTTWin32 : contient le code pour s'abonner aux événements d'un hub IoT donné sur une machine Windows.
+
+•   DeviceTwinMQTTWin32 : contient le code pour interroger et s'abonner aux événements du jumeau d'un appareil dans le hub Azure IoT sur une machine Windows.
+
+•   PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des capacités en préversion IoT Plug & Play à un hub Azure IoT, construit et exécuté sur une machine Windows. Vous trouverez plus d’informations sur IoT Plug & Play [ici](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+
+**Pour Linux :**
+
+•   MQTTLinux : contient le code et le script de build à exécuter sur Linux (les distributions WSL, Ubuntu et Raspbian ont été testées à ce jour).
+
+•   LinuxConsoleVS2019 : contient le même code mais dans un projet VS2019 ciblant une distribution WSL (sous-système Windows Linux). Ce projet vous permet de déboguer le code exécuté sur Linux étape par étape à partir de Visual Studio.
+
+**Pour mosquito_pub :**
+
+•   Ce dossier contient deux exemples de commandes utilisées avec l'utilitaire mosquitto_pub fourni par Mosquitto.org.
+
+Mosquitto_sendmessage : pour envoyer un simple message texte à un hub Azure IoT agissant comme un appareil.
+
+Mosquitto_subscribe : pour voir les événements qui se produisent dans un hub Azure IoT.
+
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilisation directe du protocole MQTT (en tant que module)
 

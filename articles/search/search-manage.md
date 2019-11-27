@@ -1,5 +1,5 @@
 ---
-title: Administration des services pour Recherche cognitive Azure sur le portail
+title: Administration des services sur le portail
 titleSuffix: Azure Cognitive Search
 description: Gérez Recherche cognitive Azure, un service de recherche cloud hébergé sur Microsoft Azure, à l'aide du portail Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793500"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113289"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administration des services pour Recherche cognitive Azure sur le portail Azure
 > [!div class="op_single_selector"]

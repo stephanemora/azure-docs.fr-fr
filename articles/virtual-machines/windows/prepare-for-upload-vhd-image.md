@@ -1,5 +1,5 @@
 ---
-title: Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Docs
+title: Préparer un disque dur virtuel Windows à charger sur Azure
 description: Découvrez comment préparer un disque dur virtuel ou VHDX Windows pour le charger sur Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 555b250f211cf22e766e64960b3359692f73c843
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 4b6fea63cd56ddee7eaeaed50a74a01cc8549f0a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285721"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032944"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -446,7 +446,7 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   Si un disque de données est attaché à la machine virtuelle, la lettre de lecteur du volume de disque temporaire est généralement *D*. Cette désignation peut être différente, en fonction de vos paramètres et du nombre de disques disponibles.
-  * Nous vous recommandons de désactiver les bloqueurs de scripts fournis par des logiciels antivirus. Ils pourraient interférer avec les scripts de l’agent d’approvisionnement Windows et en bloquer l’exécution lorsque vous déployez une nouvelle machine virtuelle à partir de votre image.
+  * Nous vous recommandons de désactiver les bloqueurs de scripts fournis par des logiciels antivirus. Ils pourraient interférer avec les scripts de l’agent de provisionnement Windows et en bloquer l’exécution lorsque vous déployez une nouvelle machine virtuelle à partir de votre image.
   
 ## <a name="next-steps"></a>Étapes suivantes
 * [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](upload-generalized-managed.md)

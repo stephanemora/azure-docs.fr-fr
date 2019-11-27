@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 87aa96614b6aec4843723233a77d0a1dc1b66453
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300362"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072191"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -93,6 +93,14 @@ azure-cli                         2.0.60 *
 L’installation peut réussir malgré le message d’erreur lors de l’exécution de `az aks use-dev-spaces` avec une version d’Azure CLI antérieure à 2.0.63. Vous pouvez continuer à utiliser `azds` sans aucun problème.
 
 Pour résoudre ce problème, mettez à jour votre installation de l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) vers 2.0.63 ou une version ultérieure. Cette mise à jour permettra de résoudre le message d’erreur que vous recevez lors de l’exécution de `az aks use-dev-spaces`. Vous pouvez également continuer à utiliser votre version actuelle de l’interface Azure CLI et de l’interface CLI Azure Dev Spaces.
+
+### <a name="error-unable-to-reach-kube-apiserver"></a>Erreur « kube-apiserver inaccessible »
+
+Ce message d’erreur s’affiche lorsque Azure Dev Spaces ne parvient pas à se connecter au serveur d’API de votre cluster AKS. 
+
+Si l’accès à votre serveur d’API de cluster AKS est verrouillé ou si [les plages d’adresses IP autorisées par le serveur API ](../aks/api-server-authorized-ip-ranges.md) sont activées pour votre cluster AKS, vous devez également [créer](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [ mettre à jour](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) votre cluster pour [ autoriser des plages supplémentaires selon votre région](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Assurez-vous que le serveur d’API est disponible en exécutant des commandes kubectl. Si le serveur d’API n’est pas disponible, veuillez contacter le support AKS et réessayer lorsque le serveur d’API fonctionne.
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Problèmes courants lors de la préparation de votre projet pour Azure Dev Spaces
 
@@ -431,3 +439,17 @@ Voici un exemple d’annotation de ressources proxy qui doit être appliquée au
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### <a name="enable-azure-dev-spaces-on-an-existing-namespace-with-running-pods"></a>Activer Azure Dev Spaces sur un espace de noms existant avec des modules en cours d’exécution
+
+Vous disposez peut-être d’un cluster AKS et d’un espace de noms existant avec des modules en cours d’exécution où vous souhaitez activer Azure Dev Spaces.
+
+Pour activer Azure Dev Spaces sur un espace de noms existant dans un cluster AKS, exécutez `use-dev-spaces` et utilisez `kubectl` pour redémarrer tous les pods de cet espace de noms.
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+Une fois vos pods redémarrés, vous pouvez commencer à utiliser votre espace de noms existant avec Azure Dev Spaces.

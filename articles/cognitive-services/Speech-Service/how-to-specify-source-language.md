@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour spécifier la langue source pour la reconnaissance vocale - Service Speech
+title: Guide pratique pour spécifier la langue source de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
 description: Le SDK Speech vous permet de spécifier la langue source pour la reconnaissance vocale. Cet article explique comment utiliser les méthodes FromConfig et SourceLanguageConfig pour permettre au service Speech de connaître la langue source et de fournir une cible de modèle personnalisé.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c2503d2f341b4cdf90f7f7690fed897412a9614
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506464"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109960"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Spécifier la langue source pour la reconnaissance vocale
 

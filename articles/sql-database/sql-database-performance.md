@@ -9,31 +9,30 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c710e2b7c4376fc1725032c86cd02d9a6c8cafac
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821336"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090349"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 
 Azure SQL Database identifie les problèmes potentiels de votre base de données et recommande les actions susceptibles d’améliorer les performances de votre charge de travail en fournissant des recommandations et des actions de réglage intelligent.
 
-Pour vérifier les performances de votre base de données, utilisez la vignette **Performances** de la page Présentation ou accédez à la section « Support + dépannage » :
+## <a name="performance-tuning-options"></a>Options de réglage des performances
 
-   ![Afficher les performances](./media/sql-database-performance/entries.png)
+Les options de réglage des performances disponibles Azure SQL Database sont disponibles dans le menu de navigation de la base de données sous « Performances intelligentes » :
 
-Dans la section « Support + dépannage », vous pouvez utiliser les pages suivantes :
+| Option de réglage des performances | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
+| :----------------------------- | ----- | ----- |
+| **[Vue d’ensemble des performances](#performance-overview)** - Surveillez toutes les activités de performances de votre base de données. | OUI | Non | 
+| **[Recommandations sur les performances](#performance-recommendations)** - Affiche des recommandations en termes de performances pouvant améliorer les performances de votre charge de travail. | OUI | Non | 
+| **[Query Performance Insight](#query-performance-insight)** - Affiche les performances des requêtes les plus consommatrices sur la base de données. | OUI | Non | 
+| **[Paramétrage automatique](#automatic-tuning)** - Utilisez Azure SQL Database pour optimiser automatiquement vos performances de base de données. | OUI | Non | 
 
-
-1. [Vue d’ensemble des performances](#performance-overview) pour surveiller les performances de votre base de données ; 
-2. [Recommandations sur les performances](#performance-recommendations) pour trouver des recommandations en termes de performances pouvant améliorer les performances de votre charge de travail ;
-3. [Analyse des performances des requêtes](#query-performance-insight) pour rechercher les principales requêtes consommatrices de ressources ;
-4. [Paramétrage automatique](#automatic-tuning) pour permettre à Azure SQL Database d’optimiser automatiquement votre base de données.
-
-## <a name="performance-overview"></a>Vue d'ensemble des performances
+## <a name="performance-overview"></a>Vue d’ensemble sur les performances
 
 Cette vue fournit un résumé des performances de votre base de données et vous aide à optimiser les performances et à résoudre les problèmes. 
 
@@ -58,10 +57,6 @@ Vous trouverez également un historique complet des actions de réglage qui ont 
 
 Découvrez comment rechercher et appliquer les recommandations relatives aux performances dans l’article [Rechercher et appliquer les recommandations en matière de performances](sql-database-advisor-portal.md).
 
-## <a name="automatic-tuning"></a>Réglage automatique
-
-Azure SQL Database peut régler automatiquement les performances des bases de données en appliquant les [recommandations relatives aux performances](sql-database-advisor.md). Pour en savoir plus, voir l’article [Automatic tuning (Réglage automatique)](sql-database-automatic-tuning.md). Pour l’activer, lire [How to enable automatic tuning (Activation du réglage automatique)](sql-database-automatic-tuning-enable.md).
-
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
 [Query Performance Insight](sql-database-query-performance.md) vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :
@@ -74,8 +69,11 @@ Azure SQL Database peut régler automatiquement les performances des bases de do
 
 Pour plus d’informations sur cette page, voir l’article **[How to use Query Performance Insight (Utilisation de Query Performance Insight)](sql-database-query-performance.md)** .
 
+## <a name="automatic-tuning"></a>Réglage automatique
+
+Azure SQL Database peut régler automatiquement les performances des bases de données en appliquant les [recommandations relatives aux performances](sql-database-advisor.md). Pour en savoir plus, voir l’article [Automatic tuning (Réglage automatique)](sql-database-automatic-tuning.md). Pour l’activer, lire [How to enable automatic tuning (Activation du réglage automatique)](sql-database-automatic-tuning-enable.md).
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md)
 * [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
-

@@ -1,9 +1,9 @@
 ---
-title: Rapport d’utilisation et d’insights dans le portail Azure Active Directory | Microsoft Docs
+title: Rapport d’utilisation et d’insights | Microsoft Docs
 description: Introduction au rapport d’utilisation et d’insights dans le portail Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c6723c28bf6ab8af112763a6485bc89b46409c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989854"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008260"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Rapport d’utilisation et d’insights dans le portail Azure Active Directory
 

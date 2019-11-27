@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 11/04/2019
-ms.openlocfilehash: 2206afc45c7ea35c41f51839b66dca33982939ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d44fb94978c450808c8a1c0852d4c771a100857e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489824"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961714"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Il existe également une limite sur le nombre d’instances de conteneur que vou
 Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’article sur les quotas à l’échelle d’Azure [ici](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Stockage
-Il existe une limite sur le nombre de comptes de stockage par région ainsi que dans un abonnement donné. La limite par défaut est de 200 et comprend les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage dans une région donnée, sollicitez le [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) pour obtenir une assistance. L’équipe Stockage Azure examinera le cas de votre entreprise et pourra approuver jusqu’à 250 comptes de stockage pour une région donnée.
+Il existe une limite sur le nombre de comptes de stockage par région ainsi que dans un abonnement donné. La limite par défaut est de 250 et comprend les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 250 comptes de stockage dans une région donnée, sollicitez le [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). L’équipe Stockage Azure examinera le cas de votre entreprise et pourra approuver jusqu’à 250 comptes de stockage pour une région donnée.
 
 
 ## <a name="workspace-level-quota"></a>Quota au niveau de l’espace de travail

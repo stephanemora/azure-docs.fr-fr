@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la prise en charge cloud-init pour les machines virtuelles Linux dans Azure | Microsoft Docs
+title: Vue d’ensemble de la prise en charge de cloud-init pour les machines virtuelles Linux dans Azure
 description: Vue d’ensemble des fonctionnalités cloud-init dans Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: b0300dd91876b651015ae78c53dbc1e72bf8dd68
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285692"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034249"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  

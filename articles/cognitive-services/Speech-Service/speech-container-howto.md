@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578400"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132610"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech
 
@@ -151,7 +151,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> La balise `latest` extrait les paramètres régionaux `en-US` et la voix `jessarus`. Pour d’autres paramètres régionaux, consultez [Paramètres régionaux de reconnaissance vocale](#speech-to-text-locales).
+> L’étiquette `latest` extrait les paramètres régionaux `en-US`. Pour d’autres paramètres régionaux, consultez [Paramètres régionaux de reconnaissance vocale](#speech-to-text-locales).
 
 #### <a name="speech-to-text-locales"></a>Paramètres régionaux de reconnaissance vocale
 
@@ -167,7 +167,7 @@ La balise suivante illustre le format :
 2.0.0-amd64-en-us-preview
 ```
 
-Pour tous les paramètres régionaux pris en charge dans la version 2.0.0 du conteneur de **reconnaissance vocale**, consultez la colonne **Prise en charge des conteneurs** dans le tableau [Prise en charge des langues pour la reconnaissance vocale](language-support.md#speech-to-text).
+Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale**, consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).
 
 # <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
@@ -209,7 +209,7 @@ La balise suivante illustre le format :
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-Pour tous les paramètres régionaux et les voix correspondantes pris en charge dans la version 1.3.0 du conteneur de **synthèse vocale**, consultez la colonne **Prise en charge des conteneurs** dans le tableau [Prise en charge des langues pour les voix standard](language-support.md#standard-voices).
+Pour tous les paramètres régionaux et voix correspondantes pris en charge du conteneur de **synthèse vocale**, consultez les [étiquettes d’images de synthèse vocale](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
 > Lors de la construction d’une requête HTTP POST de *synthèse vocale standard*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-JessaRUS`.

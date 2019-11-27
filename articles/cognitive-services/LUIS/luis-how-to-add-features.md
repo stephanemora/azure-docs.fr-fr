@@ -1,5 +1,5 @@
 ---
-title: Listes d’expressions - LUIS
+title: Descripteurs - LUIS
 titleSuffix: Azure Cognitive Services
 description: Utiliser Language Understanding (LUIS) pour ajouter des fonctionnalités d’application pouvant améliorer la détection ou la prédiction d’intentions et d’entités dans des catégories et des modèles
 services: cognitive-services
@@ -9,56 +9,51 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 11/14/2019
 ms.author: diberry
-ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2b5046bb61dcafbba0b0540935e08777fbd747a5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467613"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123127"
 ---
-# <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Utiliser des listes d’expressions pour améliorer le signal de liste de mots
+# <a name="use-descriptors-to-boost-signal-of-word-list"></a>Utiliser des descripteurs pour améliorer le signal de liste de mots
 
 Vous pouvez ajouter des fonctionnalités à votre application LUIS pour améliorer sa précision. Ces fonctionnalités aident LUIS en indiquant que certains mots et expressions font partie d’un vocabulaire de domaine d’application. 
 
-Une [liste d’expressions](luis-concept-feature.md) est un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et doivent être traitées de la même façon (par exemple, des noms de villes ou de produits). Ce que LUIS apprend sur l’un d’entre elles s’applique automatiquement également aux autres. Cette liste n’est pas une [entité de liste](reference-entity-list.md) (correspondances de texte exactes) de mots correspondants.
+Un [descripteur](luis-concept-feature.md) (une liste d’expressions) est un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et doivent être traitées de la même façon (par exemple, des noms de villes ou de produits). Ce que LUIS apprend sur l’un d’entre elles s’applique automatiquement également aux autres. Cette liste n’est pas une [entité de liste](reference-entity-list.md) (correspondances de texte exactes) de mots correspondants.
 
-Une liste d’expressions complète le vocabulaire du domaine d’application sous la forme d’un deuxième signal vers LUIS sur ces mots.
+Un descripteur complète le vocabulaire du domaine d’application sous la forme d’un deuxième signal vers LUIS sur ces mots.
 
-Passez en revue les [concepts des caractéristiques](luis-concept-feature.md) pour comprendre quand et pourquoi utiliser une liste d’expressions. 
+Passez en revue les [concepts des caractéristiques](luis-concept-feature.md) pour comprendre quand et pourquoi utiliser un descripteur. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="add-phrase-list"></a>Ajouter une liste d’expressions
+## <a name="add-descriptor"></a>Ajouter un descripteur
 
-LUIS permet jusqu’à 10 listes de phrases par application. 
+1. Ouvrez votre application en cliquant sur son nom dans la page **Mes applications**, puis cliquez sur **Build**, puis sur **Descripteurs** dans le panneau gauche de votre application. 
 
-1. Ouvrez votre application en cliquant sur son nom à la page **Mes applications**, puis cliquez sur **Générer**, sur **Listes d’expressions** dans le volet gauche de votre application. 
-
-1. À la page **Listes d’expressions**, cliquez sur **Créer une liste d’expressions**. 
+1. Dans la page **Descripteurs**, cliquez sur **+ Ajouter un descripteur**. 
  
-1. Dans la boîte de dialogue **Ajouter une liste d’expressions**, tapez `Cities` comme nom de la liste d’expressions. Dans la case **Valeur**, tapez les valeurs de la liste d’expressions. Vous pouvez taper une valeur à la fois, ou un ensemble de valeurs séparées par des virgules, puis appuyer sur **Entrée**.
+1. Dans la boîte de dialogue **Créer un descripteur de liste d’expressions**, entrez un nom comme `Cities` pour le descripteur. Dans la zone **Valeur**, tapez les valeurs des descripteurs, comme `Seattle`. Vous pouvez taper une valeur à la fois, ou un ensemble de valeurs séparées par des virgules, puis appuyer sur **Entrée**.
 
-    ![Ajouter une liste d’expressions Villes](./media/luis-add-features/add-phrase-list-cities.png)
+    > [!div class="mx-imgBorder"]
+    > ![Ajouter le descripteur Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
-1. LUIS peut suggérer des valeurs associées à ajouter à votre liste d’expressions. Cliquez sur **Recommander** pour obtenir un groupe de valeurs proposées liées sémantiquement à la ou aux valeurs ajoutées. Vous pouvez cliquer sur une des valeurs proposées, ou sur **Ajouter tout** pour les ajouter toutes.
+    Une fois que vous avez entré suffisamment de valeurs pour LUIS, des suggestions apparaissent. Vous pouvez cliquer sur **+ Ajouter** pour toutes les valeurs proposées ou sélectionner des termes individuels.
 
-    ![Liste d’expressions, valeurs proposées - ajouter tout](./media/luis-add-features/related-values.png)
+1. Laissez la case **Ces valeurs sont interchangeables** cochée si les valeurs ajoutées sont des alternatives pouvant être utilisées indifféremment.
 
-1. Cliquez sur **Ces valeurs sont interchangeables** si les valeurs ajoutées à la liste d’expressions sont des alternatives pouvant être utilisées indifféremment.
-
-    ![Liste d’expressions, valeurs proposées - sélectionner la case interchangeable](./media/luis-add-features/interchangeable.png)
-
-1. Cliquez sur **Done**. La liste d’expressions « Villes » est ajoutée à la page **Listes d’expressions**.
+1. Sélectionnez **Terminé**. Le nouveau descripteur est ajouté à la page **Descripteurs**.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Vous pouvez supprimer ou désactiver une liste de phrases dans la barre d’outils contextuelle de la page **Listes d’expressions**.
+> Vous pouvez supprimer ou désactiver un descripteur à partir de la barre d’outils contextuelle de la page **Descripteurs**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après ajout, modification, suppression ou désactivation d’une liste d’expressions, [former et tester à nouveau l’application](luis-interactive-test.md) à nouveau pour voir si les performances s’améliorent.
+Après l’ajout, la modification, la suppression ou la désactivation d’un descripteur, [réentraînez et retestez l’application](luis-interactive-test.md) pour voir si les performances s’améliorent.

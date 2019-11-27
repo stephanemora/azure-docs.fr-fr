@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612064"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008571"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
-
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
 ## <a name="managed-disks"></a>Disques managés
@@ -350,18 +348,6 @@ Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chif
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : gérés et non gérés
 
-**Quelles régions prennent en charge la fonctionnalité de rafale pour la taille de disque SSD Premium applicable ?**
-
-La fonctionnalité de rafale est actuellement prise en charge dans la région Azure USA Centre-Ouest.
-
-**Dans quelles régions les tailles de disque géré 4/8/16 Gio (P1/P2/P3, E1/E2/E3) sont-elles prises en charge ?**
-
-Ces nouvelles tailles de disque sont actuellement prises en charge dans la région Azure USA Centre-Ouest.
-
-**Les tailles de disque P1/P2/P3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
-
-Non, elles sont uniquement prises en charge sur les disques managés SSD Premium. 
-
 **Si une machine virtuelle utilise une taille qui prend en charge les disques SSD Premium, comme DSv2, puis-je attacher des disques de données Standard et Premium ?** 
 
 Oui.
@@ -391,6 +377,22 @@ Le disque local SSD est un stockage temporaire inclus avec une machine virtuell
 Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azure Premium ou Standard.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : gérés et non gérés
+
+**Quelles régions prennent en charge la fonctionnalité de rafale pour la taille de disque SSD Premium applicable ?**
+
+La fonctionnalité de rafale est actuellement prise en charge dans la région Azure USA Centre-Ouest.
+
+**Dans quelles régions les tailles de disque géré 4/8/16 Gio (P1/P2/P3, E1/E2/E3) sont-elles prises en charge ?**
+
+Ces nouvelles tailles de disque sont actuellement prises en charge dans la région Azure USA Centre-Ouest.
+
+**Les tailles de disque P1/P2/P3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
+
+Non, elles ne sont prises en charge que sur les disques managés SSD Premium. 
+
+**Les tailles de disque E1/E2/E3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
+
+Non, quelle que soit leur taille, les disques managés SSD standard ne peuvent pas être utilisés avec des disques non managés ou des objets blob de pages.
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 

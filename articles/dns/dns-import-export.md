@@ -1,18 +1,19 @@
 ---
-title: Importer et exporter un fichier de zone de domaine vers Azure DNS avec Azure CLI | Microsoft Docs
+title: Importer et exporter un fichier de zone de domaine - Azure CLI
+titleSuffix: Azure DNS
 description: Apprenez à importer et exporter un fichier de zone DNS vers Azure DNS à l’aide de l’interface de ligne de commande Azure
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.date: 4/3/2019
-ms.author: victorh
+ms.author: allensu
 ms.topic: conceptual
-ms.openlocfilehash: b65b70e7a994d7d49b2282d7e193fe6e7b84cfca
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 036486ed15c9d6502b5e1655bdab4643128bca4b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612765"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082898"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importer et exporter un fichier de zone DNS en utilisant l’interface CLI Azure
 

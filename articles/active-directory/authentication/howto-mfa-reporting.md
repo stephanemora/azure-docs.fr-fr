@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25cd36b6b3e8a6974618189985152e55c2676999
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: bb90fafb48be1d3389597c6188b0200743f90c3e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874303"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065974"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 
@@ -24,16 +24,16 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 
 | Rapport | Location | Description |
 |:--- |:--- |:--- |
-| Historique de l'utilisateur bloqué | Azure AD > Serveur MFA > Bloquer/débloquer des utilisateurs | Affiche l’historique des demandes de blocage et de déblocage d’utilisateurs. |
+| Historique de l'utilisateur bloqué | Azure AD > Sécurité > MFA > Bloquer/débloquer des utilisateurs | Affiche l’historique des demandes de blocage et de déblocage d’utilisateurs. |
 | Alertes relatives à l’utilisation et aux fraudes | Azure AD > Connexions | Fournit des informations sur l’utilisation globale, un récapitulatif par utilisateur, des informations détaillées sur les utilisateurs, ainsi que l’historique des alertes de fraude émises au cours de la plage de dates spécifiée. |
-| Utilisation des composants locaux | Azure AD > Serveur MFA > Rapport d’activité | Fournit des informations sur l’utilisation globale de MFA via l’extension NPS, AD FS et le serveur MFA. |
-| Historique de l'utilisateur contourné | Azure AD > Serveur MFA > Contournement à usage unique | Affiche l’historique des demandes de contournement de Multi-Factor Authentication pour un utilisateur. |
-| État du serveur | Azure AD > Serveur MFA > État du serveur | Affiche l’état des serveurs Multi-Factor Authentication associés à votre compte. |
+| Utilisation des composants locaux | Azure AD > Sécurité > MFA > Rapport d’activité | Fournit des informations sur l’utilisation globale de MFA via l’extension NPS, AD FS et le serveur MFA. |
+| Historique de l'utilisateur contourné | Azure AD > Security > MFA > Contournement à usage unique | Affiche l’historique des demandes de contournement de Multi-Factor Authentication pour un utilisateur. |
+| État du serveur | Azure AD > Sécurité > MFA > État du serveur | Affiche l’état des serveurs Multi-Factor Authentication associés à votre compte. |
 
 ## <a name="view-mfa-reports"></a>Afficher les rapports MFA
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sur la gauche, sélectionnez **Azure Active Directory** > **Serveur MFA**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** > **MFA**.
 3. Sélectionnez le rapport que vous souhaitez afficher.
 
    ![Rapport d’état du serveur MFA Server dans le portail Microsoft Azure](./media/howto-mfa-reporting/report.png)

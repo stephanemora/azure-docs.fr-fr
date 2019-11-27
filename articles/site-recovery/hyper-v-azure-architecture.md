@@ -1,18 +1,18 @@
 ---
-title: Architecture de la reprise d’activité Hyper-V dans Azure Site Recovery
+title: Architecture de la reprise d’activité après sinistre pour Hyper-V dans Azure Site Recovery
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors du déploiement de la récupération d’urgence pour des machines virtuelles Hyper-V locales (sans VMM) sur Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147072"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082662"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence de Hyper-V vers Azure
 
@@ -37,7 +37,6 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 **Architecture Hyper-V vers Azure (sans VMM)**
 
 ![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
-
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Composants architecturaux : Hyper-V avec VMM

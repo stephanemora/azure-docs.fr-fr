@@ -1,5 +1,5 @@
 ---
-title: Regénérer un index Recherche cognitive Azure
+title: Regénérer un index de recherche
 titleSuffix: Azure Cognitive Search
 description: Ajoutez de nouveaux éléments, mettez à jour des documents ou des éléments existants, ou supprimez des documents obsolètes via une régénération complète ou une indexation incrémentielle partielle visant à actualiser un index Recherche cognitive Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466445"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112973"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Guide pratique pour régénérer un index Recherche cognitive Azure
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Guide pratique pour regénérer un index dans la Recherche cognitive Azure
 
 Cet article explique comment regénerer un index Recherche cognitive Azure et les circonstances dans lesquelles les regénérations sont nécessaires, et il contient des suggestions pour atténuer l’impact des regénérations sur les demandes des requêtes en cours.
 

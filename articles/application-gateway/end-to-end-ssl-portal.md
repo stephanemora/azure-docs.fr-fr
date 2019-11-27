@@ -1,19 +1,20 @@
 ---
-title: Démarrage rapide - Configurer le chiffrement SSL de bout en bout avec Azure Application Gateway - Portail Azure | Microsoft Docs
+title: Configurer le chiffrement SSL de bout en bout à l’aide du portail
+titleSuffix: Azure Application Gateway
 description: Découvrez comment utiliser le portail Azure pour créer une passerelle d’application avec chiffrement SSL de bout en bout.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243669"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075139"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurer le chiffrement SSL de bout en bout avec Application Gateway et le portail
 

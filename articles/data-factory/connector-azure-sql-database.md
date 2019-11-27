@@ -1,6 +1,6 @@
 ---
-title: Copier des données vers/à partir d’Azure SQL Database en utilisant Data Factory
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de magasins de données sources pris en charge vers Azure SQL Database ou de SQL Database vers des magasins de données récepteurs pris en charge.
+title: Copier et transformer des données dans Azure SQL Database à l’aide de Data Factory
+description: Découvrez comment copier des données depuis et vers Azure SQL Database et comment transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ef47bc1064c095792a90ed69880106af77e9dfd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681125"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075596"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Version actuelle](connector-azure-sql-database.md)
 
-Cet article explique comment copier des données vers et depuis Azure SQL Database. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure SQL Database, et utiliser Data Flow pour transformer les données dans Azure SQL Database. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -35,7 +35,7 @@ Ce connecteur Azure SQL Database est pris en charge pour les activités suivante
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 
-Plus précisément, ce connecteur Azure SQL Database prend en charge les fonctions suivantes :
+Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge les fonctions suivantes :
 
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, la récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
@@ -227,9 +227,9 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article consacré aux [jeux de données](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Database.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article consacré aux [jeux de données](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
-Pour copier des données depuis ou vers Azure SQL Database, les propriétés suivantes sont prises en charge :
+Les propriétés prises en charge pour le jeu de données Azure SQL Database sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -538,7 +538,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
     )
     ```
 
-2. Dans votre base de données, définissez la procédure stockée avec le même nom que **SqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table de la procédure stockée doit être identique au **tableName** défini dans le jeu de données.
+2. Dans votre base de données, définissez la procédure stockée portant le même nom que **sqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table de la procédure stockée doit être identique au **tableName** défini dans le jeu de données.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -560,9 +560,9 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
     ```json
     "sink": {
         "type": "AzureSqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"

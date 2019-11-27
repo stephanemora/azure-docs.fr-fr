@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684414"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038276"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrer des charges de travail SSIS locales vers SSIS dans ADF
 
@@ -48,7 +48,7 @@ Pour établir un plan de migration complet, une évaluation minutieuse permettra
   - MSDB : une base de données système dans SQL Server utilisée pour stocker les packages SSIS
   - Système de fichiers géré : un dossier spécifique dans le chemin d’installation de SQL Server, utilisé pour stocker les packages SSIS
 
-DMA prend en charge l’évaluation par lot des packages stockés dans un stockage de type **Système de fichiers** depuis la **version 4.5**.
+DMA prend en charge l’évaluation par lot des packages stockés dans **Système de fichiers**, **Magasin de packages** et **Catalogue SSIS** depuis la **version 5.0 de DMA**.
 
 Obtenez [DMA](https://docs.microsoft.com/sql/dma/dma-overview) et [utilisez-le pour évaluer votre package](https://docs.microsoft.com/sql/dma/dma-assess-ssis).
 

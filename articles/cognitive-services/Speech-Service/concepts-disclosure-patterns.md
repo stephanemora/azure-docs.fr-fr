@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: fde4a73dd4a95028f23563fb6a8ae36c0142fd39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506616"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836994"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
@@ -247,11 +247,11 @@ Utilisez la divulgation comme une opportunité d’échec élégant.
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Note de transparence](https://aka.ms/neural-tts-transparency-note)
+* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
 * [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Vue d’ensemble du contingentement](concepts-gating-overview.md)
 * [Comment divulguer](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Note de transparence](https://aka.ms/neural-tts-transparency-note)
+* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)

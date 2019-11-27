@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des hôtes dédiés Azure pour machines virtuelles | Microsoft Docs
+title: Vue d’ensemble des Azure Dedicated Hosts pour machines virtuelles
 description: Découvrez-en plus sur la manière dont les hôtes dédiés Azure peuvent être utilisés pour déployer des machines virtuelles.
 services: virtual-machines-windows
 author: cynthn
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 011bfeb337f3c04b2d9041abedac50affe1f86b0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cfcc8aeb3d1cc1f199b19abc16cc54db416a307e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033382"
 ---
 # <a name="preview-azure-dedicated-hosts"></a>Aperçu : Hôtes dédiés Azure
 

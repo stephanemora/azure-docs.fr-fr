@@ -1,5 +1,5 @@
 ---
-title: Tailles des machines virtuelles Windows Azure - Optimisées pour le calcul | Microsoft Docs
+title: Tailles des machines virtuelles Windows Azure - Optimisées pour le calcul
 description: Répertorie les différentes tailles optimisées pour le calcul pour les machines virtuelles Windows dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 52537a9442d96196f63b55229347a8dfadea8cee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ae42988aa2c792be5e9cba267c8ebe8c45665147
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102317"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077152"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à calcul optimisé
 

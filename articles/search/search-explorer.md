@@ -1,5 +1,5 @@
 ---
-title: Utiliser l’explorateur de recherche pour interroger des données dans le portail Azure
+title: Outil de requête Explorateur de recherche sur le Portail Azure
 titleSuffix: Azure Cognitive Search
 description: Intégré au portail Azure, l’explorateur de recherche s’avère utile pour l’exploration du contenu et la validation des requêtes dans la Recherche cognitive Azure. Entrez les chaînes correspondant au terme ou à l’expression recherché ou des expressions de recherche complètes en utilisant la syntaxe avancée.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792966"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112097"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Utiliser l’explorateur de recherche dans le portail Azure pour interroger des documents dans la Recherche cognitive Azure 
 

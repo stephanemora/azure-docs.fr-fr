@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb3b9504abcd453977d63a9bfccf77a33da6455a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489475"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961694"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Avec Azure Machine Learning, vous pouvez facilement envoyer votre script de formation à [différentes cibles de calcul](how-to-set-up-training-targets.md#compute-targets-for-training) à l’aide des objets [RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) et [ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ce modèle permet une grande flexibilité et un contrôle maximal.
+Avec Azure Machine Learning, vous pouvez facilement envoyer votre script d’entraînement à [différentes cibles de calcul](how-to-set-up-training-targets.md#compute-targets-for-training) à l’aide d’un [objet RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) et d’un [objet ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ce modèle permet une grande flexibilité et un contrôle maximal.
 
 Pour faciliter la formation de modèles Deep Learning, le kit de développement logiciel (SDK) Python d’Azure Machine Learning fournit une alternative d’abstraction de plus haut niveau, la classe d’estimateur, qui permet aux utilisateurs de construire facilement des configurations d’exécution. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique afin de soumettre un script d’entraînement à l’aide de n’importe quel framework d’entraînement (tel que scikit-learn) sur la cible de calcul de votre choix, qu’il s’agisse de votre ordinateur local, d’une seule machine virtuelle Azure ou d’un cluster GPU Azure. Pour les tâches PyTorch, TensorFlow et Chainer, Azure Machine Learning fournit aussi les estimateurs [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) et [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py), qui simplifient l’utilisation de ces frameworks.
 
@@ -44,7 +44,8 @@ Utilisez `Estimator` pour un entraînement à nœud unique exécuté sur une cib
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    # to mount files referenced by mnist dataset
+    '--data-folder': ds.as_named_input('mnist').as_mount(),
     '--regularization': 0.8
 }
 
@@ -135,7 +136,8 @@ Pour un notebook qui entraîne un modèle scikit-learn à l’aide de l’estima
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 Pour les notebooks d’entraînement des modèles à l’aide d’estimateurs spécifiques deep-learning-framework, consultez :
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+
+* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

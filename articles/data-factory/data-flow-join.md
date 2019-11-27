@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675911"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122928"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Exemple de jointure croisée
 
-L’exemple ci-dessous illustre une transformation de jointure nommée `CartesianProduct`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`. Cette transformation prend deux flux et retourne le produit cartésien de leurs lignes. La condition de jointure est `true()`, car elle génère un produit cartésien complet. Le `joinType` dans `cross`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
+L’exemple ci-dessous illustre une transformation de jointure nommée `CartesianProduct`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`. Cette transformation prend deux flux et retourne le produit cartésien de leurs lignes. La condition de jointure est `true()`, car elle génère un produit cartésien complet. Le `joinType` est `cross`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
 
 Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
 

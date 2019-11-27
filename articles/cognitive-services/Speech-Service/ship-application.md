@@ -1,7 +1,7 @@
 ---
 title: Développer des applications avec le kit SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Apprenez à créer des applications à l’aide du kit SDK Speech.
+description: Découvrez comment déployer une application qui utilise le SDK Speech sur les plateformes prises en charge.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490997"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072424"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -39,16 +39,16 @@ Pour l’entrée du microphone, les bibliothèques Media Foundation doivent êtr
 
 Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être déployés dans le même répertoire que votre application. De cette façon, votre application peut accéder directement aux bibliothèques. Veillez à sélectionner la version appropriée (Win32/x64) correspondant à votre application.
 
-| Nom | Fonction
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, requis pour le déploiement natif et managé
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé
+| Nom | Fonction |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, requis pour le déploiement natif et managé |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé                      |
 
->[!NOTE]
+> [!NOTE]
 > Depuis la version 1.3.0, le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le kit SDK principal.
 
->[!NOTE]
-> Pour le projet C# Windows Forms App (.NET Framework), vérifiez que les bibliothèques sont incluses dans les paramètres de déploiement de votre projet. Vous pouvez vérifier cela dans `Properties -> Publish Section`. Cliquez sur le bouton `Application Files` et recherchez les bibliothèques correspondantes à partir de la liste déroulante. Assurez-vous que la valeur est définie sur `Included`. Visual Studio inclut le fichier lorsque le projet est publié/déployé.
+> [!NOTE]
+> Pour le projet C# Windows Forms App (.NET Framework), vérifiez que les bibliothèques sont incluses dans les paramètres de déploiement de votre projet. Vous pouvez vérifier cela dans `Properties -> Publish Section`. Cliquez sur le bouton `Application Files` et recherchez les bibliothèques correspondantes dans la liste déroulante. Assurez-vous que la valeur est définie sur `Included`. Visual Studio inclut le fichier lorsque le projet est publié/déployé.
 
 ## <a name="linux"></a>Linux
 
@@ -56,9 +56,9 @@ Le SDK Speech prend actuellement en charge les distributions Ubuntu 16.04, Ubunt
 Pour une application native, vous devez fournir la bibliothèque du SDK Speech, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Veillez à sélectionner la version (x86, x64) correspondant à votre application. En fonction de la version de Linux, vous devrez peut-être également inclure les dépendances suivantes :
 
-* Les bibliothèques partagées de la bibliothèque C de GNU (notamment la bibliothèque de programmation POSIX Threads, `libpthreads`)
-* La bibliothèque OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
-* La bibliothèque partagée pour les applications ALSA (`libasound.so.2`)
+- Les bibliothèques partagées de la bibliothèque C de GNU (notamment la bibliothèque de programmation POSIX Threads, `libpthreads`)
+- La bibliothèque OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
+- La bibliothèque partagée pour les applications ALSA (`libasound.so.2`)
 
 Sous Ubuntu, les bibliothèques C de GNU doivent déjà être installées par défaut. Les trois dernières peuvent être installées à l’aide de ces commandes :
 
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791736"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832583"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP
 
@@ -96,7 +96,7 @@ Maintenant, il est possible d’atteindre la haute disponibilité SAP Netweaver 
 
 ![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons d’utiliser [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
 > [!IMPORTANT]
 > Le clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure n’est **PAS pris en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker
@@ -111,13 +111,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 620<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 32<strong>&lt;nr&gt;</strong>
-  * TCP 36<strong>&lt;nr&gt;</strong>
-  * TCP 39<strong>&lt;nr&gt;</strong>
-  * TCP 81<strong>&lt;nr&gt;</strong>
-  * TCP 5<strong>&lt;nr&gt;</strong>13
-  * TCP 5<strong>&lt;nr&gt;</strong>14
-  * TCP 5<strong>&lt;nr&gt;</strong>16
+  * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
+  * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
+    * TCP 32<strong>&lt;nr&gt;</strong>
+    * TCP 36<strong>&lt;nr&gt;</strong>
+    * TCP 39<strong>&lt;nr&gt;</strong>
+    * TCP 81<strong>&lt;nr&gt;</strong>
+    * TCP 5<strong>&lt;nr&gt;</strong>13
+    * TCP 5<strong>&lt;nr&gt;</strong>14
+    * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ### <a name="ers"></a>ERS
 
@@ -128,11 +130,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 32<strong>&lt;nr&gt;</strong>
-  * TCP 33<strong>&lt;nr&gt;</strong>
-  * TCP 5<strong>&lt;nr&gt;</strong>13
-  * TCP 5<strong>&lt;nr&gt;</strong>14
-  * TCP 5<strong>&lt;nr&gt;</strong>16
+  * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
+  * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
+    * TCP 32<strong>&lt;nr&gt;</strong>
+    * TCP 33<strong>&lt;nr&gt;</strong>
+    * TCP 5<strong>&lt;nr&gt;</strong>13
+    * TCP 5<strong>&lt;nr&gt;</strong>14
+    * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configuration de l’infrastructure Azure NetApp Files 
 
@@ -207,7 +211,42 @@ Dans cet exemple, les ressources ont été déployées manuellement le [portail 
 
 Vous devez d’abord créer les volumes Azure NetApp Files. Déployez les machines virtuelles. Par la suite, vous créez un équilibreur de charge et utilisez les machines virtuelles dans les pools principaux.
 
-1. Créer un équilibrage de charge (interne)  
+1. Créer un équilibreur de charge (interne, standard) :  
+   1. Créer les adresses IP de serveurs frontaux
+      1. Adresse IP 10.1.1.20 pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple, **frontend.QAS.ASCS**)
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple, **10.1.1.20**)
+         1. Cliquez sur OK
+      1. Adresse IP 10.1.1.21 pour les instances ASCS ERS
+         * Répéter les étapes du point « a » afin de créer une adresse IP pour l’instance ERS (par exemple, **10.1.1.21** et **frontend.QAS.ERS**)
+   1. Créer les pools principaux
+      1. Créer un pool principal pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+         1. Entrer le nom du nouveau pool principal (par exemple, **backend.QAS**)
+         1. Cliquer sur Ajouter une machine virtuelle
+         1. Sélectionner une machine virtuelle
+         1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
+         1. Cliquez sur Ajouter.
+   1. Créer les sondes d’intégrité
+      1. Port 620**00** pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple, **health.QAS.ASCS**).
+         1. Sélectionner le protocole TCP et le port 620**00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Cliquez sur OK
+      1. Port 621**01** pour les instances ASCS ERS
+            * Répéter les étapes du point « c » afin de créer une sonde d’intégrité pour l’instance ERS (par exemple, 621**01** et **health.QAS.ERS**)
+   1. Règles d’équilibrage de charge
+      1. Créer un pool principal pour l’instance ASCS
+         1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+         1. Entrer le nom de la nouvelle règle d’équilibreur de charge (par exemple, **lb.QAS.ASCS**)
+         1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS**, **backend.QAS** et **health.QAS.ASCS**)
+         1. Sélectionner **Ports haute disponibilité**
+         1. Augmenter le délai d’inactivité à 30 minutes
+         1. **Veiller à activer IP flottante**
+         1. Cliquez sur OK
+         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **lb.QAS.ERS**)
+1. Sinon, si votre scénario requiert l’équilibrage de charge de base (interne), procédez comme suit :  
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 10.1.1.20 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
@@ -245,6 +284,9 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Déployez les machin
          * Répéter les étapes du point « d » pour les ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes du point « d » pour les ports 33**01**, 5**01**13, 5**01**14, 5**01**16 et TCP pour les instances ASCS ERS
+
+> [!Note]
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
@@ -395,7 +437,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    > [!IMPORTANT]
    > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions fournies dans [Renforcement de la détection dans Azure Load-Balancer](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    

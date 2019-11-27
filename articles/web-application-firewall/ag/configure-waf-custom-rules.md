@@ -1,18 +1,19 @@
 ---
-title: Configurer des règles personnalisées pour le pare-feu d'applications web v2 sur Application Gateway à l'aide d'Azure PowerShell
-description: Découvrez comment configurer des règles personnalisées WAF v2 à l’aide d’Azure PowerShell
+title: Configurer des règles personnalisées v2 à l’aide de PowerShell
+titleSuffix: Azure Web Application Firewall
+description: Découvrez comment configurer des règles personnalisées WAF v2 avec Azure PowerShell. Vous pouvez créer vos propres règles évaluées pour chaque demande qui traverse le pare-feu.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1641b74e3b9e59253b2674b22dfd8cd1b6ca2c2c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511502"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133048"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurer le pare-feu d'applications web v2 sur Application Gateway avec une règle personnalisée à l'aide d'Azure PowerShell
 

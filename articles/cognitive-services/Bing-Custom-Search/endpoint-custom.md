@@ -1,7 +1,7 @@
 ---
 title: Point de terminaison Recherche personnalisée Bing
 titleSuffix: Azure Cognitive Services
-description: Synthèse du point de terminaison de l’API Recherche personnalisée Bing.
+description: Créez des expériences de recherche personnalisées pour les sujets qui vous intéressent. Les utilisateurs voient des résultats de recherche adaptés au contenu qui les intéresse.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e3b544d8d655b653383cc999de233e2163433d85
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405076"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072789"
 ---
 # <a name="custom-search"></a>Recherche personnalisée
 La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de parcourir des résultats de recherche dont le contenu n’est pas approprié.
