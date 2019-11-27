@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Passez en revue et testez les modifications à partir d’une demande de tirage directement dans Azure Kubernetes Service à l’aide des actions GitHub et de Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571593"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889735"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
@@ -145,7 +145,7 @@ Utilisez `git push` pour pousser votre nouvelle branche vers votre référentiel
 git push origin bike-images
 ```
 
-Une fois l’opération Push terminée, accédez à votre référentiel dupliqué sur GitHub, créez une demande de tirage (pull request) avec le *dev* dans votre référentiel dupliqué comme branche de base, par rapport à la branche *bike-images*.
+Une fois l’opération Push terminée, accédez à votre référentiel dupliqué sur GitHub afin de créer une demande de tirage (pull request) avec la branche *master* dans votre référentiel dupliqué comme branche de base, par rapport à la branche *bike-images*.
 
 Une fois la requête de tirage ouverte, accédez à l’onglet *Actions*. Vérifiez qu’une nouvelle action a démarré et qu’elle est en train de créer le service *Bikes*.
 
@@ -158,7 +158,7 @@ Une fois l’action terminée, vous verrez un commentaire avec une URL vers votr
 
 Accédez au service *bikesharingweb* en ouvrant l’URL à partir du commentaire. Sélectionnez *Aurelia Briggs (client)* en tant qu’utilisateur, puis sélectionnez un vélo à louer. Vérifiez que l’image d’espace réservé du vélo n’est plus visible.
 
-Si vous fusionnez vos modifications dans la branche *dev*, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si vous fusionnez vos modifications dans la branche *master* de votre fourche, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 

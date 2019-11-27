@@ -8,16 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 5b80339e90947b7cc45b1edb5df00652a13291ac
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293473"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837109"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide d’Azure Logic Apps
+
+> [!IMPORTANT]
+> Veuillez utiliser le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md), car le connecteur SFTP est déconseillé. Vous ne pouvez plus sélectionner les déclencheurs et actions SFTP dans le concepteur d’applications logiques.
 
 Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent des fichiers sur un serveur [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), vous pouvez générer et automatiser les workflows d’intégration à l’aide d’Azure Logic Apps et du connecteur SFTP. SFTP est un protocole réseau qui fournit un accès aux fichiers, le transfert de fichiers et la gestion des fichiers sur n’importe quel flux de données fiable. Voici quelques exemples de tâches que vous pouvez automatiser :
 

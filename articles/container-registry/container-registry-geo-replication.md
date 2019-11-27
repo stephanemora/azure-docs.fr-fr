@@ -1,6 +1,6 @@
 ---
 title: Géoréplication d’un registre de conteneurs Azure
-description: Prise en main de la création et de la gestion de registres de conteneurs Azure géorépliqués.
+description: Prenez en main la création et la gestion d’un registre de conteneurs Azure géorépliqué, ce qui permet au registre de servir plusieurs régions grâce à des réplicas régionaux multimaîtres.
 services: container-registry
 author: stevelas
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208001"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931647"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -121,7 +121,7 @@ Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en 
  
 Un client Docker qui transmet une image à un registre géorépliqué peut ne pas envoyer toutes les couches d’images et le manifeste associé à une seule région répliquée. Cela peut se produire car Azure Traffic Manager route les demandes de registre vers le registre répliqué le plus proche du réseau. Si le registre a deux régions de réplication *proches*, les couches d’image et le manifeste peuvent être distribués aux deux sites, et l’opération Push échoue lors de la validation du manifeste. Ce problème se produit en raison de la façon dont le nom DNS du registre est résolu sur certains hôtes Linux. Ce problème ne se produit pas sur Windows, qui fournit un cache DNS côté client.
  
-Si ce problème se produit, une solution consiste à appliquer un cache DNS côté client, par exemple `dnsmasq` sur l’hôte Linux. Cela permet de garantir que le nom du registre est résolu de manière cohérente. Si vous utilisez une machine virtuelle Linux dans Azure pour effectuer une transmission de type push vers un registre, consultez [Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+Si ce problème se produit, une solution consiste à appliquer un cache DNS côté client, par exemple `dnsmasq` sur l’hôte Linux. Cela permet de garantir que le nom du registre est résolu de manière cohérente. Si vous utilisez une machine virtuelle Linux dans Azure pour effectuer une transmission de type push vers un registre, consultez [Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/azure-dns.md).
 
 Pour optimiser la résolution DNS sur le réplica le plus proche lors de la transmission par push d’images, configurez un registre géorépliqué dans les mêmes régions Azure que la source des opérations Push, ou la région la plus proche si vous travaillez en dehors d’Azure.
 
