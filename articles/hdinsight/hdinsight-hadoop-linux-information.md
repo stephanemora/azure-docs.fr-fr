@@ -1,19 +1,19 @@
 ---
 title: Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur Linux - Azure
 description: Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308081"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834101"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -111,12 +111,11 @@ Quand vous utilisez Stockage Azure ou Data Lake Storage, vous n’avez aucune op
 
 Dans HDInsight, les ressources de stockage de données (Stockage Blob Azure et Azure Data Lake Storage) sont dissociées des ressources de calcul. Par conséquent, vous pouvez créer des clusters HDInsight pour effectuer les calculs dont vous avez besoin et, par la suite, supprimer le cluster lorsque le travail est terminé, tout en conservant vos fichiers de données en toute sécurité dans le stockage cloud aussi longtemps que nécessaire.
 
-
 ### <a name="URI-and-scheme"></a>URI et schéma
 
 Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI lorsque vous accédez à un fichier. Par exemple, le composant Storm-HDFS requiert la spécification du schéma. Lorsque vous n’utilisez pas le stockage par défaut (stockage ajouté en tant que stockage « supplémentaire » au cluster), vous devez toujours indiquer le schéma dans l’URI.
 
-Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI suivants :
+Lorsque vous utilisez [**Stockage Azure**](./hdinsight-hadoop-use-blob-storage.md), utilisez l’un des schémas d’URI suivants :
 
 * `wasb:///`: accès au stockage par défaut avec une communication non chiffrée.
 
@@ -124,13 +123,13 @@ Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI s
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
-Lorsque vous utilisez __Azure Data Lake Storage Gen2__, utilisez le schéma d’URI suivant :
+Lorsque vous utilisez [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md), utilisez le schéma d’URI suivant :
 
 * `abfs://`: Accédez au stockage par défaut à l’aide d’une communication chiffrée.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
-Lorsque vous utilisez __Azure Data Lake Storage Gen1__, utilisez l’un des schémas d’URI suivants :
+Lorsque vous utilisez [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), utilisez l’un des schémas d’URI suivants :
 
 * `adl:///`: Accédez au stockage Data Lake par défaut pour le cluster.
 
