@@ -1,6 +1,6 @@
 ---
 title: Glossaire Azure IoT Hub | Microsoft Docs
-description: 'Guide du développeur : glossaire des termes courants relatifs à Azure IoT Hub.'
+description: 'Guide du développeur : Glossaire expliquant certains des termes courants utilisés dans les articles IoT Hub.'
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119807"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890527"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -30,7 +30,7 @@ Le backend de la solution peut utiliser des [configurations automatiques des app
 ## <a name="azure-classic-cli"></a>Azure Classic CLI
 [Azure CLI Classic](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, et servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI doit être uniquement utilisée pour les déploiements classiques.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure.
 
 
@@ -214,7 +214,7 @@ Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md),
 ## <a name="reported-properties"></a>Propriétés signalées
 Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md), les propriétés signalées sont une sous-section du jumeau d’appareil qui est utilisé avec des [propriétés souhaitées](#desired-properties) pour synchroniser une configuration ou une condition d’appareil. Les propriétés signalées peuvent être définies uniquement par l’[application d’appareil](#device-app), et peuvent être lues et interrogées par une [application principale](#back-end-app).
 
-## <a name="resource-group"></a>Groupe de ressources
+## <a name="resource-group"></a>Resource group
 [Azure Resource Manager](#azure-resource-manager) utilise des groupes de ressources pour regrouper des ressources associées. Vous pouvez utiliser un groupe de ressources pour effectuer des opérations simultanément sur toutes les ressources de ce groupe.
 
 ## <a name="retry-policy"></a>Stratégie de nouvelle tentative
@@ -241,7 +241,7 @@ Pour des raisons pratiques, bon nombre des didacticiels sur IoT Hub utilisent de
 ## <a name="solution"></a>Solution
 Une _solution_ peut être une solution Visual Studio incluant un ou plusieurs projets. Une _solution_ peut également être une solution IoT incluant des éléments tels que des appareils, [des applications pour appareil](#device-app), un hub IoT, d’autres services Azure et des [applications principales](#back-end-app).
 
-## <a name="subscription"></a>Abonnement
+## <a name="subscription"></a>Subscription
 L’abonnement est le mode de facturation d’Azure. Chaque ressource ou service Azure que vous créez ou utilisez est associé à un abonnement unique. De nombreux quotas s’appliquent également au niveau d’un abonnement.
 
 ## <a name="system-properties"></a>Propriétés système

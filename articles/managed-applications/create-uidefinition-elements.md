@@ -1,24 +1,20 @@
 ---
 title: Élément de définition de l’interface utilisateur de création Azure | Documents Microsoft
 description: Décrit les éléments à utiliser pour construire des définitions d’interfaces utilisateurs pour le Portail Azure.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/19/2018
+ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f952b8301f1d85d81fcc63e5d46dc57b1fb1106
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60587936"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932001"
 ---
 # <a name="createuidefinition-elements"></a>Éléments de CreateUiDefinition
+
 Cet article décrit le schéma et les propriétés de tous les éléments pris en charge d’une fonction CreateUiDefinition. 
 
 ## <a name="schema"></a>Schéma
@@ -59,6 +55,7 @@ La documentation de chaque élément contient un exemple d’interface utilisate
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
@@ -70,4 +67,5 @@ La documentation de chaque élément contient un exemple d’interface utilisate
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).

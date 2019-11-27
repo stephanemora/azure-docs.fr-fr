@@ -72,8 +72,6 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
           href: how-to-enable-nested-virtualization-template-vm.md
-        - name: Créer un environnement avec plusieurs machines virtuelles dans une machine virtuelle modèle
-          href: how-to-enable-multi-vm-environment.md
     - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
       items:
         - name: Accéder aux laboratoires de salle de classe

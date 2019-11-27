@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: cc4426ee1bb13eaf66e664c261c51f8893fdf10b
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129783"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074623"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -56,11 +56,11 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
    * **Externe** : la passerelle Gestion des API et le portail des développeurs sont accessibles à partir de l’Internet public via un équilibreur de charge externe. La passerelle peut accéder aux ressources au sein du réseau virtuel.
 
-     ![Homologation publique][api-management-vnet-public]
+     ![Peering public][api-management-vnet-public]
 
    * **Interne** : la passerelle Gestion des API et le portail des développeurs sont accessibles uniquement sur le réseau virtuel via un équilibreur de charge interne. La passerelle peut accéder aux ressources au sein du réseau virtuel.
 
-     ![Homologation privée][api-management-vnet-private]
+     ![Peering privé][api-management-vnet-private]
 
      Vous voyez maintenant une liste de toutes les régions où votre service Gestion des API est créé. Sélectionnez un réseau VNET et un sous-réseau pour chaque région. La liste contient les réseaux virtuels classiques et Resource Manager, disponibles dans vos abonnements Azure, qui sont installés dans la région que vous configurez.
 
@@ -112,7 +112,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 | * / 80, 443                  | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / Storage             | **Dépendance sur le Stockage Azure**                             | Externe et interne  |
 | * / 80, 443                  | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (le cas échéant)                   | Externe et interne  |
 | * / 1433                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / SQL                 | **Accès aux points de terminaison de SQL Azure**                           | Externe et interne  |
-| * / 5672                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / EventHub            | Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Externe et interne  |
+| * / 5671, 5672, 443          | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / EventHub            | Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Externe et interne  |
 | * / 445                      | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / Storage             | Dépendance sur le partage de fichiers Azure pour GIT                      | Externe et interne  |
 | * / 1886                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / INTERNET            | Nécessaire pour publier l’état d’intégrité sur Resource Health          | Externe et interne  |
 | * / 443                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publier les journaux de diagnostic et les métriques                        | Externe et interne  |
