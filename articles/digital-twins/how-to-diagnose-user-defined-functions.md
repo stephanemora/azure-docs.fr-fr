@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour déboguer les fonctions définies par l’utilisateur dans Azure Digital Twins | Microsoft Docs
-description: Informations pratiques sur le débogage des fonctions définies par l’utilisateur dans Azure Digital Twins
+title: Guide pratique pour déboguer les fonctions définies par l’utilisateur - Azure Digital Twins | Microsoft Docs
+description: Découvrez les pratiques recommandées pour déboguer des fonctions définies par l’utilisateur dans Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949888"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005932"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 

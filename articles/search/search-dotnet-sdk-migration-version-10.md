@@ -1,7 +1,7 @@
 ---
-title: Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche Azure
+title: Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche cognitive Azure
 titleSuffix: Azure Cognitive Search
-description: Migrez le code vers le SDK .NET Recherche Azure version 10 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
+description: Migrez le code vers le SDK .NET Recherche cognitive Azure version 10 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a8550a7f9c6a684a172da6f384039c6050797f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793054"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847521"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-10"></a>Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche Azure
+# <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche cognitive Azure
 
 Si vous utilisez la version 9.0 ou une version antérieure du [Kit SDK .NET Recherche Azure](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 10.
 
-Pour avoir un aperçu général du kit de développement logiciel et avoir des exemples, voir [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md).
+La Recherche Azure est renommée Recherche cognitive Azure dans la version 10, mais les espace de noms et les noms de package restent inchangés. Les versions antérieures du SDK (9.0 et précédentes) continuent d’utiliser l’ancien nom. Pour plus d’informations sur l’utilisation du SDK et pour découvrir des exemples, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](search-howto-dotnet-sdk.md).
 
 La version 10 ajoute plusieurs fonctionnalités et correctifs de bogues, ce qui la place au même niveau fonctionnel que la version la plus récente de l’API REST `2019-05-06`. Dans les cas où une modification rompt le code existant, nous vous guiderons à travers les [étapes requises pour résoudre le problème](#UpgradeSteps).
 
 > [!NOTE]
 > Si vous utilisez la version 8.0-preview ou une version antérieure, vous devez tout d’abord effectuer une mise à niveau vers la version 9, puis vers la version 10. Consultez [Mise à niveau vers la version 9 du SDK .NET Recherche Azure](search-dotnet-sdk-migration-version-9.md) pour obtenir des conseils sur la migration.
 >
-> Votre instance de service Recherche Azure prend en charge plusieurs versions de l’API REST, y compris la plus récente. Vous pouvez continuer à utiliser une version lorsqu’elle n’est pas la plus récente, mais nous vous recommandons de migrer votre code pour utiliser la dernière version. Lorsque vous utilisez l’API REST, vous devez spécifier la version de l’API dans chaque requête via le paramètre « api-version » (Version de l’API). Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, la version du Kit de développement logiciel (SDK) que vous utilisez détermine la version correspondante de l’API REST. Si vous utilisez un Kit de développement logiciel (SDK) plus ancien, vous pouvez continuer à exécuter ce code sans changement, même si le service est mis à niveau pour prendre en charge une version plus récente de l’API.
+> Votre instance de service de recherche prend en charge plusieurs versions de l’API REST, y compris la plus récente. Vous pouvez continuer à utiliser une version lorsqu’elle n’est pas la plus récente, mais nous vous recommandons de migrer votre code pour utiliser la dernière version. Lorsque vous utilisez l’API REST, vous devez spécifier la version de l’API dans chaque requête via le paramètre « api-version » (Version de l’API). Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, la version du Kit de développement logiciel (SDK) que vous utilisez détermine la version correspondante de l’API REST. Si vous utilisez un Kit de développement logiciel (SDK) plus ancien, vous pouvez continuer à exécuter ce code sans changement, même si le service est mis à niveau pour prendre en charge une version plus récente de l’API.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>Nouveautés de la version 10
-La version 10 du SDK .NET Recherche Azure cible la dernière version en disponibilité générale de l’API REST Recherche Azure (`2019-05-06`) avec les mises à jour suivantes :
+La version 10 du SDK .NET Recherche cognitive Azure cible la dernière version en disponibilité générale de l’API REST (`2019-05-06`) avec les mises à jour suivantes :
 
 * Présentation de deux nouvelles compétences : [compétence Conditionnelle](cognitive-search-skill-conditional.md) et [compétence Traduction de texte](cognitive-search-skill-text-translation.md).
 * Les entrées de [compétence du modélisateur](cognitive-search-skill-shaper.md) ont été restructurées pour s’adapter à la consolidation des contextes imbriqués. Pour plus d’informations, consultez cet [exemple de définition JSON](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -62,7 +62,7 @@ La version 10 du SDK .NET Recherche Azure cible la dernière version en disponib
 Il y a plusieurs changements cassants dans la version 10 qui sont susceptibles de nécessiter des modifications de code en plus de la régénération de votre application.
 
 > [!NOTE]
-> La liste des modifications ci-dessous n’est pas exhaustive. Certains changements ne provoqueront probablement pas d’erreurs de build, mais sont techniquement cassants dans la mesure où ils rompent la compatibilité binaire avec des assemblys qui dépendent de versions antérieures d’assemblys SDK .NET Recherche Azure. Les changements significatifs qui appartiennent à cette catégorie sont également répertoriés avec des recommandations. Régénérez votre application lors de la mise à niveau vers la version 10 pour éviter tout problème de compatibilité binaire.
+> La liste des modifications ci-dessous n’est pas exhaustive. Certaines modifications ne généreront probablement pas d’erreur de build mais un arrêt technique, car elles rompent la compatibilité binaire avec des assemblys qui dépendent de versions antérieures d’assemblys du SDK .NET Azure Cognitive Search. Les changements significatifs qui appartiennent à cette catégorie sont également répertoriés avec des recommandations. Régénérez votre application lors de la mise à niveau vers la version 10 pour éviter tout problème de compatibilité binaire.
 
 ### <a name="custom-web-api-skill-definition"></a>Définition de compétence API web personnalisée
 

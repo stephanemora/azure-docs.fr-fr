@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811389"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048409"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
 
@@ -25,6 +25,17 @@ Azure SQL Database apprend avec votre application et s’adapte à cette derniè
 > [!TIP]
 > Le [réglage automatique](sql-database-automatic-tuning.md) est la méthode recommandée pour régler automatiquement certains problèmes de performances de base de données les plus courants. [Query Performance Insight](sql-database-query-performance.md) est la méthode recommandée pour superviser les performances de base d’Azure SQL Database. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) est la méthode recommandée pour la supervision avancée des performances de base de données à grande échelle, avec une intelligence intégrée pour résoudre automatiquement les problèmes de performances.
 >
+
+## <a name="performance-recommendations-options"></a>Options des recommandations en matière de performances
+
+Les options des recommandations en matière de performances disponibles dans Azure SQL Database sont :
+
+| Recommandation en matière de performances | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
+| :----------------------------- | ----- | ----- |
+| **Recommandations de création d’index** : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | OUI | Non | 
+| **Recommandations de suppression d’index** : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | OUI | Non |
+| **Recommandations de paramétrage des requêtes (préversion)**  : recommande le paramétrage forcé dans les cas où une ou plusieurs requêtes sont constamment recompilées mais ont en fin de compte le même plan d’exécution de requête. | OUI | Non |
+| **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent lorsque le service SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | OUI | Non |
 
 ## <a name="create-index-recommendations"></a>Recommandations relatives à la création d’un index
 SQL Database surveille continuellement les requêtes en cours d’exécution et identifie les index susceptibles d’améliorer le niveau de performance. Lorsque le service détermine avec certitude qu’un index spécifique est manquant, une recommandation **Créer un index** est créée.
@@ -50,8 +61,7 @@ Outre la détection des index manquants, SQL Database procède à l’analyse co
 
 Les recommandations de suppression d’index passent également par la vérification, suite à l’implémentation. Si le niveau de performance s’améliore, le rapport d’impact est disponible. Si le niveau de performance se détériore, la recommandation est annulée.
 
-
-## <a name="parameterize-queries-recommendations"></a>Recommandations de paramétrage de requêtes
+## <a name="parameterize-queries-recommendations-preview"></a>Recommandations de paramétrage de requêtes (préversion)
 Les recommandations liées au *paramétrage des requêtes* s’affichent lorsque vous disposez d’une ou plusieurs requêtes qui sont constamment recompilées, mais ont en fin de compte le même plan d’exécution de requête. Cette condition offre une opportunité de mise en œuvre d’un paramétrage forcé. Le paramétrage forcé autorise la mise en cache et la réutilisation ultérieure des plans de requête, ce qui améliore le niveau de performance et réduit l’utilisation des ressources. 
 
 Chaque requête initialement adressée à SQL Server doit être compilée pour générer un plan d’exécution. Chaque plan généré est ajouté au cache du plan. Les exécutions ultérieures de la même requête peuvent réutiliser ce plan à partir du cache, évitant ainsi toute compilation supplémentaire. 

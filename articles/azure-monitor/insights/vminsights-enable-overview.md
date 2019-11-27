@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/14/2019
+ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555228"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109178"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour machines virtuelles (préversion)
 
@@ -37,19 +37,23 @@ Avant de commencer, prenez connaissance de ce qui suit.
 Azure Monitor pour machines virtuelles prend en charge un espace de travail Log Analytics dans les régions suivantes :
 
 - Centre-USA Ouest
-- USA Ouest 2<sup>1</sup>
+- USA Ouest
+- USA Ouest 2
+- États-Unis - partie centrale méridionale
 - USA Est
-- USA Est 2<sup>1</sup>
+- USA Est 2
+- USA Centre
+- Centre-Nord des États-Unis
 - Centre du Canada
 - Sud du Royaume-Uni
-- Europe Nord<sup>1</sup>
+- Europe Nord
 - Europe Ouest
+- Asie Est
 - Asie Sud-Est
-- Japon Est<sup>1</sup>
-- Australie Est<sup>1</sup>
-- Australie Sud-Est<sup>1</sup>
-
-<sup>1</sup> Cette région ne prend pas encore en charge la fonctionnalité d’intégrité d’Azure Monitor pour machines virtuelles.
+- Inde centrale
+- Japon Est
+- Australie Est
+- Sud-Australie Est
 
 >[!NOTE]
 >Vous pouvez déployer des machines virtuelles Azure à partir de toute région. Ces machines virtuelles ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.
@@ -77,29 +81,25 @@ Pour configurer votre espace de travail pour le scénario à grande échelle, ut
 
 Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux qu’Azure Monitor pour machines virtuelles prend en charge. Plus loin dans cette section, figure une liste complète détaillant les versions principales et mineures de système d’exploitation et de noyau Linux prises en charge.
 
-|Version du SE |Performances |Cartes |Intégrité |
-|-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | X |
-|Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | X |
-|Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X|  |
-|Windows 10 1803 | X | X | |
-|Windows 8.1 | X | X | |
-|Windows 8 | X | X | |
-|Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 18.04, 16.04 | X | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | | X |
+|Version du SE |Performances |Cartes |
+|-----------|------------|-----|
+|Windows Server 2019 | X | X |
+|Windows Server 2016 1803 | X | X |
+|Windows Server 2016 | X | X |
+|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 | X | X |
+|Windows Server 2008 R2 | X | X|
+|Windows 10 1803 | X | X |
+|Windows 8.1 | X | X |
+|Windows 8 | X | X |
+|Windows 7 SP1 | X | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
+|Ubuntu 18.04, 16.04 | X | X |
+|CentOS Linux 7, 6 | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | |
 
 <sup>1</sup> La fonctionnalité Performances d’Azure Monitor pour machines virtuelles est disponible uniquement à partir d’Azure Monitor. Elle n’est pas directement accessible à partir du volet gauche de la machine virtuelle Azure.
-
->[!NOTE]
->La fonctionnalité d’intégrité d’Azure Monitor pour machines virtuelles ne prend pas en charge la [virtualisation imbriquée](../../virtual-machines/windows/nested-virtualization.md) dans une machine virtuelle Azure.
->
 
 >[!NOTE]
 >Dans le système d’exploitation Linux :
@@ -157,12 +157,12 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 
 La fonctionnalité Map dans Azure Monitor pour machines virtuelles obtient ses données à partir de Microsoft Dependency Agent. Celui-ci dépend de l’agent Log Analytics pour ses connexions à Log Analytics. Par conséquent, Log Analytics Agent doit être installé et configuré avec l’agent Dependency sur le système.
 
-Que vous activiez Azure Monitor pour machines virtuelles pour une seule machine virtuelle Azure ou que vous utilisiez les méthodes de déploiement à grande échelle, utilisez l’extension de l’agent Azure VM Dependency pour installer l’agent dans le cadre de cette expérience.
+Que vous activiez Azure Monitor pour machines virtuelles pour une seule machine virtuelle Azure ou que vous utilisiez les méthodes de déploiement à grande échelle, utilisez l’extension de l’agent Azure VM Dependency pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) ou [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) pour installer l’agent dans le cadre de cette expérience.
 
 >[!NOTE]
 >Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](service-map.md).  
 
-Dans un environnement hybride, vous pouvez télécharger et installer l’agent Dependency manuellement. Si vos machines virtuelles sont hébergées hors d’Azure, utilisez une méthode de déploiement automatisée.
+Dans un environnement hybride, vous pouvez télécharger et installer l’agent Dependency manuellement ou à l’aide d’une méthode automatisée.
 
 Le tableau suivant décrit les sources connectées prises en charge par la fonctionnalité Map dans un environnement hybride.
 
@@ -199,6 +199,9 @@ Pour activer Azure Monitor pour les machines virtuelles, utilisez l’une des m�
 ## <a name="performance-counters-enabled"></a>Compteurs de performances activés 
 
 Azure Monitor pour machines virtuelles configure un espace de travail Log Analytics pour collecter des compteurs de performances qu’il utilise. Les tableaux suivants répertorient les objets et compteurs collectés toutes les 60 secondes.
+
+>[!NOTE]
+>La liste suivante de compteurs de performances activée par Azure Monitor pour machines virtuelles ne vous limite pas à l’activation de compteurs supplémentaires que vous devez collecter à partir de machines virtuelles envoyant des rapports à l’espace de travail. En outre, si vous désactivez ces compteurs, cela empêchera l’ensemble des graphiques de performances inclus avec la fonctionnalité de performances d’afficher l’utilisation des ressources de vos machines virtuelles.
 
 ### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 
@@ -257,4 +260,4 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
+Pour savoir comment utiliser la fonctionnalité d’analyse des performances, consultez [Afficher les performances d’Azure Monitor pour machines virtuelles](vminsights-performance.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).

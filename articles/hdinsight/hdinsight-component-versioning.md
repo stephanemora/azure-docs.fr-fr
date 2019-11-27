@@ -1,6 +1,6 @@
 ---
 title: Composants et versions Apache Hadoop – Azure HDInsight
-description: Découvrez les composants et versions Apache Hadoop dans HDInsight, et les niveaux de service disponibles dans cette distribution cloud de la solution Hortonworks Data Platform.
+description: Découvrez les composants et versions Apache Hadoop dans Azure HDInsight.
 keywords: versions Hadoop,composants de l’écosystème hadoop,composants hadoop,comment vérifier la version hadoop
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.openlocfilehash: 8bcb6caa418f7bd5c5241d06dbda69ccba360f2c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.date: 11/13/2019
+ms.openlocfilehash: a5632f4b7ca264f6fdeb88dc7f7cf843c73ddf54
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984470"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123403"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?
 
@@ -22,7 +22,7 @@ Découvrez les composants et versions de l’écosystème [Apache Hadoop](https:
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Composants Apache Hadoop disponibles avec différentes versions de HDInsight
 
-Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 4 avril 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.6 ; elle est basée sur la plateforme HDP 2.6.
+Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Depuis le 4 avril 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.6.
 
 Les versions de composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant : 
 
@@ -64,16 +64,16 @@ Pour d’autres notes de publication sur les dernières versions de HDInsight, c
 
 ## <a name="supported-hdinsight-versions"></a>Versions de HDInsight prises en charge
 
-Les tableaux suivants listent les versions HDInsight. Les versions de la plateforme HDP qui correspondent à chaque version de HDInsight sont répertoriées, ainsi que les dates de mise en production des logiciels. Les dates d’expiration et de mise hors service sont également fournies, lorsqu’elles sont connues.
+Les tableaux suivants listent les versions HDInsight. Les dates d’expiration et de mise hors service sont également fournies, lorsqu’elles sont connues.
 
 ### <a name="available-versions"></a>Versions disponibles
 
 Le tableau suivant liste les versions HDInsight qui sont disponibles dans le portail Azure ainsi que d’autres méthodes de déploiement telles que PowerShell et le kit .NET SDK.
 
-| Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 septembre 2018 | | |OUI |OUI |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | 30 juin 2020 |31 décembre 2020 |OUI |OUI |
+| Version de HDInsight | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité dans le portail Azure | 
+| --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 septembre 2018 | | |OUI |OUI |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | 30 juin 2020 |31 décembre 2020 |OUI |OUI |
 
 
 > [!NOTE]  

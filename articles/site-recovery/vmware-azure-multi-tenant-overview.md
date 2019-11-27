@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de machines virtuelles VMware sur Azure (CSP) à l’aide d’Azure Site Recovery | Microsoft Docs
+title: Récupération d’urgence multilocataire de machines virtuelles VMware avec Azure Site Recovery
 description: Offre une vue d’ensemble de la prise en charge d’Azure Site Recovery pour la reprise d’activité de VMware sur Azure dans un programme d’environnement multilocataire (CSP).
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083988"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de VMware sur Azure avec CSP
 

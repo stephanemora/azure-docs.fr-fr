@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826819"
+ms.locfileid: "73846744"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -169,7 +169,7 @@ Notez que les économies faites sur les volumes s’appliquent seulement au serv
 > La déduplication des données et la hiérarchisation cloud ne sont à l’heure actuelle pas prises en charge sur le même volume sur Server 2019 en raison d’un bogue qui sera résolu dans une prochaine mise à jour.
 
 **Windows Server 2012 R2**  
-Azure File Sync ne prend pas en charge la déduplication des données et la hiérarchisation cloud sur le même volume. Si la déduplication des données est activée sur un volume, la hiérarchisation cloud doit être désactivée. 
+Azure File Sync ne prend pas en charge la déduplication des données et la hiérarchisation cloud sur le même volume sur Windows Serveur 2012 R2. Si la déduplication des données est activée sur un volume, la hiérarchisation cloud doit être désactivée. 
 
 **Remarques**
 - Si la déduplication des données est installée avant d’installer l’agent Azure File Sync, un redémarrage est nécessaire pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume.

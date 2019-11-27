@@ -1,21 +1,18 @@
 ---
-title: Conception pour une reprise d’activité avec Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute : Conception pour la récupération d’urgence'
 description: Cette page fournit des conseils sur l’architecture pour une reprise d’activité lors de l’utilisation d’Azure ExpressRoute.
-documentationcenter: na
-services: networking
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: cf2b4e385de901254fde3c3d3e807feda98d5b41
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466067"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076705"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Conception pour une reprise d’activité avec le peering privé ExpressRoute
 

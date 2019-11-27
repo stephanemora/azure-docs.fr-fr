@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747368"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091644"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -66,17 +66,13 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
     Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifiez l’accès aux éléments suivants :
 
     - download.microsoft.com
-    - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (pour les zones géographiques publiques Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure Chine 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (pour Azure US Government)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (pour Azure Allemagne)
+    - URL du service de récupération (le nom de la zone géographique fait référence à la région dans laquelle réside le coffre du service de récupération)       - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Pour les zones géographiques publiques Azure)       - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Pour 21Vianet - Azure Chine)       - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Pour Azure US Government)       - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Pour Azure Allemagne)
     - port sortant 3260
 
 > [!Note]
 >
-> - Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom de script téléchargé commence par \'nomMachineVirtuelle\'\_\'NomZoneGéographique\'_\'GUID\', par exemple ContosoVM_wcus_12345678...<br><br>
-> - L’URL est alors « https:\//pod01-rec2.wcus.backup.windowsazure.com »
+> - Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom de script téléchargé commence par \'nomMachineVirtuelle\'\_\'NomZoneGéographique\'_\'GUID\', par exemple ContosoVM_wcus_12345678
+> - L’URL serait <https://pod01-rec2.wcus.backup.windowsazure.com>"
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
 
@@ -125,7 +121,7 @@ Les espaces de stockage Windows sont une technologie Windows qui vous permet de 
 
 Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows, vous ne pouvez pas exécuter le script exécutable sur la même machine virtuelle. Au lieu de cela, exécutez le script exécutable sur n’importe quelle autre machine avec un système d’exploitation compatible.
 
-### <a name="lvmraid-arrays"></a>Baies LVM/RAID
+### <a name="lvmraid-arrays"></a>Tableaux LVM/RAID
 
 Sous Linux, le gestionnaire de volumes logiques (LVM) et/ou les baies RAID logicielles permettent de gérer des volumes logiques sur plusieurs disques. Si la machine virtuelle Linux protégée utilise LVM et/ou des baies RAID, vous ne pouvez pas exécuter le script sur la même machine virtuelle. Exécutez plutôt le script sur une autre machine avec un système d’exploitation compatible et qui prend en charge le système de fichiers de la machine virtuelle protégée.
 
@@ -141,21 +137,21 @@ Pour répertorier les noms de groupes de volumes sous un volume physique.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 Pour répertorier tous les volumes logiques, noms et chemins d’accès dans un groupe de volumes.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Pour monter les volumes logiques sur le chemin d’accès de votre choix.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Pour les tableaux RAID
@@ -164,7 +160,7 @@ La commande suivante affiche des détails sur tous les disques RAID.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  Le disque RAID pertinent s’affiche en tant que `/dev/mdm/<RAID array name in the protected VM>`
@@ -173,7 +169,7 @@ Utilisez la commande mount si le disque RAID dispose de volumes physiques.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 Si le disque RAID contient un autre gestionnaire de volume logique configuré, utilisez la procédure précédente pour les partitions LVM, mais utilisez le nom de volume à la place du nom de disque RAID
@@ -186,6 +182,7 @@ Le tableau suivant indique la compatibilité entre les systèmes d’exploitatio
 
 |Système d’exploitation serveur | Système d’exploitation client compatible  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |

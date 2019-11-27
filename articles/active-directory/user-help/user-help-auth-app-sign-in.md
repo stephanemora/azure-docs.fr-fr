@@ -1,5 +1,5 @@
 ---
-title: Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Se connecter à l’aide de l’application Microsoft Authenticator - Azure AD
 description: Utilisez l’application Microsoft Authenticator pour vous connecter à votre compte scolaire ou professionnel, ou à vos comptes personnels Microsoft et non-Microsoft, à l’aide de la vérification en deux étapes ou de la connexion par téléphone.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616010"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028982"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 

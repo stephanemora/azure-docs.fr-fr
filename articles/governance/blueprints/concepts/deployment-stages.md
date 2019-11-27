@@ -1,17 +1,14 @@
 ---
 title: Phases du déploiement d’un blueprint
 description: Découvrez les étapes parcourues par les services Azure Blueprints lors d’un déploiement.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 4645edde5163f1c8bca787416f5465e5a8f2d355
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b329613e4e4954a1ea1452017a6e6c8b7343f2d3
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978537"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048608"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phases du déploiement d’un blueprint
 
@@ -28,7 +25,7 @@ Le déploiement de blueprint est déclenché en affectant un blueprint à un abo
 
 ## <a name="blueprints-granted-owner-rights"></a>Droits de propriétaire accordés à Blueprints
 
-Le principal du service Azure Blueprints dispose de droits de propriétaire sur le ou les abonnements affectés. Le rôle accordé permet à Blueprints de créer et ultérieurement de révoquer l’[identité managée affectée par le système](../../../active-directory/managed-identities-azure-resources/overview.md).
+Le principal du service Azure Blueprints dispose de droits de propriétaire sur le ou les abonnements affectés lorsqu’une [identité managée affectée par le système](../../../active-directory/managed-identities-azure-resources/overview.md) est utilisée. Le rôle accordé permet à Blueprints de créer et ultérieurement de révoquer l’identité managée **affectée par le système**. Si vous utilisez une identité managée **affectée par l’utilisateur**, le principal du service Azure Blueprints n’obtient pas et ne nécessite pas de droits de propriétaire sur l’abonnement.
 
 Les droits sont accordés automatiquement si l’affectation est effectuée via le portail. Cependant, si l’affectation est effectuée via l’API REST, l’octroi des droits doit être fait avec un appel d’API distinct. L’ID d’application d’Azure Blueprints est `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mais le principal du service varie en fonction du locataire. Utilisez l’[API Graph d’Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) et le point de terminaison REST [servicePrincipals](/graph/api/resources/serviceprincipal) pour obtenir le principal du service. Ensuite, accordez à Azure Blueprints le rôle _Propriétaire_ via le [portail](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l’[API REST](../../../role-based-access-control/role-assignments-rest.md) ou un [modèle Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
@@ -38,7 +35,7 @@ Le service Blueprints ne déploie pas directement les ressources.
 
 Un utilisateur, un groupe ou un principal du service affecte un blueprint à un abonnement. L’objet d’affectation existe au niveau de l’abonnement où le blueprint a été affecté. Les ressources créées par le déploiement ne le sont pas dans le contexte de l’entité de déploiement.
 
-Lors de la création de l’affectation de blueprint, le type d’[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionné. L’option par défaut est une identité managée **affectée par le système**. Vous pouvez choisir une identité managée **affectée par l’utilisateur**. Lors de l’utilisation d’une identité managée **affectée par l’utilisateur**, elle doit être définie et recevoir les autorisations avant la création de l’affectation de blueprint.
+Lors de la création de l’affectation de blueprint, le type d’[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionné. L’option par défaut est une identité managée **affectée par le système**. Vous pouvez choisir une identité managée **affectée par l’utilisateur**. Lors de l’utilisation d’une identité managée **affectée par l’utilisateur**, elle doit être définie et recevoir les autorisations avant la création de l’affectation de blueprint. Les rôles intégrés [Propriétaire](../../../role-based-access-control/built-in-roles.md#owner) et [Opérateur Blueprint](../../../role-based-access-control/built-in-roles.md#blueprint-operator) disposent des autorisations `blueprintAssignment/write` requises pour créer une attribution qui utilise une identité managée **affectée par l’utilisateur**.
 
 ## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Facultatif - Blueprints crée une identité managée affectée par le système
 

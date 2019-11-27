@@ -1,18 +1,18 @@
 ---
-title: Mappage de réseaux virtuels entre deux régions Azure dans Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire.
+title: Mappage de réseaux virtuels entre deux régions dans Azure Site Recovery
+description: Découvrez comment mapper des réseaux virtuels entre deux régions Azure pour la récupération d’urgence sur des machines virtuelles Azure avec Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331112"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954156"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 

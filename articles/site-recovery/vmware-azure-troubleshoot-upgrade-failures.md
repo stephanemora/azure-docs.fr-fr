@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de mise à niveau du fournisseur Microsoft Azure Site Recovery | Microsoft Docs
-description: Comprendre et
+title: Résoudre les problèmes de mise à niveau du fournisseur Microsoft Azure Site Recovery
+description: Résoudre les problèmes courants qui se produisent lors de la mise à niveau du fournisseur Microsoft Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 02/05/2019
+ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 6bb8263e7291506be6af7d5af7eda5786274d73c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972624"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083921"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Résoudre les problèmes de mise à niveau du fournisseur Microsoft Azure Site Recovery
 

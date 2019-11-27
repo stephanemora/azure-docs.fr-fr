@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802206"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120324"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -199,6 +199,12 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 > [!NOTE]
 > Une autre option possible pour automatiser l’approvisionnement des utilisateurs dans G Suite consiste à utiliser [Google Apps Directory Sync](https://support.google.com/a/answer/106368?hl=en). Cette option approvisionne vos identités Active Directory locales dans G Suite.
+
+## <a name="common-issues"></a>Problèmes courants
+* G Suite requiert que tous les utilisateurs approvisionnés proviennent de domaines vérifiés. Assurez-vous que tous les utilisateurs que vous souhaitez approvisionner possèdent un UPN d’un domaine vérifié dans G Suite. Si un utilisateur d’un domaine non vérifié figure dans l’étendue de l’approvisionnement, une erreur s’affiche dans les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) comme « GoogleAppsInvalidDomain ». Vous pouvez éviter ces erreurs et vous assurer que les utilisateurs des domaines non vérifiés sont hors de portée à l’aide d’un [filtre d’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+    * Attribut cible : userPrincipalName
+    * Opérateur : REGEX MATCH ou NOT REGEX MATCH
+    * Valeur : .*@domain.com
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

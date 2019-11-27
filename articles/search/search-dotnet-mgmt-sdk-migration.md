@@ -1,22 +1,22 @@
 ---
-title: Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure - Recherche Azure
+title: Mettre à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure
+titleSuffix: Azure Cognitive Search
 description: Mettre à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure à partir d’une version précédente. Découvrez les nouveautés et les modifications de code nécessaires.
-author: brjohnstmsft
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847534"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure 
+# <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Mise à niveau des versions du Kit de développement logiciel (SDK) .NET Management
 
 > [!Important]
 > Ce contenu est en cours de construction. La version 3.0 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure est disponible sur NuGet. Nous travaillons sur la mise à jour de ce guide de migration. Celle-ci expliquera comment effectuer la mise à niveau vers la nouvelle version. 
@@ -46,7 +46,5 @@ Si votre build échoue, cela est peut-être dû au fait que vous avez implément
 
 Une fois que vous avez résolu les erreurs de build, vous pouvez apporter des modifications à votre application pour exploiter les nouvelles fonctionnalités si vous le souhaitez. Les nouvelles fonctionnalités du Kit SDK sont détaillées dans la section [Nouveautés de la version 2](#WhatsNew).
 
-## <a name="conclusion"></a>Conclusion
-N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum Azure Search MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas de faire précéder le titre de votre problème du préfixe « [Recherche Azure] ».
-
-Merci d’utiliser Azure Search !
+## <a name="next-steps"></a>Étapes suivantes
+N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, publiez vos questions sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas d’étiqueter le titre de votre problème avec « [Search] ».

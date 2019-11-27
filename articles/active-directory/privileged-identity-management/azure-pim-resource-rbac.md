@@ -1,31 +1,31 @@
 ---
-title: Afficher l'activité et l'historique d'audit des rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
+title: Afficher le rapport d’audit pour les rôles de ressources Azure dans PIM - Azure AD | Microsoft Docs
 description: Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804052"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847139"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
 
-Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des rôles de ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. Toutes les ressources du portail Azure qui utilisent la fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) d’Azure peuvent tirer parti des possibilités de gestion de la sécurité et des cycles de vie proposées par PIM.
+Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des rôles de ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. Toutes les ressources du portail Azure qui utilisent la fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) d’Azure peuvent tirer parti des possibilités de gestion de la sécurité et des cycles de vie proposées par Privileged Identity Management.
 
 ## <a name="view-activity-and-activations"></a>Afficher l’activité et les activations
 
@@ -51,7 +51,7 @@ Pour connaître les actions qu’un utilisateur en particulier a effectuées dan
 
 ## <a name="export-role-assignments-with-children"></a>Exporter les attributions de rôle ayant des enfants
 
-Vous pouvez avoir une exigence de conformité selon laquelle vous devez fournir une liste complète des attributions de rôle à des auditeurs. PIM permet d’interroger les attributions de rôle sur une ressource particulière, ce qui inclut les attributions de rôle de toutes les ressources enfants. Avant, il était difficile pour les administrateurs d’obtenir une liste complète des attributions de rôle d’un abonnement, car ils devaient les exporter pour chaque ressource spécifique. Avec PIM, vous pouvez interroger toutes les attributions de rôle actives et éligibles d’un abonnement, notamment les attributions de rôle des ressources et de tous les groupes de ressources.
+Vous pouvez avoir une exigence de conformité selon laquelle vous devez fournir une liste complète des attributions de rôle à des auditeurs. Privileged Identity Management permet d’interroger les attributions de rôle sur une ressource particulière, ce qui inclut les attributions de rôle de toutes les ressources enfants. Avant, il était difficile pour les administrateurs d’obtenir une liste complète des attributions de rôle d’un abonnement, car ils devaient les exporter pour chaque ressource spécifique. Avec Privileged Identity Management, vous pouvez interroger toutes les attributions de rôle actives et éligibles d’un abonnement, notamment les attributions de rôle des ressources et de tous les groupes de ressources.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -67,7 +67,7 @@ Vous pouvez avoir une exigence de conformité selon laquelle vous devez fournir 
 
 1. Cliquez sur **Exporter tous les membres** pour exporter toutes les attributions de rôle dans un fichier CSV.
 
-    ![Attributions de rôles exportées dans le fichier CSV comme affiché dans Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Attributions de rôle exportées dans le fichier CSV comme affiché dans Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Afficher l’historique d’audit des ressources
 
@@ -111,6 +111,6 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Attribuer des rôles de ressources Azure dans PIM](pim-resource-roles-assign-roles.md)
-- [Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM](pim-resource-roles-approval-workflow.md)
-- [Afficher l'historique d'audit pour les rôles Azure AD dans PIM](pim-how-to-use-audit-log.md)
+- [Attribuer des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Approuver ou rejeter des requêtes de rôles de ressources Azure AD dans Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Afficher l’activité et l’historique d’audit des rôles Azure AD dans Privileged Identity Management](pim-how-to-use-audit-log.md)

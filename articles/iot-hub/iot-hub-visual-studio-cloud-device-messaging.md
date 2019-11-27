@@ -1,5 +1,5 @@
 ---
-title: Gérer les messages cloud-à-appareil Azure IoT Hub avec Cloud Explorer pour Visual Studio | Microsoft Docs
+title: Utiliser VS Cloud Explorer pour gérer la messagerie des appareils Azure IoT Hub
 description: Découvrez comment utiliser Cloud Explorer pour Visual Studio afin de superviser les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil dans Azure IoT Hub.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: b8ea705b55c1485cab2e1478d2d455f1d4a427d3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050289"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079493"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Cloud Explorer pour Visual Studio afin d’envoyer et de recevoir des messages entre votre appareil et un hub IoT
 
@@ -60,7 +60,7 @@ Pour accéder à votre hub, effectuez les étapes suivantes :
 
     ![Icône Gestion de compte](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-1. Si vous êtes connecté à Azure, vos comptes s’affichent. Pour vous connecter à Azure pour la première fois, choisissez **Ajouter un compte**.
+1. Si vous êtes connecté à Azure, vos comptes apparaissent. Pour vous connecter à Azure pour la première fois, choisissez **Ajouter un compte**.
 
 1. Sélectionnez les abonnements Azure que vous souhaitez utiliser, puis choisissez **Appliquer**.
 

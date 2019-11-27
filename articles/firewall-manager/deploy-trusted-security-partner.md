@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511362"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931317"
 ---
 # <a name="deploy-a-trusted-security-partner-preview"></a>Déployer un partenaire de sécurité de confiance (préversion)
 
@@ -27,7 +27,7 @@ Les partenaires de sécurité pris en charge sont **ZScaler** et **iboss** pour 
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Azure Firewall Manager Preview doit être explicitement activée à l’aide de la commande PowerShell `Register-AzProviderFeature`.
+> Azure Firewall Manager Preview doit être explicitement activé à l’aide de la commande PowerShell `Register-AzProviderFeature`.
 
 À partir d’une invite de commande PowerShell, exécutez les commandes suivantes :
 
@@ -83,12 +83,11 @@ Pour que vous puissiez configurer des tunnels vers la passerelle VPN de votre hu
 
    > [!NOTE]
    > Pour un contrôle plus précis, vous pouvez limiter l’accès à votre groupe de ressources.
-3. Suivez les instructions du lien suivant.
+3. Suivez les instructions de [ZScaler : configuration d’une intégration Microsoft Azure Virtual WAN](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) pour :
 
-   - Pour vous connecter au portail partenaire et ajouter vos informations d’identification afin d’accorder au partenaire de confiance l’accès à votre hub sécurisé.
-   - Une fois vos informations d’identification d’authentification Azure AD validées, suivez les instructions ci-dessous pour synchroniser les hubs virtuels dans le portail partenaire et configurer le tunnel sur le hub virtuel.
-
-   [ZScaler : configuration d’une intégration Microsoft Azure Virtual WAN](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Vous connecter au portail partenaire et ajouter vos informations d’identification afin d’accorder au partenaire de confiance l’accès à votre hub sécurisé.
+   - Synchroniser les hubs virtuels dans le portail du partenaire et configurer le tunnel vers le hub virtuel. Cette opération est réalisable une fois vos informations d’authentification Azure AD validées.
+   
 4. Vous pouvez consulter l’état de la création du tunnel sur le portail Azure Virtual WAN dans Azure. Une fois que l’état des tunnels est **connecté** à la fois sur Azure et sur le portail partenaire, passez aux étapes suivantes pour configurer des routes afin de sélectionner les filiales et les réseaux virtuels qui doivent envoyer le trafic Internet au partenaire.
 
 ## <a name="configure-route-settings"></a>Configurer les paramètres de routage

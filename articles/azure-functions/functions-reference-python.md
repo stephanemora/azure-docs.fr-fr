@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: e0e649045e3efe488804fd37c030fe01991ad232
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 01d8560ee2752f21eb52c00f4c337d1dca59b8fb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803625"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082694"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -87,10 +87,10 @@ Vous pouvez changer le comportement par défaut d’une fonction en spécifiant 
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
-La structure de dossiers d’un projet Python Functions se présente comme l’exemple suivant :
+La structure de dossiers recommandée d’un projet Python Functions se présente comme l’exemple suivant :
 
 ```
- FunctionApp
+ __app__
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
@@ -103,23 +103,31 @@ La structure de dossiers d’un projet Python Functions se présente comme l’e
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
+ tests
 ```
+Le dossier principal du projet (\_\_app\_\_) peut contenir les fichiers suivants :
 
-Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code et son propre fichier de configuration de liaison (function.json). 
+* *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt* : Contient la liste des packages que le système installe lors de la publication sur Azure.
+* *host.json* : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
+* *funcignore* : (facultatif) déclare des fichiers qui ne devraient pas être publiés dans Azure.
+* *gitignore* : (facultatif) déclare des fichiers qui sont exclus d’un référentiel git, tel que local.settings.json.
 
-Le code partagé doit être conservé dans un dossier distinct. Pour faire référence à des modules dans le dossier SharedCode, vous pouvez utiliser la syntaxe suivante :
+Chaque fonction a son propre fichier de code et son propre fichier de configuration de liaison (function.json). 
 
-```
+Le code partagé doit être conservé dans un dossier distinct dans \_\_app\_\_. Pour faire référence à des modules dans le dossier SharedCode, vous pouvez utiliser la syntaxe suivante :
+
+```python
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
 Si vous voulez faire référence à des modules locaux pour une fonction, vous pouvez utiliser la syntaxe d’importation relative de la façon suivante :
 
-```
+```python
 from . import example
 ```
 
-Quand vous déployez un projet Function dans votre application de fonction sur Azure, tout le contenu du dossier *FunctionApp* (et non le dossier proprement dit) doit être inclus dans le package.
+Quand vous déployez votre projet vers une application de fonction sur Azure, tout le contenu du dossier *FunctionApp* (et non le dossier proprement dit) doit être inclus dans le package. Nous vous recommandons de conserver vos tests dans un dossier distinct du dossier de projet, dans cet exemple `tests`. Cela vous évite de déployer du code de test avec votre application. Pour plus d’informations, consultez [Test unitaire](#unit-testing).
 
 ## <a name="triggers-and-inputs"></a>Déclencheurs et entrées
 
@@ -378,11 +386,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Pour le développement local, les paramètres d’application sont [conservés dans le fichier local.settings.json](functions-run-local.md#local-settings-file).  
 
-## <a name="python-version-and-package-management"></a>Version de Python et gestion des packages
+## <a name="python-version"></a>Version Python 
 
-Actuellement, Azure Functions ne prend en charge que Python 3.6.x (distribution officielle de CPython).
+Actuellement, Azure Functions prend en charge Python 3.6.x et 3.7.x (distributions officielles de CPython). Lors d’une exécution locale, le runtime utilise la version de Python disponible. Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create).  
 
-Si vous développez en local avec Azure Functions Core Tools ou Visual Studio Code, ajoutez les noms et les versions des packages requis au fichier `requirements.txt` et installez-les avec `pip`.
+## <a name="package-management"></a>Gestion des packages
+
+Si vous développez en local avec Azure Functions Core Tools ou Visual Studio Code, ajoutez les noms et les versions des packages requis au fichier `requirements.txt` et installez-les avec `pip`. 
 
 Par exemple, le fichier de configuration requise suivant et la commande pip permettent d’installer le package `requests` à partir de PyPI.
 
@@ -396,35 +406,67 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Publier sur Azure
 
-Avant de procéder à la publication, vérifiez que toutes les dépendances sont listées dans le fichier *requirements.txt*, situé à la racine de votre répertoire de projet. Azure Functions peut [créer à distance](functions-deployment-technologies.md#remote-build) ces dépendances.
+Avant de procéder à la publication, vérifiez que toutes les dépendances disponibles publiquement sont listées dans le fichier requirements.txt, situé à la racine de votre répertoire de projet. 
 
-Les dossiers et fichiers projet qui sont exclus de la publication, y compris le dossier d’environnement virtuel, sont listés dans le fichier .funcignore. 
+Les dossiers et fichiers projet qui sont exclus de la publication, y compris le dossier d’environnement virtuel, sont listés dans le fichier .funcignore.
 
-[Azure Functions Core Tools](functions-run-local.md#v2) et l’[extension Azure Functions pour VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectueront une build distante par défaut. Par exemple, utilisez la commande suivante :
+Trois actions de génération sont prises en charge pour la publication de votre projet Python dans Azure :
+
++ Build distante : les dépendances sont obtenues à distance en fonction du contenu du fichier requirements.txt. L’option [Build distante](functions-deployment-technologies.md#remote-build) est la méthode de génération recommandée. Il s’agit également de l’option de génération par défaut des outils Azure. 
++ Build locale : les dépendances sont obtenues localement en fonction du contenu du fichier requirements.txt. 
++ Dépendances personnalisées : votre projet utilise des packages qui ne sont pas disponibles publiquement pour nos outils (nécessite Docker).
+
+Pour générer les dépendances et effectuer la publication au moyen d’un système de livraison continue (CD), [utilisez Azure Pipelines](functions-how-to-azure-devops.md).
+
+### <a name="remote-build"></a>Build distante
+
+Par défaut, Azure Functions Core Tools demande une build distante lorsque vous utilisez la commande [func azure functionapp publish](functions-run-local.md#publish) suivante pour publier votre projet Python dans Azure. 
 
 ```bash
-func azure functionapp publish <app name>
+func azure functionapp publish <APP_NAME>
 ```
 
-Si vous souhaitez générer votre application localement au lieu de le faire sur Azure, [installez Docker](https://docs.docker.com/install/) sur votre machine locale et exécutez la commande suivante afin d’utiliser [Azure Functions Core Tools](functions-run-local.md#v2) (func) pour la publication. Veillez à remplacer `<app name>` par le nom de votre application de fonction dans Azure. 
+Veillez à remplacer `<APP_NAME>` par le nom de votre application de fonction dans Azure.
 
-```bash
-func azure functionapp publish <app name> --build-native-deps
+L’[extension Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) demande également une build distante par défaut. 
+
+### <a name="local-build"></a>Build locale
+
+Vous pouvez éviter d’effectuer une build distante en utilisant la commande [func azure functionapp publish](functions-run-local.md#publish) suivante pour publier avec une build locale. 
+
+```command
+func azure functionapp publish <APP_NAME> --build local
 ```
 
-En coulisses, Core Tools utilise Docker pour exécuter l’image [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) comme conteneur sur l’ordinateur local. Avec cet environnement, il génère alors les modules requis et les installe à partir de la distribution source, avant de les packager pour le déploiement final sur Azure.
+Veillez à remplacer `<APP_NAME>` par le nom de votre application de fonction dans Azure. 
 
-Pour générer les dépendances et effectuer la publication au moyen d’un système de livraison continue (CD), [utilisez Azure Pipelines](functions-how-to-azure-devops.md). 
+Avec l’option `--build local`, les dépendances de projet sont lues à partir du fichier requirements.txt et les packages dépendants sont téléchargés et installés localement. Les fichiers de projet et les dépendances sont déployés de votre ordinateur local vers Azure, ce qui entraîne le chargement d’un package de déploiement plus important sur Azure. Si, pour une raison quelconque, les dépendances de votre fichier requirements.txt ne peuvent pas être acquises par Core Tools, vous devez utiliser l’option de dépendances personnalisées pour la publication. 
+
+### <a name="custom-dependencies"></a>Dépendances personnalisées
+
+Si votre projet utilise des packages non disponibles publiquement pour nos outils, vous pouvez les rendre disponibles pour votre application en les plaçant dans le répertoire \_\_app\_\_/.python_packages directory. Avant d’effectuer la publication, exécutez la commande suivante pour installer les dépendances localement :
+
+```command
+pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
+```
+
+Lors de l’utilisation des dépendances personnalisées, vous devez utiliser l’option de publication `--no-build` étant donné que vous avez déjà installé les dépendances.  
+
+```command
+func azure functionapp publish <APP_NAME> --no-build
+```
+
+Veillez à remplacer `<APP_NAME>` par le nom de votre application de fonction dans Azure.
 
 ## <a name="unit-testing"></a>Tests unitaires
 
-Les fonctions écrites en Python peuvent être testées comme tout autre code Python à l’aide des frameworks de test standard. Pour la plupart des liaisons, il est possible de créer un objet d’entrée factice en créant une instance d’une classe appropriée à partir du package `azure.functions`. Comme le package [`azure.functions`](https://pypi.org/project/azure-functions/) n’est pas immédiatement disponible, assurez-vous de l’installer via votre fichier `requirements.txt`, comme décrit dans la section [Version de Python et gestion des packages](#python-version-and-package-management) ci-dessus.
+Les fonctions écrites en Python peuvent être testées comme tout autre code Python à l’aide des frameworks de test standard. Pour la plupart des liaisons, il est possible de créer un objet d’entrée factice en créant une instance d’une classe appropriée à partir du package `azure.functions`. Comme le package [`azure.functions`](https://pypi.org/project/azure-functions/) n’est pas immédiatement disponible, assurez-vous de l’installer via votre fichier `requirements.txt`, comme décrit dans la section [gestion des packages](#package-management) ci-dessus. 
 
 Voici un exemple de test factice d’une fonction déclenchée via HTTP :
 
 ```json
 {
-  "scriptFile": "httpfunc.py",
+  "scriptFile": "__init__.py",
   "entryPoint": "my_function",
   "bindings": [
     {
@@ -447,7 +489,7 @@ Voici un exemple de test factice d’une fonction déclenchée via HTTP :
 ```
 
 ```python
-# myapp/httpfunc.py
+# __app__/HttpTrigger/__init__.py
 import azure.functions as func
 import logging
 
@@ -473,12 +515,11 @@ def my_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 ```python
-# myapp/test_httpfunc.py
+# tests/test_httptrigger.py
 import unittest
 
 import azure.functions as func
-from httpfunc import my_function
-
+from __app__.HttpTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -501,22 +542,36 @@ class TestFunction(unittest.TestCase):
 
 Voici un autre exemple, avec une fonction déclenchée d’une file d’attente :
 
-```python
-# myapp/__init__.py
-import azure.functions as func
+```json
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "python-queue-items",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 
+```python
+# __app__/QueueTrigger/__init__.py
+import azure.functions as func
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
 ```
 
 ```python
-# myapp/test_func.py
+# tests/test_queuetrigger.py
 import unittest
 
 import azure.functions as func
-from . import my_function
-
+from __app__.QueueTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -554,6 +609,8 @@ from os import listdir
    fp.write(b'Hello world!')              
    filesDirListInTemp = listdir(tempFilePath)     
 ```   
+
+Nous vous recommandons de conserver vos tests dans un dossier distinct du dossier de projet. Cela vous évite de déployer du code de test avec votre application. 
 
 ## <a name="known-issues-and-faq"></a>Problèmes connus et FAQ
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: fc5565ab9e3be21b96ce5aa5a938cf22ec3caeb0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 11/08/2019
+ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848480"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902782"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour MySQL
 
@@ -83,7 +83,7 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour MySQL, les ty
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitations lors de la migration en ligne depuis AWS RDS MySQL
 
@@ -130,4 +130,10 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS MySQL v
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- Dans DMS, le nombre de bases de données pouvant migrer dans le cadre d’une activité de migration unique est limité à quatre.
+- Dans Azure Database Migration Service, le nombre de bases de données pouvant migrer dans le cadre d’une activité de migration unique est limité à quatre.
+
+- **Erreur :** Taille de ligne trop grande (> 8126). La modification de certaines colonnes en TEXTE ou en objet BLOB peut être utile. Dans le format de ligne actuel, le préfixe BLOB de 0 octet est stocké inline.
+
+  **Limitation** : Cette erreur se produit lorsque vous effectuez une migration vers Azure Database pour MySQL à l’aide du moteur de stockage InnoDB et que la taille de ligne de la table est trop grande (> 8 126 octets).
+
+  **Solution de contournement** : Mettez à jour le schéma de la table dont la taille de ligne est supérieure à 8 126 octets. Nous vous déconseillons de modifier le mode strict, car les données seront tronquées. La modification de page_size n’est pas prise en charge.

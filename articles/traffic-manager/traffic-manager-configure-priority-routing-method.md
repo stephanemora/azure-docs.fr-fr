@@ -1,10 +1,10 @@
 ---
-title: Configurer la méthode de routage du trafic prioritaire à l’aide d’Azure Traffic Manager | Microsoft Docs
+title: Configurer le routage du trafic prioritaire - Azure Traffic Manager
 description: Cet article explique comment configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048492"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040349"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 

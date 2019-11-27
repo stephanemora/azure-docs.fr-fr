@@ -1,24 +1,24 @@
 ---
-title: Créer et attribuer un rôle personnalisé dans un contrôle d'accès basé sur un rôle Azure AD – Azure Active Directory | Microsoft Docs
+title: Créer des rôles personnalisés dans le contrôle d’accès en fonction du rôle Azure AD | Microsoft Docs
 description: Créez et attribuez des rôles Azure AD personnalisés avec l’étendue des ressources sur les ressources Azure Active Directory.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026400"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025283"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Créer et attribuer un rôle personnalisé dans Azure Active Directory
 

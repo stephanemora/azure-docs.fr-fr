@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231018"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037869"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -62,6 +62,13 @@ Quand vous utilisez l’**événement en direct** de type pass-through, vous cha
 ![encodage en temps réel](./media/live-streaming/live-encoding.svg)
 
 Quand vous utilisez l’encodage cloud avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution (jusqu’à 32 Mbit/s au total) à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct transcode le flux de débit unique entrant en [flux vidéo à différents débits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) avec différentes résolutions pour améliorer la diffusion et la rendre disponible pour les appareils de lecture par le biais de protocoles standard du secteur tels que MPEG-DASH, Apple HTTP Live Streaming (HLS) et Microsoft Smooth Streaming. 
+
+### <a name="live-transcription"></a>Transcription en direct
+
+Transcription en direct est une fonctionnalité que vous pouvez utiliser avec les événements en direct qui sont des encodages à transfert direct ou en temps réel. Pour en savoir plus, consultez [Transcription en direct](live-transcription.md). Lorsque cette fonctionnalité est activée, le service utilise la fonctionnalité de [reconnaissance vocale](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services pour transcrire les paroles du fichier audio entrant en texte. Ce texte, accompagné de fichiers vidéo et audio dans les protocoles MPEG-DASH et HLS, est ensuite mis à disposition pour diffusion.
+
+> [!NOTE]
+> Actuellement, la transcription en direct est disponible en tant que fonctionnalité d’évaluation dans la région USA Ouest 2.
 
 ## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
 

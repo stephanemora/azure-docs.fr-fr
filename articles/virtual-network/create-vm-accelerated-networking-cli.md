@@ -1,5 +1,5 @@
 ---
-title: Créer une machine virtuelle Azure avec mise en réseau accélérée| Documents Microsoft
+title: Créer une machine virtuelle Azure avec mise en réseau accélérée à l’aide d’Azure CLI
 description: Découvrez comment créer une machine virtuelle Linux avec la mise en réseau accélérée activée.
 services: virtual-network
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873414"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083669"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée à l’aide d’Azure CLI
 
 Ce didacticiel explique comment créer une machine virtuelle Linux avec mise en réseau accélérée. Pour créer une machine virtuelle Windows avec accélération réseau, consultez [Créer une machine virtuelle Windows avec accélération réseau](create-vm-accelerated-networking-powershell.md). Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge. L’illustration suivante montre la communication entre deux machines virtuelles avec ou sans mise en réseau accélérée :
 

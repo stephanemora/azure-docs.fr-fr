@@ -1,5 +1,5 @@
 ---
-title: Extensions et fonctionnalités de machine virtuelle Azure pour Windows | Microsoft Docs
+title: Extensions et fonctionnalités de machine virtuelle Azure pour Windows
 description: Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750020"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073078"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -54,18 +54,18 @@ Pour plus d’informations sur les systèmes d’exploitation pris en charge et 
 
 #### <a name="supported-agent-versions"></a>Versions d’agent prises en charge
 
-Des versions minimales de l’agent sont disponibles afin d’offrir la meilleure expérience possible. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Des versions minimales de l’agent sont disponibles afin d’offrir la meilleure expérience possible. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Systèmes d’exploitation pris en charge
 
-L’agent invité Windows s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure d’extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+L’agent invité Windows s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure d’extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »* . Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
 
 #### <a name="network-access"></a>Accès réseau
 
-Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
 
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires.

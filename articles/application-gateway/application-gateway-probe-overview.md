@@ -1,19 +1,18 @@
 ---
 title: Vue d’ensemble de l’analyse de l’intégrité pour Azure Application Gateway
-description: En savoir plus sur les capacités d’analyse dans Azure Application Gateway
+description: Azure Application Gateway analyse l’intégrité de toutes les ressources de son pool principal et supprime automatiquement du pool les ressources considérées comme défectueuses.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135216"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130685"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -83,9 +82,9 @@ Le tableau suivant fournit des définitions pour les propriétés d’une sonde 
 | Propriétés de la sonde | Description |
 | --- | --- |
 | Nom |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
-| Protocole |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
+| Protocol |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle. |
-| path |Chemin relatif de la sonde. Le chemin valide commence par « / ». |
+| Path |Chemin relatif de la sonde. Le chemin valide commence par « / ». |
 | Intervalle |Intervalle d’analyse en secondes. Cette valeur est l’intervalle de temps qui s’écoule entre deux analyses consécutives. |
 | Délai d’attente |Délai d’expiration de l’analyse en secondes. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec.  |
 | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |

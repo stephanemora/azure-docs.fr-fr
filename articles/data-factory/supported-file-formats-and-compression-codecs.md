@@ -7,30 +7,23 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a81cc9887610036007b92e43b8bd44f0a8b7740
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683978"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075546"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
 *Cet article s’applique aux connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Stockage Fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).*
 
-Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. Si vous souhaitez **analyser ou générer des fichiers dans un format spécifique**, Azure Data Factory prend en charge les types de format de fichier suivants :
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-* [Format Texte](#text-format)
-* [Format JSON](#json-format)
-* [Format Parquet](#parquet-format)
-* [Format ORC](#orc-format)
-* [Format Avro](#avro-format)
-* [Format binaire](#binary-format)
-
-> [!TIP]
-> Découvrez la manière dont l'activité de copie mappe vos données sources au récepteur dans [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+>[!NOTE]
+>Data Factory a introduit un nouveau modèle de jeu de données basé sur un format. Utilisez les liens ci-dessus pour accéder à l’article relatif à chaque format. La configuration suivante sur un jeu de données de banque de données basée sur un fichier est toujours prise en charge telle quelle à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir. 
 
 ## <a name="text-format"></a>Format Texte
 

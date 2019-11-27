@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472920"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120626"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
 Le développement d’applications adoptant progressivement une approche basée sur les conteneurs, il est important et nécessaire d’orchestrer et de gérer les ressources. Kubernetes est la plateforme leader du marché qui offre la possibilité de fournir une planification fiable des charges de travail d’applications à tolérance de panne. AKS (Azure Kubernetes Service) est une offre Kubernetes managés qui simplifie la gestion et le déploiement des applications basées sur des conteneurs.
 
-Cet article présente les principaux composants de l’infrastructure Kubernetes, tels que le *maître de cluster*, les *nœuds* et les *pools de nœuds*. Les ressources de charge de travail telles que les *pods*, les *déploiements* et les *ensembles* sont également présentées, ainsi que le regroupement de ressources dans des *espaces de noms*.
+Cet article présente les principaux composants de l’infrastructure Kubernetes, tels que le *plan de contrôle*, les *nœuds* et les *pools de nœuds*. Les ressources de charge de travail telles que les *pods*, les *déploiements* et les *ensembles* sont également présentées, ainsi que le regroupement de ressources dans des *espaces de noms*.
 
 ## <a name="what-is-kubernetes"></a>Présentation de Kubernetes
 
@@ -28,33 +28,33 @@ Vous pouvez générer et exécuter des applications modernes, portables et basé
 
 En tant que plateforme ouverte, Kubernetes vous permet de créer des applications avec vos langage de programmation, système d’exploitation, bibliothèques ou bus de messagerie préférés. Les outils d’intégration et de livraison continues (CI/CD) existants peuvent s’intégrer à Kubernetes dans le cadre de la planification et du déploiement de versions.
 
-AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Les maîtres de cluster AKS sont gérés par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS repose sur le moteur open source Azure Kubernetes Service ([aks-engine][aks-engine]).
+AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Le plan de contrôle AKS est géré par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS repose sur le moteur open source Azure Kubernetes Service ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architecture d’un cluster Kubernetes
 
 Un cluster Kubernetes comprend deux composants :
 
-- Les nœuds de *maître de cluster* fournissent les services Kubernetes de base et l’orchestration des charges de travail d’applications.
+- Les nœuds de *plan de contrôle* fournissent les services Kubernetes de base et l’orchestration des charges de travail d’applications.
 - Les *nœuds* exécutent vos charges de travail d’applications.
 
-![Composants maître de cluster et nœud de Kubernetes](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Plan de contrôle et composants de nœud Kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>Maître de cluster
+## <a name="control-plane"></a>Plan de contrôle
 
-Quand vous créez un cluster AKS, un maître de cluster est automatiquement créé et configuré. Ce maître de cluster est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût lié au maître de cluster ; seuls les nœuds qui font partie du cluster AKS occasionnent des frais.
+Quand vous créez un cluster AKS, un plan de contrôle est automatiquement créé et configuré. Ce plan de contrôle est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût lié au plan de contrôler ; seuls les nœuds qui font partie du cluster AKS occasionnent des frais.
 
-Le maître de cluster inclut les composants Kubernetes principaux suivants :
+Le plan de contrôle inclut les composants Kubernetes principaux suivants :
 
 - *kube-apiserver* : le serveur d’API détermine la façon dont les API Kubernetes sous-jacentes sont exposées. Ce composant fournit l’interaction des outils de gestion, tels que `kubectl` ou le tableau de bord Kubernetes.
 - *etcd* : pour maintenir l’état de la configuration et du cluster Kubernetes, le composant *etcd* hautement disponible est un magasin de valeurs essentiel dans Kubernetes.
 - *kube-scheduler* : quand vous créez ou mettez à l’échelle des applications, le planificateur détermine les nœuds pouvant exécuter la charge de travail et les démarre.
 - *kube-controller-manager* : le gestionnaire de contrôleurs surveille une série de contrôleurs plus petits qui effectuent des actions telles que la réplication des pods et la gestion des opérations sur les nœuds.
 
-AKS fournit un maître de cluster monolocataire doté de dispositifs dédiés (serveur d’API, planificateur, etc.). Vous définissez le nombre et la taille des nœuds, puis la plateforme Azure configure la communication sécurisée entre les nœuds et le maître de cluster. L’interaction avec le maître de cluster se produit par le biais d’API Kubernetes, telles que `kubectl` ou le tableau de bord Kubernetes.
+AKS fournit un plan de contrôle monolocataire doté de dispositifs dédiés (serveur d’API, Scheduler, etc.). Vous définissez le nombre et la taille des nœuds, puis la plateforme Azure configure la communication sécurisée entre les nœuds et le plan de contrôle. L’interaction avec le plan de contrôle se produit par le biais d’API Kubernetes, telles que `kubectl` ou le tableau de bord Kubernetes.
 
-Ce maître de cluster managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au maître de cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux d’activité du maître de cluster par le biais des journaux d’activité Azure Monitor.
+Ce plan de contrôle managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au plan de contrôle. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du Portail Azure, qui met à niveau le plan de contrôle, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux d’activité du plan de contrôle par le biais des journaux d’activité Azure Monitor.
 
-Si vous devez configurer le maître de cluster d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide [d’aks-engine][aks-engine].
+Si vous devez configurer le plan de contrôle d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine].
 
 Pour connaître les meilleures pratiques associées, consultez [Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans AKS][operator-best-practices-cluster-security].
 
@@ -62,7 +62,7 @@ Pour connaître les meilleures pratiques associées, consultez [Meilleures prati
 
 Pour exécuter vos applications et les services de prise en charge, vous avez besoin d’un *nœud* Kubernetes. Un cluster AKS a un ou plusieurs nœuds, qui sont des machines virtuelles exécutant les composants des nœuds Kubernetes et le runtime de conteneur :
 
-- `kubelet` est l’agent Kubernetes qui traite les demandes d’orchestration du maître de cluster et la planification de l’exécution des conteneurs demandés.
+- `kubelet` est l’agent Kubernetes qui traite les requêtes d’orchestration du plan de contrôle et la planification de l’exécution des conteneurs demandés.
 - La mise en réseau virtuelle est gérée par le *kube-proxy* sur chaque nœud. Le proxy route le trafic réseau et gère l’adressage IP pour les services et les pods.
 - Le *runtime de conteneur* est le composant qui permet aux applications en conteneur de s’exécuter et d’interagir avec d’autres ressources telles que le réseau virtuel et le stockage. Dans AKS, Moby est utilisé en tant que runtime de conteneur.
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 Pour conserver les fonctionnalités et les performances des nœuds, les ressources sont réservées sur chaque nœud par AKS. Dans la mesure où un nœud gagne en taille dans les ressources, la réservation de ressources augmente en raison d’une plus grande quantité de pods déployés par l’utilisateur nécessitant une gestion.
 
 >[!NOTE]
-> L’utilisation de modules complémentaires comme OMS nécessite des ressources de nœud supplémentaires.
+> L’utilisation de modules complémentaires AKS tels que Container Insights (OMS) nécessite des ressources de nœud supplémentaires.
 
 - **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut aboutir à un processeur moins allouable en raison de l’exécution de fonctionnalités supplémentaires
 
@@ -95,16 +95,24 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 |---|---|---|---|---|---|---|---|
 |Réservés par Kube (millicores)|60|100|140|180|260|420|740|
 
-- **Mémoire** : la réservation de mémoire suit un taux progressif
-  - 25 % des 4 premiers Go de mémoire
-  - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
-  - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
-  - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
-  - 2 % de la mémoire au-dessus de 128 Go
+- **Mémoire** : la mémoire réservée comprend la somme de deux valeurs
 
-Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Vous ne pouvez pas changer les réservations de ressources.
+1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : memory.available<750Mi, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger.
 
-Le système d’exploitation du nœud sous-jacent nécessite également une certaine quantité de ressources d’UC et de mémoire pour effectuer ses propres fonctions principales.
+2. La deuxième valeur est une vitesse progressive de la mémoire réservée pour que le démon kubelet fonctionne correctement (kube-reserved).
+    - 25 % des 4 premiers Go de mémoire
+    - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
+    - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
+    - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
+    - 2 % de la mémoire au-dessus de 128 Go
+
+À la suite de ces deux règles définies imposées pour maintenir l’intégrité des nœuds de Kubernetes et de l’agent, la quantité d’UC et de mémoire allouée est inférieure à celle que le nœud lui-même peut offrir. Les réservations de ressources définies ci-dessus ne peuvent pas être modifiées.
+
+Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable :
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+En plus des réservations pour Kubernetes, le système d’exploitation du nœud sous-jacent réserve également une quantité de ressources de processeur et de mémoire pour gérer les fonctions du système d’exploitation.
 
 Pour connaître les meilleures pratiques associées, consultez la section [Meilleures pratiques relatives aux fonctionnalités de base du planificateur dans AKS][operator-best-practices-scheduler].
 

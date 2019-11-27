@@ -1,5 +1,5 @@
 ---
-title: Options de disponibilité Azure pour les machines virtuelles Linux | Microsoft Docs
+title: Options de disponibilité Azure pour les machines virtuelles Linux
 description: En savoir plus sur les fonctionnalités de disponibilité pour l’exécution de machines virtuelles Linux dans Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 9a3c1f6e05c7b69447677faccbe1e70b9ea17622
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25b8f2487ec9dc582d5670203151473ff78fc9f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084118"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037025"
 ---
+# <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 [!INCLUDE [virtual-machines-common-availability](../../../includes/virtual-machines-common-availability.md)]
 

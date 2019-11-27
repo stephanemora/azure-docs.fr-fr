@@ -1,24 +1,18 @@
 ---
 title: Connecter des ordinateurs à l’aide de la passerelle Log Analytics | Microsoft Docs
 description: Connectez vos appareils et les ordinateurs contrôlés par Operations Manager en utilisant la passerelle Log Analytics pour envoyer des données aux services Azure Automation et Log Analytics lorsqu’ils n’ont pas accès à Internet.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/12/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1d735a3740b473806835f2e80f40cea02b48387e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 10/30/2019
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955099"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847280"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -28,18 +22,18 @@ ms.locfileid: "68955099"
 
 Cet article décrit comment configurer la communication avec Azure Automation et Azure Monitor à l’aide de la passerelle Log Analytics lorsque les ordinateurs qui sont directement connectés ou qui doivent être analysés par Operations Manager n’ont pas accès à Internet. 
 
-La passerelle Log Analytics est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. Cette passerelle envoie des données à Azure Automation et à un espace de travail Log Analytics dans Azure Monitor pour le compte des ordinateurs qui ne peuvent pas se connecter directement à Internet. Elle ne met pas en cache les données provenant des agents. Dans une telle situation, l’agent gère la mise en cache des données jusqu’à ce que la communication soit rétablie.
+La passerelle Log Analytics est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. Cette passerelle envoie des données à Azure Automation et à un espace de travail Log Analytics dans Azure Monitor pour le compte des ordinateurs qui ne peuvent pas se connecter directement à Internet. 
 
 La passerelle Log Analytics prend en charge ce qui suit :
 
-* La création de rapports diffusés jusqu'aux quatre agents d’espace de travail Log Analytics situés derrière la passerelle. Ces derniers doivent être configurés avec des Runbook Workers hybrides d’Azure Automation.  
+* La création de rapports vers les mêmes espaces de travail Log Analytics configurés sur chaque agent situé derrière la passerelle et configurés avec des Runbook Workers hybrides d’Azure Automation.  
 * Les ordinateurs Windows sur lequel Microsoft Monitoring Agent est directement connecté à un espace de travail Log Analytics dans Azure Monitor.
 * Les ordinateurs Linux sur lesquels un agent Log Analytics pour Linux est directement connecté à un espace de travail Log Analytics dans Azure Monitor.  
 * System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec UR3, ou un groupe d’administration dans Operations Manager 2016 ou ultérieur intégré dans Log Analytics.  
 
 Certaines stratégies de sécurité informatique interdisent aux ordinateurs du réseau de se connecter à Internet. Ces ordinateurs non connectés peuvent être, par exemple, des appareils ou des serveurs de point de vente (PDV) prenant en charge des services informatiques. Pour connecter ces appareils à Azure Automation ou à un espace de travail Log Analytics afin de pouvoir les gérer et les surveiller, vous devez les configurer pour communiquer directement avec la passerelle Log Analytics. La passerelle Log Analytics peut recevoir des informations de configuration et transférer des données pour le compte de ces appareils/serveurs. Si ces ordinateurs sont configurés avec l’agent Log Analytics pour se connecter directement à un espace de travail Log Analytics, tous les ordinateurs communiqueront plutôt avec la passerelle Log Analytics.  
 
-La passerelle de Log Analytics transfère directement les données, des agents au service. Elle n’analyse pas les données en transit.
+La passerelle de Log Analytics transfère directement les données, des agents au service. Elle n’analyse pas les données en transit et ne met pas en cache les données lorsqu’elle perd la connectivité avec le service. Lorsque la passerelle ne parvient pas à communiquer avec le service, l’agent continue à s’exécuter et place en file d’attente les données collectées sur le disque de l’ordinateur surveillé. Une fois la connexion restaurée, l’agent envoie les données en cache collectées à Azure Monitor.
 
 Lorsqu’un groupe d’administration Operations Manager est intégré à Log Analytics, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics pour recevoir des informations de configuration et envoyer les données collectées en fonction de la solution que vous avez activée.  Les agents Operations Manager envoient certaines données au serveur d’administration. Par exemple, les agents peuvent envoyer des alertes Operations Manager, des données d’évaluation de configuration, des données d’espace d’instance et des données de capacité. D’autres données volumineuses, telles que les journaux d’activité IIS (Internet Information Services), les données de performances et les événements de sécurité, sont envoyées directement à la passerelle Log Analytics. 
 
@@ -173,7 +167,7 @@ Le tableau suivant répertorie les paramètres pris en charge par le programme d
 Pour installer la passerelle en mode sans assistance et la configurer avec une adresse de serveur proxy et un numéro de port spécifiques, tapez la commande suivante :
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 L’option de ligne de commande /qn masque le programme d’installation. L’option de ligne de commande /qb affiche le programme d’installation lors de l’installation sans assistance.  
@@ -181,7 +175,7 @@ L’option de ligne de commande /qn masque le programme d’installation. L’op
 Si vous devez fournir des informations d’identification pour l’authentification auprès du proxy, tapez la commande suivante :
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 Après l’installation, vous pouvez vérifier que les paramètres sont acceptés (à l’exception du nom d’utilisateur et du mot de passe) en utilisant les cmdlets PowerShell suivantes :
@@ -300,50 +294,11 @@ Pour configurer certains serveurs ou groupes afin qu’ils utilisent le serveur 
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>Configurer des Runbooks Workers hybrides Automation
 
-Si votre environnement contient des Runbooks Workers hybrides Automation, veuillez suivre ces solutions de contournement temporaires manuelles pour configurer la passerelle OMS, afin qu’elle prenne en charge les rôles de travail.
+Si votre environnement contient des Runbooks Workers hybrides Automation, veuillez suivre ces étapes pour configurer la passerelle de sorte qu’elle prenne en charge les rôles de travail.
 
-Pour suivre la procédure décrite dans cette section, vous devez connaître la région Azure où se trouve le compte Automation. Pour trouver cette région :
+Reportez-vous à la section [Configurer votre réseau](../../automation/automation-hybrid-runbook-worker.md#network-planning) de la documentation Automation pour trouver l’URL propre à chaque région.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Sélectionnez le service Azure Automation.
-1. Sélectionnez le compte Azure Automation approprié.
-1. Regardez sa région sous **Emplacement**.
-
-   ![Capture d’écran de la position géographique du compte Automation dans le portail Microsoft Azure](./media/gateway/location.png)
-
-Utilisez les tableaux suivants pour identifier l’URL de chaque emplacement.
-
-**URL de service de données d’exécution de la tâche**
-
-| **Lieu** | **URL** |
-| --- | --- |
-| Centre-Nord des États-Unis |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
-| États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net |
-| USA Est 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| Canada central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net |
-| Asie Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net |
-| Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Japon |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| Australie |ase-jobruntimedata-prod-su1.azure-automation.net |
-
-**URL de service de l’agent**
-
-| **Lieu** | **URL** |
-| --- | --- |
-| Centre-Nord des États-Unis |ncus-agentservice-prod-1.azure-automation.net |
-| Europe Ouest |we-agentservice-prod-1.azure-automation.net |
-| États-Unis - partie centrale méridionale |scus-agentservice-prod-1.azure-automation.net |
-| USA Est 2 |eus2-agentservice-prod-1.azure-automation.net |
-| Canada central |cc-agentservice-prod-1.azure-automation.net |
-| Europe Nord |ne-agentservice-prod-1.azure-automation.net |
-| Asie Sud-Est |sea-agentservice-prod-1.azure-automation.net |
-| Inde centrale |cid-agentservice-prod-1.azure-automation.net |
-| Japon |jpe-agentservice-prod-1.azure-automation.net |
-| Australie |ase-agentservice-prod-1.azure-automation.net |
-
-Si votre ordinateur est automatiquement inscrit en tant que Runbook Worker hybride, utilisez la solution Update Management pour gérer le correctif. Procédez comme suit :
+Si votre ordinateur est automatiquement inscrit en tant que Runbook Worker hybride, par exemple si la solution de gestion des mises à jour est activée pour une ou plusieurs machines virtuelles, suivez ces étapes :
 
 1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Redémarrez le service de passerelle Log Analytics en utilisant la cmdlet PowerShell suivante : `Restart-Service OMSGatewayService`
