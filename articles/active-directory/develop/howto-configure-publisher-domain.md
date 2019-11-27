@@ -1,5 +1,6 @@
 ---
-title: Configurer un domaine d’éditeur d’application | Azure
+title: Configurer un domaine d’éditeur d’application
+titleSuffix: Microsoft identity platform
 description: Découvrez comment configurer un domaine d’éditeur d’application permettant aux utilisateurs de savoir où leurs informations sont envoyées.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257931"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013062"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Activation Configurer un domaine d’éditeur d’application (préversion)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Activation Configurer un domaine d’éditeur d’application
 
 Un domaine d’éditeur d’application est présenté aux utilisateurs à l’[invite de consentement de l’application](application-consent-experience.md) et leur permet de savoir où leurs informations sont envoyées. Les applications multilocataires inscrites après le 21 mai 2019 n’ont pas de domaine d’éditeur qui s’affiche comme **non vérifié**. Les applications multilocataires sont des applications qui prennent en charge des comptes en dehors d’un annuaire d’organisation unique, et qui prennent en charge, par exemple, tous les comptes Azure AD ou tous les comptes Azure AD et comptes Microsoft personnels.
 

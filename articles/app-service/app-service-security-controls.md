@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 65b1c7f4649ff90c1305d4007428ea02bb003369
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a1889def8d177c312618f12b3fa0480cc4b849b3
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886309"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046864"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Contrôles de sécurité pour Azure App Service
 
@@ -26,7 +26,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure App Service
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation
 |---|---|--|
-| Prise en charge du point de terminaison de service| OUI | Actuellement disponible en préversion pour App Service.| [Restrictions d’accès dans Azure App Service](app-service-ip-restrictions.md)
+| Prise en charge du point de terminaison de service| OUI | Disponible pour App Service.| [Restrictions d’accès dans Azure App Service](app-service-ip-restrictions.md)
 | Prise en charge de l’injection de réseau virtuel| OUI | Les environnements de services applicatifs sont des implémentations privées d’App Service dédiées à un client unique injecté dans le réseau virtuel d’un client. | [Introduction aux environnements App Service](environment/intro.md)
 | Prise en charge de l’isolement réseau et de l’installation de pare-feu| OUI | Pour la variante publique multi-locataires d’App Service, les clients peuvent configurer les listes de contrôle d’accès (Restrictions d’IP) du réseau pour verrouiller le trafic entrant autorisé.  Les environnements App Service sont déployés directement dans des réseaux virtuels et peuvent donc être sécurisés avec les groupes de sécurité réseau. | [Restrictions d’accès dans Azure App Service](app-service-ip-restrictions.md)
 | Prise en charge du tunneling forcé| OUI | Les environnements App Service peuvent être déployés sur le réseau virtuel d’un client où le tunneling forcé est configuré. | [Configurer votre environnement App Service avec le tunneling forcé](environment/forced-tunnel-support.md)
@@ -64,4 +64,4 @@ Cet article décrit les contrôles de sécurité intégrés à Azure App Service
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [contrôles de sécurité intégrés sur les services Azure](../security/fundamentals/security-controls.md).
+- Apprenez-en plus sur les [contrôles de sécurité intégrés des services Azure](../security/fundamentals/security-controls.md).

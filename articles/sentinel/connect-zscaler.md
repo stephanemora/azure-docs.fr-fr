@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe7ba0f6daec0b85ec73611ba4e48d72f16146e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45351cc29b2b7028863aff06ab5a511674604d6f
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510990"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048954"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Connecter Zscaler Internet Access à Azure Sentinel
 
@@ -36,7 +36,7 @@ Vous devez déployer un agent sur une machine Linux dédiée (machine virtuelle 
 
  ![CEF dans Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Cette configuration existe également si vous utilisez une machine virtuelle dans un autre cloud ou bien une machine locale. 
+Cette configuration conviendra également si vous utilisez une machine virtuelle dans un autre cloud ou sur un ordinateur local. 
 
  ![CEF local](./media/connect-cef/cef-syslog-onprem.png)
 
@@ -49,7 +49,7 @@ Pour utiliser la communication TLS entre la solution de sécurité et la machine
 
  
 ## <a name="prerequisites"></a>Prérequis
-Assurez-vous que la machine Linux que vous utilisez comme proxy exécute l’un des systèmes d’exploitation suivants :
+Assurez-vous que la machine Linux que vous utilisez en tant que proxy exécute l’un des systèmes d’exploitation suivants :
 
 - 64 bits
   - CentOS 6 et 7
@@ -66,23 +66,23 @@ Assurez-vous que la machine Linux que vous utilisez comme proxy exécute l’un 
    - Debian GNU/Linux 8 et 9
    - Ubuntu Linux 14.04 LTS et 16.04 LTS
  
- - Versions de démon
+ - Versions du démon
    - Syslog-ng : 2.1 - 3.22.1
    - Rsyslog : v8
   
- - Syslog RFC pris en charge
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+ - RFC Syslog pris en charge
+   - RFC Syslog 3164
+   - RFC Syslog 5424
  
-Assurez-vous que votre machine remplit également les exigences suivantes : 
+Assurez-vous que votre machine répond également aux exigences suivantes : 
 - Autorisations
-    - Vous devez avoir des autorisations élevées (sudo) sur votre machine. 
+    - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 
 - Configuration logicielle requise
     - Vérifiez que Python est en cours d’exécution sur votre machine
 ## <a name="step-1-deploy-the-agent"></a>ÉTAPE 1 : Déployer l’agent
 
 Au cours de cette étape, vous devez sélectionner la machine Linux qui fera office de proxy entre Azure Sentinel et votre solution de sécurité. Vous devez exécuter un script sur la machine proxy qui :
-- Installe l’agent Log Analytics et le configure en fonction des besoins pour écouter les messages Syslog sur le port 514 sur TCP et envoyer les messages CEF à votre espace de travail Azure Sentinel.
+- Installe l’agent Log Analytics et le configure en fonction des besoins pour écouter les messages Syslog sur le port 514 via TCP et envoyer les messages CEF à votre espace de travail Azure Sentinel.
 - Configure le démon Syslog pour transférer les messages CEF à l’agent Log Analytics via le port 25226.
 - Configure l’agent Syslog pour collecter les données et les envoyer de manière sécurisée à Log Analytics, où elles sont analysées et enrichies.
  
@@ -92,7 +92,7 @@ Au cours de cette étape, vous devez sélectionner la machine Linux qui fera off
 1. Sous **Installer et configurer l’agent Syslog**, sélectionnez le type de votre machine (Azure, autre cloud ou locale). 
    > [!NOTE]
    > Étant donné que le script de l’étape suivante installe l’agent Log Analytics et connecte la machine à votre espace de travail Azure Sentinel, vérifiez que cette machine n’est pas connectée à un autre espace de travail.
-1. Vous devez avoir des autorisations élevées (sudo) sur votre machine. Vérifiez que vous disposez de Python sur votre machine à l’aide de la commande suivante : `python –version`
+1. Vous devez disposer d’autorisations élevées (sudo) sur votre machine. Vérifiez que vous disposez de Python sur votre machine à l’aide de la commande suivante : `python –version`
 
 1. Exécutez le script suivant sur votre machine proxy.
    `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -106,7 +106,7 @@ Au cours de cette étape, vous devez sélectionner la machine Linux qui fera off
     - Port = 514
     - Format = CEF
     - Adresse IP : assurez-vous d’envoyer les messages CEF à l’adresse IP de la machine virtuelle dédiée à cet effet.
- Pour plus d’informations, consultez le [Guide d’intégration d’Azure Sentinel à Zscaler](https://aka.ms/ZscalerCEFInstructions).
+ Pour plus d’informations, consultez le [Guide de déploiement Zscaler et Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
  
    > [!NOTE]
    > Cette solution prend en charge Syslog RFC 3164 ou RFC 5424.
@@ -116,11 +116,11 @@ Au cours de cette étape, vous devez sélectionner la machine Linux qui fera off
 
 ## <a name="step-3-validate-connectivity"></a>ÉTAPE 3 : Valider la connectivité
 
-1. Ouvrez Log Analytics pour vous assurer que les journaux sont reçus avec le schéma CommonSecurityLog.<br> Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
+1. Ouvrez Log Analytics pour vous assurer que les journaux sont reçus à l’aide du schéma CommonSecurityLog.<br> Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
 
-1. Avant d’exécuter le script, nous vous conseillons d’envoyer quelques messages à partir de votre solution de sécurité pour vérifier qu’ils sont bien transmis à la machine proxy Syslog que vous avez configurée. 
-1. Vous devez avoir des autorisations élevées (sudo) sur votre machine. Vérifiez que vous disposez de Python sur votre machine à l’aide de la commande suivante : `python –version`
-1. Exécutez le script suivant pour vérifier la connectivité entre l’agent, Azure Sentinel et votre solution de sécurité. Le script vérifie que le transfert par le démon est correctement configuré, que le démon écoute sur les ports appropriés et que rien ne bloque la communication entre le démon et l’agent Log Analytics. Le script envoie également des messages fictifs « TestCommonEventFormat » pour vérifier la connectivité de bout en bout. <br>
+1. Avant d’exécuter le script, nous vous recommandons d’envoyer des messages à partir de votre solution de sécurité pour vous assurer qu’ils sont transmis à la machine proxy Syslog que vous avez configurée. 
+1. Vous devez disposer d’autorisations élevées (sudo) sur votre machine. Vérifiez que vous disposez de Python sur votre machine à l’aide de la commande suivante : `python –version`
+1. Exécutez le script suivant pour vérifier la connectivité entre l’agent, Azure Sentinel et votre solution de sécurité. Celui-ci vérifie que le transfert de démon est correctement configuré, écoute les ports appropriés et s’assure que rien ne bloque la communication entre le démon et l’agent Log Analytics. Le script envoie également des messages fictifs « TestCommonEventFormat » pour vérifier la connectivité de bout en bout. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 

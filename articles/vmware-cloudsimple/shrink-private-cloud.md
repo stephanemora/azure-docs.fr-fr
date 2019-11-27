@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825682"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108597"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Réduire un cloud privé CloudSimple
 
@@ -24,7 +24,8 @@ CloudSimple fournit la flexibilité nécessaire pour réduire de manière dynami
 Les conditions suivantes doivent être remplies pour réduire un cloud privé.  Le cluster de gestion (premier cluster) créé lors de la création d’un cloud privé ne peut pas être supprimé.
 
 * Un cluster vSphere doit contenir trois nœuds.  Un cluster ne contenant que trois nœuds ne peut pas être réduit.
-* Le stockage total consommé ne doit pas dépasser la capacité totale après réduction du cluster. 
+* Le stockage total consommé ne doit pas dépasser la capacité totale après réduction du cluster.
+* Vérifiez si des règles DRS (Distributed Resource Scheduler) empêchent vMotion d’une machine virtuelle.  Si des règles sont présentes, désactivez ou supprimez-les.  Les règles DRS incluent la machine virtuelle pour héberger des règles d’affinité.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -55,7 +56,8 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 La réduction du cloud privé démarre.  Vous pouvez suivre la progression dans des tâches.  Le processus de réduction peut prendre quelques heures en fonction des données, qui doivent être resynchronisées sur le vSAN.
 
 > [!NOTE]
-> Si vous réduisez un cloud privé en supprimant le dernier ou le seul cluster dans le centre de données, le centre de données n’est pas supprimé.  
+> 1. Si vous réduisez un cloud privé en supprimant le dernier ou le seul cluster dans le centre de données, le centre de données n’est pas supprimé.
+> 2. Si une violation de règle DRS se produit, le nœud n’est pas supprimé du cluster et la description de la tâche indique que la suppression d’un nœud viole les règles DRS sur le cluster.    
 
 
 ## <a name="next-steps"></a>Étapes suivantes

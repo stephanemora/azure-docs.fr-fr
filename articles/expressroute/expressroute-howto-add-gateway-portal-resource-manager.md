@@ -1,6 +1,6 @@
 ---
-title: 'Ajouter une passerelle à un réseau virtuel Azure pour ExpressRoute : Portail | Microsoft Docs'
-description: Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute.
+title: 'Azure ExpressRoute : Ajouter une passerelle à un réseau virtuel : portail'
+description: Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute à l’aide du Portail Azure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366015"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037400"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 2. Dans la section**Paramètres** du panneau de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer le panneau Sous-réseaux.
 3. Dans le panneau **Sous-réseaux**, cliquez sur **+Sous-réseau de passerelle** pour ouvrir le panneau **Ajouter un sous-réseau**. 
    
-    ![Ajouter un sous-réseau de passerelle](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Ajouter un sous-réseau de passerelle")
+    ![Ajouter le sous-réseau de passerelle](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Ajouter le sous-réseau de passerelle")
 
 
 4. Le **Nom** de votre sous-réseau est automatiquement rempli avec la valeur « GatewaySubnet ». Cette valeur est nécessaire pour qu’Azure puisse reconnaître le sous-réseau en tant que sous-réseau de passerelle. Ajustez les valeurs de **plage d’adresses** renseignées automatiquement pour qu’elles correspondent à la configuration requise. Nous vous recommandons de créer un sous-réseau de passerelle avec /27 ou plus (/26, /25, etc.). Puis, cliquez sur **OK** pour enregistrer les valeurs et créer le sous-réseau de passerelle.
@@ -65,7 +65,7 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 1. Dans le portail, sur le côté gauche, cliquez sur **+** , puis tapez « Passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Dans le panneau **Passerelle de réseau virtuel**, cliquez sur **Créer** en bas du panneau. Cette opération ouvre le panneau **Créer une passerelle de réseau virtuel**.
 2. Dans le panneau **Créer une passerelle réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
 
-    ![Champs du panneau Créer une passerelle de réseau virtuel](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Champs du panneau Créer une passerelle de réseau virtuel")
+    ![Créer les champs du panneau de la passerelle de réseau virtuel](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Créer les champs du panneau de la passerelle de réseau virtuel")
 3. **Nom** : Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
 4. **Type de passerelle** : Sélectionnez **ExpressRoute**.
 5. **Référence SKU** : Sélectionnez la référence SKU de la passerelle dans la liste déroulante.

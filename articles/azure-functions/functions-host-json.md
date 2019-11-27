@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575893"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129079"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -48,6 +48,10 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -134,6 +138,12 @@ Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons
 ## <a name="extensions"></a>extensions
 
 Propriété qui retourne un objet qui contient tous les paramètres spécifiques d’une liaison, tel que [http](#http) et [eventHub](#eventhub).
+
+## <a name="extensionbundle"></a>extensionBundle 
+
+Les offres groupées d’extensions vous permettent d’ajouter un jeu d’extensions de liaison Functions compatible avec votre application de fonction. Pour plus d’informations, voir [Offres groupées d’extension pour développement local](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 ## <a name="functions"></a>functions
 

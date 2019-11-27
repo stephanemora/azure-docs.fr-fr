@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 8f8d1c9f53d08d017c6c07abf8e00ab77e6879e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477173"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091391"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 
@@ -97,6 +97,8 @@ L’authentification unique par mot de passe est prise en charge pour toutes les
    > Internet Explorer fait l’objet d’une prise en charge limitée et ne reçoit plus les nouvelles mises à jour logicielles. Microsoft Edge est le navigateur recommandé.
 
 - Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
+- Microsoft Edge pour iOS et Android
+- Intune Managed Browser
 - Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
 - Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
 

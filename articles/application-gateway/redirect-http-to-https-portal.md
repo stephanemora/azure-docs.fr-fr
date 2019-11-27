@@ -1,18 +1,18 @@
 ---
-title: Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
+title: Redirection HTTP vers HTTPS dans le portail - Azure Application Gateway
 description: Apprenez à créer une passerelle d’application avec redirection du trafic de HTTP vers HTTPS à l’aide du portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101455"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012878"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
@@ -146,7 +146,7 @@ Dans cet exemple, vous créez un groupe de machines virtuelles identiques pour f
 12. Dans la section **Mise en réseau**, vérifiez que le paramètre **Choisir les options d’équilibrage de charge** est défini sur **Passerelle d’application**.
 13. Vérifiez que la **Passerelle d’application** est définie sur **myAppGateway**.
 14. Vérifiez que le **sous-réseau** est défini sur **myBackendSubnet**.
-15. Sélectionnez **Créer**.
+15. Sélectionnez **Create** (Créer).
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Associer le groupe identique au pool principal approprié
 

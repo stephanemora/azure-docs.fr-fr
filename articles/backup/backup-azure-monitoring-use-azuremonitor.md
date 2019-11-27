@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792839"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074239"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -209,7 +209,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
 Les données de diagnostic provenant du coffre sont injectées dans l’espace de travail Log Analytics avec un certain décalage. Chaque événement arrive dans l’espace de travail Log Analytics *20 à 30 minutes* après son envoi (push) depuis le coffre Recovery Services. Voici plus d’informations sur le décalage :
 
 - Dans toutes les solutions, les alertes intégrées du service de sauvegarde sont envoyées (push) dès qu’elles sont créées. Elles apparaissent donc généralement dans l’espace de travail Log Analytics après 20 à 30 minutes.
-- Dans toutes les solutions, les travaux de sauvegarde et les travaux de restauration ad hoc sont envoyés (push) dès qu’ils se *terminent*.
+- Dans toutes les solutions, les travaux de sauvegarde et les travaux de restauration à la demande sont envoyés (push) dès qu’ils se *terminent*.
 - Pour toutes les solutions, à l’exception de la sauvegarde SQL, les travaux de sauvegarde planifiés sont envoyés (push) dès qu’ils se *terminent*.
 - Pour la sauvegarde SQL, comme des sauvegardes de journal peuvent se produire toutes les 15 minutes, les informations pour tous les travaux de sauvegarde planifiés terminés, y compris les journaux, sont traitées par lot et envoyées (push) toutes les 6 heures.
 - Dans toutes les solutions, d’autres informations, comme l’élément de sauvegarde, la stratégie de sauvegarde, les points de récupération de sauvegarde, le stockage de sauvegarde, etc., sont envoyées (par push) au moins *une fois par jour*.

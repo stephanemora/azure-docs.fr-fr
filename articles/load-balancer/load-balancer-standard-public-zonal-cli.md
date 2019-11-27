@@ -1,6 +1,6 @@
 ---
-title: Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
-titlesuffix: Azure Load Balancer
+title: Standard Load Balancer avec un front-end d’adresse IP publique zonal - Azure CLI
+titleSuffix: Azure Load Balancer
 description: Découvrez comment créer une instance publique de Standard Load Balancer avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b9c3a88df6801566bc927cfc18fda0adfa05a5ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274312"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076026"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-public-ip-address-frontend-using-azure-cli"></a>Créer une instance de Standard Load Balancer avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
 
-Cet article décrit les étapes de création d’une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
+Cet article décrit les étapes de création d'une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec Standard Load Balancer, consultez [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
