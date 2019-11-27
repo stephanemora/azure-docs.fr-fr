@@ -374,8 +374,6 @@
               href: rest-speech-to-text.md
             - name: API REST de synthèse vocale
               href: rest-text-to-speech.md
-            - name: API REST de webhooks
-              href: webhooks.md
         - name: Documentation Swagger
           href: swagger-documentation.md
 - name: Kit de développement logiciel (SDK) de reconnaissance vocale
