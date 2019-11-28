@@ -2,19 +2,15 @@
 title: Facturation Durable Functions - Azure Functions
 description: Découvrez les comportements internes de Durable Functions et son incidence sur la facturation pour Azure Functions.
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f2de6bdf24aa1a0a11349c8f0ec9b3995b026a47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694896"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233012"
 ---
 # <a name="durable-functions-billing"></a>Facturation Durable Functions
 
@@ -22,13 +18,13 @@ ms.locfileid: "71694896"
 
 Lors de l’exécution de fonctions d’orchestrateur dans le [plan de consommation](../functions-scale.md#consumption-plan) Azure Functions, vous devez avoir conscience de certains comportements de facturation. Les sections suivantes décrivent ces comportements et leur incidence plus en détail.
 
-## <a name="orchestrator-function-replay-billing"></a>Facturation de la relecture de fonctions d’orchestrateur
+## <a name="orchestrator-function-replay-billing"></a>Facturation de la relecture de fonctions orchestrator
 
 Les [fonctions d’orchestrateur](durable-functions-orchestrations.md) peuvent être relues plusieurs fois pendant toute la durée de vie d’une orchestration. Chaque relecture est considérée par le runtime Azure Functions comme un appel de fonction distinct. C’est pourquoi, dans le plan de Consommation Azure Functions, vous êtes facturé pour chaque relecture d’une fonction d’orchestrateur. Les autres types de plans ne facturent pas la relecture des fonctions d’orchestrateur.
 
-## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Attente et interruption dans les fonctions d’orchestrateur
+## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Attente et interruption dans les fonctions orchestrator
 
-Quand une fonction d’orchestrateur attend qu’une action asynchrone se termine en utilisant **await** en C# ou **yield** en JavaScript, le runtime considère cette exécution particulière comme terminée. La facturation de la fonction d’orchestrateur s’arrête à ce stade. Elle ne reprend qu’à la relecture de la fonction d’orchestrateur suivante. Vous n’êtes pas facturé pour le temps d’attente ou d’interruption dans une fonction d’orchestrateur.
+Quand une fonction d’orchestrateur attend qu’une action asynchrone se termine en utilisant **await** en C# ou **yield** en JavaScript, le runtime considère cette exécution particulière comme terminée. La facturation de la fonction d’orchestrateur s’arrête à ce stade. Elle ne reprend qu’à la relecture de la fonction d’orchestrateur suivante. Vous n’êtes pas facturé pour le temps d’attente ou d’interruption dans une fonction orchestrator.
 
 > [!NOTE]
 > Les fonctions qui appellent d’autres fonctions sont considérées par certains comme un anti-modèle. Cela est dû à un problème appelé _double facturation_. Quand une fonction appelle une autre fonction directement, elles s’exécutent toutes les deux en même temps. La fonction appelée exécute du code activement pendant que la fonction appelante attend une réponse. Dans ce cas, vous devez payer pour le temps passé par la fonction appelante à attendre que la fonction appelée s’exécute.

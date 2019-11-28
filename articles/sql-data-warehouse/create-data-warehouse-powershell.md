@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 44abf23ce632aa1ac630eab3313ffd675eef1a0b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693098"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559156"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
@@ -120,7 +120,7 @@ New-AzSqlDatabase `
 
 Les paramètres obligatoires sont :
 
-* **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence]memory-concurrency-limits.md).
+* **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence](memory-concurrency-limits.md).
 * **DatabaseName** : nom de l’entrepôt de données SQL que vous créez.
 * **ServerName** : nom du serveur que vous utilisez pour la création.
 * **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.

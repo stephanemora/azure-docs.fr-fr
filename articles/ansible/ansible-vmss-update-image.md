@@ -3,17 +3,13 @@ title: 'Tutoriel : Mettre à jour l’image personnalisée de groupes identique
 description: Découvrez comment utiliser Ansible pour mettre à jour des groupes de machines virtuelles identiques dans Azure avec une image personnalisée.
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241343"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155851"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Didacticiel : Mettre à jour l’image personnalisée de groupes de machines virtuelles identiques Azure avec Ansible
 

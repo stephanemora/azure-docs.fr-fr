@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665287"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321674"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
 
@@ -130,7 +130,7 @@ La maintenance, pour appliquer des correctifs de système d’exploitation ainsi
 
 Le nœud de périmètre Linux d’un cluster HDInsight est la zone d’accueil pour l’analyse basée sur R. Les versions récentes de HDInsight permettent une installation par défaut de RStudio Server sur le nœud de périphérie en tant qu’IDE basé sur navigateur. L'utilisation de RStudio Server comme IDE pour le développement et l’exécution de scripts R peuvent être considérablement plus productifs que la simple utilisation de la console R.
 
-Vous pouvez également installer un IDE de bureau et à l’utiliser pour accéder au cluster au moyen d’un contexte de calcul MapReduce ou Spark distant. Parmi les options disponibles figurent les [Outils R pour Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) de Microsoft, RStudio et [StatET](http://www.walware.de/goto/statet) sur Eclipse de WalWare.
+Vous pouvez également installer un IDE de bureau et à l’utiliser pour accéder au cluster au moyen d’un contexte de calcul MapReduce ou Spark distant. Parmi les options disponibles figurent les [Outils R pour Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) de Microsoft, RStudio et [StatET](http://www.walware.de/goto/statet) sur Eclipse de WalWare.
 
 Par ailleurs, vous pouvez accéder à la console R sur le nœud de périphérie en tapant **R** à l’invite de commandes Linux après vous être connecté via SSH ou PuTTY. Si vous utilisez l’interface de la console, il est pratique d’exécuter un éditeur de texte pour le développement de scripts R dans une autre fenêtre, et de couper-coller des sections de votre script dans la console R au fur et à mesure.
 

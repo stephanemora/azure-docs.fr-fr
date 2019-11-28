@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: a47e363e2b51b271c8103ac426362a61fc332601
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901907"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195950"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -71,8 +71,6 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
-
-Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
 Pour obtenir une description complète des balises disponibles utilisées dans la commande précédente, telles que `latest`, consultez [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) sur Docker Hub.
 
@@ -249,8 +247,8 @@ Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
 
 |Type de package|Verbe HTTP|Routage|Paramètres de requête|
 |--|--|--|--|
-|Publié|GET, POST|`/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Versions gérées|GET, POST|`/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Publié|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versions gérées|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 Les paramètres de requête configurent ce qui est retourné dans la réponse de requête, et de quelle manière :
 
@@ -293,12 +291,12 @@ curl -G \
 -d verbose=false \
 -d log=true \
 --data-urlencode "query=turn the lights on" \
-"http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/slots/production/predict"
+"http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
 Pour effectuer des requêtes dans l’environnement intermédiaire (**Staging**), remplacez `production` dans l’itinéraire par `staging` :
 
-`http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/slots/staging/predict`
+`http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
 Pour interroger un modèle versionné, utilisez l’API suivante :
 
@@ -307,7 +305,7 @@ curl -G \
 -d verbose=false \
 -d log=false \
 --data-urlencode "query=turn the lights on" \
-"http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
+"http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
 # <a name="v2-prediction-endpointtabv2"></a>[Point de terminaison de prédiction V2](#tab/v2)

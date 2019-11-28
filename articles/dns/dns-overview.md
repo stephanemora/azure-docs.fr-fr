@@ -1,17 +1,17 @@
 ---
 title: Présentation d’Azure DNS
 description: Vue d’ensemble des services d’hébergement DNS sur Microsoft Azure. Héberger votre domaine sur Microsoft Azure
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
-ms.author: victorh
-ms.openlocfilehash: 5055734ae3529d7fca87688c5f9410f38368a634
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 6abdc48187950d9605bdc47b1c5d4f00e4e181f0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959366"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211326"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 

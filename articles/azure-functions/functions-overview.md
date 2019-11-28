@@ -1,22 +1,17 @@
 ---
-title: Vue d’ensemble d’Azure Functions | Microsoft Docs
+title: Vue d’ensemble d’Azure Functions
 description: Découvrez comment utiliser les Azure Functions pour optimiser les charges de travail asynchrones en quelques minutes.
-documentationcenter: na
 author: mattchenderson
-manager: jeconnoc
-keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 10/03/2017
-ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f3fc7691fc3afa3a1fe886655353d9ed41f631cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096074"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230433"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Présentation d’Azure Functions  
 Azure Functions est une solution conçue pour exécuter facilement des petits morceaux de code, ou « fonctions », dans le cloud. Vous pouvez simplement écrire le code dont vous avez besoin pour le problème, sans vous soucier d’une application dans sa globalité ou de l’infrastructure pour l’exécuter. Grâce à Functions, le développement gagne en productivité et vous pouvez utiliser votre langage de développement préféré, tel que C#, Java, JavaScript, PowerShell ou Python. Payez uniquement pour temps d’exécution de votre code et faites confiance à Azure pour effectuer la mise à l’échelle nécessaire. Azure Functions vous permet de développer des applications [sans serveur](https://azure.microsoft.com/solutions/serverless/) sur Microsoft Azure.

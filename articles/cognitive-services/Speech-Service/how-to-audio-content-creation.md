@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579629"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554992"
 ---
 # <a name="audio-content-creation"></a>Création de contenu audio
 
@@ -43,7 +43,7 @@ Ce diagramme montre les étapes nécessaires pour paramétrer et exporter des so
 
 Suivez ces étapes pour créer une ressource Speech et la connecter à Speech Studio.
 
-1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
+1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
 2. Connectez-vous à [Création de contenu audio](https://aka.ms/audiocontentcreation).
 3. Sélectionnez un projet existant ou cliquez sur **Créer un nouveau**.
 4. Vous pouvez modifier votre abonnement à tout moment avec l’option **Paramètres**, située dans le haut de la section.

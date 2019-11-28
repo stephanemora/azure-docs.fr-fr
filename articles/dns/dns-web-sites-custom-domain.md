@@ -2,17 +2,17 @@
 title: Didacticiel - Créer des enregistrements Azure DNS personnalisés pour une application web
 description: Dans ce didacticiel, vous apprendrez à créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.author: allensu
+ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730267"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211217"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Didacticiel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
 

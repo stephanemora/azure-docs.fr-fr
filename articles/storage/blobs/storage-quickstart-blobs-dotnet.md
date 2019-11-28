@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 18f4053a2f8b1b5c880b46cf6eeb46c0dbf97f15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a4ebf6c2ddf3e361e306ae37ad8dabb052e0efc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825392"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423996"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour .NET
 
@@ -24,7 +24,7 @@ Bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 pour .NET
 Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin de :
 
 * Créez un conteneur.
-* Charger un objet Blob dans le stockage Azure
+* Charger un blob dans le stockage Azure
 * Lister tous les objets blob d’un conteneur
 * Télécharger l’objet blob sur votre ordinateur local
 * Supprimer un conteneur
@@ -103,44 +103,7 @@ namespace BlobQuickstartV12
 }
 ```
 
-### <a name="copy-your-credentials-from-the-azure-portal"></a>Copier vos informations d’identification depuis le portail Azure
-
-Lorsque l’exemple d’application effectue une requête auprès du stockage Azure, il doit être autorisé. Pour autoriser une demande, ajoutez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Affichez les informations d'identification de votre compte de stockage en suivant ces étapes :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-4. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis sélectionnez le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
-
-    ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
-
-### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
-
-Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion.
-
-#### <a name="windows"></a>Windows
-
-```cmd
-setx CONNECT_STR "<yourconnectionstring>"
-```
-
-Après avoir ajouté la variable d’environnement dans Windows, vous devez démarrer une nouvelle instance de la fenêtre de commande.
-
-#### <a name="linux"></a>Linux
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="macos"></a>macOS
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="restart-programs"></a>Redémarrer les programmes
-
-Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez votre environnement de développement ou éditeur avant de continuer.
+[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -148,7 +111,7 @@ Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de donn�
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
-* Objet Blob dans le conteneur
+* Un blob dans le conteneur
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -157,7 +120,7 @@ Le diagramme suivant montre la relation entre ces ressources.
 Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
 * [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) : La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs d’objets Blob.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs objets Blob.
+* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs Stockage Azure et leurs objets blob.
 * [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) : La classe `BlobClient` vous permet de manipuler des objets Blob de stockage Azure.
 * [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo) : La classe `BlobDownloadInfo` représente les propriétés et le contenu renvoyés par le téléchargement d’un objet Blob.
 
@@ -283,7 +246,7 @@ downloadFileStream.Close();
 
 Le code suivant nettoie les ressources créées par l’application en supprimant l’ensemble du conteneur avec [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Il supprime également les fichiers locaux créés par l’application.
 
-L’application s’arrête pour une entrée d’utilisateur en appelant `Console.ReadLine` avant de supprimer l’objet Blob, le conteneur et les fichiers locaux. C’est une bonne occasion de vérifier que les ressources ont bien été créées avant d’être supprimées.
+L’application s’interrompt pour une entrée de l’utilisateur en appelant `Console.ReadLine` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont bien été créées avant d’être supprimées.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -336,9 +299,9 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Avant de commencer le processus de nettoyage, consultez les deux fichiers dans votre dossier *MyDocuments*. Vous pouvez les ouvrir et constater qu’ils sont identiques.
+Avant de commencer le processus de nettoyage, vérifiez les deux fichiers dans votre dossier *MyDocuments*. Vous pouvez les ouvrir et constater qu’ils sont identiques.
 
-Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour supprimer les fichiers de test et terminer la démonstration.
+Une fois les fichiers vérifiés, appuyez sur **Entrée** pour supprimer les fichiers de test et terminer la démonstration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

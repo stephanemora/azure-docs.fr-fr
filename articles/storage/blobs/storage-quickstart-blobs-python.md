@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 397464a70164ef06642a991fb8470ddfa2922647
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d589215cf79154bcc8aead1d6695bd4cf870fc0a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809924"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423975"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour Python
 
@@ -24,7 +24,7 @@ Bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 pour Pyth
 Utilisez la bibliothèque cliente Stockage Blob Azure afin de :
 
 * Créez un conteneur.
-* Charger un objet Blob dans le stockage Azure
+* Charger un blob dans le stockage Azure
 * Lister tous les objets blob d’un conteneur
 * Télécharger l’objet blob sur votre ordinateur local
 * Supprimer un conteneur
@@ -59,7 +59,7 @@ Créez une application Python nommée *blob-quickstart-v12*.
     cd blob-quickstart-v12
     ```
 
-1. Dans le répertoire *blob-quickstart-v12*, créez un autre répertoire appelé *data*. C’est là que les fichiers de données d’objets Blob sont créés et stockés.
+1. Dans le répertoire *blob-quickstart-v12*, créez un autre répertoire appelé *data*. C’est là que les fichiers de données blob seront créés et stockés.
 
     ```console
     mkdir data
@@ -99,44 +99,7 @@ Cette commande installe la bibliothèque cliente de stockage d’objets Blob Azu
 
 1. Enregistrez le nouveau fichier sous *blob-quickstart-v12.py* dans le répertoire *blob-quickstart-v12*.
 
-### <a name="copy-your-credentials-from-the-azure-portal"></a>Copier vos informations d’identification depuis le portail Azure
-
-Lorsque l’exemple d’application effectue une requête auprès du stockage Azure, il doit être autorisé. Pour autoriser une demande, ajoutez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Affichez les informations d'identification de votre compte de stockage en suivant ces étapes :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-4. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis sélectionnez le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
-
-    ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
-
-### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
-
-Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion.
-
-#### <a name="windows"></a>Windows
-
-```cmd
-setx CONNECT_STR "<yourconnectionstring>"
-```
-
-Après avoir ajouté la variable d’environnement dans Windows, vous devez démarrer une nouvelle instance de la fenêtre de commande.
-
-#### <a name="linux"></a>Linux
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="macos"></a>macOS
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="restart-programs"></a>Redémarrer les programmes
-
-Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez votre environnement de développement ou éditeur avant de continuer.
+[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -144,7 +107,7 @@ Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de donn�
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
-* Objet Blob dans le conteneur
+* Un blob dans le conteneur
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -152,9 +115,9 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Python suivantes pour interagir avec ces ressources :
 
-* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) : La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs d’objets Blob.
-* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) : La classe `ContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs objets Blob.
-* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) : La classe `BlobClient` vous permet de manipuler des objets Blob de stockage Azure.
+* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) : La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
+* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) : La classe `ContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
+* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure.
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -292,7 +255,7 @@ print("Done")
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-Cette application crée un fichier de test dans votre dossier local et le charge sur le Stockage Blob. L’exemple liste ensuite les objets blob du conteneur et télécharge le fichier avec un nouveau nom pour que vous puissiez comparer les deux fichiers.
+Cette application crée un fichier de test dans votre dossier local et le charge sur un stockage blob. L’exemple liste ensuite les objets blob du conteneur et télécharge le fichier avec un nouveau nom pour que vous puissiez comparer les deux fichiers.
 
 Accédez au répertoire contenant le fichier *blob-quickstart-v12.py*, puis exécutez la commande `python` suivante pour exécuter l’application.
 
@@ -323,7 +286,7 @@ Done
 
 Avant de commencer le processus de nettoyage, consultez les deux fichiers dans votre dossier *Documents*. Vous pouvez les ouvrir et constater qu’ils sont identiques.
 
-Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour supprimer les fichiers de test et terminer la démonstration.
+Une fois les fichiers vérifiés, appuyez sur **Entrée** pour supprimer les fichiers de test et terminer la démonstration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

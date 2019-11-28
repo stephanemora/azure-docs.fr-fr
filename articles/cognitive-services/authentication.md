@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276789"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423941"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -119,7 +119,7 @@ Certains services Azure Cognitive Services acceptent et, dans certains cas, néc
 * Services Speech : API REST de synthèse vocale
 
 >[!NOTE]
-> QnA Maker utilise également l’en-tête Authorization, mais nécessite une clé de point de terminaison. Pour plus d’informations, consultez [QnA Maker : Obtenir des réponses à partir de la base de connaissances](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md).
+> QnA Maker utilise également l’en-tête Authorization, mais nécessite une clé de point de terminaison. Pour plus d’informations, consultez [QnA Maker : Obtenir des réponses à partir de la base de connaissances](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > Les services qui prennent en charge les jetons d’authentification peuvent changer au fil du temps. Pensez donc à consulter la référence sur l’API d’un service avant d’utiliser cette méthode d’authentification.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 14157ed22ea40a2157f696e91c59af9b58110bf2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819934"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482868"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -64,7 +64,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     |--|--|
     | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple, *MyCognitiveServicesResource*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
-    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. Retenez votre emplacement Azure, car vous pourriez en avoir besoin lors de l’appel à Azure Cognitive Services. |
+    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
     | **Groupe de ressources** | Groupe de ressources Azure comprenant votre ressource Cognitive Services. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
 
@@ -78,7 +78,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     |--|--|
     | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple, *TextAnalyticsResource*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
-    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. Retenez votre emplacement Azure, car vous pourriez en avoir besoin lors de l’appel à Azure Cognitive Services. |
+    | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
     | **Groupe de ressources** | Groupe de ressources Azure comprenant votre ressource Cognitive Services. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
 
@@ -87,6 +87,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     Cliquez sur **Créer**.
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 

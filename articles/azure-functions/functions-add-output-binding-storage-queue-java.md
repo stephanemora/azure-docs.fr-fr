@@ -1,18 +1,14 @@
 ---
 title: Connecter votre fonction Java à Stockage Azure
 description: Découvrez comment connecter une fonction Java déclenchée par HTTP à Stockage Azure à l’aide d’une liaison de sortie de stockage de file d’attente.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: c78630af7d09cc911862c8e823c5dfeee9cabbd9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333401"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231205"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connecter votre fonction Java à Stockage Azure
 

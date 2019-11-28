@@ -3,17 +3,13 @@ title: 'Tutoriel : Configurer des comptes Azure Cosmos DB avec Ansible'
 description: Découvrez comment utiliser Ansible pour créer et configurer une base de données Azure Cosmos DB.
 keywords: Ansible, Azure, DevOps, Bash, playbook, Cosmos DB, base de données
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242068"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156471"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Didacticiel : Configurer des comptes Azure Cosmos DB avec Ansible
 

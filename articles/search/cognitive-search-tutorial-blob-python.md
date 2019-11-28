@@ -3,18 +3,18 @@ title: 'Didacticiel : Créer un ensemble de compétences en Python à l’aide d
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement d’image par IA dans Recherche cognitive Azure avec un notebook Jupyter Python. Les données extraites sont indexées et sont facilement accessibles au moyen d’une requête.
 manager: nitinme
-author: LisaLeib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113677"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406430"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Didacticiel : Créer un pipeline d’enrichissement par IA à l’aide de REST et de Python
 

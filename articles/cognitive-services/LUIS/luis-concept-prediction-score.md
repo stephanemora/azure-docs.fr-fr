@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 5b8d97005d8f404a296ddb45e92b65e4aa811aa3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486761"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280823"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Les scores de prédiction indiquent la précision des prédictions pour les entités et l’intention
 
@@ -68,7 +68,7 @@ Vous pouvez désactiver la **formation non déterministe** en [effectuant l’ap
 
 ## <a name="e-exponent-notation"></a>Notation E (exposant)
 
-Les scores de prédiction peuvent utiliser la notation d’exposant, *apparaissant* au-dessus de la plage 0-1, par exemple `9.910309E-07`. Ce score indique un très **petit** nombre.
+Les scores de prédiction peuvent utiliser la notation d’exposant, _apparaissant_ au-dessus de la plage 0-1, par exemple `9.910309E-07`. Ce score indique un très **petit** nombre.
 
 |Score de notation E |Score réel|
 |--|--|

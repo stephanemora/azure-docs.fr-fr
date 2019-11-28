@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 4dd638d825c73d901de0c9b909307bd6995511a2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: a255a68eab6936de18d238b40f596076261049c1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259641"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451657"
 ---
 Si vos applications doivent être créées par d’autres personnes, vous devez ajouter leurs adresses e-mail associée dans la ressource de création du portail Azure.
 

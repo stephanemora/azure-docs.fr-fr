@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 4b309d54fae63f16574bb3799d77adfd89f91a57
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bd778e3731780a89560d8caa02363a4e49f77e20
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967084"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219048"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutoriel : Autoriser l'accès aux données Cloudyn
 
@@ -42,18 +42,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-a-user-with-admin-access"></a>Créer un utilisateur avec un accès administrateur
 
-Même si vous disposez déjà d’un accès administrateur, vos collègues de travail au sein de votre organisation devaient peut-être également disposer d’un accès administrateur. Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **User Management (Gestion des utilisateurs)**. Cliquez sur **Add New User (Ajouter un nouvel utilisateur)** pour ajouter un utilisateur.
+Même si vous disposez déjà d’un accès administrateur, vos collègues de travail au sein de votre organisation devaient peut-être également disposer d’un accès administrateur. Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **User Management (Gestion des utilisateurs)** . Cliquez sur **Add New User (Ajouter un nouvel utilisateur)** pour ajouter un utilisateur.
 
-Entrez les informations requises sur l’utilisateur. L’**ID de connexion** doit être une adresse de messagerie valide. Sélectionnez des autorisations de gestion des utilisateurs pour permettre à l’utilisateur de créer et modifier d’autres utilisateurs. L’option de gestion des listes de destinataires permet à l’utilisateur de modifier les listes de destinataires. Cloudyn envoie un lien avec les informations de connexion par e-mail à l’utilisateur quand vous sélectionnez **Notify user by email (Notifier l'utilisateur par e-mail)**. Lors de la première connexion, l’utilisateur définit un mot de passe.
+Entrez les informations requises sur l’utilisateur. L’**ID de connexion** doit être une adresse de messagerie valide. Sélectionnez des autorisations de gestion des utilisateurs pour permettre à l’utilisateur de créer et modifier d’autres utilisateurs. L’option de gestion des listes de destinataires permet à l’utilisateur de modifier les listes de destinataires. Cloudyn envoie un lien avec les informations de connexion par e-mail à l’utilisateur quand vous sélectionnez **Notify user by email (Notifier l'utilisateur par e-mail)** . Lors de la première connexion, l’utilisateur définit un mot de passe.
 
-Sous **User has admin access (L’utilisateur a un accès administrateur)**, l’entité racine de votre organisation est sélectionnée. Laissez-la sélectionnée et enregistrez les informations utilisateur. La sélection de l’entité racine permet à l’utilisateur de disposer de l’autorisation d’administrateur non seulement pour l’entité racine dans l’arborescence, mais également pour toutes les entités qui se trouvent sous cette entité.  
+Sous **User has admin access (L’utilisateur a un accès administrateur)** , l’entité racine de votre organisation est sélectionnée. Laissez-la sélectionnée et enregistrez les informations utilisateur. La sélection de l’entité racine permet à l’utilisateur de disposer de l’autorisation d’administrateur non seulement pour l’entité racine dans l’arborescence, mais également pour toutes les entités qui se trouvent sous cette entité.  
   ![Exemple illustrant l'accès administrateur dans la zone Ajouter un nouvel utilisateur](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Créer un utilisateur avec un accès utilisateur
 En principe, les utilisateurs ayant besoin d’accéder à des données Cloudyn, comme des tableaux de bord et des rapports, doivent disposer d’un accès utilisateur pour pouvoir les visualiser. Créez un nouvel utilisateur avec un accès utilisateur similaire à celui que vous avez créé avec l’accès administrateur, en tenant compte des différences suivantes :
 
-- Décochez les cases **Allow User Management (Autoriser la gestion des utilisateurs)** et **Allow Recipient lists Management (Autoriser la gestion des listes de destinataires)**, et décochez tout dans la liste **User has admin access (L’utilisateur a un accès administrateur)**.
-- Sélectionnez les entités auxquelles l’utilisateur a besoin d’accéder dans la liste **User has admin access (L’utilisateur a un accès administrateur)**.
+- Décochez les cases **Allow User Management (Autoriser la gestion des utilisateurs)** et **Allow Recipient lists Management (Autoriser la gestion des listes de destinataires)** , et décochez tout dans la liste **User has admin access (L’utilisateur a un accès administrateur)** .
+- Sélectionnez les entités auxquelles l’utilisateur a besoin d’accéder dans la liste **User has admin access (L’utilisateur a un accès administrateur)** .
 - Vous pouvez également autoriser l’administrateur à accéder à des entités spécifiques, selon les besoins.
 
 ![Exemple illustrant l'accès utilisateur dans la zone Ajouter un nouvel utilisateur](./media/tutorial-user-access/new-user-access.png)
@@ -86,11 +86,11 @@ Les abonnements individuels à vos comptes cloud sont liés à des entités spé
 
 Quand vous avez inscrit votre contrat ou compte Azure sur Cloudyn, vos données de ressources Azure, notamment les données d’utilisation, de performances, de facturation et de balise de vos abonnements ont été copiées dans votre compte Cloudyn. Vous devez toutefois créer manuellement l’arborescence des entités. Si vous avez ignoré l’inscription à Azure Resource Manager, seules les données de facturation et quelques rapports de ressources sont disponibles dans le portail Cloudyn.
 
-Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Cloud Accounts (Comptes cloud)**. Vous commencez par une seule entité (racine), puis vous créez l’arborescence des entités sous la racine. Voici un exemple de hiérarchie d’entités similaire à celle de nombreuses sociétés informatiques, une fois l’arborescence créée :
+Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Cloud Accounts (Comptes cloud)** . Vous commencez par une seule entité (racine), puis vous créez l’arborescence des entités sous la racine. Voici un exemple de hiérarchie d’entités similaire à celle de nombreuses sociétés informatiques, une fois l’arborescence créée :
 
 ![Exemple d'arborescence d'entités sur la page Gestion des comptes](./media/tutorial-user-access/entity-tree.png)
 
-En regard de **Entities (Entités)**, cliquez sur **Add Entity (Ajouter une entité)**. Entrez les informations relatives à la personne ou le service que vous souhaitez ajouter. Les champs **Full Name (Nom complet)** et **Email (E-mail)** ne doivent pas correspondre à des utilisateurs existants. Si vous souhaitez afficher la liste des niveaux d’accès, recherchez dans l’aide *Adding an entity (Ajout d’une entité)*.
+En regard de **Entities (Entités)** , cliquez sur **Add Entity (Ajouter une entité)** . Entrez les informations relatives à la personne ou le service que vous souhaitez ajouter. Les champs **Full Name (Nom complet)** et **Email (E-mail)** ne doivent pas correspondre à des utilisateurs existants. Si vous souhaitez afficher la liste des niveaux d’accès, recherchez dans l’aide *Adding an entity (Ajout d’une entité)* .
 
 ![Exemple montrant le nom de l'entité et les niveaux d'accès dans la zone Ajouter une entité](./media/tutorial-user-access/add-entity.png)
 

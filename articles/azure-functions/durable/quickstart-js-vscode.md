@@ -1,22 +1,16 @@
 ---
 title: Créer votre première fonction durable dans Azure à l’aide de JavaScript
 description: Créez et publiez une fonction durable Azure à l’aide de Visual Studio Code.
-services: functions
-documentationcenter: na
 author: ColbyTresness
-manager: jeconnoc
-keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614566"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231309"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 

@@ -1,19 +1,19 @@
 ---
-title: Démarrage rapide - Créer une application iOS avec Azure Spatial Anchors | Microsoft Docs
+title: 'Démarrage rapide : Créer une application iOS'
 description: Dans ce démarrage rapide, vous allez apprendre à générer une application iOS à l’aide de Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092112"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277201"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Démarrage rapide : Créer une application iOS avec Azure Spatial Anchors, en Swift ou Objective-C
 
@@ -126,7 +126,7 @@ Dans Xcode, arrêtez l’application en appuyant sur **Stop**.
 
 ### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problèmes relatifs à CocoaPods sur macOS Catalina (10.15)
 
-Si vous avez récemment effectué une mise à jour vers macOS Catalina (10.15) en ayant déjà installé CocoaPods, ce dernier risque de passer en état défectueux et de configurer incorrectement vos pods et fichiers de projet `.xcworkspace`. Pour résoudre ce problème, vous devez réinstaller CocoaPods en exécutant les commandes suivantes :
+Si vous avez récemment effectué une mise à jour vers macOS Catalina (10.15) en ayant déjà installé CocoaPods, ce dernier risque de passer en état défectueux et de configurer incorrectement vos pods et fichiers de projet `.xcworkspace`. Pour résoudre ce problème, vous devez réinstaller CocoaPods en exécutant les commandes suivantes :
 
 ```shell
 brew update

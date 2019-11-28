@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9feb9be5e76f91ab55ec1b3e60eb79ab5e246f4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aaa03e04167cc579cb19885a66db369a3e11176a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683740"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546908"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
 Ce tutoriel montre **comment copier des tables d’Azure SQL Database dans Azure SQL Data Warehouse**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
@@ -62,7 +62,7 @@ Créez une base de données Azure SQL avec l’exemple de données Adventure Wor
 
 1. Si vous n’avez pas d’entrepôt de données Azure SQL Data Warehouse, consultez l’article [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) pour la procédure à suivre.
 
-1. Créez les schémas de table correspondants dans SQL Data Warehouse. Vous pouvez utiliser l’[utilitaire de migration](https://www.microsoft.com/download/details.aspx?id=49100) pour **migrer le schéma** d’Azure SQL Database vers Azure SQL Data Warehouse. Plus tard, vous utiliserez Azure Data Factory pour migrer/copier les données.
+1. Créez les schémas de table correspondants dans SQL Data Warehouse. Plus tard, vous utiliserez Azure Data Factory pour migrer/copier les données.
 
 ## <a name="azure-services-to-access-sql-server"></a>Services Azure pour accéder au serveur SQL
 

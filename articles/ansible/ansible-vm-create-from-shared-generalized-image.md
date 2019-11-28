@@ -3,17 +3,13 @@ title: 'Tutoriel : Créer une machine virtuelle ou un groupe de machines virtue
 description: Découvrez comment utiliser Ansible pour créer une machine virtuelle ou un groupe de machines virtuelles identiques basé sur une image généralisée dans Shared Image Gallery.
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, shared image gallery
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808943"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155827"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Didacticiel : Créer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’Azure Shared Image Gallery en utilisant Ansible
 

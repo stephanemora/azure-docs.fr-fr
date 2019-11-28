@@ -3,17 +3,13 @@ title: 'Tutoriel : Configurer des applications dans Azure App Service à l’ai
 description: Découvrez comment créer une application dans Azure App Service avec Java 8 et le runtime du conteneur Tomcat
 keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242046"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156557"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Didacticiel : Configurer des applications dans Azure App Service à l’aide d’Ansible
 

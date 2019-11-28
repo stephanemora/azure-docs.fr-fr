@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969129"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229800"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutoriel : Gérer les coûts à l’aide de Cloudyn
 
@@ -87,9 +87,9 @@ La liste des modèles de coût affiche votre nouveau modèle de coût comme éta
 
 Category Manager (Gestionnaire de catégories) est un outil de nettoyage des données qui vous permet de fusionner les valeurs de plusieurs catégories (balises) pour en créer d’autres. Avec cet outil simple basé sur les règles, vous pouvez sélectionner une catégorie et créer des règles pour fusionner des valeurs existantes. Par exemple, vous pouvez avoir des catégories existantes pour **R&amp;D** et **dev**, qui représentent toutes deux le groupe de développement.
 
-Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Category Manager** (Gestionnaire de catégories). Pour créer une catégorie, sélectionnez le signe plus (**+**). Entrez un nom pour la catégorie, puis sous **Keys** (Clés), entrez les clés de catégorie que vous souhaitez inclure dans la nouvelle catégorie.
+Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Category Manager** (Gestionnaire de catégories). Pour créer une catégorie, sélectionnez le signe plus ( **+** ). Entrez un nom pour la catégorie, puis sous **Keys** (Clés), entrez les clés de catégorie que vous souhaitez inclure dans la nouvelle catégorie.
 
-Quand vous définissez une règle, vous pouvez ajouter plusieurs valeurs avec une condition OR. Vous pouvez également effectuer certaines opérations de chaîne de base. Dans les deux cas, cliquez sur le symbole points de suspension (**…**) à droite de **Rule** (Règle).
+Quand vous définissez une règle, vous pouvez ajouter plusieurs valeurs avec une condition OR. Vous pouvez également effectuer certaines opérations de chaîne de base. Dans les deux cas, cliquez sur le symbole points de suspension ( **…** ) à droite de **Rule** (Règle).
 
 Pour définir une nouvelle règle, dans la zone **Rules** (règles), créez une règle. Par exemple, entrez **dev** sous **Rules** (Règles), puis entrez **R&amp;D** sous **Actions**. Quand vous avez terminé, enregistrez votre nouvelle catégorie.
 

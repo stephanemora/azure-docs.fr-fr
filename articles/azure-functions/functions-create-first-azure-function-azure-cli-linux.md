@@ -1,19 +1,15 @@
 ---
 title: Créer votre première fonction sur Linux dans Azure
 description: Découvrez comment créer votre première fonction hébergée sur Linux dans Azure en utilisant des outils en ligne de commande, Azure CLI et Azure Functions Core Tools.
-author: ggailey777
-ms.author: glenga
 ms.date: 03/12/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-manager: gwallace
-ms.openlocfilehash: 34f4dc4b36f4efd75c5a7cd14b3214886955a403
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329677"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230809"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Démarrage rapide : Créer votre première fonction hébergée sur Linux à l’aide d’outils en ligne de commande
 

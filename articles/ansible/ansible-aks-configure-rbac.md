@@ -3,17 +3,13 @@ title: 'Tutoriel : Configurer les rôles de contrôle d’accès en fonction du
 description: Découvrez comment utiliser Ansible pour configurer RBAC dans un cluster Azure Kubernetes Service (AKS)
 keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks, kubernetes, azure AD, rbac
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242339"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156874"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 

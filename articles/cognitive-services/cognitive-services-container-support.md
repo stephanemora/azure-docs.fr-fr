@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 2b6118930626ce753060addcf64c568c7c086efb
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a35ceed4cefa47b903ceec915388b4831cd9e69b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091224"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173778"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -60,9 +60,9 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 |[API Speech Service][sp-containers-cstt] |F0, S0|**Reconnaissance vocale personnalisée** |Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé.|
 |[API Speech Service][sp-containers-tts] |F0, S0|**Synthèse vocale** |Convertit le texte en paroles naturelles.|
 |[API Speech Service][sp-containers-ctts] |F0, S0|**Synthèse vocale personnalisée** |Convertit le texte en paroles naturelles à l’aide d’un modèle personnalisé.|
-|[Analyse de texte][ta-containers] |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
-|[Analyse de texte][ta-containers]|F0, S|**Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
-|[Analyse de texte][ta-containers]|F0, S|**Analyse des sentiments** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](./text-analytics/language-support.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
+|[Analyse de texte][ta-containers-keyphrase] |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
+|[Analyse de texte][ta-containers-language]|F0, S|**Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
+|[Analyse de texte][ta-containers-sentiment]|F0, S|**Analyse des sentiments** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](./text-analytics/language-support.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -135,3 +135,6 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+[ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+[ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+[ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment

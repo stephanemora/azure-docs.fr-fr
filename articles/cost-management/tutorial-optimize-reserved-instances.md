@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 6af6a6b334d29c6ff813a9b2ff35153aed239b1b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967156"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229863"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -162,7 +162,7 @@ Les rapports _EC2 RI Buying Recommendations_ (Recommandations d’achat d’inst
 
 Cloudyn compare les coûts d’utilisation d’instances à la demande aux coûts d’achat d’instances réservées. Lorsque l’outil détecte des économies potentielles, il ajoute ses recommandations dans le rapport EC2 Buying Recommendations (Recommandations d’achat EC2).
 
-Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)** > **Pricing Optimization (Optimisation des prix)** > **EC2 RI Buying Recommendations (Recommandations d’achat d’instances réservées EC2)**.
+Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)**  > **Pricing Optimization (Optimisation des prix)**  > **EC2 RI Buying Recommendations (Recommandations d’achat d’instances réservées EC2)** .
 
 L’image suivante montre des recommandations d’achat telles qu’elles s’affichent dans le rapport.
 
@@ -192,7 +192,7 @@ Les réservations inutilisées sont courantes dans les environnements de ressour
 
 AWS vend des instances réservées pour des zones de disponibilité et des régions spécifiques. Si vous avez acheté des instances réservées pour une zone de disponibilité spécifique, vous ne pouvez pas transférer les réservations vers d’autres zones. Toutefois, vous pouvez facilement déplacer des instances réservées régionales dans les différentes zones en utilisant le rapport **EC2 Currently Unused Reservations** (Réservations EC2 actuellement inutilisées). Vous pouvez également les modifier pour avoir une portée régionale. Ces instances s’appliqueront ensuite aux instances correspondantes dans toutes les zones de disponibilité.
 
-Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)** > **Inefficiencies (Inefficacités)** > **EC2 Currently Unused Reservations (Réservations EC2 actuellement inutilisées)**.
+Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)**  > **Inefficiencies (Inefficacités)**  > **EC2 Currently Unused Reservations (Réservations EC2 actuellement inutilisées)** .
 
 Les images suivantes montrent le rapport contenant des instances réservées inutilisées.
 
