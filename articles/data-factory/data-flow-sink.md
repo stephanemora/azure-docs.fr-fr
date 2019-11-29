@@ -1,17 +1,19 @@
 ---
-title: Configurer une transformation de réception dans la fonctionnalité de flux de données de mappage d’Azure Data Factory
+title: Configurer une transformation de réception dans la fonctionnalité de flux de données de mappage
 description: Découvrez comment configurer une transformation de réception dans le flux de données de mappage.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082929"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217928"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformation de réception des flux de données
 
