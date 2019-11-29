@@ -2,18 +2,15 @@
 title: Emplacements de déploiement Azure Functions
 description: Apprendre à créer et à utiliser des emplacements de déploiement avec Azure Functions
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576319"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230669"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 

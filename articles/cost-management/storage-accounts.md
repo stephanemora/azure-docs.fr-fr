@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 91377c41699f01eaf57a085ea82e9d7289549990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ac4442aa5a7e5e4367a03d33169412d37b3f1ea
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969140"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229924"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurer des comptes de stockage pour Cloudyn
 

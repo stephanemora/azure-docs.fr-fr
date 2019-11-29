@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: d952229ab327440771db6cc5ac64db2256491179
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823252"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483832"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -149,10 +149,6 @@ Pour plus d’informations, consultez [Bien démarrer avec Découverte et classi
 ### <a name="compliance"></a>Conformité
 
 Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonctionnalités permettant à votre application de répondre à différentes exigences en matière de sécurité, mais il participe également à des audits réguliers et est certifié conforme à de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
-
-### <a name="feature-restrictions"></a>Restrictions des fonctionnalités
-
-Les restrictions des fonctionnalités permettent d’empêcher certaines formes d’injection de code SQL de faire fuiter des informations sur la base de données, même lorsque l’injection de code SQL est réussie. Pour en savoir plus, consultez [Azure SQL Database Feature Restrictions](sql-database-feature-restrictions.md) (Restrictions des fonctionnalités dans Azure SQL Database).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

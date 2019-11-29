@@ -3,16 +3,16 @@ title: 'Démarrage rapide : Bibliothèque de stockage Blob Azure v12 – JavaSc
 description: Ce démarrage rapide explique comment utiliser la bibliothèque de client du stockage blob Azure version 12 pour JavaScript afin de créer un conteneur et un blob dans un stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130690"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422021"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque de client du stockage blob Azure v12 pour JavaScript
 
@@ -105,7 +105,7 @@ npm install
     const uuidv1 = require('uuid/v1');
     
     async function main() {
-        console.log('Azure Blob storage v12 - Javascript quickstart sample');
+        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
     
@@ -114,44 +114,7 @@ npm install
 
 1. Enregistrez le nouveau fichier sous *blob-quickstart-v12.js* dans le répertoire *blob-quickstart-v12*.
 
-### <a name="copy-your-credentials-from-the-azure-portal"></a>Copier vos informations d’identification depuis le portail Azure
-
-Lorsque l’exemple d’application effectue une requête auprès du stockage Azure, il doit être autorisé. Pour autoriser une demande, ajoutez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Affichez les informations d'identification de votre compte de stockage en suivant ces étapes :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-4. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis sélectionnez le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
-
-    ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
-
-### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
-
-Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion.
-
-#### <a name="windows"></a>Windows
-
-```cmd
-setx CONNECT_STR "<yourconnectionstring>"
-```
-
-Après avoir ajouté la variable d’environnement dans Windows, vous devez démarrer une nouvelle instance de la fenêtre de commande.
-
-#### <a name="linux"></a>Linux
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="macos"></a>macOS
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="restart-programs"></a>Redémarrer des programmes
-
-Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez votre environnement de développement ou éditeur avant de continuer.
+[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -211,7 +174,7 @@ Ajoutez ce code à la fin de la fonction `main` :
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await new BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -223,7 +186,8 @@ console.log('\t', containerName);
 const containerClient = await blobServiceClient.getContainerClient(containerName);
 
 // Create the container
-await containerClient.create();
+const createContainerResponse = await containerClient.create();
+console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
 ```
 
 ### <a name="upload-blobs-to-a-container"></a>Charger des objets blob sur un conteneur
@@ -243,11 +207,12 @@ const blobName = 'quickstart' + uuidv1() + '.txt';
 // Get a block blob client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-console.log('\nUploading to Azure Storage as blob:\n\t', blobName);
+console.log('\nUploading to Azure storage as blob:\n\t', blobName);
 
 // Upload data to the blob
 const data = 'Hello, World!';
-await blockBlobClient.upload(data, data.length);
+const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 ```
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
@@ -308,7 +273,8 @@ Ajoutez ce code à la fin de la fonction `main` :
 console.log('\nDeleting container...');
 
 // Delete container
-await containerClient.delete();
+const deleteContainerResponse = await containerClient.delete();
+console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

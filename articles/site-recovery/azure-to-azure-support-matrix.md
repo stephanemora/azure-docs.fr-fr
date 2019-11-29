@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123849"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530952"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -210,7 +210,7 @@ Espaces de stockage | Pris en charge |
 Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
 Chiffrement au repos (CMK) | Non pris en charge |   
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge |
-Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
+Azure Disk Encryption (ADE) pour système d’exploitation Linux | Pris en charge |
 Ajout à chaud | Pris en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés.
 Retrait de disque à chaud | Non pris en charge | Si vous retirez un disque de données de la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 Exclure le disque | Pris en charge. Vous devez utiliser [Powershell](azure-to-azure-exclude-disks.md) pour configurer. |  Les disques temporaires sont exclus par défaut.

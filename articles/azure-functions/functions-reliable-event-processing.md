@@ -1,19 +1,16 @@
 ---
 title: Traitement des événements fiables Azure Functions
 description: Éviter de rater des messages Event Hub dans Azure Functions
-services: functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: d38ef46abae12886fb04a30f5efc26992cde4443
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955425"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230367"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Traitement des événements fiables Azure Functions
 

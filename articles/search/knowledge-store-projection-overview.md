@@ -8,17 +8,17 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720041"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326594"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilisation de projections dans une base de connaissances dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
+> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
 
 Recherche cognitive Azure permet l’enrichissement de contenu via des compétences cognitives intégrées et personnalisées dans le cadre de l’indexation. Les enrichissements renforcent la structure de vos documents et rendent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que de recherche, pour l’exploration de connaissances par exemple.
 
@@ -114,9 +114,11 @@ Voici un exemple des projections de table.
 
 Comme illustré dans cet exemple, les expressions et entités clés sont modélisées dans différentes tables et contiennent une référence au parent (MainTable) pour chaque ligne.
 
-L’illustration suivante est une référence à l’exercice Jurisprudence dans [Prise en main de la Base de connaissances](knowledge-store-howto.md). Dans un scénario où un cas inclut plusieurs opinions, et où chaque opinion est enrichie en identifiant les entités qu’il contient, vous pouvez modéliser les projections comme illustré ici.
+<!---
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![Entités et relations dans les tables](media/knowledge-store-projection-overview/TableRelationships.png "Modélisation des relations dans des projections de tables")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
+--->
 
 ## <a name="object-projections"></a>Projections d’objet
 

@@ -8,19 +8,19 @@ author: adpick
 manager: adpick
 editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 8a3d1a3a6b1dce1d729942715bbe5962837ff093
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c31e663529ea20d119753094133941b02e2756
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60918659"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226278"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exporter et visualiser les informations générales de vos abonnements
 Si vous avez besoin de visualiser l’ensemble des ID d’abonnement associés à vos informations d’identification utilisateur, [téléchargez un fichier .json avec les informations de vos abonnements à partir du Centre des comptes Azure](https://account.azure.com/subscriptions/download).

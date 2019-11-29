@@ -2,17 +2,17 @@
 title: Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 description: Utilisez un enregistrement d’alias Azure DNS pour héberger des applications web à charge équilibrée à l’extrémité de la zone.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: victorh
-ms.openlocfilehash: 4f9a42f3d054becfed0b0a6acbf92cdf1e421c16
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: allensu
+ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946943"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212364"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 
@@ -55,7 +55,7 @@ Créez deux applications web, une dans chaque plan App Service.
 1. En haut à gauche de la page du Portail Azure, sélectionnez **Créer une ressource**.
 2. Tapez **Application web** dans la barre de recherche et appuyez sur Entrée.
 3. Sélectionnez **Application web**.
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 5. Acceptez les valeurs par défaut et utilisez le tableau suivant pour configurer les deux applications web :
 
    |Nom<br>(doit être unique sur . azurewebsites.net)|Groupe de ressources |Pile d’exécution|Région|Plan App Service/Emplacement

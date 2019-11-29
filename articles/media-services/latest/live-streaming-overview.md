@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037869"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186181"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -63,7 +63,7 @@ Quand vous utilisez l’**événement en direct** de type pass-through, vous cha
 
 Quand vous utilisez l’encodage cloud avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution (jusqu’à 32 Mbit/s au total) à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct transcode le flux de débit unique entrant en [flux vidéo à différents débits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) avec différentes résolutions pour améliorer la diffusion et la rendre disponible pour les appareils de lecture par le biais de protocoles standard du secteur tels que MPEG-DASH, Apple HTTP Live Streaming (HLS) et Microsoft Smooth Streaming. 
 
-### <a name="live-transcription"></a>Transcription en direct
+### <a name="live-transcription-preview"></a>Transcription en direct (préversion)
 
 Transcription en direct est une fonctionnalité que vous pouvez utiliser avec les événements en direct qui sont des encodages à transfert direct ou en temps réel. Pour en savoir plus, consultez [Transcription en direct](live-transcription.md). Lorsque cette fonctionnalité est activée, le service utilise la fonctionnalité de [reconnaissance vocale](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services pour transcrire les paroles du fichier audio entrant en texte. Ce texte, accompagné de fichiers vidéo et audio dans les protocoles MPEG-DASH et HLS, est ensuite mis à disposition pour diffusion.
 

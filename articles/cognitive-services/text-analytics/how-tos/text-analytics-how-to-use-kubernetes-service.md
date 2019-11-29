@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: db1c26805f76b0ca8991a562531b4476b6899d86
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130083"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383508"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Déployer un conteneur Analyse de texte dans Azure Kubernetes Service
 

@@ -1,18 +1,14 @@
 ---
 title: Langages pris en charge dans Azure Functions
 description: Découvrez les langages qui sont pris en charge (Disponibilité générale) et ceux qui sont en version expérimentale ou en préversion.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/02/2018
-ms.author: glenga
-ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802458"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230285"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 

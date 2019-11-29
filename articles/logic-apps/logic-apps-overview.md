@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
-ms.openlocfilehash: 85e2216e39658fde42f298dabc38c737621d6be4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 22b8558c8808afacc6ef92bd0fd41d3adbc92bf5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178018"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533829"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Vue d’ensemble d’Azure Logic Apps
 
@@ -42,7 +42,7 @@ Chaque flux de travail d’application logique commence par un déclencheur, qui
 
 Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique qui exécute les actions dans le flux de travail. Ces actions peuvent également inclure des conversions de données et des contrôles de flux, telles que des instructions conditionnelles, des instructions de basculement, des boucles et la création de branches. Par exemple, cette application logique démarre par un déclencheur Dynamics 365 avec le critère intégré « lorsqu’un enregistrement est mis à jour ». Si le déclencheur détecte un événement correspondant à ce critère, il est activé et exécute les actions du flux de travail. Ici, ces actions incluent la transformation XML, les mises à jour de données, la création de branches de décision et les notifications par e-mail.
 
-![Concepteur Logic Apps - exemple d’application logique](./media/logic-apps-overview/azure-logic-apps-overview.png)
+![Concepteur Logic Apps - exemple d’application logique](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
 Vous pouvez créer vos applications logiques visuellement avec le Concepteur d’applications logiques, disponible dans le portail Azure via votre navigateur et dans Visual Studio. Pour disposer d’applications logiques plus personnalisées, vous pouvez créer ou modifier des définitions d’application logique dans JavaScript Objet Notation (JSON) en travaillant dans l’éditeur « code ». Vous pouvez également utiliser des commandes Azure PowerShell et des modèles Azure Resource Manager pour sélectionner des tâches. Les applications logiques se déploient et s’exécutent dans le cloud sur Azure. Pour avoir une présentation plus complète, regardez cette vidéo : [Utiliser Azure Enterprise Integration Services pour exécuter des applications cloud à grande échelle](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
@@ -52,7 +52,7 @@ Avec des entreprises de plus en plus portées sur la numérisation, les applicat
 
 Dans de nombreux cas, vous n’avez pas à écrire du code. Mais si vous devez en écrire, vous pouvez créer des extraits de code avec [Azure Functions](../azure-functions/functions-overview.md) et l’exécuter à la demande à partir d’applications logiques. En outre, si votre application logique a besoin d’interagir avec des événements à partir de services Azure, d’applications personnalisées ou d’autres solutions, vous pouvez utiliser [Azure Event Grid](../event-grid/overview.md) avec vos applications logiques pour la surveillance, le routage et la publication d’événements.
 
-Logic Apps, Functions et Event Grid sont entièrement gérés par Microsoft Azure, vous évitant ainsi d’avoir à vous soucier de la compilation, de l’hébergement, de la mise à l’échelle, de la gestion, de la surveillance et du maintien de vos solutions. Avec la possibilité de créer des [applications et des solutions « sans serveur »](../logic-apps/logic-apps-serverless-overview.md), vous pouvez vous concentrer uniquement sur la logique métier. Ces services sont automatiquement redimensionnés pour répondre à vos besoins, rendre les intégrations plus rapides et vous aider à créer des applications cloud fiables avec un minimum de code. De plus, vous payez uniquement ce que vous utilisez, avec un [modèle de tarification](../logic-apps/logic-apps-pricing.md) basé sur la consommation.
+Logic Apps, Functions et Event Grid sont entièrement gérés par Microsoft Azure, vous évitant ainsi d’avoir à vous soucier de la compilation, de l’hébergement, de la mise à l’échelle, de la gestion, de la surveillance et du maintien de vos solutions. Avec la possibilité de créer des [applications et des solutions « sans serveur »](../logic-apps/logic-apps-serverless-overview.md), vous pouvez vous concentrer uniquement sur la logique métier. Ces services sont automatiquement redimensionnés pour répondre à vos besoins, rendre les intégrations plus rapides et vous aider à créer des applications cloud fiables avec un minimum de code.
 
 Pour savoir comment les sociétés ont amélioré leur flexibilité et la concentration sur leurs activités principales grâce à la combinaison de Logic Apps avec d’autres services Azure et des produits Microsoft, consultez ces [témoignages](https://aka.ms/logic-apps-customer-stories).
 

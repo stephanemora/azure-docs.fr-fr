@@ -3,7 +3,7 @@ title: Tutoriel sur la création de l’infrastructure pour un cluster Service F
 description: Dans ce tutoriel, vous découvrez comment configurer l’infrastructure de machines virtuelles Azure pour exécuter un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177732"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166280"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure de machines virtuelles Azure pour héberger un cluster Service Fabric
 
@@ -90,12 +90,18 @@ Lancez deux autres **machines virtuelles** en veillant à conserver les mêmes p
  
 4. Ouvrez le fichier RDP et, quand vous y êtes invité, entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés dans la configuration de la machine virtuelle.
 
-5. Une fois que vous êtes connecté à une instance, vous devez vérifier que le Registre distant fonctionnait et ouvrir les ports nécessaires.
+5. Une fois que vous êtes connecté à une instance, vous devez vérifier que le Registre distant fonctionne, activer le protocole SMB, et ouvrir les ports nécessaires pour le protocole SMB et le Registre distant.
+
+   Pour activer le protocole SMB, voici la commande PowerShell :
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. Pour ouvrir les ports dans le pare-feu, voici la commande PowerShell :
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. Répétez ce processus pour vos autres instances, en notant à nouveau les adresses IP privées.
@@ -111,6 +117,15 @@ Lancez deux autres **machines virtuelles** en veillant à conserver les mêmes p
    ```
 
    Si votre sortie ressemble à `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` répété quatre fois, la connexion établie entre les instances fonctionne.
+
+3. Vérifiez maintenant que votre partage SMB fonctionne avec la commande suivante :
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   Elle doit renvoyer `Drive Z: is now connected to \\172.31.20.163\c$.` comme sortie.
+
 
    Vos instances sont maintenant correctement préparées pour Service Fabric.
 

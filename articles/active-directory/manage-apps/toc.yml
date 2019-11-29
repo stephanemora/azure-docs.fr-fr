@@ -72,8 +72,14 @@
       items:
         - name: Planifier un déploiement d’attribution automatique d’utilisateurs
           href: plan-auto-user-provisioning.md
+        - name: Provisionnement automatique pour les applications prenant en charge SCIM
+          href: use-scim-to-provision-users-and-groups.md
         - name: Provisionnement manuel ou automatique
           href: application-provisioning-config-how-to.md
+    - name: Provisionnement HR cloud
+      items:
+        - name: Planifier un déploiement de provisionnement d’utilisateurs HR cloud
+          href: plan-cloud-hr-provision.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Proxy d’application

@@ -2,19 +2,17 @@
 title: Configurer des appareils pour des proxys réseau - Azure IoT Edge | Microsoft Docs
 description: Découvrez comment configurer le runtime Azure IoT Edge et les modules IoT Edge accessibles sur Internet pour communiquer via un serveur proxy.
 author: kgremban
-manager: ''
 ms.author: kgremban
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 47d3018015d05d0587e841c216a5eb89f2a0ae20
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 9a4ed17ceddf01ec628d80dc3ba9f4d7ee305f3b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414554"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457159"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 

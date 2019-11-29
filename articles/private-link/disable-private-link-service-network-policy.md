@@ -2,17 +2,17 @@
 title: 'Désactiver les stratégies réseau pour l’adresse IP source du service Azure Private Link '
 description: Découvrez comment désactiver les stratégies réseau pour le service Azure Private Link
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 53df209d080cf91be9c558b43edaa618c0748fc5
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.author: allensu
+ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101550"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228104"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Désactiver les stratégies réseau pour l’adresse IP source du service Private Link
 

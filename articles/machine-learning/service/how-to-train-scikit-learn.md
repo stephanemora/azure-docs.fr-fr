@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6d71ea59b7094134cc70b9eeea6da89feacb3a14
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931051"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224839"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Exécutez ce code sur l’un de ces environnements :
     - [Créez un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - Télécharger le jeu de données et l’exemple de fichier de script 
         - [jeu de données iris](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
+        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
     - Vous trouverez également une [version Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) complète de ce guide sur la page des exemples GitHub. Le notebook comprend une section plus détaillée couvrant le paramétrage des hyperparamètres intelligents et la récupération du meilleur modèle par les métriques primaires.
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience

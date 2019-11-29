@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8c7da1b989546950bf61153e96193c0bab11d8ac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603542"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534223"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -27,8 +27,8 @@ ms.locfileid: "73603542"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 

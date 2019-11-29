@@ -1,21 +1,16 @@
 ---
 title: Liaisons Mobile Apps pour Azure Functions
 description: Découvrez comment utiliser des liaisons Azure Mobile Apps dans Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097318"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231126"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 

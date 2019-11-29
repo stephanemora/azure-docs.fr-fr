@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306222"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538219"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -72,7 +72,7 @@ Nous fournissons avec le processus TDSP un [outil de modélisation et de créati
 ## <a name="artifacts"></a>Artefacts
 Les artefacts générés au cours de cette phase sont les suivants :
 
-   * [Jeux de caractéristiques](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : Les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)** . Elle contient des pointeurs vers le code permettant de générer les caractéristiques et une description de la génération de la caractéristique.
+   * [Jeux de caractéristiques](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md) : Les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)** . Elle contient des pointeurs vers le code permettant de générer les caractéristiques et une description de la génération de la caractéristique.
    * [Modèle de rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) : Pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
    * **Décision de point de contrôle** : Déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
      * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 

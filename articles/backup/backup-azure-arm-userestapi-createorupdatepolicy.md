@@ -1,25 +1,19 @@
 ---
-title: 'Sauvegarde Azure : créer des stratégies de sauvegarde à l’aide de l’API REST'
+title: créer des stratégies de sauvegarde à l’aide de l’API REST
 description: Dans cet article, vous apprendrez à créer et gérer des stratégies de sauvegarde (planification et rétention) à l’aide de l’API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747595"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554885"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 
-Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure Recovery Services sont décrites dans la [documentation sur l’API REST policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Nous allons utiliser ce document comme référence pour créer une stratégie pour la sauvegarde de machine virtuelle Azure.
+Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure Recovery Services sont décrites dans la [documentation sur l’API REST policy](/rest/api/backup/protectionpolicies/createorupdate). Nous allons utiliser ce document comme référence pour créer une stratégie pour la sauvegarde de machine virtuelle Azure.
 
 ## <a name="backup-policy-essentials"></a>Principes de base de la stratégie de sauvegarde
 
@@ -52,10 +46,10 @@ Par exemple, voici les composants du corps de la requête pour une stratégie de
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
 |tags     |         | Object        |  Balises de ressource       |
 
-Pour obtenir la liste complète des définitions de corps de la requête, reportez-vous au [document sur l’API REST backup policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+Pour obtenir la liste complète des définitions de corps de la requête, reportez-vous au [document sur l’API REST backup policy](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Exemple de corps de demande
 
@@ -160,7 +154,7 @@ Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autr
 
 |Nom  |type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
 
 ### <a name="example-responses"></a>Exemples de réponses

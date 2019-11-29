@@ -4,19 +4,19 @@ description: Découvrez comment lire et comprendre vos données d’utilisation 
 author: adpick
 manager: dougeby
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 70d46d0d212f339fae9c99ef2ae13d13d1433709
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326943"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225697"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -56,7 +56,7 @@ Comparez votre montant total combiné indiqué sur Enterprise Portal dans **Rapp
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. En haut à droite de l’onglet, changez de vue en passant de **M** à **C**, et faites correspondre la période sur la facture.  
     ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. Le montant combiné de l’**Utilisation totale** et de la **Place de marché Azure** doit correspondre au **Total final** sur votre facture.
 1. Pour obtenir plus de détails sur vos frais, accédez à **Télécharger l’utilisation**.  

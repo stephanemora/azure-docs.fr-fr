@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496334"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280937"
 ---
 # <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
 
@@ -46,7 +46,6 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle 
 > Les services Microsoft de confiance ne sont pas pris en charge quand le filtrage d’adresse IP (règles de pare-feu) est implémenté. Ils le seront prochainement.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec le filtrage d’adresse IP (notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub

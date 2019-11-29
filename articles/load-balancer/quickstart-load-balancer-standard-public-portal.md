@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer un équilibreur de charge standard - Portail Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Ce guide de démarrage rapide vous montre comment créer un Standard Load Balancer avec le portail Azure.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8df0daac25a79bbbd67577c30b0a2da62d037da
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273842"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225209"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -76,7 +76,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHealthProbe*. |
-    | Protocole | Sélectionnez **HTTP**. |
+    | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez *80*.|
     | Intervalle | Entrez *15* pour **l’intervalle** en secondes entre les tentatives de la sonde. |
     | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez **2** pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
@@ -93,7 +93,7 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHTTPRule*. |
-    | Protocole | Sélectionnez **TCP**. |
+    | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez *80*.|
     | Port principal | Entrez *80*. |
     | Pool principal | Sélectionnez *MyBackendPool*.|

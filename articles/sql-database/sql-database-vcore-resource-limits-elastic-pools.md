@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: f356b9d248ac9c5f0bcfaaeeb37b43d958eaa528
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/25/2019
+ms.openlocfilehash: 74cc13386befa5cd97900b6b36d07d3144d9b727
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822372"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534206"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 
@@ -31,7 +31,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle un pool élastique](sql-database-elastic-pool-scale.md).
-
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Usage général - calcul provisionné - Gen4
 
@@ -48,8 +47,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|512|756|756|1536|1536|1536|
-|Taille maximale du journal|154|227|227|461|461|461|
+|Taille maximale des données (Go)|512|756|1536|1536|1536|2 048|
+|Taille maximale du journal|154|227|461|461|461|614|
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -66,7 +65,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 \* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
-
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service d’usage général : Plateforme de calcul de génération 4 (partie 2)
 
 |Taille de calcul|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
@@ -77,8 +75,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de bases de données par pool|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|1536|2 048|2 048|2 048|3584|4096|
-|Taille maximale du journal (Go)|461|614|614|614|1075|1229|
+|Taille maximale des données (Go)|2 048|2 048|2 048|2 048|3584|4096|
+|Taille maximale du journal (Go)|614|614|614|614|1075|1229|
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -95,7 +93,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 \* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
-
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Usage général - calcul provisionné - Gen5
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service d’usage général : Plateforme de calcul de génération 5 (partie 1)
@@ -108,8 +105,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|512|756|756|1536|1536|1536|
-|Taille maximale du journal (Go)|154|227|227|461|461|461|461|
+|Taille maximale des données (Go)|512|756|1536|1536|1536|2 048|2 048|
+|Taille maximale du journal (Go)|154|227|461|461|461|614|614|
 |Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -136,8 +133,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de bases de données par pool|500|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|2 048|2 048|3 072|3 072|4096|4096|4096|
-|Taille maximale du journal (Go)|614|614|922|922|1229|1229|1229|
+|Taille maximale des données (Go)|2 048|3 072|3 072|3 072|4096|4096|4096|
+|Taille maximale du journal (Go)|614|922|922|922|1229|1229|1229|
 |Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -178,11 +175,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|
 
-
-
-
 \* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
-
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Vital pour l’entreprise - calcul provisionné - Gen4
 
@@ -191,29 +184,29 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
 
-|Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Taille de calcul|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|1|2|3|4|5\.|6|
-|Mémoire (Go)|7|14|21|28|35|42|
-|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6|
-|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Taille maximale des données (Go)|650|650|650|650|650|650|
-|Taille maximale du journal (Go)|195|195|195|195|195|195|
-|Taille de TEMPDB (Go)|32|64|96|128|160|192|
-|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites du taux de journalisation (Mbits/s)|10|20|30|40|50|60|
-|Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|
-|Nombre maximal de connexions simultanées par pool (requêtes)*|210|420|630|840|1050|1 260|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
-|Nombre de réplicas|4|4|4|4|4|4|
-|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|
+|vCores|2|3|4|5\.|6|
+|Mémoire (Go)|14|21|28|35|42|
+|Nombre maximal de bases de données par pool|100|100|100|100|100|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|2|3|4|5\.|6|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal (Go)|307|307|307|307|307|
+|Taille de TEMPDB (Go)|64|96|128|160|192|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|IOPS cible (64 ko)|10000|15000|20000|25000|30000|
+|Limites du taux de journalisation (Mbits/s)|20|30|40|50|60|
+|Nombre maximal de workers simultanés par pool (demandes) *|420|630|840|1050|1 260|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|420|630|840|1050|1 260|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
+|Nombre de réplicas|4|4|4|4|4|
+|Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 \* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
@@ -228,8 +221,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Prise en charge de ColumnStore|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage In-Memory OLTP (Go)|7|8|9,5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Taille maximale des données (Go)|650|650|650|650|1 024|1 024|
-|Taille maximale du journal (Go)|195|195|195|195|307|307|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal (Go)|307|307|307|307|307|307|
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
@@ -249,29 +242,29 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 5 (partie 1)
 
-|Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Taille de calcul|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|6|8|10|12|14|
-|Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|100|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1 571|3 142|4 713|6 284|8 655|11 026|13 397|
-|Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|307|307|461|461|922|922|
-|Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
-|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|35000|
-|Limites du taux de journalisation (Mbits/s)|15|30|45|60|75|90|105|
-|Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
-|Nombre maximal de connexions simultanées par pool (requêtes)*|210|420|630|840|1050|1 260|1470|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
-|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|N/A|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
-|Nombre de réplicas|4|4|4|4|4|4|4|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|vCores|4|6|8|10|12|14|
+|Mémoire (Go)|20,4|30,6|40,8|51|61,2|71,4|
+|Nombre maximal de bases de données par pool|100|100|100|100|100|100|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|3 142|4 713|6 284|8 655|11 026|13 397|
+|Taille maximale des données (Go)|1 024|1536|1536|1536|3 072|3 072|
+|Taille maximale du journal (Go)|307|307|461|461|922|922|
+|Taille de TEMPDB (Go)|128|192|256|320|384|384|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|IOPS cible (64 ko)|10000|15000|20000|25000|30000|35000|
+|Limites du taux de journalisation (Mbits/s)|30|45|60|75|90|105|
+|Nombre maximal de workers simultanés par pool (demandes) *|420|630|840|1050|1 260|1470|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|420|630|840|1050|1 260|1470|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
+|Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 \* Pour connaître le nombre maximal de Workers simultanés (demandes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que son nombre maximal de vCores par base de données est de 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est de 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5.  Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 

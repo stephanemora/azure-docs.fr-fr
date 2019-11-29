@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177447"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451572"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
 
@@ -19,7 +19,7 @@ Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour dé
 
 1. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
 
-   ![Sélection du groupe de ressources](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Sélection du groupe de ressources](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Sélectionnez le compte de stockage de votre Cloud Shell.
 

@@ -1,21 +1,15 @@
 ---
-title: 'Sauvegarde Azure : Créer des coffres Recovery Services à l’aide de l’API REST'
+title: Créer des coffres Recovery Services à l’aide de l’API REST
 description: Dans cet article, découvrez comment gérer les opérations de sauvegarde et de restauration de Sauvegarde de machines virtuelles Azure à l’aide de l’API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747566"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173416"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
 

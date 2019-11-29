@@ -3,12 +3,12 @@ title: Découvrir Azure Policy pour Azure Kubernetes Service
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer les clusters sur Azure Kubernetes Service.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959799"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279391"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -257,6 +257,6 @@ Les informations collectées par le module complémentaire ne sont pas des donn�
 - Consultez la page [Structure de définition Azure Policy](definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

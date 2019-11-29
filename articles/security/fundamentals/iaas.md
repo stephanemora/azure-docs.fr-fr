@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228019"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -68,7 +68,7 @@ Si votre machine virtuelle exécute des applications critiques qui requièrent u
 Un groupe à haute disponibilité est un regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. En cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et votre application globale reste disponible pour vos clients. Les groupes à haute disponibilité sont une fonctionnalité essentielle pour créer des solutions cloud fiables.
 
 ## <a name="protect-against-malware"></a>Se protéger des programmes malveillants
-Vous devez installer une solution de protection contre les programmes malveillants afin d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) ou [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Vous devez installer une solution de protection contre les programmes malveillants afin d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) ou [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Le logiciel Microsoft Antimalware inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Pour les environnements hébergés séparément de votre environnement de production, vous pouvez utiliser une extension anti-programme malveillant pour protéger vos machines virtuelles et vos services cloud.
 

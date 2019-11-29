@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8f1e9150efca4441356a80c263a58fafefcfaf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: baf4c976a1232d08df1be2549d2861295adf9ee1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834843"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532971"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
 
@@ -156,6 +156,7 @@ Il s'agit d'un exemple de jeton SAML classique.
     </t:RequestSecurityTokenResponse>
 
 ## <a name="related-content"></a>Contenu connexe
+
 * Consultez les [opérations de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) Azure AD Graph et [l’entité de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) pour en savoir plus sur la gestion des stratégies de durée de vie des jetons par le biais de l’API Azure AD Graph.
 * Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](active-directory-configurable-token-lifetimes.md) (en anglais). 
 * Ajoutez [revendications personnalisées et facultatives](active-directory-optional-claims.md) aux jetons pour votre application.

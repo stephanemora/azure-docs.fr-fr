@@ -2,17 +2,17 @@
 title: Qu’est-ce qu’Azure Private Endpoint ?
 description: En savoir plus sur Azure Private Endpoint
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: allensu
+ms.openlocfilehash: ccae73b58b7da8e631c081871e17cec221918a76
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475929"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228130"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 

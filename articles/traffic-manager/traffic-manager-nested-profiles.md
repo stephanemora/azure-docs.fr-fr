@@ -1,6 +1,6 @@
 ---
 title: Profils Traffic Manager imbriqués dans Azure
-titlesuffix: Azure Traffic Manager
+titleSuffix: Azure Traffic Manager
 description: Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333794"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227751"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profils Traffic Manager imbriqués
 

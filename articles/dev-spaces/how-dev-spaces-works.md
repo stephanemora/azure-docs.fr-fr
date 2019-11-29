@@ -1,20 +1,16 @@
 ---
 title: Fonctionnement et configuration d'Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qui alimentent Azure Dev Spaces et comment ils sont configurés dans le fichier de configuration azds.yaml.
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9efae0e9d6bc53e08dce604fa79aa29e158ecabd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670818"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280149"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Fonctionnement et configuration d'Azure Dev Spaces
 
@@ -247,7 +243,7 @@ Les modifications apportées aux fichiers tels que le code source ou les fichier
 
 La façon dont *devhostagent* exécute les étapes précédentes est définie dans le fichier de configuration `azds.yaml`. Cette configuration est détaillée dans une section ultérieure.
 
-Les mises à jour des fichiers du projet tels que les fichiers Dockerfile, les fichiers csproj ou toute partie du graphique Helm nécessitent la régénération et le redéploiement du conteneur de l’application. Si un de ces fichiers est synchronisé avec l’espace de développement, le contrôleur exécute la commande [helm upgrade](https://helm.sh/docs/helm/#helm-upgrade), puis un conteneur de l’application est régénéré et redéployé.
+Les mises à jour des fichiers du projet tels que les fichiers Dockerfile, les fichiers csproj ou toute partie du graphique Helm nécessitent la régénération et le redéploiement du conteneur de l’application. Si un de ces fichiers est synchronisé avec l’espace de développement, le contrôleur exécute la commande [helm upgrade](https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure), puis un conteneur de l’application est régénéré et redéployé.
 
 ### <a name="file-synchronization"></a>Synchronisation de fichiers
 

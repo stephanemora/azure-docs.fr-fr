@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075859"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538171"
 ---
 # <a name="speech-service-for-telephony-data"></a>Service Speech pour les données de téléphonie
 
@@ -95,7 +95,6 @@ Une solution classique utilise les services suivants :
 - Le service Speech sert à transcrire des données obtenues par reconnaissance vocale. Pour pouvoir utiliser l’API de transcription par lot, vous avez besoin d’un abonnement standard (S0) pour le service Speech. Les abonnements gratuits (F0) ne fonctionnent pas.
 - [Stockage Azure](https://azure.microsoft.com/services/storage/) est utilisé pour stocker les données de téléphonie et les transcriptions retournées par l’API de transcription par lot. Ce compte de stockage doit utiliser des notifications, en particulier quand de nouveaux fichiers sont ajoutés. Ces notifications permettent de déclencher le processus de transcription.
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) sert à créer l’URI des signatures d’accès partagé (SAP) pour chaque enregistrement et à déclencher la requête HTTP POST pour démarrer une transcription. En outre, Azure Functions permet de créer des requêtes pour récupérer et supprimer des transcriptions à l’aide de l’API de transcription par lot.
-- Les [webhooks](webhooks.md) servent à obtenir des notifications quand les transcriptions sont terminées.
 
 En interne, nous utilisons les technologies ci-dessus pour prendre en charge les appels des clients de Microsoft en mode de traitement par lot.
 ![Architecture du traitement par lot](media/scenarios/call-center-batch-pipeline.png)

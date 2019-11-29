@@ -5,7 +5,7 @@ keywords: mise à niveau sur plan de paiement à l'utilisation
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ef679da4aa0bfb8abde124457755f47c4fd6b47
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cefc7e060c8ca9f393f89081158d473fd093b3b5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375386"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225670"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Mettre à niveau votre compte gratuit Azure ou votre compte Azure for Students Starter
 

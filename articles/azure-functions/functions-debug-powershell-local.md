@@ -1,22 +1,17 @@
 ---
 title: Déboguer localement des fonctions PowerShell Azure
 description: Découvrez comment développer des fonctions à l’aide de PowerShell.
-services: functions
-documentationcenter: na
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 5b396ef6b00d53a313ed4fb426685c12e2c1549d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981845"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227036"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
 

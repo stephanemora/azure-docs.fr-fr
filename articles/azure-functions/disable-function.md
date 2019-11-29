@@ -1,20 +1,14 @@
 ---
 title: Guide pratique pour désactiver des fonctions dans Azure Functions
 description: Découvrez comment désactiver et activer des fonctions dans Azure Functions 1.x et 2.x.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: glenga
-ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7968580fcaa40575571a41f067fa74fbdc0a3a34
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650494"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233044"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 

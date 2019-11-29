@@ -1,19 +1,14 @@
 ---
-title: Meilleures pratiques dans Azure Container Registry
+title: Bonnes pratiques concernant les registres
 description: Découvrez comment utiliser votre instance Azure Container Registry de manière efficace en suivant ces meilleures pratiques.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: danlep
-ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309767"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455315"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 

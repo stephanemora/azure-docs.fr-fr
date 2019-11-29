@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887731"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325410"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -64,6 +64,8 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API applicables :**
+* [Image de la carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web 
 * Commandes de carte Android
 

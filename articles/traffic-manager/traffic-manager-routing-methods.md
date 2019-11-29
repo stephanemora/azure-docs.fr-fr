@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 06ce7fb5d18920be6f71821b034dc13061c60032
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 824fabf6e694b7148486d6593cf17f741d9e5c9e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051463"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483793"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
@@ -23,7 +23,7 @@ Azure Traffic Manager prend en charge six méthodes de routage du trafic pour d�
 
 Les méthodes de routage du trafic suivantes sont disponibles dans Traffic Manager :
 
-* **[Priority](#priority):** Sélectionnez **Priority** si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles.
+* **[Priority](#priority-traffic-routing-method):** Sélectionnez **Priority** si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles.
 * **[Weighted](#weighted):** Sélectionnez **Weighted** (Pondéré) si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez.
 * **[Performance](#performance):** Sélectionnez **Performance** (Performances) quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible.
 * **[Geographic](#geographic):** Sélectionnez l’option **Geographic** (Géographique) pour diriger les utilisateurs vers des points de terminaison spécifiques (Azure, externes ou imbriqués) selon l’emplacement géographique dont leur requête DNS provient. Cette option permet aux clients Traffic Manager de mettre en œuvre des scénarios où il est important de connaître la région géographique des utilisateurs et de router leur trafic en fonction de celle-ci. Exemples : respect des obligations en matière de souveraineté des données, localisation de contenu et d’expérience utilisateur, mesure du trafic en provenance de différentes régions.
@@ -33,7 +33,7 @@ Les méthodes de routage du trafic suivantes sont disponibles dans Traffic Manag
 
 Tous les profils Traffic Manager incluent une surveillance de l’intégrité des points de terminaison et un basculement de point de terminaison automatique. (pour plus d’informations, voir la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md)) ; Un profil Traffic Manager donné ne peut utiliser qu’une seule méthode de routage du trafic. Vous pouvez sélectionner une méthode de routage du trafic différente pour votre profil à tout moment. Les modifications sont appliquées dans la minute, sans aucun temps d’arrêt. Les méthodes de routage du trafic peuvent être combinées dans des profils Traffic Manager imbriqués. Une imbrication permet de créer des configurations de routage du trafic sophistiquées et flexibles répondant aux besoins d’applications complexes plus importantes. Pour plus d’informations, consultez [Profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).
 
-## <a name = "priority"></a>Méthode de routage du trafic basé sur la priorité
+## <a name="priority-traffic-routing-method"></a>Méthode de routage du trafic basé sur la priorité
 
 Souvent, une organisation souhaite assurer la fiabilité de ses services en déployant un ou plusieurs services de sauvegarde utilisables en cas de défaillance du service principal. La méthode de routage du trafic « Priorité » permet aux clients Azure d’implémenter facilement ce modèle de basculement.
 

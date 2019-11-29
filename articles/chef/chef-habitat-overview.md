@@ -2,18 +2,14 @@
 title: Utiliser Habitat pour déployer rapidement votre application dans Azure
 description: Découvrez comment déployer votre application de manière cohérente sur des machines virtuelles et des conteneurs Azure
 keywords: azure, chef, devops, machines virtuelles, présentation, automate, habitat
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de444836c04d1d37a19a006ce4eafdcae867ca5a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388809"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158063"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Utiliser Habitat pour déployer rapidement votre application dans Azure
 [Habitat](https://www.habitat.sh/) est un système d’empaquetage et d’exécution d’application qui regroupe l’application et son automatisation en tant qu’unité de déploiement. Cela optimise la portabilité de l’application, qui peut ainsi être déployée sur des conteneurs, des machines virtuelles, des systèmes nus ou PaaS, sans réécriture ou réempaquetage.

@@ -1,19 +1,14 @@
 ---
 title: Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint sur Azure Stack. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: c15f3f899b856cb715406bf0e2f95914cd58cca0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 06d64be4f09c6fb6ed9dee34a0c7ba0b1bd785e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091673"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172492"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 

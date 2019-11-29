@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ab9a39cfba082ea4c4d1cc6c29764619011d8cb8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887711"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231555"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
 
@@ -32,7 +32,7 @@ Si vous rencontrez des erreurs en compilant ou en déployant des configurations 
    - **Erreurs de syntaxe**
    - **Erreurs logiques**
 
-2. **Afficher les journaux DSC sur votre nœud :** Si votre configuration compile avec succès, mais échoue lorsqu’elle est appliquée à un nœud, vous pouvez trouver les informations détaillées dans les journaux. Pour plus d’informations sur l’emplacement des journaux DSC, consultez [Où sont les journaux d’activité DSC](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+2. **Afficher les journaux DSC sur votre nœud :** Si votre configuration compile avec succès, mais échoue lorsqu’elle est appliquée à un nœud, vous pouvez trouver les informations détaillées dans les journaux. Pour plus d’informations sur l’emplacement des journaux DSC, consultez [Où sont les journaux d’activité DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
    De plus, le [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) peut vous aider à analyser des informations détaillées dans les journaux DSC. Si vous contactez le support technique, vous aurez besoin de ces journaux pour diagnostiquer votre problème.
 
@@ -40,7 +40,7 @@ Si vous rencontrez des erreurs en compilant ou en déployant des configurations 
 
    Pour installer **xDscDiagnostics** sur votre machine Azure, vous pouvez utiliser [az vm run-command](/cli/azure/vm/run-command) ou [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Vous pouvez aussi utiliser l’option **Run Command** depuis le portail, en suivant les étapes dans [Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec Run Command](../../virtual-machines/windows/run-command.md).
 
-   Pour plus d’informations sur l’utilisation de **xDscDiagnostics**, consultez [Utilisation de xDscDiagnostics pour analyser des journaux DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), ainsi que les [Cmdlets xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+   Pour plus d’informations sur l’utilisation de **xDscDiagnostics**, consultez [Utilisation de xDscDiagnostics pour analyser des journaux DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), ainsi que les [Cmdlets xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 3. **Veillez à ce que vos nœuds et votre espace de travail Automation disposent des modules nécessaires :** La configuration d’état souhaité dépend des modules installés sur le nœud.  Lorsque vous utilisez la configuration de l’état d’Azure Automation, importez les modules requis dans votre compte Automation à l’aide des étapes indiquées dans [Importer des modules](../shared-resources/modules.md#import-modules). Les configurations peuvent également avoir une dépendance sur des versions de modules spécifiques.  Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erreurs courantes avec la Configuration d’état souhaité (DSC)

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484929"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277306"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 
@@ -31,7 +31,6 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub

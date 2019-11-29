@@ -1,18 +1,14 @@
 ---
-title: Réponses aux questions les plus fréquentes sur les fonctionnalités de Sauvegarde Azure
+title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074315"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173224"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 64 bits | Standard, Workgroup, Essential | Avec l
 Windows Storage Server 2012 64 bits | Standard, Workgroup | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2008 R2 SP1 64 bits | Standard, Entreprise, Datacenter, Foundation | Avec les dernières mises à jour.
 Windows Server 2008 64 bits | Standard, Entreprise, Datacenter | Avec les dernières mises à jour.
+
+Sauvegarde Azure ne prend pas en charge les systèmes d’exploitation 32 bits.
 
 Pour les sauvegardes Linux de machine virtuelle Azure, la Sauvegarde Azure prend en charge [la liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md), à l’exception de CoreOS Linux et du système d’exploitation 32 bits. Les autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
 

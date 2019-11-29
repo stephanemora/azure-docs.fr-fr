@@ -2,17 +2,15 @@
 title: Options de mise en réseau d’Azure Functions
 description: Vue d’ensemble de toutes les options de mise en réseau disponibles dans Azure Functions.
 author: alexkarcher-msft
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884967"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226800"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 

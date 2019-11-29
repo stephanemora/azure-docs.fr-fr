@@ -1,19 +1,15 @@
 ---
 title: Vue d’ensemble de Jenkins et Azure
 description: Hébergez la build Jenkins, déployez le serveur Automation dans Azure et utilisez les ressources de calcul et de stockage Azure pour étendre vos pipelines CI/CD (intégration continue et déploiement continu).
-ms.service: jenkins
 keywords: jenkins, azure, devops, overview
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881962"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479339"
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
@@ -33,7 +29,7 @@ Surveillez et gérez votre déploiement Azure Jenkins à l’aide des [journaux 
 
 ## <a name="scale-your-build-automation-on-demand"></a>Mettre à l’échelle l’automatisation de votre build à la demande
 
-Ajoutez des agents de build à votre déploiement Jenkins existant pour mettre à l’échelle la capacité de votre build Jenkins à mesure que le nombre de builds et la complexité de vos travaux et pipelines augmentent. Vous pouvez exécuter ces agents de build sur des machines virtuelles Azure à l'aide du [plug-in Agents de machine virtuelle Azure](jenkins-azure-vm-agents.md). Consultez notre [didacticiel](/azure/jenkins/jenkins-azure-vm-agents) pour plus d’informations.
+Ajoutez des agents de build à votre déploiement Jenkins existant pour mettre à l’échelle la capacité de votre build Jenkins à mesure que le nombre de builds et la complexité de vos travaux et pipelines augmentent. Vous pouvez exécuter ces agents de build sur des machines virtuelles Azure à l'aide du [plug-in Agents de machine virtuelle Azure](https://plugins.jenkins.io/azure-vm-agents). Consultez notre [didacticiel](/azure/jenkins/jenkins-azure-vm-agents) pour plus d’informations.
 
 Une fois configuré avec un [principal du service Azure](/azure/azure-resource-manager/resource-group-overview), les travaux et pipelines Jenkins peuvent utiliser ces informations d’identification pour accomplir ce qui suit :
 

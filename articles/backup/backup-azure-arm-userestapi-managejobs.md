@@ -1,21 +1,15 @@
 ---
-title: "Sauvegarde Azure : Gérer les travaux de sauvegarde à l'aide de l'API REST"
+title: Gérer les travaux de sauvegarde à l'aide de l'API REST
 description: Dans cet article, découvrez comment suivre et gérer les tâches de sauvegarde et de restauration de Sauvegarde Azure avec l’API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929096"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173389"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Suivi des tâches de sauvegarde et de restauration à l’aide de l’API REST
 

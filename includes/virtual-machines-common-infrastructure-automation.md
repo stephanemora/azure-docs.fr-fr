@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 1a18812c6447266d34f2c8aa1ccff8984f68570a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f7dcf342a1b9b2107138044dfc207d6dbcb42e9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008825"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260724"
 ---
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
 
@@ -69,7 +69,7 @@ Les configurations d’état souhaité définissent les éléments à installer 
 
 Découvrez comment :
 
-- [Créer une configuration d’état souhaité de base](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
+- [Créer une configuration d’état souhaité de base](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configurer un serveur collecteur de configuration d’état souhaité](/powershell/scripting/dsc/pull-server/pullserver).
 - [Utiliser une configuration d’état souhaité pour Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 

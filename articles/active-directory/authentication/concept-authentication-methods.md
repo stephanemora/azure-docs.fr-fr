@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18eba93661d9c418a230ced8f9970047a869a7e3
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808409"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420765"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -158,7 +158,7 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 
 OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. Les clés secrètes doivent être encodées en Base32.
 
-![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Les jetons matériels OATH seront pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 

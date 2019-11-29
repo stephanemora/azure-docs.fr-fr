@@ -1,18 +1,14 @@
 ---
-title: Activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure
+title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074845"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172358"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 

@@ -2,18 +2,15 @@
 title: Fonctionnalités HTTP dans Durable Functions - Azure Functions
 description: Découvrez les fonctionnalités HTTP intégrées dans l’extension Durable Functions pour Azure Functions.
 author: cgillum
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177356"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232872"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 

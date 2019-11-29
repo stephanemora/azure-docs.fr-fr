@@ -1,17 +1,17 @@
 ---
 title: Se connecter à un compte Azure Cosmos avec Azure Private Link
 description: Découvrez comment accéder en toute sécurité au compte Azure Cosmos à partir d’une machine virtuelle en créant un point de terminaison privé.
-author: SnehaGunda
+author: asudbring
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: sngun
-ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: allensu
+ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007332"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229423"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Se connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link
 

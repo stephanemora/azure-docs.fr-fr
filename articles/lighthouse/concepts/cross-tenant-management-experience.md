@@ -2,13 +2,13 @@
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131923"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464030"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 

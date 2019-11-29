@@ -2,24 +2,18 @@
 title: Informations de référence pour les développeurs sur Azure Functions
 description: Découvrez comment développer des fonctions à l’aide de PowerShell.
 author: eamonoreilly
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515673"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226682"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
 Cet article fournit des détails sur la méthode d’écriture d’Azure Functions à l’aide de PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 Une Azure Function PowerShell (fonction) est représentée comme un script PowerShell qui s’exécute lorsqu’elle est déclenchée. Chaque script de fonction inclut un fichier `function.json` qui définit le comportement de la fonction, comme sa méthode de déclenchement et ses paramètres d’entrée et de sortie. Pour en savoir plus, consultez l’[article sur les déclencheurs et les liaisons](functions-triggers-bindings.md). 
 

@@ -1,13 +1,10 @@
 ---
 title: Réactiver un abonnement Azure pour les étudiants désactivé | Microsoft Docs
 description: Explique pourquoi votre abonnement Azure pour les étudiants est désactivé et comment le réactiver.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +12,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cfabb3ad7ad150b38b8c90488710731ad29b80a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60615922"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226410"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Pourquoi mon abonnement Azure pour les étudiants est-il désactivé et comment puis-je le réactiver ?
 
@@ -34,7 +31,7 @@ Vous pouvez voir votre crédit restant sur le[portail Microsoft Azure Sponsorshi
 
 1. Connectez-vous à l’aide des informations d’identification du compte Azure pour les étudiants.
 2. La page de solde fournit des informations sur le crédit utilisé et restant. Vous trouverez la date d’expiration de votre crédit sous le graphique.  
-   
+
     ![Capture d’écran montrant les informations relatives au crédit d’un abonnement Azure pour les étudiants](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. Pour vérifier l’utilisation des services qui consomment votre crédit Azure, choisissez **Utilisation** dans le volet de navigation de gauche, puis sélectionnez votre abonnement Azure pour les étudiants.

@@ -4,23 +4,23 @@ description: Découvrez pourquoi des frais sont appliqués à votre compte gratu
 author: amberbhargava
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ca685e70fea8d02a16485b135d82575069889bfa
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375895"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226435"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Éviter les frais avec votre compte Azure gratuit
 
-Avec votre [compte gratuit Azure](https://azure.microsoft.com/free/), vous obtenez 200 $ de crédits Azure pendant les 30 premiers jours et une quantité limitée de services gratuits pendant 12 mois. Pour en savoir plus sur les limites des services gratuits, consultez la [FAQ sur le compte gratuit Azure](https://azure.microsoft.com/free/free-account-faq/). Tant que vous avez encore des crédits non expirés ou que vous utilisez uniquement des services gratuits dans les limites accordées, vous n’êtes pas facturé. 
+Avec votre [compte gratuit Azure](https://azure.microsoft.com/free/), vous obtenez 200 $ de crédits Azure pendant les 30 premiers jours et une quantité limitée de services gratuits pendant 12 mois. Pour en savoir plus sur les limites des services gratuits, consultez la [FAQ sur le compte gratuit Azure](https://azure.microsoft.com/free/free-account-faq/). Tant que vous avez encore des crédits non expirés ou que vous utilisez uniquement des services gratuits dans les limites accordées, vous n’êtes pas facturé.
 
 Examinons quelques-unes des raisons qui peuvent occasionner des frais sur votre compte gratuit Azure.
 

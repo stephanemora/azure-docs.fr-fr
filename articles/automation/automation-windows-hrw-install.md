@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur l’installation d’un Ru
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/21/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cd599fcfe403d64483e6b4db869b93b26f5db754
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477911"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480807"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -140,9 +140,9 @@ Pour recevoir des informations détaillées concernant l’installation, utilise
 
 Les Runbooks peuvent utiliser toutes les activités et applets de commande définies dans les modules qui sont installés dans votre environnement Azure Automation. Toutefois, comme ces modules ne sont pas automatiquement déployés sur les ordinateurs locaux, vous devez les installer manuellement. L’exception est le module Azure, qui est installé par défaut et qui permet d’accéder aux applets de commande de l’ensemble des services et activités Azure pour Azure Automation.
 
-Étant donné que l’objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Pour plus d’informations sur l’installation des modules Windows PowerShell, consultez [Installation de modules](/powershell/developer/windows-powershell). 
+Étant donné que l’objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Pour plus d’informations sur l’installation des modules Windows PowerShell, consultez [Installation de modules](/powershell/scripting/developer/windows-powershell). 
 
-Les modules installés doivent se trouver dans un emplacement référencé par la variable d’environnement **PSModulePath** afin d’être importés automatiquement par le Worker hybride. Pour plus d’informations, consultez la page [Modifier le chemin d’Installation de PSModulePath](/powershell/developer/windows-powershell).
+Les modules installés doivent se trouver dans un emplacement référencé par la variable d’environnement **PSModulePath** afin d’être importés automatiquement par le Worker hybride. Pour plus d’informations, consultez la page [Modifier le chemin d’Installation de PSModulePath](/powershell/scripting/developer/windows-powershell).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

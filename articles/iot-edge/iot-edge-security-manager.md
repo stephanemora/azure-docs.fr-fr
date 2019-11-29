@@ -7,15 +7,14 @@ author: eustacea
 manager: philmea
 ms.author: eustacea
 ms.date: 08/30/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: f137070cb8a62f2c11f9e2688b5c7db47c1b866f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208221"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457534"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 

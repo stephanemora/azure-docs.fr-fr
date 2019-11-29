@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: a53694f97da144f3932efe39941d3f22ef739c7b
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07062ea9ce10b99e0f03a66247bb97795b45aedc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048229"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212586"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor
 
 > [!NOTE]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md).
+> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
 
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. Cet article explique comment collecter le journal d’activité dans un espace de travail Log Analytics et utiliser la [solution de supervision](../insights/solutions.md) Activity Log Analytics, qui fournit des requêtes et des vues pour analyser ces données. 
 

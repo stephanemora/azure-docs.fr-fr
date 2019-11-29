@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844362"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423948"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -132,7 +132,7 @@ Pour résoudre ce problème, vérifiez l’état du service en procédant comme 
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID d’erreur 78144 : aucun point de récupération cohérent avec l’application disponible pour la machine virtuelle pendant les « XXX » dernières minutes
 
-Des améliorations ont été apportées aux versions [9.23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) de l’agent de mobilité pour gérer les comportements d’échec d’installation VSS. Vérifiez que vous disposez des dernières versions pour obtenir les meilleurs conseils en matière de résolution des défaillances VSS.
+Des améliorations ont été apportées aux versions [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) de l’agent de mobilité pour gérer les comportements d’échec d’installation VSS. Vérifiez que vous disposez des dernières versions pour obtenir les meilleurs conseils en matière de résolution des défaillances VSS.
 
 Certains des problèmes les plus courants sont répertoriés ci-dessous
 

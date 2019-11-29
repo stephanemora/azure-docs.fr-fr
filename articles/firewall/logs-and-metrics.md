@@ -1,18 +1,18 @@
 ---
 title: Aperçu des journaux et des métriques du pare-feu Azure
-description: Cet article offre une vue d’ensemble des journaux de diagnostic et des métriques du pare-feu Azure.
+description: Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux d’activité de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876561"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166988"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 

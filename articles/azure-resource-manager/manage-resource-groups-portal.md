@@ -1,19 +1,16 @@
 ---
 title: Gérer des groupes de ressources - Portail Azure
 description: Utilisez le portail Azure pour gérer vos groupes de ressources dans Azure Resource Manager. Montre comment créer, lister et supprimer des groupes de ressources.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: b0fac4f618f742a13633473f00dbd24ff8411c44
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e3402f496371fe89c832dc22c8288a1b94378c82
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528545"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147159"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer les groupes de ressources Azure Resource Manager à l’aide du Portail Azure
 

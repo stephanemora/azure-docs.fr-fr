@@ -1,22 +1,16 @@
 ---
-title: Ajouter des messages à une file d’attente de Stockage Azure à l’aide d’Azure Functions | Microsoft Docs
+title: Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 description: Utilisez Azure Functions pour créer une fonction sans serveur appelée par une requête HTTP et qui crée un message dans une file d’attente de Stockage Azure.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 09/19/2017
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096316"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226884"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 

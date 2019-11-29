@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d1ef652747dccdcb0e04ac8032dd47e2ebaa6bf2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886903"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231611"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galeries de runbooks et de modules pour Azure Automation
 
@@ -50,7 +50,7 @@ Seul le portail Azure permet d’importer des runbooks directement à partir de 
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Ajout d’un runbook PowerShell à la galerie
 
-Microsoft vous invite à ajouter à PowerShell Gallery des runbooks dont vous pensez qu’ils pourraient être utiles à d’autres utilisateurs. PowerShell Gallery accepte les modules PowerShell et les scripts PowerShell. Vous pouvez ajouter un runbook en le [chargeant dans PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft vous invite à ajouter à PowerShell Gallery des runbooks dont vous pensez qu’ils pourraient être utiles à d’autres utilisateurs. PowerShell Gallery accepte les modules PowerShell et les scripts PowerShell. Vous pouvez ajouter un runbook en le [chargeant dans PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Les runbooks graphiques ne sont pas pris en charge dans PowerShell Gallery.

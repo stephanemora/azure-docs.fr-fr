@@ -1,21 +1,16 @@
 ---
 title: Liaisons Stockage Blob Azure pour Azure Functions
 description: Comprendre comment utiliser les déclencheurs et les liaisons Stockage Blob Azure dans Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b565a48b56162d19a07f0f54bfe780b7dda04b96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177396"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231038"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 

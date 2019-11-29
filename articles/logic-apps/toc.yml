@@ -103,6 +103,20 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Résoudre les erreurs
           href: logic-apps-diagnosing-failures.md
+    - name: Accéder aux réseaux virtuels Azure
+      items:
+        - name: Se connecter à des réseaux virtuels avec des environnements de service d’intégration
+          href: connect-virtual-network-vnet-isolated-environment.md
+        - name: Configurer l’accès pour plusieurs environnements de service d’intégration
+          href: connect-virtual-network-vnet-set-up-single-ip-address.md
+        - name: Ajouter des artefacts à des environnements de service d’intégration
+          href: add-artifacts-integration-service-environment-ise.md
+    - name: Accès aux données locales
+      items:
+        - name: Installer une passerelle de données
+          href: logic-apps-gateway-install.md
+        - name: Se connecter à des données locales
+          href: logic-apps-gateway-connection.md
     - name: Développer pour des scénarios B2B
       items:
         - name: Créer un compte d’intégration
@@ -159,16 +173,6 @@
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Concevoir un plan de récupération d'urgence
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
-    - name: Se connecter à des réseaux virtuels avec des environnements isolés
-      href: connect-virtual-network-vnet-isolated-environment.md
-    - name: Ajouter des artefacts à des environnements de service d’intégration
-      href: add-artifacts-integration-service-environment-ise.md
-    - name: Accès aux données locales
-      items:
-        - name: Installer une passerelle de données
-          href: logic-apps-gateway-install.md
-        - name: Se connecter à des données locales
-          href: logic-apps-gateway-connection.md
     - name: "Connecteurs\_: rubriques approfondies"
       items:
         - name: AS2

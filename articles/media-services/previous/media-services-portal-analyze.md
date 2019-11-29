@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881893"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462620"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure 
 
@@ -54,15 +54,11 @@ La langue naturelle à reconnaître dans le fichier multimédia. Par exemple, an
 
 ### <a name="captions"></a>Sous-titres
 Vous pouvez choisir un format de sous-titre qui sera généré à partir de votre contenu. Un travail d’indexation peut générer des fichiers de sous-titres dans les formats suivants :  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 Les fichiers de sous-titre dans ces formats permettent de rendre un fichier audio et vidéo accessible aux malentendants.
-
-### <a name="aib-file"></a>Fichier AIB
-Sélectionnez cette option si vous souhaitez générer le fichier Audio Index Blob pour une utilisation avec SQL Server IFilter personnalisé. Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
 ### <a name="keywords"></a>Mots clés
 Sélectionnez cette option si vous souhaitez générer un fichier XML de mots clés. Ce fichier contient les mots clés extraits à partir du contenu de la reconnaissance vocale, avec les informations relatives à la fréquence et à la référence.

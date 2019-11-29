@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 1323e46d734d047f68652d0b21902e03182e6b62
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130255"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229017"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -23,7 +23,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 ## <a name="set-up-your-environment"></a>Configurer votre environnement
 
-1. Installez les [Outils R pour Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
+1. Installez les [Outils R pour Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
     ![Installation de RTVS dans Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 

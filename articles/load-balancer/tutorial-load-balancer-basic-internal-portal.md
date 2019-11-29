@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer un équilibreur de charge interne - Portail Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Ce tutoriel vous montre comment créer un équilibreur de charge interne de base à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273491"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225219"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -46,7 +46,7 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    - **Groupe de ressources** : sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
    - **Subnet** > **Name** : Entrez *MyBackendSubnet*.
    
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    ![Créez un réseau virtuel](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 

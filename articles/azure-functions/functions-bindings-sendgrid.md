@@ -1,20 +1,16 @@
 ---
 title: Liaisons SendGrid dans Azure Functions
 description: Informations de référence sur les liaisons SendGrid dans Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 997c9427883e2a099c2c185b618701fb85cb96a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155075"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231083"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
-ms.date: 06/01/2019
-ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497882"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232631"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
@@ -402,4 +402,4 @@ Liste actuelle de packages R préinstallés pouvant être utilisés :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

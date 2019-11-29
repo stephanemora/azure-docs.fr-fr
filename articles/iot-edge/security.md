@@ -8,13 +8,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 37d5288389c7b602eb0d13a736e289010d7e0f80
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 0d315c7955fff854fc52f73de16eda71b9296b40
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208189"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452452"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normes de sécurité pour Azure IoT Edge
 

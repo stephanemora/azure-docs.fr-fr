@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a6c6e680de6253f5e822ba282df2e2397093d003
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473305"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270993"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -82,7 +82,7 @@ Pour plus d’informations sur les paramètres de cookies du proxy d'application
 
 Dans un proche avenir, les utilisateurs disposant de comptes Azure AD ne seront plus en mesure d’inscrire et de gérer les applications convergées à l’aide du portail d’inscription des applications (apps.dev.microsoft.com), ni d’inscrire et de gérer les applications dans l'expérience des inscriptions d'applications (héritées) du portail Azure.
 
-Pour en savoir plus sur la nouvelle expérience en matière d'inscriptions d’applications, consultez le [Guide de formation sur les inscriptions d’applications dans le portail Azure](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide).
+Pour en savoir plus sur la nouvelle expérience en matière d'inscriptions d’applications, consultez le [Guide de formation sur les inscriptions d’applications dans le portail Azure](../develop/app-registrations-training-guide-for-app-registrations-legacy-users.md).
 
 ---
 
@@ -102,7 +102,7 @@ Pour contraindre les utilisateurs à se réinscrire, vous pouvez sélectionner l
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Authentification unique
+**Fonctionnalité de produit :** SSO
 
 Nous avons ajouté des fonctionnalités supplémentaires pour vous aider à personnaliser et à envoyer des revendications dans votre jeton SAML. Ces fonctionnalités sont les suivantes :
 
@@ -604,7 +604,7 @@ Pour plus d’informations, consultez [Ajouter une application locale pour un ac
 
 **Type :** Modification planifiée  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Authentification unique
+**Fonctionnalité de produit :** SSO
 
 De nouvelles modifications d’interface utilisateur vont être apportées à la conception de la zone **Ajouter à partir de la galerie** du panneau **Ajouter une application**. Ces modifications vous aideront à trouver plus facilement vos applications qui prennent en charge l’approvisionnement automatique, OpenID Connect, Security Assertion Markup Language (SAML) et l’authentification unique (SSO) par mot de passe.
 

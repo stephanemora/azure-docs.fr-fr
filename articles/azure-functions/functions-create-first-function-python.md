@@ -1,20 +1,15 @@
 ---
 title: Créer une fonction Python déclenchée par HTTP dans Azure
 description: Découvrez comment créer votre première fonction Python dans Azure à l’aide d’Azure CLI et d’Azure Functions Core Tools.
-author: ggailey777
-ms.author: glenga
 ms.date: 11/07/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: python
-manager: gwallace
-ms.openlocfilehash: 61465177c98a31a739946097ca615382175df3d4
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082768"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227188"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Démarrage rapide : Créer une fonction Python déclenchée par HTTP dans Azure
 
@@ -34,7 +29,7 @@ Avant de commencer, vous devez :
 
 + installer [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 ou une version ultérieure ;
 
-+ avoir un abonnement Azure actif.
++ Avoir un abonnement Azure actif.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: dc1cb5cde06314e52ac886c1be1bb46b5f4bbd73
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 693e7d35a0bb4c7dfbb3e033690a5e86e2c398a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686467"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278344"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Intégration de produits de sécurité Azure dans Azure Security Center
 
@@ -28,7 +28,7 @@ Azure Security Center vous fournit des licences Microsoft supplémentaires pour 
 
 Azure Application Gateway propose un pare-feu d’applications web (WAF, Web Application Firewall) qui protège vos applications web de manière centralisée contre les vulnérabilités et exploitations courantes.
 
-Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. Le pare-feu d’applications web d’Application Gateway suit l’ensemble des règles de base 3.0 ou 2.2.9 d’Open Web Application Security Project. Il est automatiquement mis à jour pour apporter une protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise. Les alertes du pare-feu d’applications web sont envoyées en streaming à Security Center. Pour plus d’informations sur les alertes générées par le pare-feu d’applications web, consultez [Règles et groupes de règles CRS de pare-feu d’applications web](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
+Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. Le pare-feu d’applications web d’Application Gateway suit l’ensemble des règles de base 3.0 ou 2.2.9 d’Open Web Application Security Project. Il est automatiquement mis à jour pour apporter une protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise. Les alertes du pare-feu d’applications web sont envoyées en streaming à Security Center. Pour plus d’informations sur les alertes générées par le pare-feu d’applications web, consultez [Règles et groupes de règles CRS de pare-feu d’applications web](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31).
 
 ## Azure DDoS Protection<a name="azure-ddos"></a>
 

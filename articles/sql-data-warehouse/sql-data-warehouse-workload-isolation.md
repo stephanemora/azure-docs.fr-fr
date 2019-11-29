@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a31498ec5459604d89fa72a6f2a003dbc1189eed
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685376"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555401"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolation des groupes de charges de travail SQL Data Warehouse (préversion)
 
@@ -88,5 +88,5 @@ L’accès aux ressources du pool partagé est alloué selon l’[importance](sq
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapîde : configurer l’isolation de la charge de travail](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convertir les classes de ressources en groupes de charges de travail](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

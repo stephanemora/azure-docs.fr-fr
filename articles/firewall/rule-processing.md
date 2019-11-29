@@ -1,18 +1,18 @@
 ---
 title: Logique de traitement des règles du service Pare-feu Azure
-description: En savoir plus sur la logique de traitement des règles du service Pare-feu Azure
+description: Le service Pare-feu Azure comporte des règles de traduction d’adresses réseau (NAT), des règles de réseau et des règles d’application. Les règles sont traitées selon leur type.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/27/2018
+ms.date: 11/19/2018
 ms.author: victorh
-ms.openlocfilehash: 12d86793c0d75413559aad77c558c4adb7ac91af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fc11221e0ff79d6e17b93282403792fc135c2a4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681592"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166780"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logique de traitement des règles du service Pare-feu Azure
 Le service Pare-feu Azure comporte des règles de traduction d’adresses réseau (NAT), des règles de réseau et des règles d’application. Les règles sont traitées selon leur type.

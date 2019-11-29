@@ -1,17 +1,14 @@
 ---
 title: Déplacer des ressources Azure App Service
 description: Utilisez Azure Resource Manager pour déplacer des ressources App Service vers un nouveau groupe de ressources ou abonnement.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca9b3a8f328192683cfde586f0ccdb01e84dc16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533517"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150900"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Conseils de déplacement de ressources App Service
 

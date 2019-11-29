@@ -1,18 +1,18 @@
 ---
 title: Intégrer un pare-feu Azure avec Azure Standard Load Balancer
-description: Découvrez comment intégrer un pare-feu Azure avec Azure Standard Load Balancer
+description: Vous pouvez intégrer un pare-feu Azure à un réseau virtuel avec Azure Standard Load Balancer (public ou interne).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193757"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167079"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Intégrer un pare-feu Azure avec Azure Standard Load Balancer
 

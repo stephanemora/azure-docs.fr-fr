@@ -1,20 +1,16 @@
 ---
-title: Bonnes pratiques pour Azure Functions | Microsoft Docs
+title: Bonnes pratiques pour Azure Functions
 description: Découvrez les bonnes pratiques et les modèles pour Azure Functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87071b8e1102067110baae70c424aa74a5e0702c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73570826"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227382"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 

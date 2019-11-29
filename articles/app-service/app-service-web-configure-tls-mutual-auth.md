@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811624"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271689"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurer l’authentification mutuelle TLS pour Azure App Service
 
@@ -64,7 +64,7 @@ Pour les autres piles d’application (Node.js, PHP, etc.), le certificat client
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";

@@ -1,21 +1,15 @@
 ---
 title: Créer des fonctions Durable Functions à l’aide du portail Azure
 description: Découvrez comment installer l’extension Durable Functions pour Azure Functions pour le développement de portails.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 238969b320608c08491c3d3e85870d57f41c1589
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614982"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231482"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 

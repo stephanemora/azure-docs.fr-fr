@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 567beb9de0c0a8039d774270bdf61a7db437091e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d5fe93f1d3297fbdfb879a515c502025b49eab1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888373"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223990"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Bien démarrer avec le portail Azure EA
 
@@ -297,7 +297,7 @@ Si vous disposez déjà d’un compte de Microsoft Azure sur le Portail Microsof
 
 1. Dans le Enterprise Portal, cliquez sur **Gérer**.
 1. Cliquez sur l’onglet **Compte**.
-1. Cliquez sur **+Ajouter un compte**.
+1. Cliquez sur **+ Ajouter un compte**.
 1. Entrez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
 1. Confirmez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
 1. Spécifiez le nom à utiliser pour identifier ce compte dans les rapports.
@@ -397,11 +397,11 @@ Voici une vidéo qui montre comment télécharger les données d’utilisation 
 
 ### <a name="advanced-report-download"></a>Téléchargement des rapports avancés
 
-Pour la création de rapports sur des plages de dates ou des comptes spécifiques, le téléchargement de rapports avancés peut être utilisé. Depuis le 30 août 2016, le format du fichier de sortie passe de. xlsx à. csv afin de prendre en charge les jeux d’enregistrements plus volumineux.
+Pour la création de rapports sur des plages de dates ou des comptes spécifiques, le téléchargement de rapports avancés peut être utilisé. Depuis le 30 août 2016, le format du fichier de sortie passe de .xlsx à .csv afin de prendre en charge les jeux d’enregistrements plus volumineux.
 
 1. Sélectionnez **Téléchargement des rapports avancés**.
-1. Sélectionnez **Plage de dates appropriée**.
-1. Sélectionnez **Plage de comptes appropriée**.
+1. Sélectionnez **Appropriate Date Range** (Plage de dates appropriée).
+1. Sélectionnez **Appropriate Accounts** (Comptes appropriés).
 1. Sélectionnez **Exiger les données d’utilisation**.
 1. Sélectionnez le bouton **Actualiser** jusqu’à ce que l’état du rapport soit **Télécharger**.
 1. Téléchargez le rapport.
@@ -528,9 +528,9 @@ Oui. Avec le pack de contenu Microsoft Azure Enterprise pour Power BI, vous pou
     - Vignette Microsoft Azure Enterprise.
     - Cliquez sur **Connecter**.
  1. Depuis l’écran « se connecter à Azure Enterprise », choisissez :
-    - URL Environnement Azure : [https://ea.azure.com](https://ea.azure.com).
-    - Nombre de mois : choisissez entre 1 et 36.
-    - Numéro d’inscription : entrez le numéro d’inscription.
+    - URL d’environnement Azure : [https://ea.azure.com](https://ea.azure.com).
+    - Nombre de mois : choisissez entre 1 et 36.
+    - Numéro d’inscription : entrez le numéro d’inscription.
     - Cliquez sur **Suivant**.
  1. Entrez la clé API dans la zone de la clé d’authentification. Vous pouvez accéder à la clé API dans le portail Azure EA sous l’onglet « Télécharger l’utilisation », puis cliquez sur **Clé d’accès API**.
     - Copiez et collez la clé dans la zone « Clé de compte ».

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260213"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209549"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
 Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
@@ -75,7 +75,7 @@ Si vous souhaitez nettoyer les ressources créées dans cet article, vous pouvez
 
 ### <a name="create-an-account-using-powershell"></a>Créer un compte à l’aide de PowerShell
 
-Commencez par installer la dernière version du module [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+Commencez par installer la dernière version du module [PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Ensuite, mettez à niveau votre module PowerShell, connectez-vous à votre abonnement Azure, et créez un groupe de ressources, puis un compte de stockage.
 

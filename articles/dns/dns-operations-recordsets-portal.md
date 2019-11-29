@@ -2,17 +2,17 @@
 title: Gérer des jeux d’enregistrements DNS et des enregistrements avec Azure DNS
 description: Azure DNS permet de gérer les jeux d’enregistrements DNS et les enregistrements lors de l’hébergement de votre domaine.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 10/6/2018
-ms.author: victorh
-ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6d0b917c72b1ebb6f1156df269908fb9af3657ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61296382"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211796"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure
 

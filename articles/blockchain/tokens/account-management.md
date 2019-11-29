@@ -1,19 +1,15 @@
 ---
 title: Gestion des comptes Azure Blockchain Tokens
 description: La gestion des comptes Azure Blockchain Tokens vous permet de créer des groupes et de lier des comptes blockchain pour contrôler l’accès à Azure Blockchain Tokens.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: 91dcadd3c7704b7b8c6cab45005bc83e1bba18bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9931ef59e613501ba6feaedf3ac5d4721f0df752
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579772"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326095"
 ---
 # <a name="azure-blockchain-tokens-account-management"></a>Gestion des comptes Azure Blockchain Tokens
 

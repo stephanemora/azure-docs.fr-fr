@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c1b4791f2ec80eba25a00e22cb4298b4c97da4de
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742108"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151084"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Compute.CredentialsCombo
+
 Un groupe de contrôles avec validation intégrée pour les clés publiques SSH et les mots de passe Windows et Linux.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
@@ -38,6 +39,7 @@ Pour Linux avec une clé publique SSH sélectionnée, les utilisateurs voient :
 ![Microsoft.Compute.CredentialsCombo clé Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schéma
+
 Pour Windows, utilisez le schéma suivant :
 
 ```json
@@ -95,14 +97,8 @@ Pour **Linux**, utilisez le schéma suivant :
 }
 ```
 
-## <a name="remarks"></a>Remarques
-- `osPlatform` doit être spécifié. Il peut s’agir de **Windows** ou de **Linux**.
-- Si `constraints.required` a la valeur **true**, le mot de passe ou les zones de texte de la clé publique SSH doivent contenir des valeurs pour pouvoir effectuer la validation correctement. La valeur par défaut est **true**.
-- Si `options.hideConfirmation` est défini sur **true**, la deuxième zone de texte de confirmation du mot de passe utilisateur est masquée. La valeur par défaut est **false**.
-- Si `options.hidePassword` est défini sur **true**, l’option permettant d’utiliser l’authentification par mot de passe est masquée. Elle peut être utilisée uniquement lorsque `osPlatform` est **Linux**. La valeur par défaut est **false**.
-- Il est possible d’implémenter des contraintes supplémentaires sur les mots de passe autorisés à l’aide de la propriété `customPasswordRegex`. La chaîne de `customValidationMessage` s’affiche lorsque la validation personnalisée du mot de passe échoue. La valeur par défaut pour les deux propriétés est **null**.
-
 ## <a name="sample-output"></a>Exemple de sortie
+
 Si `osPlatform` est **Windows**, ou `osPlatform` est **Linux** et si l’utilisateur a fourni un mot de passe au lieu d’une clé publique SSH, le contrôle renvoie la sortie suivante :
 
 ```json
@@ -121,6 +117,15 @@ Si `osPlatform` est **Linux** et si l’utilisateur a fourni une clé publique S
 }
 ```
 
+## <a name="remarks"></a>Remarques
+
+- `osPlatform` doit être spécifié. Il peut s’agir de **Windows** ou de **Linux**.
+- Si `constraints.required` a la valeur **true**, le mot de passe ou les zones de texte de la clé publique SSH doivent contenir des valeurs pour pouvoir effectuer la validation correctement. La valeur par défaut est **true**.
+- Si `options.hideConfirmation` est défini sur **true**, la deuxième zone de texte de confirmation du mot de passe utilisateur est masquée. La valeur par défaut est **false**.
+- Si `options.hidePassword` est défini sur **true**, l’option permettant d’utiliser l’authentification par mot de passe est masquée. Elle peut être utilisée uniquement lorsque `osPlatform` est **Linux**. La valeur par défaut est **false**.
+- Il est possible d’implémenter des contraintes supplémentaires sur les mots de passe autorisés à l’aide de la propriété `customPasswordRegex`. La chaîne de `customValidationMessage` s’affiche lorsque la validation personnalisée du mot de passe échoue. La valeur par défaut pour les deux propriétés est **null**.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

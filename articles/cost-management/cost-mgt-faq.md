@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: troubleshooting
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faa7181ebc7b886fbe06e4ac01c704016d4b0c51
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002025"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230093"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Forum aux questions (FAQ) sur Cloudyn
 

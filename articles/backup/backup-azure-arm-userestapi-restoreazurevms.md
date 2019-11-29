@@ -1,21 +1,15 @@
 ---
-title: 'Sauvegarde Azure : Restaurer des machines virtuelles Azure avec l’API REST'
+title: Restaurer des machines virtuelles Azure avec l’API REST
 description: Dans cet article, découvrez comment gérer les opérations de restauration de la sauvegarde de machines virtuelles Azure à l’aide de l’API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eecee01ffc78ec8cc0e60b517e9d5b4f0e6baa25
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929160"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173386"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786730"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420705"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -220,5 +220,5 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Méthodes d’authentification disponibles dans Azure Active Directory et quantité requise"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "Intégration locale - Configuration de la réécriture de mot de passe et informations de dépannage"
+[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Méthodes d’authentification disponibles dans Azure Active Directory et quantité requise"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "Intégration locale - Configuration de la réécriture de mot de passe et informations de dépannage"

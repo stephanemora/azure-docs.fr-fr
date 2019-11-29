@@ -12,12 +12,12 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 74e7e3c74934e292b668b8bff594a5efbca19716
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 116af5192236045ec50409f65a9687ffec5223b5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212548"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406132"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres d’Apple Push Notification Service pour un hub de notifications dans le portail Azure
 Cet article explique comment configurer les paramètres d’Apple Push Notification Service pour un hub de notifications Azure à l’aide du portail Azure. 
@@ -38,14 +38,14 @@ La procédure qui suit vous guide dans la configuration des paramètres d’Appl
    * Entrez un mot de passe.
    * Sélectionnez le mode **Bac à sable**. Ou bien, pour envoyer des notifications Push aux utilisateurs qui ont acheté votre application sur le Store, sélectionnez le mode **Production**.
 
-     ![Capture d’écran de la configuration d’un certificat APNS sur le portail Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Capture d’écran de la configuration d’un certificat APNS sur le portail Azure](./media/configure-apple-push-notification-service/notification-hubs-apple-config-cert.png)
 
    b. Si vous sélectionnez **Jeton** :
 
    * Entrez les valeurs pour **ID de clé**, **ID d’offre groupée**, **ID de l’équipe** et **Jeton**.
    * Sélectionnez le mode **Bac à sable**. Ou bien, pour envoyer des notifications Push aux utilisateurs qui ont acheté votre application sur le Store, sélectionnez le mode **Production**.
 
-     ![Capture d’écran de la configuration d’un jeton APNS sur le portail Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Capture d’écran de la configuration d’un jeton APNS sur le portail Azure](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour consulter un didacticiel proposant des instructions étape par étape pour transmettre les notifications Push vers les périphériques iOS, veuillez consulter l’article suivant : [Notifications Push vers des appareils iOS avec Notification Hubs et APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)

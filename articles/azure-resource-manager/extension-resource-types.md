@@ -1,17 +1,14 @@
 ---
-title: Types de ressources d’extension Azure
+title: Types de ressources d’extension
 description: Présente les types de ressources Azure servant à étendre les fonctionnalités d’autres types de ressources.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901848"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147034"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Types de ressources qui étendent les fonctionnalités d’autres ressources
 

@@ -2,17 +2,15 @@
 title: Proposer en permanence des mises à jour de code fonction à l’aide d’Azure DevOps - Azure Functions
 description: Découvrez comment configurer un pipeline Azure DevOps qui cible Azure Functions.
 author: ahmedelnably
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: 4fb01eac53151799a0def00d13f18619faf437f6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e2dbcadab662caf641716272db1f860c3a6bafa5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927537"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230535"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 

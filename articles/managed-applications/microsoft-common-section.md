@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd2c1105078b918043791fd0f18395409bb32f7c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331655"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151709"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.Section
+
 Contrôle qui regroupe un ou plusieurs éléments sous un titre.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
+
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
 ## <a name="schema"></a>Schéma
+
 ```json
 {
   "name": "section1",
@@ -49,6 +52,7 @@ Contrôle qui regroupe un ou plusieurs éléments sous un titre.
 ```
 
 ## <a name="remarks"></a>Remarques
+
 - `elements` doit avoir au moins un élément et peut avoir tous les types d’éléments à l’exception de `Microsoft.Common.Section`.
 - Cet élément ne prend pas en charge la propriété `toolTip`.
 
@@ -62,5 +66,6 @@ steps('configuration').section1.text1
 Les éléments de type `Microsoft.Common.Section` n’ont eux-mêmes aucune valeur de sortie.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

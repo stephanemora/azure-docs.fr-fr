@@ -4,27 +4,25 @@ description: Décrit comment créer des groupes à l’aide de dépendances de m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720255"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158440"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
-
-> [!NOTE]
-> Si vous ne voyez pas encore cette fonctionnalité dans le portail Azure Migrate, patientez un peu. Elle apparaîtra au cours de la semaine suivante ou un peu plus tard.
 
 Cet article explique comment configurer le mappage de dépendances sans agent dans Azure Migrate : Server Assessment. Cette fonctionnalité est actuellement disponible en préversion pour les machines VMware découvertes à l’aide d’une appliance Azure Migrate. 
 
 > [!IMPORTANT]
 > La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure détectées à l’aide d’une appliance Azure Migrate.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="about-dependency-mapping"></a>À propos du mappage des dépendances 
+## <a name="about-dependency-mapping"></a>À propos du mappage des dépendances
 
 Le mappage des dépendances vous aide à visualiser les dépendances entre les machines que vous voulez évaluer et migrer. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les machines avec des niveaux de confiance élevés.
 
@@ -46,7 +44,7 @@ La visualisation des dépendances sans agent ne nécessite pas d’installation 
 ## <a name="current-limitations"></a>Limitations actuelles
 
 - La visualisation des dépendances sans agent n’est actuellement disponible que pour des machines virtuelles.
-- Pour le moment, vous ne pouvez pas ajouter ou supprimer un serveur d’un groupe dans la vue d’analyse des dépendances. 
+- Pour le moment, vous ne pouvez pas ajouter ou supprimer un serveur d’un groupe dans la vue d’analyse des dépendances.
 - La carte des dépendances pour un groupe de serveurs n’est pas disponible actuellement.
 - Actuellement, les données de dépendance ne peuvent pas être téléchargées sous forme de tableau.
 
@@ -60,12 +58,12 @@ La visualisation des dépendances sans agent ne nécessite pas d’installation 
 
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
- 
+
 Les systèmes d’exploitation pris en charge pour la visualisation des dépendances sans agent sont les suivants.
 
 **Type** | **Systèmes d’exploitation pris en charge**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -84,7 +82,7 @@ Ajoutez le compte comme suit :
 
 1. Ouvrez l’application de gestion de l’appliance. Accédez au panneau **Fournir les détails de vCenter**.
 2. Dans la section **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez **Ajouter les informations d’identification**
-3. Choisissez le **Système d’exploitation**. 
+3. Choisissez le **Système d’exploitation**.
 4. Fournissez un nom convivial pour le compte.
 5. Entrez le **Nom d’utilisateur** et le **Mot de passe**
 6. Cliquez sur **Enregistrer**.
@@ -113,8 +111,8 @@ Vous serez en mesure de visualiser les dépendances 6 heures après le démarra
 2. Recherchez la machine pour laquelle vous souhaitez afficher le mappage des dépendances.
 3. Cliquez sur **Afficher les dépendances** dans la colonne **Dépendances**.
 4. Modifiez la période pendant laquelle vous souhaitez afficher la carte à l’aide de la liste déroulante **Durée**.
-5. Développez le groupe **Client** pour afficher la liste des machines qui ont une dépendance sur la machine sélectionnée. 
-6. Développez le groupe **Port** pour répertorier les machines qui ont une dépendance de la machine sélectionnée. 
+5. Développez le groupe **Client** pour afficher la liste des machines qui ont une dépendance sur la machine sélectionnée.
+6. Développez le groupe **Port** pour répertorier les machines qui ont une dépendance de la machine sélectionnée.
 7. Pour accéder à la carte d’une machine dépendante, cliquez sur le nom de celle-ci, puis sur **Charger la carte des serveurs**
 
     ![Développer un groupe de ports du serveur et charger une carte des serveurs](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

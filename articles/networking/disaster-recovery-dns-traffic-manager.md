@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65501688"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483525"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
 
@@ -61,7 +61,7 @@ Il est important de comprendre certains concepts DNS largement utilisés pour pa
 - **Enregistrement A DNS** : les enregistrements A sont des pointeurs qui pointent un domaine vers une adresse IPv4. 
 - **Nom CNAME ou canonique** : ce type d’enregistrement est utilisé pour pointer vers un autre enregistrement DNS. CNAME ne répond pas par une adresse IP, mais par le pointeur vers l’enregistrement qui contient l’adresse IP. 
 - **Routage basé sur la pondération** : on peut choisir d’associer un poids à des points de terminaison de service, puis répartir le trafic en fonction des poids attribués. Cette méthode de routage est l’un des quatre mécanismes de routage du trafic disponibles dans Traffic Manager. Pour plus d’informations, consultez la section [Méthode de routage basé sur la pondération](../traffic-manager/traffic-manager-routing-methods.md#weighted).
-- **Routage par priorité** : le routage par priorité est basé sur le contrôle de l’intégrité des points de terminaison. Par défaut, Azure Traffic Manager envoie tout le trafic vers le point de terminaison ayant la priorité la plus élevée et, en cas de défaillance ou d’incident, achemine le trafic vers le point de terminaison secondaire. Pour plus d’informations, consultez la section [Méthode de routage basé sur la priorité](../traffic-manager/traffic-manager-routing-methods.md#priority).
+- **Routage par priorité** : le routage par priorité est basé sur le contrôle de l’intégrité des points de terminaison. Par défaut, Azure Traffic Manager envoie tout le trafic vers le point de terminaison ayant la priorité la plus élevée et, en cas de défaillance ou d’incident, achemine le trafic vers le point de terminaison secondaire. Pour plus d’informations, consultez la section [Méthode de routage basé sur la priorité](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
 ## <a name="manual-failover-using-azure-dns"></a>Basculement manuel à l’aide d’Azure DNS
 La solution de basculement manuel Azure DNS pour la récupération d’urgence utilise le mécanisme DNS standard pour effectuer le basculement vers le site de sauvegarde. L’option manuelle via Azure DNS fonctionne de manière optimale lorsqu’elle est utilisée conjointement avec l’approche Reprise progressive ou Veilleuse. 

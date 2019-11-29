@@ -3,22 +3,22 @@ title: Visualiser une base de connaissances (préversion) avec l’Explorateur S
 titleSuffix: Azure Cognitive Search
 description: Visualisez et analysez une base de connaissances Recherche cognitive Azure avec l’Explorateur Stockage du portail Azure. La base de connaissances est actuellement en préversion publique.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720049"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406555"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Voir une base de connaissances avec l’Explorateur Stockage
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
+> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
 
 Cet article explique, par exemple, comment se connecter à une base de connaissances et l’explorer à l’aide de l’Explorateur Stockage dans le portail Azure.
 

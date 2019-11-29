@@ -1,8 +1,6 @@
 ---
 title: Comment utiliser un référentiel Helm privé dans Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 08/22/2019
@@ -10,12 +8,12 @@ ms.topic: conceptual
 description: Utilisez un référentiel Helm privé dans un espace Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs, Helm
 manager: gwallace
-ms.openlocfilehash: d0f2cb739a502d614ac329eef1fc57b2fb15cb38
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279915"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Utiliser un référentiel Helm privé dans Azure Dev Spaces
 
@@ -79,8 +77,8 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 En savoir plus sur [Helm et son fonctionnement][helm].
 
 [helm]: https://docs.helm.sh
-[helm-chart]: https://helm.sh/docs/developing_charts/
-[helm-dependency-update]: https://helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://helm.sh/docs/helm/#helm-repo-update
-[helm-requirements]: https://helm.sh/docs/developing_charts/#chart-dependencies
+[helm-chart]: https://helm.sh/docs/topics/charts/
+[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
+[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

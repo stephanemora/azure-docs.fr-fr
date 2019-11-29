@@ -9,16 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839482"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480561"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
 Lorsque vous examinez plusieurs points de données sur la carte, les points se chevauchent et la carte semble surchargée, ce qui nuit à la visibilité et à l’utilisation. Le clustering de données de point peut servir à améliorer l’expérience utilisateur. Le clustering de point de données est le processus permettant de combiner des données de point proches les unes des autres et de les représenter sur une carte en tant qu’un point de données en cluster unique. Lorsque l’utilisateur effectue un zoom avant sur la carte, les clusters se décomposent pour afficher les points de données individuels qui les composent.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Activer le clustering sur une source de données
 

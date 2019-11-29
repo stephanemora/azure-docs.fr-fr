@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822976"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306412"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
@@ -165,7 +165,7 @@ Les clients disposant d’un Contrat Entreprise indirect doivent contacter leur 
 
 **Puis-je contrôler l’accès de mes employés à la Place de marché Azure et leurs privilèges d’achat ?**
 
-Oui, pour les clients Contrat Entreprise, l’administrateur en charge de l’inscription peut désactiver les privilèges d’achat pour tous les comptes inscrits et les réactiver le temps d’effectuer un achat. Par ailleurs, tous les clients peuvent utiliser Azure Policy pour restreindre les options de déploiement de leurs abonnements Azure, y compris la gestion des ressources de la Place de marché Microsoft Azure.
+Oui, pour les clients Contrat Entreprise, l’administrateur en charge de l’inscription peut désactiver les privilèges d’achat pour tous les comptes inscrits et les réactiver le temps d’effectuer un achat.
 
 **Quels sont les modes de paiement pris en charge pour les achats sur la Place de marché commerciale ?**
 

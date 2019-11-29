@@ -11,12 +11,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac6ae1a3b00a4e7568bd7967105f202fbf2e4f9b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050966"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547492"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Créer, superviser et gérer des fichiers FTP avec Azure Logic Apps
 

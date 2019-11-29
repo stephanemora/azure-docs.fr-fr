@@ -2,18 +2,15 @@
 title: Informations de référence pour les développeurs de scripts C# Azure Functions
 description: Découvrez comment développer sur Azure Functions à l’aide de scripts C#.
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 8bbfef9d9873669120f792bce3e50e457791d4b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3b05b0a4a56332cce1068f53a23a7d118a2e6bfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787195"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230419"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 

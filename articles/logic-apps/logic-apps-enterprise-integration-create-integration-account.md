@@ -9,12 +9,12 @@ author: ecfan
 ms.author: estfan
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 960733b7423ad1e22bd05a75d9b994cd85b1d30c
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de184b189c00cce64932a3ab17d41ed84e197a7e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680365"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534084"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Créer et gérer des comptes d’intégration pour l’intégration d’entreprise B2B dans Azure Logic Apps
 
@@ -40,7 +40,7 @@ Cette rubrique explique comment effectuer ces tâches :
 
 ## <a name="create-integration-account"></a>Créer un compte d’intégration
 
-Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes de cette section [, Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount)ou [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes de cette section [, Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)ou [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
@@ -255,7 +255,7 @@ Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes 
 
 ## <a name="delete-integration-account"></a>Supprimer un compte d’intégration
 
-Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes de cette section, l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
+Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes de cette section, l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete) ou [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 

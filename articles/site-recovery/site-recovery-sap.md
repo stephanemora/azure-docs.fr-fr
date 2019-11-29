@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083788"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533850"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -110,7 +110,7 @@ Pour commencer la réplication de toutes les machines virtuelles d’application
 
 * Pour obtenir des conseils sur la protection d’Active Directory et de DNS, consultez le document [Protéger Active Directory et DNS](site-recovery-active-directory.md).
 
-* Pour obtenir des conseils sur la protection d’un niveau de base de données en cours d’exécution sur SQL Server, consultez le document [Protéger SQL Server](site-recovery-active-directory.md).
+* Pour obtenir des conseils sur la protection d’un niveau de base de données en cours d’exécution sur SQL Server, consultez le document [Protéger SQL Server](site-recovery-sql.md).
 
 ## <a name="networking-configuration"></a>Configuration de la mise en réseau
 

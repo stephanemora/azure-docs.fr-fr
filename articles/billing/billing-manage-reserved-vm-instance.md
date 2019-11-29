@@ -1,7 +1,7 @@
 ---
 title: Gérer les réservations Azure
 description: Découvrez comment gérer les réservations Azure.
-ms.service: billing
+ms.service: cost-management-billing
 author: bandersmsft
 manager: yashesvi
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: b161fc7cd4faa75dd87613c297c12f1edd862510
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f1a23f7217ccae843f2394fdea4c04b5842e6fd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68840037"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226209"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 

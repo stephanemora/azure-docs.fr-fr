@@ -2,18 +2,14 @@
 title: Installer le client Chef à partir du portail Azure
 description: Découvrez comment déployer et configurer le client Chef à partir du portail Azure
 keywords: azure, chef, devops, client, installation, portail
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563843"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158264"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.

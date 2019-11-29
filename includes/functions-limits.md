@@ -1,22 +1,22 @@
 ---
 author: ggailey777
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476923"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322905"
 ---
 | Ressource | [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Montée en charge | Basé sur les événements | Basé sur les événements | [Manuel/Mise à l’échelle automatique](../articles/app-service/manage-scale-up.md) | 
-| Nombre maximal d’instances | 200 | 20 | 10-20 |
+| Nombre maximal d’instances | 200 | 100 | 10-20 |
 |[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) (min) par défaut |5\. | 30 |30<sup>2</sup> |
-|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) max. (min) |10 | unbounded | illimité<sup>3</sup> |
+|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) max. (min) |10 | 60 | illimité<sup>3</sup> |
 | Nbre max. de connexions sortantes (par instance) | 600 actives (1 200 au total) | unbounded | unbounded |
 | Taille de requête max. (Mo)<sup>4</sup> | 100 | 100 | 100 |
 | Longueur de chaîne de requête max.<sup>4</sup> | 4096 | 4096 | 4096 |

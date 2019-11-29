@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 29665639e90f729f5506a0a12241bb04fd88e69c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd91b4331a6093d1cf208893d5d88746707b473b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859322"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224737"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Livres blancs Azure relatifs aux mainframes
 
@@ -43,10 +43,10 @@ Modernisez votre infrastructure à l’échelle du cloud. TmaxSoft OpenFrame vou
 
 Ce livre blanc illustre l’expertise qu’a acquise Astadia en plus de 25 ans dans le domaine de la modernisation de plateformes mainframe. Les auteurs exposent les avantages et les défis de la modernisation. Ce guide offre une vue d’ensemble du mainframe IBM et d’une architecture de référence Mainframe IBM vers Azure. Par ailleurs, il décrit brièvement la méthodologie à succès d’Astadia.
 
-### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeployingmainframeapplicationstomicrosoftazurewppdf"></a>[Déploiement d’applications mainframe dans Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf)
+### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeploying_mainframe_applications_to_microsoft_azure_wppdf"></a>[Déploiement d’applications mainframe dans Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf)
 
 Les solutions de Micro Focus vous libèrent des contraintes liées au matériel et aux logiciels propriétaires des mainframes. Dans ce guide, Micro Focus vous explique comment déployer vos applications COBOL et PL/I qui s’exécutent dans des ordinateurs mainframe IBM vers le cloud.
 
-### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscommodernizationpagesbreathe-new-life-mainframesaspx"></a>[Donner un nouvel élan aux ordinateurs mainframe](https://www.infosys.com/modernization/Pages/breathe-new-life-mainframes.aspx)
+### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscomservicesmodernizationbreathe-new-life-mainframeshtml"></a>[Donner un nouvel élan aux ordinateurs mainframe](https://www.infosys.com/services/modernization/breathe-new-life-mainframes.html)
 
  Pour les entreprises, il est de plus en plus difficile d’assurer la maintenance des ordinateurs mainframe. Ce livre blanc d’Infosys et Microsoft expose la stratégie gagnante pour une migration réussie des ordinateurs mainframe. Les différentes options sont illustrées à travers des cas d’usage et des exemples.

@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 70e1e988ad3abdb90ecb60d33830f03f8dffb127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 721166b1403ae5fd62478956c84c2d54ab926691
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329324"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226311"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Entreprise Azure
 
@@ -127,7 +127,7 @@ Le format JSON est généré à partir du rapport CSV. Le format est donc le mê
 | Year | Year | Year |   |
 | Produit | BillableItemName | Produit |   |
 | ID du compteur | ResourceGUID | ID du compteur |   |
-| Catégorie du compteur | de diffusion en continu | MeterCategory | Facilite la recherche des services. Utile pour les services qui ont plusieurs ServiceType. Par exemple, Machines virtuelles. |
+| Catégorie du compteur | Service | MeterCategory | Facilite la recherche des services. Utile pour les services qui ont plusieurs ServiceType. Par exemple, Machines virtuelles. |
 | Sous-catégorie du compteur | ServiceType | MeterSubCategory | Fournit un deuxième niveau de détails pour un service. Par exemple, A1 VM (Non-Windows).  |
 | Région du compteur | ServiceRegion | MeterRegion | Troisième niveau de détails requis pour un service. Utile pour trouver le contexte de la région du ResourceGUID. |
 | Nom du compteur | ServiceResource | MeterName | Nom du service. |
@@ -180,7 +180,7 @@ Le format JSON est généré à partir du rapport CSV. Le format est donc le mê
 
 | Nom de colonne CSV | Nom de colonne JSON | Commentaire |
 | --- | --- | --- |
-| de diffusion en continu | de diffusion en continu |  Pas de changement de prix |
+| Service | Service |  Pas de changement de prix |
 | Unité de mesure | UnitOfMeasure |   |
 | Overage Part Number | ConsumptionPartNumber |   |
 | Overage Unit Price | ConsumptionPrice |   |

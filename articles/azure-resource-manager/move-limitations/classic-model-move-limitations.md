@@ -1,17 +1,14 @@
 ---
 title: Déplacer des ressources de déploiement Azure Classic
 description: Utilisez Azure Resource Manager pour déplacer des ressources de déploiement Azure Classic vers un nouveau groupe de ressources ou abonnement.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 783fcdca7637f3f67cf146bb827760cb4cdd7cbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b97496e4abfdf248b9f5010417e9284c643a74ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533484"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150842"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>Conseils de déplacement des ressources du modèle de déploiement Azure Classic
 

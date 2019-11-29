@@ -1,20 +1,15 @@
 ---
 title: Liaisons pour Fonctions durables - Azure
 description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Durable Functions pour Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615045"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233021"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -113,7 +108,7 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 

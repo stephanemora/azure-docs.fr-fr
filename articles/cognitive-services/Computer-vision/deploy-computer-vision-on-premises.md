@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 8d285bf60e356f15caf55271b0791e9adc97ac14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22ec16f66c463cde49adbc9c472e461169df5eeb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481777"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383795"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Vision par ordinateur avec Kubernetes et Helm
 
@@ -77,7 +77,7 @@ secret "containerpreview" created
 Pour vérifier que le secret a été créé, exécutez [`kubectl get`][kubectl-get] avec l’indicateur `secrets`.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 L’exécution de `kubectl get secrets` affiche tous les secrets configurés.
@@ -244,9 +244,9 @@ Pour plus d’informations sur l’installation d’applications avec Helm dans 
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test

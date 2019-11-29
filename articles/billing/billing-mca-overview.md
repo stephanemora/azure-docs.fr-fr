@@ -3,19 +3,19 @@ title: Prise en main de votre compte de facturation dans le cadre d’un Contrat
 description: Comprendre le fonctionnement de votre compte de facturation associé à un Contrat client Microsoft
 author: bandersmsft
 manager: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: 835686d639679cca7e9a83b5297b365953835e47
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880736"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226114"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 

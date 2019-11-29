@@ -1,24 +1,20 @@
 ---
 title: Configurer des paramètres d’application de fonction dans Azure
 description: Apprenez à configurer les paramètres d’application Azure Functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7ad7f6156bbd8ea86e3e71bda4b23dac9722a0ef
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170729"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230571"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
-Dans Azure Functions, une application de fonction fournit le contexte d’exécution de vos fonctions individuelles. Les comportements de l’application de fonction s’appliquent à toutes les fonctions hébergées par une Function App donnée. Toutes les fonctions d’une application de fonction doivent être exprimées dans le même [langage](supported-languages.md). 
+Dans Azure Functions, une Function App fournit le contexte d’exécution de vos fonctions individuelles. Les comportements de la Function App s’appliquent à toutes les fonctions hébergées par une Function App donnée. Toutes les fonctions d’une application de fonction doivent être exprimées dans le même [langage](supported-languages.md). 
 
 Les fonctions individuelles dans une application de fonction sont déployées ensemble et sont mises à l’échelle ensemble. Toutes les fonctions de la même application de fonction partagent les ressources, par instance, à mesure que l’application de fonction est mise à l’échelle. 
 
@@ -103,7 +99,7 @@ Nous vous recommandons d’envisager de développer vos fonctions sur votre ordi
 
 ![Console Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-La console intégrée au portail est un outil de développement idéal lorsque vous souhaitez interagir avec votre application de fonction à partir de la ligne de commande. Les commandes courantes incluent la création de fichiers et de répertoires et la navigation, ainsi que l’exécution de scripts et de fichiers de commandes. 
+La console intégrée au portail est un outil de développement idéal lorsque vous souhaitez interagir avec Function App à partir de la ligne de commande. Les commandes courantes incluent la création de fichiers et de répertoires et la navigation, ainsi que l’exécution de scripts et de fichiers de commandes. 
 
 Quand vous développez localement, nous vous recommandons d’utiliser [Azure Functions Core Tools](functions-run-local.md) et [Interface de ligne de commande Azure].
 
@@ -111,7 +107,7 @@ Quand vous développez localement, nous vous recommandons d’utiliser [Azure Fu
 
 ![Configurer Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-Les outils avancés pour App Service (également appelé Kudu) donnent accès aux fonctionnalités d’administration avancées de votre application de fonction. Dans Kudu, vous pouvez gérer les informations système, les paramètres d’application, les variables d’environnement, les extensions de site, les en-têtes HTTP et les variables de serveur. Vous pouvez également lancer **Kudu** en naviguant vers le point de terminaison SCM pour votre Function App, comme `https://<myfunctionapp>.scm.azurewebsites.net/`. 
+Les outils avancés pour App Service (également appelé Kudu) donnent accès aux fonctionnalités d’administration avancées de votre Function App. Dans Kudu, vous pouvez gérer les informations système, les paramètres d’application, les variables d’environnement, les extensions de site, les en-têtes HTTP et les variables de serveur. Vous pouvez également lancer **Kudu** en naviguant vers le point de terminaison SCM pour votre Function App, comme `https://<myfunctionapp>.scm.azurewebsites.net/`. 
 
 
 ### <a name="deployment"></a>Centre de déploiement
@@ -142,7 +138,7 @@ Utilisez la commande [`az functionapp cors show`](/cli/azure/functionapp/cors#az
 
 ### <a name="auth"></a>Authentification
 
-![Configurer l’authentification pour une application de fonction](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
+![Configurer l’authentification pour une Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 Lorsque les fonctions utilisent un déclencheur HTTP, vous pouvez exiger l’authentification préalable des appels. App Service prend en charge l’authentification Azure Active Directory et la connexion avec des fournisseurs sociaux tels que Facebook, Microsoft et Twitter. Pour plus d’informations sur la configuration de fournisseurs d’authentification spécifiques, consultez [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md) (Vue d’ensemble de l’authentification Azure App Service). 
 

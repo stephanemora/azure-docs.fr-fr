@@ -1,20 +1,15 @@
 ---
 title: Gestion des événements externes dans Fonctions durables - Azure
 description: Découvrez comment gérer des événements externes dans l’extension Fonctions durables pour Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c2a2f08c31c427241bbd5e482906118a90ee178
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7d7fcc725d78b24a93b09cb9c76cf7dc0231cac2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614836"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232899"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestion des événements externes dans Fonctions durables (Azure Functions)
 

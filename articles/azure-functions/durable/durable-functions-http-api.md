@@ -1,20 +1,16 @@
 ---
 title: API HTTP dans Durable Functions - Azure Functions
 description: Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ad2b1b9236f88f99542f8705372af664cc299ee0
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614817"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231401"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 

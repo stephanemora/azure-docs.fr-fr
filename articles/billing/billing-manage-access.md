@@ -8,7 +8,7 @@ manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 035d2e567b6aad23801ff043652ea143e3f6105b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c1f9ef78431b6b293972d4adbc0f64dc49d5c4b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709618"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223845"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 
 Vous pouvez permettre à d’autres utilisateurs d’accéder aux informations de facturation de votre compte dans le portail Microsoft Azure. Le type des rôles de facturation et les instructions permettant d’assurer l’accès aux informations de facturation varient selon le type de votre compte de facturation. Pour déterminer le type de votre compte de facturation, voir [Vérifier le type de votre compte de facturation](#check-the-type-of-your-billing-account).
 
-Cet article s’applique aux clients disposant de comptes du programme de service en ligne Microsoft. Si vous êtes un client Azure avec un contrat Entreprise (EA) et que vous êtes l’administrateur de l’entreprise, vous pouvez accorder des autorisations aux administrateurs de services et aux propriétaires de compte dans le portail Entreprise. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md). Si vous disposez d’un Contrat client Microsoft, consultez la section [Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft](billing-understand-mca-roles.md). 
+Cet article s’applique aux clients disposant de comptes du programme de service en ligne Microsoft. Si vous êtes un client Azure avec un contrat Entreprise (EA) et que vous êtes l’administrateur de l’entreprise, vous pouvez accorder des autorisations aux administrateurs de services et aux propriétaires de compte dans le portail Entreprise. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md). Si vous disposez d’un Contrat client Microsoft, consultez la section [Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft](billing-understand-mca-roles.md).
 
 ## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Administrateurs des comptes de programme de service en ligne Microsoft
 
@@ -60,9 +60,9 @@ Une fois que l’administrateur du compte a affecté les rôles appropriés aux 
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-manage-access/billing-search-cost-management-billing.png)
- 
+
 1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements**.
- 
+
     ![Capture d’écran montrant comment sélectionner des abonnements](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Sélectionnez **Factures**, puis **Accéder aux factures**.
@@ -88,7 +88,7 @@ La fonctionnalité Lecteur de facturation est en préversion et ne prend pas enc
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
 1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements**.
- 
+
     ![Capture d’écran montrant comment sélectionner des abonnements](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Sélectionnez **Contrôle d’accès (IAM)** .

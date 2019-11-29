@@ -2,17 +2,15 @@
 title: Gérer des ressources locales à distance à l'aide des fonctions PowerShell
 description: Découvrez comment configurer les connexions hybrides dans Azure Relay pour connecter une application de fonction PowerShell à des ressources locales, ce qui peut ensuite être utilisé pour gérer à distance la ressource locale.
 author: eamono
-manager: gailey777
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono
-ms.openlocfilehash: 2a3cf79883d79eb82c361731eb6a632c2df3c9be
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 36fc4c873dccfe9fa814bddccd829ed04207f095
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299421"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226931"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gestion des environnements hybrides avec PowerShell dans Azure Functions et Connections hybrides App Service
 

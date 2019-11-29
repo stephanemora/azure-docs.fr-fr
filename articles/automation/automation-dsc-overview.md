@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5ed18f8a8bbd8bd323dec54ca3f700c7ce168dde
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429409"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231629"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
@@ -66,7 +66,7 @@ L’extension Linux DSC prend en charge toutes les distributions Linux listées 
 
 ### <a name="dsc-requirements"></a>Configuration requise de DSC
 
-Pour tous les nœuds Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [WinRM sera activé](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Pour tous les nœuds Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [WinRM sera activé](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Pour tous les nœuds Linux s’exécutant dans Azure, [DSC PowerShell pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) sera installé lors de l’intégration.
 
@@ -80,7 +80,7 @@ Si vos nœuds sont situés dans un réseau privé, les ports et URL suivants son
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
 
 Cela fournit une connectivité réseau pour que le nœud géré communique avec Azure Automation.
-Si vous utilisez des ressources DSC qui communiquent entre des nœuds, telles que les [ressources WaitFor*](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), vous devrez également autoriser le trafic entre les nœuds.
+Si vous utilisez des ressources DSC qui communiquent entre des nœuds, telles que les [ressources WaitFor*](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), vous devrez également autoriser le trafic entre les nœuds.
 Pour connaître la configuration réseau requise, consultez la documentation de chaque ressource DSC.
 
 #### <a name="proxy-support"></a>Prise en charge de proxy

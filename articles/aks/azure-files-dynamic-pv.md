@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: mlearned
-ms.openlocfilehash: 045fcb3286c89097459a4a8405d22ee70e44c205
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 999e106240a8a1d95c35d098062d474a0b57228d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018838"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231751"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -64,43 +64,6 @@ Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] :
 
 ```console
 kubectl apply -f azure-file-sc.yaml
-```
-
-## <a name="create-a-cluster-role-and-binding"></a>Créer un rôle de cluster et une liaison
-
-Les clusters AKS utilisent le contrôle d’accès en fonction du rôle (RBAC) de Kubernetes pour limiter les actions pouvant être effectuées. Les *rôles*définissent les permissions à accorder, et les *liaisons*les appliquent aux utilisateurs souhaités. Ces affectations peuvent s’appliquer à un espace de noms donné ou à l’ensemble du cluster. Pour plus d’informations, consultez [Utilisation de l’autorisation RBAC][kubernetes-rbac].
-
-Pour permettre à la plateforme Azure de créer les ressources de stockage nécessaires, créez un rôle *Clusterrole* et une liaison *Clusterrolebinding*. Créez un fichier nommé `azure-pvc-roles.yaml`, et copiez-y le code YAML suivant :
-
-```yaml
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: system:azure-cloud-provider
-rules:
-- apiGroups: ['']
-  resources: ['secrets']
-  verbs:     ['get','create']
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: system:azure-cloud-provider
-roleRef:
-  kind: ClusterRole
-  apiGroup: rbac.authorization.k8s.io
-  name: system:azure-cloud-provider
-subjects:
-- kind: ServiceAccount
-  name: persistent-volume-binder
-  namespace: kube-system
-```
-
-Assignez les autorisations avec la commande [kubectl apply][kubectl-apply] :
-
-```console
-kubectl apply -f azure-pvc-roles.yaml
 ```
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant

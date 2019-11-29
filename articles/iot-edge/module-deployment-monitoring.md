@@ -8,13 +8,12 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318204"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456734"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
@@ -83,7 +82,7 @@ Voici quelques-unes des contraintes qui s’appliquent à la création d’une c
 * Les guillemets simples représentent les valeurs de la condition cible. Par conséquent, vous devez échapper le guillemet simple avec un autre guillemet simple s’il fait partie du nom de l’appareil. Par exemple, pour cibler un appareil nommé `operator'sDevice`, écrivez `deviceId='operator''sDevice'`.
 * Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : `-:.+%_#*?!(),=@;$`.
 
-### <a name="priority"></a>Priorité
+### <a name="priority"></a>Priority
 
 Une priorité définit si un déploiement doit être appliqué à un appareil ciblé par rapport à d’autres déploiements. Une priorité de déploiement est un entier positif. Plus le nombre est élevé, plus la priorité est supérieure. Si un périphérique IoT Edge est ciblé par plusieurs déploiements, le déploiement avec la priorité la plus élevée s’applique.  Les déploiements avec une priorité plus faible ne sont pas appliqués, ni fusionnés.  Si un périphérique est ciblé par au moins deux déploiements de priorité égale, c’est le déploiement créé le plus récemment (déterminé par l’horodatage de création) qui s’applique.
 

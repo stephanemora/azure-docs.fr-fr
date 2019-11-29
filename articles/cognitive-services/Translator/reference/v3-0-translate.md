@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835781"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184804"
 ---
 # <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
@@ -33,6 +33,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
+### <a name="required-parameters"></a>Paramètres obligatoires
+
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
   <th>Description</th>
@@ -41,13 +43,20 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
     <td><em>Paramètre obligatoire</em>.<br/>Version de l’API demandée par le client. La valeur doit être <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>from</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant <a href="./v3-0-languages.md">langues prises en charge</a> à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source. <br/><br/>Vous devez utiliser le paramètre <code>from</code> au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dictionnaire dynamique</a>.</td>
-  </tr>
-  <tr>
     <td>to</td>
     <td><em>Paramètre obligatoire</em>.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des <a href="./v3-0-languages.md">langues prises en charge</a> incluses dans l’étendue <code>translation</code>. Par exemple, utilisez <code>to=de</code> pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez <code>to=de&to=it</code> pour traduire en allemand et italien.</td>
   </tr>
+</table>
+
+### <a name="optional-parameters"></a>Paramètres facultatifs
+
+<table width="100%">
+  <th width="20%">Paramètre de requête.</th>
+  <th>Description</th>
+  <tr>
+    <td>from</td>
+    <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant <a href="./v3-0-languages.md">langues prises en charge</a> à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source. <br/><br/>Vous devez utiliser le paramètre <code>from</code> au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dictionnaire dynamique</a>.</td>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Paramètre facultatif</em>.<br/>Définit si le texte en cours de traduction est au format texte brut ou HTML. Tout code HTML doit être un élément bien formé et complet. Les valeurs possibles sont : <code>plain</code> (par défaut) ou <code>html</code>.</td>

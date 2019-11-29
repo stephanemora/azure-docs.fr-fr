@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597119"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267904"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -51,7 +51,7 @@ Quand votre flux de données est exécuté dans Spark, Azure Data Factory déter
   * Heure de démarrage du cluster : Durée d’acquisition de l’environnement de calcul JIT Spark pour l’exécution de votre flux de données
   * Nombre de transformations : Nombre d’étapes de transformation exécutées dans votre flux
   
-![Supervision du flux de données Acit](media/data-flow/monitornew.png "Supervision du flux de données - Nouveau")  
+![Supervision du flux de données](media/data-flow/monitornew.png "Supervision du flux de données - Nouveau")  
   
 ## <a name="monitor-icons"></a>Icônes Superviser
 

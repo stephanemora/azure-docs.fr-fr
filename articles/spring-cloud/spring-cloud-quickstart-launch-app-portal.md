@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133229"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560063"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure
 
@@ -92,20 +92,6 @@ Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiem
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-
-1. Connectez-vous à Azure CLI et définissez votre abonnement actif.
-
-    ```azurecli
-    # Login to Azure CLI
-    az login
-
-    # List all subscriptions
-    az account list -o table
-
-    # Set active subscription
-    az account set --subscription <target subscription ID>
-    ```
-
 1. Affectez des noms à votre groupe de ressources et à votre service. Veillez à remplacer les espaces réservés ci-dessous par le nom du groupe de ressources et le nom du service que vous avez précédemment provisionnés dans ce tutoriel.
 
     ```azurecli

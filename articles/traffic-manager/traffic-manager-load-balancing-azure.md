@@ -3,21 +3,21 @@ title: Utilisation des services d’équilibrage de charge dans Azure | Microso
 description: 'Ce didacticiel vous montre comment créer un scénario à l’aide du portefeuille d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: liumichelle
-manager: dkays
+author: asudbring
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: limichel
-ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330520"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227792"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 

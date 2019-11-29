@@ -1,20 +1,14 @@
 ---
-title: 'Sauvegarde Azure : Récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure'
+title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: récupération au niveau élément ; récupération de fichiers à partir d’une sauvegarde de machine virtuelle Azure ; restaurer des fichiers à partir d’une machine virtuelle Azure
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: dacurwin
-ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091644"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172858"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 

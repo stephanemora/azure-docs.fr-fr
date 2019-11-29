@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823322"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186438"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -565,16 +565,6 @@ Les instructions `RESTORE` en cours, le processus de migration Data Migration Se
 
 **Solution de contournement** : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
 
-### <a name="missing-validations-in-restore-process"></a>Validations manquantes dans le processus de restauration
-
-**Date :** Septembre 2019
-
-Les instructions `RESTORE` et la limite de restauration dans le temps intégrée n’effectuent pas certaines vérifications nécessaires sur la base de données restaurée :
-- **DBCC CHECKDB** - L’instruction `RESTORE` n’effectue pas `DBCC CHECKDB` sur la base de données restaurée. Si une base de données d’origine est endommagée ou si le fichier de sauvegarde est endommagé lors de sa copie dans le Stockage Blob Azure, les sauvegardes automatiques ne sont pas effectuées et le support Azure contacte le client. 
-- Le processus de restauration dans le temps intégrée ne vérifie pas si la sauvegarde automatisée à partir de l’instance critique pour l’entreprise contient des [objets OLTP en mémoire](sql-database-in-memory.md#in-memory-oltp). 
-
-**Solution de contournement** : Veillez à exécuter `DBCC CHECKDB` sur la base de données source avant d’effectuer une sauvegarde, puis à utiliser l’option `WITH CHECKSUM` dans la sauvegarde pour éviter les endommagements potentiels qui pourraient être restaurés sur une instance managée. Vérifiez que votre base de données source ne contient pas d’[objets OLTP en mémoire](sql-database-in-memory.md#in-memory-oltp) si vous la restaurez sur le niveau Usage général.
-
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement
 
 **Date :** Septembre 2019
@@ -582,14 +572,6 @@ Les instructions `RESTORE` et la limite de restauration dans le temps intégrée
 Il se peut que la fonctionnalité [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) qui permet de limiter les ressources affectées aux charges de travail utilisateur classe erronément une charge de travail utilisateur après un basculement ou une modification du niveau de service apportée par un utilisateur (par exemple, la modification du nombre maximal de vCores ou de la taille maximale de stockage d’instance).
 
 **Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail de l’agent SQL qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Authentification impossible auprès des serveurs de messagerie externes à l’aide d’une connexion sécurisée (SSL)
-
-**Date :** août 2019
-
-L’instance de Database Mail qui est [configurée à l’aide d’une connexion sécurisée (SSL)](/sql/relational-databases/database-mail/configure-database-mail) ne peut pas s’authentifier auprès de certains serveurs de messagerie en dehors d’Azure. Il s’agit d’un problème de configuration de la sécurité qui sera bientôt résolu.
-
-**Solution de contournement :** Supprimez temporairement la connexion sécurisée (SSL) de la configuration de la messagerie de base de données jusqu’à ce que le problème soit résolu. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 

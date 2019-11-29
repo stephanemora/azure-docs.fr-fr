@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b8c39ba6c12d43da1b2311ae4d7d85dd13946f25
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559209"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231683"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Créer des configurations à partir de serveurs existants
 
@@ -38,13 +38,13 @@ La dernière version propose plusieurs [modes d’extraction](https://github.com
 
 L’utilisation de la solution a pour effet de générer les [données de configuration](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) à utiliser avec des scripts de configuration SharePointDSC.
 
-Une fois que les fichiers de données ont été générés, vous pouvez les utiliser avec les [scripts de configuration DSC](/powershell/dsc/overview/overview) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Une fois que les fichiers de données ont été générés, vous pouvez les utiliser avec les [scripts de configuration DSC](/powershell/scripting/dsc/overview/overview) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) ou [dans Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) pour extraire les configurations.
 
 Pour tester ReverseDSC, accédez à [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) et téléchargez la solution ou cliquez sur « Project Site » pour afficher la [documentation](https://github.com/Microsoft/sharepointDSC.reverse).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble d’Azure Automation DSC](/powershell/dsc/overview/overview)
-- [Ressources DSC](/powershell/dsc/resources/resources)
-- [Configuration de Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Vue d’ensemble d’Azure Automation DSC](/powershell/scripting/dsc/overview/overview)
+- [Ressources DSC](/powershell/scripting/dsc/resources/resources)
+- [Configuration de Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

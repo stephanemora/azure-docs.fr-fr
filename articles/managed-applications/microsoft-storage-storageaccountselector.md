@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1f96b42e58bcb09cfc2836c993626a889669fc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104854"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151462"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Élément d’interface utilisateur Microsoft.Storage.StorageAccountSelector
+
 Contrôle permettant de sélectionner un compte de stockage nouveau ou existant.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
@@ -56,12 +57,6 @@ Le contrôle permet à l’utilisateur de créer un nouveau compte de stockage o
 }
 ```
 
-## <a name="remarks"></a>Remarques
-- S’il est spécifié, le caractère unique de `defaultValue.name` est automatiquement validé. Si le nom de compte de stockage n’est pas unique, l’utilisateur doit indiquer un autre nom ou choisir un compte de stockage existant.
-- La valeur par défaut pour `defaultValue.type` est **Premium_LRS**.
-- Tout type non spécifié dans `constraints.allowedTypes` est masqué et tout type non spécifié dans `constraints.excludedTypes` s’affiche. `constraints.allowedTypes` et `constraints.excludedTypes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément.
-- Si `options.hideExisting` est défini sur **true**, l’utilisateur ne peut pas choisir de compte de stockage existant. La valeur par défaut est **false**.
-
 ## <a name="sample-output"></a>Exemple de sortie
 
 ```json
@@ -72,6 +67,13 @@ Le contrôle permet à l’utilisateur de créer un nouveau compte de stockage o
   "newOrExisting": "new"
 }
 ```
+
+## <a name="remarks"></a>Remarques
+
+- S’il est spécifié, le caractère unique de `defaultValue.name` est automatiquement validé. Si le nom de compte de stockage n’est pas unique, l’utilisateur doit indiquer un autre nom ou choisir un compte de stockage existant.
+- La valeur par défaut pour `defaultValue.type` est **Premium_LRS**.
+- Tout type non spécifié dans `constraints.allowedTypes` est masqué et tout type non spécifié dans `constraints.excludedTypes` s’affiche. `constraints.allowedTypes` et `constraints.excludedTypes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément.
+- Si `options.hideExisting` est défini sur **true**, l’utilisateur ne peut pas choisir de compte de stockage existant. La valeur par défaut est **false**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).

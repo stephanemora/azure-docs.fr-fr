@@ -2,17 +2,17 @@
 title: Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 description: Découvrez comment vous connecter en privé à un compte de stockage dans Azure à l’aide de Private Endpoint.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376144"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228089"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.

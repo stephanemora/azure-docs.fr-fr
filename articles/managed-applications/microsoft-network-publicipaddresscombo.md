@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 069a8ee1f019d1b21be996084e4902f94076fbf7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251088"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151487"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Network.PublicIpAddressCombo
+
 Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou d’une adresse IP publique existante.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
+
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
 - Si l’utilisateur sélectionne « Aucune » pour l’adresse IP publique, la zone de texte d’étiquette de nom du domaine est masquée.
@@ -31,6 +33,7 @@ Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou 
 - Le suffixe du nom de domaine (par exemple, westus.cloudapp.azure.com) se met à jour automatiquement en fonction de l’emplacement sélectionné.
 
 ## <a name="schema"></a>Schéma
+
 ```json
 {
   "name": "element1",
@@ -62,14 +65,8 @@ Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou 
 }
 ```
 
-## <a name="remarks"></a>Remarques
-- Si `constraints.required.domainNameLabel` est défini sur **true**, l’utilisateur doit fournir une étiquette de nom de domaine lors de la création d’une nouvelle adresse IP publique. Les adresses IP publiques existantes sans étiquette ne sont pas disponibles à la sélection.
-- Si `options.hideNone` est défini sur **true**, l’option de sélection **Aucune** pour l’adresse IP publique est masquée. La valeur par défaut est **false**.
-- Si `options.hideDomainNameLabel` est défini sur **true**, la zone de texte pour l’étiquette de nom de domaine est masquée. La valeur par défaut est **false**.
-- Si `options.hideExisting` est défini sur true, l’utilisateur n’est pas en mesure de choisir d’adresse IP publique existante. La valeur par défaut est **false**.
-- Pour `zone`, seules les adresses IP de la zone spécifiée et les adresses IP publiques résilientes dans la zone sont disponibles.
-
 ## <a name="sample-output"></a>Exemple de sortie
+
 Si l’utilisateur ne sélectionne aucune adresse IP publique, le contrôle retourne la sortie suivante :
 
 ```json
@@ -94,6 +91,15 @@ Si l’utilisateur sélectionne une adresse IP publique nouvelle ou existante, l
 - Quand `options.hideNone` est défini sur **true**, `newOrExistingOrNone` peut uniquement avoir une valeur **new** ou **existing**.
 - Quand `options.hideDomainNameLabel` est défini sur **true**, `domainNameLabel` n’est pas déclaré.
 
+## <a name="remarks"></a>Remarques
+
+- Si `constraints.required.domainNameLabel` est défini sur **true**, l’utilisateur doit fournir une étiquette de nom de domaine lors de la création d’une nouvelle adresse IP publique. Les adresses IP publiques existantes sans étiquette ne sont pas disponibles à la sélection.
+- Si `options.hideNone` est défini sur **true**, l’option de sélection **Aucune** pour l’adresse IP publique est masquée. La valeur par défaut est **false**.
+- Si `options.hideDomainNameLabel` est défini sur **true**, la zone de texte pour l’étiquette de nom de domaine est masquée. La valeur par défaut est **false**.
+- Si `options.hideExisting` est défini sur true, l’utilisateur n’est pas en mesure de choisir d’adresse IP publique existante. La valeur par défaut est **false**.
+- Pour `zone`, seules les adresses IP de la zone spécifiée et les adresses IP publiques résilientes dans la zone sont disponibles.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

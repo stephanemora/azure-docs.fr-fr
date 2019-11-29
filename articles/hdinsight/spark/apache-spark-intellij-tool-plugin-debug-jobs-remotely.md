@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494587"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195835"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance dans HDInsight via VPN
 
@@ -203,9 +203,9 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
                             "wasb:///HVACOut")
         }
     }
-        ```
+    ```
 
-1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
+1. Répétez les étapes 8 et 9 pour ajouter un nouvel objet Scala appelé `*SparkSample`. Ajoutez le code suivant à cette classe. Ce code lit les données du fichier HVAC.csv (disponible dans tous les clusters HDInsight Spark). Il récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV, puis écrit la sortie dans **/HVACOut** sous le conteneur de stockage par défaut du cluster.
 
     ```scala
     import org.apache.spark.SparkContext

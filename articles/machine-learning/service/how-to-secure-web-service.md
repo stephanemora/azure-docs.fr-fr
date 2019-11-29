@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6a6f50a86dc58299a1c1b5994dd1d19cc915e6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f577ac723558ad3772b697922baa624e0047dd21
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076876"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276834"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,8 +80,8 @@ Pour déployer (ou redéployer) le service avec le protocole SSL activé, défin
 
 Lorsque vous déployez sur AKS, vous pouvez créer un cluster AKS ou attacher un cluster existant. Pour plus d’informations sur la création ou l’attachement d’un cluster, consultez [Déployer un modèle sur un cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
   
--  Si vous créez un cluster, vous utilisez **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** .
-- Si vous attachez un cluster existant, vous utilisez **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Tous deux renvoient un objet de configuration présentant une méthode **enable_ssl**.
+-  Si vous créez un cluster, vous utilisez **[AksCompute.provisionining_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none-)** .
+- Si vous attachez un cluster existant, vous utilisez **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)** . Tous deux renvoient un objet de configuration présentant une méthode **enable_ssl**.
 
 La méthode **enable_ssl** peut utiliser un certificat fourni par Microsoft ou un certificat que vous achetez.
 

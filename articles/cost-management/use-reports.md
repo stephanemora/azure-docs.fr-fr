@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f056515e87d01d0a30fec7f792fcb6e5e91c0c89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f838091f4b4cdcb0535f58926a724074ef080463
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969050"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218852"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Rapports disponibles dans le portail Cloudyn
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9fcc65768db3029461a5823034336bc883379292
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607386"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227683"
 ---
 # <a name="remote-desktop-client-connections"></a>Connexions au client Bureau à distance
 
@@ -119,7 +119,7 @@ Suivez ces instructions de dépannage générales pour les codes d’erreur de c
 6. À l’aide du paramètre **ActivityId** de la sortie de la cmdlet précédente, exécutez la commande ci-dessous :
 
     ```PowerShell
-    (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+    (Get-RdsDiagnosticActivities -TenantName <TenantName> -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. La commande génère une sortie semblable à celle qui suit : Utilisez **ErrorCodeSymbolic** et **ErrorMessage** pour résoudre les problèmes de la cause racine.

@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 11/25/2019
 ms.author: szark
-ms.openlocfilehash: 6c3bb16e249d84f1da94b6b827bbaf6f8e9df1a1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1ac2b24649363538d2728f302941b5a4bf5dd357
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171245"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534155"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure
 
@@ -355,7 +355,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
     Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 
     ```console
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
     Générez de nouveau initramfs :

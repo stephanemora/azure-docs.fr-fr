@@ -1,19 +1,14 @@
 ---
-title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services avec la sauvegarde Azure
+title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968537"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173340"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -34,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-* [Passez en revue](backup-architecture.md#architecture-direct-backup-of-azure-vms) l’architecture de sauvegarde de machine virtuelle Azure.
+* [Passez en revue](backup-architecture.md#architecture-built-in-azure-vm-backup) l’architecture de sauvegarde de machine virtuelle Azure.
 * [En savoir plus sur](backup-azure-vms-introduction.md) la sauvegarde des machines virtuelles Azure et l’extension de la sauvegarde.
 * [Passez en revue la matrice de prise en charge](backup-support-matrix-iaas.md) avant de configurer la sauvegarde.
 

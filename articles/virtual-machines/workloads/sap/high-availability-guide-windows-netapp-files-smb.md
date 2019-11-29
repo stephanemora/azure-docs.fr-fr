@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: 5de28055a1b573b3326b717614f481b0e1158f1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064692"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555296"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP
 
@@ -78,8 +78,8 @@ Commencez par lire les notes et publications SAP suivantes :
 * La note SAP [662452](https://launchpad.support.sap.com/#/notes/662452) offre une recommandation (désactivation de la génération de noms 8.3) pour résoudre les erreurs/performances médiocres du système de fichiers lors des accès aux données.
 * [Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
 * [Scénarios et architecture de haute disponibilité de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-* [Ajouter un port de sondage dans la configuration du cluster ASCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share#create-a-new-sap-service-and-sap-instance-resources)
-* [Installation d’une instance (A)SCS sur un cluster de basculement](https:\www.sap.com\documents\2017\07\f453332f-c97c-0010-82c7-eda71af511fa.html) 
+* [Ajouter un port de sondage dans la configuration du cluster ASCS](sap-high-availability-installation-wsfc-file-share.md)
+* [Installation d’une instance (A)SCS sur un cluster de basculement](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Créer un volume SMB pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [Applications SAP NetApp su Microsoft Azure avec Azure NetApp Files][anf-sap-applications-azure]
 

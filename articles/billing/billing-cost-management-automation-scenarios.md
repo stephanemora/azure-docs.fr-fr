@@ -5,22 +5,20 @@ services: billing
 documentationcenter: ''
 author: bandersmsft
 manager: dougeby
-editor: ''
 tags: billing
-ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 54c4426fb8bdb1476b33defb5351b3fb0e6a0663
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6a2cb3df5bf8a67c7b79a24fd8328267bf6c4dd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718834"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224060"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scénarios d’automatisation de la facturation et de la gestion des coûts
 
@@ -70,7 +68,7 @@ Les clients Web Direct et Entreprise peuvent utiliser toutes les API suivantes, 
 
 -   [API Marketplace Charges](https://docs.microsoft.com/rest/api/consumption/marketplaces) : Obtenez des données de paiement et d’utilisation sur toutes les ressources de la Place de marché Azure (offres des partenaires Azure). Vous pouvez utiliser ces données pour additionner les coûts de toutes les ressources de la Place de marché ou pour examiner les coûts/l’utilisation de ressources spécifiques.
 
--   [API Price Sheet](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*Clients Entreprise uniquement*) : Obtenez des prix personnalisés pour tous les compteurs. Les entreprises peuvent utiliser ces données conjointement avec les informations sur l’utilisation pour calculer des coûts. 
+-   [API Price Sheet](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*Clients Entreprise uniquement*) : Obtenez des prix personnalisés pour tous les compteurs. Les entreprises peuvent utiliser ces données conjointement avec les informations sur l’utilisation pour calculer des coûts.
 
 -   [API Reservation Recommendations](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations) : Obtenez des recommandations d’achat d’instances de machine virtuelle réservées. Ces recommandations vous permettent d’analyser les économies et les montants d’achat attendus. Pour plus d’informations, consultez [API dédiées à l’automatisation de la réservation Azure](billing-reservation-apis.md).
 
@@ -80,14 +78,14 @@ Les clients Web Direct et Entreprise peuvent utiliser toutes les API suivantes, 
 
 -   [API Usage Details](https://docs.microsoft.com/rest/api/consumption/usagedetails) : Obtenez des informations de paiement et d’utilisation sur toutes les ressources Azure de Microsoft. Les informations sont sous la forme d’enregistrements détaillés de l’utilisation, qui sont actuellement émis une fois par compteur par jour. Vous pouvez utiliser ces informations pour additionner les coûts de toutes les ressources ou examiner les coûts/l’utilisation de ressources spécifiques.
 
--   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) : Obtenez des tarifs spéciaux si vous êtes client Web Direct. Vous pouvez alors utiliser les informations retournées avec vos informations sur l’utilisation de la ressource pour calculer manuellement la facture prévue. 
+-   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) : Obtenez des tarifs spéciaux si vous êtes client Web Direct. Vous pouvez alors utiliser les informations retournées avec vos informations sur l’utilisation de la ressource pour calculer manuellement la facture prévue.
 
 -   [API Unrated Usage](/previous-versions/azure/reference/mt219003(v=azure.100)) : Obtenez des informations sur l’utilisation brute avant tout décompte/toute facturation Azure.
 
 ### <a name="billing"></a>Facturation
 -   [API Billing Periods](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) : Déterminez une période de facturation à analyser, ainsi que les ID de facture de cette période. Vous pouvez utiliser des ID de facture avec l’API Invoices.
 
--   [API Invoices](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) : Obtenez l’URL de téléchargement d’une facture pour une période de facturation au format PDF.
+-   [API Invoices](/rest/api/billing/2019-10-01-preview/invoices) : Obtenez l’URL de téléchargement d’une facture pour une période de facturation au format PDF.
 
 ### <a name="enterprise-consumption"></a>Consommation de l’entreprise
 Les API suivantes s’appliquent uniquement aux clients Entreprise :
@@ -107,11 +105,11 @@ Les API suivantes s’appliquent uniquement aux clients Entreprise :
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Quelle est la différence entre les API Enterprise Reporting et Consumption ? Quand utiliser chaque API ?
-Ces API offrent un ensemble similaire de fonctionnalités et peuvent répondre à la même série de questions dans les domaines de la facturation et de la gestion des coûts. Mais elles ciblent différents publics : 
+Ces API offrent un ensemble similaire de fonctionnalités et peuvent répondre à la même série de questions dans les domaines de la facturation et de la gestion des coûts. Mais elles ciblent différents publics :
 
 - Les API Enterprise Reporting sont accessibles aux clients qui ont signé un Contrat Entreprise avec Microsoft. Ce contrat leur donne accès à des engagements monétaires négociés et à des tarifs personnalisés. Les API nécessitent une clé que vous pouvez obtenir depuis [Enterprise Portal](https://ea.azure.com). Pour obtenir une description de ces API, consultez [Vue d’ensemble des API Reporting pour les clients Enterprise](billing-enterprise-api.md).
 
-- Les API Consumption sont accessibles à tous les clients, à quelques exceptions près. Pour plus d’informations, consultez [Vue d’ensemble des API Azure Consumption](billing-consumption-api-overview.md) et [Informations de référence sur les API Azure Consumption](https://docs.microsoft.com/rest/api/consumption/). Nous recommandons les API fournies comme solution pour les scénarios de développement les plus récents. 
+- Les API Consumption sont accessibles à tous les clients, à quelques exceptions près. Pour plus d’informations, consultez [Vue d’ensemble des API Azure Consumption](billing-consumption-api-overview.md) et [Informations de référence sur les API Azure Consumption](https://docs.microsoft.com/rest/api/consumption/). Nous recommandons les API fournies comme solution pour les scénarios de développement les plus récents.
 
 ### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>Quelle est la différence entre les API Usage Details et Usage ?
 Ces API fournissent des données fondamentalement différentes :
@@ -126,7 +124,7 @@ Ces API fournissent des données fondamentalement différentes :
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Quelle est la différence entre les API Invoice et Usage Details ?
 Ces API offrent un aperçu différent des mêmes données :
 
-- L’[API Invoice](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) concerne uniquement les clients Web Direct. Elle fournit un cumul mensuel de votre facture en fonction des frais agrégés de chaque type de compteur. 
+- L’[API Invoice](/rest/api/billing/2019-10-01-preview/invoices) concerne uniquement les clients Web Direct. Elle fournit un cumul mensuel de votre facture en fonction des frais agrégés de chaque type de compteur.
 
 - L’[API Usage Details](https://docs.microsoft.com/rest/api/consumption/usagedetails) fournit un aperçu plus précis des enregistrements quotidiens des coûts/de l’utilisation. Les clients Web Direct et Entre²prise peuvent l’utiliser.
 

@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005932"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457018"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
@@ -84,7 +84,7 @@ Le diagnostic et l’identification des problèmes courants sont importants pour
 
 Vérifiez s’il existe une attribution de rôle pour votre fonction définie par l’utilisateur par le biais de votre API de gestion :
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -98,7 +98,7 @@ Consultez cet article sur la [façon de créer une attribution de rôle pour vot
 
 En utilisant l’appel suivant de l’API de gestion de vos instances Azure Digital Twins, vous pouvez déterminer si un matcher donné s’applique pour le capteur donné.
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
@@ -122,7 +122,7 @@ Réponse :
 
 En utilisant l’appel suivant de l’API de gestion de vos instances Azure Digital Twins, vous pouvez déterminer les identificateurs de vos fonctions définies par l’utilisateur qui sont déclenchées par les données de télémétrie entrantes du capteur donné :
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 

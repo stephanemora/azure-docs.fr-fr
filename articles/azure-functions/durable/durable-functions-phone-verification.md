@@ -1,20 +1,15 @@
 ---
 title: Interactions humaines et délais d’expiration dans l’extension Fonctions durables - Azure
 description: Découvrez comment gérer des interactions humaines et les délais d’expiration dans l’extension Fonctions durables d’Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0c1c92dde2d698fb2c92fb3680ab05393a25573d
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614733"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232822"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 

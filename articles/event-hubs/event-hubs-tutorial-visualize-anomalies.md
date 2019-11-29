@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717993"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307347"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Didacticiel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Exécuter une application pour produire des données d’événements de test
 
-Les [exemples Event Hubs sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluent une [application de détection d’anomalies](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) qui produit des données de test pour vous. Elle simule l’utilisation de cartes de crédit en écrivant des transactions par carte de crédit dans le hub d’événements, en y incluant parfois l’écriture de plusieurs transactions pour la même carte de crédit à plusieurs emplacements, de sorte qu’elles soient marquées comme anomalies. Pour exécuter cette application, suivez ces étapes : 
+Les [exemples Event Hubs sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluent une [application de détection d’anomalies](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) qui produit des données de test pour vous. Elle simule l’utilisation de cartes de crédit en écrivant des transactions par carte de crédit dans le hub d’événements, en y incluant parfois l’écriture de plusieurs transactions pour la même carte de crédit à plusieurs emplacements, de sorte qu’elles soient marquées comme anomalies. Pour exécuter cette application, suivez ces étapes : 
 
 1. Téléchargez les [exemples Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) depuis GitHub et décompressez-les localement.
 

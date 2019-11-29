@@ -1,19 +1,15 @@
 ---
-title: Protection du serveur DPM/Sauvegarde Azure d’une batterie de serveurs SharePoint sur Azure
+title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968560"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173337"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 

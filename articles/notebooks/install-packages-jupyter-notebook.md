@@ -1,23 +1,14 @@
 ---
 title: Installer des packages dans un bloc-notes Jupyter sur Azure
 description: Guide pratique pour installer des packages Python, R et F# à partir d’un bloc-notes Jupyter en cours d’exécution sur Azure.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: e6582bb21cb6d383e298bdf68bdb2f565147c20a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969938"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277545"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Installer des packages à partir d’un bloc-notes
 

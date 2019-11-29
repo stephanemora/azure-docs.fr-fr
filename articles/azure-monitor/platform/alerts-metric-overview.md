@@ -1,18 +1,18 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972057"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484249"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -143,41 +143,6 @@ Pour les alertes de métrique, vous êtes généralement informé en moins de 5�
 
 Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à savoir si les alertes de métrique prennent en charge tous les types de ressources que vous utilisez, le tableau suivant répertorie les types de ressources pris en charge par les alertes de métrique classiques et indique s'ils sont actuellement pris en charge ou non.
-
-|Type de ressource pris en charge par les alertes de métrique classiques | Pris en charge par les alertes de métrique |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | OUI |
-| Microsoft.Batch/batchAccounts| OUI|
-|Microsoft.Cache/redis| OUI |
-|Microsoft.ClassicCompute/virtualMachines | Non |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Non|
-|Microsoft.CognitiveServices/accounts | Non |
-|Microsoft.Compute/virtualMachines | OUI|
-|Microsoft.Compute/virtualMachineScaleSets| OUI|
-|Microsoft.ClassicStorage/storageAccounts| Non |
-|Microsoft.DataFactory/datafactories | OUI|
-|Microsoft.DBforMySQL/servers| OUI|
-|Microsoft.DBforPostgreSQL/servers| OUI|
-|Microsoft.Devices/IotHubs | Non|
-|Microsoft.DocumentDB/databaseAccounts| OUI|
-|Microsoft.EventHub/namespaces | OUI|
-|Microsoft.Logic/workflows | OUI|
-|Microsoft.Network/loadBalancers |OUI|
-|Microsoft.Network/publicIPAddresses| OUI|
-|Microsoft.Network/applicationGateways| OUI|
-|Microsoft.Network/expressRouteCircuits| OUI|
-|Microsoft.Network/trafficManagerProfiles | OUI|
-|Microsoft.Search/searchServices | OUI|
-|Microsoft.ServiceBus/namespaces| OUI |
-|Microsoft.Storage/storageAccounts | OUI|
-|Microsoft.StreamAnalytics/streamingjobs| OUI|
-|Microsoft.TimeSeriesInsights/environments | OUI|
-|Microsoft. Web/serverfarms | OUI |
-|Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
-|Microsoft. Web/hostingEnvironments/multiRolePools | Non|
-|Microsoft. Web/hostingEnvironments/workerPools| Non |
-|Microsoft.SQL/Servers | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

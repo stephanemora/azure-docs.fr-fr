@@ -1,20 +1,14 @@
 ---
-title: Déploiement Push de fichier Zip pour Azure Functions | Microsoft Docs
+title: Déploiement Push de fichier Zip pour Azure Functions
 description: Utilisez les fonctionnalités de déploiement de fichier Zip du service de déploiement Kudu pour publier vos Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.author: glenga
-ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087589"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233061"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 

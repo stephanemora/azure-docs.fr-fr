@@ -1,19 +1,15 @@
 ---
 title: Plug-ins Jenkins pour Azure
 description: En savoir plus sur le plug-in Jenkins disponible pour Azure
-ms.service: jenkins
 keywords: jenkins, plug-ins, azure, devops
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 03/22/2019
 ms.topic: article
-ms.openlocfilehash: c103bc0a314f1e5a4a0afef3f7969f53b6a0dccd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ecc8f7f7435cbb0dbc80f334f27aaca7f4cd1ed7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640966"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158798"
 ---
 # <a name="jenkins-plugins-for-azure"></a>Plug-ins Jenkins pour Azure
 

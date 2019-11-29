@@ -1,20 +1,16 @@
 ---
 title: Singletons pour l’extension Fonctions durables - Azure
 description: Découvrez comment utiliser des singletons dans l’extension Durable Functions pour Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ec7eb1eba2bc029d592560b39cde20e93e5afcd6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614661"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232798"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrateurs de singleton dans l’extension Fonctions durables (Azure Functions)
 
@@ -56,7 +52,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 ### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 

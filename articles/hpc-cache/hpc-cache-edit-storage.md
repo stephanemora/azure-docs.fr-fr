@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: rohogue
-ms.openlocfilehash: 757fbc166687110b9061ab95e96b0182e0ad3774
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622746"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168520"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
@@ -47,7 +47,7 @@ Après avoir apporté les modifications souhaitées, cliquez sur **OK** pour met
 
 ## <a name="update-an-azure-blob-storage-target"></a>Mettre à jour une cible de stockage d’objets blob Azure
 
-La page de détails d’une cible de stockage d’objets blob vous permet de modifier le chemin d’accès à l’espace de noms virtuels. 
+La page de détails d’une cible de stockage d’objets blob vous permet de modifier le chemin d’accès à l’espace de noms virtuels.
 
 ![Capture d’écran de la page de modification d’une cible de stockage d’objets blob](media/hpc-cache-edit-storage-blob.png)
 

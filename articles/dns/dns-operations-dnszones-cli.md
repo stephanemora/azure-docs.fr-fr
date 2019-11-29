@@ -3,7 +3,7 @@ title: Gérer des zones DNS dans Azure DNS -Interface de ligne de commande Azure
 description: Vous pouvez gérer des zones DNS à l’aide de l’interface de ligne de commande Azure. Cet article explique comment mettre à jour, supprimer et créer des zones DNS sur Azure DNS.
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: victorh
-ms.openlocfilehash: 14d0512a10329f36872d111825261ebc5ef71976
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: e1a3c401de32beb9757011ac306443334da8b867
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959381"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211920"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Gérer des zones DNS à l’aide de l’interface de ligne de commande Azure
 

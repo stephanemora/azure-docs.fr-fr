@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 7dd0000d6797411d56143f8a977e4c478d551858
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 951cd7ae8962d71f41899eca848ce0740d6395ad
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694737"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538755"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -73,7 +73,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 Kubernetes prend en charge la [mise à l’échelle automatique des pods horizontaux][kubernetes-hpa] pour ajuster le nombre de pods dans un déploiement en fonction de l’utilisation du processeur ou d’autres métriques. [Metrics Server][metrics-server] est utilisé pour indiquer l’utilisation des ressources à Kubernetes et est automatiquement déployé dans les clusters AKS versions 1.10 et ultérieures. Pour voir la version de votre cluster AKS, utilisez la commande [az aks show][az-aks-show], comme indiqué dans l’exemple suivant :
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]

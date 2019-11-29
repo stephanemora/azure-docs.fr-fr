@@ -1,19 +1,14 @@
 ---
-title: Authentification Azure Container Registry avec une identité managée
+title: Authentifier avec l’identité gérée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
-ms.author: danlep
-ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309883"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456495"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 

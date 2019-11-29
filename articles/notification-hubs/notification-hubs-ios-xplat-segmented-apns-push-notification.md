@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 07/28/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 07/28/2019
-ms.openlocfilehash: 8299725cf6977ca309d57b40f4792ff9b074a8cb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213232"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228165"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
 
@@ -61,6 +61,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
      ![Générateur d’interface Xcode][3]
 
 2. Dans l'éditeur de l'Assistant, créez des outlets pour tous les commutateurs et appelez-les "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
+
 3. Créez une Action pour le bouton intitulé `subscribe` ; votre `ViewController.h` doit contenir le code suivant :
 
     ```objc

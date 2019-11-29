@@ -1,20 +1,14 @@
 ---
-title: Installer le serveur de sauvegarde Azure sur Azure Stack | Microsoft Docs
+title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012933"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172395"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 

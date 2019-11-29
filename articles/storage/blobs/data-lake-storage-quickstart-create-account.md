@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 675d1889fc74474a1d732cb5d4e9f46c638ce200
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57350bd00a33c36b5aef3a0ccd3034b4db3d2c55
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467925"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227948"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Créer un compte de stockage Azure Data Lake Storage Gen2
 
@@ -95,7 +95,7 @@ Pour supprimer un groupe de ressources dans le portail Azure :
 
 ## <a name="create-an-account-using-powershell"></a>Créer un compte à l’aide de PowerShell
 
-Commencez par installer la dernière version du module [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+Commencez par installer la dernière version du module [PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Ensuite, mettez à niveau votre module PowerShell, connectez-vous à votre abonnement Azure, et créez un groupe de ressources, puis un compte de stockage.
 

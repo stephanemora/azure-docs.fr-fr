@@ -8,13 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 935cdbf54360dc0e2a98936d9c589405040cd85d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839615"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457452"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 

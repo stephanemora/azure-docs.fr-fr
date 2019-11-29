@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 288ea7e887a170c8560b0126fa53c9132da35db6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f3a8426856e1345306acff69946beb4860d5f905
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332666"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151519"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Élément d’interface utilisateur Microsoft.Compute.SizeSelector
+
 Contrôle permettant de sélectionner une taille pour une ou plusieurs instances de machine virtuelle.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
@@ -34,6 +35,7 @@ Après avoir sélectionné le contrôle, l’utilisateur voit une vue développ�
 ![Microsoft.Compute.SizeSelector développé](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## <a name="schema"></a>Schéma
+
 ```json
 {
   "name": "element1",
@@ -65,7 +67,14 @@ Après avoir sélectionné le contrôle, l’utilisateur voit une vue développ�
 }
 ```
 
+## <a name="sample-output"></a>Exemple de sortie
+
+```json
+"Standard_D1"
+```
+
 ## <a name="remarks"></a>Remarques
+
 - `recommendedSizes` doit disposer au moins d’une taille. La première taille recommandée est utilisée comme valeur par défaut. La liste des tailles disponibles n’est pas triée par état recommandé. L’utilisateur peut sélectionner cette colonne pour trier par état recommandé.
 - Si une taille recommandée n’est pas disponible à l’emplacement sélectionné, la taille est automatiquement ignorée. La taille recommandée suivante est alors utilisée.
 - `constraints.allowedSizes` et `constraints.excludedSizes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément. La liste des tailles disponibles peut être déterminée en appelant [Répertorier les tailles de machines virtuelles disponibles pour un abonnement](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Toute taille non spécifiée dans `constraints.allowedSizes` est masquée et toute taille non spécifiée dans `constraints.excludedSizes` s’affiche.
@@ -75,11 +84,7 @@ Après avoir sélectionné le contrôle, l’utilisateur voit une vue développ�
 - `numAvailabilityZonesRequired` peut être 1, 2 ou 3.
 - Par défaut, `hideDiskTypeFilter` est défini sur **false**. Le filtre du type de disque permet à l’utilisateur de voir tous les types de disques ou uniquement les disques SSD.
 
-## <a name="sample-output"></a>Exemple de sortie
-```json
-"Standard_D1"
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

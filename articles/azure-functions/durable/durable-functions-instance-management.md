@@ -1,20 +1,16 @@
 ---
 title: Gérer des instances dans Fonctions durables (Azure)
 description: Découvrez comment gérer des instances dans l’extension Fonctions durables pour Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6053303f292bc96b904447aa9beb0d5602871970
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ab9cc9b093008730d175fa3fde4391f9de236a84
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614810"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231375"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 

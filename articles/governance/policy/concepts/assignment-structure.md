@@ -3,12 +3,12 @@ title: Informations détaillées sur la structure d’attribution des stratégie
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960034"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279485"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -93,6 +93,6 @@ Dans cet exemple, les paramètres précédemment définis dans la définition de
 
 - En savoir plus sur la [structure des définitions de stratégies](./definition-structure.md)
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

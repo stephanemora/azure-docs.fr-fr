@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 6874372f56e814fad662813b558ca712fdf10671
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: efd17429ca74f170175faf3513dc79af384dd8d2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012991"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554216"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 Ensuite, créez une adresse IP publique avec la méthode d’allocation *statique* à l’aide de la commande [az network public-ip create][az-network-public-ip-create]. L’exemple suivant crée une adresse IP publique nommée *myAKSPublicIP* dans le groupe de ressources de cluster AKS obtenu à l’étape précédente :
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o tsv
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
 À présent, déployez le graphique *nginx-ingress* avec Helm. Ajoutez le paramètre `--set controller.service.loadBalancerIP` et spécifiez votre propre adresse IP publique créée à l’étape précédente. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
@@ -125,7 +125,7 @@ kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cer
 kubectl create namespace cert-manager
 
 # Label the cert-manager namespace to disable resource validation
-kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+kubectl label namespace cert-manager cert-manager.io/disable-validation=true
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
@@ -150,7 +150,7 @@ Cert-manager a besoin d’une ressource [Issuer][cert-manager-issuer] ou [Cluste
 Créez un émetteur de cluster, tel que `cluster-issuer.yaml`, avec l’exemple de manifeste suivant. Remplacez l’adresse e-mail par une adresse valide de votre organisation :
 
 ```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
@@ -161,7 +161,10 @@ spec:
     email: user@contoso.com
     privateKeySecretRef:
       name: letsencrypt-staging
-    http01: {}
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
 ```
 
 Pour créer l’émetteur, utilisez la commande `kubectl apply -f cluster-issuer.yaml`.
@@ -169,7 +172,7 @@ Pour créer l’émetteur, utilisez la commande `kubectl apply -f cluster-issuer
 ```
 $ kubectl apply -f cluster-issuer.yaml
 
-clusterissuer.certmanager.k8s.io/letsencrypt-staging created
+clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
 ## <a name="run-demo-applications"></a>Exécuter des applications de démonstration
@@ -213,7 +216,7 @@ metadata:
   namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
@@ -264,7 +267,7 @@ Type    Reason          Age   From          Message
 Si vous devez créer une ressource de certificat supplémentaire, vous pouvez le faire avec l’exemple de manifeste suivant. Mettez à jour les valeurs de *dnsNames* et de *domains* avec le nom DNS que vous avez créé à l’étape précédente. Si vous utilisez un contrôleur d’entrée interne uniquement, spécifiez le nom DNS interne pour votre service.
 
 ```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: tls-secret
@@ -289,7 +292,7 @@ Pour créer la ressource de certificat, utilisez la commande `kubectl apply -f c
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.cert-manager.io/tls-secret created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>Tester la configuration d’entrée

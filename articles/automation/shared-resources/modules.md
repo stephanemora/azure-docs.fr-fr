@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82f02f0ac11c80161f709b3b493306bc8aafc8bd
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435452"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231590"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -82,7 +82,7 @@ La liste ci-dessous recense les applets de commande du module interne `Orchestra
 
 ## <a name="add-a-connection-type-to-your-module"></a>Ajouter un type de connexion à votre module
 
-Vous pouvez indiquer un [type de connexion](../automation-connections.md) personnalisé à utiliser dans votre compte Automation en ajoutant un fichier facultatif à votre module. Il s’agit d’un fichier de métadonnées qui spécifie le type de connexion Azure Automation à utiliser avec les applets de commande du module dans votre compte Automation. Pour cela, vous devez dans un premier temps savoir comment créer un module PowerShell. Pour plus d’informations sur la création de modules, consultez [Guide pratique pour écrire un module de script PowerShell](/powershell/developer/module/how-to-write-a-powershell-script-module).
+Vous pouvez indiquer un [type de connexion](../automation-connections.md) personnalisé à utiliser dans votre compte Automation en ajoutant un fichier facultatif à votre module. Il s’agit d’un fichier de métadonnées qui spécifie le type de connexion Azure Automation à utiliser avec les applets de commande du module dans votre compte Automation. Pour cela, vous devez dans un premier temps savoir comment créer un module PowerShell. Pour plus d’informations sur la création de modules, consultez [Guide pratique pour écrire un module de script PowerShell](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ![Utiliser une connexion personnalisée sur le portail Azure](../media/modules/connection-create-new.png)
 

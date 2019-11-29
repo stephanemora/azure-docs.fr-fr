@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432063"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231494"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
 
@@ -136,14 +136,14 @@ Pour obtenir des informations sur la modification de l’intervalle de vérifica
 
 ## <a name="working-with-partial-configurations"></a>Utilisation de configurations partielles
 
-Azure Automation State Configuration prend en charge l’utilisation de [configurations partielles](/powershell/dsc/pull-server/partialconfigs).
+Azure Automation State Configuration prend en charge l’utilisation de [configurations partielles](/powershell/scripting/dsc/pull-server/partialconfigs).
 Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est récupérée à partir d’Azure Automation.
 Toutefois, on ne peut affecter qu’une seule configuration à un nœud par compte Automation.
 Cela signifie que, si vous utilisez deux configurations pour un nœud, vous aurez besoin de deux comptes Automation.
 
-Pour plus d’informations sur la façon d’inscrire une configuration partielle à partir du service d’extraction, consultez la documentation relative aux [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+Pour plus d’informations sur la façon d’inscrire une configuration partielle à partir du service d’extraction, consultez la documentation relative aux [configurations partielles](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
-Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code, consultez [Rôle de DSC dans un pipeline CI/CD](/powershell/dsc/overview/authoringadvanced).
+Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code, consultez [Rôle de DSC dans un pipeline CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Vérifier l’état de conformité d’un nœud géré
 

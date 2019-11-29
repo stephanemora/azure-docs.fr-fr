@@ -1,21 +1,16 @@
 ---
 title: Liaisons Azure IoT Hub pour Azure Functions
 description: Découvrez comment utiliser des liaisons IoT Hub dans Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: d8b749a294da379e99e61072ff7a3415c508d2ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 93a8dc600e8fadb16df8e82fbe02a1b186191d12
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097643"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227251"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Liaisons Azure IoT Hub pour Azure Functions
 

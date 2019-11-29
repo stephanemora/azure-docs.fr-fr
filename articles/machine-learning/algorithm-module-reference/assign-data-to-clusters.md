@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493868"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214552"
 ---
 # <a name="module-assign-data-to-clusters"></a>Module : Attribuer des données à des clusters
 
 Cet article décrit comment utiliser le module *Attribuer des données à des clusters* dans le concepteur Azure Machine Learning (préversion). Le module génère des prédictions via un modèle de clustering qui a été formé avec l’algorithme de *clustering k-moyennes*.
 
 Le module Attribuer des données à des clusters retourne un jeu de données contenant les attributions probables de chaque nouveau point de données. 
-
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>Comment utiliser le module Attribuer des données à des clusters
   

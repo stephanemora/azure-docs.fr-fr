@@ -1,19 +1,14 @@
 ---
 title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore. Découvrez comment installer le serveur de sauvegarde Azure v3 ou effectuer une mise à niveau vers ce dernier.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 086856865efba2d1b5e1b8e359ab1e4616aabec9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091547"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172216"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Nouveautés du serveur de sauvegarde Microsoft Azure
 

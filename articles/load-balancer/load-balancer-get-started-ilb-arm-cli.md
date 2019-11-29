@@ -1,6 +1,6 @@
 ---
 title: Créer un équilibreur de charge de base interne - Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Dans cet article, vous découvrirez comment créer un équilibreur de charge interne avec Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
-ms.openlocfilehash: 8492ce820a31183b0b3078b1fb366c25a39b7639
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8726991682ca8c2eabd628f1539ff940bf94e03d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076063"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215321"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI
 

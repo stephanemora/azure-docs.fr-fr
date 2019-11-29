@@ -3,12 +3,12 @@ title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961617"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210319"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -23,7 +23,7 @@ Pour permettre à Azure PowerShell de gérer les affectations de blueprints, vou
 Le module Azure Blueprint nécessite les logiciels suivants :
 
 - Azure PowerShell 1.5.0 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 ou une version ultérieure. S’il n’est pas installé ou mis à jour, suivez [ces instructions](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 ou une version ultérieure. S’il n’est pas installé ou mis à jour, suivez [ces instructions](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Installer le module
 

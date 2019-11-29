@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 10/11/2019
+ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 545826a66e518366cd993a1e293c4137bde08c22
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839086"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406432"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

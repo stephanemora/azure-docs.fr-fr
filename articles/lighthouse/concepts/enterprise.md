@@ -2,13 +2,13 @@
 title: Azure Lighthouse dans les scénarios d’entreprise
 description: Les fonctionnalités d’Azure Lighthouse peuvent être utilisées pour simplifier la gestion inter-locataire au sein d’une entreprise qui utilise plusieurs locataires Azure AD.
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132497"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463917"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse dans les scénarios d’entreprise
 

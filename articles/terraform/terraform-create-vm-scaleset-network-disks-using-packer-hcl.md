@@ -1,17 +1,14 @@
 ---
 title: 'Tutoriel : Créer un groupe identique de machines virtuelles Azure à partir d’une image personnalisée Packer à l’aide de Terraform'
 description: Utilisez Terraform pour effectuer la configuration et gérer les versions d’un groupe de machines virtuelles Azure identiques à partir d’une image personnalisée générée par Packer (comprenant un réseau virtuel et des disques attachés gérés).
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077811"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159288"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Didacticiel : Créer un groupe identique de machines virtuelles Azure à partir d’une image personnalisée Packer à l’aide de Terraform
 

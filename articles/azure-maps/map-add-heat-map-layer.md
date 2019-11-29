@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e83b3c5f7f7cb6fa729a628f01f4103d44c19df8
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: f7115e7c8b95efd0e3bbc8a788528878c2d1f092
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976183"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484312"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
@@ -26,6 +26,10 @@ Les cartes thermiques, également appelées « cartes de densité de points »
 
 > [!TIP]
 > Les couches par défaut de la carte thermique restituent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 

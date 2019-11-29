@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 560158dce3c70049ad3faa11a5ffb9a1858aa445
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837669"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228249"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio (classique) : Déploiement et consommation
 
@@ -37,7 +37,7 @@ Les liens suivants fournissent des informations générales sur le processus de 
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
 
   * [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
-  * [Comment déployer un service web dans plusieurs régions](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [Comment déployer un service web dans plusieurs régions](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
 

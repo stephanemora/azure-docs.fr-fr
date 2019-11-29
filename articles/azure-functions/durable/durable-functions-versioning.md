@@ -1,20 +1,16 @@
 ---
 title: Contrôle de version dans l’extension Fonctions durables - Azure
 description: Découvrez comment implémenter le contrôle de version dans l’extension Fonctions durables d’Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614513"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232758"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
 

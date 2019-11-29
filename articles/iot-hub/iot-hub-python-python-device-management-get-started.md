@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: eb5085db10c5763a4173f460eabde6afcccd5aff
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000436"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555514"
 ---
 # <a name="get-started-with-device-management-python"></a>Prise en main de la gestion d’appareils (Python)
 
@@ -57,15 +57,11 @@ Dans cette section, vous allez :
 
 * Utiliser les propriétés signalées pour activer les requêtes sur le jumeau d’appareil afin d’identifier les appareils et l’heure de leur dernier redémarrage
 
-1. À partir de votre invite de commandes, exécutez la commande suivante pour installer le package **azure-iot-device**:
+1. À partir de votre invite de commandes, exécutez la commande suivante pour installer le package **azure-iot-device** :
 
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > Le package PIP pour azure-iothub-service-client est actuellement disponible uniquement pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
-   >
 
 2. À l’aide d’un éditeur de texte, dans votre répertoire de travail, créez un fichier nommé **dmpatterns_getstarted_device.py**.
 
@@ -161,7 +157,7 @@ Dans cette section, vous créez une application console Python qui lance un red�
     ```
 
    > [!NOTE]
-   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   > Le package PIP pour azure-iothub-service-client n’est actuellement disponible que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
    >
 
 2. À l’aide d’un éditeur de texte, dans votre répertoire de travail, créez un fichier nommé **dmpatterns_getstarted_service.py**.

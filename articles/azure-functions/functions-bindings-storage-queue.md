@@ -1,22 +1,17 @@
 ---
 title: Liaisons de stockage File d’attente Azure pour Azure Functions
 description: Comprendre comment utiliser la liaison de sortie et le déclencheur Stockage File d’attente Azure dans Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c7f143f5d026b2fa6fa34c75d3616b05c3e97092
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3c27ff06237336d37ad1b5bed1b90aaa6b076f0b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294299"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230996"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -302,7 +297,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  |
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. |
-|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous pouvez ne spécifier que le reste du nom ici. Par exemple, si vous définissez « connection » sur « MyStorage », le runtime Functions recherche un paramètre d’application nommé « AzureWebJobsMyStorage ». Si vous laissez « connection » vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application « AzureWebJobsStorage ».|
+|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -619,7 +614,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
 |**queueName** |**QueueName** | Nom de la file d’attente. |
-|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous pouvez ne spécifier que le reste du nom ici. Par exemple, si vous définissez « connection » sur « MyStorage », le runtime Functions recherche un paramètre d’application nommé « AzureWebJobsMyStorage ». Si vous laissez « connection » vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application « AzureWebJobsStorage ».|
+|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

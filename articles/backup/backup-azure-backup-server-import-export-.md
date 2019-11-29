@@ -1,19 +1,15 @@
 ---
-title: Sauvegarde Azure - Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
+title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Découvrez comment la Sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le flux de travail de sauvegarde hors connexion pour DPM et serveur de sauvegarde Azure (MABS).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074301"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173245"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 
@@ -108,7 +104,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
 L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA qui sont envoyés au centre de données Azure le plus proche. Cet utilitaire est disponible dans le répertoire d’installation de l’agent Recovery Services dont le chemin d’accès est le suivant :
 
-*\\Microsoft Azure Recovery Services Agent\\Utils\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Accédez au répertoire, puis copiez le répertoire **AzureOfflineBackupDiskPrep** vers un ordinateur de copie auquel les disques SATA à préparer sont connectés. Vérifiez les points suivants concernant l’ordinateur de copie :
 

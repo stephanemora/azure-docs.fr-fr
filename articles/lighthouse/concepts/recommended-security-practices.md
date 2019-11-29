@@ -2,13 +2,13 @@
 title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez la gestion des ressources déléguées Azure, il est important de prendre en compte la sécurité et le contrôle d’accès.
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e0f0a9d4cdd56ff1bca9b9faf493d3e0d68e558c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132474"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463904"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 

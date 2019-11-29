@@ -9,13 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 83e2490821f59adeb37958c6c31403121a40274e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540900"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457365"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -192,7 +191,7 @@ Pour modifier un déploiement, effectuez les étapes suivantes :
    * Condition cible
    * Métriques : vous pouvez modifier ou supprimer des métriques que vous avez définies, ou en ajouter de nouvelles.
    * Étiquettes
-   * Priorité
+   * Priority
 1. Sélectionnez **Enregistrer**.
 1. Suivez les étapes fournies dans [Surveiller un déploiement](#monitor-a-deployment) pour observer le déploiement des modifications. 
 

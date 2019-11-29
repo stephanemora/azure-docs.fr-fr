@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0fc23a63ba9c54896212f0a3f398b33514fbb5f1
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030004"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555356"
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 
@@ -56,7 +56,7 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
    ```
 
    > [!NOTE]
-   > Le package PIP pour azure-iothub-service-client n’est actuellement disponible que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   > Le package PIP pour azure-iothub-service-client n’est actuellement disponible que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
    >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **AddTagsAndQuery.py**.

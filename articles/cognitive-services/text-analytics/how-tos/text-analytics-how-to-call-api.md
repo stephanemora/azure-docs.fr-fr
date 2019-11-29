@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837209"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286608"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -25,8 +25,7 @@ Chaque demande doit inclure votre clé d’accès et un point de terminaison HTT
 
 Rappelez-vous qu’Analyse de texte étant sans état, il y a pas de ressources de données à gérer. Votre texte est chargé et analysé dès réception, puis les résultats sont retournés immédiatement à l’application appelante.
 
-> [!Tip]
-> Pour effectuer des appels ponctuels afin d’observer le fonctionnement de l’API, vous pouvez envoyer des demandes POST à partir de la **console de test d’API**, accessible via la [page de documentation de toute API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Aucune installation n’est nécessaire, et les seules exigences sont de coller une clé d’accès et les documents JSON dans la demande. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

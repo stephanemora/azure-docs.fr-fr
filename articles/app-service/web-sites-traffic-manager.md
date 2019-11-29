@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb63b25ee9257a402a9887bc8ed8aa83370f3ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066404"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483381"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Contrôle du trafic Azure App Service avec Azure Traffic Manager
 > [!NOTE]
@@ -34,7 +34,7 @@ Vous pouvez utiliser Azure Traffic Manager pour contrôler la façon dont les re
 ## <a name="routing-methods"></a>Méthodes de routage
 Azure Traffic Manager utilise quatre méthodes de routage. Ces méthodes sont décrites dans la liste suivante, car elles se rapportent à Azure App Service.
 
-* **[Priorité](../traffic-manager/traffic-manager-routing-methods.md#priority) :** utilisez une application principale pour tout le trafic, et fournissez des sauvegardes au cas où celle-ci ou les applications de sauvegarde ne seraient pas disponibles.
+* **[Priorité](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) :** utilisez une application principale pour tout le trafic, et fournissez des sauvegardes au cas où celle-ci ou les applications de sauvegarde ne seraient pas disponibles.
 * **[Pondération](../traffic-manager/traffic-manager-routing-methods.md#weighted) :** répartissez le trafic sur un ensemble d’applications, uniformément ou en fonction du poids que vous définissez.
 * **[Performances](../traffic-manager/traffic-manager-routing-methods.md#performance) :** lorsque vous avez des applications à différents emplacements géographiques, utilisez l’application « la plus proche » en termes de latence réseau faible.
 * **[Géographique](../traffic-manager/traffic-manager-routing-methods.md#geographic) :** orientez les utilisateurs vers des applications spécifiques en fonction de l’emplacement géographique d’où provient leur requête DNS. 
@@ -57,5 +57,4 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
-Pour plus d’informations sur l’utilisation de Traffic Manager avec App Service, consultez les billets de blog [Utilisation de Microsoft Azure Traffic Manager avec WAWS](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
 

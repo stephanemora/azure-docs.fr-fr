@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 71b4a8abc641a3ab11d6b17bbc8de3b42b61c34c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 71339565eed9f41f8f32da852a727c82df482662
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820556"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483950"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -185,7 +185,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Quelles sont les options d’accès conditionnel ?|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Règles de revendication AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Le blocage des protocoles hérités est-il pris en charge ?|[Oui](../../active-directory/conditional-access/conditions.md)|[Oui](../../active-directory/conditional-access/conditions.md)|[Oui](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Pouvez-vous personnaliser le logo, l’image et la description sur les pages de connexion ?|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui](../../active-directory/hybrid/how-to-connect-fed-management.md)|
-|Quels sont les scénarios avancés pris en charge ?|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[Rapports des informations d’identification divulguées, avec Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)|Système d’authentification multisite à faible latence<br><br>[Verrouillage extranet AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Intégration aux systèmes d’identité tiers](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
+|Quels sont les scénarios avancés pris en charge ?|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)<br><br>[Rapports des informations d’identification divulguées, avec Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)|Système d’authentification multisite à faible latence<br><br>[Verrouillage extranet AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Intégration aux systèmes d’identité tiers](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
 > [!NOTE]
 > Contrôles personnalisés dans Azure AD. L’accès conditionnel ne prend actuellement pas en charge l’inscription d’appareil.

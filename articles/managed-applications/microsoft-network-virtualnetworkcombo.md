@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d325230f603be4ccfe4fe42f1b58c6ad892fdb2c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708345"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151481"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Network.VirtualNetworkCombo
+
 Groupe de contrôles pour la sélection d’un réseau virtuel nouveau ou existant.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
+
 Lorsque l’utilisateur sélectionne un nouveau réseau virtuel, il peut personnaliser le préfixe de nom et d’adresse de chaque sous-réseau. La configuration des sous-réseaux est facultative.
 
 ![Microsoft.Network.VirtualNetworkCombo nouveau](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
@@ -33,6 +35,7 @@ Lorsque l’utilisateur sélectionne un réseau virtuel existant, il doit mettre
 ![Microsoft.Network.VirtualNetworkCombo existant](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Schéma
+
 ```json
 {
   "name": "element1",
@@ -85,16 +88,6 @@ Lorsque l’utilisateur sélectionne un réseau virtuel existant, il doit mettre
 }
 ```
 
-## <a name="remarks"></a>Remarques
-- S’il est spécifié, le premier préfixe de taille d’adresse sans chevauchement `defaultValue.addressPrefixSize` est déterminé automatiquement selon les réseaux virtuels existants de l’abonnement de l’utilisateur.
-- La valeur par défaut pour `defaultValue.name` et `defaultValue.addressPrefixSize` est **null**.
-- `constraints.minAddressPrefixSize` doit être spécifié. Des réseaux virtuels existants dont l’espace d’adressage est plus petit que la valeur spécifiée ne sont pas disponibles à la sélection.
-- `subnets` doit être spécifié, et `constraints.minAddressPrefixSize` doit être spécifié pour chaque sous-réseau.
-- Lorsque vous créez un réseau virtuel, le préfixe d’adresse de chaque sous-réseau est calculé automatiquement en fonction du préfixe d’adresse du réseau virtuel et du `addressPrefixSize` respectif.
-- Lorsque vous utilisez un réseau virtuel existant, tous les sous-réseaux dont la taille est inférieure à la valeur `constraints.minAddressPrefixSize` respective ne sont pas disponibles à la sélection. De plus, si cet élément est spécifié, les sous-réseaux qui ne contiennent pas au moins `minAddressCount` adresses disponibles ne sont pas disponibles à la sélection. La valeur par défaut est **0**. Pour vous assurer que les adresses disponibles sont contiguës, spécifiez **true** pour `requireContiguousAddresses`. La valeur par défaut est **true**.
-- La création de sous-réseaux dans un réseau virtuel n’est pas prise en charge.
-- Si `options.hideExisting` est défini sur **true**, l’utilisateur ne peut pas choisir de réseau virtuel existant. La valeur par défaut est **false**.
-
 ## <a name="sample-output"></a>Exemple de sortie
 
 ```json
@@ -118,6 +111,18 @@ Lorsque l’utilisateur sélectionne un réseau virtuel existant, il doit mettre
 }
 ```
 
+## <a name="remarks"></a>Remarques
+
+- S’il est spécifié, le premier préfixe de taille d’adresse sans chevauchement `defaultValue.addressPrefixSize` est déterminé automatiquement selon les réseaux virtuels existants de l’abonnement de l’utilisateur.
+- La valeur par défaut pour `defaultValue.name` et `defaultValue.addressPrefixSize` est **null**.
+- `constraints.minAddressPrefixSize` doit être spécifié. Des réseaux virtuels existants dont l’espace d’adressage est plus petit que la valeur spécifiée ne sont pas disponibles à la sélection.
+- `subnets` doit être spécifié, et `constraints.minAddressPrefixSize` doit être spécifié pour chaque sous-réseau.
+- Lorsque vous créez un réseau virtuel, le préfixe d’adresse de chaque sous-réseau est calculé automatiquement en fonction du préfixe d’adresse du réseau virtuel et du `addressPrefixSize` respectif.
+- Lorsque vous utilisez un réseau virtuel existant, tous les sous-réseaux dont la taille est inférieure à la valeur `constraints.minAddressPrefixSize` respective ne sont pas disponibles à la sélection. De plus, si cet élément est spécifié, les sous-réseaux qui ne contiennent pas au moins `minAddressCount` adresses disponibles ne sont pas disponibles à la sélection. La valeur par défaut est **0**. Pour vous assurer que les adresses disponibles sont contiguës, spécifiez **true** pour `requireContiguousAddresses`. La valeur par défaut est **true**.
+- La création de sous-réseaux dans un réseau virtuel n’est pas prise en charge.
+- Si `options.hideExisting` est défini sur **true**, l’utilisateur ne peut pas choisir de réseau virtuel existant. La valeur par défaut est **false**.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

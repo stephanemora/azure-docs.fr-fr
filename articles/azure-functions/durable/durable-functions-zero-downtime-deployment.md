@@ -1,19 +1,16 @@
 ---
 title: Déploiement sans temps d’arrêt pour Durable Functions
 description: Apprenez à activer l’orchestration Durable Functions pour les déploiements sans temps d’arrêt.
-services: functions
 author: tsushi
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: af19f8cdcc26d1459bc024f00b963f04bd8d763b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904038"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231257"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 

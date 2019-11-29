@@ -1,19 +1,19 @@
 ---
-title: Journalisation et diagnostics dans Azure Spatial Anchors | Microsoft Docs
+title: Journalisation et diagnostics
 description: Explication détaillée de la méthode à suivre pour générer et récupérer des diagnostics et des journaux dans Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964740"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270128"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Journalisation et diagnostics dans Azure Spatial Anchors
 
@@ -50,7 +50,7 @@ Ces rappels d’événement sont fournis pour traiter les journaux et les erreur
 
 Outre le mode standard de fonctionnement à des fins de journalisation, Spatial Anchors propose un mode de diagnostic. Ce mode capture les images de l’environnement et les enregistre sur le disque. Vous pouvez utiliser ce mode pour déboguer certains types de problèmes, par exemple lorsque vous ne parvenez pas à localiser une ancre de manière fiable. N’activez l’enregistrement des diagnostics que pour reproduire un problème spécifique. Ensuite, désactivez-le. Ne le démarrez pas lorsque les applications s’exécutent normalement.
 
-Cependant, lorsque vous contactez le support de Microsoft, un représentant peut vous demander si vous voulez lui envoyer un ensemble de diagnostics à des fins d’enquête. Dans ce cas, vous pouvez activer les diagnostics, afin de reproduire le problème et d’envoyer ces informations au support. 
+Cependant, lorsque vous contactez le support de Microsoft, un représentant peut vous demander si vous voulez lui envoyer un ensemble de diagnostics à des fins d’enquête. Dans ce cas, vous pouvez activer les diagnostics, afin de reproduire le problème et d’envoyer ces informations au support.
 
 Si vous envoyez un journal de diagnostic à Microsoft sans avoir reçu l’accord préalable d’un représentant Microsoft, votre demande restera sans réponse.
 
@@ -88,7 +88,7 @@ private void ConfigureSession()
 
 ### <a name="submit-the-diagnostics-bundle"></a>Envoyer un ensemble de diagnostics
 
-L’extrait de code suivant montre comment envoyer un ensemble de diagnostics à Microsoft. Cet ensemble inclut les images de l’environnement capturées par la session une fois que vous avez activé les diagnostics. 
+L’extrait de code suivant montre comment envoyer un ensemble de diagnostics à Microsoft. Cet ensemble inclut les images de l’environnement capturées par la session une fois que vous avez activé les diagnostics.
 
 ```csharp
 // method to handle the diagnostics bundle submission

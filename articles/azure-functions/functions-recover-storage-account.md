@@ -1,22 +1,16 @@
 ---
 title: Comment résoudre les problèmes du runtime d’Azure Functions est inaccessible.
 description: Découvrez comment résoudre les problèmes relatifs à un compte de stockage non valide.
-services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085329"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226763"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 

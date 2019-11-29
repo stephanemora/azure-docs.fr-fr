@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d9c6c9b73f8887d4fdb85da277b2e27d8f5221c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243563"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231715"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -263,7 +263,7 @@ Pour plus d’informations sur la façon de signer des configurations de nœud, 
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>Compilation d’une configuration dans Windows PowerShell
 
-Le processus de compilation des configurations DSC dans Windows PowerShell est inclus dans la documentation DSC PowerShell [Écrire, compiler et appliquer une configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+Le processus de compilation des configurations DSC dans Windows PowerShell est inclus dans la documentation DSC PowerShell [Écrire, compiler et appliquer une configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
 Vous pouvez l’exécuter à partir d’une station de travail de développeur ou dans un service de build tel qu’[Azure DevOps](https://dev.azure.com).
 
 Les fichiers MOF générés par la compilation de la configuration peuvent ensuite être importés directement dans le service Azure State Configuration.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 746994585dfa968a8d8d982908ad424b08c06066
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726912"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384194"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -93,7 +93,7 @@ Les points de terminaison de service sont un autre moyen d’appliquer un contr�
 
 En savoir plus :
 
-* [Points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md#securing-azure-services-to-virtual-networks)
+* [Points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### <a name="route-control-and-forced-tunneling"></a>Contrôle du routage et tunneling forcé
 

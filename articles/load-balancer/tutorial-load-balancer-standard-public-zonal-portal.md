@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Ce tutoriel montre comment créer un équilibreur de charge standard avec serveur frontal zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273401"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225167"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 

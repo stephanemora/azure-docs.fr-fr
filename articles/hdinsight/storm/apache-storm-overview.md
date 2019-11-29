@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 73a3359955bf50929f083d542e6a0583b356a280
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903753"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228855"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Présentation d’Apache Storm sur Azure HDInsight
 
@@ -78,7 +78,7 @@ Vous pouvez créer un nouveau cluster Storm sur HDInsight en quelques minutes. P
 
 * __Connectivité web__ : tous les clusters HDInsight fournissent l’interface utilisateur web Ambari. Vous pouvez surveiller, configurer et gérer facilement des services sur votre cluster à l’aide de l’interface utilisateur web Ambari. Les clusters Storm fournissent également l’interface utilisateur Storm. Vous pouvez surveiller et gérer des topologies Storm en cours d’exécution à partir de votre navigateur à l’aide de l’interface utilisateur Storm.
 
-  Pour en savoir plus, consultez les documents [Manage HDInsight using the Apache Ambari Web UI (Gérer HDInsight à l’aide de l’interface utilisateur web Ambari)](../hdinsight-hadoop-manage-ambari.md) et [Surveillance et gestion à l’aide de l’interface utilisateur Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
+  Pour en savoir plus, consultez les documents [Manage HDInsight using the Apache Ambari Web UI (Gérer HDInsight à l’aide de l’interface utilisateur web Ambari)](../hdinsight-hadoop-manage-ambari.md) et [Surveillance et gestion à l’aide de l’interface utilisateur Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui).
 
 * __Azure PowerShell et Azure CLI__ : PowerShell et l’interface CLI classique fournissent des utilitaires de ligne de commande que vous pouvez utiliser avec HDInsight et d’autres services Azure, à partir de votre système client.
 

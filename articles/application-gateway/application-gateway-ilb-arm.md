@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e0dedb13bf7365e011eb3403fb7ec110a4290ec9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012891"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179329"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Créer une passerelle d’application avec un équilibreur de charge interne (ILB)
 
@@ -259,8 +259,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous souhaitez configurer le déchargement SSL, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
-
-Si vous souhaitez configurer une passerelle d’application à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
 Si vous souhaitez plus d'informations sur les options d'équilibrage de charge en général, consultez :
 

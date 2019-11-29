@@ -1,21 +1,16 @@
 ---
-title: Échelle et hébergement dans Azure Functions | Microsoft Docs
+title: Échelle et hébergement dans Azure Functions
 description: Découvrez comment choisir entre le plan Consommation et le plan Premium d’Azure Functions.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, fonctions, plan consommation, plan premium, traitement des événements, webhooks, calcul dynamique, architecture serverless
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576056"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322885"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -32,9 +27,6 @@ Les plans Consommation et Premium ajoutent automatiquement de la puissance de ca
 Le plan Premium fournit des fonctionnalités supplémentaires, telles que des instances de calcul premium, la possibilité de conserver les instances chaudes indéfiniment et la connectivité de réseau virtuel.
 
 Le plan App Service vous permet d’exploiter l’infrastructure dédiée que vous gérez. L’échelle de votre Function App ne change pas en fonction des événements, un scale-down jusqu’à zéro est donc impossible. ([Always On](#always-on) doit être activé.)
-
-> [!NOTE]
-> Vous pouvez basculer entre les plans Consommation et Premium en modifiant la propriété de plan de la ressource de la Function App.
 
 ## <a name="hosting-plan-support"></a>Prise en charge du plan d’hébergement
 

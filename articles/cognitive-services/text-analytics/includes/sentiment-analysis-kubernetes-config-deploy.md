@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: f1c571e421dccad366abf403de350b07113e04ba
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: bd93773e4d3c5e06bca752612dac6c563a2f5da1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130030"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383483"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Déployer le conteneur Analyse des sentiments vers un cluster AKS
 
@@ -66,6 +66,13 @@ ms.locfileid: "71130030"
             image: mcr.microsoft.com/azure-cognitive-services/sentiment
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -91,7 +98,7 @@ ms.locfileid: "71130030"
 1. Exécutez la commande `apply` Kubernetes avec le fichier *sentiment.yaml* comme cible :
 
     ```console
-    kuberctl apply -f sentiment.yaml
+    kubectl apply -f sentiment.yaml
     ```
 
     Une fois la configuration de déploiement correctement appliquée par la commande, un message similaire à la sortie suivante s’affiche :

@@ -4,17 +4,16 @@ description: Déployez un module de stockage Blob Azure sur votre appareil IoT E
 author: arduppal
 ms.author: arduppal
 ms.date: 08/07/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 603c407f93294f2c9697dcee4c3d5d829033d5d9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e5241e078cd8d36a9e43b4b55a649c1e24c85345
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176964"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456868"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 

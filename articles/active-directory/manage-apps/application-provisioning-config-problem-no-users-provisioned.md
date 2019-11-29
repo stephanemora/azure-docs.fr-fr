@@ -1,5 +1,5 @@
 ---
-title: Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD | Microsoft Docs
+title: Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD
 description: Résolution des problèmes courants rencontrés lorsque les utilisateurs ne figurent pas dans une application de la galerie Azure AD que vous avez configurée pour l’approvisionnement d’utilisateurs avec Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0562027bb599b596b640e0c1a669447e3fed9680
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1683f645e1ed81a8a415214fbb83ee80572be3ee
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034165"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275837"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD
 Une fois que l’approvisionnement automatique a été configuré pour une application (avec notamment la vérification des informations d’identification de l’application fournies à Azure AD pour la connexion à l’application), les utilisateurs et/ou groupes sont approvisionnés sur l’application. L’approvisionnement est déterminé par les éléments suivants :

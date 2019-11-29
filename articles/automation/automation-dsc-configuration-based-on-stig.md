@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243528"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231673"
 ---
 # <a name="configuration-based-on-stig"></a>Configuration basée sur STIG
 
@@ -43,6 +43,6 @@ Pour tester PowerSTIG, accédez à [PowerShell Gallery](http://www.powershellgal
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble d’Azure Automation DSC](/powershell/dsc/overview/overview)
-- [Ressources DSC](/powershell/dsc/resources/resources)
-- [Configuration de Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Vue d’ensemble d’Azure Automation DSC](/powershell/scripting/dsc/overview/overview)
+- [Ressources DSC](/powershell/scripting/dsc/resources/resources)
+- [Configuration de Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

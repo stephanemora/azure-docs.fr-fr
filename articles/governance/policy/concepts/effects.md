@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959901"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279510"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -571,6 +571,6 @@ Chaque affectation est évaluée individuellement. Par conséquent, une ressourc
 - Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](definition-structure.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715517"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158653"
 ---
 # <a name="assess-servers-using-imported-data"></a>Évaluer les serveurs à l’aide de données importées
 
-> [!NOTE]
-> Si vous ne voyez pas encore cette fonctionnalité dans le portail Azure Migrate, patientez un peu. Elle apparaîtra au cours de la semaine suivante ou un peu plus tard.
-
-Cet article explique comment évaluer des serveurs locaux avec [Azure Migrate : Évaluation de serveur](migrate-services-overview.md#azure-migrate-server-assessment-tool), en important des métadonnées de serveur à via CSV. Avec cette méthode d’évaluation, vous n’avez pas besoin de configurer l’appliance Azure Migrate pour créer une évaluation. Cela est utile si : 
+Cet article explique comment évaluer des serveurs locaux avec [Azure Migrate : Évaluation de serveur](migrate-services-overview.md#azure-migrate-server-assessment-tool), en important des métadonnées de serveur à via CSV. Avec cette méthode d’évaluation, vous n’avez pas besoin de configurer l’appliance Azure Migrate pour créer une évaluation. Cela est utile si :
 
 - Vous souhaitez créer une évaluation initiale rapide avant de déployer l’appliance.
 - Vous ne pouvez pas déployer l’appliance Azure Migrate dans votre organisation.
@@ -49,7 +46,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Configurer des autorisations Azure pour Azure Migrate 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Configurer des autorisations Azure pour Azure Migrate
 
 votre compte Azure doit être autorisé à créer un projet Azure Migrate.
 
@@ -116,7 +113,7 @@ Le tableau suivant récapitule les champs du fichier à remplir.
 
 **Nom du champ** | **Obligatoire** | **Détails**
 --- | --- | ---
-**Nom du serveur** | OUI | Nous vous recommandons de spécifier le nom de domaine complet (FQDN). 
+**Nom du serveur** | OUI | Nous vous recommandons de spécifier le nom de domaine complet (FQDN).
 **Adresse IP** | Non | Adresse du serveur.
 **Nombre de cœurs** | OUI | Nombre de cœurs de processeur alloués au serveur.
 **Mémoire** | OUI | RAM totale (Mo) allouée au serveur.
@@ -144,7 +141,7 @@ Le tableau suivant récapitule les champs du fichier à remplir.
 **ID Virtual Machine Manager** | Non | Il s’agit de **InstanceUUid** pour VMWare vCenter. Non nécessaire pour Hyper-V.
 **Adresse MAC**| Non | Adresse MAC du serveur.
 **ID BIOS** | Non | ID BIOS du serveur.
-**ID de serveur personnalisé**| Non | ID de serveur uniques locaux sur site. <br/> Utiles pour le suivi du serveur importé par ID local. 
+**ID de serveur personnalisé**| Non | ID de serveur uniques locaux sur site. <br/> Utiles pour le suivi du serveur importé par ID local.
 **Nom de l’application 1** | Non | Nom des charges de travail exécutées sur le serveur.<br/> Vous pouvez ajouter les détails d’autres applications en [ajoutant des colonnes](#add-multiple-applications) dans le modèle. Vous pouvez ajouter jusqu’à cinq applications.
 **Type d’application 1** | Non | Type de charge de travail en cours d’exécution sur le serveur
 **Version d’application 1** | Non | Version de la charge de travail en cours d’exécution sur le serveur.
@@ -162,7 +159,7 @@ L’évaluation reconnaît des noms de système d’exploitation spécifiques. T
 
 ### <a name="add-multiple-disks"></a>Ajouter plusieurs disques
 
-Le modèle fournit des champs par défaut pour le premier disque.  Vous pouvez ajouter des colonnes similaires pour un maximum de 8 disques. 
+Le modèle fournit des champs par défaut pour le premier disque.  Vous pouvez ajouter des colonnes similaires pour un maximum de 8 disques.
 
 Par exemple, pour spécifier tous les champs pour un deuxième disque, ajoutez les colonnes :
 
@@ -192,10 +189,10 @@ Après avoir ajouté des informations au modèle CSV, importez les serveurs dans
 
 1. Dans Azure Migrate > **Découvrir les machines**, accédez au modèle rempli.
 2. Cliquez sur **Importer**.
-3. L’état de l’importation est affiché. 
+3. L’état de l’importation est affiché.
     - Si des avertissements s’affichent dans l’état, vous pouvez soit les corriger, soit poursuivre sans les résoudre.
     - L’amélioration de l’exactitude des informations sur le serveur, comme indiqué dans les avertissements, permet d’améliorer la précision de l’évaluation.
-    - Pour afficher et corriger les avertissements s’ils s’affichent, cliquez sur **Télécharger le fichier .CSV des détails de l’avertissement**. Cela télécharge le fichier CSV, avec les avertissements ajoutés. Vous pouvez passer en revue les avertissements et résoudre les problèmes si nécessaire. 
+    - Pour afficher et corriger les avertissements s’ils s’affichent, cliquez sur **Télécharger le fichier .CSV des détails de l’avertissement**. Cela télécharge le fichier CSV, avec les avertissements ajoutés. Vous pouvez passer en revue les avertissements et résoudre les problèmes si nécessaire.
     Si des erreurs s’affichent dans l’état (l’état de l’importation est **Échec**), vous devez les corriger avant de pouvoir continuer l’importation. Pour ce faire, téléchargez le fichier CSV, qui contient maintenant des détails sur l’erreur. Examinez et résolvez les erreurs en fonction des besoins. Puis, chargez à nouveau le fichier modifié.
 4. Lorsque l’état de l’importation est **Terminé**, les informations sur le serveur sont importées.
 
@@ -205,7 +202,7 @@ Après avoir ajouté des informations au modèle CSV, importez les serveurs dans
 
 ## <a name="updating-server-information"></a>Mise à jour des informations sur le serveur
 
-Vous pouvez mettre à jour les informations sur le serveur en chargeant à nouveau les données du serveur avec le même **nom de serveur**. Vous ne pouvez pas modifier le champ **Nom de serveur**. 
+Vous pouvez mettre à jour les informations sur le serveur en chargeant à nouveau les données du serveur avec le même **nom de serveur**. Vous ne pouvez pas modifier le champ **Nom de serveur**.
 
 La suppression de serveurs n’est pas prise en charge actuellement.
 
@@ -300,21 +297,21 @@ Cette vue montre une estimation des coûts de calcul et de stockage liés à l�
 
 Nom | Nom
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professionnel
-    
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

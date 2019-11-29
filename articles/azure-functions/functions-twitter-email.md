@@ -1,22 +1,18 @@
 ---
 title: Créer une fonction qui s’intègre avec Azure Logic Apps
 description: Créez une fonction qui s’intègre à Azure Logic Apps et à Azure Cognitive Services pour catégoriser les sentiments de tweets et envoyer des notifications quand le sentiment est peu favorable.
-services: functions, logic-apps, cognitive-services
-keywords: flux de travail, applications cloud, services cloud, processus d’entreprise, intégration de systèmes, intégration d’applications d’entreprise, IAE
 author: craigshoemaker
-manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480030"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226609"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 

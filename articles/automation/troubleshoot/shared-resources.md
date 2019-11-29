@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477452"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231530"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
 
@@ -29,7 +29,7 @@ Un module est bloqué dans l’état **Importation** quand vous importez ou mett
 
 #### <a name="cause"></a>Cause :
 
-L’importation de modules PowerShell est un processus complexe en plusieurs étapes. Ce processus introduit la possibilité qu’un module ne s’importe pas correctement. Si ce problème se produit, il se peut que le module que vous importez soit bloqué dans un état transitoire. Pour en savoir plus sur ce processus, voir [Importation d’un module PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+L’importation de modules PowerShell est un processus complexe en plusieurs étapes. Ce processus introduit la possibilité qu’un module ne s’importe pas correctement. Si ce problème se produit, il se peut que le module que vous importez soit bloqué dans un état transitoire. Pour en savoir plus sur ce processus, voir [Importation d’un module PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Résolution :
 

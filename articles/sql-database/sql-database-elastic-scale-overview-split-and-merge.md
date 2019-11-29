@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823599"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421555"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 
@@ -104,14 +104,15 @@ L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Gr
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
-    // Reference tables
+    // reference tables
     schemaInfo.Add(new ReferenceTableInfo("dbo", "region"));
     schemaInfo.Add(new ReferenceTableInfo("dbo", "nation"));
 
-    // Sharded tables
+    // sharded tables
     schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY"));
     schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY"));
-    // Publish
+
+    // publish
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
@@ -216,21 +217,26 @@ Le service de fusion et de fractionnement utilise Diagnostics Azure basé sur Az
 ## <a name="deploy-diagnostics"></a>Déployer des diagnostics
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour activer la surveillance et le diagnostic à l'aide de la configuration de diagnostic pour les rôles Web et les rôles de travail fournis par le package NuGet, exécutez les commandes suivantes à l'aide d'Azure PowerShell :
 
 ```powershell
-    $storage_name = "<YourAzureStorageAccount>"
-    $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
-    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
+$storageName = "<azureStorageAccount>"
+$key = "<azureStorageAccountKey"
+$storageContext = New-AzStorageContext -StorageAccountName $storageName -StorageAccountKey $key
+$configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
+$serviceName = "<cloudServiceName>"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
 Vous trouverez des informations supplémentaires sur la configuration et le déploiement des paramètres de diagnostic ici : [Activation des diagnostics dans Azure Cloud Services et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).

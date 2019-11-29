@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: f1fbfcaa80a3d1781878fe3d6eb14558a3b298a5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c424c18538a4e428c0e713bb814c2febe28d2d04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999529"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555567"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planifier et diffuser des travaux (Python)
 
@@ -74,10 +74,6 @@ Dans cette section, vous allez créer une application console Python qui répond
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > Le package PIP pour azure-iothub-service-client n’est actuellement disponible que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
-   >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **simDevice.py** dans votre répertoire de travail.
 
@@ -189,7 +185,7 @@ Dans cette section, vous créez une application console Python qui lance **lockD
     ```
 
    > [!NOTE]
-   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   > Le package PIP pour azure-iothub-service-client n’est actuellement disponible que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
    >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **scheduleJobService.py** dans votre répertoire de travail.

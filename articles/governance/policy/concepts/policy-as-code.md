@@ -3,12 +3,12 @@ title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072069"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267277"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
@@ -128,6 +128,6 @@ Cet article traite du workflow Policy as Code général et explique que l’éva
 - En savoir plus sur la [structure des définitions de stratégies](./definition-structure.md)
 - En savoir plus sur la [structure des attributions de stratégies](./assignment-structure.md)
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

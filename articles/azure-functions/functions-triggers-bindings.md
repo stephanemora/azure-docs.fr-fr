@@ -1,20 +1,16 @@
 ---
 title: Déclencheurs et liaisons dans Azure Functions
 description: Découvrez comment utiliser des déclencheurs et des liaisons pour connecter Azure Functions aux événements en ligne et aux services cloud.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 914158ba7cfcc7530120d427c62e69036b3bb156
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085084"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226558"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 

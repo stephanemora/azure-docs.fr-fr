@@ -1,21 +1,15 @@
 ---
-title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure avec l’API REST'
+title: Sauvegarder des machines virtuelles Azure avec l’API REST
 description: Dans cet article, découvrez comment configurer, lancer et gérer les opérations de la sauvegarde de machines virtuelles Azure avec l’API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929171"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554908"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -168,7 +162,7 @@ Dans l’exemple, les valeurs ci-dessus sont traduites en :
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Activation de la protection pour la machine virtuelle Azure
 
-Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
+Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protectionpolicies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
 
 L’activation de la protection est une opération *PUT* asynchrone qui crée un « élément protégé ».
 

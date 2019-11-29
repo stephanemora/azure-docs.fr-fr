@@ -2,18 +2,15 @@
 title: Contraintes de code d’orchestrateur durable - Azure Functions
 description: Relecture des fonctions d’orchestration et contraintes de code pour Azure Durable Functions.
 author: cgillum
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5fc4a7e4256e405ff1a91b88b2b001048cc832fc
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614986"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232973"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Contraintes de code des fonctions d’orchestrateur
 
