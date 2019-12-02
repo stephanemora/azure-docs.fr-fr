@@ -127,7 +127,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Pays/région |  Ville (zone urbaine) |
 |---------|---------|
 | Bahreïn | Bahreïn* |
-| Égypte | Le Caire*    |
+| Égypte | Le Caire    |
 | Israël| Israël*  |
 | Kenya | Nairobi  | 
 | Madagascar | Antananarivo |
