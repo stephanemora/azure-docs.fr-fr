@@ -88,7 +88,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Les régions sources sont répertoriées dans la table ci-dessous. Tout les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
+Les régions sources sont répertoriées dans la table ci-dessous. Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Régions sources        |                   |                    |                    |

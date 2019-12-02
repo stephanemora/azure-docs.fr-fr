@@ -334,14 +334,24 @@
                       href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Définir une stratégie d’accès stockée
                       href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utiliser des clés gérées par le client pour le chiffrement
+            - name: Gérer le chiffrement du stockage Azure
               items:
-                - name: Portail
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: D’Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Vérifier si un objet blob est chiffré
+                  href: storage-blob-encryption-status.md
+                - name: Gérer les clés de chiffrement du compte de stockage
+                  items:
+                    - name: Vérifier le modèle de clé de chiffrement du compte
+                      href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Configurer des clés de chiffrement gérées par le client
+                      items:
+                        - name: Portail
+                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: PowerShell
+                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: D’Azure CLI
+                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Fournir une clé de chiffrement sur une demande
+                  href: storage-blob-customer-provided-key.md
             - name: Configurer le chiffrement côté client
               items:
                 - name: .NET

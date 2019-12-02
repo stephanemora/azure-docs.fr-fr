@@ -1,69 +1,142 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation du service Sauvegarde Azure
+### YamlMime:Landing
+title: Documentation du service de sauvegarde Azure
+summary: Le service de sauvegarde Azure fournit des solutions simples, sécurisées et rentables pour sauvegarder vos données et les récupérer à partir du cloud Microsoft Azure.
 metadata:
-  title: "Documentation Sauvegarde Azure\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-  description: 'La Sauvegarde Microsoft Azure permet de sauvegarder les données pour des serveurs locaux, des machines virtuelles, des charges de travail virtualisées, un serveur SQL, un serveur SharePoint, et bien plus encore. Découvrez comment sauvegarder et restaurer vos données avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
-  services: backup
-  author: dcurwin
-  manager: carmonm
+  title: Documentation Sauvegarde Azure
+  description: Le service de sauvegarde Azure fournit des solutions simples, sécurisées et rentables pour sauvegarder vos données et les récupérer à partir du cloud Microsoft Azure.
   ms.service: backup
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 05/22/2018
+  author: dcurwin
   ms.author: dacurwin
-abstract:
-  description: 'Utilisez la Sauvegarde Microsoft Azure pour protéger les données pour des serveurs locaux, des machines virtuelles, des charges de travail virtualisées, un serveur SQL, un serveur SharePoint, et bien plus encore. Découvrez comment sauvegarder et restaurer vos données avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment sauvegarder des machines virtuelles Azure dans Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Portail Azure
-            href: quick-backup-vm-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: quick-backup-vm-powershell
-          - image:
-              src: 'https://docs.microsoft.com/media/common/cli.svg'
-            text: D’Azure CLI
-            href: quick-backup-vm-cli
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment sauvegarder et restaurer des machines virtuelles dans Azure ou à partir de Windows Server.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-backup-vm-at-scale">Sauvegarder plusieurs machines virtuelles Azure</a>
-          - html: <a href="tutorial-restore-disk">Restaurer un disque et créer une machine virtuelle récupérée</a>
-          - html: <a href="tutorial-restore-files">Restaurer des fichiers vers une machine virtuelle dans Azure</a>
-          - html: <a href="tutorial-backup-windows-server-to-azure">Sauvegarder un serveur Windows Server dans Azure</a>
-          - html: <a href="tutorial-backup-restore-files-windows-server">Récupérer des fichiers à partir d’Azure vers un serveur Windows Server</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: Utilisez les exemples suivants pour protéger vos données dans Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Interface de ligne de commande Azure</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/backup/">Informations de référence sur l’API de Sauvegarde Azure</a></p>
+  ms.date: 12/01/2019
+  ms.openlocfilehash: e352f5aa764795c27dd94ef2750b1265ffcc527d
+  ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/02/2019
+  ms.locfileid: "74669083"
+landingContent:
+- title: En savoir plus sur Sauvegarde Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Backup ?
+      url: backup-overview.md
+  - linkListType: concept
+    links:
+    - text: Tableau de prise en charge de Sauvegarde Azure
+      url: backup-support-matrix.md
+    - text: Architecture de Sauvegarde Azure
+      url: backup-architecture.md
+- title: Prise en main de la Sauvegarde Azure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Sauvegarder une machine virtuelle avec le portail Azure
+      url: quick-backup-vm-portal.md
+    - text: Sauvegarder une machine virtuelle avec PowerShell
+      url: quick-backup-vm-powershell.md
+    - text: Sauvegarder une machine virtuelle avec Azure CLI
+      url: quick-backup-vm-cli.md
+    - text: Sauvegarder une machine virtuelle avec un modèle Resource Manager
+      url: quick-backup-vm-template.md
+- title: Essayer ces tutoriels pas à pas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Sauvegarder des machines virtuelles Azure
+      url: tutorial-backup-vm-at-scale.md
+    - text: Sauvegarder SQL Server sur une machine virtuelle Azure
+      url: tutorial-sql-backup.md
+    - text: Sauvegarder des fichiers et dossiers sur Windows Server
+      url: tutorial-backup-windows-server-to-azure.md
+    - text: Sauvegarder des partages de fichiers Azure
+      url: tutorial-backup-azure-files.md
+- title: Découvrir les dernières fonctionnalités de la sauvegarde Azure
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Suppression réversible des données de sauvegarde de machine virtuelle Azure
+      url: backup-azure-security-feature-cloud.md
+    - text: Restauration sous forme de fichiers de SQL Server sur des machines virtuelles Azure
+      url: restore-sql-database-azure-vm.md#restore-as-files
+    - text: Sauvegarde de base de données SAP HANA sur des machines virtuelles Azure
+      url: backup-azure-sap-hana-database.md
+- title: Sauvegarder des machines virtuelles Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: À propos de la sauvegarde de machine virtuelle Azure
+      url: backup-azure-vms-introduction.md
+    - text: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
+      url: backup-support-matrix-iaas.md
+    - text: FAQ - Sauvegarde de machine virtuelle Azure
+      url: backup-azure-vm-backup-faq.md
+    - text: Gérer les sauvegardes de machines virtuelles Azure
+      url: backup-azure-manage-vms.md
+- title: Sauvegarder SQL Server sur des machines virtuelles Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
+      url: backup-azure-sql-database.md
+    - text: FAQ - Sauvegarde de SQL Server sur des machines virtuelles Azure
+      url: faq-backup-sql-server.md
+    - text: Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
+      url: backup-sql-server-database-azure-vms.md
+    - text: Gérer et surveiller des bases de données SQL Server sauvegardées
+      url: manage-monitor-sql-database-backup.md
+- title: Sauvegarder SAP HANA sur des machines virtuelles Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
+      url: backup-azure-sap-hana-database.md
+    - text: Gérer et superviser des bases de données SAP HANA sauvegardées
+      url: sap-hana-db-manage.md
+    - text: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
+      url: sap-hana-faq-backup-azure-vm.md
+    - text: Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
+      url: sap-hana-backup-support-matrix.md
+- title: Sauvegarder des partages de fichiers Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sauvegarder et restaurer des partages de fichiers Azure
+      url: backup-azure-files.md
+    - text: FAQ - Sauvegarder des fichiers Azure
+      url: backup-azure-files-faq.md
+- title: Sauvegarder avec l’agent MARS (Microsoft Azure Recovery Services)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sauvegarder des machines Windows avec l’agent MARS de la sauvegarde Azure
+      url: backup-configure-vault.md
+    - text: Gérer les sauvegardes de l’agent MARS à l’aide du service de sauvegarde Azure
+      url: backup-azure-manage-mars.md
+    - text: Matrice de prise en charge de l’agent MARS
+      url: backup-support-matrix-mars-agent.md
+    - text: FAQ - Agent MARS
+      url: backup-azure-file-folder-backup-faq.md
+- title: Sauvegarder avec le serveur de sauvegarde Microsoft Azure (MABS) et DPM
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Matrice de protection MABS
+      url: backup-mabs-protection-matrix.md
+    - text: MABS / Matrice de prise en charge DPM
+      url: backup-support-matrix-mabs-dpm.md
+    - text: FAQ - MABS et DPM
+      url: backup-azure-dpm-azure-server-faq.md
+    - text: Installer et mettre à niveau MABS
+      url: backup-azure-microsoft-azure-backup.md
+- title: Explorer les ressources pour la sauvegarde Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Calculatrice de prix de la sauvegarde Azure
+      url: https://azure.microsoft.com/pricing/details/backup/
+    - text: Mises à jour du service de sauvegarde Azure
+      url: https://azure.microsoft.com/updates/?product=backup
+    - text: Forum MSDN de la sauvegarde Azure
+      url: https://social.msdn.microsoft.com/Forums/home?forum=windowsazureonlinebackup
