@@ -561,7 +561,7 @@ Pour plus d’informations sur l’expérience d’informations de sécurité am
 
 3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré**, sélectionnez **Sélectionné**, puis choisissez un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
 
-4. Sous la zone **Users can use preview features for registering and managing security **info** (**les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité), sélectionnez **None** (Aucun).
+4. Sous la zone **Users can use preview features for registering and managing security **info**,**(les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité), sélectionnez **None** (Aucun).
 
 5. Enregistrez vos paramètres.
 
