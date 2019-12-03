@@ -37,7 +37,7 @@ Les ensembles de compétences sont créés dans JSON. Vous pouvez créer des ens
 ### <a name="enrichment-tree"></a>Arborescence d’enrichissements
 
 Pour comprendre de quelle manière un ensemble de compétences enrichit progressivement un document, commençons par regarder à quoi le document ressemble avant tout enrichissement. La sortie du craquage du document varie selon la source de données et le mode d’analyse spécifique qui ont été sélectionnés. C’est également l’état du document à partir duquel les [mappages de champs](search-indexer-field-mappings.md) peuvent extraire le contenu lors de l’ajout de données à l’index de recherche.
-![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KDiagramme de base de connaissances au sein d’un pipeline)
+![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KDiagramme de base de connaissances au sein d’un pipeline")
 
 Une fois qu’un document se trouve dans le pipeline d’enrichissement, il est représenté sous la forme d’une arborescence du contenu et des enrichissements associés. Cette arborescence est instanciée en tant que sortie du craquage du document. Le format de l’arborescence d’enrichissements permet au pipeline d’enrichissement d’attacher des métadonnées même à des types de données primitifs ; ce n’est pas un objet JSON valide, mais il peut être projeté dans un format JSON valide. Le tableau suivant indique l’état d’un document qui entre dans le pipeline d’enrichissement :
 

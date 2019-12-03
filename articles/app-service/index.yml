@@ -3,15 +3,10 @@ documentType: LandingData
 title: Documentation App Service
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: 'Documentation Azure App Service - Tutoriels, informations de référence sur les API'
-  meta.description: 'Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.'
-  services: app-service
-  author: georgewallace
-  manager: gwallace
-  ms.service: app-service
+  title: Documentation Azure App Service
+  meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: gwallace
 abstract:
   description: 'Azure App Service vous permet de créer et d’héberger des applications web, des back-ends mobiles et des API RESTful dans le langage de programmation de votre choix sans gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps ou n’importe quel référentiel Git. Découvrez comment utiliser Azure App Service avec nos démarrages rapides, nos didacticiels et nos exemples.'
   aside:
