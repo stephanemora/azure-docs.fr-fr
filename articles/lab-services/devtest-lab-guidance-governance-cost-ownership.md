@@ -1,6 +1,6 @@
 ---
-title: Gouvernance de l’infrastructure Azure DevTest Labs
-description: Cet article fournit des conseils concernant la gouvernance de l’infrastructure Azure DevTest Labs.
+title: Gérer les coûts et la propriété dans Azure DevTest Labs
+description: Cet article vous aidera à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775710"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561657"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Gérer le coût et l’appartenance
 Le coût et l’appartenance sont les principaux éléments à prendre en compte lors de la création de vos environnements de développement et de test. Dans cette section, vous trouvez des informations qui vous aideront à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.

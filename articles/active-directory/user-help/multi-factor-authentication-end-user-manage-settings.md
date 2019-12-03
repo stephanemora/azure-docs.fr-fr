@@ -1,6 +1,6 @@
 ---
-title: 'Gérer les paramètres de la vérification à deux facteurs : Azure AD'
-description: Découvrez comment changer les détails de votre méthode de vérification de sécurité liés à la vérification à deux facteurs.
+title: Modifiez la méthode et les paramètres de vérification à deux facteurs - Azure AD
+description: Découvrez comment modifier la méthode et les paramètres de vérification de sécurité pour votre compte professionnel ou scolaire à partir de la page de vérification de sécurité supplémentaire.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f7fbc18d8141c44c2b0863547c33b5c5193e928b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805262"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231923"
 ---
-# <a name="manage-your-two-factor-verification-method-settings"></a>Gérer les paramètres de la vérification à deux facteurs
+# <a name="change-your-two-factor-verification-method-and-settings"></a>Modifier la méthode et les paramètres de vérification à deux facteurs
 
 Une fois que vous avez configuré vos méthodes de vérification de sécurité pour votre compte professionnel ou scolaire, vous pouvez mettre à jour tous les détails associés, notamment :
 
