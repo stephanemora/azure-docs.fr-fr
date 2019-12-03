@@ -1,7 +1,7 @@
 ---
 title: Interprétabilité des modèles pour les exécutions locales et distantes
 titleSuffix: Azure Machine Learning
-description: Découvrez comment expliquer pourquoi votre modèle élabore des prédictions à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning. Il peut être utilisé pendant l’entraînement et l’inférence pour comprendre comment un modèle détermine l’importance des caractéristiques et effectue des prédictions.
+description: Découvrez comment obtenir des explications sur la façon dont votre modèle de Machine Learning détermine l’importance des fonctionnalités et effectue des prédictions lors de l’utilisation du kit de développement logiciel (SDK) Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,31 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a2b71a10606b7cd20f06b2497515b758426833a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ffb9e0547c44ee47a43de00e51933ce7d0584759
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511042"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158729"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>Interprétabilité des modèles pour les exécutions locales et distantes
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a élaboré ses prédictions avec le package d’interprétabilité du SDK Python Azure Machine Learning. Vous allez apprendre à effectuer les tâches suivantes :
+Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a élaboré ses prédictions en utilisant le package d’interprétabilité du SDK Python Azure Machine Learning. Vous allez apprendre à effectuer les actions suivantes :
 
-* Interpréter des modèles Machine Learning entraînés à la fois localement et sur des ressources de calcul distantes
-* Stocker des explications locales et globales sur l’historique des exécutions Azure
-* Afficher des visualisations d’interprétabilité dans [Azure Machine Learning Studio](https://ml.azure.com)
-* Déployer un explicatif de scoring avec votre modèle
+* Interpréter des modèles Machine Learning entraînés à la fois localement et sur des ressources de calcul distantes.
+* Stocker des explications locales et globales sur l’historique des exécutions Azure.
+* Afficher des visualisations d’interprétabilité dans [Azure Machine Learning Studio](https://ml.azure.com).
+* Déployer un explicatif de scoring avec votre modèle.
 
-Pour en savoir plus sur l’interprétabilité des modèles, consultez l’[article de présentation du concept](how-to-machine-learning-interpretability.md).
+Pour plus d’informations, consultez [Interprétabilité de modèle dans le service Azure Machine Learning](how-to-machine-learning-interpretability.md).
 
 ## <a name="local-interpretability"></a>Interprétabilité locale
 
-L’exemple suivant montre comment utiliser le package interpret localement sans contacter les services Azure. Exécutez `pip install azureml-interpret` pour obtenir le package d’interprétabilité.
+L’exemple suivant montre comment utiliser le package d’interprétabilité localement sans contacter les services Azure.
+
+1. Si nécessaire, exécutez `pip install azureml-interpret` pour obtenir le package d’interprétabilité.
 
 1. Entraînez un exemple de modèle dans un notebook Jupyter local.
 
@@ -54,7 +56,13 @@ L’exemple suivant montre comment utiliser le package interpret localement sans
     model = clf.fit(x_train, y_train)
     ```
 
-2. Appelez l’explicatif localement : Pour initialiser un objet d’explicatif, vous devez transmettre votre modèle et des données de formation au constructeur de l’explicatif. Vous pouvez également transmettre des noms de fonctionnalités et des noms de classes de sortie (en cas de classification) qui seront utilisés pour que vos descriptions et visualisations soient plus explicites encore. Voici comment instancier un objet d’explicatif localement à l’aide de `TabularExplainer`, de `MimicExplainer` et de `PFIExplainer`. `TabularExplainer` appelle un des trois explicatifs SHAP sous-jacents (`TreeExplainer`, `DeepExplainer` ou `KernelExplainer`), et sélectionne automatiquement le plus approprié à votre cas d’usage. Vous pouvez toutefois appeler directement chacun de ses trois explicatifs sous-jacents.
+1. Appelez l’explicatif localement.
+   * Pour initialiser un objet d’explicatif, transmettez votre modèle et des données de formation au constructeur de l’explicatif.
+   * Vous pouvez transmettre des noms de fonctionnalités et des noms de classes de sortie, en cas de classification, qui seront utilisés pour que vos descriptions et visualisations soient plus explicites encore.
+
+   Les blocs de code suivants montrent comment instancier un objet explicatif avec `TabularExplainer`, `MimicExplainer` et `PFIExplainer` localement.
+   * `TabularExplainer` appelle un des trois explicatifs SHAP sous-jacents (`TreeExplainer`, `DeepExplainer` ou `KernelExplainer`).
+   * `TabularExplainer` sélectionne automatiquement le plus approprié pour votre cas d’utilisation, mais vous pouvez appeler chacun des trois explicatifs sous-jacents directement.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -80,7 +88,7 @@ L’exemple suivant montre comment utiliser le package interpret localement sans
     from interpret.ext.glassbox import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
-    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns.
     # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
     # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
     explainer = MimicExplainer(model, 
@@ -91,21 +99,22 @@ L’exemple suivant montre comment utiliser le package interpret localement sans
                                features=breast_cancer_data.feature_names, 
                                classes=classes)
     ```
-   or
+
+    or
 
     ```python
-    from interpret.ext.blackbox import PFIExplainer 
-    
+    from interpret.ext.blackbox import PFIExplainer
+
     # "features" and "classes" fields are optional
-    explainer = PFIExplainer(model, 
+    explainer = PFIExplainer(model,
                              features=breast_cancer_data.feature_names, 
                              classes=classes)
     ```
 
-### <a name="overall-global-feature-importance-values"></a>Valeurs d’importance des caractéristiques générale (globale)
+### <a name="overall-global-feature-importance-values"></a>Valeurs d’importance des caractéristiques générale, globale
 
-Obtenez les valeurs d’importance de fonctionnalité globale.
-    
+Reportez-vous à l’exemple suivant pour vous aider à obtenir les valeurs d’importance de fonctionnalité globale.
+
 ```python
 
 # you can use the training data or the test data here
@@ -123,12 +132,14 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="instance-level-local-feature-importance-values"></a>Valeurs d’importance des caractéristiques au niveau de l’instance (locale)
+### <a name="instance-level-local-feature-importance-values"></a>Valeurs d’importance des caractéristiques au niveau de l’instance, locale
 
-Obtenez les valeurs d’importance de fonctionnalité locale : utilisez les appels de fonction suivants pour expliquer une instance individuelle ou un groupe d’instances. Notez que PFIExplainer ne prend pas en charge les explications locales.
+Obtenez les valeurs d’importance de fonctionnalité locale en appelant des explicatifs pour une instance individuelle ou un groupe d’instances.
+> [!NOTE]
+> `PFIExplainer` ne prend pas en charge les explicatifs locaux.
 
 ```python
-# explain the first data point in the test set
+# get explanation for the first data point in the test set
 local_explanation = explainer.explain_local(x_test[0:5])
 
 # sorted feature importance values and feature names
@@ -138,9 +149,14 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ## <a name="interpretability-for-remote-runs"></a>Interprétabilité des exécutions distantes
 
-Cet exemple montre comment utiliser la classe `ExplanationClient` pour l’activation de l’interprétabilité des modèles pour les exécutions distantes. Le concept est similaire à celui présenté dans la section précédente, mais vous utilisez `ExplanationClient` dans l’exécution à distance pour charger le contexte d’interprétabilité. Vous pouvez alors télécharger le contexte ultérieurement dans un environnement local. Utilisez `pip install azureml-contrib-interpret` pour obtenir le package nécessaire.
+L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationClient` pour activer l’interprétation du modèle pour les exécutions distantes. Son concept est similaire à celui du processus local, à l’exception des éléments suivants :
 
-1. Créez un script d’entraînement dans un notebook Jupyter local (par exemple, train_explain.py).
+* Utilisez `ExplanationClient` dans l’exécution à distance pour télécharger le contexte d’interprétation.
+* Téléchargez le contexte ultérieurement dans un environnement local.
+
+1. Si nécessaire, utilisez `pip install azureml-contrib-interpret` pour obtenir le package nécessaire.
+
+1. Créez un script d’entraînement dans un notebook Jupyter local. Par exemple : `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -171,7 +187,7 @@ Cet exemple montre comment utiliser la classe `ExplanationClient` pour l’activ
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Suivez les instructions relatives à la [configuration de cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md#amlcompute) pour savoir comment configurer une capacité de calcul Azure Machine Learning comme votre cible de calcul et soumettre votre exécution d’entraînement. Vous pouvez également consulter les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
+1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [configuration des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md#amlcompute). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
 
 1. Téléchargez l’explication dans votre Jupyter Notebook local.
 
@@ -193,12 +209,11 @@ Cet exemple montre comment utiliser la classe `ExplanationClient` pour l’activ
 
 ## <a name="raw-feature-transformations"></a>Transformations de fonctionnalité brute
 
-Si vous le souhaitez, vous pouvez passer votre pipeline de transformation de caractéristique à l’explicatif (dans train_explain.py) pour recevoir des explications en termes de caractéristiques brutes avant la transformation (plutôt que des caractéristiques traitées). Si vous l’ignorez, l’explicatif fournit des explications en termes de fonctionnalités conçues.
+Vous pouvez choisir d’obtenir des explications en termes de fonctionnalités brutes, non transformées plutôt que de fonctionnalités conçues. Pour cette option, vous transmettez votre pipeline de transformation de fonctionnalité à l’explicatif dans `train_explain.py`. Sinon, l’explicatif fournit des explications en termes de fonctionnalités conçues.
 
-Le format de transformations prises en charge est le même que celui décrit dans [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). En règle générale, toutes les transformations sont prises en charge tant qu’elles s’appliquent à une colonne unique et qu’elles constituent ainsi clairement des transformations un à plusieurs. 
+Le format de transformations prises en charge est le même que celui décrit dans [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). En règle générale, toutes les transformations sont prises en charge tant qu’elles s’appliquent à une colonne unique et qu’elles constituent ainsi clairement des transformations un à plusieurs.
 
-Expliquez des caractéristiques brutes à l’aide de `sklearn.compose.ColumnTransformer` ou d’une liste de tuples de transformateur adaptés. Le code ci-dessous utilise `sklearn.compose.ColumnTransformer`. 
-
+Pour obtenir une explication sur les fonctionnalités brutes, utilisez un `sklearn.compose.ColumnTransformer` ou une liste de tuples de transformateur adaptés. L’exemple suivant utilise `sklearn.compose.ColumnTransformer`.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -232,7 +247,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-Si vous voulez exécuter l’exemple avec la liste de tuples de transformateur adaptés, utilisez le code suivant.
+Si vous souhaitez exécuter l’exemple avec la liste de tuples de transformateur adaptés, utilisez le code suivant :
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -276,22 +291,22 @@ Les tracés suivants fournissent une vue globale du modèle formé, ainsi que se
 
 |Tracé|Description|
 |----|-----------|
-|Exploration des données| Vue d’ensemble du jeu de données avec des valeurs de prédiction.|
-|Importance globale|Montre les K premières fonctionnalités importantes (configurables) globalement. Ce graphique est utile pour comprendre le comportement global du modèle sous-jacent.|
-|Exploration d’explication|Montre comment une fonctionnalité est responsable d’une modification dans les valeurs de prédiction du modèle (ou de la probabilité de valeurs de prédiction). Elle montre également comment deux caractéristiques interagissent pour avoir un impact sur les prédictions.|
-|Importance du résumé| Utilise des valeurs d’importance de fonctionnalité locale signées sur tous les points de données pour montrer la distribution de l’impact de chaque fonctionnalité sur la valeur de prédiction.|
+|Exploration des données| Affiche une vue d’ensemble du jeu de données avec des valeurs de prédiction.|
+|Importance globale|Montre les K premières fonctionnalités importantes (configurables) globalement. Aide à comprendre le comportement global du modèle sous-jacent.|
+|Exploration d’explication|Montre comment une fonctionnalité affecte les valeurs de prédiction du modèle, ou de la probabilité des valeurs de prédiction. Indique l’impact de l’interaction des fonctionnalités.|
+|Importance du résumé|Utilise des valeurs d’importance de fonctionnalité locale sur tous les points de données pour montrer la distribution de l’impact de chaque fonctionnalité sur la valeur de prédiction.|
 
 [![Tableau de bord de visualisation - Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Visualisations locales
 
-Cliquez sur n’importe quel point de données à tout moment dans les tracés précédents pour charger le tracé d’importance des caractéristiques locale de ce point de données.
+Vous pouvez charger le tracé d’importance de fonctionnalité locale pour tout point de données en sélectionnant le point de données individuel dans le tracé.
 
 |Tracé|Description|
 |----|-----------|
-|Importance locale|Montre les K premières fonctionnalités importantes (configurables) globalement. Ce graphique est utile pour comprendre le comportement local du modèle sous-jacent sur un point de données spécifique.|
-|Exploration de perturbation|Vous permet de modifier des valeurs de fonctionnalités du point de données sélectionné et observer comment ces modifications affectent la valeur de prédiction.|
-|Attente conditionnelle individuelle (ICE)| Vous permet de modifier une valeur de fonctionnalité entre une valeur minimale et une valeur maximale pour voir comment la prédiction du point de données change lorsqu’une fonctionnalité change.|
+|Importance locale|Montre les K premières fonctionnalités importantes (configurables) globalement. Permet d’illustrer le comportement local du modèle sous-jacent sur un point de données spécifique.|
+|Exploration de perturbation|Autorise les modifications apportées aux valeurs de fonctionnalités du point de données sélectionné et observe les modifications résultantes de la valeur de prédiction.|
+|Attente conditionnelle individuelle (ICE)| Autorise les modifications de valeur de fonctionnalité d’une valeur minimale à une valeur maximale. Permet d’illustrer la façon dont la prédiction du point de données change en cas de modification d’une fonctionnalité.|
 
 [![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
@@ -301,7 +316,8 @@ Cliquez sur n’importe quel point de données à tout moment dans les tracés p
 
 [![Tableau de bord de visualisation - Tracés ICE](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
-Notez que vous des extensions de widget du tableau de bord de visualisation doivent être activées avant de démarrer le noyau Jupyter.
+> [!NOTE]
+> Avant le démarrage du noyau Jupyter, veillez à activer les extensions de widget pour le tableau de bord de visualisation.
 
 * Notebooks Jupyter
 
@@ -310,16 +326,14 @@ Notez que vous des extensions de widget du tableau de bord de visualisation doiv
     jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
     ```
 
-
-
-* Labs Jupyter
+* JupyterLab
 
     ```shell
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
 
-Pour charger le tableau de bord de visualisation, utilisez le code suivant.
+Pour charger le tableau de bord de visualisation, utilisez le code suivant :
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
@@ -329,31 +343,33 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisation dans Azure Machine Learning Studio
 
-En suivant les étapes décrites dans la section relative à l’[interprétabilité à distance](how-to-machine-learning-interpretability-aml.md#interpretability-for-remote-runs), vous pouvez vérifier le tableau de bord de visualisation dans [Azure Machine Learning Studio](https://ml.azure.com). Le tableau de bord affiché dans Azure Machine Learning Studio est une version plus simple du tableau de bord de visualisation expliqué ci-dessus. Il ne prend en charge que les deux onglets suivants.
+Si vous effectuez les étapes décrites dans l’[interprétabilité à distance](#interpretability-for-remote-runs), vous pouvez voir le tableau de bord de visualisation dans [Azure Machine Learning Studio](https://ml.azure.com). Ce tableau de bord est une version plus simple du tableau de bord de visualisation décrit ci-dessus. Il ne prend en charge que deux onglets :
 
 |Tracé|Description|
 |----|-----------|
-|Importance globale|Montre les K premières fonctionnalités importantes (configurables) globalement. Ce graphique est utile pour comprendre le comportement global du modèle sous-jacent.|
-|Importance du résumé| Utilise des valeurs d’importance de fonctionnalité locale signées sur tous les points de données pour montrer la distribution de l’impact de chaque fonctionnalité sur la valeur de prédiction.|
+|Importance globale|Montre les K premières fonctionnalités importantes (configurables) globalement. Aide à comprendre le comportement global du modèle sous-jacent.|
+|Importance du résumé|Utilise des valeurs d’importance de fonctionnalité locale sur tous les points de données pour montrer la distribution de l’impact de chaque fonctionnalité sur la valeur de prédiction.|
 
-Si les explications globales et locales sont toutes les deux disponibles, les deux onglets sont renseignés avec des données. Si seule l’explication globale est disponible, le deuxième onglet est désactivé.
+Si les explications globales et locales sont disponibles, les données remplissent les deux onglets. Si seule l’explication globale est disponible, l’onglet Importance du résumé est désactivé.
 
-Pour accéder au tableau de bord de visualisation dans Azure Machine Learning Studio, vous pouvez suivre l’un des parcours suivants :
+Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans Azure Machine Learning Studio :
 
-1. Onglet Expériences (préversion) : Si vous cliquez sur l’onglet « Expériences », vous voyez une liste d’expériences que vous avez exécutées sur le service Azure Machine Learning. Dans cette liste, vous pouvez sélectionner une expérience particulière à rediriger vers une page contenant toutes les exécutions sous le nom de l’expérience sélectionnée. Si vous cliquez sur chaque exécution et sur son onglet « Explications », vous voyez le tableau de bord de visualisation des explications.
+* Volet des **Expériences** (préversion)
+  1. Sélectionnez **Expériences** dans le volet gauche pour afficher la liste des expériences que vous avez exécutées sur le service Azure Machine Learning.
+  1. Sélectionnez une expérience particulière pour afficher toutes les exécutions de cette expérience.
+  1. Sélectionnez une exécution, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
+   [![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png)](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png#lightbox)
 
-[![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png)](./media/machine-learning-interpretability-explainability/amlstudio-experiments.png#lightbox)
-
-
-2. Onglet Modèles : Si vous avez inscrit votre modèle d’origine à l’aide des étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), votre modèle s’affiche dans la liste de l’onglet « Modèles ». Si vous cliquez sur chaque modèle et sur son onglet « Explications », vous voyez le tableau de bord de visualisation des explications.
+* Volet **Modèles**
+  1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
+  1. Sélectionnez un modèle, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
 ## <a name="interpretability-at-inference-time"></a>Interprétabilité au moment de l’inférence
 
-L’explicatif peut être déployé avec le modèle d’origine et peut être utilisé au moment de l’inférence pour fournir les informations d’explication locale. Nous proposons également des explicatifs de scoring plus légers pour améliorer les performances de l’interprétabilité au moment de l’inférence. Le processus de déploiement d’un explicatif de scoring plus léger est similaire au déploiement d’un modèle et comprend les étapes suivantes :
+Vous pouvez déployer l’explicatif avec le modèle d’origine et peut être utilisé au moment de l’inférence pour fournir les informations d’explication locale. Nous proposons également des explicatifs de scoring plus légers pour améliorer les performances de l’interprétabilité au moment de l’inférence. Le processus de déploiement d’un explicatif de scoring plus léger est similaire au déploiement d’un modèle et comprend les étapes suivantes :
 
-
-1. Créer un objet d’explication (par exemple, à l’aide de TabularExplainer) :
+1. Créez un objet d’explication. Par exemple, vous pouvez utiliser `TabularExplainer` :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -366,7 +382,7 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
                                 transformations=transformations)
    ```
 
-1. Créer un explicatif de scoring à l’aide de l’objet d’explication :
+1. Créer un explicatif de scoring avec l’objet d’explication.
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -392,7 +408,7 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. [Facultatif] Récupérer l’explicatif de scoring sur le cloud et tester les explications
+1. Vous pouvez éventuellement récupérer l’explicatif de scoring sur le cloud et tester les explications.
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import load
@@ -409,26 +425,28 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
    print(preds)
    ```
 
-1. Déployer l’image sur une cible de calcul :
+1. Déployez l’image sur une cible de calcul en procédant comme suit :
 
-   1. Créer un fichier de scoring (avant cette étape, suivez les étapes de [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) pour inscrire votre modèle de prédiction d’origine)
+   1. Si nécessaire, enregistrez votre modèle de prédiction d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
-        ```python
-        %%writefile score.py
-        import json
-        import numpy as np
-        import pandas as pd
-        import os
-        import pickle
-        from sklearn.externals import joblib
-        from sklearn.linear_model import LogisticRegression
-        from azureml.core.model import Model
+   1. Créez un fichier de scoring.
 
-        def init():
-
+         ```python
+         %%writefile score.py
+         import json
+         import numpy as np
+         import pandas as pd
+         import os
+         import pickle
+         from sklearn.externals import joblib
+         from sklearn.linear_model import LogisticRegression
+         from azureml.core.model import Model
+          
+         def init():
+         
             global original_model
             global scoring_model
-
+             
             # retrieve the path to the model file using the model name
             # assume original model is named original_prediction_model
             original_model_path = Model.get_model_path('original_prediction_model')
@@ -437,7 +455,7 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
             original_model = joblib.load(original_model_path)
             scoring_explainer = joblib.load(scoring_explainer_path)
 
-        def run(raw_data):
+         def run(raw_data):
             # get predictions and explanations for each data point
             data = pd.read_json(raw_data)
             # make prediction
@@ -446,73 +464,76 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
             local_importance_values = scoring_explainer.explain(data)
             # you can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-        ```
+         ```
+   1. Définissez la configuration du déploiement.
 
-   1. Définissez la configuration de déploiement (cette configuration dépend des exigences de votre modèle. L’exemple suivant définit une configuration qui utilise un seul cœur d’UC et 1 Go de mémoire)
+         Cette configuration dépend des exigences de votre modèle. L’exemple suivant définit une configuration qui utilise un seul cœur d’UC et 1 Go de mémoire.
 
-        ```python
-        from azureml.core.webservice import AciWebservice
+         ```python
+         from azureml.core.webservice import AciWebservice
 
-        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
-                                                       memory_gb=1,
-                                                       tags={"data": "NAME_OF_THE_DATASET",
-                                                             "method" : "local_explanation"},
-                                                       description='Get local explanations for NAME_OF_THE_PROBLEM')
-        ```
+          aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                                    memory_gb=1,
+                                                    tags={"data": "NAME_OF_THE_DATASET",
+                                                          "method" : "local_explanation"},
+                                                    description='Get local explanations for NAME_OF_THE_PROBLEM')
+         ```
 
-   1. Créer un fichier avec des dépendances d’environnement
+   1. Créer un fichier avec des dépendances d’environnement.
 
-        ```python
-        from azureml.core.conda_dependencies import CondaDependencies
+         ```python
+         from azureml.core.conda_dependencies import CondaDependencies
 
-        # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
+         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
-        azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
+         azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
  
 
-        # specify CondaDependencies obj
-        myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
-                                         pip_packages=['sklearn-pandas'] + azureml_pip_packages,
-                                         pin_sdk_version=False)
+         # specify CondaDependencies obj
+         myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
+                                          pip_packages=['sklearn-pandas'] + azureml_pip_packages,
+                                          pin_sdk_version=False)
 
 
-        with open("myenv.yml","w") as f:
+         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
 
-        with open("myenv.yml","r") as f:
+         with open("myenv.yml","r") as f:
             print(f.read())
-        ```
+         ```
 
-   1. Créer un fichier dockerfile personnalisé avec g++ installé
+   1. Créer un fichier dockerfile personnalisé avec g++ installé.
 
-        ```python
-        %%writefile dockerfile
-        RUN apt-get update && apt-get install -y g++
-        ```
+         ```python
+         %%writefile dockerfile
+         RUN apt-get update && apt-get install -y g++
+         ```
 
-   1. Déployer l’image créée (durée estimée : 5 minutes)
+   1. Déployez l’image créée.
+   
+         Ce processus prend environ cinq minutes.
 
-        ```python
-        from azureml.core.webservice import Webservice
-        from azureml.core.image import ContainerImage
+         ```python
+         from azureml.core.webservice import Webservice
+         from azureml.core.image import ContainerImage
 
-        # use the custom scoring, docker, and conda files we created above
-        image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                        docker_file="dockerfile",
-                                                        runtime="python",
-                                                        conda_file="myenv.yml")
+         # use the custom scoring, docker, and conda files we created above
+         image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                         docker_file="dockerfile",
+                                                         runtime="python",
+                                                         conda_file="myenv.yml")
 
-        # use configs and models generated above
-        service = Webservice.deploy_from_model(workspace=ws,
-                                            name='model-scoring-service',
-                                            deployment_config=aciconfig,
-                                            models=[scoring_explainer_model, original_model],
-                                            image_config=image_config)
+         # use configs and models generated above
+         service = Webservice.deploy_from_model(workspace=ws,
+                                             name='model-scoring-service',
+                                             deployment_config=aciconfig,
+                                             models=[scoring_explainer_model, original_model],
+                                             image_config=image_config)
 
-        service.wait_for_deployment(show_output=True)
-        ```
+         service.wait_for_deployment(show_output=True)
+         ```
 
-1. test du déploiement
+1. Testez le déploiement.
 
     ```python
     import requests
@@ -531,8 +552,10 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
     print("prediction:", resp.text)
     ```
 
-1. Nettoyer : Pour supprimer un service web déployé, utilisez `service.delete()`.
+1. Nettoyer.
+
+   Pour supprimer un service web déployé, utilisez `service.delete()`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’interprétabilité des modèles, consultez l’[article conceptuel](how-to-machine-learning-interpretability.md).
+[En savoir plus sur l’interprétation des modèles](how-to-machine-learning-interpretability.md)
