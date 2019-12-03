@@ -1,5 +1,6 @@
 ---
-title: Présentation de la journalisation des flux pour les groupes de sécurité réseau avec Azure Network Watcher | Microsoft Docs
+title: Introduction à la journalisation des flux pour les groupes de sécurité réseau
+titleSuffix: Azure Network Watcher
 description: Cet article explique comment utiliser les journaux de flux de groupe de sécurité réseau, une fonctionnalité d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563517"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559169"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -86,6 +87,13 @@ Pour la continuation *C* et la fin *E* d’états de flux, le nombre d’octets 
 Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir, il existe plusieurs enregistrements qui suivent la liste des propriétés décrite dans la section précédente.
 
 ## <a name="nsg-flow-logging-considerations"></a>Considérations sur la journalisation de flux NSG
+
+**Considérations relatives aux comptes de stockage** : 
+
+1. Localisation : le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau.
+2. Aucun Pare-feu : les journaux de flux de groupe de sécurité réseau ne sont pas intégrés en tant que [service Microsoft approuvé pour le stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Pour désactiver le pare-feu, consultez [Comment désactiver le pare-feu sur mon compte de stockage ?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account). 
+3. Aucun point de terminaison de service : en raison d’une limitation actuelle, les journaux peuvent uniquement être émis directement vers des comptes de stockage et non par le biais de points de terminaison de service. Pour obtenir de l’aide sur la suppression de points de terminaison de service existants, consultez [Comment utiliser les journaux de flux de groupe de sécurité réseau avec des point de terminaison de service ?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints).
+4. Rotation des clés auto-gérée : si vous modifiez (ou effectuez la rotation) des clés d’accès à votre compte de stockage, les journaux de flux de groupe de sécurité réseau cessent de fonctionner. Pour corriger ce problème, vous devez désactiver puis réactiver les journaux de flux de groupe de sécurité réseau.
 
 **Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) pour obtenir plus d’informations sur les groupes de sécurité réseau. 
 

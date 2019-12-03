@@ -1,19 +1,14 @@
 ---
-title: Informations de référence YAML – Azure Container Instances
+title: Référence YAML pour le groupe de conteneurs
 description: Informations de référence pour le fichier YAML pris en charge par Azure Container Instances pour configurer un groupe de conteneurs
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
-ms.openlocfilehash: 2e6be18371cf3ff96d1ce91d4dde26ff1f14021b
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179992"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533488"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Informations de référence YAML : Azure Container Instances
 
@@ -145,7 +140,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
 |  Nom | string | OUI | Nom du groupe de conteneurs. |
-|  apiVersion | enum | OUI | 01-10-2018 |
+|  apiVersion | enum | OUI | 2018-10-01 |
 |  location | string | Non | Emplacement de la ressource. |
 |  tags | object | Non | Étiquettes de la ressource. |
 |  identité | object | Non | Identité du groupe de conteneurs, si elle est configurée. - [Objet ContainerGroupIdentity](#ContainerGroupIdentity) |

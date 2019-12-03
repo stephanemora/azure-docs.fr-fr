@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529359"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481642"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -146,7 +146,8 @@ Les collections fiables sont généralement [partitionnées](service-fabric-conc
 
 - Créer un service qui interroge toutes les partitions d’un autre service pour extraire les données requises.
 - Créer un service capable de recevoir des données provenant de toutes les partitions d’un autre service.
-- Envoyer régulièrement des données de chaque service à un magasin externe. Cette approche ne convient que si les requêtes que vous exécutez ne font pas partie de votre logique d’entreprise.
+- Envoyer régulièrement des données de chaque service à un magasin externe. Cette approche convient uniquement si les requêtes que vous exécutez ne font pas partie de votre logique d’entreprise, car les données du magasin externe seront périmées.
+- Vous pouvez également stocker les données qui doivent prendre en charge l’interrogation de tous les enregistrements directement dans un magasin de données plutôt que dans une collection fiable. Cela élimine le problème avec les données périmées, mais ne permet pas d’exploiter les avantages des collections fiables.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Quel est le meilleur moyen d’interroger les données entre mes différents acteurs ?

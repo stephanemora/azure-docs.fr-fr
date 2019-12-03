@@ -1,6 +1,6 @@
 ---
-title: 'Résoudre les problèmes courants de vérification à deux facteurs : Azure AD'
-description: Découvrez les solutions possibles à certains des problèmes de vérification à deux facteurs les plus courants.
+title: Problèmes courants et solutions avec l’authentification de compte - Azure AD
+description: Découvrez les problèmes et les solutions possibles à certains des problèmes de vérification à deux facteurs les plus courants et votre compte professionnel ou scolaire.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9d998fafbf6b3ba0547991de6c3a8e71b66d91f7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805297"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231890"
 ---
-# <a name="troubleshoot-common-two-factor-verification-problems"></a>Résoudre les problèmes courants de vérification à deux facteurs
+# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Problèmes et solutions courants avec la vérification à deux facteurs et votre compte professionnel ou scolaire
 
 Votre organisation a activé la vérification à deux facteurs, ce qui signifie que la connexion de votre compte professionnel ou scolaire nécessite désormais une combinaison de votre nom d’utilisateur, votre mot de passe et un appareil mobile ou un téléphone. Votre organisation a activé cette vérification supplémentaire car elle est plus sécurisée qu’un mot de passe, puisqu’elle s’appuie sur deux formes d’authentification : quelque chose que vous connaissez et quelque chose que vous avez avec vous. La vérification à deux facteurs peut aider à empêcher les pirates de se faire passer pour vous, car même s’ils ont votre mot de passe, il est probable qu’ils n’ont pas votre appareil.
 

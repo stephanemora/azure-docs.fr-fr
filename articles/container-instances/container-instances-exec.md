@@ -1,19 +1,14 @@
 ---
-title: Exécuter des commandes dans des conteneurs en cours d’exécution dans Azure Container Instances
+title: Exécuter des commandes dans une instance de conteneur en cours d’exécution
 description: Découvrez comment exécuter une commande dans un conteneur qui est en cours d’exécution dans Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: danlep
-ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10d0ea0c2dfa60aad64d0ae11532aff24a7ce773
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325981"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481570"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Exécuter une commande dans une instance de conteneur Azure en cours d’exécution
 

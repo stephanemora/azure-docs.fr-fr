@@ -11,19 +11,19 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: d69378b2e791732fb478a66f226c6269e2c515f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820819"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422530"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
 SQL Data Sync est un service conçu sur Azure SQL Database qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
+> Azure SQL Data Sync ne prend pas en charge Azure SQL Database Managed Instance pour le moment.
 
 ## <a name="when-to-use-data-sync"></a>Quand utiliser Data Sync
 
@@ -79,7 +79,6 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 |---|---|---|
 | Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
 | Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données mise en pool<br/>- Coût de maintenance élevé |
-| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Prise en main de SQL Data Sync
 
@@ -103,25 +102,25 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 
 ## <a name="consistency-and-performance"></a>Cohérence et performances
 
-#### <a name="eventual-consistency"></a>Cohérence éventuelle
+### <a name="eventual-consistency"></a>Cohérence éventuelle
 
 Étant donné que Data Sync est basé sur le déclencheur, la cohérence transactionnelle n’est pas garantie. Microsoft garantit que toutes les modifications sont effectuées par la suite et que Data Sync n’entraîne pas de perte de données.
 
-#### <a name="performance-impact"></a>Impact sur les performances
+### <a name="performance-impact"></a>Impact sur les performances
 
 Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppression pour effectuer le suivi des modifications. Cela crée des tables latérales dans la base de données utilisateur pour le suivi des modifications. Ces activités de suivi des modifications ont un impact sur votre charge de travail de base de données. Évaluez votre niveau de service et effectuez une mise à niveau si nécessaire.
 
-Le provisionnement et le déprovisionnement lors de la création, la mise à jour et la suppression du groupe de synchronisation peuvent également avoir un impact sur les performances de la base de données. 
+Le provisionnement et le déprovisionnement lors de la création, la mise à jour et la suppression du groupe de synchronisation peuvent également avoir un impact sur les performances de la base de données.
 
 ## <a name="sync-req-lim"></a> Spécifications et limitations
 
 ### <a name="general-requirements"></a>Conditions générales
 
-- Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire. 
+- Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire.
 
 > [!IMPORTANT]
-> Le changement de la valeur d’une clé primaire existante entraîne le comportement incorrect suivant :   
->   - Les données entre le hub et le membre risquent d’être perdues même si la synchronisation ne signale aucun problème.
+> Le changement de la valeur d’une clé primaire existante entraîne le comportement incorrect suivant :
+> - Les données entre le hub et le membre risquent d’être perdues même si la synchronisation ne signale aucun problème.
 > - La synchronisation peut échouer, car la table de suivi contient une ligne qui n’existe pas dans la source en raison du changement de la clé primaire.
 
 - L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
@@ -129,7 +128,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 ### <a name="general-limitations"></a>Limitations générales
 
 - Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
-- Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml. 
+- Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml.
 - Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
@@ -152,7 +151,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitations des dimensions de la base de données et du service
 
-| **Dimensions**                                                      | **Limite**              | **Solution de contournement**              |
+| **Dimensions**                                                  | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5\.                      |                             |
 | Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     |                             |
@@ -162,7 +161,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
 | Taille de ligne de données sur une table                                        | 24 Mo                  |                             |
 | Intervalle de synchronisation minimale                                           | 5 minutes              |                             |
-|||
+
 > [!NOTE]
 > Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
 
@@ -170,7 +169,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Combien coûte le service de synchronisation des données SQL Data Sync ?
 
-Aucun frais n’est facturé pour le service SQL Data Sync en lui-même.  Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Aucun frais n’est facturé pour le service SQL Data Sync en lui-même. Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Quelles régions prennent en charge Data Sync ?
 
@@ -191,7 +190,7 @@ Oui. Vous pouvez synchroniser entre des SQL Databases qui appartiennent à des g
 - Si les abonnements appartiennent au même locataire et que disposez d’autorisations sur tous les abonnements, vous pouvez configurer le groupe de synchronisation dans le portail Azure.
 - Sinon, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Puis-je utiliser Data Sync pour synchroniser entre des SQL Databases qui appartiennent à différents clouds (comme Azure Public Cloud et Azure - Chine) ?
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Puis-je utiliser Data Sync pour synchroniser entre des bases de données SQL Database qui appartiennent à différents clouds (comme le cloud public Azure et Azure Chine 21Vianet) ?
 
 Oui. Vous pouvez synchroniser des bases de données SQL qui appartiennent à différents clouds, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant aux différents abonnements.
 

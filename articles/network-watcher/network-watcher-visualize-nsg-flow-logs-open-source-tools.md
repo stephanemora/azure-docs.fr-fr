@@ -1,5 +1,6 @@
 ---
-title: Gérer et analyser les journaux de flux des groupes de sécurité réseau avec Network Watcher et la pile élastique | Microsoft Docs
+title: Visualiser les journaux de flux de groupe de sécurité réseau - Pile élastique
+titleSuffix: Azure Network Watcher
 description: Gérez et analysez les journaux de flux des groupes de sécurité réseau dans Azure avec Network Watcher et la pile élastique.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860050"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277745"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 

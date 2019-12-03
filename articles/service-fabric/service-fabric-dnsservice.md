@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103242"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229304"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -116,6 +116,8 @@ Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectu
 > [!NOTE]
 > Lors de la mise à niveau du DNS de désactivé à activé, Service Fabric Explorer peut ne pas refléter le nouvel état. Pour résoudre ce problème, redémarrez les nœuds en modifiant UpgradePolicy dans votre modèle Azure Resource Manager. Pour plus d’informations, consultez la [Référence du modèle Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications).
 
+> [!NOTE]
+> L’activation du service DNS lors du développement sur un ordinateur local remplace certains paramètres DNS. Si vous rencontrez des problèmes lors de la connexion à Internet, vérifiez vos paramètres DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configuration du nom DNS de votre service
 Vous pouvez définir un nom DNS pour vos services, soit de manière déclarative pour les services par défaut dans le fichier ApplicationManifest.xml, soit à l’aide de commandes PowerShell.

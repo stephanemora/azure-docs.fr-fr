@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD | Microsoft Docs
+title: Guide pratique pour gérer les administrateurs locaux sur les appareils joints à Azure AD
 description: Découvrez comment attribuer des rôles Azure au groupe Administrateurs local d’un appareil Windows.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062260"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379662"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -48,7 +48,7 @@ Pour afficher et mettre à jour l’appartenance du rôle Administrateur génér
 Dans le portail Azure, vous pouvez gérer le rôle d’administrateur d’appareil dans la page **Appareils**. Pour ouvrir la page **Appareils** :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général ou administrateur d’appareil.
-1. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory**. 
+1. Recherchez et sélectionnez *Azure Active Directory*.
 1. Dans la section **Gérer**, cliquez sur **Appareils**.
 1. Dans la page **Appareils**, cliquez sur **Paramètres de l’appareil**.
 

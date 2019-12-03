@@ -9,18 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 5fe19d3800883782187ae15c0a6fc0cd9709f0e9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842670"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546244"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurer une synchronisation délimitée entre Azure AD et Azure Active Directory Domain Services
 
-Pour assurer des services d’authentification, Azure Active Directory Domain Services (Azure AD DS) synchronise les utilisateurs et les groupes à partir d’Azure AD. Dans un environnement hybride, les utilisateurs et les groupes d’un environnement Active Directory Domain Services (AD DS) local peuvent d’abord être synchronisés avec Azure AD via Azure AD Connect, puis avec Azure AD DS. Par défaut, tous les utilisateurs et groupes d’un annuaire Azure AD sont synchronisés avec un domaine managé Azure AD DS. Si vous avez des besoins spécifiques, vous pouvez opter pour la synchronisation d’un ensemble défini d’utilisateurs.
+Pour assurer des services d’authentification, Azure Active Directory Domain Services (Azure AD DS) synchronise les utilisateurs et les groupes à partir d’Azure AD. Dans un environnement hybride, les utilisateurs et les groupes d’un environnement Active Directory Domain Services (AD DS) local peuvent d’abord être synchronisés avec Azure AD via Azure AD Connect, puis avec Azure AD DS.
+
+Par défaut, tous les utilisateurs et groupes d’un annuaire Azure AD sont synchronisés avec un domaine managé Azure AD DS. Si vous avez des besoins spécifiques, vous pouvez opter pour la synchronisation d’un ensemble défini d’utilisateurs.
 
 Cet article vous montre comment créer un domaine managé Azure AD DS qui utilise la synchronisation délimitée et comment modifier ou désactiver l’ensemble des utilisateurs visés.
 
@@ -53,7 +55,7 @@ Vous utilisez le portail Azure ou PowerShell pour configurer les paramètres de 
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Activer la synchronisation délimitée à partir du portail Azure
 
-1. Suivez le [tutoriel pour créer et configurer une instance Azure AD DS](tutorial-create-instance.md). Respectez tous les prérequis et effectuez toutes les étapes de déploiement en dehors de celles prévues pour l’étendue de la synchronisation.
+1. Suivez le [tutoriel pour créer et configurer une instance Azure AD DS](tutorial-create-instance-advanced.md). Respectez tous les prérequis et effectuez toutes les étapes de déploiement en dehors de celles prévues pour l’étendue de la synchronisation.
 1. Choisissez **Inclus dans l’étendue** à l’étape de synchronisation, puis sélectionnez les groupes Azure AD à synchroniser avec l’instance Azure AD DS.
 
 Le déploiement du domaine managé Azure AD DS peut prendre jusqu’à une heure. Sur le portail Azure, la page **Vue d’ensemble** de votre domaine managé Azure AD DS indique l’état actuel tout au long de cette phase de déploiement.
@@ -62,13 +64,13 @@ Une fois que le portail Azure a indiqué que le provisionnement du domaine manag
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
     * Pour configure le DNS, sélectionnez votre domaine managé Azure AD DS dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
-* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
+* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Modifier la synchronisation délimitée à partir du portail Azure
 
 Pour modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec le domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-1. Sur le portail Azure, sélectionnez votre instance Azure AD DS, par exemple *contoso.com*.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *contoso.com*.
 1. Sélectionnez **Synchronisation** dans le menu de gauche.
 1. Pour ajouter un groupe, choisissez **+ Sélectionner des groupes** dans la partie supérieure, puis choisissez les groupes à ajouter.
 1. Pour supprimer un groupe de l’étendue de la synchronisation, sélectionnez-le dans la liste des groupes actuellement synchronisés et choisissez **Supprimer les groupes**.
@@ -80,7 +82,7 @@ La modification de l’étendue de la synchronisation conduit le domaine managé
 
 Pour désactiver la synchronisation délimitée basée sur les groupes pour un domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-1. Sur le portail Azure, sélectionnez votre instance Azure AD DS, par exemple *contoso.com*.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *contoso.com*.
 1. Sélectionnez **Synchronisation** dans le menu de gauche.
 1. Faites passer la définition de la synchronisation de **Inclus dans l’étendue** à **Tout**, puis sélectionnez **Enregistrer l’étendue de la synchronisation**.
 
@@ -209,13 +211,15 @@ Utilisez PowerShell pour cette procédure. Consultez les instructions pour [acti
    -Force -Verbose
    ```
 
-Créer la ressource et retourner le contrôle à l’invite PowerShell prend quelques minutes. Le provisionnement du domaine managé Azure AD DS se poursuit en arrière-plan, et le déploiement peut prendre jusqu’à une heure. Sur le portail Azure, la page **Vue d’ensemble** de votre domaine managé Azure AD DS indique l’état actuel tout au long de cette phase de déploiement.
+Créer la ressource et retourner le contrôle à l’invite PowerShell prend quelques minutes. Le provisionnement du domaine managé Azure AD DS se poursuit en arrière-plan et le déploiement peut prendre jusqu’à une heure. Sur le portail Azure, la page **Vue d’ensemble** de votre domaine managé Azure AD DS indique l’état actuel tout au long de cette phase de déploiement.
 
 Une fois que le portail Azure a indiqué que le provisionnement du domaine managé Azure AD DS était terminé, voici les tâches qu’il convient d’effectuer :
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
     * Pour configure le DNS, sélectionnez votre domaine managé Azure AD DS dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
-* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
+* Si vous avez créé un domaine managé Azure AD DS dans une région qui prend en charge les Zones de disponibilité, créez un groupe de sécurité réseau pour limiter le trafic dans le réseau virtuel pour ce domaine. Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
+    * Pour créer le groupe de sécurité réseau et les règles requises, sélectionnez votre domaine managé Azure AD DS sur le portail. Dans la fenêtre **Vue d’ensemble**, il vous est demandé de créer automatiquement le groupe de sécurité réseau et de le configurer.
+* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="modify-scoped-synchronization-using-powershell"></a>Modifier la synchronisation délimitée à partir de PowerShell
 

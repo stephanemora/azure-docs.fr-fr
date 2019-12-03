@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Classifier, prédire l’attrition'
+title: 'Concepteur : Exemple Prédire l’attrition'
 titleSuffix: Azure Machine Learning
-description: Cet exemple de pipeline du concepteur (préversion) montre la prédiction de l’attrition, une tâche courante pour la gestion de la relation client (CRM), par le classifieur binaire.
+description: Suivez cet exemple de classification pour prédire l’attrition avec le concepteur Azure Machine Learning et les arbres de décision boostés.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1fe3598fd15424ab2593e3d236146c7566493743
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647174"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225097"
 ---
-# <a name="sample-5---classification-predict-churn"></a>Exemple 5 - Classification : Prédire l’évolution
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Utiliser l’arbre de décision boosté pour prédire l’attrition avec le concepteur Azure Machine Learning
+
+**Exemple 5 du concepteur (préversion)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Découvrez comment générer un pipeline de machine learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code.
@@ -28,7 +31,7 @@ Ce pipeline entraîne 2 classifieurs **Arbre de décision optimisé à deux cla
 
 Voici le graphique complet associé à ce pipeline :
 
-![Graphique de pipeline](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
+![Graphique de pipeline](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,11 +51,11 @@ Tout d’abord, quelques exemples de traitement de données simples.
 
 - Le jeu de données brutes a de nombreuses valeurs manquantes. Utilisez le module **Nettoyage des données manquantes** pour remplacer les valeurs manquantes par 0.
 
-    ![Nettoyer le jeu de données](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Nettoyer le jeu de données](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Les caractéristiques et l’attrition correspondante se trouvent dans des jeux de données différents. Utilisez le module **Ajouter des colonnes** pour ajouter les colonnes d’étiquettes aux colonnes de caractéristiques. La première colonne, **Col1**, est la colonne d’étiquette. Dans le résultat de visualisation, nous pouvons voir que le jeu de données est déséquilibré. Il existe plus d’exemples négatifs (-1) que d’exemples positifs (+1). Nous utiliserons ultérieurement le module **SMOTE** pour augmenter les cas sous-représentés.
 
-    ![Ajouter le jeu de données de colonne](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
+    ![Ajouter le jeu de données de colonne](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
 
 
 
@@ -66,7 +69,7 @@ Tout d’abord, quelques exemples de traitement de données simples.
 
 Visualisez la sortie du module **Évaluer le modèle** afin d’afficher les performances du modèle sur le jeu de test. 
 
-![Évaluer les résultats](./media/how-to-ui-sample-classification-predict-churn/evaluate-result.png)
+![Évaluer les résultats](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
 
  Vous pouvez déplacer le curseur **Seuil** et afficher les modifications de métriques pour la tâche de classification binaire. 
 

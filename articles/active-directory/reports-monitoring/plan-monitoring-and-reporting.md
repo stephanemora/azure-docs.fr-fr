@@ -1,5 +1,5 @@
 ---
-title: Planifier un déploiement de création de rapports et de supervision Azure Active Directory
+title: Planifier du déploiement de rapports et de la supervision - Azure AD
 description: Explique comment planifier et exécuter l’implémentation de la création de rapports et de la supervision.
 services: active-directory
 author: BarbaraSelden
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162537"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232105"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 

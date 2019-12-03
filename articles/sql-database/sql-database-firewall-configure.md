@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 668744121c41a6e4797bc335b2736c8b31d87a41
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed13b5028341637d71dee95f38cc44cc91aa2376
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807932"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481433"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -191,8 +191,10 @@ L’exemple suivant définit une règle de pare-feu IP au niveau du serveur à l
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "ContosoIPRange" -StartIpAddress "192.168.1.0" -EndIpAddress "192.168.1.255"
 ```
+> [!TIP]
+> Pour $servername, spécifiez le nom du serveur et non le nom DNS complet. Par exemple, spécifiez **mysqldbserver** au lieu de **mysqldbserver.database.windows.net**
 
 > [!TIP]
 > Pour obtenir des exemples PowerShell dans le contexte d’un démarrage rapide, consultez [Créer une base de données - PowerShell](sql-database-powershell-samples.md) et [Utiliser PowerShell pour créer une base de données unique et configurer une règle de pare-feu IP au niveau du serveur SQL Database](scripts/sql-database-create-and-configure-database-powershell.md).
@@ -211,8 +213,10 @@ L’exemple suivant définit une règle de pare-feu IP au niveau du serveur à l
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
--n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+-n ContosoIPRange --start-ip-address 192.168.1.0 --end-ip-address 192.168.1.255
 ```
+> [!TIP]
+> Pour $servername, spécifiez le nom du serveur et non le nom DNS complet. Par exemple, spécifiez **mysqldbserver** au lieu de **mysqldbserver.database.windows.net**
 
 > [!TIP]
 > Pour obtenir un exemple basé sur l’interface de ligne de commande dans le contexte d’un démarrage rapide, consultez [Créer une base de données - Azure CLI](sql-database-cli-samples.md) et [Utiliser Azure CLI pour créer une base de données unique et configurer une règle de pare-feu IP SQL Database](scripts/sql-database-create-and-configure-database-cli.md).

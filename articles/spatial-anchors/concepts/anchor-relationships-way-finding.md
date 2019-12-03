@@ -1,19 +1,19 @@
 ---
-title: Relations entre les ancres et guidage dans Azure Spatial Anchors | Microsoft Docs
+title: Relations d’ancrage et orientation
 description: En savoir plus sur le modèle conceptuel sous-jacent des relations entre les ancres. Apprenez à connecter des ancres dans un espace et à utiliser l’API À proximité pour un scénario de guidage.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 008269a5883750dc8899d896c101c6a05bf7e814
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969288"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270596"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relations entre les ancres et guidage dans Azure Spatial Anchors
 
@@ -60,11 +60,11 @@ Pour connecter des ancres :
 
 ### <a name="connect-anchors-in-multiple-sessions"></a>Connecter des ancres dans plusieurs sessions
 
-Vous pouvez connecter des ancres spatiales via plusieurs sessions. Grâce à cette méthode, vous pouvez créer et connecter quelques ancres en même temps puis créer et connecter d’autres ancres ultérieurement. 
+Vous pouvez connecter des ancres spatiales via plusieurs sessions. Grâce à cette méthode, vous pouvez créer et connecter quelques ancres en même temps puis créer et connecter d’autres ancres ultérieurement.
 
 Pour connecter des ancres via plusieurs sessions :
 
-1. L’application crée des ancres dans une CloudSpatialAnchorSession. 
+1. L’application crée des ancres dans une CloudSpatialAnchorSession.
 2. À un autre moment, l’application localise une de ces ancres (par exemple, l’ancre A) à l’aide d’une nouvelle CloudSpatialAnchorSession.
 3. Rendez-vous à un nouvel emplacement. La plateforme de réalité mixte ou réalité augmentée sous-jacente suit le mouvement.
 4. Créez une ancre C à l’aide de la même CloudSpatialAnchorSession. Les ancres A, B et C sont maintenant connectées. Le service Spatial Anchors gère cette relation.
@@ -73,7 +73,7 @@ Vous pouvez continuer cette procédure pour d’autres ancres et sessions au fil
 
 ### <a name="verify-anchor-connections"></a>Vérifier les connexions d’ancres
 
-L’application peut vérifier que deux ancres sont connectées en émettant une requête d’ancre à proximité. Lorsque le résultat de la requête contient l’ancre cible, la connexion d’ancre est vérifiée. Si les ancres ne sont pas connectées, l’application peut essayer de les reconnecter. 
+L’application peut vérifier que deux ancres sont connectées en émettant une requête d’ancre à proximité. Lorsque le résultat de la requête contient l’ancre cible, la connexion d’ancre est vérifiée. Si les ancres ne sont pas connectées, l’application peut essayer de les reconnecter.
 
 Voici quelques raisons pour lesquelles la connexion d’ancres peut échouer :
 

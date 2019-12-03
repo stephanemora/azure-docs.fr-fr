@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98ab9ea67ceb1d965e248c93d27cb801ab8c7483
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033336"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384263"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>FAQ sur Azure Disk Encryption pour les machines virtuelles Windows
 
@@ -98,7 +98,17 @@ Le « volume Bek » est un volume de données local qui stocke de façon sécu
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Quelle méthode de chiffrement Azure Disk Encryption utilise-t-il ?
 
-Azure Disk Encryption utilise la méthode de chiffrement BitLocker AES256 (AES256WithDiffuser sur les versions antérieures à Windows Server 2012). 
+Azure Disk Encryption sélectionne la méthode de chiffrement dans BitLocker en fonction de la version de Windows comme suit :
+
+| Versions de Windows                 | Version | Méthode de chiffrement        |
+|----------------------------------|--------|--------------------------|
+| Windows Server 2012, Windows 10 ou ultérieur  | >=1511 |XTS-AES 256 bits           |
+| Windows Server 2012, Windows 8, 8.1, 10 | < 1511 |AES 256 bits *              |
+| Windows Server 2008R2            |        |AES 256 bits avec diffuseur |
+
+\* La version AES 256 bits avec diffuseur n’est pas prise en charge dans Windows 2012 et versions ultérieures.
+
+Pour déterminer la version du système d’exploitation Windows, exécutez l’outil « winver » sur votre machine virtuelle.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Si j’utilise EncryptFormatAll et si je spécifie tous les types de volume, les données de tous les lecteurs de données déjà chiffrés seront-elles effacées ?
 Non, les données ne sont pas effacées des lecteurs de données déjà chiffrés à l’aide d’Azure Disk Encryption. De même qu’EncryptFormatAll n’a pas chiffré à nouveau le lecteur du système d’exploitation, il ne chiffre pas à nouveau le lecteur de données déjà chiffré. 

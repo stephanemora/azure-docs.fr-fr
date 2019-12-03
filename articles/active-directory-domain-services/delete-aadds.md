@@ -1,6 +1,6 @@
 ---
-title: Désactiver Azure Active Directory Domain Services | Microsoft Docs'
-description: Découvrez comment désactiver Azure Active Directory Domain Services à partir du portail Azure
+title: Supprimer Azure Active Directory Domain Services | Microsoft Docs
+description: Découvrez comment désactiver ou supprimer un domaine managé Azure Active Directory Domain Services à partir du portail Azure
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f0b8a438a7c236c5e016673a59bfb691e9c2152
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842614"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546297"
 ---
-# <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Désactiver Azure Active Directory Domain Services à l’aide du portail Azure
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Désactiver ou supprimer un domaine managé Azure Active Directory Domain Services à partir du portail Azure
 
 Si vous n’avez plus besoin d’un domaine managé, vous pouvez supprimer une instance Azure Active Directory Domain Services (Azure AD DS). Il n’existe aucune option permettant de désactiver de façon provisoire ou définitive un domaine managé Azure AD DS. La suppression du domaine managé Azure AD DS ne supprime ni n’impacte défavorablement le locataire Azure AD. Cet article explique comment supprimer un domaine managé Azure AD DS à partir du portail Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
-description: Apprenez à charger un disque dur virtuel sur un disque managé Azure et à copier un disque managé d'une région vers une autre à l'aide d'Azure PowerShell.
+description: Apprenez à charger un disque dur virtuel sur un disque managé Azure et à copier un disque managé d’une région vers une autre à l’aide d’Azure PowerShell, via chargement direct.
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512437"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456670"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
 

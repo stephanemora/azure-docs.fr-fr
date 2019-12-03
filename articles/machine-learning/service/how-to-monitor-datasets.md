@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 10532ba2b43e40c4ffa2990e924947046d03b576
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049172"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539199"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -64,12 +64,12 @@ Conceptuellement, il existe trois scénarios principaux pour la configuration de
 Scénario | Description
 ---|---
 Surveillance des données de service d’un modèle afin de détecter toute dérive des données d’apprentissage du modèle | Les résultats de ce scénario sont le fruit de la surveillance d’un proxy en vue de vérifier l’exactitude du modèle, étant donné que celle-ci se dégrade si les données de service dérivent des données d’apprentissage.
-Analyse d’un jeu de données de série chronologique pour la dérive d’une période précédente. | Ce scénario est plus général et peut être utilisé pour analyser les jeux de données impliqués en amont ou en aval de la génération de modèles.  Le jeu de données cible doit posséder une colonne d'horodatage, tandis que le jeu de données de base peut être n'importe quel jeu de données tabulaires ayant des caractéristiques en commun avec le jeu de données cible.
-Exécution de l’analyse des données passées. | Cela peut permettre de comprendre les données historiques et éclairer les décisions de définition des paramètres des analyses de jeu de données.
+Analyse d’un jeu de données de série chronologique pour la dérive d’une période précédente. | Ce scénario est plus général et peut être utilisé pour analyser les jeux de données impliqués en amont ou en aval de la génération de modèles.  Le jeu de données cible doit posséder une colonne d'horodatage, tandis que le jeu de données de base peut être n’importe quel jeu de données tabulaires ayant des caractéristiques en commun avec le jeu de données cible.
+Exécution de l’analyse des données passées. | Ce scénario peut permettre de comprendre les données historiques et éclairer les décisions de définition des paramètres des moniteurs de jeu de données.
 
 ## <a name="how-dataset-can-monitor-data"></a>Comment un jeu de données peut superviser les données
 
-Avec Azure Machine Learning, la dérive de données est supervisée par le biais de jeux de données. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un jeu de données cible (généralement constitué de données d’entrée de modèle) est comparé à votre jeu de données de référence au fil du temps. Cela signifie que votre jeu de données cible doit comporter une colonne timestamp.
+Avec Azure Machine Learning, la dérive de données est supervisée par le biais de jeux de données. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un jeu de données cible (généralement constitué de données d’entrée de modèle) est comparé à votre jeu de données de référence au fil du temps. Cette comparaison signifie que votre jeu de données cible doit comporter une colonne d’horodatage (timestamp).
 
 ### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Définir la caractéristique `timeseries` dans le jeu de données cible
 
@@ -133,18 +133,18 @@ Cette table contient les paramètres de base utilisés pour l’analyse du jeu d
 | ------- | ----------- | ---- | ------- | 
 | Nom | Nom de l’analyse du jeu de données | | Non |
 | Jeu de données de référence | Jeu de données tabulaires qui sera utilisé comme ligne de base pour la comparaison du jeu de données cible au fil du temps. | Le jeu de données de référence doit avoir des caractéristiques communes avec le jeu de données cible. En règle générale, la ligne de base doit être définie sur le jeu de données de formation d’un modèle ou sur un segment du jeu de données cible. | Non |
-| Jeu de données cible | Jeu de données tabulaire avec colonne timestamp qui sera analysé pour la dérive des données | Le jeu de données cible doit avoir des caractéristiques en commun avec le jeu de données de base de référence et il doit s’agir d’un jeu de données `timeseries` auquel de nouvelles données sont ajoutées. Les données d’historique peuvent être analysées dans le jeu de données cible ou de nouvelles données peuvent être surveillées. | Non | 
-| Fréquence | Il s’agit de la fréquence qui permettra de planifier la tâche de pipeline et d’analyser les données d’historique si vous exécutez un renvoi. Les options disponibles sont quotidienne, hebdomadaire ou mensuelle. | Ajustez ce paramètre pour inclure une taille comparable de données à la ligne de base. | Non | 
-| Caractéristiques | Liste des caractéristiques qui seront analysées pour la dérive des données au fil du temps | À définir sur la (ou les) caractéristique(s) dont vous souhaitez mesurer la dérive de concept. N’incluez pas les caractéristiques qui dérivent naturellement au fil du le temps (mois, année, index, etc.). Vous pouvez effectuer un renvoi et démarrer une analyse de dérive de données existant après avoir ajusté la liste des fonctionnalités. | OUI | 
+| Jeu de données cible | Jeu de données tabulaires avec colonne timestamp qui sera analysé pour la dérive des données. | Le jeu de données cible doit avoir des caractéristiques en commun avec le jeu de données de base et il doit s’agir d’un jeu de données `timeseries` auquel de nouvelles données sont ajoutées. Les données d’historique peuvent être analysées dans le jeu de données cible ou de nouvelles données peuvent être surveillées. | Non | 
+| Fréquence | Fréquence qui permettra de planifier le travail de pipeline et d’analyser les données d’historique si vous exécutez un renvoi. Les options disponibles sont quotidienne, hebdomadaire ou mensuelle. | Ajustez ce paramètre pour inclure une taille comparable de données à la ligne de base. | Non | 
+| Caractéristiques | Liste des caractéristiques qui seront analysées pour la dérive des données au fil du temps. | À définir sur la (ou les) caractéristique(s) dont vous souhaitez mesurer la dérive de concept. N’incluez pas les caractéristiques qui dérivent naturellement au fil du le temps (mois, année, index, etc.). Vous pouvez effectuer un renvoi et démarrer une analyse de dérive de données existant après avoir ajusté la liste des fonctionnalités. | OUI | 
 | Cible de calcul | Cible de calcul Azure Machine Learning pour exécuter les travaux de l’analyse de jeu de données. | | OUI | 
 
 ### <a name="monitor-settings"></a>Paramètres d’analyse
 
-Ces paramètres sont associés au pipeline de l’analyse de jeu de données planifiée qui va être créé. 
+Ces paramètres sont associés au pipeline de moniteur de jeu de données planifié qui va être créé. 
 
 | Paramètre | Description | Conseils | Mutable | 
 | ------- | ----------- | ---- | ------- |
-| Activer | Activer ou désactiver la planification du pipeline de l’analyse de jeu de données | Désactivez cette option pour analyser les données d’historique avec le paramètre de renvoi. Elle peut être activée après la création de l’analyse de jeu de données. | OUI | 
+| Activer | Activer ou désactiver la planification du pipeline de l’analyse de jeu de données | Désactivez la planification pour analyser les données d’historique avec le paramètre de renvoi. Elle peut être activée après la création de l’analyse de jeu de données. | OUI | 
 | Latence | Durée (en heures) nécessaire pour que les données parviennent au jeu de données. Par exemple, s’il faut trois jours pour que les données parviennent dans la base de données SQL encapsulée par le jeu de données, définissez la latence sur 72. | N’est plus modifiable après la création de l’analyse de jeu de données | Non | 
 | Adresses e-mail | Adresses de messagerie pour les alertes en fonction de la violation du seuil de pourcentage de dérive des données. | Les e-mails sont envoyés via Azure Monitor. | OUI | 
 | Seuil | Seuil du pourcentage de dérive des données pour les alertes envoyées par e-mail. | Il est possible de définir d’autres alertes et événements sur de nombreuses autres métriques dans la ressource Application Insights associée de l’espace de travail. | OUI | 
@@ -156,7 +156,7 @@ Ces paramètres servent à exécuter un renvoi sur des données passées pour le
 | Paramètre | Description | Conseils |
 | ------- | ----------- | ---- |
 | Date de début | Date de début du travail de renvoi. | | 
-| Date de fin | Date de fin du travail de renvoi. | Cela ne peut pas dépasser 31 *unités de fréquence temporelle à partir de la date de début. Sur une analyse de jeu de données existante, les métriques peuvent être renvoyées pour analyser les données historiques ou remplacer les métriques par des paramètres mis à jour. |
+| Date de fin | Date de fin du travail de renvoi. | Cette date de fin ne peut pas dépasser 31*unités de fréquence temporelle à partir de la date de début. Sur une analyse de jeu de données existante, les métriques peuvent être renvoyées pour analyser les données historiques ou remplacer les métriques par des paramètres mis à jour. |
 
 ## <a name="create-dataset-monitors"></a>Créer des analyses de jeu de données 
 
@@ -181,7 +181,7 @@ L’analyse du jeu de données ainsi définie s’affiche dans la liste. Sélect
 
 La [documentation de référence du SDK python sur la dérive des données](/python/api/azureml-datadrift/azureml.datadrift) fournir des informations complètes sur le sujet. 
 
-Voici un exemple de création d’une analyse de jeu de données à l’aide du SDK Python
+Voici un exemple de création d’un moniteur analyse de jeu de données à l’aide du SDK Python
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -252,7 +252,7 @@ L’illustration suivante représente un exemple de graphiques des résultats **
 
 La section **Détails de la caractéristique** contient un aperçu de la modification de la distribution de l'élément sélectionné, ainsi que d'autres statistiques, au fil du temps. 
 
-Le jeu de données cible est également profilé au fil du temps. La distance statistique entre la distribution de ligne de base de chaque caractéristique est comparée au jeu de données cible au fil du temps, qui est conceptuellement similaire à l’amplitude de la dérive des données, à l’exception du fait qu’il s’agit d’une caractéristique individuelle. Les valeurs minimum, maximum et moyenne sont également disponibles. 
+Le jeu de données cible est également profilé au fil du temps. La distance statistique entre la distribution de ligne de base de chaque caractéristique est comparée au jeu de données cible au fil du temps, qui est conceptuellement similaire à l’amplitude de la dérive des données, à l’exception du fait qu’il s’agit de la distance statistique d’une caractéristique individuelle. Les valeurs minimum, maximum et moyenne sont également disponibles. 
 
 Dans Azure Machine Learning Studio, si vous cliquez sur un point de données dans le graphique, la distribution de la caractéristique affichée s’ajuste en conséquence. Par défaut, il affiche la distribution du jeu de données de référence et la distribution de la même caractéristique issue de la dernière exécution. 
 
@@ -295,7 +295,7 @@ Sélectionnez Journaux (analytique) sous Supervision dans le volet gauche :
 
 ![Vue d’ensemble d’Application Insights](media/how-to-monitor-datasets/ai-overview.png)
 
-Les métriques du superviseur de jeu de données sont stockées en tant que `customMetrics`. Vous pouvez écrire et exécuter une requête simple après avoir configuré un superviseur de jeu de données pour les visualiser :
+Les métriques du superviseur de jeu de données sont stockées en tant que `customMetrics`. Vous pouvez écrire et exécuter une requête après avoir configuré un moniteur de jeu de données pour les visualiser :
 
 [![Requête Log Analytics](media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
@@ -321,7 +321,7 @@ Dans le jeu de données, les colonnes, ou caractéristiques, sont classées comm
 | Type de caractéristique | Type de données | Condition | Limites | 
 | ------------ | --------- | --------- | ----------- |
 | Par catégorie | string, bool, int, float | Le nombre de valeurs uniques dans la caractéristique est inférieur à 100 et inférieur à 5 % du nombre de lignes. | La valeur null est traitée comme sa propre catégorie. | 
-| Numérique | int, float | De type de données numérique et ne répond pas aux conditions d’une caractéristique par catégorie. | Caractéristique supprimée si moins de 15 % des valeurs ont la valeur null. | 
+| Numérique | int, float | Les valeurs de la caractéristique sont d’un type de données numérique et ne répondent pas aux conditions d’une caractéristique par catégorie. | Caractéristique supprimée si moins de 15 % des valeurs ont la valeur null. | 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

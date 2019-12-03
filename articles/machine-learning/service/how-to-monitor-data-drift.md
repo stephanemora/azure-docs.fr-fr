@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: acf1df6bb71f4ea8878d8f50f3f42f4ddd831fb5
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111879"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539235"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Dans le contexte de l’apprentissage automatique, la dérive de données est la
 Avec Azure Machine Learning, vous pouvez surveiller les entrées d’un modèle déployé sur AKS et comparer ces données au jeu de données de formations du modèle. À intervalles réguliers, un [instantané et un profil](how-to-explore-prepare-data.md) sont effectués sur les données d’inférence, puis celles-ci sont calculées par rapport au jeu de données de référence pour produire une analyse de dérive de données qui : 
 
 + Mesure l’ampleur de la dérive de données, appelée coefficient de dérive.
-+ Mesure la contribution de la dérive de données par fonctionnalité, indiquant les fonctionnalités ayant provoqué une dérive de données.
++ Mesure la contribution de la dérive de données par caractéristique, indiquant les caractéristiques ayant provoqué une dérive de données.
 + Mesure des métriques de distance. Les métriques Wasserstein et de distance d’énergie sont actuellement calculées.
 + Mesure les distributions de fonctionnalités. L’estimation de la densité du noyau et les histogrammes actuellement.
 + Envoi par e-mail d’alertes de dérive de données.
@@ -80,7 +80,7 @@ Avec Azure Machine Learning, la dérive de données est supervisée par le biais
 ## <a name="configure-data-drift"></a>Configurer la dérive de données
 Pour configurer la dérive des données de votre expérience, importez les dépendances comme dans l’exemple Python suivant. 
 
-Cet exemple montre la configuration de l’objet [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) :
+Cet exemple montre la configuration de l’objet [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) :
 
 ```python
 # Import Azure ML packages
@@ -90,7 +90,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -112,7 +112,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -142,7 +142,7 @@ L’exemple Python suivant montre comment représenter les métriques de dérive
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```

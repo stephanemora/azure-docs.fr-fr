@@ -1,21 +1,15 @@
 ---
-title: 'Sauvegarde Azure : Surveiller les charges de travail protégées de Sauvegarde Azure'
+title: Surveiller les charges de travail protégées de Sauvegarde Azure
 description: Dans cet article, découvrez les fonctionnalités de surveillance et de notification des charges de travail de Sauvegarde Azure à l’aide du Portail Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Sauvegarde Azure ; alertes ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090962"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172878"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -63,7 +57,7 @@ Dans quelques cas exceptionnels, une alerte n’est pas déclenchée en cas d’
 
 Dans le cadre des exceptions ci-dessus, il est entendu que le résultat de ces opérations (principalement déclenchées par l’utilisateur) s’affiche immédiatement sur le portail et dans les clients PS et CLI. Par conséquent, l’utilisateur en est informé immédiatement et n’a pas besoin de notification.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Les alertes provenant des solutions Sauvegarde Azure suivantes sont indiqués ici :
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Les alertes provenant des solutions Sauvegarde Azure suivantes sont indiquées ici
 
 - Sauvegardes de machines virtuelles Azure
 - Sauvegardes de fichiers Azure

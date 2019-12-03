@@ -4,14 +4,14 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621470"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166616"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -41,7 +41,7 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
 
 * **Nom de la cible de stockage** : définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
 * **Type de cible** : choisissez **Objet blob**.
-* **Compte de stockage** : sélectionnez le compte qui comprend le conteneur à référencer.
+* **Compte de stockage** : sélectionnez le compte qui comprend le conteneur à utiliser.
 
   Vous devez autoriser l’instance de cache à accéder au compte de stockage, en suivant la procédure décrite dans [Ajouter les rôles d’accès](#add-the-access-control-roles-to-your-account).
 
@@ -53,13 +53,16 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
 
 Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
 
+> [!NOTE]
+> Si votre pare-feu de compte de stockage est défini de façon à limiter l’accès uniquement aux « réseaux sélectionnés », utilisez la solution de contournement temporaire décrite dans [Paramètres du pare-feu de compte de Stockage Blob](hpc-cache-blob-firewall-fix.md).
+
 ### <a name="add-the-access-control-roles-to-your-account"></a>Ajouter les rôles de contrôle d’accès à votre compte
 
-Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser l’application de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
+Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser le service de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
 
 Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) et [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) pour l’utilisateur « HPC Cache Resource Provider ».
 
-Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à partir de laquelle vous ajoutez une cible de stockage Blob.
+Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à partir de laquelle vous ajoutez une cible de stockage Blob. Rappelez-vous qu’il peut falloir jusqu’à cinq minutes pour que les paramètres de rôle se propagent dans l’environnement Azure. Par conséquent, après avoir ajouté les rôles, vous devez attendre quelques minutes avant de créer une cible de stockage.
 
 Étapes nécessaires pour ajouter des rôles RBAC :
 
@@ -76,7 +79,7 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
    > [!NOTE]
    > Si la recherche de « hpc » ne retourne aucun résultat, essayez la chaîne « storagecache » à la place. Les utilisateurs qui se sont inscrits à la préversion (avant la mise à disposition générale) devront peut-être utiliser l’ancien nom du principal de service.
 
-1. Cliquez sur le bouton **Enregistrer** pour ajouter l’attribution de rôle au compte de stockage.
+1. Cliquez sur le bouton **Enregistrer** au bas de l’écran.
 
 1. Répétez ce processus pour attribuer le rôle « Contributeur aux données Blob du stockage ».  
 
@@ -84,7 +87,7 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
 
 ## <a name="add-a-new-nfs-storage-target"></a>Ajouter une cible de stockage NFS
 
-Une cible de stockage NFS contient des champs supplémentaires permettant de spécifier comment atteindre l’exportation de stockage et comment mettre en cache efficacement ses données. Vous pouvez aussi créer plusieurs chemins d’espace de noms à partir d’un hôte NFS si plusieurs exportations sont disponibles.
+Une cible de stockage NFS contient plus de champs que la cible de Stockage Blob. Ces champs spécifient comment atteindre l’exportation de stockage et comment mettre en cache efficacement ses données. En outre, une cible de stockage NFS vous permet de créer plusieurs chemins d’accès d’espace de noms si l’hôte NFS a plusieurs exportations disponibles.
 
 ![Capture d’écran de la page Ajouter la cible de stockage avec le type de cible défini sur NFS](media/hpc-cache-add-nfs-target.png)
 
@@ -96,14 +99,15 @@ Fournissez les informations suivantes pour une cible de stockage NFS :
 
 * **Nom d’hôte** - Entrez l’adresse IP ou le nom de domaine complet de votre système de stockage NFS (utilisez un nom de domaine uniquement si votre cache a accès à un serveur DNS capable de résoudre ce nom).
 
-* **Modèle d’utilisation** - Choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model).
+* **Modèle d’utilisation** : choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model).
 
 ### <a name="nfs-namespace-paths"></a>Chemin d'espaces de noms NFS
 
 Une cible de stockage NFS peut avoir plusieurs chemins d’accès virtuels, à condition que chaque chemin d’accès représente une exportation ou un sous-répertoire différent sur le même système de stockage.
 
 Créez tous les chemins d’accès à partir d’une cible de stockage.
-<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Vous pouvez [ajouter et modifier des chemins d’accès d’espace de noms](hpc-cache-edit-storage.md) sur une cible de stockage à tout moment.
 
 Renseignez ces valeurs pour chaque chemin d’espace de noms :
 
@@ -122,11 +126,29 @@ Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage
 
 Lorsque vous créez une cible de stockage qui pointe vers un système de stockage NFS, vous devez choisir le *modèle d’utilisation* de cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
 
-* Read heavy (Écritures lourdes) : si vous utilisez principalement le cache pour accélérer l’accès en lecture aux données, choisissez cette option.
+Vous disposez de trois options :
 
-* Lecture/écriture : si les clients utilisent le cache pour la lecture et l’écriture, choisissez cette option.
+* **Lire les écritures lourdes et peu fréquentes** : utilisez cette option si vous souhaitez accélérer l’accès en lecture aux fichiers qui sont statiques ou rarement modifiés.
 
-* Clients bypass the cache (Les clients contournent le cache) : choisissez cette option si vos clients écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache.
+  Cette option met en cache les fichiers que les clients lisent, mais transmet immédiatement les écritures au stockage backend. Les fichiers stockés dans le cache ne sont jamais comparés aux fichiers sur le volume de stockage NFS.
+
+  N’utilisez pas cette option s’il existe un risque de modification directe d’un fichier sur le système de stockage sans l’avoir d’abord écrit dans le cache. Si cela se produit, la version mise en cache du fichier n’est jamais mise à jour avec les modifications du backend, et le jeu de données peut devenir incohérent.
+
+* **Opérations d’écriture supérieures à 15 %**  : cette option accélère les performances de lecture et d’écriture. Quand vous utilisez cette option, tous les clients doivent accéder aux fichiers par le biais d’Azure HPC Cache au lieu de monter le stockage backend directement. Les fichiers mis en cache comportent des modifications récentes qui ne sont pas stockées sur le backend.
+
+  Dans ce modèle d’utilisation, les fichiers du cache ne sont pas comparés aux fichiers sur le stockage backend. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est uniquement écrit dans le système de stockage backend une fois qu’il se trouve dans le cache pendant une heure sans aucune modification supplémentaire.
+
+* **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache. Les fichiers demandés par les clients sont mis en cache, mais toute modification apportée à ces fichiers à partir du client est immédiatement retransmise au système de stockage backend.
+
+  Avec ce modèle d’utilisation, les fichiers du cache sont fréquemment comparés aux versions backend pour y rechercher des mises à jour. Cette vérification permet de modifier les fichiers en dehors du cache tout en conservant la cohérence des données.
+
+Ce tableau récapitule les différences entre les modèles d’utilisation :
+
+| Modèle d’utilisation | Mode de mise en cache | Vérification backend | Délai maximal d’écriture différée |
+| ---- | ---- | ---- | ---- |
+| Lire les écritures lourdes et peu fréquentes | Lire | Jamais | Aucun |
+| Opérations d’écriture supérieures à 15 % | Lecture/écriture | Jamais | 1 heure |
+| Les clients ignorent le cache | Lire | 30 secondes | Aucun |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -135,4 +157,4 @@ Après avoir créé les cibles de stockage, vous pouvez effectuer l’une des t�
 * [Monter le cache Azure HPC Cache](hpc-cache-mount.md)
 * [Déplacer les données dans le stockage d’objets blob Azure](hpc-cache-ingest.md)
 
-Si vous avez besoin de modifier une cible de stockage, lisez [Modifier les cibles de stockage](hpc-cache-edit-storage.md) pour en savoir plus.
+Si vous devez mettre à jour des paramètres, vous pouvez [modifier une cible de stockage](hpc-cache-edit-storage.md).

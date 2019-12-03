@@ -1,20 +1,15 @@
 ---
-title: Azure Container Instances - Éléments à prendre en compte en matière de sécurité
+title: Sécurité des instances de conteneur
 description: Recommandations relatives à la sécurisation des images et des secrets pour Azure Container Instances, et éléments à prendre en compte en matière de sécurité sur toutes les plateformes de conteneurs
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/29/2019
-ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 618d3a901698e46760d970f6d4fbc4157c5d2ea3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325925"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481690"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Éléments à prendre en compte en matière de sécurité pour Azure Container Instances
 

@@ -1,17 +1,17 @@
 ---
-title: Comment fonctionne la migration Hyper-V avec la migration de serveur Azure Migrate ? | Microsoft Docs
-description: Fournit une vue d’ensemble de la migration d’Hyper-V avec la migration de serveur Azure Migrate
+title: Comment fonctionne la migration Hyper-V dans Azure Migrate ?
+description: En savoir plus sur la migration d’Hyper-V avec Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 9148e76a9f2abd369ae595422d785a347e58dfab
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810192"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185873"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Fonctionnement de la réplication Hyper-V
 

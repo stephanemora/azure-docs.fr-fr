@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606254"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533167"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 Pour des exemples d’inscription et d’utilisation d’une fonction définie par l’utilisateur, consultez l’article [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
+
+## <a name="logging"></a>Journalisation 
+
+Lorsque vous utilisez une procédure stockée, des déclencheurs ou des fonctions définies par l’utilisateur, vous pouvez journaliser les étapes à l’aide de la commande `console.log()`. Cette commande concentre une chaîne à des fins de débogage lorsque `EnableScriptLogging` a la valeur true, comme indiqué dans l’exemple suivant :
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

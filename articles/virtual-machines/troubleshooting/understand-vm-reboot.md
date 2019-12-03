@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086980"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384227"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
 
@@ -67,7 +67,7 @@ Les mises à jour multi-instances (pour les machines virtuelles d’un groupe à
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Actions d’arrêt ou de redémarrage initiées par l’utilisateur
 
-Si vous effectuez un redémarrage à partir du portail Azure, d’Azure PowerShell, d’une interface de ligne de commande ou d’une API Reset, l’événement est consigné dans le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Si vous effectuez un redémarrage à partir du portail Azure, d’Azure PowerShell, d’une interface de ligne de commande ou d’une API REST, l’événement est consigné dans le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 Si vous effectuez un redémarrage à partir du système d’exploitation de la machine virtuelle, l’événement est consigné dans le journal système.
 
