@@ -1,19 +1,14 @@
 ---
-title: Règles de pare-feu pour accéder à Azure Container Registry
+title: Règles d’accès du pare-feu
 description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/17/2019
-ms.author: danlep
-ms.openlocfilehash: 88b6da4e9bd2938adadadc1ef0e696399fc3c75e
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828009"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455189"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 

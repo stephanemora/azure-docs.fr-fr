@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea1d286d00564587a9692dac1b04c5bbb04742cc
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495923"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561470"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure
 
@@ -34,49 +34,101 @@ Avant de pouvoir utiliser les identités managées pour ressources Azure pour au
 
 Pour plus d’informations sur les identités managées, consultez [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="authenticate-with-the-azure-identity-library-preview"></a>S’authentifier avec la bibliothèque d’identité Azure (version préliminaire)
+## <a name="authenticate-with-the-azure-identity-library"></a>S’authentifier avec la bibliothèque d’identité Azure
 
-La bibliothèque de client d’identité Azure pour .NET (version préliminaire) authentifie un principal de sécurité. Lorsque votre code s’exécute dans Azure, le principal de sécurité est une identité managée pour les ressources Azure.
+L’un des avantages de la bibliothèque de client Azure Identity est qu’elle vous permet d’utiliser le même code pour vous authentifier, que votre application soit exécutée dans l’environnement de développement ou dans Azure. Dans le code exécuté dans l’environnement Azure, la bibliothèque de client authentifie une identité managée pour les ressources Azure. Dans l’environnement de développement, étant donné que l’identité managée n’existe pas, la bibliothèque de client authentifie l’utilisateur ou le principal de service à des fins de test.
 
-Lorsque votre code s’exécute dans l’environnement de développement, l’authentification peut être gérée automatiquement ou nécessiter une connexion du navigateur, selon les outils que vous utilisez. Microsoft Visual Studio prend en charge l’authentification unique (SSO), afin que le compte d’utilisateur actif Azure AD soit automatiquement utilisé pour l’authentification. Pour plus d’informations sur l’authentification unique, consultez [Authentification unique aux applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
-
-D’autres outils de développement peuvent vous inviter à vous connecter via un navigateur web. Vous pouvez également utiliser un principal de service pour vous authentifier à partir de l’environnement de développement. Pour plus d’informations, consultez [Créer une identité pour une application Azure dans le portail](../../active-directory/develop/howto-create-service-principal-portal.md).
+La bibliothèque de client Azure Identity pour .NET authentifie un principal de sécurité. Lorsque votre code s’exécute dans Azure, le principal de sécurité est une identité managée pour les ressources Azure.
 
 Après l’authentification, la bibliothèque de client d’identité Azure obtient des informations d’identification de jeton. Ces informations d’identification de jeton sont ensuite encapsulées dans l’objet client de service que vous créez pour effectuer des opérations sur le stockage Azure. La bibliothèque gère ceci pour vous, en toute transparence, en obtenant les informations d’identification de jeton appropriées.
 
 Pour plus d’informations sur la bibliothèque cliente Azure Identity, consultez [Bibliothèque cliente Azure Identity pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Attribuer des rôles RBAC pour l’accès aux données
+### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Attribuer des rôles de contrôle d’accès en fonction du rôle (RBAC) pour accéder aux données
 
 Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob ou de file d’attente, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, le principale de sécurité doit se voir attribuer un rôle RBAC qui accorde l’accès aux données blob ou de file d’attente dans le stockage Azure. Pour plus d’informations sur l’attribution d’autorisations via RBAC, consultez la section intitulée **Attribuer des rôles RBAC pour les droits d’accès** dans [Autoriser l’accès aux blobs et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## <a name="install-the-preview-packages"></a>Installer le packages de la préversion
+### <a name="authenticate-the-user-in-the-development-environment"></a>Authentifier l’utilisateur dans l’environnement de développement
 
-Les exemples de cet article utilisent la dernière préversion de la bibliothèque cliente de Stockage Azure pour le stockage d’objets blob. Pour installer le package de la préversion, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
+Lorsque votre code s’exécute dans l’environnement de développement, l’authentification peut être gérée automatiquement ou nécessiter une connexion du navigateur, selon les outils que vous utilisez. Microsoft Visual Studio prend en charge l’authentification unique (SSO), afin que le compte d’utilisateur actif Azure AD soit automatiquement utilisé pour l’authentification. Pour plus d’informations sur l’authentification unique, consultez [Authentification unique aux applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+D’autres outils de développement peuvent vous inviter à vous connecter via un navigateur web.
+
+### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Authentifier un principal de service dans l’environnement de développement
+
+Si votre environnement de développement ne prend pas en charge l’authentification unique ou la connexion via un navigateur web, vous pouvez utiliser un principal de service pour vous authentifier à partir de l’environnement de développement.
+
+#### <a name="create-the-service-principal"></a>Créer le principal du service
+
+Pour créer un principal du service avec Azure CLI et attribuer un rôle RBAC, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Indiquez également l’étendue de l’attribution de rôle. Pour plus d’informations sur les rôles intégrés fournis pour le Stockage Azure, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+
+Si vous ne disposez pas des autorisations suffisantes pour attribuer un rôle au principal du service, vous devrez peut-être demander au propriétaire du compte ou à l’administrateur d’effectuer l’attribution de rôle.
+
+L’exemple suivant utilise Azure CLI pour créer un principal du service et lui attribuer le rôle de **lecteur de données d’objets blob de stockage** avec une étendue de compte
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-Les exemples de cet article utilisent également la dernière préversion de la [bibliothèque cliente Azure Identity pour .NET](https://www.nuget.org/packages/Azure.Identity/) pour s’authentifier avec des informations d’identification Azure AD. Pour installer le package de la préversion, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
+La commande `az ad sp create-for-rbac` retourne une liste de propriétés de principal du service au format JSON. Copiez ces valeurs pour pouvoir les utiliser afin de créer les variables d’environnement nécessaires à l’étape suivante.
+
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
+```
+
+> [!IMPORTANT]
+> La propagation des attributions de rôles RBAC peut prendre plusieurs minutes.
+
+#### <a name="set-environment-variables"></a>Définition des variables d'environnement
+
+La bibliothèque cliente Azure Identity lit les valeurs de trois variables d’environnement au moment de l’exécution pour authentifier le principal du service. Le tableau suivant indique la valeur à définir pour chaque variable d’environnement.
+
+|Variable d’environnement|Valeur
+|-|-
+|`AZURE_CLIENT_ID`|ID de l’application pour le principal du service
+|`AZURE_TENANT_ID`|ID de locataire Azure AD du principal du service
+|`AZURE_CLIENT_SECRET`|Mot de passe généré pour le principal du service
+
+> [!IMPORTANT]
+> Après avoir défini les variables d’environnement, fermez et rouvrez votre fenêtre de console. Si vous utilisez Visual Studio ou un autre environnement de développement, vous devrez peut-être redémarrer l’environnement de développement afin qu’il enregistre les nouvelles variables d’environnement.
+
+Pour plus d’informations, consultez [Créer une identité pour une application Azure dans le portail](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+## <a name="install-client-library-packages"></a>Installer des packages de bibliothèque de client
+
+Les exemples de cet article utilisent la dernière version de la bibliothèque de client du Stockage Azure pour le stockage blob. Pour installer le package, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
 
 ```powershell
-Install-Package Azure.Identity -IncludePrerelease
+Install-Package Azure.Storage.Blobs
+```
+
+Les exemples de cet article utilisent également la dernière version de la [bibliothèque cliente Azure Identity pour .NET](https://www.nuget.org/packages/Azure.Identity/) pour s’authentifier avec des informations d’identification Azure AD. Pour installer le package, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
+
+```powershell
+Install-Package Azure.Identity
 ```
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemple de code .NET : Créer un objet blob de blocs
 
-Ajoutez les directives `using` suivantes à votre code pour utiliser les préversions des bibliothèques clientes Azure Identity et de Stockage Azure.
+Ajoutez les directives `using` suivantes à votre code pour utiliser les bibliothèques de client Azure Identity et Stockage Azure.
 
 ```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Blobs;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
-using Azure.Identity;
-using Azure.Storage;
-using Azure.Storage.Sas;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
 ```
 
 Pour obtenir les informations d’identification d’un jeton que votre code peut utiliser pour autoriser les requêtes au stockage Azure, créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). L’exemple de code suivant montre comment obtenir des informations d’identification du jeton authentifié et comment l’utiliser pour créer un objet client de service, puis utiliser le client de service pour charger un nouveau blob :
@@ -107,7 +159,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
             await containerClient.UploadBlobAsync(blobName, stream);
         }
     }
-    catch (StorageRequestFailedException e)
+    catch (RequestFailedException e)
     {
         Console.WriteLine(e.Message);
         Console.ReadLine();

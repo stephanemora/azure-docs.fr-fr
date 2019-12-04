@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123958"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274076"
 ---
 # <a name="container-security-in-security-center"></a>Sécurité des conteneurs dans Security Center
 
@@ -32,7 +32,7 @@ Cet article décrit comment améliorer, superviser et garantir la sécurité de 
 [![Onglet Sécurité des conteneurs d’Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestion des vulnérabilités : analyse des images conteneurs (préversion)
-Pour superviser votre service Azure Container Registry, connectez-le à Security Center. Quand une nouvelle image est envoyée (push), Security Center l’analyse avec un scanneur fourni par Qualys, leader des solutions de gestion des vulnérabilités.
+Pour surveiller votre Azure Container Registry, assurez-vous que vous êtes sur le niveau standard de Security Center (consultez [tarification](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Activez ensuite le pack facultatif de registres de conteneurs. Quand une nouvelle image est envoyée (push), Security Center l’analyse avec un scanneur fourni par Qualys, leader des solutions de gestion des vulnérabilités.
 
 Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations sur les recommandations de Security Center, consultez la liste des recommandations dans [Protection des machines virtuelles](security-center-virtual-machine-protection.md##compute-and-app-recs).
 
@@ -55,7 +55,7 @@ AKS fournit des contrôles de sécurité et apporte une visibilité sur la postu
 
 Pour plus d’informations sur les recommandations de Security Center, consultez [Protection des machines virtuelles](security-center-virtual-machine-protection.md).
 
-## <a name="run-time-protection---real-time-threat-detection"></a>Protection du Runtime : détection des menaces en temps réel 
+## <a name="run-time-protection---real-time-threat-detection"></a>Protection du Runtime : détection des menaces en temps réel
 
 Security Center assure une détection des menaces en temps réel pour vos environnements conteneurisés et génère des alertes en cas d’activités suspectes. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821060"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547551"
 ---
 # <a name="vcore-model-overview"></a>Vue d’ensemble du modèle vCore
 
@@ -32,7 +32,7 @@ Les options de niveau de service du modèle vCore sont les suivantes : usage gé
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S par réplica de base de données.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.  Offre une meilleure résilience aux défaillances en autorisant la configuration de plusieurs réplicas de base de données isolés. |
-|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 8 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
+|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
 |Débit d’E/S (approximatif)|**Base de données et pool élastique** : 500 IOPS par vCore avec un maximum de 40 000 IOPS.<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5 000 IOPS par vCore avec un maximum de 320 000 IOPS|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](sql-database-read-scale-out.md)|
 |Sauvegardes|[Stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
@@ -98,7 +98,7 @@ Pour activer le matériel de série M sur un abonnement et une région, il est n
 |Génération du matériel  |Calcul  |Mémoire  |
 |:---------|:---------|:---------|
 |Gen4     |- Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
-|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
+|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz et Intel SP-8160 (Skylake)<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz et Intel SP-8160 (Skylake)<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
 |Série Fsv2     |- Processeurs Intel Xeon Platinum 8168 (Skylake)<br>- Fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et fréquence d’horloge turbo monocœur maximale de 3,7 GHz<br>- Provisionnement de 72 vCore (1 vCore = 1 hyper-thread)|- 1,9 Go par vCore<br>- Provisionnement de 136 Go|
 |Série M     |- Processeurs Intel Xeon E7-8890 v3 2,5 GHz<br>- Provisionnement de 128 vCore (1 vCore = 1 hyper-thread)|- 29 Go par vCore<br>- Provisionnement de 3,7 To|
 
@@ -134,7 +134,7 @@ Suivez les étapes indiquées pour modifier la configuration, puis sélectionnez
 
 ### <a name="hardware-availability"></a>Disponibilité matérielle
 
-#### <a name="gen4gen5"></a>Gen4/Gen5
+#### <a name="gen4gen5-1"></a> Gen4/Gen5
 
 Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud. 
 

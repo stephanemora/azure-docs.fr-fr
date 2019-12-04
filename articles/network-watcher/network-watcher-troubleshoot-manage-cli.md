@@ -1,5 +1,6 @@
 ---
-title: Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Azure CLI | Microsoft Docs
+title: Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure – Azure CLI
+titleSuffix: Azure Network Watcher
 description: Cette page explique comment utiliser Azure Network Watcher pour résoudre les problèmes liés à l’interface de ligne de commande Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0974c242533ff122d75979acc5eb158ec36c179d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca61486ce58ccd3385518c2d22e0690c1fb34d16
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699588"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277814"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure par le biais de l’interface de ligne de commande Azure d’Azure Network Watcher
 

@@ -2,19 +2,19 @@
 title: Versions de Azure Service Fabric
 description: Notes de publication sur les dernières fonctionnalités et améliorations de Service Fabric.
 author: athinanthny
-manager: chackdan
+manager: gamonroy
 ms.author: atsenthi
-ms.date: 6/10/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 4a681b3a09def3a7b27b603cf5201aebdbf2e4bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 496a5babe58be4354ffb10a331d35abc8a51b04d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72386209"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186518"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -28,9 +28,41 @@ Cet article fournit des informations sur les version et mises à jour les plus r
 
 ## <a name="whats-new-in-service-fabric"></a>Nouveautés de Service Fabric
 
+### <a name="service-fabric-70"></a>Service Fabric 7.0
+
+Azure Service Fabric 7.0 est désormais disponible ! Vous pouvez effectuer la mise à jour vers 7.0 via le Portail Azure ou via un déploiement d’Azure Resource Manager. En raison des commentaires des clients sur les versions pendant les vacances, nous ne commencerons pas à mettre à jour automatiquement les clusters définis pour recevoir des mises à niveau automatiques jusqu’au mois de janvier.
+En janvier, nous reprendrons la procédure de déploiement standard et les clusters avec des mises à niveau automatiques activées commenceront à recevoir automatiquement la mise à jour 7.0. Nous ferons une autre annonce avant le début du déploiement.
+Nous mettrons également à jour les dates de publication planifiées pour indiquer que cette stratégie est prise en compte. Recherchez des mises à jour sur nos futures [planifications de version](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule).
+ 
+Il s’agit de la dernière version de Service Fabric qui est chargée avec des fonctionnalités et améliorations clés.
+
+### <a name="key-announcements"></a>Principales annonces
+ - [**Prise en charge de KeyVaultReference pour les secrets de l’application (préversion)** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) : Les applications Service Fabric qui ont activé [Identités managées](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) peuvent désormais référencer directement une URL de secret Key Vault en tant que variable d’environnement, paramètre d’application ou informations d’identification de référentiel de conteneur. Service Fabric résoudra automatiquement le secret à l’aide de l’identité managée de l’application. 
+     
+- **Amélioration de la sécurité de la mise à niveau pour les services sans état** : Pour garantir la disponibilité lors de la mise à niveau d’une application, nous avons introduit de nouvelles configurations pour définir le [nombre minimal d’instances pour les services sans état](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) à considérer comme disponibles. Auparavant, cette valeur était 1 pour tous les services et n’était pas modifiable. Grâce à cette nouvelle vérification de la sécurité par service, vous pouvez vous assurer que vos services conservent un nombre minimal d’instances lors des mises à niveau de l’application, des mises à niveau de cluster et d’autres opérations de maintenance qui s’appuient sur les contrôles d’intégrité et de sécurité de Service Fabric.
+  
+- [**Limites des ressources des services utilisateur**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services) : Les utilisateurs peuvent configurer des limites de ressources pour les services utilisateur sur un nœud afin d’éviter des scénarios tels que l’épuisement des ressources des services système Service Fabric. 
+  
+- [**Coût de déplacement de service très élevé**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) pour un type de réplica. Les réplicas avec un coût de déplacement « très élevé » sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon. Consultez les documents pour plus d’informations sur l’utilisation raisonnable du coût de déplacement « très élevé » et sur les considérations supplémentaires.
+  
+-  **Vérifications supplémentaires de la sécurité des clusters** : Dans cette version, nous avons introduit une vérification de la sécurité du quorum de nœuds initiaux configurables. Cela vous permet de personnaliser le nombre de nœuds initiaux qui doivent être disponibles pendant les scénarios de gestion et de cycle de vie du cluster. Les opérations qui prennent le cluster en dessous de la valeur configurée sont bloquées. Aujourd’hui la valeur par défaut est toujours un quorum de nœuds initiaux. Par exemple, si vous avez 7 nœuds initiaux, une opération qui nécessiterait en dessous de 5 nœuds initiaux serait bloquée par défaut. Avec cette modification, vous pourriez définir la valeur de sécurité minimale sur 6, ce qui permettrait d’autoriser seulement un nœud initial d’être en panne à la fois.
+   
+- Support ajouté pour [**gérer le service de sauvegarde et de restauration dans Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Cela rend les activités suivantes possibles directement depuis SFX : découverte du service de sauvegarde et de restauration, création d’une politique de sauvegarde, activation des sauvegardes automatiques, prise de sauvegardes ad hoc, déclenchement d’opération de restauration et recherche de sauvegarde existantes.
+
+- Annonce de la disponibilité de [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool) : Cet outil permet de valider que les types utilisés dans les collections fiables ont une compatibilité ascendante et descendante pendant le déploiement d’une mise à niveau d’application. Cela permet d’éviter les échecs de mise à niveau ou la perte et l’altération de données en raison de types manquants ou incompatibles.
+
+- [**Activer les lectures stables sur les réplicas secondaires**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1) : le fait d’activer les lectures stables aura pour effet de restreindre les réplicas secondaires aux valeurs retournées demandées par le quorum.
+
+De plus, cette version contient d’autres nouvelles fonctionnalités, corrections de bogues, et améliorations en termes de prise en charge, de fiabilité et de performances. Pour la liste complète des modifications, reportez-vous aux [notes de publication](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
+
+| Date de lancement | Libérer | En savoir plus |
+|---|---|---|
+| 18 novembre 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Notes de publication](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
+
+
 ### <a name="service-fabric-65"></a>Service Fabric 6.5
 
-La dernière version de Service Fabric inclut la prise en charge, la fiabilité, les améliorations de performances, les nouvelles fonctionnalités, les correctifs de bogues et les améliorations destinées à faciliter la gestion de cycle de vie du cluster et des applications.
+Cette version inclut la prise en charge, la fiabilité, les améliorations de performances, les nouvelles fonctionnalités, les correctifs de bogues et les améliorations destinées à faciliter la gestion de cycle de vie du cluster et des applications.
 
 > [!IMPORTANT]
 > Service Fabric 6.5 est la version finale avec prise en charge des outils Service Fabric dans Visual Studio 2015. Les clients sont invités à passer à [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) à l’avenir.

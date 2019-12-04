@@ -1,20 +1,20 @@
 ---
 title: Créer des stratégies par programmation
-description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy.
+description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959417"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463537"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
 Cet article vous explique comment créer et gérer des stratégies par programmation. Les définitions de stratégie Azure appliquent différentes règles et des différents effets sur vos ressources. Cette mise en conformité permet de garantir que les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service.
 
-Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](getting-compliance-data.md).
+Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

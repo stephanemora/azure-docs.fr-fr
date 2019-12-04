@@ -1,18 +1,18 @@
 ---
-title: Tableau de prise en charge Azure Migrate pour l’évaluation et la migration Hyper-V
-description: Résume les paramètres et les limites de l'évaluation et de la migration Hyper-V à l'aide du service Azure Migrate.
+title: Prise en charge de l’évaluation et de la migration Hyper-V dans Azure Migrate
+description: Découvrez la prise en charge de l’évaluation et de la migration Hyper-V avec Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498692"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186652"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 

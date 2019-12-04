@@ -1,22 +1,22 @@
 ---
-title: Quand et comment utiliser un fournisseur Azure Multi-Factor Auth ? - Azure Active Directory
+title: Fournisseurs de Microsoft Azure Multi-Factor Authentication - Azure Active Directory
 description: Quand devriez-vous utiliser un fournisseur d’authentification avec Azure MFA ?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399fccf9aaaeb9e252527e80a6549ee286bb1898
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 9d4b89f7416847e01cad8cb4f9bc52248d09170d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369347"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381998"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quand utiliser un fournisseur Azure Multi-Factor Authentication
 

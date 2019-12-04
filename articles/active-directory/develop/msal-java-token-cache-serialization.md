@@ -1,7 +1,7 @@
 ---
 title: Sérialisation personnalisée du cache de jetons dans MSAL.NET pour Java
 titleSuffix: Microsoft identity platform
-description: Découvrez comment sérialiser le cache de jetons pour MSAL pour Java
+description: Découvrir comment sérialiser le cache de jetons pour MSAL pour Java
 services: active-directory
 documentationcenter: dev-center-name
 author: sangonzal
@@ -18,16 +18,16 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bd8cb07d30aa5223cf3d78d636f0d593fefbecf
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7323a47095c58958503cecf16189ed875fac3b4d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905162"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452604"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java-msal4j"></a>Sérialisation du cache de jetons personnalisé dans MSAL.NET pour Java (MSAL4J)
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Sérialisation personnalisée du cache de jetons dans MSAL.NET pour Java
 
-Pour obtenir une application de cache de jeton persistant, vous devez personnaliser la sérialisation. Les classes et interfaces Java concernées par la sérialisation du cache de jeton sont les suivantes :
+Pour faire persister le cache de jeton entre les instances de votre application, vous devez personnaliser la sérialisation. Les classes et interfaces Java concernées par la sérialisation du cache de jeton sont les suivantes :
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html) :  interface représentant le cache du jeton de sécurité.
 - [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html) : interface représentant l’opération d’exécution du code avant et après l’accès. Vous utiliseriez @Override *beforeCacheAccess* et *afterCacheAccess* avec la logique responsable de la sérialisation et de la désérialisation du cache.

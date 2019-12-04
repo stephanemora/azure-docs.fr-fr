@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour configurer des identités managées affectées par le système et par l'utilisateur sur un groupe de machines virtuelles identiques à l'aide d'Azure CLI
+title: Configurer des identités gérées sur les groupes de machines virtuelles identiques – Azure CLI – Azure AD
 description: Instructions détaillées pour la configuration d'identités managées affectées par le système et par l'utilisateur sur un groupe de machines virtuelles identiques Azure à l'aide de PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d914226014a0f43bc7f8ff24d3e7dff24ef37
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 74d8faed0637b5b5b82e1ad450a3b1535bb063e4
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310044"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547308"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI
 
@@ -35,7 +35,7 @@ Dans cet article, vous allez apprendre à effectuer les opérations suivantes af
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer de ces affectations de contrôle d'accès basé sur les rôles Azure :
 

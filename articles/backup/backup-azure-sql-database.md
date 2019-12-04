@@ -1,18 +1,14 @@
 ---
 title: Sauvegarder des bases de données SQL Server sur Azure
-description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: tutorial
+description: Cet article explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
+ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162204"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462592"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -55,7 +51,7 @@ Avant de commencer, contrôlez les points suivants :
 * La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. Nous ne prenons pas en charge l’interface CLI.
 * La solution est prise en charge pour les deux types de [déploiements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
 * La machine virtuelle exécutant SQL Server nécessite une connexion Internet pour accéder aux adresses IP publiques Azure.
-* L’**instance de cluster de basculement (FCI)** SQL Server et l’instance de cluster de basculement SQL Server Always On ne sont pas prises en charge.
+* L’**instance de cluster de basculement** SQL Server n’est pas prise en charge.
 * Les opérations de sauvegarde et de restauration des bases de données miroir et des instantanés de base de données ne sont pas prises en charge.
 * L’utilisation de plusieurs solutions de sauvegarde pour sauvegarder votre instance SQL Server autonome ou votre groupe de disponibilité SQL AlwaysOn peut entraîner l’échec de la sauvegarde. Une telle utilisation est donc à éviter.
 * La sauvegarde de deux nœuds d’un groupe de disponibilité individuellement avec les mêmes solutions ou des solutions différentes peut également entraîner l’échec de la sauvegarde.

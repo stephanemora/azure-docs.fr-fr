@@ -1,17 +1,17 @@
 ---
-title: Architecture de l’appliance de réplication Azure Migrate | Microsoft Docs
-description: Fournit une vue d’ensemble de l’appliance de réplication Azure Migrate
+title: Architecture de l’appliance de réplication Azure Migrate
+description: Fournit une vue d’ensemble de l’appliance de réplication Azure Migrate pour une migration basée sur un agent.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4f4dc307bee4190a0e94ace493053e0cfd01150e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ba14767bde5d6cdca3a82dbe4e8a115ec25cc911
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810108"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186556"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928978"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382991"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -208,12 +208,12 @@ La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az
 
 ### <a name="validation-rules-for-upgrades"></a>Règles de validation pour les mises à niveau
 
-Les mises à niveau valides pour les versions de Kubernetes détenues par le plan de contrôle ou les pools de nœuds d’un cluster sont validées par les ensembles de règles suivants.
+Les mises à niveau valides de Kubernetes du plan de contrôle ou des pools de nœuds d’un cluster sont validées par les ensembles de règles suivants.
 
-* Règles pour la mise à niveau vers des versions valides :
+* Règles pour la mise à niveau des pools de nœuds par les versions valides :
    * La version du pool de nœuds doit avoir la même version *principale* que le plan de contrôle.
-   * La version du pool de nœuds peut être située à deux versions *secondaires* inférieures à la version du plan de contrôle.
-   * La version du pool de nœuds peut être située à deux versions de *correctifs* inférieures à la version du plan de contrôle.
+   * La version *secondaire* du pool de nœuds doit être située à deux versions *secondaires* de la version du plan de contrôle.
+   * La version du pool de nœuds ne peut pas être supérieure à la version du `major.minor.patch` de contrôle.
 
 * Règles pour l’envoi d’une opération de mise à niveau :
    * Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.

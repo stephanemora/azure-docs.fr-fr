@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009564"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383310"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -46,7 +46,7 @@ Les matchers sont des objets de graphe qui déterminent quelles sont les fonctio
 
 L’exemple de matcher suivant a la valeur true pour tout événement de télémétrie de capteur ayant `"Temperature"` comme valeur de type de données. Vous pouvez créer plusieurs matchers sur une fonction définie par l’utilisateur en exécutant une requête HTTP POST authentifiée dans :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -81,7 +81,7 @@ La création d’une fonction définie par l’utilisateur implique qu’une req
 
 Une fois les matchers créés, chargez l’extrait de fonction avec la requête HTTP POST en plusieurs parties authentifiée suivante dans :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -201,7 +201,7 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
 
 1. [Interrogez l’API System](./security-create-manage-role-assignments.md#retrieve-all-roles) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction définie par l’utilisateur. Exécutez une requête HTTP GET authentifiée sur :
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Conserver l’ID de rôle souhaité. Il sera transmis en tant qu’attribut **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) du corps JSON ci-dessous.
@@ -210,7 +210,7 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
 1. Recherchez la valeur de **path** (`YOUR_ACCESS_CONTROL_PATH`) en interrogeant votre espaces avec `fullpath`.
 1. Copiez la valeur `spacePaths` retournée. Vous l’utiliserez ci-dessous. Exécutez une requête HTTP GET sur :
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
@@ -220,7 +220,7 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
 
 1. Collez la valeur `spacePaths` retournée dans **path** pour créer une attribution de rôle de fonction définie par l’utilisateur en envoyant une requête HTTP POST authentifiée vers :
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     Avec le corps JSON :
@@ -238,7 +238,7 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificateur pour le rôle souhaité |
     | YOUR_USER_DEFINED_FUNCTION_ID | ID de la fonction définie par l’utilisateur que vous souhaitez utiliser |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID spécifiant le type de la fonction définie par l’utilisateur |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID spécifiant le type de la fonction définie par l’utilisateur (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | Chemin du contrôle d’accès |
 
 >[!TIP]

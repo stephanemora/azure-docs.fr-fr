@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/19/2019
-ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe0155d6102dac12d5d4c01b78b1ddd45f9bee02
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554103"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382241"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Guide pratique pour arrêter la supervision de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour conteneurs
 
@@ -165,5 +165,8 @@ Le changement de configuration peut prendre quelques minutes. Lorsqu’il est te
 ProvisioningState       : Succeeded
 ```
 
-Si l’espace de travail a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics avec le portail Azure](../../log-analytics/log-analytics-manage-del-workspace.md). N’oubliez pas l’**ID de ressource de l’espace de travail** que nous avons copié précédemment à l’étape 4 car vous en aurez besoin. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Si l’espace de travail a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics avec le portail Azure](../../log-analytics/log-analytics-manage-del-workspace.md). N’oubliez pas l’**ID de ressource de l’espace de travail** copiée précédemment à l’étape 4 car vous en aurez besoin. 
 

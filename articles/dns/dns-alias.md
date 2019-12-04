@@ -1,18 +1,18 @@
 ---
-title: Vue d’ensemble des enregistrements d’alias Azure DNS
-description: Vue d’ensemble de la prise en charge des enregistrements d’alias dans Microsoft Azure DNS.
+title: Vue d’ensemble des enregistrements d’alias – Azure DNS
+description: Dans cet article, découvrez en plus sur la prise en charge des enregistrements d’alias dans Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: victorh
-ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: allensu
+ms.openlocfilehash: da396d3e3db4acd1a9843977b8b3e3d51c33f021
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946897"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212339"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 

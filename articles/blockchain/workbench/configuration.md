@@ -1,21 +1,15 @@
 ---
-title: Référence de configuration Azure Blockchain Workbench
-description: Vue d’ensemble de la configuration de l’application Azure Blockchain Workbench Preview.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Référence des métadonnées de configuration Azure Blockchain Workbench
+description: Vue d’ensemble des métadonnées de configuration de l’application Azure Blockchain Workbench Preview.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2ee1d1da1a9a5d8e890a6578eaec42cc6bf9f3ed
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845100"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326065"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 

@@ -14,22 +14,23 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: e4596ae2f92e5dfd99dc7c83857e0c9874358fd4
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 7bd9fe4044dace4061285c016cb08562b556b98e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949702"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483639"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Erreurs courantes au sein de la console série Azure
 Il existe un ensemble d’erreurs connues au sein de la console série Azure. Voici une liste de ces erreurs et des étapes d’atténuation pour celles-ci.
 
 ## <a name="common-errors"></a>Erreurs courantes
 
-Error                            |   Atténuation
+Error                             |   Atténuation
 :---------------------------------|:--------------------------------------------|
-Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;* . To use the serial console, ensure that boot diagnostics is enabled for this VM (Impossible de récupérer les paramètres de diagnostic de démarrage. Pour utiliser la console série, vérifiez que les diagnostics de démarrage sont activés dans la machine virtuelle) ![Erreur de diagnostics de démarrage](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) | Vérifiez que les [diagnostics de démarrage](boot-diagnostics.md) sont activés sur la machine virtuelle ou le groupe de machines virtuelles identiques. Si vous utilisez la console série sur une instance de groupe de machines virtuelles identiques, assurez-vous que votre instance possède le modèle le plus récent.
-The VM is in a stopped deallocated state. Start the VM and retry the serial console connection (La machine virtuelle est arrêtée et à l’état Désalloué. Démarrez la machine virtuelle, puis retentez une connexion à la console série) ![Erreur désallouée](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | La machine virtuelle ou l’instance de groupe de machines virtuelles identiques doit être à l’état Démarré pour accéder à la console série. Démarrez votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques, puis réessayez.
+« La console série Azure requiert l’activation des diagnostics de démarrage. Cliquez ici pour configurer les diagnostics de démarrage pour votre machine virtuelle. » ![Erreur de diagnostics de démarrage](./media/virtual-machines-serial-console/virtual-machines-serial-console-boot-diagnostics-error.png) | Vérifiez que les [diagnostics de démarrage](boot-diagnostics.md) sont activés sur la machine virtuelle ou le groupe de machines virtuelles identiques. Si vous utilisez la console série sur une instance de groupe de machines virtuelles identiques, assurez-vous que votre instance possède le modèle le plus récent.
+« La console série Azure requiert l’exécution d’une machine virtuelle. Utilisez le bouton Démarrer ci-dessus pour démarrer votre machine virtuelle. » ![Erreur désallouée](./media/virtual-machines-serial-console/virtual-machines-serial-console-deallocating-error.png) | La machine virtuelle ou l’instance de groupe de machines virtuelles identiques doit être à l’état Démarré pour accéder à la console série (votre machine ne doit pas être arrêtée ou libérée). Assurez-vous que votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques soit en cours d’exécution, puis réessayez.
+« La console série Azure n’est pas activée pour cet abonnement, contactez l’administrateur de votre abonnement pour l’activer. » ![Erreur d’abonnement désactivé](./media/virtual-machines-serial-console/virtual-machines-serial-console-subscription-disabled-error.png) | La console série Azure peut être désactivée au niveau de l’abonnement. Si vous êtes un administrateur d’abonnement, vous pouvez [activer et désactiver la console série Azure](./serial-console-enable-disable.md). Si vous n’êtes pas administrateur d’abonnement, vous devez contacter votre administrateur d’abonnement pour connaître les étapes suivantes.
 Une réponse « Interdit » s’est produite lors de l’accès au compte de stockage des diagnostics de démarrage de cette machine virtuelle. ![Erreur de pare-feu de compte de stockage](./media/virtual-machines-serial-console/virtual-machines-serial-console-firewall-error.png)| Assurez-vous que les diagnostics de démarrage n’ont pas un pare-feu de compte. Un compte de stockage des diagnostics de démarrage accessible est nécessaire au fonctionnement de la console série. Serial console, de par sa conception, ne peut pas fonctionner avec des pare-feu de compte de stockage activés sur le compte de stockage des diagnostics de démarrage.
 You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions. (Vous ne disposez pas des autorisations nécessaires pour utiliser la console série sur cette machine virtuelle. Vous devez disposer des autorisations du rôle Contributeur de machine virtuelle au minimum.)| L’accès à la console série nécessite que vous disposiez d’un accès de niveau contributeur ou d’une version supérieure sur votre machine virtuelle ou votre groupe de machines virtuelles identiques. Pour plus d’informations, consultez la [page de présentation](serial-console-overview.md).
 Le compte de stockage '' utilisé pour les diagnostics de démarrage sur cette machine virtuelle est introuvable. Vérifiez que les diagnostics de démarrage sont activés pour cette machine virtuelle, que ce compte de stockage n’a pas été supprimé et que vous avez accès à ce compte de stockage. | Vérifiez que vous n’avez pas supprimé le compte de stockage des diagnostics de démarrage pour votre machine virtuelle ou votre groupe de machines virtuelles identiques

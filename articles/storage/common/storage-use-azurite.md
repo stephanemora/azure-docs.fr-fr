@@ -1,5 +1,5 @@
 ---
-title: Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
+title: Utiliser l’émulateur azurite pour le développement de stockage Azure local
 description: L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Azure.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309529"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269473"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utiliser l’émulateur Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
 
 L’émulateur open source Azurite version 3.2 (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage de file d'attente et Blob Azure. Une fois que vous êtes satisfait de la manière dont votre application fonctionne localement, passez à l’utilisation d’un compte de stockage Azure dans le cloud. L’émulateur offre une prise en charge multiplateforme, qui inclut Windows, Linux et macOS. Azurite v3 prend en charge les API implémentées par le service Blob Azure.
 

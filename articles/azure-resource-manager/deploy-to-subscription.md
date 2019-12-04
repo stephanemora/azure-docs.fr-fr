@@ -1,17 +1,14 @@
 ---
-title: Déployer le niveau d’abonnement - Modèle Azure Resource Manager
+title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d8a99a19038f98766df25551343a48b9789c8587
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832727"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147149"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
@@ -42,7 +39,7 @@ Pour les modèles, utilisez :
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Pour les fichiers de paramètres, utilisez :
+Fichiers de fichiers de paramètres, utilisez :
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#

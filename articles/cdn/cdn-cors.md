@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593972"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278095"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
 ## <a name="what-is-cors"></a>Présentation de CORS
@@ -63,12 +63,21 @@ Si les demandes sont communiquées au CDN avant que CORS ne soit défini sur l�
 ## <a name="multiple-origin-scenarios"></a>Scénarios avec plusieurs origines
 Si une liste d’origines spécifique doit être autorisée pour CORS, les choses se compliquent un peu plus. Le problème se produit quand le CDN met en cache l’en-tête **Access-Control-Allow-Origin** pour la première origine CORS.  Quand une autre origine CORS envoie une demande ultérieure, le CDN utilise l’en-tête **Access-Control-Allow-Origin** mis en cache, qui ne correspond pas.  Il existe plusieurs façons de corriger cette situation.
 
+### <a name="azure-cdn-standard-profiles"></a>Profils CDN Azure standard
+Sur Azure CDN standard de Microsoft, vous pouvez créer une règle dans le [moteur de règles standard](cdn-standard-rules-engine-reference.md) pour vérifier l’en-tête **Origin** sur la demande. S’il s’agit d’une origine valide, votre règle définit l’en-tête **Access-Control-Allow-Origin** avec la valeur souhaitée. Dans ce cas, l’en-tête **Access-Control-Allow-Origin** issu du serveur d’origine du fichier est ignoré et le moteur de règles du CDN gère entièrement les origines CORS autorisées.
+
+![Exemple de règles avec le moteur de règles standard](./media/cdn-cors/cdn-standard-cors.png)
+
+> [!TIP]
+> Vous pouvez ajouter des actions supplémentaires à votre règle pour modifier des en-têtes de réponse supplémentaires, par exemple **Access-Control-Allow-Methods**.
+> 
+
+Sur **Azure CDN Standard fourni par Akamai**, le seul mécanisme autorisant plusieurs origines sans recourir à l’origine avec caractère générique consiste à utiliser la [mise en cache de chaîne de requête](cdn-query-string.md). Activez le paramètre de chaîne de requête pour le point de terminaison CDN, puis utilisez une chaîne de requête unique pour les demandes à partir de chaque domaine autorisé. Ainsi, le CDN met en cache un objet distinct pour chaque chaîne de requête unique. Cette approche n’est pas idéale, toutefois, car plusieurs copies du même fichier sont mises en cache sur le CDN.  
+
 ### <a name="azure-cdn-premium-from-verizon"></a>CDN Azure Premium fourni par Verizon
-La meilleure façon de procéder consiste à utiliser **CDN Azure Premium fourni par Verizon**, qui expose certaines fonctionnalités avancées. 
+À l’aide du moteur de règles Verizon Premium, vous devez [créer une règle](cdn-rules-engine.md) pour vérifier l’en-tête **Origin** dans la demande.  S’il s’agit d’une origine valide, votre règle définit l’en-tête **Access-Control-Allow-Origin** avec l’origine fournie dans la demande.  Si l’origine spécifiée dans l’en-tête **Origin** n’est pas autorisée, votre règle doit omettre l’en-tête **Access-Control-Allow-Origin**, ce qui amène le navigateur à rejeter la demande. 
 
-Vous devez [créer une règle](cdn-rules-engine.md) pour vérifier l’en-tête **Origin** dans la demande.  S’il s’agit d’une origine valide, votre règle définit l’en-tête **Access-Control-Allow-Origin** avec l’origine fournie dans la demande.  Si l’origine spécifiée dans l’en-tête **Origin** n’est pas autorisée, votre règle doit omettre l’en-tête **Access-Control-Allow-Origin**, ce qui amène le navigateur à rejeter la demande. 
-
-Vous pouvez mettre en place cette procédure de deux façons avec le moteur de règles. Dans les deux cas, l’en-tête **Access-Control-Allow-Origin** issu du serveur d’origine du fichier est ignoré et le moteur de règles du CDN gère entièrement les origines CORS autorisées.
+Vous pouvez mettre en place cette procédure de deux façons avec le moteur de règles Premium. Dans les deux cas, l’en-tête **Access-Control-Allow-Origin** issu du serveur d’origine du fichier est ignoré et le moteur de règles du CDN gère entièrement les origines CORS autorisées.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Une expression régulière avec toutes les origines valides
 Dans ce cas, vous allez créer une expression régulière qui inclut toutes les origines que vous souhaitez autoriser : 
@@ -94,6 +103,5 @@ Au lieu de recourir à des expressions régulières, vous pouvez créer une règ
 > 
 > 
 
-### <a name="azure-cdn-standard-profiles"></a>Profils CDN Azure standard
-Sur les profils CDN Azure standard (**CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard fourni par Verizon**), la seule manière d’autoriser plusieurs origines sans recourir à l’origine avec caractère générique consiste à utiliser la [mise en cache de chaîne de requête](cdn-query-string.md). Activez le paramètre de chaîne de requête pour le point de terminaison CDN, puis utilisez une chaîne de requête unique pour les demandes à partir de chaque domaine autorisé. Ainsi, le CDN met en cache un objet distinct pour chaque chaîne de requête unique. Cette approche n’est pas idéale, toutefois, car plusieurs copies du même fichier sont mises en cache sur le CDN.  
+
 

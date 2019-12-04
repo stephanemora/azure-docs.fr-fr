@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d6e7c04cbd5a7f1ed509b27cf87ac3f692c28d9f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011670"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454476"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
@@ -92,6 +92,9 @@ Dans le portail des développeurs, il est possible de se connecter avec AAD B2C 
 ![Widget Boutons AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
 Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD B2C, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+
+> [!IMPORTANT]
+> Vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications apportées à AAD prennent effet.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portail des développeurs hérité : comment s’inscrire avec Azure AD B2C
 

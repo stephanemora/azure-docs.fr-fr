@@ -1,14 +1,14 @@
 ---
 title: Présentation du verrouillage des ressources
-description: Découvrez les options de verrouillage permettant de protéger les ressources au moment d’affecter un blueprint.
+description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960484"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406400"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -61,8 +61,7 @@ Une action de refus de type [Refuser les attributions](../../../role-based-acces
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclure un principal d’une affectation de refus
 
-Dans certains scénarios de conception ou de sécurité, il peut être nécessaire d’exclure un principal de [l’affectation de refus](../../../role-based-access-control/deny-assignments.md) créée par l’affectation blueprint. Cette opération est effectuée dans l’API REST en ajoutant jusqu’à cinq valeurs au tableau **excludedPrincipals** de la propriété **locks** lors de la [création de l’affectation](/rest/api/blueprints/assignments/createorupdate).
-Exemple d’un corps de requête qui inclut **excludedPrincipals** :
+Dans certains scénarios de conception ou de sécurité, il peut être nécessaire d’exclure un principal de [l’affectation de refus](../../../role-based-access-control/deny-assignments.md) créée par l’affectation blueprint. Cette opération est effectuée dans l’API REST en ajoutant jusqu’à cinq valeurs au tableau **excludedPrincipals** de la propriété **locks** lors de la [création de l’affectation](/rest/api/blueprints/assignments/createorupdate). Exemple d’un corps de requête qui inclut **excludedPrincipals** :
 
 ```json
 {

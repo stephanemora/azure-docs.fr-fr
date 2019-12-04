@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71e9ef72e7b6caaa3894bb30c6e7e9cf762232a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802709"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554037"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le portail d’entreprise Microsoft Intune sur des applications Xamarin
 
@@ -180,7 +180,9 @@ Le portail offre une nouvelle expérience d’inscription d’application pour v
 
 ## <a name="brokered-authentication-for-android"></a>Authentification répartie pour Android
 
-La prise en charge du répartiteur n’est pas disponible pour Android.
+MSAL.NET ne prend en charge que la plateforme Xamarin.iOS pour le moment. Elle ne prend pas encore en charge les répartiteurs pour la plateforme Xamarin.Android.
+
+La bibliothèque native Android MSAL la prend déjà en charge. Pour plus d’informations, voir [Authentification répartie dans Android](brokered-auth.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: fff5ad379aa11a0aae14b33f9f82f6da9c794517
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643706"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561741"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
@@ -28,9 +28,9 @@ Le tableau suivant décrit les types de cluster et les versions qui sont compati
 
 | Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sans ESP | OUI | OUI | Non | Non | Non | Non | Non |
+| HDInsight 3.6 sans ESP | Oui 2.3 uniquement| OUI | Non | Non | Non | Non | Non |
 | HDInsight 4.0 sans ESP | OUI | OUI | Non | Non | Non | Non | Non |
-| HDInsight 3.6 avec ESP | OUI | OUI | Non | Non | Non | Non | Non |
+| HDInsight 3.6 avec ESP | Oui 2.3 uniquement | OUI | Non | Non | Non | Non | Non |
 | HDInsight 4.0 avec ESP | OUI | OUI | Non | Non | Non | Non | Non |
 
 ## <a name="how-it-works"></a>Fonctionnement

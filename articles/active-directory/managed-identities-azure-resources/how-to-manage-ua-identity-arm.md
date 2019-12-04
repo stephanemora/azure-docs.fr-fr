@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager
+title: Créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager
 description: Instructions détaillées pour créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cccf129ff4ed9389422ec900a4a23f489cf3c7a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66a4415203871c8397af2b8f1f96ca4f08d6bfcc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443481"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547433"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Créer, afficher et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager
 
@@ -36,7 +36,7 @@ Il n’est pas possible d’afficher et de supprimer une identité managée affe
 - [Supprimer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="template-creation-and-editing"></a>Création et modification du modèle

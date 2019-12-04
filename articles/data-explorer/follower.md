@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 61cfcfc41a1d9caeaded475511dd69ebc48756e2
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083187"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462027"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utiliser une base de données d’abonné pour joindre des bases de données dans Azure Data Explorer
 
@@ -48,23 +48,26 @@ Vous pouvez utiliser différentes méthodes pour joindre une base de données. D
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
-var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
+var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
 var attachedDatabaseConfigurationName = "adc";
-var databaseName = "db" // Can be specific database name or * for all databases
+var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "North Central US";
 
 AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new AttachedDatabaseConfiguration()
 {
-    ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}",
+    ClusterResourceId = $"/subscriptions/{leaderSubscriptionId}/resourceGroups/{leaderResourceGroup}/providers/Microsoft.Kusto/Clusters/{leaderClusterName}",
     DatabaseName = databaseName,
     DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind,
     Location = location
@@ -198,10 +201,13 @@ Le cluster de l’abonné peut détacher toute base de données attachée comme 
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
@@ -219,10 +225,13 @@ Le cluster du responsable peut détacher toute base de données attachée comme 
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = leaderSubscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
@@ -232,7 +241,7 @@ var followerClusterName = "follower";
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
         AttachedDatabaseConfigurationName = "adc",
-        ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
+        ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
@@ -242,12 +251,12 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Gérer les principaux
 
-Lors de l’attachement d’une base de données, spécifiez le **type de modification des principaux par défaut**. Le type par défaut conserve la collection de bases de données du responsable des [principaux autorisés](/azure/kusto/management/access-control/index#authorization)
+Lors de l’attachement d’une base de données, spécifiez le **« type de modification des principaux par défaut »** . Le type par défaut conserve la collection de bases de données du responsable des [principaux autorisés](/azure/kusto/management/access-control/index#authorization)
 
 |**Type** |**Description**  |
 |---------|---------|
 |**Union**     |   Les principaux de la base de données attachée incluent toujours les principaux de la base de données d’origine, ainsi que les nouveaux principaux ajoutés à la base de données de l’abonné.      |
-|**Replace**   |    Aucun héritage des principaux de la base de données d’origine. De nouveaux principaux doivent être créés pour la base de données attachée. Au moins un principal doit être ajouté pour bloquer l’héritage du principal.     |
+|**Replace**   |    Aucun héritage des principaux de la base de données d’origine. De nouveaux principaux doivent être créés pour la base de données attachée.     |
 |**Aucun**   |   Les principaux de la base de données attachée incluent uniquement les principaux de la base de données d’origine sans principaux supplémentaires.      |
 
 Pour plus d’informations sur l’utilisation des commandes de contrôle pour configurer les principaux autorisés, consultez [Commandes de contrôle pour la gestion du cluster de l’abonné](/azure/kusto/management/cluster-follower).

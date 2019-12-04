@@ -1,19 +1,14 @@
 ---
-title: Monter un volume emptyDir dans Azure Container Instances
+title: Monter le volume emptyDir pour le groupe de conteneurs
 description: Découvrez comment monter un volume emptyDir pour partager des données entre les conteneurs d’un groupe de conteneurs dans Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
-ms.author: danlep
-ms.openlocfilehash: 0dbe26ff1e00e1912cfd63e8383695ca794dd037
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0440bcc490b766c12b2117d2453557707df2a1c4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325462"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533232"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monter un volume emptyDir dans Azure Container Instances
 

@@ -1,23 +1,24 @@
 ---
-title: Planifier des tâches Azure Container Registry Tasks
-description: Découvrez comment exécuter une tâche Azure Container Registry Tasks selon une planification définie en définissant un ou plusieurs déclencheurs de minuteur.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Didacticiel – Planifier une tâche ACR
+description: Dans ce didacticiel, découvrez comment exécuter une tâche Azure Container Registry Task selon une planification définie en définissant un ou plusieurs déclencheurs de minuteur.
 ms.topic: article
 ms.date: 06/27/2019
-ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931465"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454677"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Exécuter une tâche ACR selon une planification définie
 
-Cet article montre comment exécuter une [tâche ACR Tasks](container-registry-tasks-overview.md) selon une planification. Planifiez une tâche en définissant un ou plusieurs *déclencheurs de minuteur*.
+Ce didacticiel montre comment exécuter une [tâche ACR](container-registry-tasks-overview.md) selon une planification. Planifiez une tâche en définissant un ou plusieurs *déclencheurs de minuteur*. Les déclencheurs de minuteur peuvent être utilisés seuls ou en combinaison avec d’autres déclencheurs de tâche.
+
+Dans ce didacticiel, découvrez comment planifier des tâches et :
+
+> [!div class="checklist"]
+> * Créer une tâche avec un déclencheur de minuteur
+> * Gérer les déclencheurs de minuteur
 
 Planifier une tâche est utile pour les scénarios tels que les suivants :
 
@@ -199,9 +200,11 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Dans ce didacticiel, vous avez appris à créer des tâches Azure Container Registry qui sont déclenchées automatiquement par un minuteur. 
+
 Pour obtenir un exemple d’utilisation d’une tâche planifiée afin de nettoyer des dépôts dans un registre , consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
 
-Pour obtenir des exemples de tâches déclenchées par les validations de code source ou les mises à jour d'images de base, consultez les [didacticiels ACR Tasks](container-registry-tutorial-quick-task.md).
+Pour obtenir des exemples de tâches déclenchées par les validations de code source ou les mises à jour d'images de base, consultez d’autres articles dans les [didacticiels ACR Tasks](container-registry-tutorial-quick-task.md).
 
 
 

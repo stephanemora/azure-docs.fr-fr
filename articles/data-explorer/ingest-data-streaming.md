@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090628"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548340"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestion de streaming (préversion)
 
@@ -73,8 +73,7 @@ Il existe deux types d’ingestion de streaming pris en charge :
 
 ## <a name="limitations"></a>Limites
 
-* La capacité et les performances d’ingestion de streaming évoluent avec l’augmentation des tailles de cluster et de machine virtuelle. Pour un nœud D14 individuel, la charge recommandée est de 150 demandes par seconde.
-* Actuellement, la prise en charge vaut uniquement pour les références SKU à 8 et 16 cœurs (D13, D14, L8 et L16).
+* La capacité et les performances d’ingestion de streaming évoluent avec l’augmentation des tailles de cluster et de machine virtuelle. Les ingestions simultanées sont limitées à 6 ingestions par cœur. Par exemple, pour les SKU 16 cœurs, telles que D14 et L16, la charge maximale prise en charge est de 96 ingestions simultanées. Pour les SKU 2 cœurs, telles que D11, la charge maximale prise en charge est de 12 ingestions simultanées.
 * La taille limite des données par demande d’ingestion est de 4 Mo.
 * Les mises à jour de schéma, telles que la création et la modification de tables et de mappages d’ingestion, peuvent prendre jusqu’à 5 minutes pour le service d’ingestion de streaming.
 * L’activation de l’ingestion de streaming sur un cluster, même lorsque les données ne sont pas ingérées via streaming, utilise une partie du disque SSD local des machines du cluster pour les données d’ingestion de streaming et réduit le stockage disponible pour le cache à chaud.

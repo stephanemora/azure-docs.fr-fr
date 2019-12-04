@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497767"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213911"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
@@ -141,4 +141,4 @@ Vous pouvez éviter ce problème de deux façons :
   
 -   Créez plusieurs modèles, en variant la métrique ou en effectuant davantage d’itérations.  
   
-En général, avec les modèles de clustering, il est possible qu’une configuration donnée crée un ensemble localement optimisé de clusters. En d’autres termes, l’ensemble des clusters retourné par le modèle n’est adapté qu’aux points de données actuels et ne peut pas s’étendre à d’autres données. Si vous utilisez une autre configuration initiale, la méthode k-moyennes peut trouver une configuration différente, voire supérieure. 
+En général, avec les modèles de clustering, il est possible qu’une configuration donnée crée un ensemble localement optimisé de clusters. En d’autres termes, l’ensemble des clusters retourné par le modèle n’est adapté qu’aux points de données actuels et ne peut pas s’étendre à d’autres données. Si vous utilisez une autre configuration initiale, la méthode k-moyennes peut trouver une configuration différente, supérieure. 

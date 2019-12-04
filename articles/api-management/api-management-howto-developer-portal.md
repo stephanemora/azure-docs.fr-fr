@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011481"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454394"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -26,8 +26,6 @@ Le portail des développeurs est un site web généré automatiquement et entiè
 Cet article décrit les différences entre la version auto-hébergée et la version managée du portail des développeurs dans la Gestion des API. Il explique également son architecture et répond aux questions fréquentes.
 
 > [!WARNING]
-> Le nouveau portail des développeurs est actuellement en cours de déploiement dans les services Gestion des API.
-> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités devrait être effectué avant le vendredi 22 novembre 2019.
 >
 > [Découvrez comment migrer de la préversion à la version en disponibilité générale](#preview-to-ga) du portail des développeurs.
 
@@ -95,6 +93,8 @@ Les portails étant incompatibles, vous devez migrer le contenu manuellement.
 
 Le nouveau portail des développeurs ne prend pas en charge les *Applications* et les *Problèmes*. Si vous avez utilisé les *Problèmes* sur l’ancien portail et que vous en avez besoin sur le nouveau, publiez un commentaire sur un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+L’authentification avec OAuth dans la console du développeur interactive n’est prise en charge. Vous pouvez suivre la progression via le [problème GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+
 ### <a name="has-the-old-portal-been-deprecated"></a>L’ancien portail est-il déconseillé ?
 
 L’ancien portail des développeurs et l’ancien portail des éditeurs sont désormais des fonctionnalités *héritées*, qui ne recevront que des mises à jour de sécurité. Les nouvelles fonctionnalités ne seront implémentées que dans le nouveau portail des développeurs.
@@ -111,13 +111,31 @@ L’API est documentée dans la [section wiki du référentiel GitHub][2]. Elle 
 
 Non.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Faut-il activer une connectivité de réseau virtuel supplémentaire pour les dépendances du portail managé ?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Faut-il activer une connectivité de réseau virtuel supplémentaire pour les nouvelles dépendances du portail managé ?
 
-Non.
+Dans la plupart des cas, non.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>J’obtiens une erreur CORS lorsque j’utilise la console interactive. Que dois-je faire ?
+Si votre service de gestion des API se trouve dans un réseau virtuel interne, votre portail des développeurs est accessible uniquement à partir de ce réseau. Le nom d’hôte du point de terminaison de gestion doit être résolu en adresse IP virtuelle interne du service à partir de l’ordinateur utilisé pour accéder à l’interface d’administration du portail. Veillez à ce que le point de terminaison de gestion soit inscrit dans le DNS. En cas d’erreur de configuration, l’erreur suivante apparaît : `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement ou utiliser la valeur de caractère générique `*`. Par exemple :
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>J’ai attribué un domaine de gestion des API personnalisé et le portail publié ne fonctionne pas
+
+Après avoir mis à jour le domaine, vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications prennent effet.
+
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>J’ai ajouté un fournisseur d’identité mais il n’apparaît pas dans le portail
+
+Après avoir configuré un fournisseur d’identité (par exemple, AAD, AAD B2C), vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications prennent effet.
+
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>J’ai configuré la délégation mais le portail ne l’utilise pas
+
+Après avoir configuré la délégation, vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications prennent effet.
+
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Les autres modifications apportées à la configuration de la gestion des API n’ont pas été propagées dans le portail des développeurs
+
+La plupart des modifications de configuration (par exemple, réseau virtuel, connexion et conditions de produit) nécessitent une [republication du portal](api-management-howto-developer-portal-customize.md#publish).
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>J’obtiens une erreur CORS lorsque j’utilise la console interactive
+
+La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](api-management-cross-domain-policies.md#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement ou utiliser la valeur de caractère générique `*`. Par exemple :
 
 ```XML
 <cors>
@@ -142,6 +160,54 @@ La console interactive effectue une requête d’API côté client à partir du 
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> Si vous appliquez la stratégie CORS dans l’étendue du produit, au lieu de l’étendue de l’API, et que votre API utilise l’authentification par clé d’abonnement via un en-tête, votre console ne fonctionnera pas.
+>
+> Le navigateur émet automatiquement une requête HTTP OPTIONS, qui ne contient pas d’en-tête avec la clé d’abonnement. La clé d’abonnement étant absente, la gestion des API ne peut pas associer l’appel OPTIONS à un produit et, par conséquent, ne peut pas appliquer la stratégie CORS.
+>
+> Pour contourner le problème, vous pouvez transmettre la clé d’abonnement dans un paramètre de requête.
+
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quelles sont les autorisations requises pour modifier le portail des développeurs ?
+
+Si l’erreur `Oops. Something went wrong. Please try again later.` apparaît lorsque vous ouvrez le portail en mode d’administration, vous ne disposez peut-être pas des autorisations requises (RBAC).
+
+Les portails hérités exigeaient l’autorisation `Microsoft.ApiManagement/service/getssotoken/action` sur l’étendue du service (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) pour que l’administrateur d’utilisateurs puisse y accéder. Le nouveau portail exige l’autorisation `Microsoft.ApiManagement/service/users/token/action` sur l’étendue `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+
+Vous pouvez utiliser le script PowerShell suivant pour créer un rôle avec l’autorisation requise. Veillez à changer le paramètre `<subscription-id>`. 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+Une fois le rôle créé, il peut être attribué à n’importe quel utilisateur de la section **Contrôle d’accès (IAM)** du portail Azure. Le fait d’attribuer ce rôle à un utilisateur a pour effet d’attribuer l’autorisation sur l’étendue du service. L’utilisateur pourra générer des jetons SAS au nom de *n’importe quel* utilisateur du service. Au minimum, ce rôle doit être attribué à l’administrateur du service. La commande PowerShell suivante montre comment attribuer le rôle à un utilisateur `user1` sur l’étendue la plus basse pour éviter d’octroyer des autorisations inutiles à l’utilisateur : 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+Une fois les autorisations octroyées à un utilisateur, celui-ci doit se déconnecter et se reconnecter au portail Azure pour que les nouvelles autorisations prennent effet.
+
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>L’erreur `Unable to start the portal. See if settings are specified correctly (...)` apparaît
+
+Cette erreur s’affiche lorsqu’un appel `GET` à `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` échoue. L’appel est émis à partir du navigateur par l’interface d’administration du portail.
+
+Si votre service de gestion des API est un réseau virtuel, reportez-vous à la question sur la connectivité du réseau virtuel ci-dessus.
+
+L’échec de l’appel peut également être dû au fait qu’un certificat SSL attribué à un domaine personnalisé ne soit pas approuvé par le navigateur. Pour remédier à ce problème, vous pouvez supprimer le domaine personnalisé de point de terminaison de gestion. La gestion des API reviendra au point de terminaison par défaut avec un certificat approuvé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

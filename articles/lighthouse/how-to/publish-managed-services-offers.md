@@ -2,13 +2,13 @@
 title: Publier une offre de services managés sur la Place de marché Azure
 description: Découvrez comment publier une offre de service managé qui intègre des clients à la gestion des ressources déléguées Azure.
 ms.date: 11/15/2019
-ms.topic: overview
-ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: be9d93c2b71bb3db7df86ddd44e0171bec522294
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131292"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483169"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -99,14 +99,14 @@ Renseignez les champs suivants dans la section **Vue d’ensemble** :
 |**Résumé**     | Brève description de la finalité ou de la fonction de votre offre. Généralement affiché sous le titre. Longueur maximale de 100 caractères.        |
 |**Long Summary** (Résumé long)     | Récapitulatif plus long de la finalité ou de la fonction de votre offre. Longueur maximale de 256 caractères.        |
 |**Description**     | Plus d’informations sur votre offre. Ce champ peut compter jusqu’à 3 000 caractères et prend en charge la mise en forme HTML simple. Vous devez inclure les mots « service managé » ou « services managés » quelque part dans votre description.       |
-|**Marketing Identifier** (Identificateur marketing)     | Identificateur unique compatible avec les URL. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est *contoso* et votre identificateur marketing *sampleApp*, l’URL de votre offre sur la Place de marché Azure sera *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
+|**Marketing Identifier** (Identificateur marketing)     | Identificateur unique compatible avec les URL. Cet identificateur peut uniquement contenir des caractères alphanumériques en minuscules et les tirets. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est *contoso* et votre identificateur marketing *sampleApp*, l’URL de votre offre sur la Place de marché Azure sera *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* .        |
 |**ID d’abonnement pour préversion**     | Ajoutez entre 1 et 100 identificateurs d’abonnement. Les clients associés à ces abonnements pourront afficher l’offre sur la Place de marché Azure avant sa mise en ligne. Nous vous suggérons d’inclure ici vos propres abonnements afin de pouvoir prévisualiser l’apparence de votre offre sur la Place de marché Azure avant de la mettre à la disposition des clients  (le support technique Microsoft et les équipes d’ingénierie pourront également voir votre offre pendant cette période de préversion).   |
 |**Liens utiles**     | URL associées à votre offre, telles celles de la documentation, des notes de publication, du FAQ, etc.        |
 |**Catégories suggérées (cinq au maximum)**     | Une ou plusieurs catégories (jusqu’à cinq) s’appliquant à votre offre. Ces catégories aident les clients à découvrir votre offre sur la Place de marché et le portail Azure.        |
 
 Dans la **Marketing Artifacts** (Artefacts marketing), vous pouvez charger des logos et d’autres ressources à afficher avec votre offre. Vous pouvez éventuellement charger des captures d’écran ou des liens vers des vidéos susceptibles d’aider les clients à comprendre votre offre.
 
-Quatre tailles de logo sont requises : **Petite (40 x 40)** , **Moyenne (90 x 90)** , **Grande (115 x 115)** et **Large (255 x 155)** . Suivez ces instructions pour vos logos:
+Quatre tailles de logo sont requises : **Petite (40 x 40)** , **Moyenne (90 x 90)** , **Grande (115 x 115)** et **Large (255 x 115)** . Suivez ces instructions pour vos logos:
 
 - Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
 - Les couleurs de thème du portail sont le blanc et le noir. Évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour votre logo. Utilisez une couleur qui donne à votre logo plus de visibilité dans le portail. Nous vous recommandons d’utiliser des couleurs primaires simples.

@@ -1,14 +1,14 @@
 ---
-title: Importer et exporter des définitions de blueprint avec PowerShell
+title: Importer et exporter des blueprints avec PowerShell
 description: Découvrez comment utiliser vos définitions de blueprint en tant que code. Partagez-les, contrôlez leur code source et gérez-les à l’aide des commandes d’exportation et d’importation.
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960383"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406355"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importer et exporter des définitions de blueprint avec PowerShell
 

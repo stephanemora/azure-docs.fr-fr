@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823290"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548388"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -77,7 +77,7 @@ Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) pour les insta
 Dans le modèle vCore, vous pouvez choisir entre différentes générations de matériel.
 
 - Les processeurs logiques **Gen4** sont basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur, et des tailles de calcul comprises entre 8 et 24 vCores.
-- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 4 et 80 cœurs.
+- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz et Intel SP-8160 (Skylake), un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 4 et 80 cœurs.
 
 Vous trouverez des informations sur les différences entre les générations de matériel dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

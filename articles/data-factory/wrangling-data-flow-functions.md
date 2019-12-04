@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682283"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287029"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Fonctions de transformation dans le flux de données de wrangling
 
@@ -81,12 +81,21 @@ Utilisez [Table.Sort](https://docs.microsoft.com/powerquery-m/table-sort) pour t
 
 Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M correspondantes, qui prennent uniquement en charge les nombres, pas les conditions : [Table.FirstN](https://docs.microsoft.com/powerquery-m/table-firstn), [Table.Skip](https://docs.microsoft.com/powerquery-m/table-skip), [Table.RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn), [Table.Range](https://docs.microsoft.com/powerquery-m/table-range), [Table.MinN](https://docs.microsoft.com/powerquery-m/table-minn), [Table.MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functionality"></a>Fonctionnalité connue non prise en charge
+## <a name="known-unsupported-functions"></a>Fonctions connues non prises en charge
 
-Les fonctions qui ne sont pas prises en charge sont répertoriées ici. Cette liste n’est pas exhaustive et peut faire l’objet de modifications.
-* Fusionner les colonnes (peut être obtenu avec AddColumn)
-* Diviser la colonne
-* Ajouter des requêtes
-* « Utiliser la première ligne comme en-tête » et « Utiliser les en-têtes comme première ligne »
+| Fonction | Statut |
+| -- | -- |
+| Table.PromoteHeaders | Non pris en charge. Le même résultat peut être obtenu en définissant « Première ligne comme en-tête » dans le jeu de données. |
+| Table.CombineColumns | Il s’agit d’un scénario courant qui n’est pas directement pris en charge mais qui peut être obtenu en ajoutant une nouvelle colonne qui concatène deux colonnes données.  Par exemple, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.TransformColumnTypes | Ce scénario est généralement pris en charge. Les scénarios suivants ne sont pas pris en charge : transformation de chaîne en type Devise, transformation de chaîne en type Heure, transformation de chaîne en type Pourcentage. |
+| Table.NestedJoin | Effectuer une simple jointure entraînera une erreur de validation. Les colonnes doivent être développées pour que l’opération fonctionne. |
+| Table.Distinct | La suppression des lignes en double n’est pas prise en charge. |
+| Table.RemoveLastN | La suppression des lignes du bas n’est pas prise en charge. |
+| Table.RowCount | Non pris en charge, mais peut être obtenu en ajoutant une colonne avec des cellules vides (la colonne de condition peut être utilisée) et en utilisant l’option Regrouper par sur cette colonne. Table.Group est pris en charge. | 
+| Gestion des erreurs au niveau des lignes | La gestion des erreurs au niveau des lignes n’est pas prise en charge actuellement. Par exemple, pour exclure les valeurs non numériques d’une colonne, une méthode consiste à transformer la colonne de texte en nombre. Les cellules qui ne peuvent pas être transformées sont dans un état d’erreur et doivent être filtrées. Ce scénario n’est pas possible dans les flux de wrangling data. |
+| Table.Transpose | Non pris en charge |
+| Table.Pivot | Non pris en charge |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment [créer un flux de données de wrangling](wrangling-data-flow-tutorial.md).

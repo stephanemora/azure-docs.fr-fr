@@ -1,21 +1,15 @@
 ---
-title: Réseau consortium de Fabric Hyperledger sur Azure
-description: Modèle de solution pour déployer et configurer un réseau consortium de Fabric Hyperledger
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Déployer le modèle de solution Consortium de Fabric Hyperledger sur Azure
+description: Comment déployer et configurer le modèle de solution réseau consortium de Fabric Hyperledger
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
-ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510752"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325131"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Réseau consortium de Fabric Hyperledger
 

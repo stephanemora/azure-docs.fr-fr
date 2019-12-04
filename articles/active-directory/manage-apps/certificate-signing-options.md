@@ -1,5 +1,5 @@
 ---
-title: Options avancées de signature de certificat de jeton SAML pour les applications Azure AD pré-intégrées | Microsoft Docs
+title: Options avancées de signature de certificat de jeton SAML pour les applications Azure AD
 description: Découvrez comment utiliser les options avancées de signature de certificats dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381267"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274756"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Options avancées de signature de certificats dans le jeton SAML pour les applications de galerie dans Azure Active Directory
 

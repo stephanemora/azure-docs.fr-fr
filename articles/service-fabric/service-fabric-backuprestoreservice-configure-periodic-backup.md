@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 47faeff22db4e4a2b3630104c9b492b43e29fd7b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819259"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232493"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 

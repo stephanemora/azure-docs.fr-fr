@@ -1,6 +1,7 @@
 ---
-title: Filtrage, classement et pagination des d’entités Media Services – Azure | Microsoft Docs
-description: Cet article décrit le filtrage, le classement et la pagination d’entités Azure Media Services.
+title: Filtrage, classement et pagination d’entités Media Services
+titleSuffix: Azure Media Services
+description: Découvrez en plus sur le filtrage, le tri et la pagination des entités Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +13,12 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693305"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186245"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
@@ -41,7 +42,7 @@ Opérateurs de plage :
 
 - `gt`: teste si un champ est *supérieur à* une valeur constante.
 - `lt`: teste si un champ est *inférieur à* une valeur constante.
-- `ge`: teste si un champ est *supérieur ou égal à* une valeur constante. value
+- `ge`: teste si un champ est *supérieur ou égal à* une valeur constante.
 - `le`: teste si un champ est *inférieur ou égal à* une valeur constante.
 
 ## <a name="filter"></a>Filtrer
@@ -59,11 +60,11 @@ L’exemple C# suivant filtre sur la date de création de la ressource :
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>Trier par
 
-Utiliser `$orderby` pour trier les objets retournés par le paramètre spécifié. Par exemple :    
+Utiliser `$orderby` pour trier les objets retournés par le paramètre spécifié. Par exemple :  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -77,7 +78,7 @@ Si une réponse de requête contient un grand nombre d’éléments, le service 
 
 Dans Media Services v3, vous ne pouvez pas configurer la taille de la page. La taille de la page varie en fonction du type d’entité. Lisez les sections individuelles qui suivent pour plus d’informations.
 
-Si des entités sont créées ou supprimées pendant que vous paginez la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
+Si des entités sont créées ou supprimées pendant que vous paginez la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée).
 
 > [!TIP]
 > Vous devez toujours utiliser `nextLink` pour énumérer la collection et ne pas dépendre d’une taille de page particulière.

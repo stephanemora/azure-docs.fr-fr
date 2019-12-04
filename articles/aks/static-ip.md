@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 11/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614466"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325439"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -24,42 +24,33 @@ Cet article vous montre comment créer une adresse IP publique statique et l’a
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
-Actuellement, seule la *référence SKU d’adresse IP de base* est prise en charge. Nous travaillons actuellement à la prise en charge de la référence SKU de ressource d’*adresse IP standard*. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure][ip-sku].
+Cet article traite de l’utilisation d’une adresse IP SKU *standard* avec un équilibreur de charge SKU *standard*. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Créer une adresse IP statique
 
-Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit de préférence être créée dans le groupe de ressources du **nœud**. Si vous souhaitez séparer les ressources, consultez la section suivante pour [utiliser une adresse IP statique en dehors du groupe de ressources du nœud](#use-a-static-ip-address-outside-of-the-node-resource-group).
-
-Récupérez d’abord le nom du groupe de ressources du nœud avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
-
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Créez maintenant une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. Spécifiez le nom de groupe de ressources du nœud obtenue dans la commande précédente, puis un nom pour la ressource d’adresse IP, par exemple *myAKSPublicIP* :
+Créez une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. La commande suivante crée une ressource IP statique nommée *myAKSPublicIP* dans le groupe de ressources *myResourceGroup* :
 
 ```azurecli-interactive
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --name myAKSPublicIP \
+    --sku Standard \
     --allocation-method static
 ```
+
+> [!NOTE]
+> Si vous utilisez un équilibrer la charge SKU *De base* dans votre cluster AKS, utilisez *De base*  pour le paramètre *sku* lors de la définition d’une adresse IP publique. Seules les adresses IP SKU *De base* fonctionnent avec l’équilibreur de charge SKU *De base* et seuls les adresses IP SKU *Standard* fonctionnent avec les équilibreurs de charge SKU *Standard*. 
 
 L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée suivante :
 
 ```json
 {
   "publicIp": {
-    "dnsSettings": null,
-    "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
-    "idleTimeoutInMinutes": 4,
+    ...
     "ipAddress": "40.121.183.52",
-    [...]
+    ...
   }
 }
 ```
@@ -67,47 +58,23 @@ L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée
 Vous pouvez obtenir ultérieurement l’adresse IP publique avec la commande [az network public-ip list][az-network-public-ip-list]. Spécifiez le nom du groupe de ressources du nœud et l’adresse IP publique que vos avez créés, puis recherchez *ipAddress* comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+$ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Créer un service utilisant l’adresse IP statique
 
-Pour créer un service avec l’adresse IP publique statique, ajoutez la propriété `loadBalancerIP` et la valeur de l’adresse IP publique statique au manifeste YAML. Créez un fichier nommé `load-balancer-service.yaml` et copiez-y le YAML suivant. Spécifiez votre propre adresse IP publique créée à l’étape précédente.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-load-balancer
-spec:
-  loadBalancerIP: 40.121.183.52
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-load-balancer
-```
-
-Créez le service et le déploiement avec la commande `kubectl apply`.
-
-```console
-kubectl apply -f load-balancer-service.yaml
-```
-
-## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Utiliser une adresse IP statique en dehors du groupe de ressources de nœud
-
-Avec Kubernetes 1.10 ou version ultérieure, vous pouvez utiliser une adresse IP statique créée en dehors du groupe de ressources du nœud. Le principal de service utilisé par le cluster AKS doit disposer d’autorisations déléguées sur l’autre groupe de ressources, comme indiqué dans l’exemple suivant :
+Avant de créer un service, assurez-vous que Le principal de service utilisé par le cluster AKS a des autorisations déléguées sur l’autre groupe de ressources. Par exemple :
 
 ```azurecli-interactive
-az role assignment create\
+az role assignment create \
     --assignee <SP Client ID> \
-    --role "Network Contributor" \
+    --role "Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-Pour utiliser une adresse IP en dehors du groupe de ressources de nœud, ajoutez une annotation à la définition de service. L’exemple suivant définit l’annotation pour le groupe de ressources nommé *myResourceGroup*. Indiquez le nom de votre propre groupe de ressources :
+Pour créer un service *LoadBalancer* avec l’adresse IP publique statique, ajoutez la propriété `loadBalancerIP` et la valeur de l’adresse IP publique statique au manifeste YAML. Créez un fichier nommé `load-balancer-service.yaml` et copiez-y le YAML suivant. Spécifiez votre propre adresse IP publique créée à l’étape précédente. L’exemple suivant définit aussi l’annotation pour le groupe de ressources nommé *myResourceGroup*. Indiquez le nom de votre propre groupe de ressources.
 
 ```yaml
 apiVersion: v1
@@ -123,6 +90,12 @@ spec:
   - port: 80
   selector:
     app: azure-load-balancer
+```
+
+Créez le service et le déploiement avec la commande `kubectl apply`.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## <a name="troubleshoot"></a>Résolution des problèmes

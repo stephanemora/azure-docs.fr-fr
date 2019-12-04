@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3f5e01a0ceebac092084e339994161763a11c49b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241221"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158852"
 ---
 # <a name="tutorial-monitor-your-data"></a>Didacticiel : Superviser vos données
 
@@ -81,10 +81,7 @@ Ce tutoriel vous aide à superviser vos données dans Azure Sentinel.
 
 Vous pouvez supprimer des classeurs qui ont été créés à partir d’un modèle Azure Sentinel. 
 
-Pour supprimer un classeur personnalisé :
-1.  Sélectionnez **Afficher le classeur**.
-2.  Sélectionnez **Ouvrir** en haut.
-3.  Dans le tableau listant vos classeurs, sur la ligne du classeur à supprimer, sélectionnez les trois points (...) à la fin de la ligne pour ouvrir le menu, puis sélectionnez **Supprimer**. Cette opération supprime le classeur enregistré.
+Pour supprimer un classeur personnalisé, dans la page Classeurs, sélectionnez le classeur enregistré à supprimer, puis sélectionnez **Supprimer**. Cette opération supprime le classeur enregistré.
 
 > [!NOTE]
 > Elle supprime la ressource, mais aussi toutes les modifications que vous avez apportées au modèle. Le modèle d’origine reste disponible.

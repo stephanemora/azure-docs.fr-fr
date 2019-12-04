@@ -1,5 +1,5 @@
 ---
-title: Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle afin d’acquérir un jeton d’accès
+title: Utiliser des identités managées sur une machine virtuelle afin d’acquérir un jeton d’accès – Azure AD
 description: Instructions et exemples détaillés concernant l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle afin d’acquérir un jeton d’accès OAuth.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290786"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547352"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -45,7 +45,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v1-oauth2-client-creds-grant-flow.md).
+Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

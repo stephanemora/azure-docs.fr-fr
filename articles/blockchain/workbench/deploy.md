@@ -1,21 +1,15 @@
 ---
 title: Déployer Azure Blockchain Workbench Preview
 description: Guide pratique pour déployer Azure Blockchain Workbench Preview
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 11/19/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 2ea18c784c6b5cf61013c131360d20349e67b1e5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3b5d79fd5db9729e837b4fca89ca0eddd0f2cb20
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845282"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326011"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
 
@@ -58,17 +52,9 @@ Azure Blockchain Workbench requiert des inscriptions d’applications et la conf
 Une fois que les étapes préalables requises ont été exécutées, vous êtes prêt à déployer Blockchain Workbench. Les sections suivantes expliquent comment déployer l’infrastructure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD où vous voulez déployer Azure Blockchain Workbench.
-3. Dans le volet de gauche, sélectionnez **Créer une ressource**. Recherchez `Azure Blockchain Workbench` dans la barre de recherche **Rechercher dans la Place de marché**. 
-
-    ![Barre de recherche de la Place de marché](media/deploy/marketplace-search-bar.png)
-
-4. Sélectionnez **Azure Blockchain Workbench**.
-
-    ![Résultats de recherche de la Place de marché](media/deploy/marketplace-search-results.png)
-
-5. Sélectionnez **Create** (Créer).
-6. Renseignez les paramètres de base.
+1. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD où vous voulez déployer Azure Blockchain Workbench.
+1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
+1. Sélectionnez **Blockchain** > **Azure Blockchain Workbench (préversion)** .
 
     ![Créer Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
@@ -85,9 +71,9 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Groupes de ressources | Créez un groupe de ressources en sélectionnant **Créer** et donnez un nom unique au groupe de ressources. |
     | Location | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
 
-7. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
+1. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
 
-8. Dans **Paramètres avancés**, choisissez si vous souhaitez créer un réseau blockchain ou utiliser un réseau blockchain de preuve d’autorité existant.
+1. Dans **Paramètres avancés**, choisissez si vous souhaitez créer un réseau blockchain ou utiliser un réseau blockchain de preuve d’autorité existant.
 
     Pour **Créer** :
 
@@ -120,13 +106,13 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
      | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
      | Sélection de machine virtuelle | Sélectionnez le niveau de performance de stockage préféré et la taille de machine virtuelle pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 
-9. Sélectionnez **OK** pour terminer les Paramètres avancés.
+1. Sélectionnez **OK** pour terminer les Paramètres avancés.
 
-10. Passez en revue le récapitulatif pour vérifier que vos paramètres sont corrects.
+1. Passez en revue le récapitulatif pour vérifier que vos paramètres sont corrects.
 
     ![Résumé](media/deploy/blockchain-workbench-summary.png)
 
-11. Sélectionnez **Créer** pour accepter les conditions et déployer votre Azure Blockchain Workbench.
+1. Sélectionnez **Créer** pour accepter les conditions et déployer votre Azure Blockchain Workbench.
 
 Le déploiement peut prendre jusqu’à 90 minutes. Vous pouvez utiliser le portail Azure pour surveiller la progression. Dans le groupe de ressources nouvellement créé, sélectionnez **Déploiements > Vue d’ensemble** pour connaître l’état des artefacts déployés.
 
@@ -138,14 +124,14 @@ Le déploiement peut prendre jusqu’à 90 minutes. Vous pouvez utiliser le port
 Une fois le déploiement de Blockchain Workbench terminé, un nouveau groupe de ressources contient vos ressources Blockchain Workbench. Les services Blockchain Workbench sont accessibles par le biais d’une URL web. Les étapes suivantes vous montrent comment récupérer l’URL web de l’infrastructure déployée.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**
-3. Choisissez le nom du groupe de ressources spécifié lors du déploiement de Blockchain Workbench.
-4. Sélectionnez l’en-tête de colonne **TYPE** pour trier la liste par ordre alphabétique et par type.
-5. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *sans* le suffixe « -api ».
+1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
+1. Choisissez le nom du groupe de ressources spécifié lors du déploiement de Blockchain Workbench.
+1. Sélectionnez l’en-tête de colonne **TYPE** pour trier la liste par ordre alphabétique et par type.
+1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *sans* le suffixe « -api ».
 
     ![Liste App Service](media/deploy/resource-group-list.png)
 
-6. Dans la section **Bases** App Service, copiez la valeur **URL** qui représente l’URL web sur votre Blockchain Workbench déployé.
+1. Dans la section **Vue d’ensemble** App Service, copiez la valeur **URL** qui représente l’URL web sur votre Blockchain Workbench déployé.
 
     ![Base App Service](media/deploy/app-service.png)
 
@@ -156,30 +142,30 @@ Pour associer un nom de domaine personnalisé avec Blockchain Workbench, voir [C
 Azure AD doit être configuré pour achever votre déploiement Azure Blockchain Workbench. Vous utiliserez un script PowerShell pour effectuer la configuration.
 
 1. Dans un navigateur, accédez à [l’URL web de Blockchain Workbench](#blockchain-workbench-web-url).
-2. Des instructions pour configurer Azure AD à l’aide de Cloud Shell s’affichent. Copiez la commande et lancez Cloud Shell.
+1. Des instructions pour configurer Azure AD à l’aide de Cloud Shell s’affichent. Copiez la commande et lancez Cloud Shell.
 
     ![Lancer le script AAD](media/deploy/launch-aad-script.png)
 
-3. Choisissez le locataire Azure AD où vous avez déployé Azure Blockchain Workbench.
-4. Dans Cloud Shell, collez et exécutez la commande.
-5. Lorsque vous y êtes invité, entrez le locataire Azure AD que vous souhaitez utiliser pour Azure Blockchain Workbench. Il s’agit du locataire contenant les utilisateurs pour Blockchain Workbench.
+1. Choisissez le locataire Azure AD où vous avez déployé Azure Blockchain Workbench.
+1. Dans Cloud Shell, collez et exécutez la commande.
+1. Lorsque vous y êtes invité, entrez le locataire Azure AD que vous souhaitez utiliser pour Azure Blockchain Workbench. Il s’agit du locataire contenant les utilisateurs pour Blockchain Workbench.
 
     > [!IMPORTANT]
     > L’utilisateur authentifié nécessite des autorisations pour créer des inscriptions d’applications Azure AD et accorder des autorisations d’applications déléguées dans le locataire. Vous devrez peut-être demander à un administrateur du locataire d’exécuter le script de configuration Azure AD ou créer un nouveau locataire.
 
     ![Entrer le locataire Azure AD](media/deploy/choose-tenant.png)
 
-6. Vous serez invité à vous authentifier auprès du locataire Azure AD à l’aide d’un navigateur. Ouvrez l’URL web dans un navigateur, entrez le code et authentifiez-vous.
+1. Vous serez invité à vous authentifier auprès du locataire Azure AD à l’aide d’un navigateur. Ouvrez l’URL web dans un navigateur, entrez le code et authentifiez-vous.
 
     ![Authentification avec un code](media/deploy/authenticate.png)
 
-7. Le script génère plusieurs messages d’état. Vous obtenez un message d’état **SUCCÈS** si le client a bien été déployé.
-8. Accédez à l’URL de Blockchain Workbench. Vous êtes invité à donner votre consentement pour accorder des autorisations de lecture du répertoire. Ceci permet à l’application web Blockchain Workbench d’accéder aux utilisateurs dans le locataire. Si vous êtes l’administrateur du locataire, vous pouvez choisir de donner votre consentement pour toute l’organisation. Cette option accepte le consentement pour tous les utilisateurs dans le locataire. Dans le cas contraire, chaque utilisateur est invité à fournir son consentement à la première utilisation de l’application web Blockchain Workbench.
-9. Sélectionnez **Accepter** pour donner votre consentement.
+1. Le script génère plusieurs messages d’état. Vous obtenez un message d’état **SUCCÈS** si le client a bien été déployé.
+1. Accédez à l’URL de Blockchain Workbench. Vous êtes invité à donner votre consentement pour accorder des autorisations de lecture du répertoire. Ceci permet à l’application web Blockchain Workbench d’accéder aux utilisateurs dans le locataire. Si vous êtes l’administrateur du locataire, vous pouvez choisir de donner votre consentement pour toute l’organisation. Cette option accepte le consentement pour tous les utilisateurs dans le locataire. Dans le cas contraire, chaque utilisateur est invité à fournir son consentement à la première utilisation de l’application web Blockchain Workbench.
+1. Sélectionnez **Accepter** pour donner votre consentement.
 
      ![Donner son consentement pour lire les profils utilisateurs](media/deploy/graph-permission-consent.png)
 
-10. Une fois le consentement donné, vous pouvez utiliser l’application web Blockchain Workbench.
+1. Une fois le consentement donné, vous pouvez utiliser l’application web Blockchain Workbench.
 
 ## <a name="azure-ad-configuration"></a>Configuration Azure AD
 
@@ -191,30 +177,25 @@ Le déploiement de Blockchain Workbench nécessite l’inscription d’une appli
 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD souhaité. Le locataire doit être locataire de l’administrateur de l’abonnement où Workbench est déployé et vous devez disposer d’autorisations suffisantes pour inscrire les applications.
-3. Sélectionnez le service **Azure Active Directory** dans le volet de navigation gauche. Sélectionnez **Inscription d’applications** > **Nouvelle inscription d’application**.
+1. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD souhaité. Le locataire doit être locataire de l’administrateur de l’abonnement où Azure Blockchain Workbench est déployé et vous devez disposer d’autorisations suffisantes pour inscrire les applications.
+1. Sélectionnez le service **Azure Active Directory** dans le volet de navigation gauche. Sélectionnez **Inscription d’applications** > **Nouvelle inscription**.
 
     ![Inscription d'application](media/deploy/app-registration.png)
 
-4. Fournissez un **nom** et une **URL de connexion** pour l’application. Vous pouvez utiliser des valeurs d’espace réservé dans la mesure où les valeurs sont modifiées pendant le déploiement. 
+1. Indiquez un **nom** d’affichage et choisissez **Comptes dans cet annuaire organisationnel uniquement**.
 
     ![Créer une inscription d’application](media/deploy/app-registration-create.png)
 
-    |Paramètre  | Valeur  |
-    |---------|---------|
-    |Nom | `Blockchain API` |
-    |Type d’application |Application web / API|
-    |URL de connexion | `https://blockchainapi` |
-
-5. Sélectionnez **Créer** pour inscrire l’application Azure AD.
+1. Sélectionnez **Inscrire** pour inscrire l’application Azure AD.
 
 ### <a name="modify-manifest"></a>Modifier le manifeste
 
 Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’application dans Azure AD afin de spécifier les administrateurs Blockchain Workbench.  Pour plus d’informations sur les manifestes de l’application, consultez [Manifeste de l’application Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
-1. Pour l’application que vous avez inscrite, sélectionnez **Manifeste** dans le volet de détails de l’application inscrite.
-2. Générez un GUID. Vous pouvez générer un GUID à l’aide de la commande PowerShell [guid] :: NewGuid () ou de l’applet de commande New-GUID. Une autre option consiste à utiliser un site web générateur de GUID.
-3. Vous vous apprêtez à mettre à jour la section **appRoles** du manifeste. Dans le volet d’édition du manifeste, sélectionnez **Modifier** et remplacer `"appRoles": []` par le JSON fourni. Remplacez la valeur du champ **id** par le GUID que vous avez généré. 
+
+1. Vous devez générer un GUID pour le manifeste. Vous pouvez générer un GUID à l’aide de la commande PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Une autre option consiste à utiliser un site web générateur de GUID.
+1. Pour l’application que vous avez inscrite, sélectionnez **Manifeste** dans la section **Gérer**.
+1. Vous vous apprêtez à mettre à jour la section **appRoles** du manifeste. Remplacez `"appRoles": []` par le fichier JSON fourni. Remplacez la valeur du champ **id** par le GUID que vous avez généré. 
 
     ![Modifier le manifeste](media/deploy/edit-manifest.png)
 
@@ -237,31 +218,21 @@ Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’applicati
     > [!IMPORTANT]
     > La valeur **Administrateur** est nécessaire pour identifier les administrateurs Blockchain Workbench.
 
-4. Dans le manifeste, définissez aussi la valeur **Oauth2AllowImplicitFlow** sur **true**.
+1. Dans le manifeste, définissez aussi la valeur **Oauth2AllowImplicitFlow** sur **true**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,
     ```
 
-5. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées au manifeste.
+1. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées au manifeste.
 
 ### <a name="add-graph-api-required-permissions"></a>Ajouter les autorisations requises pour l’API Graph
 
 L’application API doit demander l’autorisation de l’utilisateur pour accéder au répertoire. Définissez l’autorisation requise suivante pour l’application API :
 
-1. Dans l’inscription d’application API Blockchain, sélectionnez **Paramètres > Autorisations requises > Sélectionner une API > Microsoft Graph**.
+1. Dans l’inscription de l’application *API Blockchain*, sélectionnez **Autorisations de l’API**. Par défaut, l’autorisation **User.Read** de l’API Graph est ajoutée.
 
-    ![Sélectionnez une API](media/deploy/client-app-select-api.png)
-
-    Cliquez sur **Sélectionner**.
-
-2. Dans **Activer l’accès** sous **Autorisations déléguées**, choisissez **Lire les profils de base de tous les utilisateurs**.
-
-    ![Activer l’accès](media/deploy/client-app-read-perms.png)
-
-    Sélectionnez **Enregistrer** et **Terminé**.
-
-3. Dans **Autorisations requises**, sélectionnez **Accorder des autorisations**, puis sélectionnez **Oui** pour la demande de vérification.
+1. Dans **Donner son consentement**, sélectionnez **Accorder un consentement administrateur** pour le domaine, puis sélectionnez **Oui** pour l’invite de vérification.
 
    ![Accorder des autorisations](media/deploy/client-app-grant-permissions.png)
 
@@ -271,14 +242,14 @@ L’application API doit demander l’autorisation de l’utilisateur pour accé
 
 L’ID de l’application et les informations du locataire sont requis pour le déploiement. Rassemblez et stockez les informations pour les utiliser pendant le déploiement.
 
-1. Pour l’application que vous avez inscrite, sélectionnez **Paramètres** > **Propriétés**.
-2. Dans le volet **Propriétés**, copiez et stockez les valeurs suivantes pour une utilisation ultérieure lors du déploiement.
+1. Pour l’application que vous avez inscrite, sélectionnez **Vue d’ensemble**.
+1. Copiez et stockez la valeur **ID d’application** pour une utilisation ultérieure pendant le déploiement.
 
     ![Propriétés de l’application API](media/deploy/app-properties.png)
 
     | Paramètre à stocker  | Utiliser pendant le déploiement |
     |------------------|-------------------|
-    | ID de l'application | Configuration Azure Active Directory > ID de l’application |
+    | ID d’application (client) | Configuration Azure Active Directory > ID de l’application |
 
 ### <a name="get-tenant-domain-name"></a>Obtenir un nom de domaine de locataire
 
@@ -293,7 +264,7 @@ Sélectionnez le service **Azure Active Directory** dans le volet de navigation 
 Si vous avez des utilisateurs invités dans votre locataire Azure AD, suivez les étapes supplémentaires pour vous assurer que l’affectation et la gestion d’utilisateurs de Blockchain Workbench fonctionne correctement.
 
 1. Basculez votre locataire Azure AD et sélectionnez **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres de collaboration externe**.
-2. Définissez **Les autorisations de l’utilisateur invité sont limitées** sur **Non**.
+1. Définissez **Les autorisations de l’utilisateur invité sont limitées** sur **Non**.
     ![Paramètres de collaboration externe](media/deploy/user-collaboration-settings.png)
 
 ## <a name="configuring-the-reply-url"></a>Configuration de l’URL de réponse
@@ -301,22 +272,26 @@ Si vous avez des utilisateurs invités dans votre locataire Azure AD, suivez les
 Une fois Azure Blockchain Workbench déployé, vous devez configurer **l’URL de réponse** de l’application cliente Azure Active Directory (Azure AD) de l’URL web du Blockchain Workbench déployé.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Vérifiez que vous êtes dans le locataire sur lequel vous avez inscrit l’application cliente Azure AD.
-3. Sélectionnez le service **Azure Active Directory** dans le volet de navigation gauche. Sélectionnez **Inscriptions d’applications**.
-4. Sélectionnez l’application cliente Azure AD que vous avez enregistrée dans la section Configuration requise.
-5. Sélectionnez **Paramètres > URL de réponse**.
-6. Spécifiez l’URL web principale du déploiement Azure Blockchain Workbench que vous avez récupérée dans la section **Get the Azure Blockchain Workbench Web URL (Obtenir l’URL Web Azure Blockchain Workbench)** . L’URL de réponse est préfixée par `https://`. Par exemple, `https://myblockchain2-7v75.azurewebsites.net`
+1. Vérifiez que vous êtes dans le locataire sur lequel vous avez inscrit l’application cliente Azure AD.
+1. Sélectionnez le service **Azure Active Directory** dans le volet de navigation gauche. Sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez l’application cliente Azure AD que vous avez enregistrée dans la section Configuration requise.
+1. Sélectionnez **Authentification**.
+1. Spécifiez l’URL web principale du déploiement Azure Blockchain Workbench que vous avez récupérée dans la section [URL web Blockchain Workbench](#blockchain-workbench-web-url). L’URL de réponse est préfixée par `https://`. Par exemple, `https://myblockchain2-7v75.azurewebsites.net`
 
-    ![URL de réponse](media/deploy/configure-reply-url.png)
+    ![URL de réponse d’authentification](media/deploy/configure-reply-url.png)
 
-7. Sélectionnez **Enregistrer** pour mettre à jour l’inscription du client.
+1. Dans la section **Paramètres avancés**, cochez **Jetons d’accès** et **Jetons d’ID**.
+
+    ![Paramètres avancés d’authentification](media/deploy/authentication-advanced-settings.png)
+
+1. Sélectionnez **Enregistrer** pour mettre à jour l’inscription du client.
 
 ## <a name="remove-a-deployment"></a>Supprimer un déploiement
 
 Lorsqu’un déploiement n’est plus nécessaire, vous pouvez le supprimer en supprimant le groupe de ressources Blockchain Workbench.
 
 1. Dans le portail Azure, accédez à **Groupe de ressources** dans le volet de navigation de gauche et sélectionnez le groupe de ressources que vous souhaitez supprimer. 
-2. Sélectionnez **Supprimer le groupe de ressources**. Validez la suppression en entrant le nom du groupe de ressources, puis sélectionnez **Supprimer**.
+1. Sélectionnez **Supprimer le groupe de ressources**. Validez la suppression en entrant le nom du groupe de ressources, puis sélectionnez **Supprimer**.
 
     ![Supprimer un groupe de ressources](media/deploy/delete-resource-group.png)
 

@@ -1,20 +1,16 @@
 ---
 title: Installer Azure Dev Spaces sur AKS et les outils côté client
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Découvrez comment installer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 642d4406840f1748c3b6cbb4441227fff0c6d721
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494846"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325780"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installer Azure Dev Spaces sur AKS et les outils côté client
 
@@ -23,7 +19,7 @@ Cet article montre plusieurs manières d’installer Azure Dev Spaces sur un clu
 ## <a name="install-azure-dev-spaces-using-the-cli"></a>Installer Azure Dev Spaces à l’aide de l’interface CLI
 
 Avant de pouvoir installer Dev Spaces à l’aide de l’interface CLI, vous avez besoin des éléments suivants :
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account]
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account].
 * [Azure CLI installé][install-cli]
 * [Un cluster AKS][create-aks-cli] dans une [région prise en charge][supported-regions]
 
@@ -58,7 +54,7 @@ La commande `use-dev-spaces` installe également l’interface CLI Azure Dev Spa
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Installer Azure Dev Spaces à l’aide du portail Azure
 
 Avant de pouvoir installer Dev Spaces à l’aide du portail Azure, vous avez besoin des éléments suivants :
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account]
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account].
 * [Un cluster AKS][create-aks-portal] dans une [région prise en charge][supported-regions]
 
 Pour installer Azure Dev Spaces à l’aide du portail Azure

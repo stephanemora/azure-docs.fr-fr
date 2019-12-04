@@ -1,17 +1,17 @@
 ---
-title: Configurer une appliance pour Azure Migrate Server Assessment/Migration des machines virtuelles Hyper-V | Microsoft Docs
-description: Décrit comment configurer une appliance pour la découverte, l’évaluation et la migration sans agent des machines virtuelles Hyper-V avec Azure Migrate Server Assessment/Migration.
+title: Configurer une appliance Azure Migrate pour Hyper-V
+description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles Hyper-V.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: c531fe49ebff6c021547c2d1c2f382bcd6c9caef
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810208"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534502"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V
 
@@ -29,7 +29,7 @@ L’appliance de machines virtuelles Hyper-V est une appliance légère utilisé
 
 Pour configurer l’appliance, vous devez :
 - Télécharger un disque dur virtuel Hyper-V compressé à partir du portail Azure.
-- Créer l’appliance et vérifier qu’elle peut se connecter à Azure Migrate Server Assessment. 
+- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
 - Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
@@ -50,15 +50,16 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du disque dur virtuel
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Pour l’appliance version 1.19.05.10, le hachage généré doit correspondre à ces valeurs.
+    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+3.  Pour l’appliance version 2.19.11.12, le hachage généré doit correspondre à ces valeurs.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
+  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
 
-  
+
 ## <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
 
 Importez le fichier téléchargé, puis créez la machine virtuelle.
@@ -104,7 +105,7 @@ Configurez l’appliance pour la première fois.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
 1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure. 
+2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion effectuée, revenez à l’application web.
@@ -142,14 +143,14 @@ Connectez-vous de l’appliance à des hôtes ou des clusters Hyper-V, et démar
     - Vous pouvez ajouter un cluster, même s’il existe des problèmes avec des hôtes spécifiques dans le cluster.
 4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
 
-Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure. 
+Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure.
 
 ## <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
 
 Une fois la découverte terminée, vous pouvez vérifier que les machines virtuelles apparaissent dans le portail.
 
 1. Ouvrez le tableau de bord Azure Migrate.
-2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**. 
+2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

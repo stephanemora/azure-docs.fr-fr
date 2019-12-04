@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076960"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213360"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -464,7 +464,7 @@ Tandis que les offres SaaS utilisent des ID de locataire pour définir un public
 
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audience du revendeur CSP (fournisseur de solutions cloud)
 
-Choisir de rendre votre offre disponible dans le programme CSP permet aux fournisseurs de solutions Cloud de vendre votre produit dans une offre groupée de solution à leurs clients. Pour plus d’informations, consultez [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+Choisir de rendre votre offre disponible dans le programme CSP permet aux fournisseurs de solutions Cloud de vendre votre produit dans une offre groupée de solution à leurs clients. Pour plus d’informations, consultez [Fournisseur de solutions cloud](https://go.microsoft.com/fwlink/?linkid=2111109).
 
 ## <a name="publish"></a>Publish
 
