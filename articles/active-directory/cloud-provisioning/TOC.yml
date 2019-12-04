@@ -1,0 +1,66 @@
+- name: Provisionnement cloud
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que le provisionnement d’identités\_?"
+      href: what-is-provisioning.md
+    - name: "Qu’est-ce que le provisionnement cloud Azure AD Connect\_?"
+      href: what-is-cloud-provisioning.md
+      maintainContext: true
+- name: Tutoriels
+  expanded: true
+  items:
+    - name: Intégrer une seule forêt AD à un seul locataire Azure AD
+      href: tutorial-single-forest.md
+    - name: Intégrer une forêt existante et une nouvelle forêt à un seul locataire Azure AD
+      href: tutorial-existing-forest.md
+    - name: Provisionnement cloud pilote pour une forêt AD synchronisée existante
+      href: tutorial-pilot-aadc-aadccp.md
+- name: Concepts
+  items:
+    - name: "Qu’est-ce que la synchronisation de hachage de mot de passe\_?"
+      href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
+    - name: 'Comprendre le schéma, les attributs et les expressions Azure AD'
+      href: concept-attributes.md
+    - name: Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
+      href: reference-expressions.md
+- name: Guides pratiques
+  items:
+    - name: Installation et mise à niveau
+      items:
+        - name: Configuration requise pour l'installation
+          href: how-to-prerequisites.md
+        - name: Installer l’agent de provisionnement cloud Azure AD Connect
+          href: how-to-install.md
+        - name: Configuration du provisionnement cloud
+          href: how-to-configure.md
+    - name: Planifier et concevoir
+      items:
+        - name: Topologies et scénarios pour le provisionnement cloud Azure AD Connect
+          href: plan-cloud-provisioning-topologies.md
+    - name: gérer
+      items:
+        - name: Mise à niveau automatique de l’agent
+          href: how-to-automatic-upgrade.md
+    - name: Développement
+      items:
+        - name: Transformations
+          href: how-to-transformation.md
+        - name: API de synchronisation Azure AD
+          href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
+    - name: Résolution des problèmes
+      items:
+        - name: Résoudre les problèmes de provisionnement cloud
+          href: how-to-troubleshoot.md
+        - name: Attributs en double
+          href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
+- name: Informations de référence
+  items:
+    - name: Historique des versions de l’agent de provisionnement cloud Azure AD Connect
+      href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context
+    - name: Questions fréquentes (FAQ) sur le provisionnement cloud Azure AD Connect
+      href: reference-cloud-provisioning-faq.md
+    - name: Attributs qui sont synchronisés
+      href: /azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context
+    - name: Environnement Active Directory et Azure AD simple
+      href: tutorial-basic-ad-azure.md

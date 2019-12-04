@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Utiliser la faible priorité
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: Utiliser une instance Spot
+          href: use-spot.md
     - name: gérer
       items:
         - name: Tâches de gestion courantes

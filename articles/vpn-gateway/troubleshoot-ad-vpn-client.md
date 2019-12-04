@@ -1,5 +1,5 @@
 ---
-title: 'Résoudre les problèmes d’un client VPN avec l’authentification Azure AD : passerelle VPN Azure | Microsoft Docs'
+title: 'Passerelle VPN : Résoudre les problèmes d’un client VPN - Authentification Azure AD'
 description: Résoudre les problèmes rencontrés par les clients avec les connexions de passerelle VPN point à site (P2S) à l’aide de l’authentification Azure AD
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: e239f283d5065e032e98e87a72a4bfe9fbafbdb1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511650"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151975"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Résoudre les problèmes d’un client VPN avec l’authentification Azure AD
 
@@ -68,4 +68,4 @@ Collectez les fichiers journaux du client. Vous pouvez ensuite envoyer les fichi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Créer un locataire Azure Active Directory qui utilise l'authentification Azure AD pour les connexions Open VPN P2S](openvpn-azure-ad-tenant.md).
+Pour plus d’informations, consultez [Créer un locataire Azure Active Directory qui utilise l’authentification Azure AD pour les connexions Open VPN P2S](openvpn-azure-ad-tenant.md).

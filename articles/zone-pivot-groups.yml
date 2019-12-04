@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 8f0811dacfbedd59726fcdfe58d6a71cb02797da
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 798a3ad1a2e81eae8621ae43d47d41031603331f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968368"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74734458"
 groups:
 - id: programming-languages-set-one
   title: Langages de programmation
@@ -20,3 +20,83 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+- id: cogsvcs-text-analytics-features
+  title: Fonctionnalités Analyse de texte
+  prompt: Choisir une offre de fonctionnalité Analyse de texte
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Extraction d’expressions clés
+  - id: text-analytics-language-detection
+    title: Détection de la langue
+  - id: text-analytics-sentiment-analysis
+    title: Analyse des sentiments
+- id: client-operating-system
+  title: Langages de programmation
+  prompt: Choisir un système d’exploitation client
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: Langages de programmation
+  prompt: Choisir un langage de programmation
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: Autres langages...
+- id: programming-languages-set-three
+  title: Langages de programmation
+  prompt: Choisir un langage de programmation
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: Langages de programmation
+  prompt: Choisir un langage de programmation
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: Autres langages...
+- id: programming-languages-set-five
+  title: Langages de programmation
+  prompt: Choisir un langage de programmation
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: URL-test-interface
+  title: Outil de test d’URL
+  prompt: Choisir
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: postman

@@ -7,20 +7,17 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/17/2017
-ms.openlocfilehash: d6905b91c57bf3ea3227d995332fa6ae55ca867c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7083ecf01666deecccada9ab0c93e88af53d252b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899934"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173651"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Notes de publication du Kit de développement logiciel (SDK) : Application Insights
 Voici les notes de publication détaillées et les instructions de mise à jour de nos Kits de développement logiciel (SDK) :
 
-* [Kit de développement logiciel (SDK) de serveur web ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
-* [Kit de développement logiciel (SDK) principal NET](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
-* [Adaptateurs de journalisation .NET](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
-* [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [Kits de développement logiciel (SDK) .NET (y compris ASP.NET, ASP.Net Core et adaptateurs de journalisation)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [autres plateformes](https://github.com/Microsoft/ApplicationInsights-Home)

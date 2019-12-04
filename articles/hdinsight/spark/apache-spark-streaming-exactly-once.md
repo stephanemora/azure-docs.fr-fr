@@ -1,23 +1,23 @@
 ---
 title: Spark Streaming et traitement unique des événements – Azure HDInsight
 description: Comment configurer Apache Spark Streaming pour traiter un événement une seule fois.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 11/15/2018
+ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241137"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228973"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des tâches Apache Spark Streaming avec traitement unique des événements
 
-Les applications de traitement de flux adoptent différentes approches quant à la façon dont elles gèrent le retraitement des messages après une panne dans le système :
+Les applications de traitement de flux adoptent différentes approches quant à la façon dont elles gèrent le retraitement des messages après une panne dans le système :
 
 * Au moins une fois : chaque message est incontestablement traité, mais il peut l’être plusieurs fois.
 * Au plus une fois : chaque message peut être traité ou non. Si un message est traité, il ne l’est qu’une seule fois.
@@ -57,7 +57,7 @@ Pour les Workers exécutant des tâches sur les données d’événement, chaque
 
 Les pilotes de travail doivent pouvoir être redémarrés. Si le pilote exécutant votre application Spark Streaming tombe en panne, il entraîne tous les récepteurs en cours d’exécution, les tâches et tout RDD stockant des données d’événement. Dans ce cas, vous devez être en mesure d’enregistrer la progression du travail afin de pouvoir le reprendre ultérieurement. Pour ce faire, vous pouvez contrôler régulièrement le graphe orienté acyclique (DAG) du flux discrétisé dans le stockage à tolérance de panne. Les métadonnées du DAG incluent la configuration utilisée pour créer l’application de streaming, les opérations qui définissent l’application et tous les lots éventuellement en attente d’exécution. Ces métadonnées permettent de redémarrer un pilote défectueux à partir des informations de points de contrôle. Quand le pilote redémarre, il lance de nouveaux récepteurs qui eux-mêmes récupèrent les données d’événement dans les RDD à partir du journal WAL (write-ahead log).
 
-Vous activez les points de contrôle dans Spark Streaming en deux étapes. 
+Vous activez les points de contrôle dans Spark Streaming en deux étapes.
 
 1. Dans l’objet StreamingContext, configurez le chemin du stockage des points de contrôle :
 
@@ -81,7 +81,7 @@ Vous activez les points de contrôle dans Spark Streaming en deux étapes.
 
 Le récepteur de destination dans lequel votre travail écrit les résultats doit être en mesure de gérer les situations où il reçoit un même résultat plusieurs fois. Le récepteur doit être en mesure de détecter ces résultats en double et de les ignorer. Un récepteur *idempotent* peut être appelé plusieurs fois avec les mêmes données sans aucun changement d’état.
 
-Vous pouvez créer des récepteurs idempotents en implémentant une logique qui d’abord vérifie l’existence du résultat entrant dans la banque de données. Si le résultat existe déjà, l’écriture doit réussir du point de vue de votre travail Spark, mais en réalité votre banque de données a ignoré les données en double. Si le résultat n’existe pas, le récepteur doit insérer ce nouveau résultat dans son stockage. 
+Vous pouvez créer des récepteurs idempotents en implémentant une logique qui d’abord vérifie l’existence du résultat entrant dans la banque de données. Si le résultat existe déjà, l’écriture doit réussir du point de vue de votre travail Spark, mais en réalité votre banque de données a ignoré les données en double. Si le résultat n’existe pas, le récepteur doit insérer ce nouveau résultat dans son stockage.
 
 Par exemple, vous pouvez utiliser une procédure stockée avec Azure SQL Database qui insère des événements dans une table. Cette procédure stockée recherche l’événement à partir de champs clés, puis n’insère l’enregistrement dans la table que si elle ne trouve aucun événement correspondant.
 

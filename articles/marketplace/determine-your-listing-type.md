@@ -2,19 +2,19 @@
 title: Déterminer votre option de publication sur la Place de marché Azure | Azure
 description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires qui essaient de comprendre comment publier des applications dans la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825899"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548354"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
@@ -41,7 +41,7 @@ Les applications **AppSource** sont des solutions métier qui peuvent être cré
 
 ## <a name="understand-storefront-selection"></a>Comprendre la sélection de la vitrine
 
-La vitrine où votre offre sera présentée, Place de marché Azure et/ou AppSource, est déterminée automatiquement sur la base des détails et du public ciblé de votre offre, ainsi que des catégories et des secteurs que vous avez choisis lors de la création de votre offre. 
+Chaque vitrine répond aux exigences de clients uniques. La vitrine dans laquelle votre offre sera publiée sera déterminée par type d’offre, offre des fonctionnalités Transact et une catégorie et/ou sélection de secteur pour cibler un public spécifique. 
 
 >[!Note]
 >« Listes croisées » (pour applications SaaS uniquement) : lorsqu’une offre basée sur un listing ou un essai répond à la fois aux critères d’un public d’utilisateurs professionnels et d’un public technique, l’offre est publiée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.

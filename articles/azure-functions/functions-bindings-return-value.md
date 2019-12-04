@@ -1,20 +1,16 @@
 ---
 title: Utilisation d’une valeur de retour dans Azure Functions
 description: Découvrez comment gérer les valeurs de retour pour Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074404"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480579"
 ---
 # <a name="using-the-azure-function-return-value"></a>Utilisation de la valeur de retour Azure Functions
 
@@ -23,6 +19,7 @@ Cet article explique comment fonctionnent les valeurs de retour dans une fonctio
 Dans les langages qui proposent une valeur de retour, vous pouvez lier une [liaison de sortie](./functions-triggers-bindings.md#binding-direction) de fonction à la valeur de retour :
 
 * Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
+* Dans Java, appliquez l’annotation de liaison de sortie à la méthode de la fonction.
 * Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
 
 S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
@@ -154,6 +151,24 @@ def main(input: azure.functions.InputStream) -> str:
         'length': input.length,
         'content': input.read().decode('utf-8')
     })
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Voici du code Java qui utilise la valeur de retour pour une liaison de sortie :
+
+```java
+@FunctionName("QueueTrigger")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "output", path = "output-container/{id}")
+public static String run(
+  @QueueTrigger(name = "input", queueName = "inputqueue") WorkItem input,
+  final ExecutionContext context
+) {
+  String json = String.format("{ \"id\": \"%s\" }", input.id);
+  context.getLogger().info("Java processed queue message. Item=" + json);
+  return json;
+}
 ```
 
 ---

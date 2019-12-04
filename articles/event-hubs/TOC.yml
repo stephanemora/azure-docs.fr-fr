@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Activer l’intégration des réseaux virtuels et des pare-feu sur l’espace de noms Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurer les clés gérées par le client pour le chiffrement des données au repos
+        - name: Configurer les clés gérées par le client pour le chiffrement des données au repos (préversion)
           href: configure-customer-managed-key.md
     - name: Résolution des problèmes
       items:

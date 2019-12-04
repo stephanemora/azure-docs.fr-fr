@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour planifier l’implémentation de la jonction Azure AD Hybride dans Azure Active Directory (Azure AD) | Microsoft Docs
+title: Planifier l’implémentation de la jonction Azure Active Directory hybride - Azure Active Directory
 description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882810"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379318"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -81,7 +81,7 @@ La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compa
 
 La jonction Azure AD Hybride n'est pas prise en charge pour Windows Server avec le rôle de contrôleur de domaine.
 
-La jonction Azure AD Hybride n’est pas prise en charge sur les appareils Windows de bas niveau lors de l’utilisation de l’itinérance des informations d’identification ou du profil utilisateur.
+La jonction Azure AD Hybride n’est pas prise en charge sur les appareils Windows de bas niveau lors de l’utilisation de l’itinérance des informations d’identification, de l’itinérance du profil utilisateur ou du profil obligatoire.
 
 Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une image **pré-Windows 10 1809** pour l’installation, vérifiez que cette image ne provient pas d'un appareil déjà inscrit auprès d’Azure AD en tant que jonction Azure AD Hybride.
 
@@ -93,7 +93,8 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
 - Dans Windows 10 1803, si vous avez configuré Windows Hello Entreprise, l’utilisateur doit reconfigurer Windows Hello Entreprise après le nettoyage de double état. Ce problème a été résolu avec KB4512509
 
-
+> [!NOTE]
+> L’appareil Azure AD inscrit n’est pas automatiquement supprimé s’il est géré par Intune.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Vérifier la validation contrôlée de la jonction Azure AD Hybride
 

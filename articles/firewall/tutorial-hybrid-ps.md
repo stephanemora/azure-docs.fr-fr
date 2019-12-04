@@ -1,5 +1,5 @@
 ---
-title: Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+title: Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide de PowerShell
 description: Dans cet article, vous apprendrez à déployer et configurer un pare-feu Azure à l'aide d'Azure PowerShell.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163533"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195760"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 

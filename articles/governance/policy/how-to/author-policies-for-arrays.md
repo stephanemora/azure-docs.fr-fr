@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies pour les propriétés de tableau sur des ressources
-description: Apprenez à créer des paramètres de tableau et des règles pour des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments à un tableau existant avec des règles de définition de stratégie Azure.
-ms.date: 03/06/2019
+description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959716"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555165"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -16,7 +16,9 @@ Les propriétés Azure Resource Manager sont généralement définies comme des 
 
 - Le type d’un [paramètre de définition](../concepts/definition-structure.md#parameters), pour fournir plusieurs options
 - Une partie d’une [règle de stratégie](../concepts/definition-structure.md#policy-rule) utilisant les conditions **In** ou **notIn**
-- Une partie d’une règle de stratégie qui évalue l’alias [\[\*\]](../concepts/definition-structure.md#understanding-the--alias) pour évaluer des scénarios spécifiques comme **None**, **Any**, ou **All**
+- Il s’agit d’une partie d’une règle de stratégie qui évalue l’alias [\[\*\] ](../concepts/definition-structure.md#understanding-the--alias) pour évaluer ce qui suit :
+  - Scénarios tels que **None** (Aucun), **Any** (N’importe lequel) ou **All** (Tout)
+  - Scénarios complexes avec **count**
 - Dans [l’effet Append](../concepts/effects.md#append) pour remplacer ou ajouter à un tableau existant
 
 Cet article traite chaque utilisation par Azure Policy et fournit plusieurs exemples de définitions.
@@ -138,10 +140,10 @@ Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où *
 
 ### <a name="evaluating-the--alias"></a>Évaluation de l’alias [*]
 
-Les alias ayant **[\*]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **[\*]** permet d’en évaluer chaque élément. Il existe trois scénarios au sein desquels cette évaluation par élément est utile : « None », « Any », et « All ».
+Les alias ayant **\[\*\]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **\[\*\]** permet d’en évaluer chaque élément. Il existe trois scénarios standards au sein desquels cette évaluation par élément est utile : « None », « Any », et « All ». Pour les scénarios complexes, utilisez [count](../concepts/definition-structure.md#count).
 
 Le moteur de stratégie déclenche l’**effet** dans **then** uniquement lorsque la règle **if** est évaluée comme True.
-Il est important de comprendre ce point dans le contexte de la façon dont **[\*]** évalue chaque élément individuel du tableau.
+Il est important de comprendre ce point dans le contexte de la façon dont **\[\*\]** évalue chaque élément individuel du tableau.
 
 L’exemple de règle de stratégie pour la table de scénario ci-dessous :
 
@@ -194,10 +196,10 @@ Les résultats suivants viennent de la combinaison de la condition et de l’exe
 
 ## <a name="the-append-effect-and-arrays"></a>L’effet Append et les tableaux
 
-L’[effet Append](../concepts/effects.md#append) se comporte différemment selon que **details.field** est un alias **[\*]** ou non.
+L’[effet Append](../concepts/effects.md#append) se comporte différemment selon que **details.field** est un alias **\[\*\]** ou non.
 
-- Lorsqu’il ne s’agit pas d’un alias **[\*]** , Append remplace le tableau entier avec la propriété **value**
-- Lorsqu’il s’agit d’un alias **[\*]** , Append ajoute la propriété **value** au tableau existant ou crée le nouveau tableau
+- Lorsqu’il ne s’agit pas d’un alias **\[\*\]** , Append remplace le tableau entier avec la propriété **value**
+- Lorsqu’il s’agit d’un alias **\[\*\]** , Append ajoute la propriété **value** au tableau existant ou crée le nouveau tableau
 
 Pour plus d’informations, consultez ces [exemples Append](../concepts/effects.md#append-examples).
 

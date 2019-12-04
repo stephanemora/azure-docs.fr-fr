@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 0c1a4f33da7e1f39951d641ed1d563c46fb664ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493803"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232646"
 ---
 # <a name="create-python-model"></a>Créer un modèle Python
 
-Cet article décrit comment utiliser le module **Create Python Model** pour créer un modèle non formé à partir d’un script Python. 
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
-Vous pouvez baser le modèle sur tout apprenant inclus dans un package Python dans l’environnement du concepteur Azure Machine Learning. 
+Découvrez comment utiliser le module **Create Python Model** pour créer un modèle non formé à partir d’un script Python. Vous pouvez baser le modèle sur tout apprenant inclus dans un package Python dans l’environnement du concepteur Azure Machine Learning. 
 
 Après avoir créé le modèle, vous pouvez utiliser le module [Train Model](train-model.md) pour former le modèle sur un jeu de données, comme tout autre apprenant dans Azure Machine Learning. Le modèle formé peut être transmis au module [Score Model](score-model.md) pour utiliser le modèle afin d’effectuer des prédictions. Le modèle formé peut ensuite être enregistré et le workflow de notation publié en tant que service web.
 

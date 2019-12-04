@@ -1,21 +1,15 @@
 ---
 title: Versions de registre, mise à jour corrective et mise à niveau d’Azure Blockchain Service
 description: Vue d’ensemble des versions de registre prises en charge dans Azure Blockchain Service, y compris des stratégies en matière de mise à jour corrective des systèmes et de mises à niveau gérées par le système et gérées par l’utilisateur.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579796"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325185"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versions de registre d’Azure Blockchain Service prises en charge
 

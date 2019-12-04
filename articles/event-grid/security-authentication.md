@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825767"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169579"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -102,6 +102,11 @@ Lors de la création de l’abonnement aux événements, si vous voyez un messag
 
 ### <a name="event-delivery-security"></a>Sécurité de la remise des événements
 
+#### <a name="azure-ad"></a>Azure AD
+
+Vous pouvez sécuriser votre point de terminaison webhook à l’aide d’Azure Active Directory pour authentifier et autoriser Event Grid à publier des événements sur vos points de terminaison. Vous devez créer une application Azure Active Directory, créer un rôle et un principal de service dans votre application qui autorise Event Grid et configurer l’abonnement aux événements pour utiliser l’application Azure AD. [Découvrez comment configurer AAD avec Event Grid](secure-webhook-delivery.md).
+
+#### <a name="query-parameters"></a>Paramètres de requête
 Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Définissez un de ces paramètres de requête en tant que secret, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token). Le webhook peut utiliser le secret pour établir que l'événement provient d'Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
 
 Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) est utilisé dans [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).

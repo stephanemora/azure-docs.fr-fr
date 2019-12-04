@@ -1,24 +1,42 @@
 - name: Documentation sur les accélérateurs de solution IoT
-  href: index.md
+  href: index.yml
 - name: Vue d'ensemble
-  expanded: true
   items:
     - name: Que sont les accélérateurs de solution IoT ?
       href: about-iot-accelerators.md
-    - name: AzureIoTSolution.com
+    - name: AzureIoTSolutions.com
       href: iot-accelerators-permissions.md
-- name: Surveillance à distance
-  items:
-    - name: Vue d'ensemble
+    - name: Surveillance à distance
       href: iot-accelerators-remote-monitoring-sample-walkthrough.md
+    - name: IoT industriel
+      href: overview-iot-industrial.md
       items:
-        - name: Choix d’architecture
-          href: iot-accelerators-remote-monitoring-architectural-choices.md
-    - name: Démarrages rapides
-      items:
-        - name: Essayer une solution de supervision à distance
-          href: quickstart-remote-monitoring-deploy.md
-    - name: Tutoriels
+        - name: Définition d’OPC Twin
+          href: overview-opc-twin.md
+        - name: Définition d’OPC Vault
+          href: overview-opc-vault.md
+        - name: Définition d’OPC Publisher
+          href: overview-opc-publisher.md
+        - name: Définition d’une fabrique connectée
+          href: iot-accelerators-connected-factory-features.md
+    - name: Simulation d’appareil
+      href: iot-accelerators-device-simulation-overview.md
+    - name: Maintenance prédictive
+      href: iot-accelerators-predictive-walkthrough.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Essayer une solution de supervision à distance
+      href: quickstart-remote-monitoring-deploy.md
+    - name: Essayer une solution de fabrique connectée
+      href: quickstart-connected-factory-deploy.md
+    - name: Essayer une solution de simulation d’appareil
+      href: quickstart-device-simulation-deploy.md
+    - name: Essayer une solution de maintenance prédictive
+      href: quickstart-predictive-maintenance-deploy.md
+- name: Tutoriels
+  items:
+    - name: Surveillance à distance
       items:
         - name: Surveiller des appareils IoT
           href: iot-accelerators-remote-monitoring-monitor.md
@@ -34,7 +52,31 @@
           href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
         - name: Détecter des anomalies en périphérie
           href: iot-accelerators-remote-monitoring-edge.md
-    - name: Guides pratiques
+    - name: Simulation d’appareil
+      items:
+        - name: Créer et exécuter une simulation
+          href: iot-accelerators-device-simulation-create-simulation.md
+        - name: Créer un appareil simulé personnalisé
+          href: iot-accelerators-device-simulation-create-custom-device.md
+- name: Concepts
+  items:
+    - name: Surveillance à distance
+      items:
+        - name: Architecture
+          href: iot-accelerators-remote-monitoring-architectural-choices.md
+        - name: Schéma du modèle d’appareil
+          href: iot-accelerators-remote-monitoring-device-schema.md
+        - name: Comportement du modèle d’appareil
+          href: iot-accelerators-remote-monitoring-device-behavior.md
+    - name: IoT industriel
+      items:
+        - name: Architecture d’OPC Twin
+          href: overview-opc-twin-architecture.md
+        - name: Architecture d’OPC Vault
+          href: overview-opc-vault-architecture.md
+- name: Guides pratiques
+  items:
+    - name: Surveillance à distance
       items:
         - name: Déployer une solution
           items:
@@ -107,51 +149,7 @@
               href: iot-accelerators-remote-monitoring-rbac-tsi.md
         - name: Intégrer des données SIM
           href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: Informations de référence
-      items:
-        - name: Schéma du modèle d’appareil
-          href: iot-accelerators-remote-monitoring-device-schema.md
-        - name: Comportement du modèle d’appareil
-          href: iot-accelerators-remote-monitoring-device-behavior.md
-    - name: Ressources
-      items:
-        - name: Guide d’informations de référence pour les développeurs (.NET)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
-        - name: Guide d’informations de référence pour les développeurs (Java)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide'
-        - name: Guide de résolution des problèmes pour les développeurs
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
-        - name: Dépôt GitHub (.NET)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
-        - name: Dépôt GitHub (Java)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
-        - name: FAQ sur la surveillance à distance
-          href: iot-accelerators-faq-rm-v2.md
-- name: IoT industriel
-  items:
-    - name: Vue d'ensemble
-      items:
-        - name: Définition de l’IoT industriel
-          href: overview-iot-industrial.md
-        - name: Définition d’OPC Twin
-          href: overview-opc-twin.md
-        - name: Définition d’OPC Vault
-          href: overview-opc-vault.md
-        - name: Définition d’OPC Publisher
-          href: overview-opc-publisher.md
-        - name: Définition d’une fabrique connectée
-          href: iot-accelerators-connected-factory-features.md
-    - name: Démarrages rapides
-      items:
-        - name: Essayer une solution de fabrique connectée
-          href: quickstart-connected-factory-deploy.md
-    - name: Concepts
-      items:
-        - name: Architecture d’OPC Twin
-          href: overview-opc-twin-architecture.md
-        - name: Architecture d’OPC Vault
-          href: overview-opc-vault-architecture.md
-    - name: Guides pratiques
+    - name: IoT industriel
       items:
         - name: Fabrique connectée
           items:
@@ -185,27 +183,7 @@
               href: howto-opc-publisher-configure.md
             - name: Exécuter OPC Publisher
               href: howto-opc-publisher-run.md
-    - name: Ressources
-      items:
-        - name: Dépôt GitHub
-          href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: FAQ sur l’usine connectée
-          href: iot-accelerators-faq-cf.md
-- name: Simulation d’appareil
-  items:
-    - name: Vue d'ensemble
-      href: iot-accelerators-device-simulation-overview.md
-    - name: Démarrages rapides
-      items:
-        - name: Essayer une solution de simulation d’appareil
-          href: quickstart-device-simulation-deploy.md
-    - name: Tutoriels
-      items:
-        - name: Créer et exécuter une simulation
-          href: iot-accelerators-device-simulation-create-simulation.md
-        - name: Créer un appareil simulé personnalisé
-          href: iot-accelerators-device-simulation-create-custom-device.md
-    - name: Guides pratiques
+    - name: Simulation d’appareil
       items:
         - name: Utiliser un hub IoT existant
           href: iot-accelerators-device-simulation-choose-hub.md
@@ -217,44 +195,10 @@
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Déployer une image Docker personnalisée
           href: iot-accelerators-device-simulation-deploy-image.md
-    - name: Ressources
-      items:
-        - name: Guide d’informations de référence pour les développeurs
-          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
-        - name: Dépôt GitHub
-          href: 'https://github.com/Azure/device-simulation-dotnet'
-- name: Maintenance prédictive
-  items:
-    - name: Vue d'ensemble
-      href: iot-accelerators-predictive-walkthrough.md
-    - name: Démarrages rapides
-      items:
-        - name: Essayer une solution de maintenance prédictive
-          href: quickstart-predictive-maintenance-deploy.md
-    - name: Ressources
-      items:
-        - name: Dépôt GitHub
-          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
-- name: Architecture de référence
-  items:
-    - name: Vue d'ensemble
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
-    - name: Implémentations partenaires
-      items:
-        - name: Plateforme de logistique connecté Intel
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
-        - name: Analyse du dynamomètre de périphérie
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
-        - name: Solution de signalisation numérique
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
 - name: Rubriques connexes
   items:
-    - name: solutions
-      items:
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-accelerators
+    - name: IoT Central
+      href: 'https://docs.microsoft.com/microsoft-iot-central/'
     - name: Services de plateforme
       items:
         - name: IoT Hub
@@ -277,8 +221,47 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Surveillance à distance
+      items:
+        - name: Guide d’informations de référence pour les développeurs (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: Guide d’informations de référence pour les développeurs (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide'
+        - name: Guide de résolution des problèmes pour les développeurs
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+        - name: Dépôt GitHub (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: Dépôt GitHub (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: FAQ sur la surveillance à distance
+          href: iot-accelerators-faq-rm-v2.md
+    - name: IoT industriel
+      items:
+        - name: Dépôt GitHub
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: FAQ sur l’usine connectée
+          href: iot-accelerators-faq-cf.md
+    - name: Simulation d’appareil
+      items:
+        - name: Guide d’informations de référence pour les développeurs
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+        - name: Dépôt GitHub
+          href: 'https://github.com/Azure/device-simulation-dotnet'
+    - name: Dépôt GitHub de maintenance prédictive
+      href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
+    - name: Architecture de référence
+      href: iot-accelerators-architecture-overview.md
+      items:
+        - name: Téléchargement
+          href: 'https://aka.ms/iotrefarchitecture'
+        - name: Implémentations partenaires
+          items:
+            - name: Plateforme de logistique connecté Intel
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
+            - name: Analyse du dynamomètre de périphérie
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
+            - name: Solution de signalisation numérique
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
     - name: Forum Aux Questions
       href: iot-accelerators-faq.md
     - name: Stack Overflow

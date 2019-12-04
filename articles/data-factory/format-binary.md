@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 82f7c380c66dc6b42f4ca5c67c13524428c78221
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 815933f1f08b873ae1438d6b2f1e6cd922fe886a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674813"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548242"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format Binaire dans Azure Data Factory
 
@@ -34,7 +34,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | Type             | La propriété type du jeu de données doit être définie sur **Binaire**. | OUI      |
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | OUI      |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
-| Type | Le codec de compression utilisé pour lire/écrire des fichiers binaires. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**. À utiliser lors de l’enregistrement du fichier. | Non       |
+| Type | Le codec de compression utilisé pour lire/écrire des fichiers binaires. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**. À utiliser lors de l’enregistrement du fichier.<br>Notez que lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers ZipDeflate et écrire dans le magasin de données du récepteur basé sur des fichiers, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non       |
 | level | Le taux de compression. Appliquez quand le jeu de données est utilisé dans le récepteur d’activité de copie.<br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données Binaire sur Stockage Blob Azure :

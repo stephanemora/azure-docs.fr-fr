@@ -1,19 +1,15 @@
 ---
-title: FAQ - Sauvegarde de bases de données SQL Server sur des machines virtuelles Azure - Sauvegarde Azure
+title: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
 description: Trouvez des réponses aux questions courantes sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074058"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172016"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 

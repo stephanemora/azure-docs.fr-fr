@@ -3,17 +3,17 @@ title: Réduire les coûts de service grâce à Azure Advisor | Microsoft Docs
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703031"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180586"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Réduire les coûts de service grâce à Azure Advisor
 
@@ -63,6 +63,7 @@ Pour économiser jusqu'à 60 %, nous vous recommandons de stocker vos instantan
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller](advisor-overview.md)
 * [Prise en main](advisor-get-started.md)
-* [Recommandations du conseiller en matière de performances](advisor-cost-recommendations.md)
-* [Recommandations du conseiller en matière de haute disponibilité](advisor-cost-recommendations.md)
-* [Recommandations du conseiller en matière de sécurité](advisor-cost-recommendations.md)
+* [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
+* [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
+* [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
+* [Recommandations d’excellence opérationnelle Advisor](advisor-operational-excellence-recommendations.md)

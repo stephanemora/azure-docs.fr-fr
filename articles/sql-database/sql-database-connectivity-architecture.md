@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826905"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483718"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -39,9 +39,15 @@ Les étapes suivantes expliquent comment une connexion est établie avec une bas
 
 Azure SQL Database prend en charge les trois options suivantes pour la configuration de la stratégie de connexion d’un serveur SQL Database :
 
-- **Redirection (recommandée) :** les clients établissent les connexions directement sur le nœud qui héberge la base de données. Pour activer la connectivité, les clients doivent autoriser les règles de pare-feu de trafic sortant pour toutes les adresses IP Azure de la région (avec groupes de sécurité réseau et [balises de service](../virtual-network/security-overview.md#service-tags)) pour les ports 11000 à 11999, et pas seulement les adresses IP de la passerelle Azure SQL Database sur le port 1433. Étant donné que les paquets vont directement à la base de données, la latence et le débit améliorent les performances.
-- **Proxy :** Dans ce mode, toutes les connexions sont traitées via les passerelles Azure SQL Database. Pour activer la connectivité, le client doit créer des règles de pare-feu de trafic sortant qui autorisent uniquement les adresses IP de la passerelle Azure SQL Database (généralement deux adresses IP par région). Ce mode peut entraîner une latence plus élevée et un débit inférieur, en fonction de la nature de la charge de travail. Nous vous recommandons la stratégie de connexion `Redirect` sur la stratégie de connexion `Proxy` pour bénéficier d'une plus faible latence et d'un débit plus élevé.
-- **Par défaut :** stratégie de connexion en vigueur sur tous les serveurs après la création, sauf si vous remplacez explicitement la stratégie de connexion par `Proxy` ou `Redirect`. La stratégie effective varie selon que les connexions proviennent d'Azure (`Redirect`) ou de l'extérieur d'Azure (`Proxy`).
+- **Redirection (recommandée) :** Les clients établissent des connexions directement au nœud qui héberge la base de données, ce qui permet de réduire la latence et d’améliorer les performances. Pour que les connexions utilisent ce mode, les clients doivent
+   - Autoriser les communications entrantes et sortantes à partir du client vers toutes les adresses IP Azure de la région sur les ports de la plage comprise entre 11000 et 11999.  
+   - Autorisez les communications entrantes et sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
+
+- **Proxy :** Dans ce mode, toutes les connexions sont traitées par proxy via les passerelles Azure SQL Database, ce qui permet d’augmenter la latence et de réduire le débit. Pour que les connexions utilisent ce mode, les clients doivent autoriser les communications entrantes et sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
+
+- **Par défaut :** stratégie de connexion en vigueur sur tous les serveurs après la création, sauf si vous remplacez explicitement la stratégie de connexion par `Proxy` ou `Redirect`. La stratégie par défaut est `Redirect` pour toutes les connexions clientes en provenance d’Azure (par exemple, à partir d’une machine virtuelle Azure) et `Proxy` pour toutes les connexions clientes internes (par exemple, les connexions à partir de votre station de travail locale)
+
+ Nous recommandons vivement d’utiliser la stratégie de connexion `Redirect` sur la stratégie de connexion `Proxy` pour la latence la plus faible et le débit le plus élevé. Toutefois, vous devrez respecter les exigences supplémentaires pour autoriser le trafic réseau comme indiqué ci-dessus. Si le client est une machine virtuelle Azure, vous pouvez le faire à l’aide de groupes de sécurité réseau (NSG) avec des [étiquettes de service](../virtual-network/security-overview.md#service-tags). Si le client se connecte à partir d’une station de travail locale, vous devrez peut-être utiliser votre administrateur réseau pour autoriser le trafic réseau via votre pare-feu d’entreprise.
 
 ## <a name="connectivity-from-within-azure"></a>Connectivité dans Azure
 
@@ -54,6 +60,10 @@ Si vous vous connectez à partir d'Azure, la stratégie de connexion par défaut
 Si vous vous connectez en dehors d'Azure, la stratégie de connexion par défaut de vos connexions est `Proxy`. Une stratégie de `Proxy` signifie que la session TCP est établie via la passerelle Azure SQL Database et que tous les paquets suivants transitent via la passerelle. Le schéma suivant illustre ce flux de trafic :
 
 ![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+
+> [!IMPORTANT]
+> Vous pouvez également ouvrir les ports 14000-14999 pour activer la [connexion avec DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 

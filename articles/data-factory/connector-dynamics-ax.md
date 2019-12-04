@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Dynamics AX en utilisant Azure Data Factory
+title: Copier des données à partir de Dynamics AX
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Dynamics CRM vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 07edc284c29ca209ee20e5de390e8126993f4ce3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 555293492a37b9c635cb11087c08d52aa4b4d8c4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681019"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218624"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ef0bfcb8c82d3f3caf90500e8852ca9e02c725aa
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026750"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382968"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -116,16 +116,17 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 |  <ul><li>EnableGroupCreation<li>Tapez : Boolean<li>Valeur par défaut : True |Indicateur spécifiant si la création de groupes Office 365 est autorisée dans le répertoire par les utilisateurs non administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tapez : Chaîne<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Office 365 même lorsque EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tapez : Chaîne<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
-|  <ul><li>ClassificationDescriptions<li>Tapez : Chaîne<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>où Classification correspond aux chaînes dans ClassificationList.|
-|  <ul><li>DefaultClassification<li>Tapez : Chaîne<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.|
+|  <ul><li>ClassificationDescriptions<li>Tapez : Chaîne<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>où Classification correspond aux chaînes dans ClassificationList.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>DefaultClassification<li>Tapez : Chaîne<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tapez : Chaîne<li>Valeur par défaut : “” | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Office 365. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tapez : Chaîne<li>Valeur par défaut : “” | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tapez : Boolean<li>Valeur par défaut : false | Ne pas utiliser
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tapez : Boolean<li>Valeur par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tapez : Boolean<li>Valeur par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes Office 365.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tapez : Chaîne<li>Valeur par défaut : “” | URL d’un lien vers les instructions d’utilisation de l’invité. |
-|  <ul><li>AllowAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire.|
-|  <ul><li>ClassificationList<li>Tapez : Chaîne<li>Valeur par défaut : “” |Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. |
+|  <ul><li>AllowToAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire. <br>Ce paramètre peut être remplacé et devenir en lecture seule si *EnableMIPLabels* est défini sur *True* et qu’une stratégie invité est associée à l’étiquette de sensibilité attribuée au groupe. |
+|  <ul><li>ClassificationList<li>Tapez : Chaîne<li>Valeur par défaut : “” |Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. <br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>EnableMIPLabels<li>Tapez : Boolean<li>Valeur par défaut : false |Indicateur qui spécifie si les étiquettes de sensibilité publiées dans Microsoft 365 Compliance Center peuvent être appliquées aux Groupes Office 365. Pour plus d’informations, consultez [Attribuer des étiquettes de sensibilité pour les groupes Office 365](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemple : Configurer une stratégie d’invité pour les groupes au niveau de l’annuaire
 1. Obtenez tous les modèles de paramètre :

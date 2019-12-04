@@ -14,8 +14,14 @@
       href: add-columns.md
     - name: Ajouter des lignes
       href: add-rows.md
+    - name: Appliquer une opération mathématique
+      href: apply-math-operation.md
     - name: Appliquer une transformation SQL
       href: apply-sql-transformation.md
+    - name: Nettoyage des données manquantes
+      href: clean-missing-data.md
+    - name: Limiter les valeurs
+      href: clip-values.md
     - name: "Convertir au format\_CSV"
       href: convert-to-csv.md
     - name: Convertir en jeu de données
@@ -28,74 +34,28 @@
       href: join-data.md
     - name: Normaliser des données
       href: normalize-data.md
+    - name: Partition et échantillon
+      href: partition-and-sample.md
     - name: Supprimer les données en double
       href: remove-duplicate-rows.md
+    - name: SMOTE
+      href: smote.md
     - name: Transformation de sélection de colonnes
       href: select-columns-transform.md
     - name: Sélectionner des colonnes dans le jeu de données
       href: select-columns-in-dataset.md
-- name: échantillonnage
-  items:
-    - name: Modèle de validation croisée
-      href: cross-validate-model.md
-    - name: Partition et échantillon
-      href: partition-and-sample.md
-    - name: SMOTE
-      href: smote.md
-    - name: Fractionner les données
-      href: split-data.md
 - name: Sélection de caractéristiques
   items:
     - name: Sélection de caractéristiques par filtrage
       href: filter-based-feature-selection.md
     - name: Importance de la fonctionnalité de permutation
       href: permutation-feature-importance.md
-- name: Python et R
+- name: Fonctions statistiques
   items:
-    - name: Créer un modèle Python
-      href: create-python-model.md
-    - name: Exécuter un script Python
-      href: execute-python-script.md
-    - name: "Exécuter un script\_R"
-      href: execute-r-script.md
-- name: Analyse de texte
-  items:
-    - name: Extraire les caractéristiques de n-grammes du texte
-      href: extract-n-gram-features-from-text.md
-    - name: Hachage des caractéristiques
-      href: feature-hashing.md
-    - name: Pré-traiter le texte
-      href: preprocess-text.md
+    - name: Totaliser les données
+      href: summarize-data.md
 - name: Algorithmes de Machine Learning
   items:
-    - name: "classification\_;"
-      items:
-        - name: Forêt d’arbres décisionnels multiclasse
-          href: multiclass-decision-forest.md
-        - name: Arbre de décision optimisé à plusieurs classes
-          href: multiclass-boosted-decision-tree.md
-        - name: Régression logistique multiclasse
-          href: multiclass-logistic-regression.md
-        - name: Réseau neuronal multiclasse
-          href: multiclass-neural-network.md
-        - name: Une ou toutes les multiclasses
-          href: one-vs-all-multiclass.md
-        - name: Régression logistique à deux classes
-          href: two-class-logistic-regression.md
-        - name: Perceptron moyenné à deux classes
-          href: two-class-averaged-perceptron.md
-        - name: Arbre de décision optimisé à deux classes
-          href: two-class-boosted-decision-tree.md
-        - name: Forêt d’arbres décisionnels à deux classes
-          href: two-class-decision-forest.md
-        - name: Réseau neuronal à deux classes
-          href: two-class-neural-network.md
-        - name: Machine à vecteurs de support à deux classes
-          href: two-class-support-vector-machine.md
-    - name: Clustering
-      items:
-        - name: Clustering k-moyennes
-          href: k-means-clustering.md
     - name: "régression\_;"
       items:
         - name: Régression d’arbre de décision optimisé
@@ -106,37 +66,79 @@
           href: linear-regression.md
         - name: Régression de réseau neuronal
           href: neural-network-regression.md
-    - name: Générateur de recommandations
+    - name: Clustering
       items:
-        - name: Entraîner le générateur de recommandations SVD
-          href: train-svd-recommender.md
-- name: Effectuer l'apprentissage d'un modèle
+        - name: Clustering k-moyennes
+          href: k-means-clustering.md
+    - name: "classification\_;"
+      items:
+        - name: Arbre de décision optimisé à plusieurs classes
+          href: multiclass-boosted-decision-tree.md
+        - name: Forêt d’arbres décisionnels multiclasse
+          href: multiclass-decision-forest.md
+        - name: Régression logistique multiclasse
+          href: multiclass-logistic-regression.md
+        - name: Réseau neuronal multiclasse
+          href: multiclass-neural-network.md
+        - name: Une ou toutes les multiclasses
+          href: one-vs-all-multiclass.md
+        - name: Perceptron moyenné à deux classes
+          href: two-class-averaged-perceptron.md
+        - name: Arbre de décision optimisé à deux classes
+          href: two-class-boosted-decision-tree.md
+        - name: Forêt d’arbres décisionnels à deux classes
+          href: two-class-decision-forest.md
+        - name: Régression logistique à deux classes
+          href: two-class-logistic-regression.md
+        - name: Réseau neuronal à deux classes
+          href: two-class-neural-network.md
+        - name: Machine à vecteurs de support à deux classes
+          href: two-class-support-vector-machine.md
+- name: Apprentissage du modèle
   items:
-    - name: Entraîner le modèle
-      href: train-model.md
     - name: Entraîner un modèle de clustering
       href: train-clustering-model.md
+    - name: Entraîner le modèle
+      href: train-model.md
     - name: Optimiser les hyperparamètres du modèle
       href: tune-model-hyperparameters.md
-- name: Évaluer le modèle
-  items:
-    - name: Évaluer le modèle
-      href: evaluate-model.md
-    - name: Évaluer le générateur de recommandations
-      href: evaluate-recommender.md
-- name: Effectuer le scoring d’un modèle
+- name: Scoring et évaluation d’un modèle
   items:
     - name: Appliquer une transformation
       href: apply-transformation.md
     - name: Attribuer des données à des clusters
       href: assign-data-to-clusters.md
+    - name: Modèle de validation croisée
+      href: cross-validate-model.md
+    - name: Évaluer le modèle
+      href: evaluate-model.md
     - name: Noter un modèle
       href: score-model.md
+- name: Langage Python
+  items:
+    - name: Créer un modèle Python
+      href: create-python-model.md
+    - name: Exécuter un script Python
+      href: execute-python-script.md
+- name: Langage R
+  items:
+    - name: "Exécuter un script\_R"
+      href: execute-r-script.md
+- name: Analyse de texte
+  items:
+    - name: Extraire les caractéristiques de N-grammes du texte
+      href: extract-n-gram-features-from-text.md
+    - name: Hachage des caractéristiques
+      href: feature-hashing.md
+    - name: Pré-traiter le texte
+      href: preprocess-text.md
+- name: Recommandation
+  items:
+    - name: Évaluer le générateur de recommandations
+      href: evaluate-recommender.md
     - name: Noter le générateur de recommandations SVD
       href: score-svd-recommender.md
-- name: Fonctions statistiques
-  items:
-    - name: Appliquer une opération mathématique
-      href: apply-math-operation.md
-    - name: Totaliser les données
-      href: summarize-data.md
+    - name: Entraîner le générateur de recommandations SVD
+      href: train-svd-recommender.md
+- name: Erreurs de module et résolution des problèmes
+  href: machine-learning-module-error-codes.md

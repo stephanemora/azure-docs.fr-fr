@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.openlocfilehash: 7624f15e878e13a93b5b5f395ef9cf9af48c95e4
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/14/2019
+ms.openlocfilehash: 33b000d0ca5cdd4af2ed57c5db6e71ae5a1e4c58
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104510"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215842"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
@@ -29,11 +29,11 @@ L’augmentation du nombre de nœuds de travail d’un cluster HDInsight permet 
 
 * Au moment de la création d’un cluster, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
   
-    ![Portail Azure - Taille de cluster, nœuds](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
+    ![Portail Azure - Taille de cluster, nœuds](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
 
 * Une fois le cluster créé, vous pouvez également modifier le nombre de nœuds Worker pour monter en charge le cluster sans en recréer un autre :
 
-    ![Portail Azure - Mise à l’échelle de cluster](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Taille de cluster de mise à l’échelle Portail Azure](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Pour plus d’informations sur la mise à l’échelle de HDInsight, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md)
 
@@ -80,7 +80,7 @@ CREATE TABLE lineitem_part
       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
       L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
       L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
       L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
 PARTITIONED BY(L_SHIPDATE STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
@@ -93,12 +93,12 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
   
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
-   PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-   SELECT * FROM lineitem 
-   WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+   PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
+   SELECT * FROM lineitem
+   WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
-   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-   LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
+   LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
 * **Partitionnement dynamique** signifie que vous voulez que Hive crée automatiquement des partitions pour vous. Étant donné que vous avez déjà créé la table de partitionnement à partir de la table intermédiaire, il vous suffit d’insérer des données dans la table partitionnée :
@@ -108,19 +108,20 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
    SET hive.exec.dynamic.partition.mode = nonstrict;
    INSERT INTO TABLE lineitem_part
    PARTITION (L_SHIPDATE)
-   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY,
        L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
        L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
        L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
        L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
        L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
-       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
+       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE,
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
 
 Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Utilisation du format ORCFile
+
 Hive prend en charge différents formats de fichier. Par exemple :
 
 * **Texte** : format de fichier par défaut, qui fonctionne avec la plupart des scénarios.
@@ -151,11 +152,11 @@ Ensuite, vous devez insérer des données dans la table ORC à partir de la tabl
 
 ```sql
 INSERT INTO TABLE lineitem_orc
-SELECT L_ORDERKEY as L_ORDERKEY, 
-         L_PARTKEY as L_PARTKEY , 
+SELECT L_ORDERKEY as L_ORDERKEY,
+         L_PARTKEY as L_PARTKEY ,
          L_SUPPKEY as L_SUPPKEY,
          L_LINENUMBER as L_LINENUMBER,
-         L_QUANTITY as L_QUANTITY, 
+         L_QUANTITY as L_QUANTITY,
          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
          L_DISCOUNT as L_DISCOUNT,
          L_TAX as L_TAX,
@@ -163,7 +164,7 @@ SELECT L_ORDERKEY as L_ORDERKEY,
          L_LINESTATUS as L_LINESTATUS,
          L_SHIPDATE as L_SHIPDATE,
          L_COMMITDATE as L_COMMITDATE,
-         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_RECEIPTDATE as L_RECEIPTDATE,
          L_SHIPINSTRUCT as L_SHIPINSTRUCT,
          L_SHIPMODE as L_SHIPMODE,
          L_COMMENT as L_COMMENT

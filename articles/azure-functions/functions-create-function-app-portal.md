@@ -1,23 +1,19 @@
 ---
-title: Créer une application de fonction dans le portail Azure | Microsoft Docs
+title: Créer une Function App depuis le portail Azure
 description: Créez une application de fonction dans Azure à l’aide du portail.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 93bce0404c9b3bf630416557726dca0c856528c3
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 74eaa6837f362c849277a761da3ae79c3a8ac353
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170798"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230783"
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Créer une application de fonction dans le portail Azure
+# <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
-Cette rubrique vous montre comment utiliser Azure Functions pour créer une application de fonction dans le portail Azure. Une application de fonction est un conteneur qui héberge l’exécution de fonctions individuelles. 
+Cette rubrique vous montre comment utiliser Azure Functions pour créer une application de fonction dans le portail Azure. Une Function App est un conteneur qui héberge l’exécution de fonctions individuelles. 
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
