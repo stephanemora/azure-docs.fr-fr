@@ -1,5 +1,5 @@
 - name: Documentation de l’API Vérification orthographique Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que l’API Vérification orthographique Bing\_?"

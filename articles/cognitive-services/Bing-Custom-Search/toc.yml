@@ -1,5 +1,5 @@
 - name: Documentation Recherche personnalisée Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Vue d'ensemble
   expanded: true
   items:
