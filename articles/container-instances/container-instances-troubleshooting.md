@@ -1,20 +1,15 @@
 ---
-title: Résolution des problèmes liés à Azure Container Instances
-description: Découvrez comment résoudre les problèmes liés à Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Résolution des problèmes courants
+description: Découvrez comment résoudre les problèmes courants quand vous déployez, exécutez ou gérez Azure Container Instances
 ms.topic: article
 ms.date: 09/25/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 2716d8515abc52ccadd321414eb7d34df2064709
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123008"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533397"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 

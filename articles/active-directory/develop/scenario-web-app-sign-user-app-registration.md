@@ -15,113 +15,114 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 641f71f6111930b54d0a2bd548f16d3cb0c07189
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175262"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482058"
 ---
-# <a name="web-app-that-signs-in-users---app-registration"></a>Application web qui connecte des utilisateurs - Inscription d’application
+# <a name="web-app-that-signs-in-users-app-registration"></a>Application web qui connecte les utilisateurs : Inscription d'application
 
-Cette page explique les spécificités de l’inscription d’application pour une application web qui connecte des utilisateurs.
+Cette article explique les spécificités de l’inscription d’application pour une application web qui connecte des utilisateurs.
 
 Pour inscrire votre application, vous pouvez utiliser les méthodes suivantes :
 
-- [Démarrages rapides d’application web](#register-an-app-using-the-quickstarts) : en plus d’être une excellente première expérience pour la création d’une application, les démarrages rapides du portail Azure contiennent un bouton nommé **Apporter cette modification pour moi**. Vous pouvez utiliser ce bouton pour définir les propriétés dont vous avez besoin, même pour une application existante. Vous devrez adapter les valeurs de ces propriétés à votre propre cas. En particulier, l’URL de l’API web pour votre application sera probablement différente de celle proposée par défaut, ce qui influera également sur l’URI de déconnexion.
-- Portail Azure pour [inscrire votre application manuellement](#register-an-app-using-azure-portal)
+- [Démarrages rapides d’application web](#register-an-app-by-using-the-quickstarts). En plus d’être une excellente première expérience pour la création d’une application, les démarrages rapides du Portail Azure contiennent un bouton nommé **Apporter cette modification pour moi**. Vous pouvez utiliser ce bouton pour définir les propriétés dont vous avez besoin, même pour une application existante. Vous devrez adapter les valeurs de ces propriétés à votre propre cas. En particulier, l’URL de l’API web pour votre application sera probablement différente de celle proposée par défaut, ce qui influera également sur l’URI de déconnexion.
+- Portail Azure pour [inscrire votre application manuellement](#register-an-app-by-using-the-azure-portal).
 - PowerShell et outils en ligne de commande
 
-## <a name="register-an-app-using-the-quickstarts"></a>Inscrire une application en utilisant les démarrages rapides
+## <a name="register-an-app-by-using-the-quickstarts"></a>Inscrire une application en utilisant les démarrages rapides
 
-Si vous accédez à ce lien, vous pouvez lancer la création de votre application web :
+Vous pouvez utiliser ces liens pour démarrer la création de votre application web :
 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-## <a name="register-an-app-using-azure-portal"></a>Inscrire une application à l’aide du portail Azure
+## <a name="register-an-app-by-using-the-azure-portal"></a>Inscrire une application à l’aide du Portail Azure
 
 > [!NOTE]
 > Le portail à utiliser est différent selon que votre application s’exécute dans le cloud public Microsoft Azure ou dans un cloud national ou souverain. Pour plus d’informations, voir [Clouds nationaux](./authentication-national-cloud.md#app-registration-endpoints)
 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft. Vous pouvez également vous connecter au portail Azure du cloud national de votre choix.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft. Vous pouvez également vous connecter au portail Azure de votre choix pour le cloud national.
+1. Si votre compte vous permet d’accéder à plusieurs abonnés, cliquez sur votre compte dans le coin supérieur droit. Ensuite, définissez votre session de portail sur l’abonné Azure Active Directory (Azure AD) souhaité.
+1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   1. Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
-   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `AspNetCore-WebApp`.
-   1. Dans **URI de redirection**, ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple : `https://localhost:44321/`.  Sélectionnez **Inscription**.
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+   1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **AspNetCore-WebApp**.
+   1. Dans **URI de redirection**, ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple, entrez **https://localhost:44321** . Sélectionnez ensuite **Inscription**.
 1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
-   1. Dans **URL de réponse**, ajoutez `https://localhost:44321/signin-oidc` de type « Web ».
-   1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `https://localhost:44321/signout-oidc`.
-   1. Sous **Octroi implicite**, cochez **Jetons d’ID**.
+   1. Dans **URL de réponse**, ajoutez **https://localhost:44321/signin-oidc** de type **Web**.
+   1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur **https://localhost:44321/signout-oidc** .
+   1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
    1. Sélectionnez **Enregistrer**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   1. Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
-   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `MailApp-openidconnect-v2`.
-   - Dans la section URI de redirection (facultatif), sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : `https://localhost:44326/`.
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+   1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **MailApp-openidconnect-v2**.
+   1. Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : **https://localhost:44326/** .
 1. Sélectionnez **Inscrire** pour créer l’application.
-1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
-   - Dans la section **Paramètres avancés** | **Octroi implicite**, cochez **Jetons d’ID**, car cet exemple exige l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l’utilisateur.
+1. Sélectionnez le menu **Authentification**. 
+1. Dans la section **Paramètres avancés** |  **Octroi implicite**, sélectionnez **Jetons d’ID**. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur.
 1. Sélectionnez **Enregistrer**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-4. Quand la page **Inscrire une application** apparaît, entrez un nom convivial pour l’application, par exemple « Java-webapp », sélectionnez « Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com) » et sélectionnez « Application web/API » dans *Type d’application*.
-1. Cliquez sur **Inscrire** pour inscrire l’application.
-1. Dans le menu de gauche, cliquez sur **Authentification**, puis sous *URI de redirection*, sélectionnez « Web ». Vous devrez entrer deux URI de redirection différents : un pour la page de connexion et un pour la page du graphique. Pour les deux, vous devez utiliser le même hôte et le même numéro de port, suivis de « /msal4jsample/secure/aad » pour la page de connexion et de « msal4jsample/graph/me » pour la page des infos utilisateur.
- Par défaut, l’exemple utilise :
+1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom d’affichage de l’application. Par exemple, entrez **java-webapp**. 
+1. Sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , puis sélectionnez **Application web / API** comme **Type d’application**.
+1. Sélectionnez **Inscrire** pour inscrire l’application.
+1. Dans le menu de gauche, sélectionnez **Authentification**. Sous **URI de redirection**, sélectionnez **Web**. 
 
-    - `http://localhost:8080/msal4jsample/secure/aad`.
-    - `http://localhost:8080/msal4jsample/graph/me`
+1. Entrez deux URI de redirection différents : un pour la page de connexion et un pour la page du graphique. Pour les deux, utilisez le même hôte et le même numéro de port, suivis de **/msal4jsample/secure/aad** pour la page de connexion et de **msal4jsample/graph/me** pour la page des infos utilisateur.
+ 
+   Par défaut, l’exemple utilise :
 
-    Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `http://localhost:8080/msal4jsample/sign_out`.
+   - **http://localhost:8080/msal4jsample/secure/aad**
+   - **http://localhost:8080/msal4jsample/graph/me**
 
-     Cliquez sur **Enregistrer**.
+1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur **http://localhost:8080/msal4jsample/sign_out** . Sélectionnez ensuite **Enregistrer**.
 
-1. Dans le menu, sélectionnez **Certificats et secrets**, puis, dans la section **Secrets client**, cliquez sur **Nouveau secret client** :
+1. Cliquez sur **Certificats et secrets** dans le menu. 
+1. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**, puis :
 
-    - tapez une description de clé
-    - Sélectionnez la durée de clé **Dans 1 an**.
-    - La valeur de clé s’affiche lorsque vous sélectionnez **Ajouter**.
-    - Copiez la valeur de la clé pour plus tard. Cette valeur de clé ne sera plus jamais affichée et aucun autre moyen ne permettra de la récupérer. Par conséquent, enregistrez-la dès qu’elle apparaît sur le portail Azure.
+   1. Entrez une description de clé.
+   1. Sélectionnez la durée de clé **Dans 1 an**.
+   1. Sélectionnez **Ajouter**.
+   1. Lorsque la valeur de clé apparaît, copiez-la pour l’utiliser ultérieurement. Cette valeur ne sera pas réaffichée ou ne pourra pas être récupérée par d’autres moyens.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `python-webapp`.
-   - Affectez à **Types de comptes pris en charge** la valeur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
-   - Dans la section URI de redirection (facultatif), sélectionnez **Web** dans la zone de liste déroulante et entrez les URI de redirection suivants : `http://localhost:5000/getAToken`.
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **python-webapp**.
+   1. Affectez à **Types de comptes pris en charge** la valeur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
+   1. Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : **http://localhost:5000/getAToken** .
 1. Sélectionnez **Inscrire** pour créer l’application.
-1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
-1. Sélectionnez la section **Authentification** dans la page de vue d’ensemble de l’application.
-   - Dans la section **Paramètres avancés**, affectez à **URL de déconnexion** la valeur `http://localhost:5000/logout`.
+1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
+1. Sélectionnez la section **Authentification**. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur **http://localhost:5000/logout** . Sélectionnez ensuite **Enregistrer**.
+1. Dans le menu de gauche, sélectionnez **Certificats et secrets**.
+1. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**, puis :
 
-  Sélectionnez **Enregistrer**.
-1. Dans le menu de gauche, choisissez **Certificats et secrets**, puis cliquez sur **Nouveau secret client** dans la section **Secrets client** :
-
-      - tapez une description de clé
-      - Sélectionnez la durée de clé **Dans 1 an**.
-      - Quand vous cliquez sur **Ajouter**, la valeur de la clé s’affiche.
-      - Copiez la valeur de la clé. Vous en aurez besoin ultérieurement.
+   1. Entrez une description de clé.
+   1. Sélectionnez la durée de clé **Dans 1 an**.
+   1. Sélectionnez **Ajouter**.
+   1. Lorsque la valeur de clé apparaît, copiez-la. Vous en aurez besoin ultérieurement.
 ---
 
-## <a name="register-an-app-using-powershell"></a>Inscrire une application avec PowerShell
+## <a name="register-an-app-by-using-powershell"></a>Inscrire une application à l’aide de PowerShell
 
 > [!NOTE]
-> Actuellement, Azure AD PowerShell crée uniquement des applications avec les types de compte pris en charge suivants :
+> Actuellement, Azure AD PowerShell crée des applications avec les types de compte pris en charge suivants uniquement :
 >
-> - MyOrg (comptes dans cet annuaire organisationnel uniquement).
-> - AnyOrg (comptes dans un annuaire organisationnel).
+> - MyOrg (comptes dans cet annuaire organisationnel uniquement)
+> - AnyOrg (comptes dans un annuaire organisationnel)
 >
-> Si vous souhaitez créer une application qui connecte des utilisateurs avec leurs comptes personnels Microsoft (par exemple, Skype, XBox, Outlook.com), vous pouvez d’abord créer une application mutualisée (types de compte pris en charge = comptes dans n’importe quel répertoire organisationnel), puis modifiez la propriété `signInAudience` dans le manifeste d’application à partir du portail Azure. Cette procédure est expliquée en détail à l’étape [1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) du didacticiel ASP.NET Core (et peut être étendue aux applications web dans n’importe quel langage).
+> Vous pouvez créer une application qui connecte les utilisateurs avec leurs comptes Microsoft personnels (par exemple, Skype, Xbox ou Outlook.com). Tout d’abord, créez application mutualisée. Les types de comptes pris en charge sont des comptes dans un annuaire organisationnel. Ensuite, modifiez la propriété `signInAudience` dans le manifeste de l’application à partir du Portail Azure. Pour plus d’informations, consultez l’[étape 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) dans le didacticiel ASP.NET Core. Vous pouvez généraliser cette étape aux applications web dans n’importe quel langage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

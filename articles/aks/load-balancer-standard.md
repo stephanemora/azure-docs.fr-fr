@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929135"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171407"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
-Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (AKS), vous pouvez créer et utiliser un Azure Load Balancer. Un équilibreur de charge exécuté sur AKS peut être utilisé comme équilibreur de charge interne ou externe. Un équilibreur de charge interne rend un service Kubernetes accessible uniquement aux applications qui s’exécutent dans le même réseau virtuel que le cluster AKS. Un équilibreur de charge externe reçoit une ou plusieurs adresses IP publiques pour l’entrée et rend un service Kubernetes accessible en externe en utilisant des adresses IP publiques.
+Pour fournir l’accès aux applications via des services Kubernetes de type `LoadBalancer` dans Azure Kubernetes Service (AKS), vous pouvez utiliser un Azure Load Balancer. Un équilibreur de charge exécuté sur AKS peut être utilisé comme équilibreur de charge interne ou externe. Un équilibreur de charge interne rend un service Kubernetes accessible uniquement aux applications qui s’exécutent dans le même réseau virtuel que le cluster AKS. Un équilibreur de charge externe reçoit une ou plusieurs adresses IP publiques pour l’entrée et rend un service Kubernetes accessible en externe en utilisant des adresses IP publiques.
 
-Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Par défaut, la référence SKU *Standard* est utilisée lorsque vous créez un cluster AKS. L’utilisation d’un équilibreur de charge de référence SKU *Standard* fournit des fonctionnalités supplémentaires, comme une plus grande taille pour le pool principal, et les zones de disponibilité. Il est important de comprendre les différences entre les équilibreurs de charge *Standard* et *De base* avant de choisir lequel utiliser. Une fois que vous créez un cluster AKS, vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge pour ce cluster. Pour plus d’informations sur les références SKU *De base* et *Standard*, consultez [Comparaison des références SKU des équilibreurs de charge Azure][azure-lb-comparison].
+Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Par défaut, la référence SKU *Standard* est utilisée lorsque vous créez un cluster AKS. L’utilisation d’un équilibreur de charge de référence SKU *Standard* fournit des fonctionnalités supplémentaires, comme une plus grande taille pour le pool back-end et des zones de disponibilité. Il est important de comprendre les différences entre les équilibreurs de charge *Standard* et *De base* avant de choisir lequel utiliser. Une fois que vous créez un cluster AKS, vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge pour ce cluster. Pour plus d’informations sur les références SKU *De base* et *Standard*, consultez [Comparaison des références SKU des équilibreurs de charge Azure][azure-lb-comparison].
 
 Cet article suppose une compréhension élémentaire des concepts de Kubernetes et d’Azure Load Balancer. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)][kubernetes-concepts] et [Qu’est-ce qu’Azure Load Balancer ?][azure-lb].
 
@@ -29,9 +29,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.74 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Avant de commencer
+
 Cet article part du principe que vous disposez d’un cluster AKS avec la référence SKU Azure Load Balancer *Standard*. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
 Le principal de service du cluster AKS a également besoin de l’autorisation de gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. De façon générale, attribuez le rôle *Contributeur de réseau* au principal de service sur les ressources déléguées. Pour plus d’informations sur les autorisations, consultez [Delegate access to other Azure resources][aks-sp] (Déléguer l’accès à d’autres ressources Azure).
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Passage d’un Load Balancer avec une référence SKU De base à une référence SKU Standard
+
+Si vous avez un cluster existant avec le Load Balancer à référence SKU De base, il existe des différences de comportement importantes à noter lorsque vous migrez pour utiliser un cluster avec le Load Balancer à référence SKU Standard.
+
+Par exemple, le fait d’effectuer des déploiements bleus/verts pour migrer des clusters est une pratique courante étant donné que le type de `load-balancer-sku` d’un cluster ne peut être défini qu’au moment de la création du cluster. Toutefois, les Load Balancers à *référence SKU De base* utilisent des adresses IP à *référence SKU De base* qui ne sont pas compatibles avec les Load Balancers à *référence SKU Standard*, car ceux-ci requièrent des adresses IP à *référence SKU Standard*. Lors de la migration de clusters pour mettre à niveau les références SKU du Load Balancer, une nouvelle adresse IP avec une référence SKU d’adresse IP compatible est nécessaire.
+
+Pour plus d’informations sur la migration de clusters, consultez [notre documentation sur les considérations relatives à la migration](acs-aks-migration.md) pour afficher une liste des rubriques importantes à prendre en compte lors de la migration. Les limitations ci-dessous constituent également des différences de comportement importantes à prendre en compte lors de l’utilisation de Load Balancers à référence SKU Standard dans AKS.
 
 ### <a name="limitations"></a>Limites
 
@@ -41,9 +50,10 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez des clust
     * Fournir vos propres adresses IP publiques.
     * Fournir vos propres préfixes IP publics.
     * Spécifier un nombre de 1 à 100 pour autoriser le cluster AKS à créer ce nombre d’adresses IP publiques de référence (SKU) *Standard* dans le groupe de ressources créé en tant que cluster AKS, dont le nom commence généralement par *MC_* . AKS attribue l’adresse IP publique pour l’équilibreur de charge de référence SKU *Standard*. Par défaut, une adresse IP publique est automatiquement créée dans le même groupe de ressources que le cluster AKS si aucune adresse IP publique, aucun préfixe IP public ou aucun nombre d’adresses IP ne sont spécifiés. Vous devez également autoriser des adresses publiques et éviter de créer une Azure Policy interdisant la création d’adresses IP.
-* Lorsque vous utilisez la référence (SKU) *Standard* pour un équilibreur de charge, vous devez utiliser Kubernetes version 1.13 ou ultérieure.
+* Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge, vous devez utiliser Kubernetes version *1.13 ou ultérieure*.
 * Vous ne pouvez définir la référence (SKU) d’équilibreur de charge que lorsque vous créez un cluster AKS. Vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge après la création d’un cluster AKS.
-* Vous pouvez utiliser qu’une seule référence (SKU) d’équilibreur de charge dans un même cluster.
+* Vous pouvez utiliser un seul type de référence SKU d’équilibreur de charge (De base ou Standard) dans un même cluster.
+* Les Load Balancers à référence SKU *Standard* prennent uniquement en charge les adresses IP à référence SKU *Standard*.
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurer l’équilibreur de charge pour qu’il soit interne
 

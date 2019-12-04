@@ -5,14 +5,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 96c5190988d79885f3a1335b6fd431e028bba8fc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970653"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384064"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -229,6 +229,33 @@ Erreur 50004 : « Impossible de se connecter à un hôte ou à un cluster, ca
     4. Enregistrez et fermez le fichier hôtes.
     5. Vérifiez si l’appliance peut se connecter aux hôtes en utilisant l’application de gestion de l’appliance. Au bout de 30 minutes, vous devriez voir les informations à jour sur ces hôtes dans le Portail Azure.
 
+## <a name="application-discovery-issues"></a>Problèmes liés à la découverte des applications
+
+Actuellement, la découverte des applications est uniquement prise en charge pour les machines virtuelles VMware. La prise en charge de serveurs physiques et machines virtuelles Hyper-V sera possible dans le futur.
+
+La découverte des applications vous oblige à fournir des informations d’identification de machine virtuelle dans l’appliance. Si vous n’avez pas fourni d’informations d’identification de machine virtuelle dans l’appliance, la détection des applications ne fonctionnera pas. [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les privilèges d’accès nécessaires pour vCenter Server et les machines virtuelles VMware. Si vous avez fourni des informations d’identification de machine virtuelle dans l’appliance et que la détection des applications échoue, consultez le tableau suivant pour identifier la cause de l’échec et de l’action de correction :
+
+**Code d’erreur** | **Message** | **Cause possible** | **Action recommandée**
+--- | --- | --- | ---
+10000 | Impossible de découvrir les applications installées sur le serveur. | Cela peut se produire si le système d’exploitation exécuté sur le serveur n’est ni Windows, ni Linux. | La découverte des applications installées est uniquement prise en charge pour les serveurs Windows et Linux.
+10001 | Impossible de récupérer les applications installées sur le serveur. | Ceci est dû à une erreur interne, car des fichiers sont manquants dans l’appliance. | Contactez le support Microsoft.
+10002 | Impossible de récupérer les applications installées sur le serveur. | Cela peut se produire si l’agent de découverte dans l’appliance Azure Migrate ne fonctionne pas correctement. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+10003 | Impossible de récupérer les applications installées sur le serveur. | Cela peut se produire si l’agent de découverte ne fonctionne pas correctement. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+10004 | Impossible de découvrir les applications installées pour les machines <Windows/Linux>. |  Les informations d’identification pour accéder aux machines <Windows/Linux> n’ont pas été fournies dans l’appliance Azure Migrate | Ajoutez des informations d’identification dans l’appliance Azure Migrate qui accède aux machines <Windows/Linux>.
+10005 | Impossible d’accéder au serveur local. | Cela peut se produire si les informations d’identification permettant à la machine d’accéder au serveur sont incorrectes. | Mettez à jour les informations d’identification fournies dans l’appliance et vérifiez que le serveur est accessible avec ces informations d’identification.
+10006 | Impossible d’accéder au serveur local. | Cela peut se produire si le système d’exploitation exécuté sur le serveur n’est ni Windows, ni Linux. | La découverte des applications installées est uniquement prise en charge pour les serveurs Windows et Linux.
+9000 | Impossible de découvrir les applications installées sur la machine virtuelle. | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Installez/réinstallez les outils VMware sur la machine virtuelle et vérifiez si elle est en cours d’exécution.
+9001 | Impossible de découvrir les applications installées sur la machine virtuelle. | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Installez/réinstallez les outils VMware sur la machine virtuelle et vérifiez si elle est en cours d’exécution.
+9002 | Impossible de découvrir les applications installées sur la machine virtuelle. | Les outils VMware ne sont peut-être pas en cours d’exécution. | Installez/réinstallez les outils VMware sur la machine virtuelle et vérifiez si elle est en cours d’exécution.
+9003 | Impossible de découvrir les applications installées sur le serveur. | Cela peut se produire si le système d’exploitation exécuté sur le serveur n’est ni Windows, ni Linux. | La découverte des applications installées est uniquement prise en charge pour les serveurs Windows et Linux.
+9004 | Impossible de découvrir les applications installées sur le serveur. | Cela peut se produire si la machine virtuelle est hors tension. | Pour découvrir les applications installées sur le serveur, vérifiez que la machine virtuelle est sous tension.
+9005 | Impossible de découvrir les applications installées sur la machine virtuelle. | Cela peut se produire si le système d’exploitation exécuté sur la machine virtuelle n’est ni Windows, ni Linux. | La découverte des applications installées est uniquement prise en charge pour les serveurs Windows et Linux.
+9006 | Impossible de récupérer les applications installées sur le serveur. | Cela peut se produire si l’agent de découverte ne fonctionne pas correctement. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+9007 | Impossible de récupérer les applications installées sur le serveur. | Cela peut se produire si l’agent de découverte ne fonctionne pas correctement. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+9008 | Impossible de récupérer les applications installées sur le serveur. | Ce problème peut se produire en raison d’une erreur interne.  | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+9009 | Impossible de récupérer les applications installées sur le serveur. | Le problème peut se produire si les paramètres de contrôle de compte d’utilisateur (UAC) Windows sur le serveur sont restrictifs et empêchent la découverte des applications installées. | Recherchez les paramètres « Contrôle de compte d’utilisateur » sur le serveur et configurez le paramètre UAC du serveur sur l’un des deux niveaux inférieurs.
+9010 | Impossible de récupérer les applications installées sur le serveur. | Ce problème peut se produire en raison d’une erreur interne.  | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+8084 | Impossible de découvrir les applications en raison d'une erreur VMware :  <Exception from VMware> | L’appliance Azure Migrate utilise des API VMware pour découvrir des applications. Ce problème peut se produire en raison d’une exception levée par vCenter Server pendant la tentative de découverte des applications. Le message de défaillance de VMware apparaît dans le message d’erreur affiché dans le portail. | Consultez la [documentation de VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), recherchez le message de défaillance et suivez les étapes de dépannage dans l’article VMware pour résoudre le problème. Si vous ne parvenez toujours pas à résoudre le problème, contactez le support Microsoft.
 
 
 ## <a name="fix-assessment-readiness"></a>Corriger la préparation de l’évaluation
@@ -321,13 +348,11 @@ Server Assessment recueille les données de performances des machines locales de
 - Si vous souhaitez choisir l’utilisation maximale de la période et si vous ne souhaitez pas ignorer les valeurs hors norme, vous devez sélectionner le 99e centile comme utilisation en centile.
 
 
-
 ## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>Impossible de trouver la visualisation des dépendances pour Azure Government
 
 Azure Migrate dépend de Service Map pour la fonctionnalité de visualisation des dépendances. Étant donné que Service Map n’est pas disponible pour Azure Government, cette fonctionnalité de visualisation n’est pas disponible dans Azure Government.
 
 ## <a name="dependencies-dont-show-after-installing-agents"></a>Les dépendances ne sont pas affichées après l’installation des agents
-
 
 Une fois que vous avez installé les agents de visualisation des dépendances sur les machines virtuelles locales, Azure Migrate prend généralement 15 à 30 minutes pour afficher les dépendances dans le portail. Si vous avez attendu plus de 30 minutes, assurez-vous que le Microsoft Monitoring Agent (MMA) peut se connecter à l’espace de travail Log Analytics.
 

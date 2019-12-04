@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 3777180a4d62f8b253ac4cd096bff15613f33565
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303609"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206620"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -163,7 +163,7 @@ Microsoft a introduit une nouvelle fonctionnalité appelée [ExpressRoute Global
 - Permettre une communication directe entre vos unités de Grande instance HANA déployées dans différentes régions
 
 
-##### <a name="direct-access-from-on-premise"></a>Accès direct à partir du réseau local
+##### <a name="direct-access-from-on-premises"></a>Accès direct à partir du réseau local
 Dans les régions Azure où Global Reach est proposé, vous pouvez demander l’activation de la fonctionnalité Global Reach pour votre circuit ExpressRoute qui connecte votre réseau local au réseau virtuel Azure qui se connecte également à vos unités de Grande instance HANA. Il existe des implications de coûts pour le côté local de votre circuit ExpressRoute. Pour connaître les prix, voir [Composant additionnel Global Reach](https://azure.microsoft.com/pricing/details/expressroute/). Le circuit qui connecte les unités de Grande instance HANA à Azure n’occasionne aucun coût supplémentaire pour vous. 
 
 > [!IMPORTANT]  

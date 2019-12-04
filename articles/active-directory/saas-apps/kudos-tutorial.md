@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1a1bc7bfd8b3cc9d7758bf8e80d8759f9357e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098475"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227479"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Didacticiel : Intégration d’Azure Active Directory à Kudos
 
@@ -213,18 +213,18 @@ Pour pouvoir se connecter à Kudos, les utilisateurs d’Azure AD doivent être 
 
 1. Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
 
-   ![User Admin](./media/kudos-tutorial/ic787809.png "User Admin")
+   ![User Admin](./media/kudos-tutorial/ic787809.png "User Admin") (Administrateur d’utilisateurs)
 
 1. Dans la section **Add a User** , procédez comme suit :
 
-    ![Ajouter un utilisateur](./media/kudos-tutorial/ic787810.png "Ajouter un utilisateur")
+    ![Add a User](./media/kudos-tutorial/ic787810.png "Add a User") (Ajouter un utilisateur)
 
     a. Tapez le prénom, le nom, l’adresse de messagerie et les autres détails d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir **First Name**, **Last Name** et **Email**.
 
     b. Cliquez sur **Créer l’utilisateur**.
 
 > [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Kudos pour approvisionner des comptes d’utilisateur Azure Active Directory.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Kudos pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -238,4 +238,4 @@ Le fait de cliquer sur la vignette Kudos dans le panneau d’accès doit vous co
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

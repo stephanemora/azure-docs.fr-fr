@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3420374e90790bd1ffe4c845c19de1bfed317302
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 795a97f84bebf6c0e7c1692e82df2f7ce11e0bbd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173736"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384094"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI
 
@@ -266,6 +266,34 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
+## <a name="get-object-ids"></a>Récupérer des ID d’objet
+
+Pour répertorier, ajouter ou supprimer des attributions de rôles, vous devrez peut-être spécifier l’ID unique d’un objet. L’ID a le format : `11111111-1111-1111-1111-111111111111`. Vous pouvez récupérer l’ID à l’aide du Portail Azure ou d’Azure CLI.
+
+### <a name="user"></a>Utilisateur
+
+Pour récupérer l’ID d’objet pour un utilisateur Azure AD, vous pouvez utiliser [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+
+```azurecli
+az ad user show --id "{email}" --query objectId --output tsv
+```
+
+### <a name="group"></a>Groupe
+
+Pour obtenir l’ID d’objet d’un groupe Azure AD, vous pouvez utiliser [az ad group show](/cli/azure/ad/group#az-ad-group-show) ou [az ad group list](/cli/azure/ad/group#az-ad-group-list).
+
+```azurecli
+az ad group show --group "{name}" --query objectId --output tsv
+```
+
+### <a name="application"></a>Application
+
+Pour récupérer l’ID objet d’un principal de service Azure AD (identité utilisée par une application), vous pouvez utiliser [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Pour un principal de service, utilisez l’ID d’objet et **non** l’ID d’application.
+
+```azurecli
+az ad sp list --display-name "{name}" --query [].objectId --output tsv
+```
+
 ## <a name="grant-access"></a>Accorder l'accès
 
 Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
@@ -311,7 +339,7 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Créer une attribution de rôle pour un utilisateur
 
-Pour accorder l’accès à un groupe, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az-ad-group-list) ou [az ad group show](/cli/azure/ad/group#az-ad-group-show).
+Pour accorder l’accès à un groupe, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -331,7 +359,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-resource-group-scope"></a>Créer une attribution de rôle pour une application dans l’étendue d’un groupe de ressources
 
-Pour octroyer l’accès à une application, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour obtenir l’ID d’objet de l’application, vous pouvez utiliser [az ad app list](/cli/azure/ad/app#az-ad-app-list) ou [az ad app show](/cli/azure/ad/app#az-ad-app-show).
+Pour octroyer l’accès à une application, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour plus d’informations sur la récupération de l’ID d’objet de l’application, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
@@ -401,7 +429,7 @@ L’exemple suivant retire l’attribution de rôle *Collaborateur de machine vi
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
-L’exemple suivant retire le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue d’un abonnement. Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az-ad-group-list) ou [az ad group show](/cli/azure/ad/group#az-ad-group-show).
+L’exemple suivant retire le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue d’un abonnement. Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000

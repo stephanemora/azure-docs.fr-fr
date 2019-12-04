@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
+title: 'Didacticiel : Azure Data Lake Storage Gen2, Azure Databricks et Spark | Microsoft Docs'
 description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks, afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331833"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327532"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Didacticiel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Didacticiel : Azure Data Lake Storage Gen2, Azure Databricks et Spark
 
 Ce tutoriel vous montre comment connecter un cluster Azure Databricks aux données contenues dans un compte de stockage Azure compatible avec Azure Data Lake Storage Gen2. Cette connexion vous permet d’exécuter en mode natif des requêtes et analyses sur des données à partir de votre cluster.
 

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97855a52831a63a92a46bd0d25d23ba3fc91a07b
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268577"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481859"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
-[Les clouds nationaux](authentication-national-cloud.md) sont des instances d’Azure physiquement isolées. Ces régions d’Azure aident à garantir que les conditions de résidence, de souveraineté et de conformité des données sont respectées au sein de limites géographiques.
+Les [clouds nationaux](authentication-national-cloud.md), également appelés clouds souverains, sont des instances d’Azure physiquement isolées. Ces régions d’Azure aident à garantir que les conditions de résidence, de souveraineté et de conformité des données sont respectées au sein de limites géographiques.
 
 En plus du cloud Microsoft global, Microsoft Authentication Library (MSAL) permet aux développeurs d’applications dans des clouds nationaux d’acquérir des jetons pour authentifier et appeler des API web sécurisées. Ces API web peuvent être Microsoft Graph ou d’autres API Microsoft.
 
@@ -57,7 +57,20 @@ Pour obtenir un abonnement Azure Government, consultez [Gestion et connexion à 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/global-infrastructure/government/request/) avant de commencer.
 
-## <a name="javascript"></a>JavaScript
+Pour plus d’informations sur l’utilisation d’un cloud national avec un langage de programmation particulier, choisissez l’onglet correspondant à votre langage :
+
+## <a name="nettabdonet"></a>[.NET](#tab/donet)
+
+Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs, acquérir des jetons et appeler l’API Microsoft Graph dans des clouds nationaux.
+
+Les didacticiels suivants montrent comment créer une application Web MVC .NET Core 2.2. L’application utilise OpenID Connect pour connecter des utilisateurs avec un compte professionnel et scolaire dans une organisation appartenant à un cloud national.
+
+- Pour connecter des utilisateurs et acquérir des jetons, suivez ce didacticiel : [Créez une application web de base ASP.NET en connectant les utilisateurs dans des clouds souverains avec la plateforme d’identité Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
+- Pour appeler l’API Microsoft Graph, suivez ce didacticiel : [Utilisation de la plateforme Microsoft Identity pour appeler l’API Microsoft Graph à partir d’une application web ASP.NET Core 2.x, pour le compte d’un utilisateur qui se connecte à l’aide de son compte professionnel et scolaire dans le cloud national Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+
+## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Pour activer votre application MSAL.js pour les clouds souverains :
 
 ### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
@@ -127,22 +140,57 @@ Dans ce code :
 
    Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison Microsoft Graph dans des clouds nationaux](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## <a name="net"></a>.NET
+## <a name="pythontabpython"></a>[Python](#tab/python)
 
-Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs, acquérir des jetons et appeler l’API Microsoft Graph dans des clouds nationaux.
+Pour activer votre application MSAL Python pour les clouds souverains :
 
-Les didacticiels suivants montrent comment créer une application Web MVC .NET Core 2.2. L’application utilise OpenID Connect pour connecter des utilisateurs avec un compte professionnel et scolaire dans une organisation appartenant à un cloud national.
+- Inscrivez votre application dans un portail spécifique en fonction du cloud. Pour plus d’informations sur la façon de choisir le portail, reportez-vous à [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints)
+- Utilisez n’importe lequel des [exemple](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) du référentiel en apportant quelques modifications à la configuration, en fonction du cloud, comme mentionné ci-dessous.
+- Utilisez une autorité spécifique, en fonction du cloud dans lequel vous avez inscrit l’application. Pour plus d’informations sur les autorités pour les différents clouds, consultez [Points de terminaison Azure AD Authentication](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
-- Pour connecter des utilisateurs et acquérir des jetons, suivez [ce didacticiel](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- Pour appeler l’API Microsoft Graph, suivez [ce didacticiel](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+    Voici un exemple d’autorité :
 
-## <a name="msal-for-ios-and-macos"></a>MSAL pour iOS et macOS
+    ```json
+    "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+    ```
+    
+- Pour appeler Microsoft Graph, vous devez disposer d’une URL de point de terminaison Graph spécifique qui dépend du cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+
+    Voici un exemple de point de terminaison Graph, avec l’étendue :
+    
+    ```json
+    "endpoint" : "https://graph.microsoft.us/v1.0/me"
+    "scope": "User.Read"
+    ```
+    
+## <a name="javatabjava"></a>[Java](#tab/java)
+
+Pour activer votre application MSAL pour Java pour les clouds souverains :
+
+- Inscrivez votre application dans un portail spécifique en fonction du cloud. Pour plus d’informations sur la façon de choisir le portail, reportez-vous à [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints)
+- Utilisez n’importe lequel des [exemples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) du référentiel en apportant quelques modifications à la configuration, en fonction du cloud, comme mentionné ci-dessous.
+- Utilisez une autorité spécifique, en fonction du cloud dans lequel vous avez inscrit l’application. Pour plus d’informations sur les autorités pour les différents clouds, consultez [Points de terminaison Azure AD Authentication](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+
+Voici un exemple d’autorité :
+
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
+
+- Pour appeler Microsoft Graph, vous devez disposer d’une URL de point de terminaison Graph spécifique qui dépend du cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+
+Voici un exemple de point de terminaison Graph, avec l’étendue :
+
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
+
+## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 MSAL pour iOS et macOS peut être utilisé pour acquérir des jetons dans les clouds ​​nationaux, mais une configuration supplémentaire est nécessaire lors de la création de `MSALPublicClientApplication`.
 
 Par exemple, si vous souhaitez que votre application soit mutualisée dans un cloud national (US Government, en l’occurrence), vous pouvez écrire :
-
-Objective-C :
 
 ```objc
 MSALAADAuthority *aadAuthority =
@@ -161,7 +209,11 @@ MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-Swift :
+## <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+MSAL pour iOS et macOS peut être utilisé pour acquérir des jetons dans les clouds ​​nationaux, mais une configuration supplémentaire est nécessaire lors de la création de `MSALPublicClientApplication`.
+
+Par exemple, si vous souhaitez que votre application soit mutualisée dans un cloud national (US Government, en l’occurrence), vous pouvez écrire :
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
@@ -170,10 +222,13 @@ let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>"
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
 
+---
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus :
 
+- [Authentification dans les clouds nationaux](authentication-national-cloud.md)
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
 - [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure Allemagne](https://docs.microsoft.com/azure/germany/)

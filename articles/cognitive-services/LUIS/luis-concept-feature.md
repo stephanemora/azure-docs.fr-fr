@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647413"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280912"
 ---
 # <a name="machine-learned-features"></a>Fonctionnalités issues de l’apprentissage automatique 
 
-En apprentissage automatique, une *caractéristique* est un trait ou un attribut distinctif des données que votre système observe et dont il apprend. Dans Language Understanding (LUIS), une caractéristique décrit et explique ce qui est important au sujet de vos intentions et entités.
+En apprentissage automatique, une _caractéristique_ est un trait ou un attribut distinctif des données que votre système observe et dont il apprend. Dans Language Understanding (LUIS), une caractéristique décrit et explique ce qui est important au sujet de vos intentions et entités.
 
 Dans le [portail LUIS en préversion](https://preview.luis.ai), les caractéristiques sont des _descripteurs_, car elles sont utilisées pour _décrire_ l’intention ou l’entité.  
 
@@ -82,7 +82,7 @@ Par exemple, si l’intention vise à réserver un vol et que l’entité désig
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entité en tant que caractéristique d’une autre entité
 
-Une entité (A) doit être ajoutée en tant que caractéristique à une autre entité (B) lorsque la détection de cette entité (A) est importante pour (B).
+Une entité (A) doit être ajoutée en tant que caractéristique à une autre entité (B) lorsque la détection de cette entité (A) est importante pour la prédiction de l’entité (B).
 
 Par exemple, si l’entité adresse postale (A) est détectée, trouver l’adresse postale (A) ajoute du poids à la prédiction pour l’entité adresse d’expédition (B). 
 

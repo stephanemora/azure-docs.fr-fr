@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure | Microsoft Docs'
-description: Découvrez comment afficher l’accès dont dispose un utilisateur ou un autre principal de sécurité aux ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC) et le portail Azure.
+title: Démarrage rapide - Visualiser l’accès dont dispose un utilisateur aux ressources Azure
+description: Dans ce guide de démarrage rapide, découvrez comment visualiser l’accès dont dispose un utilisateur ou un autre principal de sécurité aux ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC) et le portail Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337943"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419606"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser le panneau **Contrôle d’accès (IAM)** dans [Contrôle d
 
 1. Cliquez sur votre abonnement.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Vérifier l’accès**.
 

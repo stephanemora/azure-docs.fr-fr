@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fb1f8a1d1f8e1ebbaf3e0e9fe96e3c1bf0ba9ba6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078749"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227880"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Utilisation de points de terminaison privés pour Stockage Azure (préversion)
 
@@ -37,7 +37,7 @@ Quand vous créez un point de terminaison privé pour un service de stockage dan
 Les propriétaires de comptes de stockage peuvent gérer les demandes de consentement et les points de terminaison privés, via l’onglet « *Points de terminaison privés* » du compte de stockage dans le [portail Azure](https://portal.azure.com).
 
 > [!TIP]
-> Si vous souhaitez restreindre l’accès à votre compte de stockage uniquement par le biais du point de terminaison privé, configurez le pare-feu de stockage pour refuser tout accès via le point de terminaison public.
+> Si vous souhaitez restreindre l’accès à votre compte de stockage uniquement par le biais du point de terminaison privé, configurez le pare-feu de stockage pour refuser ou contrôler l’accès via le point de terminaison public.
 
 Vous pouvez sécuriser votre compte de stockage pour accepter uniquement les connexions à partir de votre réseau virtuel, en [configurant le pare-feu de stockage](storage-network-security.md#change-the-default-network-access-rule) afin de refuser l’accès via son point de terminaison public par défaut. Vous n’avez pas besoin d’une règle de pare-feu pour autoriser le trafic à partir d’un réseau virtuel doté d’un point de terminaison privé, puisque le pare-feu de stockage contrôle uniquement l’accès via le point de terminaison public. Les points de terminaison privés reposent plutôt sur le flux de consentement pour accorder l’accès aux sous-réseaux au service de stockage.
 
@@ -59,11 +59,18 @@ Pour plus d’informations sur la création d’un point de terminaison privé p
 - [Créer un point de terminaison privé à l’aide d’Azure CLI](../../private-link/create-private-endpoint-cli.md)
 - [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
+### <a name="connecting-to-private-endpoints"></a>Connexion à des points de terminaison privés
 
-Les clients sur un réseau virtuel doivent utiliser la même chaîne de connexion pour le compte de stockage, même lors de l’utilisation d’un point de terminaison privé.
+Les clients sur un réseau virtuel utilisant le point de terminaison privé doivent utiliser la même chaîne de connexion pour le compte de stockage que les clients se connectant au point de terminaison public. Nous nous appuyons sur la résolution DNS pour acheminer automatiquement les connexions entre le réseau virtuel et le compte de stockage via une liaison privée.
 
-Lorsque vous créez un point de terminaison privé, nous mettons à jour l’enregistrement de la ressource CNAME DNS pour ce point de terminaison de stockage vers un alias dans un sous-domaine avec le préfixe « *privatelink* ». Par défaut, nous créons également une [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel. Cette zone DNS privée correspond au sous-domaine portant le préfixe « *privatelink* » et contient les enregistrements de ressource DNS A pour les points de terminaison privés.
+> [!IMPORTANT]
+> Utilisez la même chaîne de connexion pour vous connecter au compte de stockage avec des points de terminaison privés, comme vous le feriez dans le cas contraire. Veuillez ne pas vous connecter au compte de stockage à l’aide de son URL de sous-domaine « *privatelink* ».
+
+Nous créons une [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel avec les mises à jour nécessaires pour les points de terminaison privés, par défaut. Toutefois, si vous utilisez votre propre serveur DNS, vous devrez peut-être apporter des modifications supplémentaires à votre configuration DNS. La section sur les [modifications DNS](#dns-changes-for-private-endpoints) ci-dessous décrit les mises à jour requises pour les points de terminaison privés.
+
+## <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
+
+L’enregistrement de la ressource CNAME DNS pour un compte de stockage avec un point de terminaison privé est mis à jour vers un alias dans un sous-domaine avec le préfixe « *privatelink* ». Par défaut, nous créons aussi une [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel qui correspond au sous-domaine portant le préfixe « *privatelink* » et contient les enregistrements de ressource DNS A pour les points de terminaison privés.
 
 Lorsque vous résolvez l’URL du point de terminaison de stockage à l’extérieur du réseau virtuel avec le point de terminaison privé, elle correspond au point de terminaison public du service de stockage. En cas de résolution à partir du réseau virtuel hébergeant le point de terminaison privé, l’URL du point de terminaison de stockage correspond à l’adresse IP du point de terminaison privé.
 
@@ -75,7 +82,7 @@ Pour l’exemple illustré ci-dessus, les enregistrements de ressources DNS pour
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<point de terminaison public du service de stockage\>                   |
 | \<point de terminaison public du service de stockage\>                   | A     | \<adresse IP publique du service de stockage\>                 |
 
-Comme mentionné précédemment, vous pouvez refuser tout accès via le point de terminaison public à l’aide du pare-feu de stockage.
+Comme mentionné précédemment, vous pouvez refuser ou contrôler l’accès pour les clients en dehors du réseau virtuel via le point de terminaison public à l’aide du pare-feu de stockage.
 
 Les enregistrements de ressources DNS pour StorageAccountA, lorsqu’ils sont résolus par un client dans le réseau virtuel hébergeant le point de terminaison privé, sont les suivants :
 
@@ -84,13 +91,12 @@ Les enregistrements de ressources DNS pour StorageAccountA, lorsqu’ils sont r�
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
-Cette approche permet d’accéder au compte de stockage **avec la même chaîne de connexion** à partir du réseau virtuel hébergeant les points de terminaison privés, ainsi que des clients en dehors du réseau virtuel. Vous pouvez utiliser le pare-feu de stockage pour refuser l’accès à tous les clients en dehors du réseau virtuel.
+Cette approche permet d’accéder au compte de stockage **avec la même chaîne de connexion** pour les clients sur le réseau virtuel hébergeant les points de terminaison privés, ainsi que des clients en dehors du réseau virtuel.
 
-> [!IMPORTANT]
-> Utilisez la même chaîne de connexion pour vous connecter au compte de stockage sur des points de terminaison privés, comme vous le feriez dans le cas contraire. Veuillez ne pas vous connecter au compte de stockage à l’aide de son URL de sous-domaine « *privatelink* ».
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison du compte de stockage vers l’adresse IP du point de terminaison privé. Pour ce faire, vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « *StorageAccountA.privatelink.blob.core.windows.net* » avec l’adresse IP du point de terminaison privé. 
 
 > [!TIP]
-> Lorsque vous utilisez un serveur DNS local ou personnalisé, vous devez configurer les enregistrements des ressources DNS pour les points de terminaison privés dans une zone DNS correspondant au sous-domaine « privatelink » du service de stockage.
+> Lorsque vous utilisez un serveur DNS personnalisé ou local, vous devez configurer votre serveur DNS pour résoudre le nom du compte de stockage dans le sous-domaine « privatelink » vers l’adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine « privatelink » à la zone DNS privée du réseau virtuel ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.
 
 Les noms des zones DNS recommandés pour les points de terminaison privés pour les services de stockage sont les suivants :
 
@@ -102,6 +108,13 @@ Les noms des zones DNS recommandés pour les points de terminaison privés pour 
 | Service File d’attente          | `privatelink.queue.core.windows.net` |
 | Service Table          | `privatelink.table.core.windows.net` |
 | Sites web statiques        | `privatelink.web.core.windows.net`   |
+
+#### <a name="resources"></a>Ressources
+
+Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
+
+- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuration DNS pour les points de terminaison privés](/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Tarifs
 

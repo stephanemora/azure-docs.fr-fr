@@ -1,5 +1,5 @@
 ---
-title: Se connecter à l’aide de la vérification à deux facteurs – Azure AD
+title: Connexion à l’aide de l’authentification avec un compte professionnel ou scolaire-Azure AD
 description: Découvrez comment vous connecter à votre compte professionnel ou scolaire avec les différentes méthodes de vérification à deux facteurs.
 services: active-directory
 author: eross-msft
@@ -14,14 +14,14 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86c7be7f786a4fcecc39ea9af552a0dc03f2fcac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820423"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233227"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Se connecter à un compte professionnel ou scolaire à l’aide de la vérification à deux facteurs
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Se connecter à un compte professionnel ou scolaire à l’aide de votre méthode de vérification à deux facteurs
 
 > [!NOTE]
 > Cet article vise à présenter de manière détaillée une expérience de connexion classique. Pour obtenir de l’aide concernant la connexion ou pour résoudre des problèmes, voir [Difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md).

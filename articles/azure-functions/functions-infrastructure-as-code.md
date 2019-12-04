@@ -1,20 +1,15 @@
 ---
-title: Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions | Microsoft Docs
+title: Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions
 description: Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction.
-author: ggailey777
-manager: gwallace
-keywords: Azure Functions, fonctions, architecture sans serveur, infrastructure sous forme code, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: glenga
-ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575948"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230522"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 

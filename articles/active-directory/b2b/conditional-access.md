@@ -1,5 +1,5 @@
 ---
-title: Accès conditionnel pour les utilisateurs de B2B Collaboration - Azure Active Directory | Microsoft Docs
+title: Accès conditionnel pour les utilisateurs de B2B Collaboration - Azure AD
 description: Azure Active Directory B2B Collaboration prend en charge l’authentification multifacteur (MFA) pour un accès sélectif à vos applications d’entreprise
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357123"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272993"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Configurer le routage du trafic de sous-réseau - Azure Traffic Manager'
-description: Cet article explique comment configurer Traffic Manager pour router le trafic des sous-réseaux des utilisateurs vers des points de terminaison spécifiques.
+title: Tutoriel - Configurer le routage du trafic de sous-réseau avec Azure Traffic Manager
+description: Ce tutoriel explique comment configurer Traffic Manager pour router le trafic des sous-réseaux des utilisateurs vers des points de terminaison spécifiques.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048825"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420263"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Didacticiel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 

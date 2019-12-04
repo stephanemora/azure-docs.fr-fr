@@ -1,6 +1,7 @@
 ---
-title: Développement avec les API v3 - Azure | Microsoft Docs
-description: Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
+title: Développer avec les API v3
+titleSuffix: Azure Media Services
+description: En savoir plus sur les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +13,14 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049025"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186125"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>Développement avec des API Media Services v3
+# <a name="develop-with-media-services-v3-apis"></a>Développer avec les API Media Services v3
 
 En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-ref) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
@@ -29,30 +30,30 @@ Cet article décrit les règles qui s’appliquent aux entités et API lors du d
 
 Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Parmi les options d’authentification courantes figurent les suivantes :
  
-* **Authentification d’un principal du service** - Utilisée pour authentifier un service (applications web, applications de fonction, applications logiques, API et microservices, par exemple). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour les applications web, un niveau intermédiaire devrait toujours se connecter à Media Services avec un principal de service.
-* **Authentification utilisateur** - Utilisée pour authentifier une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
+* **Authentification d’un principal de service** : Utilisée pour authentifier un service (applications web, applications de fonction, applications logiques, API et microservices, par exemple). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour les applications web, un niveau intermédiaire devrait toujours se connecter à Media Services avec un principal de service.
+* **Authentification utilisateur** : Utilisée pour authentifier une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
 
 L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur**, mais seules les opérations **Get** ou **List** sont disponibles. Pour plus d'informations, consultez [Contrôle d’accès en fonction du rôle pour les comptes Media Services](rbac-overview.md).
 
 Au lieu de créer un principal de service, envisagez d’utiliser des identités gérées pour permettre aux ressources Azure d'accéder à l’API Media Services via Azure Resource Manager. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md)
 
-### <a name="azure-ad-service-principal"></a>Principal du service Azure AD 
+### <a name="azure-ad-service-principal"></a>Principal du service Azure AD
 
-Si vous créez une application Azure AD et un principal de service, l’application doit se trouver dans son propre client. Après avoir créé l’application, attribuez à l'application le rôle **Contributeur** ou **Propriétaire** pour accéder au compte Media Services. 
+Si vous créez une application Azure AD et un principal de service, l’application doit se trouver dans son propre client. Après avoir créé l’application, attribuez à l'application le rôle **Contributeur** ou **Propriétaire** pour accéder au compte Media Services.
 
 Si vous ne savez pas si vous disposez des autorisations pour créer une application Azure AD, consultez [Autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Dans la figure suivante, les nombres représentent le flux des requêtes dans l’ordre chronologique :
 
-![Applications de niveau intermédiaire](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Authentification d’application de niveau intermédiaire avec AAD à partir d’une API web](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. Une application de niveau intermédiaire nécessite un jeton d’accès Azure AD qui possède les paramètres suivants :  
 
    * Point de terminaison de locataire Azure AD.
    * URI de ressource Media Services.
    * URI de ressource pour REST Media Services.
-   * Valeurs de l’application Azure AD : ID client et clé secrète client.
-   
+   * Valeurs de l’application Azure AD : ID client et secret client.
+
    Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md).
 
 2. Le jeton d’accès Azure AD est envoyé au niveau intermédiaire.
@@ -71,11 +72,11 @@ Les exemples suivants montrent comment se connecter à un principal de service A
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
-Les noms de ressources Azure Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d’appellation par Azure Resource Manager. Conformément à Azure Resource Manager, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour les noms de vos ressources. 
+Les noms de ressources Azure Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d’appellation par Azure Resource Manager. Conformément à Azure Resource Manager, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour les noms de vos ressources.
 
-Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', le caractère de citation unique ou tout caractère de commande. Tous les autres caractères sont autorisés. La longueur maximale d’un nom de ressources est de 260 caractères. 
+Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', le caractère de citation unique ou tout caractère de commande. Tous les autres caractères sont autorisés. La longueur maximale d’un nom de ressources est de 260 caractères.
 
-Pour plus d'informations sur l'affectation de noms dans Azure Resource Manager, consultez : [Exigences en matière d'affectation de noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Conventions d'affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Pour en savoir plus sur l’affectation de noms avec Azure Resource Manager, consultez : [Exigences d’affectation des noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Convention d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Noms des fichiers/objets blob dans une ressource
 

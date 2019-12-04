@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7db9f50b4fb1a9309737f05db13a914f414372ed
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686459"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186502"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Détection des menaces pour la couche des services Azure dans Azure Security Center
 
@@ -23,6 +23,7 @@ Cette rubrique présente les alertes Azure Security Center disponibles lors de l
 
 * [Couche réseau Azure](#network-layer)
 * [Couche Gestion Azure (Azure Resource Manager) (préversion)](#management-layer)
+* [Azure Key Vault](#azure-keyvault)
 
 >[!NOTE]
 >Les analyses suivantes s’appliquent à tous les types de ressources. Elles utilisent la télémétrie fournie par Security Center en exploitant les flux internes Azure.
@@ -35,15 +36,15 @@ L’analytique de la couche réseau de Security Center est basée sur des exempl
 
 |Alerte|Description|
 |---|---|
-|**Activité réseau sortante RDP suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale, à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison RDP externe. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
-|**Activité réseau sortante RDP suspecte vers plusieurs destinations**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP sortante anormale, depuis une ressource dans votre déploiement vers plusieurs destinations. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque de points de terminaison RDP externes. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
-|**Activité réseau sortante SSH suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH (Secure Shell) sortante anormale, à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison SSH externe. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
-|**Activité réseau sortante SHH suspecte vers plusieurs destinations**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH sortante anormale, depuis une ressource dans votre déploiement vers plusieurs destinations. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque de points de terminaison SSH externes. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Activité réseau sortante RDP suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale, à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison RDP externe. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Activité réseau sortante RDP suspecte vers plusieurs destinations**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP sortante anormale, depuis une ressource dans votre déploiement vers plusieurs destinations. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque de points de terminaison RDP externes. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Activité réseau sortante SSH suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH (Secure Shell) sortante anormale, à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque d’un point de terminaison SSH externe. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Activité réseau sortante SHH suspecte vers plusieurs destinations**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH sortante anormale, depuis une ressource dans votre déploiement vers plusieurs destinations. Cette activité est considérée comme anormale pour cet environnement. Cela peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour forcer l’attaque de points de terminaison SSH externes. Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
 |**Activité réseau entrante SSH suspecte à partir de plusieurs sources**|L’analyse d’un échantillon du trafic réseau a détecté des communications SSH entrantes anormales depuis plusieurs sources vers une ressource dans votre déploiement. La connexion de diverses adresses IP uniques à votre ressource est considérée comme anormale pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface SSH à partir de plusieurs hôtes (Botnet).|
 |**Activité réseau entrante SSH suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH entrante anormale vers une ressource dans votre déploiement. Un nombre relativement élevé de connexions entrantes à votre ressource est considéré comme anormal pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface SSH.
 |**Activité réseau entrante RDP suspecte à partir de plusieurs sources**|L’analyse d’un échantillon du trafic réseau a détecté des communications RDP entrantes anormales depuis plusieurs sources vers une ressource dans votre déploiement. La connexion de diverses adresses IP uniques à votre ressource est considérée comme anormale pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface RDP à partir de plusieurs hôtes (Botnet).|
 |**Activité réseau entrante RDP suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP entrante anormale vers une ressource dans votre déploiement. Un nombre relativement élevé de connexions entrantes à votre ressource est considéré comme anormal pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface SSH.|
-|**Communication réseau avec une adresse malveillante détectée**|L’analyse d’un échantillon du trafic réseau a détecté une communication provenant d’une ressource dans votre déploiement avec un possible serveur C&C (commande et contrôle). Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
+|**Communication réseau avec une adresse malveillante détectée**|L’analyse d’un échantillon du trafic réseau a détecté une communication provenant d’une ressource dans votre déploiement avec un possible serveur C&C (commande et contrôle). Ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
 
 Pour comprendre comment Security Center peut utiliser les signaux liés au réseau pour appliquer la protection contre les menaces, consultez [Détections DNS heuristiques dans Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
@@ -79,3 +80,28 @@ Security Center offre une couche supplémentaire de protection en utilisant les 
 
 >[!NOTE]
 >Security Center stocke les données de client liées à la sécurité dans la même zone géographique que la ressource. Si Microsoft n’a pas encore déployé Security Center dans la zone géographique de la ressource, il stocke les données aux États-Unis. Quand Cloud App Security est activé, ces informations sont stockées selon les règles d’emplacement géographique de Cloud App Security. Pour plus d’informations, consultez [Stockage des données pour les services non régionaux](https://azuredatacentermap.azurewebsites.net/).
+
+## Azure Key Vault <a name="azure-keyvault"></a>
+
+Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. 
+
+Azure Security Center inclut la protection native avancée Azure contre les menaces pour Azure Key Vault qui fournit une couche supplémentaire de renseignements de sécurité. Security Center détecte les tentatives inhabituelles et potentiellement dangereuses d’accès ou d’exploitation des comptes Key Vault. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité ni avoir besoin de gérer des systèmes tiers de supervision de la sécurité.  
+
+Quand des activités anormales se produisent, Security Center affiche des alertes et les envoie éventuellement par e-mail aux administrateurs d’abonnement. Ces alertes fournissent des détails sur l’activité suspecte, ainsi que des suggestions pour examiner et corriger les menaces. 
+
+> [!NOTE]
+> Ce service n’est pas disponible actuellement dans les régions Azure Government et de cloud souverain.
+
+> [!div class="mx-tableFixed"]
+
+|Alerte|Description|
+|---|---|
+|**Accès à partir d’un nœud de sortie TOR dans un coffre de clés Key Vault**|L’accès au coffre de clés Key Vault a été effecté par une personne qui utilise le système d’anonymisation IP pour masquer son emplacement. Les utilisateurs malveillants essaient souvent de masquer leur emplacement lorsqu’ils tentent d’accéder de façon non autorisée aux ressources connectées à Internet.|
+|**Modification de stratégie suspecte et requête secrète dans un coffre de clés Key Vault**|Des opérations destinés à répertorier et/ou obtenir des clés secrètes ont eu lieu après une modification apportée à la stratégie Key Vault. En outre, ce modèle d’opération n’est généralement pas exécuté par l’utilisateur sur ce coffre. Cela indique clairement que le coffre de clés Azure Key Vault est compromis et que les clés secrètes ont été volées par un acteur malveillant.|
+|**Liste des clés et requête suspectes auprès d’un coffre de clés Key Vault**|Une opération de liste secrète a été suivie de nombreuses opérations d’extraction de secret. En outre, ce modèle d’opération n’est généralement pas exécuté par l’utilisateur sur ce coffre. Cela indique qu’un utilisateur peut vider les secrets stockés dans le coffre de clés Key Vault à des fins malveillantes.|
+|**Une paire utilisateur-application inhabituelle a accédé à un coffre de clés Key Vault**|Un jumelage utilisateur-application a accédé au coffre de clés Key Vault alors qu’il n’y accède pas normalement. Il peut s’agir d’une tentative d’accès légitime (par exemple, après une mise à jour d’infrastructure ou de code). Cela peut également indiquer que votre infrastructure est compromise et qu’un acteur malveillant tente d’accéder à votre coffre de clés Key Vault.|
+|**Une application inhabituelle a accédé à un coffre de clés Key Vault**|Une application a accédé au coffre de clés Key Vault alors qu’elle n’y accède pas normalement. Il peut s’agir d’une tentative d’accès légitime (par exemple, après une mise à jour d’infrastructure ou de code). Cela peut également indiquer que votre infrastructure est compromise et qu’un acteur malveillant tente d’accéder à votre coffre de clés Key Vault.|
+|**Un utilisateur inhabituel a accédé à un coffre de clés Key Vault**|Un utilisateur a accédé au coffre de clés Key Vault alors qu’il n’y accède pas normalement. Il peut s’agir d’une tentative d’accès légitime (par exemple, un nouvel utilisateur ayant besoin d’un accès a rejoint l’organisation). Cela peut également indiquer que votre infrastructure est compromise et qu’un acteur malveillant tente d’accéder à votre coffre de clés Key Vault.|
+|**Modèle d’opération inhabituelle dans un coffre de clés Key Vault**|Un ensemble inhabituel d’opérations Key Vault a été effectué par rapport aux données d’historique. L’activité Key Vault n’évolue généralement pas au fil du temps. Il peut s’agir d’une modification légitime de l’activité. Votre infrastructure peut également être compromise, ce qui nécessite des investigations supplémentaires.|
+|**Volume élevé d’opérations dans un coffre de clés Key Vault**|Une plus grande quantité d’opérations Key Vault a été effectuée par rapport aux données d’historique. L’activité Key Vault n’évolue généralement pas au fil du temps. Il peut s’agir d’une modification légitime de l’activité. Votre infrastructure peut également être compromise, ce qui nécessite des investigations supplémentaires.|
+|**L’utilisateur a accédé à un grand nombre de coffres de clés**|Le nombre de coffres auxquels accède un utilisateur ou une application a changé par rapport aux données d’historique. L’activité Key Vault n’évolue généralement pas au fil du temps. Il peut s’agir d’une modification légitime de l’activité. Votre infrastructure peut également être compromise, ce qui nécessite des investigations supplémentaires.|

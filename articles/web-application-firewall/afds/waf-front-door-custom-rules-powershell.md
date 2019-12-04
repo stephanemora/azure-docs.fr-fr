@@ -1,5 +1,5 @@
 ---
-title: Configurer une stratégie de pare-feu d’applications web (WAF) avec des règles personnalisées et un ensemble de règles par défaut pour Front Door - Azure PowerShell
+title: Configurer des règles personnalisées WAF & ensemble de règles par défaut pour Azure Front Door
 description: Découvrez comment configurer une stratégie WAF constituée de règles personnalisées et managées pour un point de terminaison Front Door existant.
 services: web-application-firewall
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: fec1ed5d51c4afe43df513b54595b4ce1e2f4bbb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510194"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186633"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurer une stratégie de pare-feu d’applications web à l’aide d’Azure PowerShell
 

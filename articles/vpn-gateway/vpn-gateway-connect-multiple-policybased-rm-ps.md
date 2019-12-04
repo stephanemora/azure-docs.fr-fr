@@ -1,5 +1,5 @@
 ---
-title: 'Connecter des passerelles VPN à plusieurs périphériques VPN locaux basés sur des stratégies : Azure Resource Manager : PowerShell | Microsoft Docs'
+title: 'Passerelle VPN Azure : Connecter des passerelles à plusieurs périphériques VPN locaux basés sur des stratégies'
 description: Configurez une passerelle VPN Azure basée sur le routage sur plusieurs périphériques VPN basés sur des stratégies à l’aide d’Azure Resource Manager et de PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495675"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146702"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connecter des passerelles VPN à plusieurs périphériques VPN basés sur des stratégies via PowerShell
 

@@ -1,18 +1,14 @@
 ---
-title: Architecture de Sauvegarde Azure
+title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074344"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173523"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -96,7 +92,7 @@ La consommation du stockage, l’objectif de délai de récupération (RTO) et l
 
 Le tableau suivant récapitule les fonctionnalités prises en charge pour les différents types de sauvegardes :
 
-**Fonctionnalité** | **Ordinateurs Windows Server locaux (direct)** | **Machines virtuelles Azure** | **Ordinateurs ou applications avec DPM/MABS**
+**Fonctionnalité** | **Sauvegarde directe de fichiers et de dossiers (à l’aide de l’agent MARS)** | **Sauvegarde de machines virtuelles Azure** | **Ordinateurs ou applications avec DPM/MABS**
 --- | --- | --- | ---
 Sauvegarder vers le coffre | ![OUI][green] | ![OUI][green] | ![OUI][green]
 Sauvegarder sur disque DPM/MABS, puis sur Azure | | | ![OUI][green]
@@ -106,7 +102,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 
 ![Clé de table](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Architecture : sauvegarde directe de machines virtuelles Azure
+## <a name="architecture-built-in-azure-vm-backup"></a>Architecture : Sauvegarde de machine virtuelle Azure prédéfinie
 
 1. Quand vous activez la sauvegarde pour une machine virtuelle Azure, une sauvegarde s’exécute conformément à la planification que vous spécifiez.
 1. Lors de la première sauvegarde, une extension de sauvegarde est installée sur la machine virtuelle si celle-ci est en cours d’exécution.

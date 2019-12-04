@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063058"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561906"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
 
@@ -43,7 +43,7 @@ Les termes suivants sont utilisés dans l'ensemble de la documentation sur les i
 - **ID du principal** : ID d’objet du principal de service pour votre identité managée ; il est utilisé pour accorder un accès basé sur les rôles à une ressource Azure.
 - **Instance Metadata Service (IMDS) Azure** : point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d’Azure Resource Manager. Le point de terminaison est disponible sur une adresse IP non routable bien connue (169.254.169.254) accessible uniquement à partir de la machine virtuelle.
 
-## Comment fonctionnent les identités managées pour les ressources Azure ?<a name="how-does-it-work"></a>
+## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Comment fonctionnent les identités managées pour les ressources Azure ?
 
 Il existe deux types d’identités administrées :
 

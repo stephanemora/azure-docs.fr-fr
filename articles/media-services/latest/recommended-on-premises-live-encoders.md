@@ -6,15 +6,15 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300951"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186033"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Encodeurs de streaming en direct recommandés
 
@@ -49,6 +49,9 @@ Media Services recommande l’utilisation d’un des encodeurs live suivants, qu
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 et Hero 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Encodeurs live qui génèrent une sortie MP4 fragmenté
 
@@ -60,9 +63,11 @@ Media Services recommande l’utilisation d’un des encodeurs live suivants, qu
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live et Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  L’encodeur live Media Excel configuré pour envoyer du flux en temps réel à un événement en direct transmis directement permet de diffuser en continu des événements en direct dans plusieurs langues (par exemple, une piste audio en anglais et une piste audio en espagnol).
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuration des paramètres de l'encodeur live local
 

@@ -11,22 +11,22 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: e2460ab760811a3db39058eac74d519ca09046c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889813"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561595"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
-Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise entièrement géré. Service Bus peut découpler les applications et les services. Il constitue également une plateforme fiable et sécurisée pour le transfert asynchrone des données et de l’état.
+Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise entièrement géré. Service Bus peut découpler les applications et les services. Service Bus offre également une plateforme fiable et sécurisée pour le transfert asynchrone des données et de l’état.
 
 Les données sont transférées entre différents services et applications à l’aide de *messages*. Chaque message est au format binaire. Il peut contenir du format JSON, XML ou du texte brut. Si vous souhaitez en savoir plus, veuillez consulter la page [Services d’intégration](https://azure.com/integration).
 
 Les scénarios de messagerie courants sont :
 
-* *Messagerie* : transfert de données d’entreprise, telles que les ventes ou les bons de commande, les journaux ou les mouvements de stock.
+* *Messagerie*. transfert de données d’entreprise, telles que les ventes ou les bons de commande, les journaux ou les mouvements de stock.
 * *Découplage d’applications* : amélioration de la fiabilité et de l’extensibilité de vos applications et services. La mise en ligne simultanée du client et du service n’est pas nécessaire.
 * *Rubriques et abonnements* : autorisation des relations 1:*n* entre les éditeurs et les abonnés.
 * *Sessions de messagerie* : implémentation des flux de travail qui nécessitent le classement des messages ou le report de message.
@@ -67,7 +67,7 @@ La fonctionnalité de transfert automatique crée une chaîne reliant une file d
 
 ### <a name="dead-letter-queue"></a>File d’attente de lettres mortes
 
-Service Bus vous permet d’utiliser une file d’attente de lettres mortes (ou DLQ, pour « Dead-Letter Queue »). Une file d’attente de lettres mortes contient les messages qui ne peuvent être remis à aucun destinataire. Ces messages ne peuvent pas être traités. Service Bus vous permet de retirer des messages de cette file d’attente pour les inspecter. Si vous souhaitez en savoir plus, veuillez consulter l’article [Vue d’ensemble des files d’attente de lettres mortes Service Bus](service-bus-dead-letter-queues.md).
+Service Bus vous permet d’utiliser une file d’attente de lettres mortes (ou DLQ, pour « Dead-Letter Queue »). Une file d’attente de lettres mortes contient les messages qui ne peuvent être remis à aucun destinataire. Ces messages ne peuvent pas être traités. Service Bus vous permet de retirer des messages de cette file d’attente pour les inspecter. Pour en savoir plus, consultez [Vue d’ensemble des files d’attente de lettres mortes Service Bus](service-bus-dead-letter-queues.md).
 
 ### <a name="scheduled-delivery"></a>Remise planifiée
 

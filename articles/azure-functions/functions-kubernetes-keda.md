@@ -1,29 +1,24 @@
 ---
 title: Azure Functions sur Kubernetes avec KEDA
 description: Apprenez à exécuter Azure Functions dans Kubernetes dans le cloud ou localement à l’aide de KEDA, une mise à l’échelle automatique pilotée par événement basée sur Kubernetes.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless, kubernetes
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900067"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230481"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions sur Kubernetes avec KEDA
 
-Le runtime Azure Functions fournit une flexibilité d’hébergement où et comme vous le souhaitez.  [KEDA](https://github.com/kedacore/kore) (Kubernetes-based Event Driven Autoscaling, ou mise à l’échelle automatique pilotée par événement basée sur Kubernetes) fonctionne parfaitement avec le runtime et les outils Azure Functions pour fournir une échelle pilotée par événement dans Kubernetes.
+Le runtime Azure Functions fournit une flexibilité d’hébergement où et comme vous le souhaitez.  [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling, ou mise à l’échelle automatique pilotée par événement basée sur Kubernetes) fonctionne parfaitement avec le runtime et les outils Azure Functions pour fournir une échelle pilotée par événement dans Kubernetes.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Fonctionnement des fonctions basées sur Kubernetes
 
-Le service Azure Functions se compose de deux composants clés : un runtime et un contrôleur d’échelle.  Le runtime Functions s’exécute et exécute votre code.  Le runtime inclut une logique sur le déclenchement, la consignation et la gestion des exécutions de fonction.  L’autre composant est un contrôleur d’échelle.  Le contrôleur d’échelle supervise le taux d’événements qui ciblent votre fonction et met proactivement à l’échelle le nombre d’instances exécutant votre application.  Pour en savoir plus, consultez [Échelle et hébergement dans Azure Functions](functions-scale.md).
+Le service Azure Functions se compose de deux composants clés : un runtime et un contrôleur d’échelle.  Le runtime Functions s’exécute et exécute votre code.  Le runtime inclut une logique sur le déclenchement, la consignation et la gestion des exécutions de fonction.  Le runtime Azure Functions peut s’exécuter *n’importe où*.  L’autre composant est un contrôleur d’échelle.  Le contrôleur d’échelle supervise le taux d’événements qui ciblent votre fonction et met proactivement à l’échelle le nombre d’instances exécutant votre application.  Pour en savoir plus, consultez [Échelle et hébergement dans Azure Functions](functions-scale.md).
 
 Functions basé sur Kubernetes fournit le runtime Functions dans un [conteneur Docker](functions-create-function-linux-custom-image.md) avec mise à l’échelle piloté par événement via KEDA.  KEDA peut descendre en puissance jusqu’à 0 instance (lorsqu’aucun événement ne se produit) et jusqu’à *n* instances. Pour cela, il expose des métriques personnalisées de l’autoscaler Kubernetes (autoscaler de pods élastique).  L’utilisation de conteneurs Functions avec KEDA permet de répliquer des fonctionnalités de fonction serverless dans n’importe quel cluster Kubernetes.  Ces fonctions peuvent également être déployées à l’aide de la fonctionnalité de [nœuds virtuels Azure Kubernetes Service (AKS)](../aks/virtual-nodes-cli.md) pour l’infrastructure serverless.
 
@@ -86,12 +81,17 @@ func kubernetes remove --namespace keda
 
 ## <a name="supported-triggers-in-keda"></a>Déclencheurs pris en charge dans KEDA
 
-KEDA est actuellement en version bêta avec prise en charge des déclencheurs Azure Function suivants :
+KEDA prend en charge les déclencheurs Azure Function suivants :
 
 * [Files d’attente Stockage Azure](functions-bindings-storage-queue.md)
 * [Files d’attente Azure Service Bus](functions-bindings-service-bus.md)
-* [HTTP](functions-bindings-http-webhook.md)
+* [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+* [File d’attente RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)
+
+### <a name="http-trigger-support"></a>Prise en charge de déclencheur HTTP
+
+Vous pouvez utiliser Azure Functions qui exposent les déclencheurs HTTP, mais KEDA ne les gère pas directement.  Azure Functions Core Tools installe un projet connexe, Osiris, qui permet la mise à l’échelle des points de terminaison HTTP de 0 à 1.  La mise à l’échelle de 1 à *n* repose sur les stratégies de mise à l’échelle Kubernetes traditionnelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :

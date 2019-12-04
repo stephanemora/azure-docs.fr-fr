@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444461"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184883"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exporter à partir d’un magasin Azure App Configuration
 
@@ -48,14 +48,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour exporter un magasin de configuration d’application. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour exporter à partir d’un magasin App Configuration. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exporte à partir d’une ressource de magasin de configuration d’application. |
+| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exporte à partir d’une ressource de magasin App Configuration. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts d’interface de ligne de commande App Configuration dans la [documentation Azure App Configuration](../cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts d’interface de ligne de commande App Configuration dans les [exemples d’interface de ligne de commande Azure App Configuration](../cli-samples.md).

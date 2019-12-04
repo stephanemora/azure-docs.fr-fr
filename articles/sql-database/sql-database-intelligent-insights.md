@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810186"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151421"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights
 
@@ -65,6 +65,17 @@ Pour une présentation pratique de l’utilisation d’Intelligent Insights avec
 >
 
 Intelligent Insights excelle dans la découverte et la résolution des problèmes affectant les performances liés à SQL Database. Pour utiliser Intelligent Insights dans le but de résoudre les problèmes de performances liés aux bases de données SQL Database et Managed Instance, consultez [Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="intelligent-insights-options"></a>Options Intelligent Insights
+
+Les options Intelligent Insights disponibles dans Azure SQL Database sont les suivantes :
+
+| Option Intelligent Insights | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
+| :----------------------------- | ----- | ----- |
+| **Configurer Intelligent Insights** : configurez l’analyse Intelligent Insights pour vos bases de données. | OUI | OUI | 
+| **Diffuser en continu des insights vers Azure SQL Analytics** : diffusez en continu des insights vers la solution de supervision Azure SQL Analytics pour Azure SQL Database. | OUI | OUI | 
+| **Diffuser en continu des insights vers Event Hub** : diffusez en continu des insights vers Event Hubs pour d’autres intégrations personnalisées. | OUI | OUI | 
+| **Diffuser en continu des insights vers Stockage Azure** : diffusez en continu des insights vers Stockage Azure pour une analyse plus poussée et un archivage à long terme. | OUI | OUI |
 
 ## <a name="configure-intelligent-insights"></a>Configurer Intelligent Insights
 

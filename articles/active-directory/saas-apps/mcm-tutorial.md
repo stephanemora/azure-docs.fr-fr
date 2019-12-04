@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159435"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutoriel : Intégration d’Azure Active Directory à MCM
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans MCM. Collaborez avec  [l’équipe du support technique de MCM](https://mcmtechnology.com/support/) pour ajouter des utilisateurs à la plateforme MCM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 >[!NOTE]
->Vous pouvez utiliser tout autre outil de création de compte d’utilisateur MCM ou des API fournies par MCM pour approvisionner des comptes d’utilisateurs Azure Active Directory.
+>Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur MCM fourni par MCM pour provisionner des comptes d’utilisateur Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

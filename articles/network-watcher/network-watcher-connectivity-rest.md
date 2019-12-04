@@ -1,5 +1,6 @@
 ---
-title: Résoudre les problèmes associés aux connexions avec Azure Network Watcher - API REST Azure | Microsoft Docs
+title: Détecter un problème associé aux connexions – API Azure REST
+titleSuffix: Azure Network Watcher
 description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide de l’API REST Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017785"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275959"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide de l’API REST Azure.
 

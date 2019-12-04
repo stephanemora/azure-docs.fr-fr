@@ -10,77 +10,59 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/17/2019
 ms.author: amverma
-ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7f7907482da886d9da17ef1e7844b205f3e4b906
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858486"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196766"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Activer InfiniBand avec SR-IOV
 
-La façon la plus simple et recommandée de commencer à utiliser des machines virtuelles IaaS pour HPC consiste à utiliser l'image du système d’exploitation de machine virtuelle CentOS-HPC 7.6. Si vous utilisez votre image de machine virtuelle personnalisée, la façon la plus simple de la configurer avec InfiniBand (IB) consiste à ajouter l’extension de machine virtuelle InfiniBandDriverLinux ou InfiniBandDriverWindows à votre déploiement.
-Découvrez comment utiliser ces extensions de machine virtuelle avec [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) et [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+Les séries NC, ND et H de machines virtuelles Azure sont toutes associées à un réseau InfiniBand dédié. Toutes les tailles compatibles RDMA peuvent tirer parti de ce réseau à l’aide d’Intel MPI. Certaines séries de machines virtuelles ont une prise en charge étendue à toutes les implémentations MPI et verbes RDMA via SR-IOV. Les machines virtuelles compatibles RDMA incluent les machines virtuelles [optimisées pour le GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) et [de calcul haute performance (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
 
-Pour configurer manuellement InfiniBand sur des machines virtuelles compatibles SR-IOV (actuellement les séries HB et HC), suivez les étapes ci-dessous. Ces étapes concernent uniquement RHEL/CentOS. Pour Ubuntu (16.04 et 18.04) et SLES (12 SP4 et 15), les pilotes de la boîte de réception fonctionnent bien.
+## <a name="choose-your-installation-path"></a>Choisir votre chemin d’installation
 
-## <a name="manually-install-ofed"></a>Installez manuellement OFED
+Pour commencer, l’option la plus simple consiste à utiliser une image de plateforme préconfigurée pour InfiniBand, le cas échéant :
 
-Installez les derniers pilotes MLNX_OFED ConnectX-5 à partir de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
+- **Machines virtuelles IaaS HPC** : pour prendre en main les machines virtuelles IaaS pour HPC, la solution la plus simple consiste à utiliser [l’image de système d’exploitation de machine virtuelle CentOS-HPC 7.6](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), qui est déjà configurée avec InfiniBand. Étant donné que cette image est déjà configurée avec InfiniBand, vous n’êtes pas obligé de la configurer manuellement. Pour les versions Windows compatibles, consultez [Instances Windows prenant en charge RDMA](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
-Pour RHEL/CentOS (exemple ci-dessous pour 7.6) :
+- **Machines virtuelles IaaS GPU** : aucune image de plateforme n’est actuellement préconfigurée pour les machines virtuelles optimisées pour le GPU, à l’exception de [l’image de système d’exploitation de machine virtuelle CentOS-HPC 7.6](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). Pour configurer une image personnalisée avec InfiniBand, consultez [Installer manuellement Mellanox OFED](#manually-install-mellanox-ofed).
 
-```bash
-sudo yum install -y kernel-devel python-devel
-sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
-sudo yum install -y gtk2 atk cairo tcl tk createrepo
-wget --retry-connrefused --tries=3 --waitretry=5 http://content.mellanox.com/ofed/MLNX_OFED-4.5-1.0.1.0/MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
-tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
-sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
-```
+Si vous utilisez une image de machine virtuelle personnalisée ou une machine virtuelle [optimisée pour le GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu), vous devez la configurer avec InfiniBand en ajoutant l’extension de machine virtuelle InfiniBandDriverLinux ou InfiniBandDriverWindows à votre déploiement. Découvrez comment utiliser ces extensions de machine virtuelle avec [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) et [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
-Pour Windows, téléchargez et installez les pilotes WinOF-2 pour ConnectX-5 à partir de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+## <a name="manually-install-mellanox-ofed"></a>Installer manuellement Mellanox OFED
 
-## <a name="enable-ipoib"></a>Activer IPoIB
+Pour configurer manuellement InfiniBand avec SR-IOV, procédez comme suit. L’exemple de cette procédure illustre la syntaxe RHEL/CentOS, mais les étapes sont générales et peuvent être utilisées pour tout système d’exploitation compatible, par exemple Ubuntu (16.04, 18.04, 19.04) et SLES (12 SP4 et 15). Les pilotes de la boîte de réception fonctionnent également, mais les pilotes Mellanox OpenFabrics fournissent davantage de fonctionnalités.
+
+Pour plus d’informations sur les distributions prises en charge pour le pilote Mellanox, consultez les derniers [Pilotes Mellanox OpenFabrics](https://www.mellanox.com/page/products_dyn?product_family=26). Pour plus d’informations sur le pilote Mellanox OpenFabrics, reportez-vous au [Guide de l’utilisateur Mellanox](https://docs.mellanox.com/category/mlnxofedib).
+
+Consultez l’exemple suivant pour savoir comment configurer InfiniBand sur Linux :
 
 ```bash
-sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
-sudo /etc/init.d/openibd restart
-if [ $? -eq 1 ]
-then
-  sudo modprobe -rv  ib_isert rpcrdma ib_srpt
-  sudo /etc/init.d/openibd restart
-fi
+# Modify the variable to desired Mellanox OFED version
+MOFED_VERSION=#4.7-1.0.0.1
+# Modify the variable to desired OS
+MOFED_OS=#rhel7.6
+pushd /tmp
+curl -fSsL https://www.mellanox.com/downloads/ofed/MLNX_OFED-${MOFED_VERSION}/MLNX_OFED_LINUX-${MOFED_VERSION}-${MOFED_OS}-x86_64.tgz | tar -zxpf -
+cd MLNX_OFED_LINUX-*
+sudo ./mlnxofedinstall
+popd
 ```
 
-## <a name="assign-an-ip-address"></a>Attribuer une adresse IP
+Pour Windows, téléchargez et installez les [pilotes Mellanox OFED pour Windows](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
 
-Attribuer une adresse IP à l’interface ib0 à l’aide de :
+## <a name="enable-ip-over-infiniband"></a>Activer IP sur InfiniBand
 
-- Attribuez manuellement une adresse IP à l’interface ib0 (en tant que racine).
+Utilisez les commandes suivantes pour activer IP sur InfiniBand.
 
-    ```bash
-    ifconfig ib0 $(sed '/rdmaIPv4Address=/!d;s/.*rdmaIPv4Address="\([0-9.]*\)".*/\1/' /var/lib/waagent/SharedConfig.xml)/16
-    ```
-
-Ou
-
-- Utilisez WALinuxAgent pour attribuer une adresse IP et la rendre persistante.
-
-    ```bash
-    yum install -y epel-release
-    yum install -y python-pip
-    python -m pip install --upgrade pip setuptools wheel
-    wget "https://github.com/Azure/WALinuxAgent/archive/release-2.2.36.zip"
-    unzip release-2.2.36.zip
-    cd WALinuxAgent*
-    python setup.py install --register-service --force
-    sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
-    sed -i -e 's/# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-    systemctl restart waagent
-    ```
+```bash
+sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
+sudo systemctl restart waagent
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

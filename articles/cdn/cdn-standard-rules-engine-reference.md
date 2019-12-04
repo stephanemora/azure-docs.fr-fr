@@ -1,68 +1,70 @@
 ---
-title: Référence du moteur de règles standard Azure CDN | Microsoft Docs
-description: Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN standard.
+title: Informations de référence sur le moteur de règles standard pour Azure CDN | Microsoft Docs
+description: Documentation de référence sur les conditions de correspondance et les actions du moteur de règles standard pour Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: 6fb7e704f3d33cff8c29386b8aba9d8289037cbb
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615832"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171559"
 ---
-# <a name="azure-cdn-from-microsoft-rules-engine-reference"></a>Référence du moteur de règles Azure CDN à partir du moteur de règles Microsoft
+# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
-Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles pour le [moteur de règles standard](cdn-standard-rules-engine.md) Azure Content Delivery Network (CDN).
+Dans le [moteur de règles standard](cdn-standard-rules-engine.md) pour Azure Content Delivery Network (Azure CDN), une règle se compose d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles dans le moteur de règles standard pour Azure CDN.
 
-Le moteur de règles est conçu pour être l’autorité finale sur la façon dont certains types de demandes sont traités par le CDN.
+Le moteur de règles est conçu pour être l’autorité finale sur la façon dont certains types de demandes sont traités par Standard Azure CDN.
 
-**Utilisations courantes** :
+**Utilisations courantes des règles** :
 
 - Remplacer ou définir une stratégie de cache personnalisée.
 - Rediriger les demandes.
-- Modifier la requête HTTP et les en-têtes de réponse
+- Modifier la requête HTTP et les en-têtes de réponse.
 
 ## <a name="terminology"></a>Terminologie
 
-Une règle est définie à l’aide de [**conditions de correspondance**](cdn-standard-rules-engine-match-conditions.md) et [**d’actions**](cdn-standard-rules-engine-actions.md). Ces éléments sont mis en surbrillance dans l’illustration suivante :
+Pour définir une règle dans le moteur de règles, définissez les [conditions de correspondance](cdn-standard-rules-engine-match-conditions.md) et les [actions](cdn-standard-rules-engine-actions.md) :
 
- ![Structure des règles CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
+ ![Structure des règles Azure CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Chaque règle peut avoir jusqu’à 4 conditions de correspondance et 3 actions. Il y a un maximum de 5 règles par point de terminaison CDN. En outre, il y a une règle en place par défaut, appelée **Règle globale**. Il s’agit d’une règle sans conditions de correspondance, où les actions définies se déclencheront toujours. Cette règle est incluse dans la limite actuelle de 5 règles.
+Chaque règle peut avoir jusqu’à quatre conditions de correspondance et trois actions. Chaque point de terminaison Azure CDN peut avoir jusqu’à cinq règles. 
+
+La limite actuelle de cinq règles pour un point de terminaison Azure CDN inclut une *règle générale* par défaut. La règle générale n’a pas de conditions de correspondance, et les actions définies dans une règle générale se déclenchent toujours.
 
 ## <a name="syntax"></a>Syntaxe
 
-La façon dont les caractères spéciaux sont traités varie en fonction de la façon dont une condition de correspondance ou actopm gère les valeurs de texte. Une condition de correspondance ou une fonctionnalité peut interpréter le texte de l’une des manières suivantes :
+La façon dont les caractères spéciaux sont traités dans une règle varie selon la façon dont les différentes conditions de correspondance et actions gèrent les valeurs de texte. Une condition de correspondance ou une action peut interpréter le texte de l’une des manières suivantes :
 
-1. [**Valeurs littérales**](#literal-values)
-2. [**Valeurs de caractère générique**](#wildcard-values)
+- [Valeurs littérales](#literal-values)
+- [Valeurs de caractère générique](#wildcard-values)
 
 
 ### <a name="literal-values"></a>Valeurs littérales
 
-Le texte interprété comme une valeur littérale traite tous les caractères spéciaux, à l’exception du symbole %, comme une partie de la valeur qui doit être mise en correspondance. En d’autres termes, une condition de correspondance littérale définie sur `\'*'\` n’est remplie que si cette valeur exacte (c’est-à-dire `\'*'\`) est trouvée.
+Le texte interprété comme une valeur littérale traite tous les caractères spéciaux, *à l’exception du symbole %* , comme une partie de la valeur qui doit être mise en correspondance dans une règle. Par exemple, une condition de correspondance littérale définie sur `'*'` est satisfaite uniquement lorsque la valeur exacte `'*'` est trouvée.
 
 Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par exemple, `%20`).
 
 ### <a name="wildcard-values"></a>Valeurs de caractère générique
 
-Le texte interprété comme un caractère générique attribue une signification supplémentaire aux caractères spéciaux. Le tableau ci-dessous décrit comment le jeu de caractères suivant est interprété :
+Le texte interprété comme une valeur de caractère générique attribue une signification supplémentaire aux caractères spéciaux. Le tableau suivant décrit la façon dont les caractères spéciaux spécifiques sont interprétés dans le moteur de règles standard :
 
 Caractère | Description
 ----------|------------
-\ | Une barre oblique inverse est utilisée pour échapper les caractères spécifiés dans ce tableau. Une barre oblique inverse doit être spécifiée juste avant le caractère spécial à échapper.<br/>Par exemple, la syntaxe suivante échappe un astérisque : `\*`
+\ | Une barre oblique inverse est utilisée pour échapper les caractères spécifiés dans ce tableau. Une barre oblique inverse doit être spécifiée juste avant le caractère spécial à échapper. Par exemple, la syntaxe suivante échappe un astérisque : `\*`
 % | Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par exemple, `%20`).
 \* | Un astérisque est un caractère générique représentant un ou plusieurs caractères.
-Espace | Un caractère d’espace indique qu’une condition de correspondance peut être remplie par les valeurs ou les modèles spécifiés.
-'valeur' | Un guillemet simple n’a pas de signification particulière. Toutefois, un jeu de guillemets simples est utilisé pour indiquer qu’une valeur doit être traitée comme une valeur littérale. Il peut être utilisé selon les manières suivantes :<br><br/>- Il permet de remplir une condition de correspondance lorsque la valeur spécifiée correspond à une partie de la valeur de comparaison.  Par exemple, `'ma'` peut correspondre à l’une des chaînes suivantes : <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- Il permet de spécifier un caractère spécial en tant que caractère littéral. Par exemple, vous pouvez spécifier un caractère d’espace littéral en plaçant un caractère d’espace dans un jeu de guillemets simples (c’est-à-dire `' '` ou `'sample value'`).<br/>- Il permet de spécifier une valeur vide. Spécifiez une valeur vide en entrant un jeu de guillemets simples (c’est-à-dire '').<br /><br/>**Important :**<br/>- Si la valeur spécifiée ne contient pas de caractère générique, elle est automatiquement considérée comme une valeur littérale, ce qui signifie qu’il n’est pas nécessaire de spécifier un jeu de guillemets simples.<br/>- Si une barre oblique inverse n’échappe pas à un autre caractère dans ce tableau, elle est ignorée si un jeu de guillemets simples est entré.<br/>- Une autre manière de spécifier un caractère spécial en tant que caractère littéral consiste à l’échapper à l’aide d’une barre oblique inverse (c’est-à-dire `\`).
+espace | Un caractère d’espace indique qu’une condition de correspondance peut être remplie par les valeurs ou les modèles spécifiés.
+guillemets simples | Un guillemet simple n’a pas de signification particulière. Toutefois, un jeu de guillemets simples indique qu’une valeur doit être traitée comme une valeur littérale. Les guillemets simples peuvent être utilisés des manières suivantes :<ul><li>Permettre de remplir une condition de correspondance lorsque la valeur spécifiée correspond à une partie de la valeur de comparaison.  Par exemple, `'ma'` peut correspondre à l’une des chaînes suivantes : <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>Permettre de spécifier un caractère spécial en tant que caractère littéral. Par exemple, vous pouvez spécifier un caractère d’espace littéral en plaçant un caractère d’espace dans un jeu de guillemets simples (`' '` ou `'<sample value>'`).</li><li>Permettre de spécifier une valeur vide. Spécifiez une valeur vide en entrant un jeu de guillemets simples ( **''** ).</li></ul>**Important !**<br /><ul><li>Si la valeur spécifiée ne contient pas de caractère générique, elle est automatiquement considérée comme une valeur littérale. Vous n’avez pas besoin de spécifier un jeu de guillemets simples pour une valeur littérale.</li><li>Si une barre oblique inverse n’est pas utiliser pour échapper à un autre caractère dans ce tableau, elle est ignorée lorsqu’elle est placée dans un jeu de guillemets simples.</li><li>Une autre manière de spécifier un caractère spécial en tant que caractère littéral consiste à l’échapper à l’aide d’une barre oblique inverse (`\`).</li></ul>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Conditions de correspondance du moteur de règles standard](cdn-standard-rules-engine-match-conditions.md)
 - [Actions du moteur de règles standard](cdn-standard-rules-engine-actions.md)
-- [Appliquer HTTPS à l’aide du moteur de règles standard](cdn-standard-rules-engine.md)
+- [Appliquer HTTPS en utilisant le moteur de règles standard](cdn-standard-rules-engine.md)
 - [Vue d’ensemble d’Azure CDN](cdn-overview.md)

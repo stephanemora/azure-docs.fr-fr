@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Authentification multifacteur pour B2B - Azure Active Directory | Microsoft Docs'
-description: Découvrez comment exiger une authentification multifacteur quand vous utilisez Azure AD B2B pour collaborer avec des utilisateurs externes et des organisations partenaires.
+title: Tutoriel - Authentification multifacteur pour B2B - Azure AD
+description: Dans ce tutoriel, découvrez comment exiger une authentification multifacteur quand vous utilisez Azure AD B2B pour collaborer avec des utilisateurs externes et des organisations partenaires.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113196"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420596"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Didacticiel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
@@ -101,7 +101,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
     ![Capture d’écran dans laquelle l’option Activer la stratégie est activée](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-17. Sélectionnez **Créer**.
+17. Sélectionnez **Create** (Créer).
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Utiliser l’option What If pour simuler une connexion
 

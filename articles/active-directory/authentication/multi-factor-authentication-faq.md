@@ -4,19 +4,19 @@ description: Questions fréquentes et réponses relatives à Azure Multi-Factor 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: troubleshooting
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 37f375b6d4284b4728b2337dc5ab5186ce22772c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081545"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167768"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -142,13 +142,11 @@ Si votre organisation ne comporte pas de clients hérités, vous ne devez pas au
 >
 > Les mots de passe d’application sont nécessaires uniquement pour les applications ne prenant pas en charge l’authentification moderne. Les clients Office 2013 prennent en charge les protocoles d’authentification modernes, mais doivent être configurés. L’authentification moderne est désormais disponible pour tous les clients exécutant la version de mars 2015 ou la dernière mise à jour pour Office 2013. Pour plus d’informations, consultez le billet de blog [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Authentification moderne Office 365 mise à jour).
 
-**Q : Mes utilisateurs disent que parfois ils ne reçoivent pas de SMS, ou qu’ils répondent à des SMS bidirectionnels, mais que la vérification a expiré.**
+**Q : Mes utilisateurs disent que parfois ils ne reçoivent pas de SMS ou que la vérification a expiré.**
 
-La remise de SMS et la réception de réponses à des SMS bidirectionnels ne sont pas garanties, en raison de facteurs incontrôlables susceptibles d’affecter la fiabilité du service. Sont notamment en cause le pays/la région de destination, l’opérateur de téléphonie mobile et la puissance du signal.
+La remise de SMS n’est pas garantie en raison de facteurs incontrôlables susceptibles d’affecter la fiabilité du service. Sont notamment en cause le pays/la région de destination, l’opérateur de téléphonie mobile et la puissance du signal.
 
 Si vos utilisateurs ont souvent des problèmes liés à la fiabilité de la réception des SMS, indiquez leur d’utiliser plutôt l’application mobile ou l’appel téléphonique. L’application mobile peut recevoir des notifications à la fois sur des connexions cellulaires et Wi-Fi. En outre, l’application mobile peut générer des codes de vérification même si l’appareil n’a aucun signal. L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), et [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-
-Si vous devez utiliser des messages texte, nous vous recommandons d’utiliser des SMS unidirectionnels plutôt que bidirectionnels dans la mesure du possible. Le SMS unidirectionnel est plus fiable et évite aux utilisateurs des frais de SMS internationaux en cas de réponse à un message envoyé à partir d’un autre pays/d’une autre région.
 
 **Q : Puis-je changer le délai d’expiration du système quand mes utilisateurs doivent entrer le code de vérification à partir d’un SMS ?**
 
@@ -162,7 +160,7 @@ Pour les SMS unidirectionnels avec un serveur Azure MFA en version 7.0 ou supé
 >[!TIP] 
 >Si vous utilisez plusieurs serveurs MFA, seul celui qui a traité la demande d’authentification d’origine connaît le code de vérification qui a été envoyé à l’utilisateur. Lorsque l’utilisateur entre le code, la demande d’authentification pour le valider doit être envoyée au même serveur. Si la validation du code est envoyée à un autre serveur, l’authentification est refusée. 
 
-Pour les SMS bidirectionnels avec un serveur Azure MFA, vous pouvez configurer le paramètre de délai d’expiration dans le Portail de gestion MFA. Si les utilisateurs ne répondent pas au SMS avant la fin du délai d’expiration défini, leur authentification est refusée. 
+Si les utilisateurs ne répondent pas au SMS avant la fin du délai d’expiration défini, leur authentification est refusée. 
 
 Pour les SMS unidirectionnels avec Azure MFA dans le cloud (y compris l’adaptateur AD FS ou l’extension de serveur NPS (Network Policy Server)), vous ne pouvez pas configurer le paramètre de délai d’expiration. Azure AD stocke le code de vérification pendant 180 secondes. 
 

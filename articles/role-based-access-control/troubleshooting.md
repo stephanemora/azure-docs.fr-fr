@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819767"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456842"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -56,7 +56,11 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Attributions de rôles avec un principal de sécurité inconnu
 
-Quand vous listez vos attributions de rôles à l’aide d’Azure PowerShell, vous pouvez voir des attributions avec un `DisplayName` vide et un `ObjectType` défini sur Unknown (Inconnu). Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
+Si vous attribuez un rôle à un principal de sécurité (utilisateur, groupe, principal du service ou identité gérée), puis que vous supprimez ensuite ce principal de sécurité sans supprimer l’attribution de rôle, le type de principal de sécurité pour l’attribution de rôle porte la mention **Inconnu**. La capture d’écran suivante montre un exemple dans le Portail Azure. Le nom du principal de sécurité porte les mentions **Identité supprimée** et **L’identité n’existe plus**. 
+
+![Groupe de ressources d'application web](./media/troubleshooting/unknown-security-principal.png)
+
+Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, `DisplayName` est vide à l’écran et `ObjectType` est défini sur Inconnu. Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +74,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-De même, quand vous listez vos attributions de rôles à l’aide d’Azure CLI, vous pouvez voir des attributions avec un `principalName` vide. Par exemple, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) retourne une attribution de rôle similaire à ce qui suit :
+De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure CLI, `principalName` est vide à l’écran. Par exemple, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) retourne une attribution de rôle similaire à ce qui suit :
 
 ```azurecli
 {
@@ -86,9 +90,7 @@ De même, quand vous listez vos attributions de rôles à l’aide d’Azure CL
 }
 ```
 
-Ces attributions de rôles se produisent quand vous attribuez un rôle à un principal de sécurité (utilisateur, groupe, principal de service ou identité managée) que vous supprimez ensuite. Ces attributions de rôles ne sont pas affichées dans le portail Azure, et ce n’est pas un problème de les laisser. Vous pouvez toutefois les supprimer si vous le souhaitez.
-
-Pour supprimer ces attributions de rôles, utilisez les commandes [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) ou [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete).
+Il n’est pas gênant de conserver ces attributions de rôle, mais vous pouvez les supprimer à l’aide d’étapes similaires aux autres attributions de rôle. Pour plus d’informations sur la suppression des attributions de rôles, consultez [Portail Azure](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access) ou [Azure CLI](role-assignments-cli.md#remove-access)
 
 Dans PowerShell, si vous essayez de supprimer les attributions de rôles à l’aide de l’ID d’objet et du nom de définition de rôle alors que plusieurs attributions de rôle correspondent à vos paramètres, le message d’erreur suivant s’affiche : « Les informations fournies ne correspondent pas à une attribution de rôle ». Voici un exemple du message d’erreur :
 

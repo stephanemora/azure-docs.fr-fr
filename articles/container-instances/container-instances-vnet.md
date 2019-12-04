@@ -1,19 +1,14 @@
 ---
-title: Déployer des instance de conteneur dans un réseau virtuel Azure
+title: Déployer un groupe de conteneurs sur un réseau virtuel Azure
 description: Découvrez comment déployer des groupes de conteneurs dans un réseau virtuel Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
-ms.author: danlep
-ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034977"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533264"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 

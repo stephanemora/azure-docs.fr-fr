@@ -1,5 +1,5 @@
 ---
-title: Configurer des adresses IP privées pour des machines virtuelles - Portail Azure | Microsoft Docs
+title: Configurer des adresses IP privées pour des machines virtuelles - Portail Azure
 description: Découvrez comment configurer des adresses IP privées pour des machines virtuelles à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: kumud
-ms.openlocfilehash: 31aeab946b9ad740e2f56eb1ecaafd3e76cc42b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd734f171f4e10c4227fbab77485a788f02848b3
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723791"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196633"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
 

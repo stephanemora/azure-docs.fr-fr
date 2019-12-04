@@ -1,18 +1,14 @@
 ---
-title: Déploiement de plusieurs instances de ressources Azure | Microsoft Docs
+title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération de copie et les tableaux dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675102"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150789"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 

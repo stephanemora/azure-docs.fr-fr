@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648174"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424006"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Comprendre le code Apache Spark pour les développeurs U-SQL
 

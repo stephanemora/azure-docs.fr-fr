@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Activer un domaine personnalisé avec SSL sur un site web statique à l’aide d’Azure CDN - Stockage Azure'
+title: 'Didacticiel : Activer un domaine personnalisé et SSL pour un site web statique dans Azure'
 description: Découvrez comment configurer un domaine personnalisé pour l’hébergement de site web statique.
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a65c0e677182eb224f6bfa7ed834740458b97098
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 893ac53dc9f0b6b162c5ec22e478cd15706e50fb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847010"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327492"
 ---
-# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutoriel : Utiliser Azure CDN pour activer un domaine personnalisé avec SSL pour un site web statique
+# <a name="tutorial-enable-custom-domain--ssl-for-a-static-website-in-azure"></a>Didacticiel : Activer un domaine personnalisé et SSL pour un site web statique dans Azure
 
 Ce tutoriel est le deuxième d’une série. Vous y découvrirez comment activer un point de terminaison de domaine personnalisé avec SSL pour votre site web statique. 
 

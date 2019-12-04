@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159981"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Didacticiel : Intégration d’Azure Active Directory à Humanity
 
@@ -229,12 +229,12 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous deve
 
     ![Enregistrer des employés](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
 
-    a. Indiquez dans les zones de texte correspondantes le **prénom**, le **nom** et **l’e-mail** du compte AAD valide que vous souhaitez approvisionner.
+    a. Tapez le **Prénom**, le **Nom** et l’**E-mail** d’un compte Azure AD valide que vous voulez provisionner dans les zones de texte correspondantes.
 
     b. Cliquez sur **Save Employees**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Humanity fourni par ce site pour approvisionner des comptes d’utilisateurs AAD.
+> Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur Humanity fourni par Humanity pour provisionner des comptes d’utilisateur Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
