@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357020"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185099"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Intégrer avec un pipeline CI/CD
 
@@ -29,7 +29,7 @@ Si vous utilisez un pipeline Azure DevOps, vous pouvez extraire des paires clé-
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Déployer des données App Configuration avec votre application
 
-Votre application risque de ne pas s’exécuter si elle dépend d’Azure App Configuration et ne peut pas y accéder. Vous pouvez améliorer la résilience de votre application pour gérer un tel événement, même s’il est peu probable qu’il se produise. Pour ce faire, créez un package des données de configuration actuelles dans un fichier qui sera déployé avec l’application et chargé localement pendant son démarrage. Cette approche garantit que votre application contienne au moins les valeurs de paramètre par défaut. Ces valeurs sont remplacées par les modifications plus récentes dans un magasin de configuration d’application lorsqu’elles sont disponibles.
+Votre application risque de ne pas s’exécuter si elle dépend d’Azure App Configuration et ne peut pas y accéder. Vous pouvez améliorer la résilience de votre application pour gérer un tel événement, même s’il est peu probable qu’il se produise. Pour ce faire, créez un package des données de configuration actuelles dans un fichier qui sera déployé avec l’application et chargé localement pendant son démarrage. Cette approche garantit que votre application contienne au moins les valeurs de paramètre par défaut. Ces valeurs sont remplacées par les modifications plus récentes dans un magasin App Configuration lorsqu’elles sont disponibles.
 
 À l’aide de la fonction [Exporter](./howto-import-export-data.md#export-data) fonction d’Azure App Configuration, vous pouvez automatiser le processus de récupération des données de configuration actuelles dans un seul fichier. Ensuite, pendant une étape de création ou de déploiement, incorporez ce fichier dans votre pipeline d’intégration et déploiement continus (CI/CD).
 
@@ -43,7 +43,7 @@ Si vous créez localement, téléchargez et installez l’[interface de ligne de
 
 Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) est installée dans votre système de build.
 
-### <a name="export-an-app-configuration-store"></a>Exporter un magasin de configuration d’application
+### <a name="export-an-app-configuration-store"></a>Exporter un magasin App Configuration
 
 1. Ouvrez votre fichier *.csproj* et ajoutez le script suivant :
 
@@ -54,7 +54,7 @@ Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que 
     </Target>
     ```
 
-    Ajoutez *ConnectionString* associé à votre magasin de configuration d’application comme variable d'environnement.
+    Ajoutez *ConnectionString* associé à votre magasin App Configuration comme variable d’environnement.
 
 2. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` pour utiliser le fichier JSON exporté en appelant la méthode `config.AddJsonFile()`.
 
@@ -74,7 +74,7 @@ Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que 
 
 ### <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin de configuration d’application. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

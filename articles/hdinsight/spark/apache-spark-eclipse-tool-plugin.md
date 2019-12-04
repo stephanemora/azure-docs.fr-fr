@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6268256c9be26ef3e7e1061eef7cdb3b3f7d31db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494687"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286954"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utiliser Azure Toolkit for Eclipse afin de créer des applications Apache Spark pour un cluster HDInsight
 
@@ -84,7 +84,10 @@ Vous pouvez lier un cluster normal en utilisant le nom d’utilisateur Ambari ma
    > [!NOTE]  
    > Nous utilisons la clé de stockage liée, le nom d’utilisateur et le mot de passe si le cluster est à la fois connecté sur un abonnement Azure et lié à un cluster.
    > ![Comptes de stockage Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
-
+   >
+   > Pour l’utilisateur clavier uniquement, lorsque le focus actuel se trouve sur **Clé de stockage**, vous devez utiliser **Ctrl+TAB** pour vous concentrer sur le champ suivant de la boîte de dialogue.
+   
+   
 1. Vous pouvez voir un cluster lié dans le nœud **HDInsight** après avoir cliqué sur le bouton OK, si les informations d’entrée sont correctes. Vous pouvez désormais soumettre une application à ce cluster lié.
 
    ![Explorateur Azure - Cluster lié à HDI](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)

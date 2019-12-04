@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083016"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279109"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
 
@@ -43,11 +43,15 @@ Azure CDN ignore les restrictions ajoutées au jeton SAP. Par exemple, tous les 
 Si vous créez plusieurs URL de SAP pour le même point de terminaison d’objets blob, il convient d’activer la mise en cache de la chaîne de requête. Ce paramètre vous permet de garantir que chaque URL est traitée en tant qu’entité unique. Pour plus d’informations, consultez l’article [Contrôler le comportement de mise en cache d’Azure CDN avec des chaînes de requête](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Redirection HTTP vers HTTPS
-Vous avez la possibilité de rediriger le trafic HTTP vers HTTPS en créant une [règle de redirection d’URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) à l’aide du [moteur de règles Azure CDN](cdn-verizon-premium-rules-engine.md). Pour bénéficier de cette option, vous devez disposer d’un profil **Azure CDN Premium de Verizon**.
+Vous pouvez choisir de rediriger le trafic HTTP vers HTTPS en créant une règle de redirection d’URL à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md) ou du [moteur de règles Verizon Premium](cdn-verizon-premium-rules-engine.md). Le moteur de règles standard est disponible uniquement pour les profils Azure CDN de Microsoft, tandis que le moteur de règles Verizon Premium n’est disponible qu’à partir des profils Azure CDN Premium de Verizon.
 
-![Règle de redirection d’URL](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Règle de redirection Microsoft](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-Dans cette règle, *Cdn-endpoint-name* fait référence au nom que vous avez configuré pour le point de terminaison du CDN. Vous pouvez le sélectionner dans la liste déroulante. La valeur du paramètre *origin-path* désigne, au sein de votre compte de stockage d’origine, le chemin où est hébergé votre contenu statique. Si vous hébergez tout le contenu statique dans un seul conteneur, remplacez *origin-path* par le nom de ce conteneur.
+Dans la règle ci-dessus, si vous conservez les valeurs Nom d’hôte, Chemin, Chaîne de requête et Fragment, les valeurs entrantes sont utilisées dans la redirection. 
+
+![Règle de redirection Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+
+Dans la règle ci-dessus, *Cdn-endpoint-name* fait référence au nom que vous avez configuré pour votre point de terminaison CDN. Vous pouvez le sélectionner dans la liste déroulante. La valeur du paramètre *origin-path* désigne, au sein de votre compte de stockage d’origine, le chemin où est hébergé votre contenu statique. Si vous hébergez tout le contenu statique dans un seul conteneur, remplacez *origin-path* par le nom de ce conteneur.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 Lorsque vous accédez à des objets blob via Azure CDN, vous payez [le prix du stockage d’objets Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) pour le trafic entre les serveurs POP et l’origine (stockage d’objets Blob), et [la tarification Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) pour l’accès aux données à partir des serveurs POP.

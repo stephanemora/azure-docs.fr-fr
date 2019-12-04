@@ -1,14 +1,14 @@
 ---
-title: Exemples de blueprint UK OFFICIAL et UK NHS - Correspondance des contrôles
+title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 79c39ee058a74bc740e72b75fe85882a89f9cd85
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037766"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546446"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 

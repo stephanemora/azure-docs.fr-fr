@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076241"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561767"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
@@ -25,7 +25,7 @@ L’illustration suivante montre une vue d’ensemble du modèle et du cas d’u
 
 ![Apache Hive en tant qu’architecture ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop est généralement utilisé dans les processus ETL qui importent un nombre important de fichiers texte (tels que des fichiers CSV) ou un petit nombre (changeant fréquemment) de fichiers texte, ou les deux.  Hive est un excellent outil pour préparer les données avant leur chargement dans la destination des données.  Hive vous permet de créer un schéma du fichier CSV et d’utiliser un langage de type SQL pour générer des programmes MapReduce qui interagissent avec les données. 
+Hadoop est généralement utilisé dans les processus ETL qui importent un nombre important de fichiers texte (tels que des fichiers CSV) ou un petit nombre (changeant fréquemment) de fichiers texte, ou les deux.  Hive est un excellent outil pour préparer les données avant leur chargement dans la destination des données.  Hive vous permet de créer un schéma du fichier CSV et d’utiliser un langage de type SQL pour générer des programmes MapReduce qui interagissent avec les données.
 
 Voici les étapes classiques lors de l’utilisation de Hive dans le cadre des processus ETL :
 
@@ -38,14 +38,14 @@ Voici les étapes classiques lors de l’utilisation de Hive dans le cadre des p
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Transformez les données et chargez-les dans la destination.  Il existe plusieurs manières d’utiliser Hive lors de la transformation et du chargement :
@@ -73,7 +73,7 @@ Vous pouvez utiliser Hive pour générer des données dans un large éventail de
 * Excel.
 * Stockage Table et Blob Azure.
 * Applications ou services qui requièrent de traiter les données dans un format spécifique, ou en tant que fichiers contenant des types spécifiques de structure d’informations.
-* Une banque de documents JSON comme <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Une banque de documents JSON comme [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Considérations
 

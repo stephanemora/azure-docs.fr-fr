@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150c4b458724562fc35ef97e190c898a289c6122
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102921"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Sugar CRM
 
@@ -147,7 +147,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 1. Accédez à **Admin**.
 
-    ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
+    ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Dans la section **Administration**, cliquez sur **Password Management (Gestion des mots de passe)** .
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 1. Dans la section **SAML Authentication** , procédez comme suit :
 
-    ![Authentification SAML](./media/sugarcrm-tutorial/ic795891.png "Authentification SAML")  
+    ![Authentification SAML](./media/sugarcrm-tutorial/ic795891.png "Authentification SAML")  
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
   
@@ -179,7 +179,7 @@ Pour se connecter à Sugar CRM, les utilisateurs Azure AD doivent être provisio
 
 1. Accédez à **Admin**.
 
-    ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
+    ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Dans la section **Administration**, cliquez sur **User Management (Gestion des utilisateurs)** .
 
@@ -187,7 +187,7 @@ Pour se connecter à Sugar CRM, les utilisateurs Azure AD doivent être provisio
 
 1. Accédez à **Users (Utilisateurs) \> Create New User (Créer un utilisateur)** .
 
-    ![Créer un nouvel utilisateur](./media/sugarcrm-tutorial/ic795894.png "Créer un nouvel utilisateur")
+    ![Créer un utilisateur](./media/sugarcrm-tutorial/ic795894.png "Create new user")
 
 1. Dans l’onglet **User Profile** , procédez comme suit :
 
@@ -206,7 +206,7 @@ Pour se connecter à Sugar CRM, les utilisateurs Azure AD doivent être provisio
     b. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Sugar CRM, pour approvisionner des comptes d’utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte utilisateur fournis par Sugar CRM pour provisionner des comptes d’utilisateurs Azure AD.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

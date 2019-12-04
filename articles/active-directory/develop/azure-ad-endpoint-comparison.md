@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200320"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533054"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?
 
@@ -62,9 +62,9 @@ Quand il est recueilli pour le compte d’une organisation, le consentement de l
 
 ## <a name="scopes-not-resources"></a>Des étendues, pas des ressources
 
-Lorsqu’elle utilise le point de terminaison v1.0, une application peut se comporter comme une **ressource** ou comme un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons à cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
+Lorsqu’elle utilise le point de terminaison v1.0, une application peut se comporter comme une **ressource** ou comme un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons à cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Microsoft Graph :
 
-* Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
+* Identificateur de ressource, ou `AppID URI` : `https://graph.microsoft.com/`
 * Étendues ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, et ainsi de suite.
 
 Ceci se vérifie pour le point de terminaison de la Plateforme d’identités Microsoft. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière dont le client demande ces autorisations a changé.

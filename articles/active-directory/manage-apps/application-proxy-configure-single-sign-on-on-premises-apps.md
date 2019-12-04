@@ -1,5 +1,5 @@
 ---
-title: Authentification unique SAML pour les applications locales avec le proxy d’application Azure AD | Microsoft Docs
+title: Authentification unique SAML pour les applications locales avec le proxy d’application Azure AD
 description: Découvrez comment fournir l’authentification unique pour les applications locales qui sont sécurisées avec l’authentification SAML. Fournissez un accès à distance aux applications locales avec le proxy d’application.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062499"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275581"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Authentification unique SAML pour les applications locales avec le proxy d’application
 

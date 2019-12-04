@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836994"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559003"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
@@ -167,7 +167,7 @@ La cohérence est la clé d’une divulgation implicite tout au long du parcours
 
 ![Cohérence des signaux implicites](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>Signaux implicites et commentaires
+### <a name="implicit-cues--feedback"></a>Signaux implicites et commentaires
 
 L’anthropomorphisme peut se manifester de différentes façons, de la représentation visuelle réelle de l’agent à la voix, aux sons, aux voyants lumineux, aux mouvements, voire même aux vibrations d’un appareil. Quand vous définissez votre personnage, exploitez des signaux implicites et des modèles de commentaires, au lieu de viser un avatar à l’apparence très humaine. Ainsi, vous réduisez la nécessité d’une divulgation plus explicite.
 

@@ -1,21 +1,15 @@
 ---
-title: Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
+title: Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps - Azure Blockchain Service
 description: Utilisez le connecteur Ethereum Blockchain avec Azure Logic Apps pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
-manager: femila
-ms.openlocfilehash: bb23d6b9b42e1c51646765255870a14a1b5d39f7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579935"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325222"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 

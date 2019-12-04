@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827453"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144441"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -35,12 +35,6 @@ Alert Logic Log Manager collecte les journaux d’activité de la plateforme Azu
 AppDynamics Application Performance Management (APM) permet aux propriétaires d’applications de résoudre rapidement les goulots d’étranglement et d’optimiser les performances de leurs applications s’exécutant dans l’environnement Azure. Ce service permet de surveiller Azure Cloud Service (PaaS), les rôles web et de travail, les machines virtuelles (IaaS), la détection de services à distance (Microsoft Azure Service Bus), la file d’attente Microsoft Azure, les services à distance Microsoft Azure (objet blob Azure), la file d’attente Azure (Microsoft Service Bus), le stockage des données et Stockage Blob Microsoft Azure. AppDynamics APM est disponible dans la Place de marché Microsoft Azure.
 
 [Consultez la documentation.][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>Microfocus ArcSight
-
-ArcSight comporte un connecteur intelligent pour les concentrateurs d’événements Azure Monitor.
-
-[En savoir plus.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -69,7 +63,7 @@ Circonus est une plateforme de surveillance et d’analyse de microservices con�
 
 Réunissez et automatisez votre cloud avec une plateforme conçue pour vous permettre de faire des économies de temps et d’argent. CloudHealth offre une visibilité, une optimisation intuitive et de solides pratiques de gouvernance pour la gestion du cloud. La plateforme CloudHealth permet aux entreprises et aux fournisseurs de services gérés d’optimiser leur retour sur investissement lié au cloud. Leurs décisions autour du coût, de l’utilisation, des performances et de la sécurité sont avisées.
 
-[En savoir plus][cloudhealth-doc].
+[En savoir plus][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -127,6 +121,31 @@ Créateur d’InfluxDB, InfluxData offre une plateforme Open Source moderne con�
 LogicMonitor® est la plateforme d’analyse des performances basées sur SaaS pour l’infrastructure informatique complexe. Avec la couverture de milliers de technologies, LogicMonitor assure la visibilité granulaire de la performance des applications et des infrastructures. La surveillance Azure complète de LM Cloud permet aux utilisateurs de mettre en corrélation les performances des ressources cloud, locales et cloud hybrides d’Azure, à partir d’une seule plateforme. La détection automatique des ressources, les modèles d’analyse intégrée, les seuils d’alerte préconfigurés et des tableaux de bord personnalisables se combinent pour offrir la vitesse, la flexibilité et la visibilité informatiques requises pour réussir.
 
 [Consultez la documentation.][logicmonitor-doc]
+
+## <a name="logrhythm"></a>LogRhythm
+
+![Logo LogRhythm](./media/partners/logrhythm.png)
+
+LogRhythm, leader dans les informations de sécurité et gestion d’événements de prochaine génération, permet aux organisations de six continents de réduire de façon mesurable les risques en détectant les cybermenaces, en y répondant et en les neutralisant rapidement. Le flux TLM (Threat Lifecycle Management) de LogRhythm est la base des centres d’opérations de sécurité, aidant les clients à sécuriser leurs infrastructures cloud, physiques et virtuelles pour les environnements IT et OT. Si vous êtes un client LogRhythm et que vous êtes prêt à démarrer votre parcours Azure, vous devez installer et configurer le LogRhythm Open Collector et l’intégration EventHub. Plus d’informations, notamment de la documentation sur la configuration d’Azure Monitor et de l’Open Collector, sont accessibles [ici](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+
+
+## <a name="microfocus"></a>Microfocus
+
+![Logo Microfocus](./media/partners/microfocus.png)     
+
+Microfocus **ArcSight** comporte un connecteur intelligent pour les Event Hubs Azure Monitor.
+
+[En savoir plus](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentation ArcSight.")
+
+Microfocus **Operations Bridge** surveille automatiquement toutes les ressources informatiques hybrides, quel que soit l’appareil, le système d’exploitation, la base de données, l’application ou le service et quel que soit l’emplacement d’exécution, et applique AIOps à tous les types de données (événements, métriques, journaux et dépendances). Il fournit une combinaison unique de surveillance de la qualité des services et d’analytique approfondie de l’intégrité des applications et offre une surveillance complète des performances et de la disponibilité des services Microsoft Azure. Operations Bridge permet aux clients de fournir un volet unique, disponible sur n’importe quel appareil équipé d’un navigateur, d’une manière compréhensible pour les parties prenantes tant commerciales qu’informatiques.
+
+En savoir plus
+- [Vue d’ensemble de la suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [Télécharger](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) : SiteScope est un composant de la suite Operations Bridge.
+
+
 
 ## <a name="moogsoft"></a>Moogsoft
 
@@ -243,7 +262,6 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentation AlertLogic."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentation AppDynamics."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentation ArcSight."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Présentation de Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 

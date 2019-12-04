@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: d4dedf2f90baa5eae005f47719e67bd8e97d8490
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 11/19/2019
+ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039023"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547545"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -50,8 +50,8 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Durée d’exécution | 90 jours | 365 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-duration). |
-| Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 365 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-retention). |
+| Durée d’exécution | 90 jours | 366 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-duration). |
+| Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 366 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-retention). |
 | Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
@@ -61,13 +61,17 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 ### <a name="change-run-duration-and-storage-retention"></a>Modifier la durée d’exécution et la rétention de stockage
 
-Pour changer la limite par défaut pour la durée d’exécution et la conservation de stockage, procédez comme suit. Pour pouvoir dépasser la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour obtenir de l’aide pour vos exigences.
+Pour changer la limite par défaut pour la durée d’exécution et la conservation de stockage, procédez comme suit. Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins.
 
-1. Dans le portail Azure, dans le menu de votre application logique, choisissez **Workflow settings** (Paramètres de workflow).
+1. Dans le Portail Azure, dans le menu de votre application logique, sélectionnez **Paramètres de workflow**.
 
-2. Sous **Options de runtime**, dans la liste **Conservation de l’historique des exécutions en jours**, choisissez **Custom** (Personnalisée).
+1. Sous **Options de runtime**, dans la liste **Conservation de l’historique des exécutions en jours**, choisissez **Personnalisée**.
 
-3. Entrez le nombre de jours souhaité ou faites glisser le curseur pour sélectionner ce nombre.
+1. Entrez le nombre de jours souhaité ou faites glisser le curseur pour sélectionner ce nombre. 
+
+   > [!NOTE]
+   > Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
+   > Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
 
 <a name="looping-debatching-limits"></a>
 
@@ -129,7 +133,7 @@ Azure Logic Apps prend en charge les opérations d’écriture, notamment les in
 
 ## <a name="http-limits"></a>Limites HTTP
 
-Les limites pour un appel de connecteur synchrone ou de requête HTTP unique sont les suivantes :
+Voici les limites pour un appel HTTP unique sortant ou entrant :
 
 #### <a name="timeout"></a>Délai d'expiration
 
@@ -137,8 +141,8 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Requête sortante | 120 secondes | 240 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Réponse synchrone | 120 secondes | 240 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
+| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Requête entrante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par les déclencheurs de requête et les déclencheurs webhook sont des exemples de requêtes entrantes. <p><p>**Remarque**: Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 #### <a name="message-size"></a>Taille des messages
@@ -273,11 +277,11 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 
 * Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région. 
 
-* Pour permettre la communication des applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), veillez à [ouvrir ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+* Pour permettre la communication des applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), veillez à [ouvrir ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Si vos applications logiques rencontrent des problèmes d’accès aux comptes de stockage Azure qui utilisent des [pare-feu et des règles de pare-feu](../storage/common/storage-network-security.md), vous disposez de [différentes options pour activer l’accès](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage Azure qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+  Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
 * Pour les connecteurs personnalisés, [Azure Government](../azure-government/documentation-government-overview.md) et [21Vianet - Azure Chine](https://docs.microsoft.com/azure/china/), il n’y a pas d’adresses IP fixes ou réservées disponibles.
 
@@ -290,35 +294,37 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 
 | Région | IP |
 |--------|----|
-| Australie Est | 13.75.153.66, 52.187.231.161, 104.210.89.222, 104.210.89.244 |
+| Australie Est | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sud-Australie Est | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
-| Brésil Sud | 191.234.166.198, 191.235.86.199, 191.235.94.220, 191.235.95.229 |
-| Centre du Canada | 13.88.249.209, 40.85.241.105, 52.233.29.79, 52.233.30.218 |
-| Est du Canada | 40.86.202.42, 52.229.125.57, 52.232.129.143, 52.232.133.109 |
+| Brésil Sud | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Centre du Canada | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
+| Est du Canada | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Inde centrale | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
-| USA Centre | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
-| Asie Est | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
-| USA Est | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
-| USA Est 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
+| USA Centre | 13.67.236.76, 40.77.111.254, 40.77.31.87, 104.43.243.39 |
+| Asie Est | 168.63.200.173, 13.75.89.159, 23.97.68.172, 40.83.98.194 |
+| USA Est | 137.135.106.54, 40.117.99.79, 40.117.100.228, 137.116.126.165 |
+| USA Est 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
 | France Centre | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | France Sud | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
-| Japon Est | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
-| OuJapon Est | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
+| Japon Est | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
+| OuJapon Est | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Centre de la Corée | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Corée du Sud | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
-| Centre-Nord des États-Unis | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
-| Europe Nord | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
+| Centre-Nord des États-Unis | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64 |
+| Europe Nord | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39 |
+| Afrique du Sud Nord | 102.133.228.4, 102.133.224.125, 102.133.226.199, 102.133.228.9 |
+| Afrique du Sud Ouest | 102.133.72.190, 102.133.72.145, 102.133.72.184, 102.133.72.173 |
 | États-Unis - partie centrale méridionale | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Inde Sud | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asie Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
-| Centre-USA Ouest | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europe Ouest | 13.95.155.53, 52.174.54.218, 52.174.49.6, 51.144.176.185 |
-| Inde Ouest | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
-| USA Ouest | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
-| USA Ouest 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
-| Sud du Royaume-Uni | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
+| Sud du Royaume-Uni | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Ouest du Royaume-Uni | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
-| | |
+| Centre-USA Ouest | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
+| Europe Ouest | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| Inde Ouest | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
+| USA Ouest | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
+| USA Ouest 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
+|||
 
 <a name="outbound"></a>
 
@@ -326,34 +332,36 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 
 | Région | Adresse IP Logic Apps | Adresse IP des connecteurs managés |
 |--------|---------------|-----------------------|
-| Australie Est | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
-| Sud-Australie Est | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 | 13.77.50.240 - 13.77.50.255, 13.70.136.174 |
-| Brésil Sud | 191.234.161.28, 191.234.161.168, 191.234.162.131, 191.234.162.178, 191.234.182.26, 191.235.82.221, 191.235.91.7, 191.237.255.116 | 191.233.203.192 - 191.233.203.207, 104.41.59.51 | 
-| Centre du Canada | 13.71.184.150, 13.71.186.1, 40.85.250.135, 40.85.250.212, 40.85.252.47, 52.233.29.92, 52.228.39.241, 52.228.39.244 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126 |
-| Est du Canada | 40.86.203.228, 40.86.216.241, 40.86.217.241, 40.86.226.149, 40.86.228.93, 52.229.120.45, 52.229.126.25, 52.232.128.155 | 40.69.106.240 - 40.69.106.255, 52.242.35.152 |
-| Inde centrale | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
-| USA Centre | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
-| Asie Est | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
-| USA Est | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205 |
-| USA Est 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
-| France Centre | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2, 40.79.130.208 - 40.79.130.223 |
-| France Sud | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184, 40.79.178.240 - 40.79.178.255 |
-| Japon Est | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
-| OuJapon Est | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
-| Centre de la Corée | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.36.214, 52.231.18.208 - 52.231.18.223 |
-| Corée du Sud | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.163.10, 52.231.147.0 - 52.231.147.15 |
-| Centre-Nord des États-Unis | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
-| Europe Nord | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
-| États-Unis - partie centrale méridionale | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
-| Inde Sud | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
-| Asie Sud-Est | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
-| Centre-USA Ouest | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
+| Australie Est | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 |
+| Sud-Australie Est | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 |
+| Brésil Sud | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207 |
+| Centre du Canada | 52.233.29.92, 52.228.39.241, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126 |
+| Est du Canada | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 |
+| Inde centrale | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164 |
+| USA Centre | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164 |
+| Asie Est | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169 |
+| USA Est | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| USA Est 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 |
+| France Centre | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 à 40.79.130.223, 40.89.135.2 |
+| France Sud | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 à 40.79.178.255, 52.136.133.184 |
+| Japon Est | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96 |
+| OuJapon Est | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248 |
+| Centre de la Corée | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 à 52.231.18.223, 52.141.36.214 |
+| Corée du Sud | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.147.0 à 52.231.147.15, 52.231.163.10 |
+| Centre-Nord des États-Unis | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 |
+| Europe Nord | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 |
+| Afrique du Sud Nord | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
+| Afrique du Sud Ouest | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
+| États-Unis - partie centrale méridionale | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
+| Inde Sud | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225 |
+| Asie Sud-Est | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
+| Sud du Royaume-Uni | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15 |
+| Ouest du Royaume-Uni | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
+| Centre-USA Ouest | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 |
 | Europe Ouest | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
-| Inde Ouest | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.189.218 |
-| USA Ouest | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
-| USA Ouest 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 52.183.78.157 |
-| Sud du Royaume-Uni | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 | 51.140.148.0 - 51.140.148.15, 51.140.80.51 |
-| Ouest du Royaume-Uni | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
+| Inde Ouest | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |
+| USA Ouest | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 |
+| USA Ouest 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 |
 ||||
 
 ## <a name="next-steps"></a>Étapes suivantes

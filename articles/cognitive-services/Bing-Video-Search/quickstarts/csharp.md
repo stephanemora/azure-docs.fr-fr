@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et C#'
+title: 'Démarrage rapide : Rechercher des vidéos avec l’API REST et C# - Recherche de vidéos Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche de vidéos à l’API REST Recherche de vidéos Bing en C#.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 9ba2027641ef6cc9a86044850e8996f986992bf8
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4a8f7383a298fdb66456eaadeb99b22478c9f39b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500187"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383823"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et C#
 

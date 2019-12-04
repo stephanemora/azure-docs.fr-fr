@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Comment inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Node.js'
+title: Inscrire des appareils X.509 auprès du service Azure Device Provisioning avec Node.js
 description: Ce démarrage rapide utilise des inscriptions de groupe. Dans ce démarrage rapide, vous inscrirez des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du service Kit de développement logiciel (SDK) du Node.js
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6056859cf1742fc4bda6056ad7c1c78059a8407a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903412"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423231"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec Node.js
 
@@ -112,13 +111,13 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
 ## <a name="run-the-enrollment-group-sample"></a>Exécuter l’exemple de groupe d’inscription
  
 1. Pour exécuter cet exemple, vous avez besoin de la chaîne de connexion de votre service d’approvisionnement. 
-    1. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service. 
-    2. Cliquez sur **Stratégies d’accès partagé**, puis sur la stratégie d’accès que vous voulez utiliser pour ouvrir ses propriétés. Dans la fenêtre **Stratégie d’accès**, copiez et notez la chaîne de connexion de la clé primaire. 
+    1. Connectez-vous au portail Azure, sélectionnez le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service Device Provisioning. 
+    2. Cliquez sur **Stratégies d’accès partagé**, puis sélectionnez la stratégie d’accès que vous voulez utiliser pour ouvrir ses propriétés. Dans la fenêtre **Stratégie d’accès**, copiez et notez la chaîne de connexion de la clé primaire. 
 
        ![Obtenir la chaîne de connexion du service d’approvisionnement à partir du portail](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. Comme indiqué dans [Préparer les certificats de test](quick-enroll-device-x509-node.md#prepare-test-certificates), vous avez également besoin d’un fichier .pem qui contient un certificat racine ou intermédiaire d’autorité de certification X.509 qui a été au préalable chargé et vérifié avec votre service d’approvisionnement. Pour contrôler que votre certificat a bien été chargé et vérifié, accédez à la page de résumé du service Device Provisioning sur le portail Azure, puis cliquez sur **Certificats**. Recherchez le certificat que vous voulez utiliser pour l’inscription du groupe, puis validez que son état est bien *vérifié*.
+3. Comme indiqué dans [Préparer les certificats de test](quick-enroll-device-x509-node.md#prepare-test-certificates), vous avez également besoin d’un fichier .pem qui contient un certificat racine ou intermédiaire d’autorité de certification X.509 qui a été au préalable chargé et vérifié avec votre service d’approvisionnement. Pour contrôler que votre certificat a bien été chargé et vérifié, accédez à la page de résumé du service Device Provisioning sur le portail Azure, puis sélectionnez **Certificats**. Recherchez le certificat que vous voulez utiliser pour l’inscription du groupe, puis validez que son état est bien *vérifié*.
 
     ![Certificat vérifié dans le portail](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -137,14 +136,14 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
     ![Propriétés d’inscription dans le portail](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous prévoyez d’aller plus loin dans l’étude des exemples de service Node.js, ne supprimez pas les ressources créées dans ce démarrage rapide. Dans le cas contraire, passez aux étapes suivantes pour supprimer toutes les ressources Azure créées dans ce démarrage rapide.
+Si vous prévoyez d’explorer davantage les exemples de service Node.js, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources Azure créées par ce guide.
  
-1. Fermez la fenêtre de sortie de l’exemple Node.js sur l’ordinateur.
-2. Accédez à votre service Device Provisioning dans le portail Azure, cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Groupes d’inscription**. Sélectionnez *l’ID d’inscription* correspondant à l’entrée d’inscription créée à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure du panneau.  
-3. À partir du service Device Provisioning dans le portail Azure, cliquez sur **Certificats**, sur le certificat que vous avez chargé pour ce démarrage rapide, puis sur le bouton **Supprimer** en haut de la fenêtre **Détails du certificat**.  
+1. Fermez la fenêtre de sortie de l’exemple Node.js sur votre machine.
+2. Accédez à votre service Device Provisioning dans le portail Azure, puis sélectionnez **Gérer les inscriptions** et l’onglet **Groupes d’inscription**. Cochez la case en regard du *NOM DU GROUPE* des appareils X.509 que vous avez inscrits à l’aide de ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.    
+3. À partir du service Device Provisioning dans le portail Azure, sélectionnez **Certificats**, sélectionnez le certificat que vous avez chargé pour ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** en haut de la fenêtre **Détails du certificat**.  
  
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce démarrage rapide, vous avez créé un groupe l’inscription pour un certificat X.509 d’autorité de certification racine ou intermédiaire à l’aide du service Azure IoT Hub Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
+Dans ce guide de démarrage rapide, vous avez créé une inscription de groupe pour un certificat X.509 d’autorité de certification racine ou intermédiaire à l’aide du service Azure IoT Hub Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
  
 > [!div class="nextstepaction"]
 > [Didacticiels relatifs au service d’approvisionnement d’appareil Azure IoT Hub](./tutorial-set-up-cloud.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Ruby'
+title: 'Démarrage rapide : Rechercher des vidéos avec l’API REST et Ruby - Recherche de vidéos Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche de vidéos à l’API REST Recherche de vidéos Bing en utilisant Ruby.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1303abb204881833413bf0465909582e49535e1c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500639"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378634"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Ruby
 

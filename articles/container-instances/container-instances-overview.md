@@ -1,20 +1,15 @@
 ---
-title: Présentation d’Azure Container Instances
+title: Conteneurs serverless dans Azure
 description: Le service Azure Container Instances offre le moyen le plus simple et le plus rapide d’exécuter des conteneurs isolés dans Azure, sans avoir à gérer des machines virtuelles ni à adopter un orchestrateur de plus haut niveau.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325742"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533542"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 

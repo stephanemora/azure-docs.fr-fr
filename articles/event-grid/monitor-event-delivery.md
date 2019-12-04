@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
-ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824092"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170001"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
 
@@ -75,6 +75,12 @@ Si vous avez publié une rubrique personnalisée, vous pouvez afficher ses métr
 Afficher les métriques de la rubrique d’événement personnalisée.
 
 ![Afficher les métriques d’événement](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## <a name="set-alerts"></a>Définir des alertes
+
+Vous pouvez définir des alertes sur les métriques au niveau de la rubrique et du domaine pour les rubriques personnalisées et les domaines d’événements. Dans le panneau Vue d’ensemble, sélectionnez **Alertes** dans le menu de ressources de gauche afin d’afficher, de gérer et de créer des règles d’alerte. [En savoir plus sur les alertes Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+
+![Afficher les métriques d’événement](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

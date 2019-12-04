@@ -1,17 +1,17 @@
 ---
-title: Développer et configurer des applications à l’aide d’Azure Functions et de SignalR Service
+title: Développer et configurer une application Azure Functions – Azure SignalR
 description: Informations détaillées sur la façon de développer et de configurer des applications serverless en temps réel à l’aide d’Azure Functions et Azure SignalR Service
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882306"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157652"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Développement et configuration Azure Functions avec Azure SignalR Service
 

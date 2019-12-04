@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087153"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Didacticiel : Intégration d’Azure AD à Wikispaces
 
@@ -190,17 +190,17 @@ Pour pouvoir se connecter à Wikispaces, les utilisateurs Azure AD doivent être
 
 2. Accédez à **Members**.
    
-    ![Membres](./media/wikispaces-tutorial/ic787193.png "Membres")
+    ![Members](./media/wikispaces-tutorial/ic787193.png "Members") (Membres)
 
 3. Cliquez sur **Invite People**.
    
-    ![Inviter des personnes](./media/wikispaces-tutorial/ic787194.png "inviter des personnes")
+    ![Inviter des personnes](./media/wikispaces-tutorial/ic787194.png "Inviter des personnes")
 
 4. Dans la section **Invite People** , procédez comme suit :
    
-    ![Inviter des personnes](./media/wikispaces-tutorial/ic787208.png "inviter des personnes")
+    ![Inviter des personnes](./media/wikispaces-tutorial/ic787208.png "Inviter des personnes")
    
-    a. Indiquez les **noms d’utilisateur ou adresse de messagerie** d’un compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
+    a. Indiquez les **noms d’utilisateurs ou l’adresse e-mail** du compte Azure AD valide que vous souhaitez provisionner dans les zones de texte correspondantes.
    
     b. Cliquez sur **Envoyer**.  
       
@@ -208,7 +208,7 @@ Pour pouvoir se connecter à Wikispaces, les utilisateurs Azure AD doivent être
     > Le titulaire du compte Azure AD reçoit un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
     
 > [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Wikispaces pour approvisionner des comptes d’utilisateurs Azure AD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Wikispaces pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
@@ -222,5 +222,5 @@ Le fait de cliquer sur la vignette Wikispaces dans le volet d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

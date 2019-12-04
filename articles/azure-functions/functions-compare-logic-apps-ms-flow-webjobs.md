@@ -1,27 +1,19 @@
 ---
 title: Que sont les services Microsoft Flow, Logic Apps, Functions et WebJobs ? - Azure
 description: 'Comparez les services cloud Microsoft optimisés pour les tâches d’intégration : Microsoft Flow, Logic Apps, Functions et WebJobs.'
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, traitement d’événements, calcul dynamique, architecture sans serveur
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082749"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278627"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Que sont les services Microsoft Flow, Logic Apps, Functions et WebJobs ?
 
-Cet article compare les services de cloud computing Microsoft suivants :
-
+Cet article compare les services cloud Microsoft suivants : 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -56,8 +48,8 @@ Functions et Logic Apps sont des services Azure qui proposent des charges de tra
 
 Pour Azure Functions, vous développez des orchestrations en écrivant du code et en utilisant l’[extension Durable Functions](durable/durable-functions-overview.md). Pour Logic Apps, vous créez des orchestrations en utilisant une interface graphique utilisateur ou en modifiant des fichiers config.
 
-Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant répertorie certaines des principales différences entre ces services :
- 
+Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant liste certaines des principales différences entre ces services :
+
 |  | Fonctions durables | Logic Apps |
 | --- | --- | --- |
 | Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |

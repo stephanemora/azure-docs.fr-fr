@@ -1,18 +1,18 @@
 ---
-title: Réécrire les en-têtes HTTP dans une passerelle d’application Azure Application Gateway
+title: Créer une passerelle d’application Azure Application Gateway et réécrire des en-têtes HTTP
 description: Cet article fournit des informations sur la façon de créer une passerelle d’application Azure Application Gateway et de réécrire les en-têtes HTTP à l’aide d’Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947092"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173717"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Créer une passerelle d’application et réécrire des en-têtes HTTP
 

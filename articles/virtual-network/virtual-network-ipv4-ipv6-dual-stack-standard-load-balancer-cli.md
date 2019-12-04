@@ -1,11 +1,11 @@
 ---
-title: Déployer une application double pile IPv6 dans un réseau virtuel Azure - CLI
+title: Déployer une application double pile IPv6 - Standard Load Balancer - CLI
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide d’Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: d0968ddedb36ab7fb4ee515ef1d20a177d4d59fe
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820994"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186330"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Déployer une application double pile IPv6 dans un réseau virtuel Azure - CLI (préversion)
 
@@ -53,7 +53,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *DsResourceGroup01* à l’emplacement *eastus*.
+Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *DsResourceGroup01* à l’emplacement *eastus* :
 
 ```azurecli
 az group create \

@@ -1,20 +1,15 @@
 ---
-title: 'Sauvegarde Azure : Créer des coffres Recovery Services'
+title: Créer des coffres Recovery Services
 description: Dans cet article, découvrez comment créer des coffres Recovery Services stockant les sauvegardes et points de récupération.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: coffre Recovery Services ; sauvegarde de machines virtuelles Azure ; restauration de machines virtuelles Azure ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074877"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273390"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -77,6 +72,13 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
 
 > [!NOTE]
 > Vous devez remplacer la valeur du paramètre **Type de réplication du stockage** (Localement redondant/Géoredondant) par un coffre Recovery Services avant de configurer les sauvegardes dans le coffre. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée et vous ne pouvez pas modifier le paramètre **Type de réplication de stockage**.
+
+## <a name="modifying-default-settings"></a>Modification des paramètres par défaut
+
+Nous vous recommandons vivement de consulter les paramètres par défaut pour **type de réplication de stockage** et **Paramètres de sécurité** avant de configurer les sauvegardes dans le coffre. 
+* **Le type de réplication de stockage** par défaut est défini sur **Géo-redondant**. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) pour évaluer et modifier les paramètres. 
+* **La suppression réversible** par défaut est **activée** sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) pour évaluer et modifier les paramètres.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

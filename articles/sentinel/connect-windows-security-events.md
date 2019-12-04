@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c74cc5cc65f16eb38ead7c09b5e662cd2463af35
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240515"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555281"
 ---
 # <a name="connect-windows-security-events"></a>Connecter les événements de sécurité Windows 
 
@@ -59,7 +59,7 @@ La liste suivante fournit le détail complet des ID d’événement App Locker e
 
 Pour intégrer complètement vos événements de sécurité Windows à Azure Sentinel :
 
-1. Dans le portail Azure Sentinel, sélectionnez **Data connectors** (Connecteurs de données), puis cliquez sur la vignette **Événements de sécurité Windows**. 
+1. Dans le portail Azure Sentinel, sélectionnez **Connecteurs de données**, puis cliquez sur la vignette **Événements de sécurité**. 
 1. Sélectionnez les types de données que vous souhaitez transmettre en continu.
 1. Cliquez sur **Update**.
 6. Pour utiliser le schéma pertinent dans Log Analytics pour les événements de sécurité Windows, recherchez **SecurityEvent**.

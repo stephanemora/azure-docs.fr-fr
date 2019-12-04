@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure | Microsoft Docs'
-description: Découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure.
+title: Tutoriel - Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
+description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854249"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419651"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
 
@@ -62,7 +62,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Dans la liste **Groupes de ressources**, cliquez sur le nouveau groupe de ressources **rbac-resource-group**.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Attributions de rôles** pour afficher la liste actuelle des attributions de rôles.
 
@@ -116,4 +116,3 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-

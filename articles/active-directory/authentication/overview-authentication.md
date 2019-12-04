@@ -1,22 +1,22 @@
 ---
-title: Authentification utilisateur Azure Active Directory - Azure Active Directory
+title: Authentification et sécurisation des utilisateurs - Azure Active Directory
 description: En tant qu’administrateur Azure AD, comment protéger l’authentification des utilisateurs tout en réduisant l’impact pour l’utilisateur final ?
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ccbb754f03f77ce0571912a5443dc9b18c66b463
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997266"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381104"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quelles méthodes sont disponibles pour l'authentification ?
 

@@ -1,26 +1,29 @@
 ---
-title: 'Démarrage rapide : Inscrire un appareil TPM auprès du service Azure Device Provisioning avec Python'
-description: 'Démarrage rapide Azure : Inscrire un appareil TPM auprès du service Azure IoT Hub Device Provisioning à l’aide du kit de développement logiciel (SDK) du service d’approvisionnement en Python. Ce démarrage rapide utilise des inscriptions individuelles.'
+title: Inscrire un appareil TPM auprès du service Azure Device Provisioning avec Python
+description: Démarrage rapide - Inscrire un appareil TPM auprès du service Azure IoT Hub Device Provisioning à l’aide du kit SDK du service de provisionnement Python. Ce démarrage rapide utilise des inscriptions individuelles.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 49e7961200a2ab523997350fffa6606d65f60c8c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9774ba9ba94bdaf4f9219a65be2a223ff00ff489
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903402"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554015"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Démarrage rapide : Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) du service d’approvisionnement en Python
+
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-Ces étapes montrent comment créer par programme une inscription individuelle pour un appareil TPM dans le service Azure IoT Hub Device Provisioning à l’aide du [Kit de développement logiciel (SDK) du service d’approvisionnement en Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) avec un exemple d’application Python. Même si ce Kit de développement logiciel (SDK) fonctionne à la fois sur Linux et Windows, cet article utilise un ordinateur de développement sur Windows afin de présenter le processus d’inscription.
+Ces étapes montrent comment créer programmatiquement une inscription individuelle pour un appareil TPM dans le service Azure IoT Hub Device Provisioning à l’aide du [kit SDK du service de provisionnement Python V1](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) et d’un exemple d’application Python. Même si ce Kit de développement logiciel (SDK) fonctionne à la fois sur Linux et Windows, cet article utilise un ordinateur de développement sur Windows afin de présenter le processus d’inscription.
+
+> [!IMPORTANT]
+> Cet article s’applique uniquement au kit SDK Python V1 déprécié. Les clients d’appareil et de service pour le service IoT Hub Device Provisioning ne sont pas encore disponibles dans la V2. L’équipe travaille actuellement sur la parité des fonctionnalités pour la V2.
 
 Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
 
@@ -33,7 +36,7 @@ Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Az
 
 1. Choisissez l’une des options suivantes :
 
-    - Générer et compiler le **Kit de développement logiciel (SDK) Python Azure IoT**. Suivez [ces instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) pour générer les packages Python. Si vous utilisez le système d’exploitation Windows, installez également [Visual C++ Redistributable Package](https://www.microsoft.com/download/confirmation.aspx?id=48145) pour autoriser l’utilisation de DLL natives de Python.
+    - Générer et compiler le **Kit de développement logiciel (SDK) Python Azure IoT**. Suivez [ces instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) pour générer les packages Python. Si vous utilisez le système d’exploitation Windows, installez également [Visual C++ Redistributable Package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour autoriser l’utilisation de DLL natives de Python.
 
     - [Installer ou mettre à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/) et installer le package via la commande suivante :
 
@@ -99,21 +102,21 @@ Cette section montre comment ajouter à l’exemple de code les détails de l’
 
 1. Observez la sortie pour vérifier si l’inscription a abouti.
 
-1. Accédez au service d’approvisionnement dans le portail Azure. Cliquez sur **Gérer les inscriptions**. Notez que l’appareil TPM s’affiche dans l’onglet **Inscriptions individuelles**, sous le nom `registrationid` créé précédemment. 
+1. Accédez au service d’approvisionnement dans le portail Azure. Sélectionnez **Gérer les inscriptions**. Notez que l’appareil TPM s’affiche dans l’onglet **Inscriptions individuelles**, sous le nom `registrationid` créé précédemment. 
 
     ![Comment vérifier la réussite de l’inscription du TPM dans le portail](./media/quick-enroll-device-tpm-python/1.png)  
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous prévoyez d’explorer davantage l’exemple de service pour Java, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
+Si vous prévoyez d’explorer davantage l’exemple de service Java, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources créées par ce guide.
 
 1. Fermez la fenêtre de sortie de l’exemple Python sur votre ordinateur.
 1. Si vous avez créé un appareil TPM simulé, fermez la fenêtre du simulateur TPM.
-1. Accédez au service Device Provisioning dans le portail Azure, cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**. Sélectionnez *l’ID d’inscription* correspondant à l’entrée d’inscription créée à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure du panneau.  
+1. Accédez au service Device Provisioning dans le portail Azure, sélectionnez **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**. Cochez la case à côté de l’*ID d’inscription* correspondant à l’entrée d’inscription que vous avez créée à l’aide de ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce démarrage rapide, vous avez créé par programmation une entrée d’inscription individuelle pour un appareil TPM et vous avez éventuellement créé un appareil simulé TPM sur votre machine et l’avez approvisionné vers votre IoT Hub à l’aide du service d’approvisionnement d’appareil Azure IoT Hub. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure.
+Dans ce guide de démarrage rapide, vous avez créé programmatiquement une entrée d’inscription individuelle pour un appareil TPM, puis vous avez créé un appareil simulé TPM sur votre machine et l’avez provisionné auprès de votre hub IoT à l’aide du service Azure IoT Hub Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure.
 
 > [!div class="nextstepaction"]
 > [Didacticiels relatifs au service d’approvisionnement d’appareil Azure IoT Hub](./tutorial-set-up-cloud.md)

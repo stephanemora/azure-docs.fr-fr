@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: fd7ff7aa2275defba57aa24b5ef0b9adc78a5355
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093235"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278792"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -29,17 +29,17 @@ Les abonnements source et de destination de l’espace de travail doivent existe
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
 
-## <a name="remove-solutions"></a>Supprimer les solutions
-Les solutions gérées qui sont installées dans l’espace de travail seront déplacées à l’aide de l’opération de déplacement de l’espace de travail Log Analytics. Toutefois, puisque vous devez dissocier tous les comptes Automation liés à l’espace de travail, vous devez également supprimer les solutions basées sur ce lien.
+## <a name="workspace-move-considerations"></a>Considérations relatives au déplacement de l’espace de travail
+Les solutions gérées qui sont installées dans l’espace de travail seront déplacées à l’aide de l’opération de déplacement de l’espace de travail Log Analytics. Les agents connectés restent connectés et continuent à envoyer des données à l’espace de travail après le déplacement. Toutefois, puisque l’opération de déplacement nécessite qu’il n’existe aucun lien entre l’espace de travail et un compte Automation, vous devez également supprimer les solutions basées sur ce lien.
 
-Vous devez supprimer les solutions suivantes : 
+Solutions qui doivent être supprimées avant de pouvoir dissocier votre compte Automation :
 
 - Update Management
 - Suivi des modifications
 - Démarrer/arrêter des machines virtuelles pendant les heures creuses
 
 
-### <a name="azure-portal"></a>Portail Azure
+### <a name="delete-in-azure-portal"></a>Supprimer dans le portail Azure
 Procédez comme suit pour supprimer les solutions via le portail Azure :
 
 1. Ouvrez le menu des groupes de ressources dans lesquels des solutions sont installées.
@@ -48,7 +48,7 @@ Procédez comme suit pour supprimer les solutions via le portail Azure :
 
 ![Supprimer des solutions](media/move-workspace/delete-solutions.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="delete-using-powershell"></a>Supprimer à l’aide de PowerShell
 
 Pour supprimer les solutions à l’aide de PowerShell, utilisez la cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) comme indiqué dans l’exemple suivant :
 
@@ -58,7 +58,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-## <a name="remove-alert-rules"></a>Supprimer des règles d’alerte
+### <a name="remove-alert-rules"></a>Supprimer des règles d’alerte
 Pour la solution **Start/Stop VMs**, vous devez également supprimer les règles d’alerte créées par cette solution. Procédez comme suit pour supprimer ces règles via le portail Azure.
 
 1. Ouvrez le menu **Surveiller**, puis sélectionnez **Alertes**.

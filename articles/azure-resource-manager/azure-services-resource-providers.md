@@ -1,17 +1,14 @@
 ---
-title: Fournisseurs de ressources Azure Resource Manager par service Azure
+title: Fournisseurs de ressources par les services Azure
 description: Répertorie tous les espaces de noms de fournisseurs de ressources pour Azure Resource Manager et affiche le service Azure de chaque espace de noms.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: 203c28b89cc62b494e8edf04f7fbc4c13f6b4b9f
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d569fcc7855beaf3f728b2a766c093e7ff3938c7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929082"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149949"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 

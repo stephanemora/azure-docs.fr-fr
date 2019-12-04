@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 595b6705b4e876ce5b42a7de831136cb0b62b1f5
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521231"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196444"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Évaluer les machines virtuelles VMware avec Azure Migrate : Server Assessment
 
@@ -108,8 +108,8 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
@@ -172,7 +172,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 ### <a name="specify-vcenter-server-details"></a>Spécifier les détails vCenter Server
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter Server. Vous pouvez laisser le port par défaut, ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
-2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
+2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte vCenter Server que l’appliance doit utiliser pour découvrir les machines virtuelles sur le serveur vCenter. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Spécifier des informations d’identification de machine virtuelle
@@ -222,7 +222,7 @@ Il existe deux approches pour affecter des autorisations sur des objets d’inve
 
     De même pour la migration de serveur, un rôle défini par l’utilisateur (peut être nommé  <em>Azure _Migrate</em>) avec ces [privilèges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) attribués doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à migrer sont hébergées.
 
-![Assigner des autorisations](./media/tutorial-assess-vmware/assign-perms.png)
+  ![Assigner des autorisations](./media/tutorial-assess-vmware/assign-perms.png)
 
 - L’approche alternative consiste à affecter le compte d’utilisateur et le rôle au niveau du centre de données et à les propager aux objets enfants. Attribuez ensuite au compte un rôle **Aucun accès** pour chaque objet (comme les machines virtuelles) que vous ne souhaitez pas découvrir/migrer. Cette configuration est fastidieuse. Elle entraîne des contrôles d’accès accidentels, car chaque nouvel objet enfant créé hérite automatiquement de l’accès de son parent. Nous vous recommandons donc d’utiliser la première approche.
 

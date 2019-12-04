@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d1973dd51068e6f3e0746ee988a51f375899f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588015"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutoriel : Intégration d’Azure Active Directory à SpringCM
 
@@ -131,11 +131,11 @@ Pour configurer l’authentification unique Azure AD avec SpringCM, effectuez le
 
 1. Dans le menu en haut, cliquez sur **GO TO**, sur **Preferences** puis, dans la section **Account Preferences**, cliquez sur **SAML SSO**.
    
-    ![SAML SSO](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
+    ![Authentification unique SAML](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
 
 1. Dans la section Identity Provider Configuration, procédez comme suit :
    
-    ![Configuration du fournisseur d’identité](./media/spring-cm-tutorial/ic797052.png "Configuration du fournisseur d’identité")
+    ![Configuration du fournisseur d’identité](./media/spring-cm-tutorial/ic797052.png "Identity Provider Configuration")
     
     a. Pour charger votre certificat Azure Active Directory téléchargé, cliquez sur **Select Issuer Certificate** ou **Change Issuer Certificate**.
     
@@ -210,7 +210,7 @@ Pour se connecter à SpringCM, les utilisateurs Azure Active Directory doivent �
 
 1. Cliquez sur **GOTO** puis sur **ADDRESS BOOK**.
    
-    ![Créer un utilisateur](./media/spring-cm-tutorial/ic797054.png "Créer un utilisateur")
+    ![Create User](./media/spring-cm-tutorial/ic797054.png "Create User") (Créer un utilisateur)
 
 1. Cliquez sur **Créer l’utilisateur**.
 
@@ -225,7 +225,7 @@ Pour se connecter à SpringCM, les utilisateurs Azure Active Directory doivent �
 1. Cliquez sur **Enregistrer**.
 
    > [!NOTE]
-   > Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par SpringCM, pour approvisionner des comptes utilisateur AAD.
+   > Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur SpringCM fourni par SpringCM pour provisionner des comptes d’utilisateur Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
@@ -239,5 +239,5 @@ Le fait de cliquer sur la vignette SpringCM dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

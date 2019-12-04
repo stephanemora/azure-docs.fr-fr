@@ -1,19 +1,19 @@
 ---
 title: Visualiser des données de supervision à distance à l’aide de Power BI - Azure | Microsoft Docs
-description: Ce tutoriel utilise Power BI Desktop et Cosmos DB pour intégrer les données d’une solution de supervision à distance dans une visualisation personnalisée. Ainsi, les utilisateurs peuvent créer leurs propres tableaux de bord personnalisés et les partager avec des personnes qui ne se servent pas de cette solution.
-author: asdonald
+description: Ce didacticiel utilise Power BI Desktop et Cosmos DB pour intégrer les données d’une solution de supervision à distance dans une visualisation personnalisée. Ainsi, les utilisateurs peuvent créer leurs propres tableaux de bord personnalisés et les partager avec des personnes qui ne se servent pas de cette solution.
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61448050"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184236"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
@@ -22,13 +22,13 @@ Ce tutoriel vous montre comment connecter vos données de solution de supervisio
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’une solution de supervision à distance en cours d’exécution.
-- Vous devez avoir accès au [portail Azure](https://portal.azure.com) et à l’abonnement dans lequel IoT Hub et la solution IoT sont exécutés.
+- Vous devez avoir accès au [Portail Azure](https://portal.azure.com) et à l’abonnement dans lequel IoT Hub et la Solution sont exécutés
 - [Power BI Desktop](https://powerbi.microsoft.com) doit être installé (n’importe quelle version)
 
 
-## <a name="information-needed-from-azure-portal"></a>Informations du portail Azure nécessaires
+## <a name="information-needed-from-azure-portal"></a>Informations du Portail Azure nécessaires
 
-1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous, si nécessaire.
+1. Accédez au [Portail Azure](https://portal.azure.com) et connectez-vous, si nécessaire
 
 2. Dans le panneau gauche, cliquez sur Groupes de ressources.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: cba0a9a003b53eeb102e14c00cb91f344ebbe3d6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0aecf2284e448f879bc20391c8528f8efde42d94
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821876"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184972"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application .NET Framework
 
@@ -33,7 +33,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
+## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -45,7 +45,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 
 1. Dans **Configurer votre nouveau projet** , entrez un nom de projet. Sous **Framework**, sélectionnez **.NET Framework 4.7.1** ou version ultérieure. Cliquez sur **Créer**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
+## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
 1. Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Sous l’onglet **Parcourir**, recherchez et ajoutez les packages NuGet suivants à votre projet. Si vous ne les trouvez pas, cochez la case **Inclure les préversions**.
 
@@ -91,7 +91,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la chaîne de connexion de votre magasin de configuration d’application. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la chaîne de connexion de votre magasin App Configuration. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante :
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

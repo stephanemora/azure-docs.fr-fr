@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073623"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538263"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
@@ -57,7 +57,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     | Nécessite une approbation        | Cochez **Demander une approbation** si vous souhaitez qu’un administrateur révise et accepte ou refuse les tentatives d’abonnement à ce produit. Si la case n’est pas cochée, les tentatives d’abonnement sont automatiquement approuvées.                                                                                                                         |
     | Limite du nombre d’abonnements | Pour limiter le nombre de plusieurs abonnements simultanés, entrez la limite d’abonnements.                                                                                                                                                                                                                                |
     | Conditions légales              | Vous pouvez inclure les conditions d’utilisation que les abonnés doivent accepter pour pouvoir utiliser le produit.                                                                                                                                                                                                             |
-    | API                     | Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/> Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API. |
+    | API                     | Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/> Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** du produit, soit pendant la création d’une API. |
 
 3. Cliquez sur **Créer** pour créer le produit.
 

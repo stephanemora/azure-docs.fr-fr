@@ -1,31 +1,28 @@
 ---
-title: Fonctions de modèle Azure Resource Manager - déploiement| Microsoft Docs
+title: Fonctions et déploiement du modèle
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.date: 11/27/2019
+ms.openlocfilehash: 67540a78e349285be032f696a9ef4b9ba3c7e242
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983988"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561467"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
-Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
+Resource Manager offre les fonctions ci-après pour l’obtention de valeurs associées au déploiement actuel :
 
 * [deployment](#deployment)
+* [environnement](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
 Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](resource-group-template-functions-resource.md).
 
-<a id="deployment" />
-
 ## <a name="deployment"></a>deployment
+
 `deployment()`
 
 Renvoie des informations sur l’opération de déploiement actuelle.
@@ -136,9 +133,106 @@ L’exemple précédent retourne l’objet suivant :
 
 Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzDeployment`.
 
-<a id="parameters" />
+## <a name="environment"></a>Environnement
+
+`environment()`
+
+Retourne des informations sur l’environnement Azure utilisé pour le déploiement.
+
+### <a name="return-value"></a>Valeur de retour
+
+Cette valeur retourne des propriétés pour l’environnement Azure actuel. L’exemple suivant présente les propriétés pour Azure international. Les clouds souverains peuvent retourner des propriétés légèrement différentes.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### <a name="example"></a>Exemples
+
+L’exemple de modèle suivant retourne l’objet d’environnement.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+L’exemple précédent retourne l’objet suivant lorsqu’il est déployé vers Azure international :
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
 
 ## <a name="parameters"></a>parameters
+
 `parameters(parameterName)`
 
 Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être défini dans la section parameters du modèle.
@@ -242,9 +336,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
 
-<a id="variables" />
-
 ## <a name="variables"></a>variables
+
 `variables(variableName)`
 
 Retourne la valeur de la variable. Le nom de variable spécifié doit être défini dans la section variables du modèle.

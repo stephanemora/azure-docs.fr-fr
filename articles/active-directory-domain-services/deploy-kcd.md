@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842660"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546284"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurer la délégation Kerberos contrainte (KCD) dans Azure Active Directory Domain Services
 
 Pendant leur exécution, les applications peuvent avoir besoin d’accéder à des ressources dans le contexte d’un autre utilisateur. Active Directory Domain Services (AD DS) prend en charge un mécanisme, appelé *délégation Kerberos*, qui autorise ce cas d’usage. La délégation Kerberos *contrainte* (KCD) s’appuie alors sur ce mécanisme pour définir les ressources accessibles dans le contexte de l’utilisateur. Les domaines managés Azure Active Directory Domain Services (Azure AD DS) étant plus sécurisés que les environnements AD DS locaux classiques, utilisez un mécanisme KCD plus sécurisé *basé sur les ressources*.
 
-Cet article vous montre comment configurer la délégation Kerberos contrainte basée sur les ressources dans un domaine managé Azure AD Domain Services.
+Cet article vous montre comment configurer la délégation Kerberos contrainte basée sur les ressources dans un domaine managé Azure AD DS.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,15 +42,17 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 
 La délégation Kerberos permet à un compte d’emprunter l’identité d’un autre compte pour accéder à des ressources. Par exemple, une application web qui accède à un composant web back-end peut emprunter sa propre identité comme s’il s’agissait d’un autre compte d’utilisateur au moment d’établir la connexion back-end. La délégation Kerberos n’est pas sécurisée dans le sens où le compte qui emprunte l’identité peut accéder à n’importe quelles ressources sans aucune limitation.
 
-En revanche, la délégation Kerberos contrainte (KCD) restreint les services ou les ressources auxquels une application ou un serveur déterminé peut se connecter en empruntant une autre identité. Le mécanisme KCD classique exige des privilèges d’administrateur de domaine pour configurer le compte de domaine d’un service, et il contraint le compte à s’exécuter sur un seul domaine. Le mécanisme KCD classique présente aussi quelques inconvénients. Par exemple, dans les anciens systèmes d’exploitation, les administrateurs de service n’avaient aucun moyen utile de savoir quels services front-end déléguaient vers les services de ressources qu’ils possédaient. Tout service front-end qui pouvait déléguer vers un service de ressources constituait un point d’attaque potentiel. Si un serveur qui hébergeait un service front-end configuré pour déléguer vers des services de ressources était compromis, les services de ressources pouvaient l’être tout autant.
+En revanche, la délégation Kerberos contrainte (KCD) restreint les services ou les ressources auxquels une application ou un serveur déterminé peut se connecter en empruntant une autre identité. Le mécanisme KCD classique exige des privilèges d’administrateur de domaine pour configurer le compte de domaine d’un service, et il contraint le compte à s’exécuter sur un seul domaine.
+
+Le mécanisme KCD classique présente aussi quelques inconvénients. Par exemple, dans les anciens systèmes d’exploitation, les administrateurs de service n’avaient aucun moyen utile de savoir quels services front-end déléguaient vers les services de ressources qu’ils possédaient. Tout service front-end qui pouvait déléguer vers un service de ressources constituait un point d’attaque potentiel. Si un serveur qui hébergeait un service front-end configuré pour déléguer vers des services de ressources était compromis, les services de ressources pouvaient l’être tout autant.
 
 Dans un domaine managé Azure AD Domain Services, il n’existe pas de privilèges d’administrateur de domaine. De ce fait, le mécanisme KCD classique basé sur les comptes ne peut pas être configuré dans un domaine managé Azure AD DS. À la place, il est possible d’utiliser le mécanisme KCD basé les ressources, qui est aussi plus sécurisé.
 
-### <a name="resource-based-kcd"></a>Mécanisme KCD basé sur les ressources
+### <a name="resource-based-kcd"></a>KCD basée sur la ressource
 
 Windows Server 2012 et les versions ultérieures offrent la possibilité aux administrateurs de service de configurer la délégation contrainte pour leur service. Ce modèle est appelé KCD basé sur les ressources. Avec cette approche, l’administrateur de service back-end peut octroyer ou refuser à des services front-end spécifiques le droit d’utiliser KCD.
 
-Le mécanisme KCD basé sur les ressources est configuré à l’aide de PowerShell. Vous devez utiliser les applets de commande [Set-ADComputer][Set-ADComputer] ou [Set-ADUser][Set-ADUser], selon que le compte d’emprunt est un compte d’ordinateur ou un compte de service/compte d’utilisateur.
+La KCD basée sur la ressource est configurée à l’aide de PowerShell. Vous devez utiliser les applets de commande [Set-ADComputer][Set-ADComputer] ou [Set-ADUser][Set-ADUser], selon que le compte d’emprunt est un compte d’ordinateur ou un compte de service/compte d’utilisateur.
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configurer le mécanisme KCD basé sur les ressources pour un compte d’ordinateur
 

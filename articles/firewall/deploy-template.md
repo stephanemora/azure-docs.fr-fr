@@ -1,18 +1,18 @@
 ---
 title: Déployer un pare-feu Azure à l’aide d’un modèle
-description: Déployer un pare-feu Azure à l’aide d’un modèle
+description: Déployez Pare-feu Azure à l’aide d’un modèle. Le réseau créé possède un réseau virtuel avec trois sous-réseaux. Deux machines virtuelles Windows Server à deux cœurs sont déployées.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/9/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839391"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169196"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
 

@@ -1,5 +1,5 @@
 ---
-title: À propos des périphériques VPN pour les connexions Azure entre locaux | Microsoft Docs
+title: 'Passerelle VPN Azure : À propos des périphériques VPN pour les connexions'
 description: Cet article traite des périphériques VPN et des paramètres IPsec pour les connexions entre locaux de passerelle VPN S2S. Des liens sont fournis vers des instructions et des exemples de configuration.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c945fa7e2e8eccb12cc105610adee3d25a5e5316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58278e241df3d9242c1cb3ad5d6e931c9c4ca701
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495798"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150917"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 

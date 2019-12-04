@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098897"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Didacticiel : Intégration d'Azure Active Directory à RightAnswers
 
@@ -191,7 +191,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à RightAnswers, vous d
 Au besoin, les utilisateurs sont automatiquement créés lors de la première tentative d’authentification unique.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par RightAnswers, pour approvisionner des comptes utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par RightAnswers pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

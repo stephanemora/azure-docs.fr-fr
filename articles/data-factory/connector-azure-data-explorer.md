@@ -11,18 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: orspodek
-ms.openlocfilehash: 6945e4dcf6baf44881bd5b13571dd03e3dee41ed
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0ffec2639d9dfbf3a82a3c24248d65a53e114745
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300537"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547142"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou depuis [Azure Data Explorer](../data-explorer/data-explorer-overview.md). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+
+>[!TIP]
+>Pour l’intégration de Azure Data Factory et Azure Data Explorer en général, consultez [intégrer Azure Data Factory à Azure Data Factory](../data-explorer/data-factory-integration.md) pour en savoir plus.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -45,7 +48,7 @@ Le connecteur Azure Data Explorer vous permet d’effectuer les opérations suiv
 ## <a name="getting-started"></a>Prise en main
 
 >[!TIP]
->Pour obtenir une description de l’utilisation du connecteur Azure Data Explorer, consultez [Copier des données vers ou depuis Azure Data Explorer à l’aide d’Azure Data Factory](../data-explorer/data-factory-load-data.md).
+>Pour obtenir une description de l’utilisation du connecteur Azure Data Explorer, consultez [Copier des données vers ou depuis Azure Data Explorer à l’aide d’Azure Data Factory](../data-explorer/data-factory-load-data.md) et [Copie en bloc depuis une base de données vers Azure Data Explorer](../data-explorer/data-factory-template.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

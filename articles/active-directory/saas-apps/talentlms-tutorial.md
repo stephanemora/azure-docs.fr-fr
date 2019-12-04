@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970ab9de270b1227884a13ac578d4c439043b20c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089162"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Didacticiel : Intégration d'Azure Active Directory à TalentLMS
 
@@ -137,13 +137,13 @@ Pour configurer l’authentification unique Azure AD avec TalentLMS, effectuez l
 
 1. Dans la section **Account & Settings (Compte et paramètres)** , cliquez sur l’onglet **Users (Utilisateurs)** .
 
-    ![Compte et paramètres](./media/talentlms-tutorial/IC777296.png "Compte et paramètres")
+    ![Accounts & Setting](./media/talentlms-tutorial/IC777296.png "Account & Settings") (Comptes et paramètres)
 
 1. Cliquez sur **Single Sign-On (SSO)** .
 
 1. Dans la section Single Sign-On, procédez comme suit :
 
-    ![Authentification unique](./media/talentlms-tutorial/IC777297.png "Authentification unique")
+    ![Authentification unique](./media/talentlms-tutorial/IC777297.png "Single Sign on")
 
     a. Dans la liste **SSO integration type (Type d’intégration SSO)** , sélectionnez **SAML 2.0**.
 
@@ -240,7 +240,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à TalentLMS, vous deve
     d. Cliquez sur **Add User**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TalentLMS, pour approvisionner des comptes d’utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par TalentLMS pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -254,5 +254,5 @@ Quand vous cliquez sur la vignette TalentLMS dans le volet d’accès, vous deve
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

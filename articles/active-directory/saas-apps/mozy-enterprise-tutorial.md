@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7d3b7f8982a24856818cbb6ce86060beac969fc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160413"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à Mozy Enterprise
 
@@ -208,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour permettre aux utilisateurs Azure AD de se connecter à Mozy Enterprise, vous devez les approvisionner dans Mozy Enterprise. Dans le cas de Mozy Enterprise, l’approvisionnement est une tâche manuelle.
 
 >[!NOTE]
->Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Mozy Enterprise pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur Mozy Enterprise fourni par Mozy Enterprise pour provisionner des comptes d’utilisateur Azure AD.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 

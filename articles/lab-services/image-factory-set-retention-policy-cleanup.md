@@ -1,6 +1,6 @@
 ---
-title: Créer une fabrique d’images dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment créer une fabrique d’images personnalisées dans Azure DevTest Labs.
+title: Configurer une stratégie de rétention dans Azure DevTest Labs | Microsoft Docs
+description: Découvrez comment configurer une stratégie de rétention, nettoyer la fabrique et mettre hors service des images anciennes à partir de DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622540"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560167"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créer une fabrique d’images personnalisées dans Azure DevTest Labs
 Cet article couvre la définition d’une stratégie de conservation, le nettoyage de la fabrique et la suppression des anciennes images dans tous les autres DevTest Labs de l’organisation. 

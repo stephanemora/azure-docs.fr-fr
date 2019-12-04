@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Prédire le risque de crédit (sensible au coût)'
+title: 'Concepteur : Prédire le risque de crédit (exemple)'
 titleSuffix: Azure Machine Learning
-description: Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide du concepteur (préversion). Vous allez apprendre à implémenter des scripts Python personnalisés et à comparer plusieurs modèles, afin de choisir la meilleure option.
+description: Créez un classifieur et utilisez des scripts Python personnalisés pour prédire le risque de crédit à l’aide du concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f174ed995b043ef99d22a0a292e9b5be394029a5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647983"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214274"
 ---
-# <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>Exemple 4 - Classification avec un script Python personnalisé : Prédire le risque de crédit
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Créer un classifieur et utiliser des scripts Python pour prédire le risque de crédit à l’aide du concepteur Azure Machine Learning
+
+**Exemple 4 du concepteur (préversion)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide du concepteur (préversion). Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et à comparer plusieurs modèles, afin de choisir la meilleure option.
@@ -26,7 +29,7 @@ Cet exemple forme un classifieur à la prédiction des risques de crédit à l�
 
 Voici le graphique complet associé à ce pipeline :
 
-[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,7 +54,7 @@ Le coût d’une erreur de classification d’un risque de crédit faible en ris
 
 Voici le graphique du pipeline :
 
-[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Traitement des données
 
@@ -107,7 +110,7 @@ Cet exemple utilise le workflow de science des données standard pour créer, en
 
 Le diagramme suivant montre une partie de ce pipeline, dans lequel les ensembles de formation d’origine et répliqués sont utilisés pour effectuer l'apprentissage de deux modèles SMV différents. La fonction **Entraîner le modèle** est connectée à l’ensemble de formation, alors que la fonction **Noter un modèle** est connectée à l’ensemble de test.
 
-![Graphique de pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Graphique de pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
 Au cours de l’étape d’évaluation du pipeline, vous calculez la précision de chacun des quatre modèles. Pour ce pipeline, utilisez **Évaluer le modèle** pour comparer les exemples présentant le même coût de classification incorrecte.
 
@@ -141,7 +144,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 Pour afficher les résultats du pipeline, vous pouvez cliquer avec le bouton de droite sur la sortie Visualiser du dernier module **Sélectionner des colonnes dans le jeu de données**.
 
-![Visualiser la sortie](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualiser la sortie](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 La première colonne indique l’algorithme d’apprentissage automatique utilisé pour générer le modèle.
 

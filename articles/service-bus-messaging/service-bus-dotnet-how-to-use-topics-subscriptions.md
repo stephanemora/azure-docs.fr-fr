@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991767"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560092"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -33,7 +33,7 @@ Ce didacticiel couvre les étapes suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créez un **espace de noms** Service Bus.
     2. Obtenez la **chaîne de connexion**.
     3. Créez une **rubrique** dans l’espace de noms.
@@ -75,16 +75,10 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
     static ITopicClient topicClient;
     ``` 
 
-3. Remplacez le contenu par défaut de `Main()` par la ligne de code suivante :
+3. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante qui envoie les messages de manière asynchrone à l’aide de la méthode SendMessagesAsync que vous allez ajouter à l’étape suivante. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Juste après `Main()`, ajoutez la méthode `MainAsync()` asynchrone suivante qui appelle la méthode d’envoi de messages :
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +95,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
         await topicClient.CloseAsync();
     }
     ```
-
-5. Juste après la méthode `MainAsync()`, ajoutez la méthode `SendMessagesAsync()` suivante qui effectue l’opération d’envoi du nombre de message spécifié par `numberOfMessagesToSend` (la valeur est actuellement définie sur 10) :
+5. Juste après la méthode `Main`, ajoutez la méthode `SendMessagesAsync()` suivante qui effectue l’opération d’envoi du nombre de message spécifié par `numberOfMessagesToSend` (la valeur est actuellement définie sur 10) :
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +139,20 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -222,17 +210,11 @@ Pour recevoir les messages que vous avez envoyés, créez une autre application 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Remplacez le contenu par défaut de `Main()` par la ligne de code suivante :
+3. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. Elle appelle la méthode `RegisterOnMessageHandlerAndReceiveMessages()` que vous ajouterez à l’étape suivante. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Juste après `Main()`, ajoutez la méthode `MainAsync()` asynchrone suivante qui appelle la méthode `RegisterOnMessageHandlerAndReceiveMessages()` :
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +226,10 @@ Pour recevoir les messages que vous avez envoyés, créez une autre application 
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Juste après la méthode `MainAsync()`, ajoutez la méthode suivante qui enregistre le gestionnaire de messages et reçoit les messages envoyés par l’application d’expéditeur :
+   ```
+5. Juste après la méthode `Main()`, ajoutez la méthode suivante qui enregistre le gestionnaire de messages et reçoit les messages envoyés par l’application d’expéditeur :
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +303,20 @@ Pour recevoir les messages que vous avez envoyés, créez une autre application 
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()

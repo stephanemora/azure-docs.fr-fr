@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Ajouter une variable au modèle Azure Resource Manager
+title: Tutoriel - Ajouter une variable au modèle
 description: Ajoutez des variables à votre modèle Azure Resource Manager pour simplifier la syntaxe.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001467"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406047"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Didacticiel : Ajouter des variables à votre modèle Resource Manager
 
@@ -25,9 +22,9 @@ Nous vous recommandons de suivre le [tutoriel sur les fonctions](template-tutori
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager et, au choix, d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
-À la fin du tutoriel précédent, votre modèle présentait le code JSON suivant :
+À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
 
@@ -53,7 +50,7 @@ Le paramètre **storagePrefix** vous permet de transmettre un préfixe qui vous 
 
 Enfin, remarquez que le nom de stockage est maintenant défini sur la variable, et non sur un paramètre.
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-template"></a>Déployer un modèle
 
 Déployons le modèle. Le déploiement de ce modèle est plus facile que les modèles précédents, car vous fournissez uniquement le préfixe pour le nom de stockage.
 
@@ -82,7 +79,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="verify-deployment"></a>Vérifier le déploiement
 
 Vous pouvez vérifier le déploiement en explorant le groupe de ressources à partir du portail Azure.
 

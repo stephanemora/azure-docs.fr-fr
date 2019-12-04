@@ -6,13 +6,13 @@ ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 05/06/2019
-ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/25/2019
+ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466754"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481670"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
 Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs. Il est basé sur la version communauté du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source et est disponible dans deux options de déploiement : Serveur unique et Hyperscale (Citus).
@@ -20,13 +20,14 @@ Azure Database pour PostgreSQL est un service de base de données relationnelle 
 ## <a name="azure-database-for-postgresql---single-server"></a>Azure Database pour PostgreSQL - Serveur unique
 L’option de déploiement Serveur unique offre :
 
-- Une haute disponibilité intégrée sans coût supplémentaire (SLA 99,99 %)
+- Une [haute disponibilité](concepts-high-availability.md) intégrée sans coût supplémentaire (SLA 99,99 %)
 - Des performances prévisibles, grâce aux tarifs du paiement à l’utilisation
-- Une mise à l’échelle verticale en fonction des besoins en quelques secondes
-- La supervision et la génération d’alertes pour évaluer rapidement l’impact de la mise à l’échelle
-- La protection des données sensibles au repos et en mouvement
-- Des sauvegardes automatiques et une restauration à un point dans le temps jusqu’à 35 jours
+- Une [mise à l’échelle verticale en fonction des besoins](concepts-pricing-tiers.md) en quelques secondes
+- La [supervision et les alertes](concepts-monitoring.md) pour évaluer votre serveur
 - Une sécurité et une conformité de classe Entreprise
+- La [protection des données](concepts-security.md) sensibles au repos et en mouvement
+- Des [sauvegardes automatiques et une restauration à un point dans le temps](concepts-business-continuity.md) jusqu’à 35 jours
+
 
 Toutes ces fonctionnalités ne nécessitent presque aucune administration, et toutes sont fournies sans coût supplémentaire. Elles vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à gérer des machines virtuelles et une infrastructure. Vous pouvez également continuer à développer votre application avec les outils open source et la plateforme de votre choix sans avoir besoin d’acquérir de nouvelles compétences.
 
@@ -42,11 +43,6 @@ L’option de déploiement Hyperscale (Citus) offre les fonctionnalités suivant
 - Excellente prise en charge des applications multilocataires, analytique opérationnelle en temps réel et charges de travail transactionnelles à débit élevé
 
 Les applications générées pour PostgreSQL peuvent exécuter des requêtes distribuées sur Hyperscale (Citus) avec des [bibliothèques de connexions](./concepts-connection-libraries.md) standard et des modifications minimes.
-
-## <a name="data-security"></a>Sécurité des données
-Azure Database pour PostgreSQL respecte la tradition de sécurité des données des services de base de données Azure. Il offre des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement et vous aident à superviser l’activité. Visitez le [Centre de confidentialité Azure](https://azure.microsoft.com/overview/trusted-cloud/) pour plus d’informations sur la sécurité de la plateforme Azure.
-
-Le service Azure Database pour PostgreSQL utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé. Par défaut, le service Azure Database pour PostgreSQL requiert des connexions sécurisées pour les données en mouvement à la fois sur le réseau et entre la base de données et l’application cliente.
 
 ## <a name="contacts"></a>Contacts
 Pour toute question ou suggestion au sujet d’Azure Database pour PostgreSQL, envoyez un e-mail à l’équipe Azure Database pour PostgreSQL ([@Ask Azure DB pour PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Utilisez cette adresse pour les questions générales, plutôt que pour des tickets de support.

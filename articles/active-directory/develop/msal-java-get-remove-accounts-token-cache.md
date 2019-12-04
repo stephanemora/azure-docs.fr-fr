@@ -18,16 +18,16 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343abd87d3b5e8b82989b8b370cef61ec6d051df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: fa6c4c53d04f227db7a9a83946182c109dc06d39
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905166"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452482"
 ---
-# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java-msal4j"></a>Obtenir et supprimer des comptes depuis le cache de jeton avec MSAL pour Java (MSAL4j)
+# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenir et supprimer des comptes du cache de jeton à l’aide de MSAL pour Java
 
-MSAL4J fournit un cache de jeton en mémoire par défaut. Le cache de jeton en mémoire dure le temps que dure l’instance de l’application.
+MSAL pour Java fournit un cache de jeton en mémoire par défaut. Le cache de jeton en mémoire dure le temps que dure l’instance de l’application.
 
 ## <a name="see-which-accounts-are-in-the-cache"></a>Afficher les comptes qui se trouvent dans le cache
 

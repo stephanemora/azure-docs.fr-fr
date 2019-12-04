@@ -11,15 +11,15 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2018
+ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00b4647815d8330152ca2dd0b5e137e337e80210
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101979"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561099"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -152,3 +152,8 @@ Prise en main de SQL Server sur des machines virtuelles Azure :
 Obtenir des réponses aux questions fréquemment posées sur les machines virtuelles SQL :
 
 * [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Afficher les architectures de référence pour l’exécution d’applications multiniveau sur SQL Server dans IaaS
+
+* [Application multiniveau Windows sur Azure avec SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Exécuter une application multiniveau dans plusieurs régions Azure pour une haute disponibilité](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

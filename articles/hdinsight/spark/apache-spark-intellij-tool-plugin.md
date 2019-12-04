@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494236"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533913"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Didacticiel : Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour le cluster HDInsight
 
@@ -336,8 +336,6 @@ Vérifiez que le prérequis relatif à WINUTILS.EXE est respecté.
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy Interactive Session Console(Scala)
 
-Elle est uniquement prise en charge sur IntelliJ 2018.2 et 2018.3.
-
 1. À partir de la barre de menus, accédez à **Run** > **Edit Configurations...** (Exécuter > Modifier les configurations).
 
 2. Dans la fenêtre **Run/Debug Configurations** (Exécuter/déboguer des wonfigurations), dans le volet gauche, accédez à **Apache Spark on HDInsight** >  **[Spark on HDInsight] myApp**.
@@ -366,6 +364,25 @@ Elle est uniquement prise en charge sur IntelliJ 2018.2 et 2018.3.
 Il est pratique pour vous de prévoir le résultat du script en envoyant du code à la console locale ou à la console de session interactive Livy (Scala). Vous pouvez mettre en évidence du code dans le fichier Scala, puis cliquer avec le bouton droit sur **Send Selection To Spark Console** (Envoyer la sélection à la console Spark). Le code sélectionné est envoyé à la console afin d’être traité. Le résultat s’affiche après le code dans la console. La console vérifiera les erreurs s’il y en a.  
 
    ![Envoyer la sélection à la console Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Effectuer l’intégration au broker d’ID HDInsight 
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Se connecter à votre cluster HDInsight ESP avec le broker d’ID
+Vous pouvez suivre les étapes habituelles pour vous connecter à l’abonnement Azure afin de vous connecter à votre cluster HDInsight ESP avec le broker d’ID. Après vous être connecté, vous verrez la liste des clusters dans l’Explorateur Azure. Pour plus d’instructions, consultez [Se connecter à votre cluster HDInsight](#connect-to-your-hdinsight-cluster).
+
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Exécuter une application Scala Spark sur un cluster HDInsight ESP avec le broker d’ID
+Vous pouvez suivre les étapes habituelles pour soumettre un travail à un cluster HDInsight ESP avec le broker d’ID. Pour plus d’instructions, consultez [Exécuter une application Scala Spark sur un cluster HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
+
+Nous chargeons les fichiers nécessaires sur un dossier nommé d’après votre compte de connexion, et vous pouvez voir le chemin de chargement dans le fichier de configuration.
+
+   ![chemin de chargement dans la configuration](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Console Spark sur un cluster HDInsight ESP avec le broker d’ID
+Vous pouvez exécuter Spark Local Console(Scala) ou Spark Livy Interactive Session Console(Scala) sur un cluster HDInsight ESP avec le broker d’ID. Pour plus d’instructions, reportez-vous à [Console Spark](#spark-console).
+
+   > [!NOTE]  
+   > Pour le cluster HDInsight ESP avec le broker d’ID, la [liaison d’un cluster](#link-a-cluster) et le [débogage d’applications Apache Spark à distance](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) ne sont pas pris en charge.
+
 
 ## <a name="reader-only-role"></a>Rôle Lecteur seul
 

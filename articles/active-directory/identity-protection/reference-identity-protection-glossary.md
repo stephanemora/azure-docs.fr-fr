@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5439b8626d1fa0ea502d33455db8b2564fbd45f0
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886688"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232340"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossaire d’Azure Active Directory Identity Protection
 
@@ -45,7 +45,7 @@ Enregistrement d’une activité dans Azure Active Directory.
 Personne ou entité devant faire l’objet d’une vérification au moyen d’une authentification basée sur certains critères, tels qu’un mot de passe ou un certificat.
 
 ### <a name="identity-risk-detection"></a>Détection des risques d’identité
-Événement AAD ayant été marqué comme anormal par le service Identity Protection et qui peut impliquer la corruption d’une identité.
+Événement Azure AD ayant été marqué comme anormal par le service Identity Protection et qui peut impliquer la corruption d’une identité.
 
 ### <a name="ignored-risk-detection"></a>Ignoré (détection des risques)
 État d’une détection de risque défini manuellement par un utilisateur du service Identity Protection et qui indique que la détection de risque a été close sans mise en place d’une action corrective.

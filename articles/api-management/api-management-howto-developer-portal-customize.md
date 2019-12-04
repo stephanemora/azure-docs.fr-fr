@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012908"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454420"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accéder au portail des développeurs et le personnaliser
 
@@ -35,10 +35,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour plus d’informations sur le portail des développeurs, voir la [Vue d’ensemble du portail des développeurs Gestion des API Azure](api-management-howto-developer-portal.md).
 
 ![Portail des développeurs Gestion des API – Mode Administrateur](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> Le portail des développeurs est actuellement en cours de déploiement dans les services Gestion des API.
-> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités doit être effectué avant le vendredi 22 novembre 2019. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -115,13 +111,16 @@ Dans la vidéo ci-dessous, nous expliquons comment modifier le contenu du portai
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish-the-portal"></a>Publier le portail
+## <a name="publish"> </a>Publier le portail
 
 Pour que votre portail et ses dernières modifications soient accessibles aux visiteurs, vous devez le publier.
 
 1. Veillez à enregistrer vos modifications en cliquant sur l’icône **Enregistrer**.
 1. Cliquez sur **Publier le site web** dans la section **Opérations** du menu. Cette opération peut prendre quelques minutes.  
     ![Publier le portail](media/api-management-howto-developer-portal-customize/publish-portal.png)
+
+> [!NOTE]
+> Le portail doit être republié après que la configuration du service Gestion des API ait été modifiée, comme l'attribution d'un domaine personnalisé, la mise à jour des fournisseurs d'identité, le paramétrage de la délégation, la spécification des conditions de connexion et de produit, et plus encore.
 
 ## <a name="visit-the-published-portal"></a>Consulter le portail publié
 

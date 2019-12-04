@@ -1,27 +1,21 @@
 ---
-title: Sauvegarde et restauration de bases de données SQL dans une machine virtuelle Azure via PowerShell - Sauvegarde Azure
+title: Sauvegarde et restauration d’une base de données SQL dans une machine virtuelle Azure via PowerShell
 description: Sauvegardez et restaurez des bases de données SQL dans des machines virtuelles Azure à l’aide de Sauvegarde Azure et PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup ; SQL ;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 115eef3619f76f83f63c5e69e86393c032e0844e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090946"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172637"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 
 Cet article explique comment utiliser Azure PowerShell pour sauvegarder et restaurer une base de données SQL au sein d’une machine virtuelle Azure à l’aide du coffre Recovery Services [Sauvegarde Azure](backup-overview.md).
 
-Ce didacticiel explique comment :
+Cet article vous explique comment :
 
 > [!div class="checklist"]
 >

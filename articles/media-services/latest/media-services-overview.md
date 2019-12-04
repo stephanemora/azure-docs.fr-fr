@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575095"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186057"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -53,6 +53,10 @@ Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos à la 
 
 > [!TIP]
 > Avant de commencer à développer, passez en revue ce qui suit :<br/>* [Concepts fondamentaux](concepts-overview.md) (concepts importants : empaquetage, encodage, protection, etc.)<br/>* [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions de nommage, etc.)
+
+### <a name="sdks"></a>Kits SDK
+
+Commencez à développer avec les [SDK clients Azure Media Services v3](media-services-apis-overview.md#sdks).
 
 ### <a name="quickstarts"></a>Démarrages rapides  
 

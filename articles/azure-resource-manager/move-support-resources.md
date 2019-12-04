@@ -1,17 +1,14 @@
 ---
-title: Prise en charge de l’opération de déplacement par type de ressource Azure
+title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 05f7d022588eee0e5e97f10d6300da04c4be6270
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 182e5fdd081126500c04f44776c9e9b8fad61843
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161946"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149773"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Il fournit également des informations sur les conditions spéciales à prendre en compte lors du déplacement d’une ressource.

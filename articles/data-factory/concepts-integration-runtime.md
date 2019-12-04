@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122947"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218812"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -74,7 +74,7 @@ Pour en savoir plus sur la création et la configuration d’un runtime d’int�
 Un runtime d’intégration auto-hébergé peut :
 
 - Exécuter une activité de copie entre des magasins de données cloud et un magasin de données situé sur un réseau privé.
-- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou le réseau virtuel Azure : activité Hive HDInsight (BYOC - Bring Your Own Cluster), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité Spark HDInsight (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET (s’exécute sur Azure Batch), activité de recherche et activité d’obtention des métadonnées.
+- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou Azure : activité Hive HDInsight (BYOC - Bring Your Own Cluster), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité Spark HDInsight (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET (s’exécute sur Azure Batch), activité de recherche et activité d’obtention des métadonnées.
 
 > [!NOTE] 
 > Utilisez le runtime d’intégration auto-hébergé pour prendre en charge les magasins de données nécessitant l’utilisation de votre propre pilote tels que SAP, Hana, MySQL, etc.  Pour en savoir plus, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,18 +1,18 @@
 ---
-title: Créer et partager une requête dans le portail Azure
-description: Dans ce didacticiel, vous allez apprendre à créer une requête Resource Graph et à la partager avec d'autres personnes sur le portail Azure.
-ms.date: 10/23/2019
+title: 'Didacticiel : Gérer les requêtes dans le portail Azure'
+description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958572"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303958"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Didacticiel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
-L'Explorateur Azure Resource Graph vous permet d'enregistrer vos requêtes Resource Graph directement sur le portail Azure. Il existe deux types de requêtes : les requêtes _privées_ et les requêtes _partagées_. Une requête privée est enregistrée dans les paramètres de votre portail Azure. Une requête partagée, quant à elle, est une ressource Resource Manager qui peut être gérée avec des contrôles d'accès en fonction du rôle (RBAC) et protégée à l'aide de verrous de ressources.
+L'Explorateur Azure Resource Graph vous permet d'enregistrer vos requêtes Resource Graph directement sur le portail Azure. Il existe deux types de requêtes : les requêtes _privées_ et les requêtes _partagées_. Une requête privée est enregistrée dans les paramètres de votre portail Azure. Une requête partagée, quant à elle, est une ressource Resource Manager qui peut être gérée avec des contrôles d'accès en fonction du rôle (RBAC) et protégée à l'aide de verrous de ressources. Les deux types de requêtes sont chiffrées au repos.
 
 L'enregistrement de requêtes sur le portail Azure vous fait gagner du temps puisqu'il vous évite de devoir rechercher vos requêtes favorites ou couramment utilisées. Lorsque vous partagez des requêtes, vous aidez votre équipe à atteindre des objectifs de cohérence et d'efficacité par la répétition.
 
@@ -54,7 +54,7 @@ Les requêtes privées ne sont accessibles et visibles que par le compte qui les
 1. Sélectionnez **Ouvrir une requête**. Assurez-vous que le type est défini sur **Requête privée**. Le nom enregistré, **Nombre de machines virtuelles par système d'exploitation**, apparaît maintenant dans la liste **Nom de la requête**. Lorsque vous sélectionnez le lien titre de la requête enregistrée, il est chargé dans un nouvel onglet portant le nom de cette requête.
 
    > [!NOTE] 
-   >Lorsqu'une requête enregistrée est ouverte et que l'onglet affiche son nom, il suffit de sélectionner le bouton **Enregistrer** pour la mettre à jour avec les modifications apportées. Pour créer une nouvelle requête enregistrée à partir de cette requête ouverte, sélectionnez **Enregistrer sous** et procédez comme si vous enregistriez une nouvelle requête.
+   > Lorsqu'une requête enregistrée est ouverte et que l'onglet affiche son nom, il suffit de sélectionner le bouton **Enregistrer** pour la mettre à jour avec les modifications apportées. Pour créer une nouvelle requête enregistrée à partir de cette requête ouverte, sélectionnez **Enregistrer sous** et procédez comme si vous enregistriez une nouvelle requête.
 
 1. Pour supprimer la requête enregistrée, sélectionnez à nouveau **Ouvrir une requête** et vérifiez que le champ **Type** est défini sur **Requête privée**. Sur la ligne de la requête `Count VMs by OS` enregistrée, sélectionnez **Supprimer** (icône Corbeille). Dans la boîte de dialogue de confirmation, sélectionnez **Oui** pour valider la suppression de la requête.
    Puis fermez le volet **Ouvrir une requête**.
@@ -153,9 +153,7 @@ Au terme de ce didacticiel, supprimez les requêtes privées et partagées que v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Exécuter votre première requête en utilisant le [portail Azure](../first-query-portal.md).
-- En savoir plus sur le [langage de requête](../concepts/query-language.md).
-- En savoir plus sur l'[exploration des ressources](../concepts/explore-resources.md).
-- Consulter des exemples de [requêtes de démarrage](../samples/starter.md).
-- Consulter des exemples de [requêtes avancées](../samples/advanced.md).
-- Envoyer des commentaires sur [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+Dans ce tutoriel, vous avez créé des requêtes privées et partagées. Pour plus d’informations sur le langage Resource Graph, passez à la page des détails du langage de requête.
+
+> [!div class="nextstepaction"]
+> [Obtenir plus d’informations sur le langage de requête](../concepts/query-language.md)

@@ -1,6 +1,6 @@
 ---
 title: Pilote de volume Azure Files pour Service Fabric (disponibilité générale) | Microsoft Docs
-description: Service Fabric prend en charge l’utilisation d’Azure Files pour sauvegarder des volumes à partir de votre conteneur. Actuellement en mode préliminaire.
+description: Service Fabric prend en charge l’utilisation d’Azure Files pour sauvegarder des volumes à partir de votre conteneur.
 services: service-fabric
 author: athinanthny
 manager: chackdan
@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.author: atsenthi
-ms.openlocfilehash: 70784e2c8c91d39c34ba503cc3ebfcf3469939d9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013493"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422785"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Pilote de volume Azure Files pour Service Fabric
 Le plug-in de volume Azure Files, un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker, est désormais en **disponibilité générale**.
@@ -63,7 +63,7 @@ Dans la section fabricSettings de votre modèle Azure Resource Manager (pour les
 ```
 
 
-## <a name="deploy-the-service-fabric-azure-files-application"></a>Déployer l’application Azure Files pour Service Fabric
+## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Déployer un exemple d'application à l’aide du pilote de volume Azure Files Service Fabric
 
 ### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Utilisation de Azure Resource Manager via le script PowerShell fourni (recommandé)
 
@@ -85,7 +85,7 @@ Une fois que vous avez correctement exécuté le script, vous pouvez passer à l
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>Déploiement manuel de clusters autonomes
 
-Vous pouvez télécharger l’application Service Fabric qui fournit les volumes pour vos conteneurs à partir du [site de téléchargement de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). L’application peut être déployée sur le cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) ou des [API FabricClient](./service-fabric-deploy-remove-applications-fabricclient.md).
+Vous pouvez télécharger l’application Service Fabric qui fournit les volumes pour vos conteneurs à partir du [site de téléchargement de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). L’application peut être déployée sur le cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) ou des [API FabricClient](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. À l’aide de la ligne de commande, basculez vers le répertoire racine du package d’application téléchargé.
 

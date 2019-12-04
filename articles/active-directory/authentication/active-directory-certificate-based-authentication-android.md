@@ -1,22 +1,22 @@
 ---
-title: Authentification par certificat sur Android - Azure Active Directory
+title: Authentification par certificat Android - Azure Active Directory
 description: En savoir plus sur les scénarios pris en charge et la configuration requise pour la configuration de l’authentification par certificat dans les solutions avec les appareils Android
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60416169"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381988"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
 
@@ -35,15 +35,15 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 
 | Applications | Support |
 | --- | --- |
-| Application Azure Information Protection |![Coche qui signifie la prise en charge de cette application][1] |
-| Portail d’entreprise Intune |![Coche qui signifie la prise en charge de cette application][1] |
-| Microsoft Teams |![Coche qui signifie la prise en charge de cette application][1] |
-| OneNote |![Coche qui signifie la prise en charge de cette application][1] |
-| OneDrive |![Coche qui signifie la prise en charge de cette application][1] |
-| Outlook |![Coche qui signifie la prise en charge de cette application][1] |
-| Power BI |![Coche qui signifie la prise en charge de cette application][1] |
-| Skype Entreprise |![Coche qui signifie la prise en charge de cette application][1] |
-| Word / Excel / PowerPoint |![Coche qui signifie la prise en charge de cette application][1] |
+| Application Azure Information Protection |![La coche indique la prise en charge de cette application][1] |
+| Portail d’entreprise Intune |![La coche indique la prise en charge de cette application][1] |
+| Microsoft Teams |![La coche indique la prise en charge de cette application][1] |
+| OneNote |![La coche indique la prise en charge de cette application][1] |
+| OneDrive |![La coche indique la prise en charge de cette application][1] |
+| Outlook |![La coche indique la prise en charge de cette application][1] |
+| Power BI |![La coche indique la prise en charge de cette application][1] |
+| Skype Entreprise |![La coche indique la prise en charge de cette application][1] |
+| Word / Excel / PowerPoint |![La coche indique la prise en charge de cette application][1] |
 | Yammer |![Coche qui signifie la prise en charge de cette application][1] |
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre

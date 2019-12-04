@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour afficher le principal du service d’une identité managée à l’aide d’Azure CLI
+title: Afficher le principal de service d’une identité managée - Interface de ligne de commande Azure - Azure AD
 description: Instructions pas à pas pour afficher le principal du service d’une identité managée à l’aide d’Azure CLI.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f379c78113a4edc1efc288617a8a1c205d03552a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ba60fdfefb5d741e92a56d2dc61eb058ac26b5ba
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442282"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224604"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Afficher le principal du service d’une identité managée à l’aide d’Azure CLI
 

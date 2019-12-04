@@ -1,19 +1,19 @@
 ---
-title: Guide pratique pour créer et localiser des ancres à l’aide d’Azure Spatial Anchors dans C++/WinRT | Microsoft Docs
+title: Créer et localiser des ancres en C++/WinRT
 description: Explication détaillée du processus de création et de localisation d’ancres à l’aide d’Azure Spatial Anchors dans C++/WinRT.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8cacb443a9fc13d742f84b92136be7428375fc6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9da98c0908f2164b8b03db5ec0e67802e782e2c4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669226"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270233"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Guide pratique pour créer et localiser des ancres à l’aide d’Azure Spatial Anchors dans C++/WinRT
 
@@ -120,7 +120,7 @@ En savoir plus sur le délégué [TokenRequiredDelegate](https://docs.microsoft.
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-En savoir plus sur la méthode [Sart](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start).
+En savoir plus sur la méthode [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start).
 
 ```cpp
     m_cloudSession.Start();

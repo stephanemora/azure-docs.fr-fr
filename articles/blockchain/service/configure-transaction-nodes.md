@@ -1,31 +1,17 @@
 ---
 title: Configurer les nœuds de transaction Azure Blockchain Service
 description: Configuration des nœuds de transaction Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
-ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: janders
+ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027959"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326302"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
-
-Pour interagir avec Azure Blockchain Service, vous vous connectez à un ou plusieurs nœuds de transaction dans votre membre blockchain.  Pour interagir avec des nœuds de transaction, vous devez configurer vos nœuds pour l’accès.
-
-## <a name="prerequisites"></a>Prérequis
-
-* [Créer un membre Azure Blockchain](create-member.md)
-
-## <a name="transaction-node-overview"></a>Vue d’ensemble des nœuds de transaction
 
 Les nœuds de transaction permettent d’envoyer des transactions blockchain à Azure Blockchain Service par le biais d’un point de terminaison public. Le nœud de transaction par défaut contient la clé privée du compte Ethereum inscrit sur la blockchain et n’est pas supprimable en tant que tel.
 
@@ -54,7 +40,7 @@ Pour ajouter un nœud de transaction :
     | Nom | Nom du nœud de transaction. Le nom est utilisé pour créer l’adresse DNS du point de terminaison du nœud de transaction. Par exemple : `newnode-myblockchainmember.blockchain.azure.com`. Une fois créé, le nom du nœud n’est plus modifiable. |
     | Mot de passe | Définissez un mot de passe fort. Utilisez le mot de passe pour accéder au point de terminaison du nœud de transaction avec une authentification de base.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
     Le provisionnement d’un nouveau nœud de transaction prend environ 10 minutes. L’ajout de nœuds de transaction entraîne des frais. Pour plus d’informations sur les coûts, consultez la page [Tarification Service Azure Blockchain](https://aka.ms/ABSPricing).
 
@@ -83,7 +69,7 @@ Pour accorder un contrôle d’accès Azure AD à votre point de terminaison :
 
     | Paramètre | Action |
     |---------|-------------|
-    | Rôle | Sélectionnez **Propriétaire**, **Contributeur** ou **Lecteur**.
+    | Role | Sélectionnez **Propriétaire**, **Contributeur** ou **Lecteur**.
     | Attribuer l’accès à | Sélectionnez **Utilisateur, groupe ou principal du service Azure AD**.
     | Sélectionnez | Recherchez l’utilisateur, le groupe ou le principal de service que vous souhaitez ajouter.
 
@@ -107,7 +93,7 @@ Pour utiliser l’URL, remplacez \<password\> par le mot de passe défini lors d
 
 ### <a name="access-keys"></a>Clés d’accès
 
-Pour l’authentification par clé d’accès, la clé d’accès figure dans l’URL du point de terminaison. Lorsque le nœud de transaction est approvisionné, deux clés d’accès sont générées. Vous pouvez utiliser l’une ou l’autre clé pour l’authentification. Ces deux clés vous permettent de modifier et faire tourner les clés.
+Pour l’authentification par clé d’accès, la clé d’accès figure dans l’URL du point de terminaison. Lorsque le nœud de transaction est approvisionné, deux clés d’accès sont générées. Vous pouvez utiliser l’une ou l’autre clé pour l’authentification. Deux clés vous permettent de modifier et de faire pivoter des clés.
 
 Vous pouvez visualiser les détails de la clé d’accès d’un nœud de transaction et copier les adresses de point de terminaison qui contiennent les clés d’accès. Accédez à l’un des nœuds de transaction de votre membre Azure Blockchain Service, puis sélectionnez **Clés d’accès** dans les paramètres.
 
@@ -141,7 +127,7 @@ Un exemple de code est fourni pour vous aider à vous connecter rapidement à vo
 
 Vous pouvez visualiser l’exemple de code de connexion d’un nœud de transaction et le copier afin de l’utiliser avec les outils de développement les plus courants. Accédez à l’un des nœuds de transaction de votre membre Azure Blockchain Service, puis sélectionnez **Exemple de code** dans les paramètres.
 
-Choisissez l’onglet Web3 ou Nethereum pour afficher l’exemple de code que vous souhaitez utiliser.
+Choisissez l’onglet Web3, Nethereum, Truffle ou Web3j pour afficher l’exemple de code que vous souhaitez utiliser.
 
 ![Exemple de code](./media/configure-transaction-nodes/sample-code.png)
 

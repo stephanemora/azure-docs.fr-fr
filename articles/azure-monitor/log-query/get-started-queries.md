@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933041"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278605"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
@@ -239,4 +239,7 @@ Pour rendre la sortie plus claire, vous décidez de l’afficher sous la forme d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [l’écriture de requêtes de recherche](search-queries.md).
+- Apprenez-en davantage sur l’utilisation des données de chaîne dans une requête de journal avec [Utilisation de chaînes dans des requêtes de journal Azure Monitor](string-operations.md).
+- Apprenez-en davantage sur l’agrégation de données dans une requête de journal avec [Agrégations avancées dans des requêtes de journal Azure Monitor](advanced-aggregations.md).
+- Découvrez comment joindre des données provenant de plusieurs tables avec [Jointures dans les requêtes de journal Azure Monitor](joins.md).
+- Procurez-vous la documentation sur l’intégralité du langage de requête Kusto dans [Informations de référence sur le langage KQL](/azure/kusto/query/).

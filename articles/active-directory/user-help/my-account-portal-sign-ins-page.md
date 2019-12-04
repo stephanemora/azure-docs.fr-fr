@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586882"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279033"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexion (préversion)
 
@@ -49,7 +49,7 @@ Avant de déterminer si quelque chose est incorrect, assurez-vous que vous ne vo
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Si vous voyez une connexion non réussie
 
-Une connexion non réussie, sans activité de session, signifie que votre méthode d’authentification principale (nom d’utilisateur/mot de passe) a échoué. Cela peut signifier que vous avez mal saisi votre nom d’utilisateur ou mot de passe, mais cela peut également signifier qu’un attaquant essayait de deviner votre mot de passe. Si vous pensez que l’attaquant n’a pas réussi à deviner votre mot de passe, vous n’êtes pas obligé de modifier votre mot de passe, mais nous vous suggérons vivement de vous inscrire à Azure Multi-Factor Authentication (MFA). Grâce à l’authentification multifacteur, même si le pirate finit par deviner votre mot de passe, cela ne sera pas suffisant pour accéder à votre compte.
+Une connexion non réussie, sans activité de session, signifie que votre méthode de vérification principale (nom d’utilisateur/mot de passe) a échoué. Cela peut signifier que vous avez mal saisi votre nom d’utilisateur ou mot de passe, mais cela peut également signifier qu’un attaquant essayait de deviner votre mot de passe. Si vous pensez que l’attaquant n’a pas réussi à deviner votre mot de passe, vous n’êtes pas obligé de modifier votre mot de passe, mais nous vous suggérons vivement de vous inscrire à Azure Multi-Factor Authentication (MFA). Grâce à l’authentification multifacteur, même si le pirate finit par deviner votre mot de passe, cela ne sera pas suffisant pour accéder à votre compte.
 
 Si vous voyez une connexion non réussie, avec une note sous Activité de session qui indique « **Échec de la vérification supplémentaire, code non valide** », cela signifie que votre authentification principale (nom d’utilisateur/mot de passe) a réussi, mais que la MFA a échoué. S’il s’agissait d’un attaquant, il a correctement deviné votre mot de passe, mais n’a toujours pas réussi à passer outre la MFA. Dans ce cas, nous vous recommandons de tout de même modifier votre mot de passe, dans la mesure où l’attaquant a trouvé cette partie, puis d’accéder à la page [Informations de sécurité](https://mysignins.microsoft.com/security-info) pour mettre à jour vos paramètres de sécurité.
 

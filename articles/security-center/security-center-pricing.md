@@ -1,6 +1,6 @@
 ---
 title: Niveaux tarifaires d’Azure Security Center
-description: Cet article fournit des informations sur la tarification d’Azure Security Center.
+description: 'Azure Security Center est proposé en deux niveaux de service : Gratuit et Standard. Cette page indique comment effectuer la mise à niveau du niveau de service Gratuit vers le niveau de service Standard.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffb571d13270ced80426aee3575197cf95d3805
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664262"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559244"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.

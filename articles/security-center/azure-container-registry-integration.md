@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center et Azure Container Registry | Microsoft Docs
+title: Azure Security Center et Azure Container Registry
 description: Découvrez comment intégrer Azure Security Center à Azure Container Registry
 services: security-center
 documentationcenter: na
@@ -10,22 +10,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521451"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229315"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Intégration d’Azure Container Registry à Security Center (préversion)
 
 Azure Container Registry (ACR) est un service de registre Docker privé et géré qui stocke et gère vos images conteneurs pour les déploiements Azure dans un registre central. Il est basé sur le registre Docker open source 2.0.
 
-Lorsque vous utilisez ACR avec le niveau Standard d’Azure Security Center (voir la [tarification](security-center-pricing.md)), vous bénéficiez d’une visibilité plus poussée sur les vulnérabilités du registre et des images.
+Pour une meilleure visibilité des vulnérabilités du registre et des images, les utilisateurs du niveau de service Standard d’Azure Security Center peuvent activer l’offre groupée facultative de registres de conteneurs. Pour plus d’informations, voir la [tarification](security-center-pricing.md). Lorsque l’offre groupée est activée, Security Center analyse automatiquement les images dans votre registre chaque fois qu’une image est envoyée (push) au registre.
 
-[![Recommandations Azure Container Registry (ACR) à l’intérieur d’Azure Security Center](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+> [!NOTE]
+> La première analyse de Security Center d’un registre ne se produit qu’une fois que l’offre groupée de registres de conteneurs est activée et qu’une image est envoyée (push) au registre.
+
+Une fois l’analyse terminée (généralement après environ 10 minutes), les résultats sont disponibles dans les suggestions Security Center comme suit :
+
+[![Exemple de suggestion Azure Security Center sur les vulnérabilités découvertes dans une image hébergée Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Avantages de l’intégration
 

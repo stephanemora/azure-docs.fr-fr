@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6234a13d07ac024849d1c890d82ef03e19c11af4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012009"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280855"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
@@ -45,9 +45,9 @@ Les modèles utilisent un mélange de technologies de prédiction. La définitio
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Les modèles n’améliorent pas la détection d’entités apprises automatiquement
 
-Un modèle sert principalement à faciliter la prédiction des intentions et des rôles. L’entité pattern.any permet d’extraire des entités à structure libre. Même s’ils utilisent des entités, les modèles n’aident pas à détecter des entités apprises automatiquement.  
+Un modèle sert principalement à faciliter la prédiction des intentions et des rôles. L’entité _pattern.any_ permet d’extraire des entités à structure libre. Même s’ils utilisent des entités, les modèles n’aident pas à détecter des entités apprises automatiquement.  
 
-Ne vous attendez pas à constater une amélioration de la prédiction d’entité si vous réduisez plusieurs énoncés dans un modèle unique. Pour que les entités Simple se déclenchent, vous devez ajouter des énoncés ou utiliser des entités de liste, sinon votre modèle ne se déclenchera pas.
+Ne vous attendez pas à constater une amélioration de la prédiction d’entité si vous réduisez plusieurs énoncés dans un modèle unique. Pour que les entités simples se déclenchent, vous devez ajouter des énoncés ou utiliser des entités de liste, sinon votre modèle ne se déclenchera pas.
 
 ## <a name="patterns-use-entity-roles"></a>Les modèles utilisent des rôles d’entités
 Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](luis-concept-roles.md) d’entités pour extraire des informations contextuelles sur les entités.  

@@ -1,25 +1,17 @@
 ---
-title: Utilisez la référence du modèle Azure Resource Manager | Microsoft Docs
+title: Utiliser la référence de modèle
 description: Utiliser la référence du modèle Azure Resource Manager pour créer un modèle de déploiement d’un compte de stockage chiffré.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 99ec64529b90c7a80aea62090f80c55cf4e23510
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103633"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326477"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutoriel : Utiliser la référence du modèle Azure Resource Manager
 
@@ -44,7 +36,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* [Visual Studio Code](https://code.visualstudio.com/) avec l’[extension Outils Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -86,7 +78,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
     Si vous ne savez pas quelle version choisir, utilisez la version la plus récente.
 
-4. Rechercher les informations de définition relatives au chiffrement.  
+4. Rechercher les informations de définition relatives au chiffrement.
 
     ```json
     "encryption": {

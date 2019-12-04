@@ -1,14 +1,14 @@
 ---
 title: Exemple - Pas de recours au niveau d’accès froid sur le compte de stockage
-description: Cet exemple de définition de stratégie interdit l’utilisation des niveaux d’accès froids pour les comptes de stockage d’objets blob.
+description: Cet exemple de définition de stratégie interdit l’utilisation des niveaux d’accès froids pour tous les comptes de stockage d’objets blob.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 6e22519eecc6db8ddccccbdb7f6bbbee622cc803
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: cbee14edffb79ed3261bf65776b41017a30276fc
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076322"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463370"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>Exemple - Refuser le recours au niveau d’accès froid pour les comptes de stockage
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: b985dfc1f16372c3fad1b0a5c0894931b4c15dcc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128849"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406483"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -63,7 +63,7 @@ Vous pouvez également générer les informations d’identification en exécuta
     ./generateCredentials.ps1   
 
     ```
-7. Suivez les instructions à l’écran pour obtenir les valeurs (point de terminaison d’API, ID de locataire, ID client, secret client et chaîne de connexion du hub d’événements).
+7. Suivez les instructions à l’écran pour obtenir les valeurs (point de terminaison d’API, ID de locataire, ID client, secret client et chaîne de connexion du hub d’événements). La chaîne de connexion EventHub sera disponible dans le cadre de la réponse de l’API dans le Swagger.
 
 **Intégrer des données d’appareil à l’aide des informations d’identification générées**
 

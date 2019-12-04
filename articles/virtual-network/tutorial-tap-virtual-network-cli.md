@@ -1,5 +1,5 @@
 ---
-title: Créer, changer ou supprimer un TAP de réseau virtuel - Azure CLI | Microsoft Docs
+title: Créer, modifier ou supprimer un point d’accès terminal de réseau virtuel – Azure CLI
 description: Découvrez comment créer, changer ou supprimer un TAP de réseau virtuel à l’aide d’Azure CLI.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743188"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185396"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Utiliser un TAP de réseau virtuel à l’aide d’Azure CLI
 

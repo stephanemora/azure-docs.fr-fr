@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un service de recherche dans le portail'
 titleSuffix: Azure Cognitive Search
-description: Provisionnez une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
+description: Dans ce guide démarrage rapide du portail, découvrez comment configurer une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112118"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534565"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -41,7 +41,7 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 ## <a name="choose-a-subscription"></a>Sélectionnez un abonnement
 
-La première étape consiste à définir l’ID d’abonnement et le groupe de ressources. Si vous avez plusieurs abonnements, choisissez celui qui a également des services de stockage de données ou de fichiers. La Recherche cognitive Azure peut détecter automatiquement Table Azure, Stockage Blob, SQL Database et Azure Cosmos DB afin d’effectuer l’indexation via des [*indexeurs*](search-indexer-overview.md), mais uniquement pour les services du même abonnement.
+Si vous avez plusieurs abonnements, choisissez-en un pour votre service de recherche.
 
 ## <a name="set-a-resource-group"></a>Définir un groupe de ressources
 

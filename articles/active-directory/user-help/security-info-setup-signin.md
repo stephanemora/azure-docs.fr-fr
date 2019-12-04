@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité (préversion) à partir d’une invite de connexion - Azure AD
-description: Découvrez comment configurer les informations de sécurité de votre compte professionnel ou scolaire si vous êtes invité à le faire dans la page de connexion de votre organisation.
+title: Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion - Azure AD
+description: Découvrez comment configurer les informations de sécurité (préversion) de votre compte professionnel ou scolaire à partir de la page de connexion de votre organisation.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820301"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278982"
 ---
-# <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurer des informations de sécurité (préversion) à partir de l’invite de la page de connexion
+# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion
 
 Vous pouvez suivre ces étapes si vous êtes invité à définir des informations de sécurité immédiatement après vous être connecté à votre compte professionnel ou scolaire.
 

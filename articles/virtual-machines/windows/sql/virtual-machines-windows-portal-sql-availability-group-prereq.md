@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 17b1f58a950f2e0589986e9f1da1295671599341
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037471"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224765"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prérequis de la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure SQL Server
 
@@ -152,7 +152,7 @@ Configurez deux groupes à haute disponibilité en vous basant sur les paramètr
 Après avoir créé les groupes à haute disponibilité, revenez au groupe de ressources dans le Portail Azure.
 
 ## <a name="create-domain-controllers"></a>Création de contrôleurs de domaine
-Une fois que vous avez créé le réseau, les sous-réseaux, les groupes à haute disponibilité et un équilibrage de charge accessible sur Internet, vous êtes prêt à créer les machines virtuelles associées aux contrôleurs de domaine.
+Une fois que vous avez créé le réseau, les sous-réseaux et les groupes à haute disponibilité, vous êtes prêt à créer les machines virtuelles associées aux contrôleurs de domaine.
 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Créer les machines virtuelles associées aux contrôleurs de domaine
 Pour créer et configurer les contrôleurs de domaine, revenez au groupe de ressources **SQL-HA-RG** .

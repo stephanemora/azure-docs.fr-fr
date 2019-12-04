@@ -1,17 +1,14 @@
 ---
-title: Fonctions de modèle Azure Resource Manager - chaîne | Microsoft Docs
+title: Fonctions de modèle – Chaîne
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-ms.openlocfilehash: d5c95e964740978af0db8db233c65adb7eb074f0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834341"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149614"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 

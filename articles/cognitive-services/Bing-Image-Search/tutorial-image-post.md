@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#'
+title: 'Didacticiel : Extraire les détails d’une image avec l’API REST et C# - Recherche d’images Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez cet article pour créer une application C# qui extrait les détails de l’image avec l’API Recherche d’images Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790035"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327004"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#
 
@@ -98,7 +98,7 @@ Cette réponse JSON peut ensuite être affichée sur la console.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Utiliser un jeton d’insights sur l’image dans une requête
 
-Pour utiliser le `ImageInsightsToken` retourné avec les résultats d’un `POST`, vous pouvez l’ajouter à une requête `GET`. Par exemple : 
+Pour utiliser le `ImageInsightsToken` retourné avec les résultats d’un `POST`, vous pouvez l’ajouter à une requête `GET`. Par exemple :
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2

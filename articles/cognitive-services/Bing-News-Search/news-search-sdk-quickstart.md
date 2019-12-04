@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide : Effectuer une recherche d'actualités avec le kit de développement logiciel (SDK) Recherche d'actualités Bing pour C#"
+title: 'Démarrage rapide : Effectuer une recherche d’actualités avec le SDK pour C# - Recherche d’actualités Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour rechercher des actualités en utilisant le SDK Recherche d’actualités Bing pour C# et pour traiter la réponse.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 626596cc88b1b3b1067d7d6d157a548f92fb621a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 03f582b4ba5b3321f46af370a0bb4adfa005046c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206015"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379009"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Démarrage rapide : Effectuer une recherche d'actualités avec le Kit de développement logiciel (SDK) Recherche d'actualités Bing pour C#
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158737"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas
 
@@ -249,7 +249,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Canvas, vous devez l
    e. Cliquez sur **Add User**.
 
 > [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Canvas pour approvisionner des comptes d’utilisateur Azure Active Directory.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Canvas pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

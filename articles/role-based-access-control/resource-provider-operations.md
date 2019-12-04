@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 092c3b4ac6ce163e9fcf8aaad9e74f398559e9e2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818587"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546332"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
-Cet article répertorie les opérations disponibles pour chaque fournisseur de ressources Azure Resource Manager. Ces opérations peuvent être utilisées dans des [rôles personnalisés](custom-roles.md) pour fournir un [contrôle d’accès en fonction du rôle (RBAC)](overview.md) granulaire aux ressources dans Azure. Les chaînes d’opération suivent ce format : `{Company}.{ProviderName}/{resourceType}/{action}`
+Cet article répertorie les opérations disponibles pour chaque fournisseur de ressources Azure Resource Manager. Ces opérations peuvent être utilisées dans des [rôles personnalisés](custom-roles.md) pour fournir un [contrôle d’accès en fonction du rôle (RBAC)](overview.md) granulaire aux ressources dans Azure. Les chaînes d’opération suivent ce format : `{Company}.{ProviderName}/{resourceType}/{action}`. Pour obtenir la liste des correspondances entre les espaces de noms de fournisseur de ressources et les services Azure, consultez [Fournisseur de ressources correspondant au service](../azure-resource-manager/azure-services-resource-providers.md).
 
 Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir les dernières opérations, utilisez [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -6235,5 +6235,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Fournisseur de ressources correspondant au service](../azure-resource-manager/azure-services-resource-providers.md)
 - [Rôles personnalisés pour les ressources Azure](custom-roles.md)
 - [Rôles intégrés pour les ressources Azure](built-in-roles.md)

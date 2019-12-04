@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Ajouter des étiquettes aux ressources dans un modèle Azure Resource Manager
+title: Tutoriel - Ajouter des étiquettes aux ressources dans un modèle
 description: Ajoutez des étiquettes aux ressources que vous déployez dans votre modèle Azure Resource Manager. Les étiquettes vous permettent d’organiser logiquement les ressources.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177564"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406068"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Didacticiel : Ajouter des étiquettes à votre modèle Resource Manager
 
@@ -25,7 +22,7 @@ Nous vous recommandons de suivre le [tutoriel sur les modèles de démarrage rap
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager et, au choix, d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
 Votre modèle précédent a déployé un compte de stockage, un plan App Service et une application web.
 
@@ -41,7 +38,7 @@ L’exemple suivant met en évidence les modifications apportées au modèle. Co
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-template"></a>Déployer un modèle
 
 Le moment est venu de déployer le modèle et d’examiner les résultats.
 
@@ -71,7 +68,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="verify-deployment"></a>Vérifier le déploiement
 
 Vous pouvez vérifier le déploiement en explorant le groupe de ressources à partir du portail Azure.
 

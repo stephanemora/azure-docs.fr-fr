@@ -1,11 +1,11 @@
 ---
-title: Déployer une application double pile IPv6 avec le Load Balancer de base dans Azure - PowerShell
+title: Déployer une application double pile IPv6 – Load Balancer de base – PowerShell
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide d’Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 0b7f7a9198664693819143c306eeb1a020d22b7c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011428"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185483"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Déployer une application double pile IPv6 avec le Load Balancer de base - PowerShell (Préversion)
 
-Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) avec le Load Balancer de base à l’aide d’Azure CLI incluant un sous-réseau et un réseau virtuel double pile, un Load Balancer de base avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
+Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) avec le Load Balancer de base à l’aide d’Azure PowerShell incluant un sous-réseau et un réseau virtuel double pile, un Load Balancer de base avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
 
 Pour déployer une application double pile (IPv4 + IPv6) à l’aide de Standard Load Balancer, consultez [Déployer une application double pile IPv6 avec Standard Load Balancer à l’aide d’Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 

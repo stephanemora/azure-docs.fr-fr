@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036658"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534195"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuration d’un RAID logiciel sur Linux
 L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure est un scénario fréquent afin de regrouper plusieurs disques de données attachés sous la forme d'un périphérique RAID unique. En règle générale, ce scénario permet d'optimiser les performances et d'améliorer le débit par rapport à l'utilisation d'un disque unique.
 
 ## <a name="attaching-data-disks"></a>Disques de données attachés
 Au moins deux disques de données sont nécessaires pour configurer un périphérique RAID.  La raison principale pour la création d’un appareil RAID est d’améliorer les performances de vos E/S de disque.  En fonction de vos besoins d’E/S, vous pouvez choisir d’attacher des disques qui sont stockés dans notre stockage Standard, avec un maximum de 500 opérations d’E/S par disque ou dans notre stockage Premium avec un maximum de 5 000 opérations d’E/S par disque. Cet article n’aborde pas en détail la marche à suivre pour approvisionner et attacher des disques de données sur une machine virtuelle Linux.  Consultez l’article Microsoft Azure [Attacher un disque](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux dans Azure.
+
+> [!IMPORTANT]
+>Ne mélangez pas des disques de tailles différentes, cela aurait pour conséquence de limiter le niveau de performance du raidset à celui du disque le plus lent. 
 
 ## <a name="install-the-mdadm-utility"></a>Installation de l'utilitaire mdadm
 * **Ubuntu**

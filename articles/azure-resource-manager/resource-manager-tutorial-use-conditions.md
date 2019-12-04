@@ -1,24 +1,16 @@
 ---
-title: Utiliser une condition dans des modèles Azure Resource Manager | Microsoft Docs
+title: Utiliser une condition dans des modèles
 description: Découvrez comment déployer des ressources Azure en fonction des conditions. Montre comment déployer une nouvelle ressource ou utiliser une ressource existante.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5fa1db5131f555c92aa12fc01a109469c2cf819e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7aecc25daed8f73e903b181d782e53c0ea5acd74
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390192"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325344"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Didacticiel : Utiliser une condition dans des modèles Azure Resource Manager
 
@@ -49,7 +41,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* [Visual Studio Code](https://code.visualstudio.com/) avec l’[extension Outils Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
 
     ```azurecli-interactive

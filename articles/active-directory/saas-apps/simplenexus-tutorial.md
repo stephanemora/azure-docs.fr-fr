@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f8041ecea7c297c6eafdedfbedaae62f61e0e8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d368b6cd809ccf4e428974bf7c82c01bc5e035b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090597"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Didacticiel : Intégration d’Azure AD à SimpleNexus
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour se connecter à SimpleNexus, les utilisateurs d’Azure AD doivent être approvisionnés dans SimpleNexus. Dans le cas de SimpleNexus, l’approvisionnement est une tâche manuelle effectuée par l’administrateur du locataire.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par SimpleNexus, pour approvisionner des comptes d’utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte utilisateur fournis par SimpleNexus pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

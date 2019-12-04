@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625345"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533103"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Évolution de la plateforme d’identités Microsoft
 
@@ -52,7 +52,7 @@ Le diagramme suivant illustre l’expérience d’identité Microsoft à un haut
 
 L’expérience d’ **[inscription d’application](https://go.microsoft.com/fwlink/?linkid=2083908)** du portail Azure est la seule expérience de portail qui vous permet de gérer toutes les applications que vous avez intégrées à la plateforme d’identités Microsoft. Si vous utilisez le portail d’inscription d’application, commencez plutôt à utiliser l’inscription d’application du portail Azure.
 
-Pour l’intégration à Azure AD B2C (lors de l’authentification d’identités sociales ou locales), vous devrez inscrire votre application dans un locataire B2C. Cette expérience fait également partie du portail Azure.
+Pour l’intégration à Azure AD B2C (lors de l’authentification d’identités sociales ou locales), vous devrez inscrire votre application dans un locataire Azure AD B2C. Cette expérience fait également partie du portail Azure.
 
 L’**API d’application dans Microsoft Graph** est actuellement en préversion. Utilisez cette API pour configurer par programme vos applications intégrées à la plateforme d’identités Microsoft pour l’authentification de n’importe quelle identité Microsoft. Toutefois, tant que cette API n’est pas en disponibilité générale, vous devez utiliser l’API Graph 1.6 Azure AD et le manifeste d’application.
 

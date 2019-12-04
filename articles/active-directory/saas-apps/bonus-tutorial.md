@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442772"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Didacticiel : Intégration d’Azure Active Directory avec Bonusly
 
@@ -135,12 +135,12 @@ Pour configurer l’authentification unique Azure AD avec Bonusly, effectuez le
 
 1. Dans la barre d’outils située en haut, cliquez sur **Settings** (Paramètres), puis sélectionnez **Integrations and apps** (Intégrations et applications).
 
-    ![Section sociale Bonusly](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Section sociale Bonusly](./media/bonus-tutorial/ic773686.png "Bonus.ly")
 1. Sous **Single Sign-On**, sélectionnez **SAML**.
 
 1. Dans la page de boîte de dialogue **SAML** , procédez comme suit :
 
-    ![Page de boîte de dialogue Saml Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
+    ![Page de boîte de dialogue Saml Bonusly](./media/bonus-tutorial/ic773687.png "Bonus.ly")
 
     a. Dans la zone de texte **IdP SSO target URL** (URL cible d’authentification unique IdP), collez la valeur **URL de connexion**, que vous avez copiée à partir du portail Azure.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez les provisionner dans Bonusly. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 > [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bonusly pour approvisionner des comptes d’utilisateur Azure Active Directory. 
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bonusly pour provisionner des comptes d’utilisateurs Azure AD. 
 
 **Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
 
@@ -219,11 +219,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez
 
 1. Cliquez sur l’onglet **Users and bonuses** .
 
-    ![Users and bonuses](./media/bonus-tutorial/ic781042.png "Users and bonuses")
+    ![Users and bonuses](./media/bonus-tutorial/ic781042.png "Users and bonuses") (Utilisateurs et bonus)
 
 1. Cliquez sur **Manage Users**.
 
-    ![Gestion des utilisateurs](./media/bonus-tutorial/ic781043.png "Gestion des utilisateurs")
+    ![Gérer les utilisateurs](./media/bonus-tutorial/ic781043.png "Manage Users")
 
 1. Cliquez sur **Add User**.
 
@@ -256,4 +256,4 @@ Le fait de cliquer sur la vignette Bonusly dans le panneau d’accès doit vous 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

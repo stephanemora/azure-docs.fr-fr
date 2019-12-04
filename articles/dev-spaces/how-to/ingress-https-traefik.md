@@ -1,20 +1,16 @@
 ---
 title: Utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 08/13/2019
 ms.topic: conceptual
 description: Découvrez comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS à l’aide de ce contrôleur d’entrée
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: c015fe8e7108f07d66d2464c4f8b6287e8f54446
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ddaa7b3e982cb85428a7faef20b59525a175778
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582326"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482545"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS
 
@@ -26,7 +22,7 @@ Cet article explique comment configurer Azure Dev Spaces pour utiliser un contr�
 * [Azure CLI][az-cli].
 * [Cluster AKS (Azure Kubernetes Service) avec Azure Dev Spaces activé][qs-cli].
 * [kubectl][kubectl] installé.
-* [Helm 2.13 ou version ultérieure installé][helm-installed].
+* [Helm 2.13 à 2.16 installé][helm-installed].
 * Un [domaine personnalisé][custom-domain] avec une [zone DNS][dns-zone] dans le même groupe de ressources que votre cluster AKS.
 
 ## <a name="configure-a-custom-traefik-ingress-controller"></a>Configurer un contrôleur d’entrée traefik personnalisé
@@ -288,7 +284,7 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

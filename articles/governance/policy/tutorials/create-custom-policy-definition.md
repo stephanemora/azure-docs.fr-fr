@@ -1,14 +1,14 @@
 ---
-title: Créer une définition de stratégie personnalisée
-description: Créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
-ms.date: 04/23/2019
+title: 'Didacticiel : Créer une définition de stratégie personnalisée'
+description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128790"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483980"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Didacticiel : Créer une définition de stratégie personnalisée
 
@@ -31,6 +31,8 @@ Voici les étapes de création d’une stratégie personnalisée :
 > - Déterminer l’effet à utiliser
 > - Composer la définition de stratégie
 
+## <a name="prerequisites"></a>Prérequis
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="identify-requirements"></a>Identifier les exigences
@@ -50,12 +52,17 @@ D’après les besoins métier, la ressource Azure à auditer avec Azure Policy 
 
 Il existe de nombreuses façons de déterminer les propriétés d’une ressource Azure. Dans ce tutoriel, nous les examinons toutes :
 
+- Extension Azure Policy pour VS Code
 - Modèles Resource Manager
   - Exporter une ressource existante
   - Expérience de création
   - Modèles de démarrage rapide (GitHub)
   - Documentation de référence de modèle
 - Azure Resource Explorer
+
+### <a name="view-resources-in-vs-code-extension"></a>Afficher des ressources dans l’extension VS Code
+
+L’[extension VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) peut être utilisée pour parcourir des ressources dans votre environnement et voir les propriétés Resource Manager sur chaque ressource.
 
 ### <a name="resource-manager-templates"></a>Modèles Resource Manager
 
@@ -156,9 +163,14 @@ Nous avons identifié la propriété de la ressource, mais nous devons mapper ce
 
 Il existe de nombreuses façons de déterminer les alias d’une ressource Azure. Dans ce tutoriel, nous les examinons toutes :
 
+- Extension Azure Policy pour VS Code
 - D’Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>Obtenir des alias dans l’extension VS Code
+
+L’extension Azure Policy pour l’extension VS Code facilite la navigation dans vos ressources et la [découverte d’alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>D’Azure CLI
 
@@ -188,7 +200,7 @@ Comme avec Azure CLI, les résultats montrent un alias pris en charge par les co
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) est un nouveau service en préversion. Il nous donne une autre méthode de recherche des propriétés de ressources Azure. Voici un exemple de requête permettant d’examiner un seul compte de stockage avec Resource Graph :
+[Azure Resource Graph](../../resource-graph/overview.md) est un nouveau service. Il nous donne une autre méthode de recherche des propriétés de ressources Azure. Voici un exemple de requête permettant d’examiner un seul compte de stockage avec Resource Graph :
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Voici un exemple de sortie de compte de stockage pour les alias :
 }
 ```
 
-Azure Resource Graph (préversion) peut être utilisé via [Cloud Shell](https://shell.azure.com) et devient alors un moyen simple et rapide pour explorer les propriétés de vos ressources.
+Azure Resource Graph peut être utilisé par le biais de [Cloud Shell](https://shell.azure.com) et devient alors un moyen simple et rapide pour explorer les propriétés de vos ressources.
 
 ## <a name="determine-the-effect-to-use"></a>Déterminer l’effet à utiliser
 
-Choisir ce que vous allez faire de vos ressources non conformes est presque aussi important que choisir ce que vous devez évaluer en premier lieu. Chaque réponse possible à une ressource non conforme est appelée un [effet](../concepts/effects.md).
-L’effet contrôle si la ressource non conforme est enregistrée, bloquée, a des données ajoutées ou est associée à un déploiement pour la remettre dans un état conforme.
+Choisir ce que vous allez faire de vos ressources non conformes est presque aussi important que choisir ce que vous devez évaluer en premier lieu. Chaque réponse possible à une ressource non conforme est appelée un [effet](../concepts/effects.md). L’effet contrôle si la ressource non conforme est enregistrée, bloquée, a des données ajoutées ou est associée à un déploiement pour la remettre dans un état conforme.
 
 Dans notre exemple, nous voulons l’effet Refuser pour que les ressources non conformes ne soient pas créées dans notre environnement Azure. Avant de définir l’effet Refuser, commencez par l’auditer pour déterminer l’impact de la stratégie. Pour simplifier le changement d’effet par attribution, vous pouvez paramétrer l’effet. Consultez les [paramètres](#parameters) ci-dessous pour plus d’informations sur la procédure à suivre.
 
@@ -439,6 +450,16 @@ Voici notre définition terminée avec les trois parties de la stratégie défin
 ```
 
 La définition terminée peut être utilisée pour créer une stratégie. Le portail et chaque SDK (Azure CLI, Azure PowerShell et API REST) acceptent la définition de différentes façons, vous devez donc passer en revue les commandes de chacun d’eux pour vérifier comment les utiliser. Attribuez-la ensuite, à l’aide de l’effet paramétré, aux ressources appropriées pour gérer la sécurité de vos comptes de stockage.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
+
+1. Sélectionnez **Définitions** (ou **Affectations** si vous essayez de supprimer une affectation) sous **Création** dans la partie gauche de la page Azure Policy.
+
+1. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) à supprimer.
+
+1. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
 ## <a name="review"></a>Révision
 

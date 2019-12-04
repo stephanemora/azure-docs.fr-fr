@@ -1,5 +1,5 @@
 ---
-title: Transférer des données vers Stockage Azure à partir de compartiments Amazon S3 avec AzCopy v10 | Microsoft Docs
+title: Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy | Microsoft Docs
 description: Transférer des données avec AzCopy et des compartiments Amazon S3
 services: storage
 author: normesta
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 21f11b9175566fc020ad21e1983a9bef64ebbae3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821384"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327857"
 ---
-# <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copier des données à partir de compartiments Amazon S3 avec AzCopy
+# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy
 
 AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage. Cet article vous aide à copier des objets, des répertoires et des compartiments d’Amazon Web Services (AWS) S3 vers Stockage Blob Azure avec AzCopy.
 
@@ -54,7 +54,7 @@ AzCopy utilise l’API [Placer un bloc à partir d’une URL](https://docs.micro
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Si vous décidez de supprimer des données à partir de votre compartiment S3 après une opération de copie, veillez à vérifier que les données ont été correctement copiées dans votre compte de stockage avant de les supprimer.
 
 > [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
 ### <a name="copy-an-object"></a>Copier un objet
 

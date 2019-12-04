@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: d9cb86c1c19649052e4796fd0a8909ce08381d55
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487581"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280839"
 ---
 # <a name="prebuilt-models"></a>Modèles prédéfinis
 
@@ -44,13 +44,13 @@ Les domaines prédéfinis sont formés et prêts à êtres ajoutés à votre app
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Modification du comportement d’une intention de domaine prédéfini
 
-Vous constaterez peut-être qu’un domaine prédéfini contient une intention semblable à une intention que vous souhaitez avoir dans votre application LUIS, mais avec un comportement différent. Par exemple, le domaine prédéfini **Lieux** fournit une intention `MakeReservation` pour effectuer une réservation au restaurant, mais vous voulez que votre application utilise cette intention pour faire des réservations d’hôtel. Dans ce cas, vous pouvez modifier le comportement de cette intention en ajoutant des exemples d’énoncés à l’intention dans le but d’effectuer des réservations d’hôtel. Ensuite, reformez l’application. 
+Vous constaterez peut-être qu’un domaine prédéfini contient une intention semblable à une intention que vous souhaitez avoir dans votre application LUIS, mais avec un comportement différent. Par exemple, le domaine prédéfini **Lieux** fournit une intention `MakeReservation` pour effectuer une réservation au restaurant, mais vous voulez que votre application utilise cette intention pour faire des réservations d’hôtel. Dans ce cas, vous pouvez modifier le comportement de cette intention en ajoutant des exemples d’énoncés à l’intention dans le but d’effectuer des réservations d’hôtel, puis effectuer à nouveau l’apprentissage de l’application. 
 
 Vous trouverez une liste complète des domaines prédéfinis dans la [référence des domaines prédéfinis](./luis-reference-prebuilt-domains.md).
 
 ## <a name="prebuilt-intents"></a>Intentions prédéfinies
 
-LUIS fournit les intentions prédéfinies et leurs énoncés à partir de domaines prédéfinis. Les intentions peuvent être ajoutées sans ajouter le domaine entier. Pour ajouter une intention, il faut ajouter une intention et ses énoncés à votre application. Le nom de l’intention et la liste d’énoncés peuvent être modifiés.  
+LUIS fournit les intentions prédéfinies et leurs énoncés pour chacun de ses domaines prédéfinis. Les intentions peuvent être ajoutées sans ajouter le domaine entier. Pour ajouter une intention, il faut ajouter une intention et ses énoncés à votre application. Le nom de l’intention et la liste d’énoncés peuvent être modifiés.  
 
 ## <a name="prebuilt-entities"></a>Entités prédéfinies
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793678"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534551"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistant Importation de données pour la Recherche cognitive Azure
 
@@ -43,7 +43,7 @@ En bref, les limitations connues sont les suivantes :
 
 + L’Assistant ne prend pas en charge l’itération ou la réutilisation. Chaque exécution de l’Assistant donne lieu à la création d’une configuration d’index, d’ensemble de compétences et d’indexeur. Seules les sources de données peuvent être conservées et réutilisées dans l’Assistant. Pour modifier ou affiner d’autres objets, vous devez utiliser les API REST ou le SDK .NET pour récupérer et modifier les structures.
 
-+ Le contenu source doit résider dans une source de données Azure prise en charge, dans un service relevant du même abonnement.
++ Le contenu source doit résider dans une source de données Azure prise en charge.
 
 + L’échantillonnage porte sur un sous-ensemble des données sources. Pour les sources de données volumineuses, l’Assistant peut ne pas déceler des champs. Vous serez peut-être amené à étendre le schéma ou à corriger les types de données déduits si l’échantillonnage est insuffisant.
 

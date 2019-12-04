@@ -1,19 +1,14 @@
 ---
-title: Surveiller les conteneurs dans Azure Container Instances
+title: Surveiller les instances de conteneur
 description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
-ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172252"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533647"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: 664d3d4333f8c34a8c5dc6648da2beccc4d7a6a2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498432"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213153"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -67,8 +67,15 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 > [!NOTE]
 > *USA Est 2* possède également l'adresse IP tertiaire `52.167.104.0`.
 
+## <a name="connection-redirection"></a>Redirection de connexion
+
+Azure Database pour MySQL prend en charge une stratégie de connexion supplémentaire, une **redirection**, qui permet de réduire la latence réseau entre les applications clientes et les serveurs MySQL. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database pour MySQL, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MySQL pour le client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
+
+Cette fonctionnalité est prise en charge dans les serveurs Azure Database pour MySQL avec les versions de moteur 5.6, 5.7 et 8.0.
+
+La prise en charge de la redirection est disponible en préversion dans l’extension [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure), développée par Microsoft et est disponible sur [PECL](https://pecl.php.net/package/mysqlnd_azure). Pour plus d’informations sur l’utilisation de la redirection dans vos applications, consultez l’article [configuration de la redirection](./howto-redirection.md). 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et gérer des règles de pare-feu Base de données Azure pour MySQL à l’aide du portail Azure](./howto-manage-firewall-using-portal.md)
 * [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](./howto-manage-firewall-using-cli.md)
-

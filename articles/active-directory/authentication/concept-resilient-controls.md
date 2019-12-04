@@ -1,5 +1,5 @@
 ---
-title: Créer une stratégie de gestion du contrôle d’accès résiliente - Azure Active Directory
+title: Créer une stratégie de gestion du contrôle d’accès résiliente - Azure AD
 description: Ce document fournit des conseils sur les stratégies à adopter par une organisation pour faire preuve de résilience et réduire le risque de verrouillage en cas d'interruption de service imprévue.
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125108"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208556"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 

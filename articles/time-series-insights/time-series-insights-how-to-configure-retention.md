@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012609"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561197"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuration de la conservation des données dans Time Series Insights
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur ces paramètres, voir [Présentation de la conser
 
 1. Recherchez votre environnement Time Series Insights existant. Sélectionnez **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez votre environnement Time Series Insights.
 
-1. Sous le titre **Paramètres**, sélectionnez **Configurer**.
+1. Sous le titre **paramètres**, sélectionnez **Configuration du stockage**.
 
     [![Sélectionnez Paramètres, puis Configurer](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur ces paramètres, voir [Présentation de la conser
 
     [![Conservation des données - Accepter et enregistrer.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. Acceptez la case à cocher indiquant que vous avez consulté la documentation et que vous comprenez les risques potentiels de perte de données. Sélectionnez **Enregistrer** pour configurer les modifications.
+1. Consultez la documentation pour comprendre les risques potentiels en matière de perte de données. Sélectionnez **Enregistrer** pour configurer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

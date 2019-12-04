@@ -5,20 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123498"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280546"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Évaluer des serveurs physiques avec Azure Migrate : Server Assessment
-
-> [!NOTE]
-> Si vous ne voyez pas encore cette fonctionnalité dans le portail Azure Migrate, patientez un peu. Elle apparaîtra au cours de la semaine suivante ou un peu plus tard.
- 
 
 Cet article explique comment évaluer des serveurs physiques locaux à l’aide d’Azure Migrate : Server Assessment.
 
@@ -108,11 +104,12 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  Pour l’appliance version 1.19.05.10, le hachage généré doit correspondre à ces valeurs.
+3.  Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces paramètres.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Exécuter le script du programme d’installation Azure Migrate
 
@@ -135,7 +132,7 @@ Exécutez le script comme suit :
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-Une fois son exécution terminé, le script lance l’application web de l’appliance. 
+Une fois son exécution terminé, le script lance l’application web de l’appliance.
 
 Le cas échéant, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour la résolution des problèmes.
 
@@ -166,7 +163,7 @@ Configurez l’appliance pour la première fois.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
 1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure. 
+2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion effectuée, revenez à l’application web.
@@ -188,7 +185,7 @@ Vous pouvez ajouter un ensemble d’informations d’identification pour les ser
     - Pour supprimer un serveur, sélectionnez > **Supprimer**.
 4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
 
-Ceci démarre la découverte. Il faut environ 1 minute et demie par serveur pour que les métadonnées du serveur détecté apparaissent dans le portail Azure. 
+Ceci démarre la découverte. Il faut environ 1 minute et demie par serveur pour que les métadonnées du serveur détecté apparaissent dans le portail Azure.
 
 ### <a name="verify-servers-in-the-portal"></a>Vérifier les serveurs dans le portail
 

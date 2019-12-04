@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 11/15/2019
 ms.author: raiye
-ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888304"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149996"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="november-2019-guest-os"></a>Système d’exploitation invité, novembre 2019
+
+>[!NOTE]
+>Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de novembre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 11-19   |  [4525106]  |  Internet Explorer   |  2.92  |  12 nov. 2019  |
+|  Version 11-19   |  [4525233]  |  Sécurité Windows   |  2.92  |  12 nov. 2019  |
+|  Version 11-19   |  [4525106]  |  Internet Explorer   |  3.79  |  12 nov. 2019  |
+|  Version 11-19   |  [4525253]  |  Sécurité Windows   |  3.79  |  12 nov. 2019  |
+|  Version 11-19   |  [4525106]  |  Internet Explorer   |  4.72  |  12 nov. 2019  |
+|  Version 11-19   |  [4525250]  |  Sécurité Windows   |  4.72  |  12 nov. 2019  |
+|  Version 11-19   |  [4525236]  |  Dernière mise à jour cumulative   |  5.37  |  12 nov. 2019  |
+|  Version 11-19   |  [4523205]  |  Dernière mise à jour cumulative   |  6.13  |  12 nov. 2019  |
+|  Version 11-19   |  [4519976]  |  Non relatif à la sécurité   |  2.92  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4520007]  |  Non relatif à la sécurité   |  3.79  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4521857]  |  ServicingStackUpdate   |  3.79  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4520005]  |  Non relatif à la sécurité   |  4.72  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4521864]  |  ServicingStackUpdate   |  4.72  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4521858]  |  ServicingStackUpdate   |  5.37  |  Octobre 8, 2019  |
+|  Version 11-19   |  [4521862]  |  ServicingStackUpdate   |  6.13  |  Octobre 8, 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+
 
 ## <a name="october-2019-guest-os"></a>Système d’exploitation invité, octobre 2019
 

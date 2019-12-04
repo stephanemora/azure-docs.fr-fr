@@ -1,5 +1,5 @@
 ---
-title: Authentification par code secret à usage unique pour les utilisateurs invités B2B - Azure Active Directory | Microsoft Docs
+title: Authentification par code secret à usage unique pour les utilisateurs invités B2B - Azure AD
 description: Comment utiliser le code secret à usage unique d’e-mail pour authentifier les utilisateurs invités B2B sans avoir besoin d’un compte Microsoft.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952846"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272320"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 

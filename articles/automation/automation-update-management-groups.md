@@ -1,20 +1,20 @@
 ---
 title: Utiliser des groupes dynamiques avec Azure Update Management
-description: Décrit le fonctionnement des groupes dynamiques avec Update Management
+description: Cet article décrit le fonctionnement des groupes dynamiques avec Azure Automation Update Management.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc4384be0f1dc73f2e7e098114080d304d92ce8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377446"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278707"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utiliser des groupes dynamiques avec Update Management
 
@@ -37,7 +37,7 @@ Pour prévisualiser les résultats d’un groupe dynamique, cliquez sur le bouto
 
 ## <a name="non-azure-machines"></a>Machines non-Azure
 
-Pour les machines non-Azure, les recherches enregistrées également appelées groupes d’ordinateurs sont utilisées pour créer le groupe dynamique. Pour apprendre à créer une recherche enregistrée, consultez [Création d’un groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Une fois que votre groupe est créé, vous pouvez le sélectionner dans la liste des recherches enregistrées. Cliquez sur **Aperçu** pour afficher un aperçu des ordinateurs figurant dans la recherche enregistrée à ce moment-là.
+Pour les machines non-Azure, les recherches enregistrées, également appelées groupes d’ordinateurs, sont utilisées pour créer le groupe dynamique. Pour apprendre à créer une recherche enregistrée, consultez [Création d’un groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Une fois que votre groupe est créé, vous pouvez le sélectionner dans la liste des recherches enregistrées. Cliquez sur **Aperçu** pour afficher un aperçu des ordinateurs figurant dans la recherche enregistrée à ce moment-là.
 
 ![Sélection de groupes](./media/automation-update-management/select-groups-2.png)
 

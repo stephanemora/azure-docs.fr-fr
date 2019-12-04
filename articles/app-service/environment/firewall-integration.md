@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 038178b3b73e9b07ce96e079403cb641f8efe8b1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210054"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405655"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -29,6 +29,9 @@ Un environnement ASE présente des dépendances entrantes. Le trafic de gestion 
 Les dépendances sortantes de l’environnement ASE sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un environnement ASE. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution actuelle et de les utiliser pour créer des groupes NSG. 
 
 La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination.  
+
+> [!NOTE]
+> À ce stade, nous ne pouvons pas verrouiller entièrement la connexion sortante actuellement.
 
 ## <a name="system-architecture"></a>Architecture du système
 

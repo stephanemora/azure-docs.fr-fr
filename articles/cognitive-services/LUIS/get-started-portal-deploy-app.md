@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669420"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278540"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -29,6 +29,7 @@ Dans ce démarrage rapide, vous allez apprendre à déployer une application. Cr
 
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/free).
 * Suivez le guide de [démarrage rapide du portail précédent](get-started-portal-build-app.md) ou [téléchargez et importez l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Si vous disposez d’applications qui sont antérieures à l’authentification des ressources Azure, [effectuez une migration vers une ressource Azure](luis-migration-authoring.md). Certaines pages du portail s’affichent différemment lorsque l’authentification par e-mail est appliquée.
 
 ## <a name="create-the-endpoint-resource"></a>Créer la ressource de point de terminaison
 
@@ -60,7 +61,7 @@ Vous créez la ressource de point de terminaison de prédiction dans le portail 
 
 Chaque fois que vous créez une ressource pour LUIS, vous devez l’affecter à l’application LUIS. Une fois qu’elle est affectée, vous n’avez plus besoin d’effectuer cette étape, sauf si vous créez une nouvelle ressource. Vous pouvez être amené à créer une nouvelle ressource pour étendre les régions de votre application ou pour prendre en charge un nombre plus élevé de requêtes de prédiction.
 
-1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis choisissez l’application **myEnglishApp** dans la liste des applications.
+1. Connectez-vous au [portail LUIS](https://preview.luis.ai), puis choisissez l’application **myEnglishApp** dans la liste des applications.
 
 1. Dans le menu supérieur droit, sélectionnez **Manage** (Gérer), puis **Azure Resources** (Ressources Azure).
 
@@ -86,7 +87,7 @@ Chaque fois que vous créez une ressource pour LUIS, vous devez l’affecter à 
 
 ## <a name="prediction-endpoint-request"></a>Demande de point de terminaison de prédiction
 
-`query=` à la fin de l’URL représente l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `query=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
+Dans le portail en préversion, `query=` à la fin de l’URL représente l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `query=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
 
 ```Is there a form named hrf-234098```
 

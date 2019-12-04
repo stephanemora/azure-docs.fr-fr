@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606357"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169317"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 
@@ -36,6 +36,7 @@ Quand vous utilisez Azure Functions en tant que gestionnaire, utilisez le décle
 
 |Intitulé  |Description  |
 |---------|---------|
+| [Démarrage rapide : Gérer les événements avec une fonction](custom-event-to-function.md) | Envoie un événement personnalisé à une fonction pour traitement. |
 | [Déclencheur Event Grid pour Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Vue d’ensemble de l’utilisation du déclencheur Event Grid dans Functions. |
 | [Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](resize-images-on-storage-blob-upload-event.md) | Les utilisateurs chargent les images par le biais de l’application web sur le compte de stockage. Quand un objet blob de stockage est créé, Event Grid envoie un événement à l’application de fonction, qui redimensionne l’image chargée. |
 | [Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md) | Quand Event Hubs crée un fichier Capture, Event Grid envoie un événement à une application de fonction. L’application récupère le fichier Capture et migre les données vers un entrepôt de données. |
@@ -72,10 +73,15 @@ Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux
 | [Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
 | [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
-## <a name="service-bus-queue"></a>File d’attente Service Bus 
+## <a name="service-bus"></a>Service Bus
+
+### <a name="service-bus-queues"></a>Files d’attente Service Bus
+
 Vous pouvez router les événements Event Grid directement vers les files d’attente Service Bus. Cette fonctionnalité est utilisée pour les scénarios de mise en mémoire tampon ou de commande et de contrôle dans les applications d’entreprise.
 
-### <a name="using-cli-to-add-a-service-bus-handler"></a>Utilisation d’Azure CLI pour ajouter un gestionnaire Service Bus
+Dans le Portail Azure, lors de la création d’un abonnement aux événements, sélectionnez « File d’attente Service Bus » comme type de point de terminaison, puis cliquez sur « Sélectionner un point de terminaison » pour choisir une file d’attente Service Bus.
+
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Utilisation de l’interface CLI pour ajouter un gestionnaire de files d’attente Service Bus
 
 Dans Azure CLI, l’exemple suivant abonne et connecte une rubrique Event Grid à une file d’attente Service Bus :
 
@@ -89,6 +95,28 @@ az eventgrid event-subscription create \
     --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
     --endpoint-type servicebusqueue \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
+### <a name="service-bus-topics"></a>Rubriques Service Bus
+
+Vous pouvez acheminer les événements dans Event Grid directement dans les rubriques Service Bus afin de gérer les événements système Azure à l’aide de ces dernières ou pour les scénarios de messagerie de commande et de contrôle.
+
+Dans le Portail Azure, lors de la création d’un abonnement aux événements, sélectionnez « Rubrique Service Bus » comme type de point de terminaison, puis cliquez sur « Sélectionner un point de terminaison » pour choisir une rubrique Service Bus.
+
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Utilisation de l’interface CLI pour ajouter un gestionnaire de rubriques Service Bus
+
+Dans Azure CLI, l’exemple suivant abonne et connecte une rubrique Event Grid à une file d’attente Service Bus :
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebustopic \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
 ## <a name="queue-storage"></a>Stockage File d’attente

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891398"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232365"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sauvegarder des machines virtuelles de charge de travail sur le cloud privé CloudSimple à l’aide de Veeam B&R
 
@@ -121,7 +121,7 @@ Configurez des services d'infrastructure dans le cloud privé afin de faciliter 
 
 * Vous pouvez ajouter un fournisseur d’identité externe comme indiqué dans [Configurer les sources d’identité vCenter pour utiliser Active Directory](set-vcenter-identity.md) si l’une des conditions suivantes s’applique :
 
-  * Vous souhaitez identifier les utilisateurs de votre instance locale d'Active Directory (AD) dans votre Cloud privé.
+  * Vous souhaitez identifier des utilisateurs à partir de votre Active Directory (AD) local dans votre cloud privé.
   * Vous souhaitez configurer une instance d'AD dans votre cloud privé pour tous les utilisateurs.
   * Vous souhaitez utiliser Azure AD.
 * Pour fournir des services de recherche d'adresses IP, de gestion des adresses IP et de résolution de noms pour vos charges de travail dans le cloud privé, configurez un serveur DNS et DHCP comme décrit dans [Configurer des applications et des charges de travail DNS et DHCP dans votre cloud privé CloudSimple](dns-dhcp-setup.md).

@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Classifier des critiques de livres'
+title: 'Concepteur : classifier des exemples de critiques de livres'
 titleSuffix: Azure Machine Learning
-description: Créez un modèle Machine Learning pour classifier des critiques de livres dans différentes catégories.
+description: Générez un classifieur par régression logistique multiclasse afin de prédire la catégorie d’entreprise avec le jeu de données wikipedia SP 500 à l’aide du concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 16253abce2940690a80f84aa5b68521c09212bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647124"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213779"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>Exemple 7 – Classification de texte : Prédire une catégorie d’entreprise 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Générez un classifieur pour prédire la catégorie d’entreprise à l’aide du concepteur Azure Machine Learning.
+
+**Exemple 7 du concepteur (préversion)**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Cet exemple montre comment utiliser des modules d’analytique de texte pour générer un pipeline de classification de texte dans le concepteur Azure Machine Learning (préversion).
 
 L’objectif de la classification de texte est d’affecter un texte à une ou plusieurs classes ou catégories prédéfinies. Il peut s’agir d’un document, d’un article de presse, d’une requête de recherche, d’un e-mail, d’un tweet, de tickets de support, d’un commentaire de client, d’une évaluation de produit par utilisateur, etc. Les applications de classification de texte incluent la catégorisation d’articles de presse et de contenus de fils d’actualités en rubriques, en organisant les pages web en catégories hiérarchiques, en filtrant le courrier indésirable, en analysant les sentiments, en prédisant l’intention des utilisateurs à partir de requêtes de recherche, en routant des tickets de support et analysant les commentaires des clients. 
 
-Ce pipeline effectue l’apprentissage d’un **classifieur par régression logistique multiclasse** afin de prédire la catégorie d’entreprise avec le jeu de données wikipedia SP 500 dérivé de Wikipedia.  
+Ce pipeline effectue l’apprentissage d’un **classifieur par régression logistique multiclasse** afin de prédire la catégorie d’entreprise avec **le jeu de données wikipedia SP 500 dérivé de Wikipedia**.  
 
 Les étapes fondamentales de la formation d’un modèle Machine Learning sont les suivantes :
 
@@ -43,7 +47,7 @@ Les étapes fondamentales de la formation d’un modèle Machine Learning sont l
 
 Voici le graphe complet final du pipeline sur lequel nous allons travailler. Nous vous fournirons le raisonnement pour tous les modules afin de prendre des décisions similaires concernant le vôtre.
 
-[![Graphique du pipeline](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![Graphique du pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Données
 
@@ -92,7 +96,7 @@ Une fois le modèle formé, nous utilisons les modules **Noter le modèle** et *
 Pour le module **Hachage des caractéristiques**, il est facile d’effectuer une ingénierie des caractéristiques sur le flux de notation en tant que flux d’apprentissage. Pour traiter les données de texte d’entrée, utilisez directement le module **Hachage des caractéristiques**.
 
 Pour le module **Extraire la caractéristique N-grammes du texte**, nous devons connecter la sortie **Result Vocabulary** (Vocabulaire de résultat) du flux de données d’apprentissage à **Input Vocabulary** (Vocabulaire d’entrée) sur le flux de données de notation, puis définir le paramètre **Vocabulary mode** (Mode vocabulaire) sur **ReadOnly** (Lecture seule).
-[![Graphique de note n-Gram](./media/how-to-ui-sample-text-classification/n-gram.png)](./media/how-to-ui-sample-text-classification/n-gram.png)
+[![Graphique de note n-Gram](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
 Une fois l’étape d’ingénierie terminée, le module **Noter un modèle** peut être utilisé pour générer des prédictions pour le jeu de données de test en utilisant le modèle formé. Pour vérifier le résultat, sélectionnez le port de sortie du module **Noter le modèle**, puis cliquez sur **Visualiser**.
 

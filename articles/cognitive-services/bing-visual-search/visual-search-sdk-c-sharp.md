@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour C#'
+title: 'Démarrage rapide : Obtenir des insights sur des images avec le SDK pour C# - Recherche visuelle Bing'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment charger une image à l’aide du SDK Recherche visuelle Bing pour récupérer des insights sur celle-ci.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98484eca027d20fbbe72ffb333a3e281e6f46b
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 3db40f999770823052f07a328d3d8dc8c01ce345
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849886"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383591"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour C#
 

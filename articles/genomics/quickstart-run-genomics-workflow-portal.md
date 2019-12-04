@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 772fd74446b43869721afe38fb107cfff8404e99
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838724"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539089"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
@@ -47,7 +47,8 @@ Configurez votre compte Genomics avec les informations suivantes, tel que repré
 
 
 Pour surveiller le processus de déploiement, vous pouvez cliquer sur les Notifications dans la barre de menus supérieure.
-![Notifications Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MNotifications Microsoft Genomics)
+
+![Notifications Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notifications Microsoft Genomics")
 
 
 

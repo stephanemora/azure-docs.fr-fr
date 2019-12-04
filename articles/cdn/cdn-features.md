@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127917"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278089"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparer les caractéristiques du produit CDN Azure
 
@@ -41,11 +41,11 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque prod
 | [Équilibrage de charge du serveur global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Purge rapide](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , Le vidage totale et le vidage de caractère générique ne sont pas pris en charge par avec Azure CDN par Akamai actuellement |**&#x2713;** |**&#x2713;** |
 | [Préchargement de ressources](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Paramètres du cache/des en-têtes (à l’aide des [règles de mise en cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Moteur de distribution de contenu personnalisable et basé sur des règles (avec un [moteur de règles](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Paramètres du cache/des en-têtes (à l’aide des [règles de mise en cache](cdn-caching-rules.md))  |**&#x2713;** à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Moteur de distribution de contenu personnalisable et basé sur des règles |**&#x2713;** à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** à l’aide du [moteur de règles](cdn-rules-engine.md) |
+| Paramètres du cache/de l’en-tête  |**&#x2713;** à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md) | | |**&#x2713;** à l’aide du [moteur de règles Premium](cdn-rules-engine.md) |
+| Redirection/Réécriture d’URL |**&#x2713;** à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** à l’aide du [moteur de règles Premium](cdn-rules-engine.md) |
+| Règles pour appareils mobiles  |**&#x2713;** à l’aide du [moteur de règles standard](cdn-standard-rules-engine.md) | | |**&#x2713;** à l’aide du [moteur de règles Premium](cdn-rules-engine.md) |
 | [Mise en cache des chaînes de requête](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Double pile IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Assistance HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

@@ -1,18 +1,18 @@
 ---
-title: Nouveautés d’Azure Migrate | Microsoft Docs
-description: Fournit une vue d’ensemble du service Azure Migrate.
+title: Nouveautés d’Azure Migrate
+description: Découvrez les nouveautés et les mises à jour récentes du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b3b8e24e7d84e492aeaba64573b6e909707bc5a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715393"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185752"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -22,12 +22,7 @@ ms.locfileid: "73715393"
 
 ## <a name="update-november-2019"></a>Mise à jour (novembre 2019)
 
-
-
 Un certain nombre de nouvelles fonctionnalités ont été ajoutées à Azure Migrate :
-
-> [!NOTE]
-> Si vous ne voyez pas encore certaines de ces fonctionnalités dans le portail Azure Migrate, patientez un peu. Elles apparaîtront au cours de la semaine suivante ou un peu plus tard.
 
 - **Évaluation des serveurs physiques**. L’évaluation des serveurs physiques locaux est désormais prise en charge, en plus de la migration du serveur physique qui est déjà prise en charge.
 - **Évaluation basée sur l’importation**. L’évaluation des machines à l’aide des métadonnées et des données de performances fournies dans un fichier CSV est désormais prise en charge.
@@ -45,9 +40,9 @@ De nouveaux outils d’évaluation et de migration ont été ajoutés à Azure M
 
 ## <a name="release-version-july-2019"></a>Mise en production de la version (juillet 2019)
 
-Une version actuelle d’Azure Migrate a été mise en production en juillet 2019. 
+Une version actuelle d’Azure Migrate a été mise en production en juillet 2019.
 
-- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. 
+- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations.
 - **Version précédente** : les clients utilisant la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), doivent désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services**, recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
 
 
@@ -65,7 +60,7 @@ La version actuelle d’Azure Migrate offre un certain nombre de nouvelles fonct
     - L’appliance découvre en permanence les métadonnées et données de performances du serveur à des fins d’évaluation et de migration.  
 - **Migration de machine virtuelle VMware** :  La solution Migration de serveur Azure Migrate permet de migrer des machines virtuelles VMware locales vers Azure à l’aide de deux méthodes.  Une migration sans agent à l’aide de l’appliance Azure Migrate, et une migration basée sur un agent, qui utilise une appliance de réplication et déploie un agent sur chaque machine virtuelle que vous souhaitez migrer. [En savoir plus](server-migrate-overview.md)
  - **Évaluation et migration de base de données** : À partir d’Azure Migrate, vous pouvez évaluer des bases de données locales pour la migration vers Azure à l’aide de l’Assistant Migration de base de données Azure. Vous pouvez migrer des bases de données à l’aide d’Azure Database Migration Service.
-- **Migration d’application web** : Azure App Service vous permet d’évaluer des applications web à l’aide d’une URL de point de terminaison public. Pour la migration d’applications .NET internes, vous pouvez télécharger et exécuter l’Assistant Migration App Service. 
+- **Migration d’application web** : Azure App Service vous permet d’évaluer des applications web à l’aide d’une URL de point de terminaison public. Pour la migration d’applications .NET internes, vous pouvez télécharger et exécuter l’Assistant Migration App Service.
 - **Data Box** : importez de grandes quantités de données hors connexion dans Azure à l’aide d’Azure Data Box dans Azure Migrate.
 
 

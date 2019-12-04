@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide Azure - Créer un profil Front Door pour assurer la haute disponibilité des applications à l’aide du portail Azure
+title: 'Démarrage rapide : Créer un profil Porte d’entrée pour la haute disponibilité des applications'
 description: Cet article de démarrage rapide décrit comment créer une porte d’entrée pour votre application web globale hautement disponible et très performante.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461984"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184512"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
@@ -40,21 +40,21 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir déployé deux insta
      | Paramètre         | Valeur     |
      | ---              | ---  |
      | Nom           | Entrez un nom unique pour votre application web  |
-     | Groupe de ressources          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD1* |
+     | Resource group          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD1* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
-     |      Lieu  |   USA Est        |
+     |      Location  |   USA Est        |
     |||
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Un site Web par défaut est créé lorsque l’application web est déployée avec succès.
 5. Répétez les étapes 1 à 3 pour créer un deuxième site Web dans une autre région Azure avec les paramètres suivants :
 
      | Paramètre         | Valeur     |
      | ---              | ---  |
      | Nom           | Entrez un nom unique pour votre application web  |
-     | Groupe de ressources          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD2* |
+     | Resource group          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD2* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
-     |      Lieu  |   Europe Ouest      |
+     |      Location  |   Europe Ouest      |
     |||
 
 

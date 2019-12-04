@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des images - API REST Recherche d’images Bing et Node.js'
+title: 'Démarrage rapide : Rechercher des images avec l’API REST et Node.js - Recherche d’images Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer des requêtes de recherche d’images à l’API REST Recherche d’images Bing à l’aide de JavaScript et recevoir des réponses JSON.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 737927aa725c117158ea867e007ecc0cedde50aa
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fe6289ce893f959ca958096db80f4b2295f6dd43
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034645"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327091"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de Node.js
 

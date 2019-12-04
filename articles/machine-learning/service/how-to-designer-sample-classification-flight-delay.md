@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Classifier, prédire les retards de vol'
+title: 'Concepteur : Prédire un exemple de retard déployé en mode Flighting'
 titleSuffix: Azure Machine Learning
-description: Cet article vous montre comment générer un modèle Machine Learning pour prédire les retards de vols à l’aide du concepteur par glisser-déplacer et du code R personnalisé.
+description: Générez un classifieur et utilisez un code R personnalisé pour prédire les retards déployés en mode Flighting avec le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 23b763a69fc0ea3191150c6255cf358d69bc4b73
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647194"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213941"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemple 6 - Classification : Prédire les retards de vols avec R
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser R pour prédire des retards déployés en mode Flighting avec le concepteur Azure Machine Learning
+
+**Exemple 6 du concepteur (préversion)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Ce pipeline utilise des données historiques de vols et météorologiques pour déterminer si un vol prévu risque d'être retardé de plus de 15 minutes. Ce problème peut être abordé en tant que problème de classification, prédisant deux classes : retardé ou à l'heure.
 
 Voici le graphique final du pipeline pour cet échantillon :
 
-[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,13 +55,13 @@ Pour compléter les données de vol, le **jeu de données météorologiques** es
 
 Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable.
 
-![traitement des données](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
+![traitement des données](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
 
 ### <a name="flight-data"></a>Données de vol
 
 Les colonnes **Carrier**, **OriginAirportID** et **DestAirportID** sont enregistrés en tant que valeurs entières. Il s'agit cependant d'attributs catégoriels. Utilisez le module **Modifier des métadonnées** pour les convertir en valeurs catégorielles.
 
-![modifier les métadonnées](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![modifier les métadonnées](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
 
 Utilisez ensuite **Sélection des colonnes** dans le module de jeu de données pour exclure les colonnes de jeu de données susceptibles de poser problème : **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
 
@@ -78,18 +81,18 @@ Les données météo étant indiquées en heure locale, les différences de fuse
 
 Les enregistrements de vol sont joints aux données météo à l'aide de la provenance du vol (**OriginAirportID**) à l’aide du module **Joindre des données**.
 
- ![joindre des enregistrements de vol et des données météo par provenance](media/how-to-ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![joindre des enregistrements de vol et des données météo par provenance](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
 
 
 Les enregistrements de vol sont joints aux données météo à l’aide de la destination du vol (**DestAirportID**).
 
- ![Joindre les enregistrements de vol et les données météo par destination](media/how-to-ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![Joindre les enregistrements de vol et les données météo par destination](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
 
 ### <a name="preparing-training-and-test-samples"></a>Préparation de la formation et des exemples de tests
 
 Le module **Fractionner les données** fractionne les données en enregistrements entre avril et septembre pour la formation, et en octobre pour les tests.
 
- ![Fractionner les données de formation et de test](media/how-to-ui-sample-classification-predict-flight-delay/split.png)
+ ![Fractionner les données de formation et de test](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
 
 Les colonnes Année, Mois et Fuseau horaire sont supprimées du jeu de données de formation à l'aide du module Sélectionner des colonnes.
 
@@ -111,7 +114,7 @@ Enfin, pour tester la qualité des résultats, ajoutez le module **Évaluer le m
 ## <a name="evaluate"></a>Évaluer
 Le modèle de régression logistique présente une valeur AUC de 0,631 sur le jeu de test.
 
- ![evaluate](media/how-to-ui-sample-classification-predict-flight-delay/evaluate.png)
+ ![evaluate](media/how-to-designer-sample-classification-predict-flight-delay/evaluate.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

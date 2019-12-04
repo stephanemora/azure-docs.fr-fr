@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260392"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305831"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
 
@@ -173,7 +173,7 @@ Comme pour les instantanés VSS locaux, vous pouvez afficher les instantanés à
 
 1. Sélectionnez **Restaurer**. Cette action copie le contenu de l’ensemble du répertoire de manière récursive à l’emplacement d’origine au moment de la création de l’instantané de partage.
 
-   ![Bouton Restaurer dans un message d’avertissement](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![Bouton restaurer dans le message d’avertissement](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Remarque : Si votre fichier n’a pas changé, vous ne verrez pas une version précédente de ce fichier, car ce fichier est de la même version que l’instantané. Ceci est cohérent avec la façon dont cela fonctionne sur un serveur de fichiers Windows.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

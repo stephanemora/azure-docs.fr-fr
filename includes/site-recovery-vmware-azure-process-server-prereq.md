@@ -2,20 +2,20 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 11/28/2019
 ms.author: raynew
-ms.openlocfilehash: 96cba4e077be8b7658c270b09b177a845e16c8b0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de15e3028cf22cdd03ce29385278fc5e2babaa9b
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177589"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566259"
 ---
 Cet article suppose que vous possédez :
 
 1. Un **VPN site à site** ou une connexion **Express Route** déjà établie entre votre réseau local et le réseau virtuel Microsoft Azure.
 2. Un compte d’utilisateur avec les autorisations nécessaires pour créer une machine virtuelle dans l’abonnement Azure dans lequel les machines virtuelles ont été basculées.
-3. Un abonnement avec un minimum de 4 cœurs disponibles pour faire tourner une nouvelle machine virtuelle serveur de processus.
+3. Un abonnement avec un minimum de 8 cœurs disponibles pour faire tourner une nouvelle machine virtuelle de serveur de processus.
 4. La **phrase secrète du serveur de configuration**.
 
 > [!TIP]

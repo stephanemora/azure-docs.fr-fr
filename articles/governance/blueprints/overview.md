@@ -1,16 +1,16 @@
 ---
 title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048292"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321764"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Vue d’ensemble du service Azure Blueprints
+# <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
 À l’instar d’un plan, « blueprint » en anglais, qui permet aux ingénieurs et architectes de décrire les paramètres de conception d’un projet, Azure Blueprint permet aux architectes cloud et aux membres de l’informatique centrale de définir un ensemble reproductible de ressources Azure qui implémentent et respectent les normes, modèles et exigences d’une organisation. Azure Blueprint permet aux équipes de développement de créer et de mettre en place rapidement de nouveaux environnements conformes aux exigences de l’organisation avec un ensemble de composants, comme la mise en réseau, visant à accélérer le développement et la livraison.
 
@@ -62,7 +62,8 @@ Quand vous créez une définition de blueprint, vous définissez l’emplacement
 ### <a name="blueprint-parameters"></a>Paramètres de blueprint
 
 Les blueprints peuvent passer des paramètres à une stratégie/initiative ou à un modèle Azure Resource Manager.
-Lors de l’ajout d’un _artefact_ à un blueprint, l’auteur fournit une valeur définie pour chaque affectation de blueprint ou autorise chaque affectation de blueprint à fournir une valeur au moment de l’affectation. Cette flexibilité permet de définir une valeur prédéterminée pour toutes les utilisations du blueprint ou de repousser cette décision au moment de l’affectation.
+Lors de l’ajout d’un _artefact_ à un blueprint, l’auteur fournit une valeur définie pour chaque affectation de blueprint ou autorise chaque affectation de blueprint à fournir une valeur au moment de l’affectation.
+Cette flexibilité permet de définir une valeur prédéterminée pour toutes les utilisations du blueprint ou de repousser cette décision au moment de l’affectation.
 
 > [!NOTE]
 > Un blueprint peut avoir ses propres paramètres, mais leur création n’est actuellement possible que si le blueprint est généré à partir de l’API REST (impossible si le blueprint est généré par le biais du portail).
@@ -71,7 +72,8 @@ Pour plus d’informations, consultez [Paramètres de blueprint](./concepts/para
 
 ### <a name="blueprint-publishing"></a>Publication de blueprint
 
-Quand vous créez un blueprint, celui-ci est initialement en mode **Brouillon**. Quand il est prêt à être affecté, vous devez le **publier**. La publication nécessite la définition d’une **Version** (chaîne composée de lettres, de chiffres et de traits d’union d’une longueur maximale de 20 caractères) avec, en option, des **Notes de changement**. La **Version** permet de différencier le blueprint si des changements sont apportés par la suite et d’affecter des versions différentes. Ce contrôle de version vous permet donc d’affecter différentes **Versions** du même blueprint au même abonnement. Lorsque des changements sont apportés au blueprint, la **Version** **Publiée** est toujours présente, ainsi que les **Changements non publiés**. Une fois les changements finalisés, le blueprint mis à jour est **publié** avec une nouvelle **Version** unique et peut être affecté.
+Quand vous créez un blueprint, celui-ci est initialement en mode **Brouillon**. Quand il est prêt à être affecté, vous devez le **publier**. La publication nécessite la définition d’une **Version** (chaîne composée de lettres, de chiffres et de traits d’union d’une longueur maximale de 20 caractères) avec, en option, des **Notes de changement**. La **Version** permet de différencier le blueprint si des changements sont apportés par la suite et d’affecter des versions différentes. Ce contrôle de version vous permet donc d’affecter différentes **Versions** du même blueprint au même abonnement. Lorsque des changements sont apportés au blueprint, la **Version**
+**publiée** est toujours présente, ainsi que les **Changements non publiés**. Une fois les changements finalisés, le blueprint mis à jour est **publié** avec une nouvelle **Version** unique et peut être affecté.
 
 ## <a name="blueprint-assignment"></a>Affectation de blueprint
 
@@ -135,5 +137,6 @@ La présentation suivante d’Azure Blueprints est issue d’Azure Friday. Pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un blueprint : portail](create-blueprint-portal.md)
-- [Créer un blueprint : API REST](create-blueprint-rest-api.md)
+- [Créer un blueprint - Portail](./create-blueprint-portal.md)
+- [Créer un blueprint - PowerShell](./create-blueprint-powershell.md)
+- [Créer un blueprint - API REST](./create-blueprint-rest-api.md)

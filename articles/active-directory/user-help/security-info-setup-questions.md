@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité (préversion) pour les questions de sécurité – Azure AD
-description: Comment configurer vos informations de sécurité pour vérifier votre identité au moyen de questions de sécurité prédéfinies.
+title: Configurez les questions de sécurité comme méthode de vérification - Azure AD
+description: Comment configurer vos informations de sécurité (préversion) pour vérifier votre identité au moyen de questions de sécurité prédéfinies comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2513b52c347db428b5ac0236a2561e5d4f1cdd2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820309"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279002"
 ---
-# <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité
+# <a name="set-up-security-questions-as-your-verification-method"></a>Configurer des questions de sécurité comme méthode de vérification
 
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 

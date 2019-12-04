@@ -1,5 +1,5 @@
 ---
-title: Guide de configuration d’identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
+title: Configurer des identités managées sur une machine virtuelle Azure à l’aide d’un modèle - Azure AD
 description: Instructions détaillées pour configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f5e04440f55c44a53b85aa4d3600e0d926424d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329999"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547195"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
 
@@ -32,7 +32,7 @@ Dans cet article, en utilisant le modèle de déploiement Azure Resource Manager
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec l’utilisation d’un modèle de déploiement Azure Resource Manager, voir la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
+- Si vous n’êtes pas familiarisé avec l’utilisation d’un modèle de déploiement Azure Resource Manager, voir la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: d713dd968956f5bcc93e7b53ed2d7801e5d7bec2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377496"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561933"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Déployer une station de travail sécurisée gérée par Azure
 
@@ -24,9 +24,10 @@ Maintenant que vous [connaissez les stations de travail sécurisées](concept-az
 
 ![Déploiement d’une station de travail sécurisée](./media/howto-azure-managed-workstation/deploying-secure-workstations.png)
 
-Vous devez sélectionner un profil pour pouvoir déployer la solution. Vous pouvez utiliser plusieurs profils simultanément dans un déploiement et les attribuer avec balises ou des groupes.
+Sélectionnez un profil avant de déployer la solution. Vous pouvez utiliser plusieurs profils simultanément dans un déploiement et les attribuer avec des balises ou des groupes.
+
 > [!NOTE]
-> Appliquez les profils selon vos besoins. Vous pouvez changer de profil en l’attribuant dans Intune.
+> Appliquez les profils selon vos besoins. Vous pouvez changer de profil en l’attribuant dans Microsoft Intune.
 
 | Profil | Faible | Amélioré | Élevé | Spécialisée | Sécurisé | Isolé |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -34,7 +35,7 @@ Vous devez sélectionner un profil pour pouvoir déployer la solution. Vous pouv
 | Géré par Intune | OUI | OUI | OUI | OUI | OUI | OUI |
 | Appareil - Inscrit sur Azure AD | OUI |  |  |  |  | |   |
 | Appareil - Joint sur Azure AD |   | OUI | OUI | OUI | OUI | OUI |
-| Base de référence de sécurité Intune appliquée |   | OUI <br> (Amélioré) | OUI <br> (HighSecurity) | OUI <br> (NCSC) | OUI <br> (Sécurisé) |  N/D |
+| Base de référence de sécurité Intune appliquée |   | OUI <br> (Amélioré) | OUI <br> (HighSecurity) | OUI <br> (NCSC) | OUI <br> (Sécurisé) | N/D |
 | Matériel répondant aux normes Windows 10 sécurisées |   | OUI | OUI | OUI | OUI | OUI |
 | Microsoft Defender ATP activé |   | OUI  | OUI | OUI | OUI | OUI |
 | Suppression des droits d’administrateur |   |   | OUI  | OUI | OUI | OUI |
@@ -43,48 +44,56 @@ Vous devez sélectionner un profil pour pouvoir déployer la solution. Vous pouv
 | URL limitées à la liste approuvée |   |   |   | OUI | OUI |OUI |
 | Internet bloqué (entrant/sortant) |   |   |   |  |  |OUI |
 
+> [!NOTE]
+> Dans le guide sur les stations de travail sécurisées, les **appareils** seront attribués avec des profils et stratégies. Les stratégies ne sont pas appliquées directement aux utilisateurs, ce qui permet le partage d’appareils (appareils partagés). Si une station de travail sécurisée n’est pas partagée dans votre déploiement ou si des stratégies utilisateur individuelles sont nécessaires, des profils de stratégie utilisateur peuvent être attribués à l’utilisateur et à l’appareil. 
+
 ## <a name="license-requirements"></a>Conditions de licence :
 
 Les concepts abordés dans ce guide supposent que vous disposez de Microsoft 365 Entreprise E5 ou d’une référence SKU équivalente. Certaines recommandations de ce guide peuvent être implémentées avec des références SKU inférieures. Pour plus d’informations, consultez la [gestion des licences Microsoft 365 Entreprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-Pour automatiser l’approvisionnement de la licence, envisagez la [gestion des licences par groupe](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-assign) pour vos utilisateurs.
+Pour automatiser l’approvisionnement de la licence, envisagez la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour vos utilisateurs.
 
 ## <a name="azure-active-directory-configuration"></a>Configuration d’Azure Active Directory
 
-Azure Active Directory (Azure AD) gère les utilisateurs, groupes et appareils de vos postes de travail d’administrateur. Vous devez activer les services d’identité et les fonctionnalités avec un [compte d’administrateur](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Azure Active Directory (Azure AD) gère les utilisateurs, groupes et appareils de vos postes de travail d’administrateur. Activez les services d’identité et les fonctionnalités avec un [compte d’administrateur](../users-groups-roles/directory-assign-admin-roles.md).
 
 Lorsque vous créez le compte d’administrateur de station de travail sécurisée, vous exposez le compte à votre station de travail actuelle. Veillez à utiliser un appareil sans échec connu pour effectuer cette configuration initiale et toute la configuration globale. Pour réduire les risques d’attaques pour une première expérience, envisagez de suivre les [conseils prodigués afin d’éviter les infections de logiciels malveillants](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
-Vous devez également exiger une authentification multifacteur, au moins pour les administrateurs. Consultez [Déployer une authentification multifacteur sur le cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) pour obtenir des conseils d’implémentation.
+Exigez une authentification multifacteur au moins pour les administrateurs. Consultez [Déployer une authentification multifacteur sur le cloud](../authentication/howto-mfa-getstarted.md) pour obtenir des conseils d’implémentation.
 
 ### <a name="azure-ad-users-and-groups"></a>Utilisateurs et groupes Azure AD
 
 1. Dans le portail Azure, accédez à **Azure Active Directory** > **Utilisateurs** > **Nouvel utilisateur**.
 1. Créez l’administrateur de l’appareil en suivant les étapes décrites dans le [didacticiel sur la création d’utilisateur](https://docs.microsoft.com/Intune/quickstart-create-user).
 1. Entrez :
+
    * **Nom** : administrateur de station de travail sécurisée
    * **Nom d’utilisateur** - `secure-ws-admin@identityitpro.com`
    * **Rôle d’annuaire** - **Administrateur limité** et sélectionnez le rôle **Administrateur Intune**.
-1. Sélectionnez **Créer**.
+
+1. Sélectionnez **Create** (Créer).
 
 Ensuite, vous créez deux groupes : les utilisateurs de station de travail et les appareils de station de travail.
 
 Dans le portail Azure, accédez à **Azure Active Directory** > **Groupes** > **Nouveau groupe**.
 
-1. Pour le groupe d’utilisateurs de station de travail, vous pouvez souhaiter configurer la [gestion des licences par groupe](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-assign) pour automatiser l’approvisionnement des licences aux utilisateurs.
+1. Pour le groupe d’utilisateurs de station de travail, vous pouvez souhaiter configurer la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour automatiser l’approvisionnement des licences aux utilisateurs.
 1. Pour le groupe d’utilisateurs de station de travail, entrez :
+
    * **Type de groupe** : sécurité
    * **Nom du groupe** : utilisateurs de station de travail sécurisée
    * **Type d’appartenance** : attribué
+
 1. Ajoutez votre administrateur de station de travail sécurisée : `secure-ws-admin@identityitpro.com`
 1. Vous pouvez ajouter tous les autres utilisateurs qui géreront les stations de travail sécurisées.
-1. Sélectionnez **Créer**.
-
+1. Sélectionnez **Create** (Créer).
 1. Pour le groupe d’appareils de station de travail, entrez :
+
    * **Type de groupe** : sécurité
    * **Nom du groupe** : stations de travail sécurisées
    * **Type d’appartenance** : attribué
-1. Sélectionnez **Créer**.
+
+1. Sélectionnez **Create** (Créer).
 
 ### <a name="azure-ad-device-configuration"></a>Configuration d’appareil Azure AD
 
@@ -110,7 +119,7 @@ Pour renforcer davantage le processus de jonction d’appareils à Azure AD :
 1. Sélectionnez **Oui** sous **Exiger l’authentification multifacteur pour joindre des appareils**.
 1. Sélectionnez **Enregistrer**.
 
-#### <a name="configure-mdm"></a>Configurer MDM
+#### <a name="configure-mobile-device-management"></a>Configurer la gestion des appareils mobiles
 
 À partir du portail Azure :
 
@@ -122,26 +131,7 @@ Ces étapes permettent de gérer n’importe quel appareil avec Intune. Pour plu
 
 #### <a name="azure-ad-conditional-access"></a>Accès conditionnel Azure AD
 
-L’accès conditionnel Azure AD permet de restreindre les tâches administratives privilégiées pour les appareils conformes. Les membres prédéfinis du groupe **Utilisateurs de station de travail sécurisée** doivent effectuer une authentification multifacteur lors de la connexion aux applications cloud. Une meilleure pratique consiste à exclure des comptes d’accès d’urgence de la stratégie. Pour plus d’informations, consultez [Gérer des comptes d’accès d’urgence dans Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
-
-Pour configurer l’accès conditionnel dans le portail Azure :
-
-1. Accédez à **Azure Active Directory** > **Accès conditionnel** > **Nouvelle stratégie**.
-1. Entrez :
-   * **Nom** : stratégie requise pour appareil sécurisé
-   * Affectations
-     * **Utilisateurs et groupes**
-       * Incluez **Utilisateurs et groupes**. Sélectionnez le groupe **Utilisateurs de station de travail sécurisée** créé précédemment.
-       * Excluez **Utilisateurs et groupes**. Sélectionnez les comptes d’accès d’urgence de votre organisation.
-     * **Applications cloud** : incluez **toutes les applications cloud**.
-    * Contrôles d’accès
-      * **Octroi** : sélectionnez la case d'option **Accorder l’accès**.
-        * **Exiger une authentification multifacteur**.
-        * **Exiger que l’appareil soit marqué comme conforme**.
-        * Pour plusieurs contrôles : **Demander tous les contrôles sélectionnés**.
-    * Activer la stratégie : **Activé**.
-
-Vous avez la possibilité de créer des stratégies qui bloquent les pays où les utilisateurs n’auraient pas accès aux ressources de l’entreprise. Pour plus d’informations sur les stratégies d’accès conditionnel en fonction de l’adresse IP, consultez la [condition d’emplacement dans Accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition).
+L’accès conditionnel Azure AD permet de restreindre les tâches administratives privilégiées pour les appareils conformes. Les membres prédéfinis du groupe **Utilisateurs de station de travail sécurisée** doivent effectuer une authentification multifacteur lors de la connexion aux applications cloud. Une meilleure pratique consiste à exclure des comptes d’accès d’urgence de la stratégie. Pour plus d’informations, consultez [Gérer des comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Configuration Intune
 
@@ -152,6 +142,7 @@ Il est important de vérifier que votre station de travail sécurisée est un ap
 Pour vous assurer que les appareils sont entièrement configurés avant leur utilisation, Intune propose un moyen de **bloquer l’utilisation de l’appareil jusqu'à ce que toutes les applications et tous les profils soient installés**.
 
 À partir du **portail Azure** :
+
 1. Accédez à **Microsoft Intune** > **Inscription d’appareil** > **Inscription Windows** > **Page État d’inscription** > **Par défaut** > **Paramètres**.
 1. Définissez l’option **Afficher la progression de l'installation des applications et des profils** sur **Oui**.
 1. Définissez **Bloquer l'utilisation de l'appareil tant que les profils et les applications ne sont pas tous installés** sur **Oui**.
@@ -164,17 +155,23 @@ Dans Intune, dans le portail Azure :
 
 1. Sélectionnez **Inscription d’appareil** > **Inscription Windows** > **Profils de déploiement** > **Créer un profil** .
 1. Entrez :
+
    * Nom : **profil de déploiement de station de travail sécurisée**.
    * Description : **déploiement de stations de travail sécurisées**.
    * Définissez **Convertir tous les appareils ciblés en Autopilot** sur **Oui**. Ce paramètre permet de s’assurer que tous les appareils de la liste sont inscrits auprès du service de déploiement Autopilot. Le traitement de l’inscription peut prendre 48 heures.
+
 1. Sélectionnez **Suivant**.
+
    * Comme **mode de déploiement**, choisissez le **déploiement automatique (préversion)** . Les appareils avec ce profil sont associés à l’utilisateur qui inscrit l’appareil. Les informations d’identification de l’utilisateur sont requises pour inscrire l’appareil. Il est important de noter que le déploiement d’un appareil en mode **Déploiement automatique** vous permettra de déployer des ordinateurs portables dans un modèle partagé. Aucune attribution d’utilisateur ne se produit avant la première attribution de l’appareil à un utilisateur. Par conséquent, toutes les stratégies utilisateur telles que BitLocker ne seront pas activées avant la première attribution d’utilisateur. Si vous souhaitez en savoir plus sur les méthodes de connexion à un appareil sécurisé, veuillez consulter la page [Profils sélectionnés](https://docs.microsoft.com/intune/device-profile-assign).
    * La case **Joindre à Azure AD comme** doit afficher **Appareil joints Azure AD** et être grisée.
    * Sélectionnez votre langue (région) et le type de compte utilisateur **standard**. 
+
 1. Sélectionnez **Suivant**.
+
    * Sélectionnez une balise d’étendue si vous en avez préconfiguré une.
+
 1. Sélectionnez **Suivant**.
-1. Choisissez **Affectations** > **Affecter à** > **Groupes sélectionnés**. Dans la zone **Sélectionner les groupes à inclure**, choisissez **Utilisateurs de station de travail sécurisée**.
+1. Choisissez **Affectations** > **Affecter à** > **Groupes sélectionnés**. Dans la zone **Sélectionner les groupes à inclure**, choisissez **Stations de travail sécurisées**.
 1. Sélectionnez **Suivant**.
 1. Cliquez sur **Créer** pour créer le profil. Le profil de déploiement Autopilot est maintenant disponible pour les appareils.
 
@@ -190,7 +187,8 @@ Dans le portail Azure :
 
 1. Accédez à **Microsoft Intune** > **Mises à jour logicielles** > **Anneaux de mise à jour Windows 10**.
 1. Entrez :
-   * Nom : **mises à jour de station de travail gérée Azure**
+
+   * Nom : **mises à jour de station de travail gérée par Azure**
    * Canal de service : **Windows Insider - Rapide**
    * Report de mise à jour de qualité (jours) : **3**
    * Période de report de mise à jour de fonctionnalité (jours) : **3**
@@ -202,10 +200,10 @@ Dans le portail Azure :
    * Période rappel de redémarrage engagé (jours) : **3**
    * Définir une échéance pour les redémarrages en attente (jours) : **3**
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 1. Dans l’onglet **Affectations**, ajoutez le groupe **Stations de travail sécurisées**.
 
-Pour plus d’informations sur les stratégies Windows Update, consultez [Policy CSP - Update](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update) (CSP de règles - Mise à jour).
+Pour plus d’informations sur les stratégies Windows Update, consultez [CSP de la stratégie-mise à jour](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update).
 
 ### <a name="windows-defender-atp-intune-integration"></a>Intégration de Windows Defender ATP et Intune
 
@@ -216,9 +214,11 @@ Pour configurer l’intégration de Windows Defender ATP et Intune, accédez au 
 1. Accédez à **Microsoft Intune** > **Conformité des appareils** > **Windows Defender ATP**.
 1. À l’étape 1 sous **Configuration de Windows Defender ATP**, sélectionnez **Connecter Windows Defender ATP à Microsoft Intune dans le Centre de sécurité Windows Defender**.
 1. Dans le centre de sécurité Windows Defender :
+
    1. Sélectionnez **Paramètres** > **Fonctionnalités avancées**.
    1. Pour **Connexion Microsoft Intune**, choisissez **Activé**.
    1. Sélectionnez **Enregistrer les préférences**.
+
 1. Une fois la connexion établie, revenez à Intune et sélectionnez **Actualiser** en haut.
 1. Définissez **Connecter les appareils Windows versions 10.0.15063 et ultérieures à Windows Defender ATP** à **Activé**.
 1. Sélectionnez **Enregistrer**.
@@ -231,16 +231,16 @@ Pour mener à bien le renforcement de la solution, téléchargez et exécutez le
 
 | Profil | Emplacement de téléchargement | Nom de fichier |
 | --- | --- | --- |
-| Sécurité faible | N/A |  N/A |
+| Sécurité faible | N/A | N/A |
 | Sécurité améliorée | https://aka.ms/securedworkstationgit | Enhanced-Workstation-Windows10-(1809).ps1 |
-| Sécurité élevée  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
+| Sécurité élevée | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
 | Spécialisée | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline.ps1 |
 | Conformité spécialisée* | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
 | Sécurisé | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
 \* Conformité spécialisée est un script qui applique la configuration spécialisée fournie dans NCSC Windows10 SecurityBaseline.
 
-Une fois que le script s’est exécuté correctement, vous pouvez mettre à jour les profils et les stratégies dans Intune. Les scripts pour les profils Amélioré et Sécurisé créent des stratégies et des profils pour vous, mais vous devez attribuer la règle à votre groupe **Stations de travail sécurisées**.
+Une fois que le script s’est exécuté correctement, vous pouvez mettre à jour les profils et les stratégies dans Intune. Les scripts pour les profils Amélioré et Sécurisé créent des stratégies et des profils pour vous, mais vous devez attribuer la règle à votre groupe d’appareils **Stations de travail sécurisées**.
 
 * Voici où vous trouverez les profils de configuration d’appareil Intune créés par les scripts : **Portail Azure** > **Microsoft Intune** > **Configuration d’appareil** > **Profils**.
 * Voici où vous trouverez les stratégies de conformité d’appareil Intune créées par les scripts : **Portail Azure** > **Microsoft Intune** > **Conformité d’appareil** > **Stratégies**.
@@ -262,12 +262,20 @@ En suivant les conseils donnés ici, vous avez déployé une station de travail 
 
 Vous pouvez apporter des modifications supplémentaires à la gestion des règles de trafic entrant et sortant pour vos points de terminaison autorisés et bloqués, en fonction de vos besoins. Lorsque vous continuez à renforcer la station de travail sécurisée, vous pouvez assouplir la restriction qui interdit tout le trafic entrant et sortant. Vous pouvez ajouter des sites sortants autorisés pour inclure les sites web approuvés et courants. Pour plus d’informations, voir le [service de configuration du pare-feu](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
 
-Recommandations de restrictions par défaut :
+La gestion restrictive du trafic d’URL inclut les options suivantes :
 
-* Refuser tout le trafic entrant
-* Refuser tout le trafic sortant
+* Refuser tout le trafic entrant : définie dans le script de profil Station de travail sécurisée.
+* Refuser tout le trafic sortant, à l’exception de certains services Azure et Microsoft, notamment Azure Cloud Shell, et de la possibilité d’autoriser la réinitialisation du mot de passe Azure.
 
-The Spamhaus Project tient à jour [la liste des domaines bloqués (DBL)](https://www.spamhaus.org/dbl/) : une bonne ressource à utiliser comme point de départ pour bloquer les sites.
+```
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"ProxyEnable"=dword:00000001
+"ProxyServer"="127.0.0.1:80"
+"ProxyOverride"="*.azure.com;*.azure.net;*.microsoft.com;*.windowsupdate.com;*.microsoftonline.com;*.microsoftonline.cn;*.windows.net;*.windowsazure.com;*.windowsazure.cn;*.azure.cn;*.loganalytics.io;*.applicationinsights.io;*.vsassets.io;*.azure-automation.net;*.visualstudio.com,portal.office.com;*.aspnetcdn.com;*.sharepointonline.com;*.msecnd.net;*.msocdn.com;*.webtrends.com"
+"AutoDetect"=dword:00000000
+```
+
+Si vous souhaitez augmenter la précision de vos règles de blocage, vous pouvez vous référer au projet Spamhaus qui gère la [Liste des domaines bloqués (DBL)](https://www.spamhaus.org/dbl/), une bonne ressource à utiliser en tant qu’ensemble avancé de règles à implémenter pour bloquer des sites.
 
 ### <a name="manage-local-applications"></a>Gérer les applications locales
 
@@ -288,7 +296,7 @@ Dans certaines situations, des applications telles que le navigateur Google Chro
 1. Sous **Groupes inclus**, ajoutez le groupe **Stations de travail sécurisées**.
 1. Sélectionnez **OK**, puis cliquez sur **Enregistrer**.
 
-Pour plus d’informations sur la configuration des paramètres de Chrome, consultez la procédure de [gestion du navigateur Chrome avec Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
+Pour plus d’informations sur la configuration des paramètres de Chrome, consultez [Gérer le navigateur Chrome avec Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
 
 #### <a name="configuring-the-company-portal-for-custom-apps"></a>Configuration du portail d’entreprise pour les applications personnalisées
 
@@ -297,6 +305,27 @@ En mode sécurisé, l’installation de l’application est limitée au portail 
 Une copie géré par Intune du [portail d’entreprise](https://docs.microsoft.com/Intune/store-apps-company-portal-app) vous octroie un accès à la demande à des outils supplémentaires que vous pouvez transmettre aux utilisateurs des stations de travail sécurisées.
 
 Vous devrez peut-être installer des applications Windows 32 bits ou d’autres applications dont le déploiement nécessite une préparation spéciale. Dans ce cas, l’[outil de préparation du contenu Microsoft win32](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) peut fournir un fichier au format `.intunewin` prêt à l’emploi pour l’installation.
+
+### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Accès conditionnel n’autorisant l’accès au portail Azure uniquement qu’à une station de travail sécurisée
+
+Azure AD offre la possibilité de gérer et limiter qui et ce qui peut accéder à votre portail de gestion de cloud Azure. L’activation de l’[Accès conditionnel](../conditional-access/overview.md) garantit que seule votre station de travail sécurisée peut gérer ou modifier des ressources. Lors du déploiement de cette fonctionnalité, il est essentiel que vous considériez si l’[accès d’urgence](../users-groups-roles/directory-emergency-access.md) peut ou doit être utilisée uniquement pour des cas extrêmes et le compte géré par le biais d’une stratégie.
+
+> [!NOTE]
+> Vous devez créer un groupe d’utilisateurs et inclure votre utilisateur d’urgence capable de contourner la stratégie d’accès conditionnel. Pour notre exemple, nous avons un groupe de sécurité nommé **Emergency BreakGlass**
+
+1. Accédez au **Portail Azure** > **Microsoft Intune** > **Accès conditionnel – Stratégies** > **Nouvelle stratégie**.
+1. Spécifiez un **Nom** pour la stratégie.
+1. Sélectionnez **Utilisateurs et groupes** > **Sélectionner les utilisateurs et les groupes** 
+1. Sélectionnez **Inclure** > **Rôles d’annuaire** > Choisissez les rôles > Administrateur général, Administrateur de rôle privilégié, Administrateur d’authentification privilégié, Administrateur de sécurité, Administrateur de conformité, Administrateur de l’accès conditionnel, Administrateur d’application, Administrateur d’application cloud, Administrateur de service Intune
+1. Sélectionnez **Exclure** > choisissez **Utilisateurs et groupes** > choisissez **Sélectionner les utilisateurs exclus** > sélectionnez votre groupe **Emergency BreakGlass**.
+1. Sélectionnez **Applications ou actions cloud** > sélectionnez **Toutes les applications cloud**
+1. Sélectionnez **Conditions** > sélectionnez **Plateformes d’appareils** > Choisissez Configurer **Oui** > sélectionnez **Sélectionner des plateformes d’appareil** > choisissez **Windows**
+1. Sélectionnez **Contrôles d’accès** > sélectionnez **Accorder l’accès** **Oui** > choisissez **Exiger que l’appareil soit marqué comme conforme**. 
+1. Sélectionnez **Activer la stratégie** > **Activé**
+ 
+Cet ensemble de stratégies garantit que vos administrateurs doivent utiliser un appareil Windows compatible, défini par Intune et WDATP. 
+
+Les organisations doivent également envisager de bloquer les protocoles d’authentification hérités dans leurs environnements. Il existe plusieurs façons d’accomplir cette tâche. Pour plus d’informations sur le blocage des protocoles d’authentification hérités, consultez l’article, [Activation Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel](../conditional-access/block-legacy-authentication.md).
 
 ### <a name="use-powershell-to-create-custom-settings"></a>Utiliser PowerShell pour créer des paramètres personnalisés
 
@@ -307,13 +336,13 @@ Vous devrez peut-être configurer certains paramètres et contrôles personnalis
 Le script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) du Centre de scripts Microsoft permet à Windows de charger cette [image d’arrière-plan générique et gratuite](https://i.imgur.com/OAJ28zO.png) au démarrage.
 
 1. Téléchargez le script sur un appareil local.
-1. Mettez à jour le clientXXXX et l’emplacement de téléchargement de l’image d’arrière-plan. Dans notre exemple, nous remplaçons clientXXXX pour les arrière-plans.  
+1. Mettez à jour le clientXXXX et l’emplacement de téléchargement de l’image d’arrière-plan. Dans notre exemple, nous remplaçons clientXXXX pour les arrière-plans.
 1. Accédez au **portail Azure** > **Microsoft Intune** > **Configuration d’appareil** > **Scripts PowerShell** > **Ajouter**.
 1. Indiquez un **nom** pour le script et spécifiez l’**emplacement du script**.
 1. Sélectionnez **Configurer**.
    1. Définissez l’option **Exécuter ce script en utilisant les informations d'identification de l'utilisateur connecté** sur **Oui**.
    1. Sélectionnez **OK**.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 1. Sélectionnez **Affectations** > **Sélectionner des groupes**.
    1. Ajoutez le groupe de sécurité **Stations de travail sécurisées**.
    1. Sélectionnez **Enregistrer**.
@@ -340,13 +369,98 @@ Le script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scrip
 
 Une fois que vous avez configuré l’appareil, effectuez une révision et vérifiez la configuration. Vérifiez que le premier appareil est correctement configuré avant de poursuivre le déploiement.
 
-## <a name="assign-and-monitor"></a>Affecter et surveiller
+## <a name="assign-devices"></a>Attribuer des appareils
 
 Pour affecter des utilisateurs et des appareils, vous devez mapper les [profils sélectionnés](https://docs.microsoft.com/intune/device-profile-assign) à votre groupe de sécurité. Tous les nouveaux utilisateurs qui ont besoin d’autorisations pour le service doivent également être ajoutés au groupe de sécurité.
 
-Vous pouvez surveiller les profils avec la [surveillance de profil Intune](https://docs.microsoft.com/intune/device-profile-monitor).
+## <a name="using-sentinel-and-windows-defender-atp-to-monitor-and-respond-to-security-incidents"></a>Utilisation de Sentinel et Windows Defender ATP pour surveiller et traiter les incidents de sécurité
+
+La surveillance du déploiement d’une station de travail sécurisée peut être accomplie en activant [Sentinel] et en utilisant [Gestion des menaces et vulnérabilités](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt). Les instructions ne fournissent pas de repérage de menaces exhaustif, mais propose des efforts de bon sens pour surveiller et traiter des incidents de sécurité potentiels.
+
+Nous utilisons **Azure Sentinel** pour effectuer les opérations suivantes : 
+
+* Collecter des données à partir d’Intune, du portail Azure et d’Azure AD pour la surveillance des utilisateurs et des appareils
+* Aider à examiner les activités suspectes de configuration des utilisateurs et des appareils
+* Et promouvoir votre capacité à explorer les enquêtes de sécurité avec WDATP
+
+La surveillance de Sentinel nécessite une configuration des connecteurs à vos sources de données telles qu’Azure AD.
+
+1. Dans le **portail Azure**, accédez à **Azure Sentinel (préversion)** > sélectionnez **Ajouter**
+1. Dans **Choisir un espace de travail à ajouter à Azure Sentinel**, sélectionnez **Créer un espace de travail**
+1. Entrez :
+   * **Espace de travail Log Analytics** : « Surveillance de station de travail sécurisée »
+   * **Abonnement** : sélectionnez votre abonnement actif
+   * **Groupe de ressources** : sélectionnez **Créer** > RG Station de travail sécurisée > **OK**
+   * **Emplacement** : sélectionnez l’emplacement le mieux adapté à votre déploiement
+   * **Niveau tarifaire** : sélectionnez **Par Go (2018)**
+1. Sélectionnez **OK**.
+
+Ensuite, nous allons connecter les sources de données de station de travail sécurisée disponibles pour la surveillance.
+
+1. Dans le **portail Azure**, accédez à **Espace de travail Azure Sentinel** > sélectionnez l’espace de travail **Surveillance de station de travail sécurisée**
+1. Sélectionnez **Connecteurs de données**
+1. Choisissez **Azure Active Directory** > Ouvrir la page du connecteur > Après examen de la Condition préalable. Passez à Configuration et sélectionnez **Se connecter** pour Journaux d’activité de connexion d’Azure AD et Journaux d’audit Azure AD.
+1. Choisissez **Activité Azure** > Ouvrir la page du connecteur > Après examen de la Conditions préalable. Passez à Configurer les journaux d’activité Azure > sélectionnez votre abonnement > sélectionnez **Se connecter**
+
+À mesure que les données sont collectées par Sentinel, vous pouvez observer l’activité en sélectionnant **Portail Azure**, puis en accédant à **Vue d’ensemble d’Azure Sentinel** 
+
+Nous allons utiliser **Windows Defender ATP (WDATP)** pour effectuer les opérations suivantes :
+
+* Observer et surveiller en permanence les vulnérabilités et les configurations incorrectes
+* Utiliser WDATP pour hiérarchiser les menaces dynamiques dans la nature
+* Assurer une corrélation des vulnérabilités avec les alertes de Détection de point de terminaison et réponse (EDR)
+* Utiliser le tableau de bord pour identifier les vulnérabilités au niveau de l’ordinateur lors des investigations
+* Envoyer des corrections à Intune
+
+Configurer votre [tableau de bord Windows Defender ATP](https://securitycenter.windows.com/machines). Utilisation des instructions dans [Présentation du tableau de bord Gestion des menaces et des vulnérabilités](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
+
+## <a name="monitoring-application-activity-using-microsoft-monitoring-agent-mma"></a>Surveillance de l’activité des applications à l’aide de Microsoft Monitoring Agent (MMA)
+À partir de la station de travail spécialisée, AppLocker est activé pour l’analyse de l’activité des applications sur une station de travail. Pour que la surveillance soit intégrée dans votre espace de travail Log Analytics, vous devez suivre un agent et une configuration MMA. 
+
+> [!NOTE]
+> Le profil de station de travail spécialisée contient les stratégies de surveillance d’AppLocker. Le déploiement des stratégies est requis pour la surveillance de l’activité des applications sur un client
+
+Déployer l’agent MMA avec le script PowerShell Intune
+
+1. Télécharger le [script de configuration sur un appareil local](https://aka.ms/securedworkstationgit).
+1. Mettre à jour les paramètres **$WorkSpaceID** et **$WorkSpaceKey**
+1. Accédez au **portail Azure** > **Microsoft Intune** > **Configuration d’appareil** > **Scripts PowerShell** > **Ajouter**.
+1. Indiquez un **nom** pour le script et spécifiez l’**emplacement du script**.
+1. Sélectionnez **Configurer**.
+   1. Définissez l’option **Exécuter ce script en utilisant les informations d'identification de l'utilisateur connecté** sur **Oui**.
+   1. Sélectionnez **OK**.
+1. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Affectations** > **Sélectionner des groupes**.
+   1. Ajoutez le groupe de sécurité **Stations de travail sécurisées**.
+   1. Sélectionnez **Enregistrer**.
+
+Vous devez ensuite configurer Log Analytics pour recevoir les nouveaux journaux
+1. Dans le **portail Azure**, accédez à **Espace de travail log Analytics** > sélectionnez « Surveillance de station de travail sécurisée »
+1. Sélectionnez **Paramètres avancés** > **Données** > **Journaux des événements Windows**
+1. Dans **Collecter les événements à partir des journaux des événements suivants** 
+1. Entrez :
+   * « Microsoft-Windows-AppLocker/EXE et DLL » > désélectionnez **informatif**
+   * « Microsoft-Windows-AppLocker/MSI et script » > désélectionnez **informatif**
+   * « Microsoft-Windows-AppLocker/package App-Deployment » > désélectionnez **informatif**
+   * « Microsoft-Windows-AppLocker/Packaged app-Execution » > désélectionnez **informatif**
+1. Sélectionnez **Enregistrer**.
+
+La journalisation des applications sera disponible dans votre espace de travail Log Analytics sélectionné.
+
+## <a name="monitoring"></a>Surveillance
+
+* Apprendre à [Détecter les menaces avec Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)
+* [Examiner les incidents avec Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
+* [Configurer des réponses automatisées aux menaces dans Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
+* Comprendre comment examiner votre [Score d’exposition](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
+* Examiner les [Recommandations de sécurité](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
+* Gérer les [corrections](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) de sécurité
+* Gérer la [Détection de point de terminaison et réponse](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+* Surveiller les profils avec la [surveillance de profil Intune](https://docs.microsoft.com/intune/device-profile-monitor).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [Microsoft Intune](https://docs.microsoft.com/intune/index).
-* Comprendre [Azure AD](https://docs.microsoft.com/azure/active-directory/index).
+* Comprendre [Azure AD](../index.yml).
+* Travailler avec [Microsoft Defender - Protection avancée contre les menaces](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+* Découvrir [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)

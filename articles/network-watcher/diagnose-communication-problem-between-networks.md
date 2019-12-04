@@ -1,6 +1,7 @@
 ---
-title: Diagnostiquer un problème de communication existant entre des réseaux - Didacticiel - Portail Azure | Microsoft Docs
-description: Découvrez comment diagnostiquer un problème de communication existant entre un réseau virtuel Azure connecté à un réseau local ou à un autre réseau virtuel, via une passerelle de réseau virtuel Azure, à l’aide de la fonctionnalité de diagnostics VPN de Network Watcher.
+title: 'Tutoriel : Diagnostiquer un problème de communication entre réseaux à l’aide du portail Azure'
+titleSuffix: Azure Network Watcher
+description: Dans ce tutoriel, découvrez comment diagnostiquer un problème de communication entre un réseau virtuel Azure connecté à un réseau local ou à un autre réseau virtuel, via une passerelle de réseau virtuel Azure, à l’aide de la fonctionnalité de diagnostic VPN de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704213"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419739"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
 
@@ -108,7 +109,7 @@ Si vous avez créé une passerelle VPN à l’aide du script de la section [Pré
 
 1. Entrez *TestRG1* dans la zone **Recherche** en haut du portail. Lorsque le groupe de ressources **TestRG1** apparaît dans les résultats de la recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Entrez *TestRG1* dans **TAPER NOM DU GROUPE DE RESSOURCES :**, puis sélectionnez **Supprimer**.
+3. Entrez *TestRG1* dans **TAPER NOM DU GROUPE DE RESSOURCES :** , puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure
+title: Tutoriel `:` Utiliser une identité managée pour accéder au Stockage Azure - Windows - Azure AD
 description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2449307936839d50fe0d48a0536ca4dd9c8d85c3
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191082"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181915"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5de62fd52360511fe660255dc023721a2837fe85
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c92cf6ae8777a343432d9d54dd7fcbedbb6b210c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819783"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384011"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell
 
@@ -273,33 +273,40 @@ Pour lister les attributions de rôle des administrateurs et des coadministrateu
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>Accorder l'accès
+## <a name="get-object-ids"></a>Récupérer des ID d’objet
 
-Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle.
+Pour répertorier, ajouter ou supprimer des attributions de rôles, vous devrez peut-être spécifier l’ID unique d’un objet. L’ID a le format : `11111111-1111-1111-1111-111111111111`. Vous pouvez récupérer l’ID à l’aide du Portail Azure ou d’Azure PowerShell.
 
-### <a name="search-for-object-ids"></a>Rechercher des ID d’objet
+### <a name="user"></a>Utilisateur
 
-Pour attribuer un rôle, vous devez identifier l’objet (utilisateur, groupe ou application) et l’étendue.
-
-Pour obtenir l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure ou utiliser [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
-
-Pour obtenir l’ID d’objet pour un utilisateur Azure AD, utilisez [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+Pour récupérer l’ID d’objet pour un utilisateur Azure AD, vous pouvez utiliser [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
+(Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-Pour obtenir l’ID d’objet pour un groupe Azure AD, utilisez [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+### <a name="group"></a>Groupe
+
+Pour récupérer l’ID d’objet pour un groupe Azure AD, vous pouvez utiliser [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
+(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-Pour obtenir l’ID objet d’une application ou d’un principal de service Azure AD, utilisez [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+### <a name="application"></a>Application
+
+Pour récupérer l’ID objet d’un principal de service Azure AD (identité utilisée par une application), vous pouvez utiliser [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Pour un principal de service, utilisez l’ID d’objet et **non** l’ID d’application.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
+(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
+
+## <a name="grant-access"></a>Accorder l'accès
+
+Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Créer une attribution de rôle pour un utilisateur à une étendue de groupe de ressources
 
@@ -344,7 +351,7 @@ Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au li
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *alain@example.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *alain\@exemple.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -362,7 +369,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Créer une attribution de rôle pour un groupe à une étendue de ressources
 
-Pour accorder l’accès à un groupe dans l’étendue d’une ressource, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Pour accorder l’accès à un groupe dans l’étendue d’une ressource, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -393,10 +400,10 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Créer une attribution de rôle pour une application à une étendue d’abonnement
 
-Pour accorder l’accès à une application dans l’étendue d’un abonnement, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Pour accorder l’accès à une application dans l’étendue d’un abonnement, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet de l’application, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example

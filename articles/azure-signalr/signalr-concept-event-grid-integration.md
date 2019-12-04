@@ -1,19 +1,19 @@
 ---
-title: Réaction aux événements d’Azure SignalR Service
-description: Utilisez Azure Event Grid pour vous abonner à des événements Azure SignalR Service.
+title: Réagir aux événements Azure SignalR Service
+description: Utilisez Azure Event Grid pour vous abonner à des événements Azure SignalR Service. D’autres services en aval peuvent être déclenchés par ces événements.
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: chenyl
 ms.reviewer: zhshang
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: a3d0669a1a89f2fc5aaca0a96e00b731d2d40830
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296831"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158195"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Réaction aux événements d’Azure SignalR Service
 

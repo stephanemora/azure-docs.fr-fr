@@ -1,5 +1,5 @@
 ---
-title: Problème lors de l’enregistrement des informations d’identification de l’administrateur lors de la configuration de l’application Azure AD Gallery | Microsoft Docs
+title: Problème lors de l’enregistrement des informations d’identification de l’administrateur lors de la configuration de l’application de galerie Azure AD
 description: Comment résoudre les problèmes courants rencontrés lors de la configuration l’approvisionnement des utilisateurs pour une application déjà répertoriée dans la galerie d’applications Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152b704ca597fb473a820124ee6147d6d9bc7845
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 77e48b8921a1ebe3affd981c068da7fa55fdf30f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381468"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275785"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory | Microsoft Docs 
 

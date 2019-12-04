@@ -1,5 +1,5 @@
 ---
-title: Une base d’identité solide en quatre étapes avec Azure Active Directory
+title: Créer une base d’identité solide en quatre étapes – Azure AD
 description: Cette rubrique décrit les quatre étapes que les clients d’identité hybride peuvent effectuer pour générer une base d’identité solide.
 services: active-directory
 author: martincoetzer
@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cd080602ec879affb3ece978f14d5afc33ef9d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173088"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206780"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 

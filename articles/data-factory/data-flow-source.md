@@ -1,17 +1,19 @@
 ---
-title: Transformation de source dans le flux de données de mappage - Azure Data Factory
+title: Transformation de la source d’un mappage de flux de données
 description: Découvrez comment configurer une transformation de la source dans le mappage de flux de données.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 5889d96057d4b028e8716e407819d17938f58b3c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675949"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217744"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 

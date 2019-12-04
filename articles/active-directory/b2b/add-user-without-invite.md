@@ -1,5 +1,5 @@
 ---
-title: Ajouter des invités B2B sans e-mail ou lien d’invitation - Azure Active Directory | Microsoft Docs
+title: Ajouter des invités B2B sans e-mail ou lien d’invitation - Azure AD
 description: Vous pouvez permettre à un utilisateur invité d’ajouter d’autres utilisateurs invités à votre Azure AD sans échanger d’invitation dans Azure Active Directory B2B Collaboration.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9efbb941e589cb8e4cf56ee06a697a1557a3cc89
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056066"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268931"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter des utilisateurs invités B2B Collaboration sans e-mail ou lien d’invitation
 

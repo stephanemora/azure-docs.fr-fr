@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479610"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151256"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux à l’aide du portail Azure
 
@@ -23,36 +23,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-## <a name="create-a-key-vault"></a>Création d’un coffre de clés
-
-1. Sélectionnez l’option **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-1. Dans la zone de recherche, entrez **Key Vault**.
-1. Dans la liste des résultats, sélectionnez **Key Vault**.
-1. Dans la section Key Vault, sélectionnez **Créer**.
-1. Dans l’écran **Créer un coffre de clés** , choisissez un nom unique pour votre nouveau coffre de clés.
-
-    > [!Important]
-    > Chaque coffre de clés doit avoir un nom unique. L’exemple suivant crée un coffre de clés nommé *myADEKV*, mais vous devez nommer le vôtre différemment.
-
-1. Sélectionnez un **Abonnement**.
-1.  Sous **Groupe de ressources**, sélectionnez **Créer**. Dans la fenêtre contextuelle, tapez *myResourceGroup* comme nom du groupe de ressources, puis choisissez **OK**. 
-
-    ![Écran de la création du groupe de ressources](./media/disk-encryption/portal-qs-keyvaultcreation.png)
-
-1. Dans le menu déroulant **Emplacement**, choisissez **East US** (USA Est).
-1. Conservez les valeurs par défaut des autres options.
-1. Sélectionnez « Stratégies d’accès » pour accéder à un nouvel écran.
-1. Cochez la case à côté de l’option « Activer l’accès à Azure Disk Encryption pour chiffrer des volumes ».
-
-    ![Écran de la création du groupe de ressources](./media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
-
-1. En bas de l’écran Stratégies d’accès, cliquez sur « Vérifier + créer ».
-1. À la fin de la vérification, cliquez sur « Créer ».
-
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 1. Choisissez **Créer une ressource** en haut à gauche du Portail Azure.
-
 1. Dans la page Nouveau, sous Populaire, sélectionnez **Ubuntu Server 18.04 LTS**.
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné.
 1. Dans **Groupe de ressources**, sélectionnez le groupe de ressources que vous avez créé en même temps que votre coffre de clés (par exemple, **myResourceGroup**).
@@ -73,15 +46,24 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 1. Dans la barre latérale de gauche, sélectionnez **Disques**.
 1. Dans l’écran Disques, sélectionnez **Chiffrement**. 
 
-    ![sélection dans Disques et Chiffrement](./media/disk-encryption/portal-qs-disks-to-encryption.png)
+    ![sélection dans Disques et Chiffrement](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. Dans l’écran Chiffrement, sous **Disques à chiffrer**, choisissez **Disques OS et de données**.
-1. Sous **Paramètres de chiffrement**, cliquez sur « Sélectionner un coffre de clés et une clé pour le chiffrement ».
-1. Dans la barre latérale de droite, sélectionnez le nom du coffre de clés créé en tant que valeur pour **Coffre de clés**, puis cliquez sur **Sélectionner**.
+1. Sous **Paramètres de chiffrement**, choisissez **Sélectionner un coffre de clés et une clé de chiffrement**.
+1. Dans l’écran **Sélectionner une clé dans Azure Key Vault**, sélectionnez **Créer**.
 
-    ![sélection dans Disques et Chiffrement](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
-1. En haut de l’écran Chiffrement, cliquez sur « Enregistrer ». Un message s’affiche pour vous avertir que la machine virtuelle va redémarrer. Cliquez sur **Oui**.
+    ![sélection dans Disques et Chiffrement](../media/disk-encryption/portal-qs-keyvault-create.png)
 
+1. Dans l’écran **Créer un coffre de clés**, vérifiez que le groupe de ressources est identique à celui que vous avez utilisé pour créer la machine virtuelle.
+1. Donnez un nom à votre coffre de clés.  Chaque coffre de clés dans Azure doit avoir un nom unique.
+1. Sous l’onglet **Stratégies d’accès**, cochez la case **Azure Disk Encryption pour chiffrer des volumes**.
+
+    ![sélection dans Disques et Chiffrement](../media/disk-encryption/portal-qs-keyvault-enable.png)
+
+1. Sélectionnez **Revoir + créer**.  
+1. Une fois que le coffre de clés a été validé, sélectionnez **Créer**. Ceci vous ramène à l’écran **Sélectionner une clé dans Azure Key Vault**.
+1. Laissez le champ **Clé**  vide et choisissez **Sélectionner**.
+1. En haut de l’écran de chiffrement, cliquez sur **Enregistrer**. Un message s’affiche pour vous avertir que la machine virtuelle va redémarrer. Cliquez sur **Oui**.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -1,20 +1,15 @@
 ---
-title: Sauvegarder des machines virtuelles Azure à grande échelle
+title: Tutoriel - Sauvegarder des machines virtuelles Azure à grande échelle
 description: Dans ce didacticiel explique comment créer un coffre Recovery Services, définir une stratégie de sauvegarde et à sauvegarder simultanément plusieurs machines virtuelles.
-keywords: sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde de MV ; sauvegarder une MV ; sauvegarde de MV Azure ; sauvegarde et récupération d’urgence
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747016"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171849"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -37,7 +32,7 @@ Le coffre Recovery Services contient les données de sauvegarde et la stratégie
 
 1. Dans le menu de gauche, sélectionnez **Tous les services**, puis dans la liste des services, tapez *Recovery Services*. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Lorsque vous voyez l’option Coffres Recovery Services dans la liste, sélectionnez-la pour ouvrir le Coffres Recovery Services.
 
-    ![Ouvrir le menu Coffres Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Ouvrir le menu Coffres Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter** pour ouvrir le menu du coffre Recovery Services.
 

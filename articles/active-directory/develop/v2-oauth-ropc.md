@@ -12,21 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fb475a5d88547cc5f39cb269cc1cbf72fcd25b3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295397"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207781"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>La plateforme d’identité Microsoft et les informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identité Microsoft et informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0
 
-La plateforme d’identité Microsoft prend en charge l’[octroi des informations d’identification de mot de passe du propriétaire des ressources](https://tools.ietf.org/html/rfc6749#section-4.3), qui permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Le flux ROPC nécessite un degré élevé de confiance et d’exposition des utilisateurs, et vous devez utiliser ce flux seulement quand il est impossible d’utiliser d’autres flux plus sécurisés.
+La plateforme d’identité Microsoft prend en charge l’[octroi des informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), qui permet à une application de connecter l’utilisateur en gérant directement son mot de passe.  Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
+
+> [!WARNING]
+> Microsoft vous recommande de ne _pas_ utiliser le flux ROPC. Dans la plupart des scénarios, des alternatives plus sécurisées sont disponibles et recommandées. Ce flux demande un degré de confiance très élevé dans l’application et comporte des risques qui ne sont pas présents dans d’autres flux. Utilisez ce flux uniquement lorsqu’aucun autre flux plus sécurisé ne peut être utilisé.
 
 > [!IMPORTANT]
 >

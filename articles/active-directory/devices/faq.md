@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809257"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207384"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -62,7 +62,7 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 - L’utilisateur désactive l’appareil à partir du portail Mes applications. 
 - Un administrateur (ou un utilisateur) supprime ou désactive l’appareil dans le portail Azure ou à l’aide de PowerShell.
 - Valable uniquement pour les appareils hybrides joints à Azure AD : Un administrateur supprime l’unité d’organisation Appareils de l’étendue de synchronisation, ce qui entraîne la suppression des appareils dans Azure AD.
-- Mise à niveau d’AAD Connect vers la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Mise à niveau d’Azure AD connecté à la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Pour savoir comment remédier à cela, lisez la section ci-dessous.
@@ -119,7 +119,7 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>Q : L’inscription d’appareil Windows 10 dans Azure AD prend-elle en charge les modules de plateforme sécurisée en mode FIPS ?
 
-**R :** Non, actuellement, l’inscription d’appareil sur Windows 10 pour tous les états d’appareil (jointure Azure AD Hybride, jointure Azure AD et Azure AD inscrit) ne prend pas en charge les modules de plateforme sécurisée (TPM) en mode FIPS. Pour une jointure ou une inscription à Azure AD réussies, le mode FIPS doit être désactivé pour le module de plateforme sécurisée sur ces appareils
+**R :** L’inscription des appareils Windows 10 n’est prise en charge que pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride ou à la jonction Azure AD Hybride. Notez que Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. 
 
 ---
 

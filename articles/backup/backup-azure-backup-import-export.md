@@ -1,19 +1,15 @@
 ---
-title: Amorcer la sauvegarde hors connexion avec le service d’importation/exportation de Sauvegarde Azure
+title: Amorcer la sauvegarde hors connexion avec le service Import/Export
 description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiale à l’aide du service Azure Import/Export.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968518"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173300"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 
@@ -40,7 +36,7 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 > * Sauvegarde de fichiers et dossiers avec l’agent Microsoft Azure Recovery Services, ou agent de sauvegarde Azure.
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Microsoft System Center Data Protection Manager
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Serveur Sauvegarde Microsoft Azure
-
+ 
    > [!NOTE]
    > La sauvegarde hors connexion n’est pas prise en charge pour les sauvegardes d’état du système effectuées à l’aide de l’agent Sauvegarde Azure.
 
@@ -109,7 +105,7 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
 
 L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont envoyés au centre de données Azure le plus proche. Cet utilitaire est disponible dans le répertoire d’installation de l’agent Recovery Services, dont le chemin d’accès est le suivant :
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Accédez au répertoire, puis copiez le répertoire **AzureOfflineBackupDiskPrep** vers un autre ordinateur auquel les disques SATA sont connectés. Sur l’ordinateur auquel les disques SATA sont connectés, vérifiez les points suivants :
 

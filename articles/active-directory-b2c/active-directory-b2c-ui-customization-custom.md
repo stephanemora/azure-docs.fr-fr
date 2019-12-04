@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374230"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209441"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -207,4 +207,4 @@ Voici les étapes indiquant comment utiliser l’exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les éléments d’interface utilisateur qui peuvent être personnalisés, consultez le [guide de référence de la personnalisation d’interface utilisateur pour les stratégies intégrées](active-directory-b2c-reference-ui-customization.md).
+Pour plus d’informations sur les éléments d’interface utilisateur qui peuvent être personnalisés, consultez le [guide de référence de la personnalisation d’interface utilisateur pour les flux utilisateur](active-directory-b2c-reference-ui-customization.md).

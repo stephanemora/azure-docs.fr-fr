@@ -1,22 +1,22 @@
 ---
-title: Historique de publication des versions de l'agent de protection par mot de passe Azure AD local - Azure Active Directory
+title: Historique de publication des mises en production de l'agent de protection par mot de passe - Azure Active Directory
 description: Historique de publication des versions de documents et des changements de comportement
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6458f31b21d09e54afb080ffc73598903a9831e0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702945"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381733"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historique des versions de l’agent de protection par mot de passe Azure AD
 

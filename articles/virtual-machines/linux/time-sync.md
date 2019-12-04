@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e5d68a31db3797f9919d044eed284d0d09052390
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1e459e96c128e20f44f1a5adcb18c5b1824c3bf5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034659"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534119"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -39,7 +39,7 @@ Les hôtes Azure sont synchronisés avec les serveurs de temps internes Microsof
 
 Sur un matériel autonome, le système d’exploitation Linux lit uniquement l’horloge du matériel hôte au démarrage. Ensuite, l’horloge est gérée à l’aide de la minuterie d’interruption dans le noyau Linux. Dans cette configuration, l’horloge présente un décalage au fil du temps. Dans les nouvelles distributions Linux sur Azure, les machines virtuelles peuvent utiliser le fournisseur VMICTimeSync, inclus dans les services d’intégration Linux (LIS), pour demander des mises à jour de l’horloge à l’hôte plus fréquemment.
 
-Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
+Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
 
 Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 
@@ -144,6 +144,16 @@ Pour plus d’informations sur Red Hat et NTP, consultez la [configuration NTP
 Pour plus d’informations sur chrony, consultez [l’utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
 Si les sources chrony et TimeSync sont activées simultanément, vous pouvez en marquer une comme **favorite**, l’autre devenant alors la source de secours. Étant donné que les services NTP ne mettent pas à jour l’horloge pour les grands décalages, sauf après une longue période, la source VMICTimeSync permet de récupérer l’horloge à partir d’événements de machine virtuelle en pause beaucoup plus rapidement que les outils NTP seuls.
+
+Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony ne sera pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer un TimeSync si la dérive dépasse le seuil spécifié.
+ ```bash
+makestep 1.0 -1
+```
+Ici, chrony force une mise à jour temporelle si la dérive est supérieure à 1 seconde. Pour appliquer les modifications, redémarrez le service chronyd.
+
+```bash
+systemctl restart chronyd
+```
 
 
 ### <a name="systemd"></a>systemd 

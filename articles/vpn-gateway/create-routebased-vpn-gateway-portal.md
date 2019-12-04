@@ -1,5 +1,6 @@
 ---
-title: 'Créer une passerelle VPN basée sur itinéraires : Portail Azure | Microsoft Docs'
+title: 'Création d’une passerelle VPN basée sur un itinéraire : portail'
+titleSuffix: Azure VPN Gateway
 description: Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266523"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151674"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 

@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467534"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533806"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
 Un propriétaire d’application peut ajouter des contributeurs à des applications. Ces collaborateurs peuvent modifier le modèle, entraîner et publier l’application. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -56,8 +54,6 @@ Une application possède un seul créateur, son propriétaire, mais peut avoir d
 1. Sélectionnez **Gérer** dans le menu supérieur droit, puis **Collaborateurs** dans le menu gauche.
 
 1. Sélectionnez **Ajouter un collaborateur** dans la barre d’outils.
-
-    [![Ajouter un collaborateur](./media/luis-how-to-collaborate/add-collaborator.png "Ajouter un collaborateur")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. Entrez l’adresse e-mail utilisée par le collaborateur pour se connecter au portail LUIS.
 
@@ -93,7 +89,7 @@ L’administrateur de locataire doit travailler directement avec l’utilisateur
 
 Si l’administrateur de locataire veut uniquement que certaines personnes utilisent LUIS, plusieurs solutions sont possibles :
 * Donnez le « consentement administrateur » (à tous les utilisateurs d’Azure AD), mais affectez ensuite la valeur « Oui » à « Affectation de l’utilisateur obligatoire » sous les propriétés de l’application d’entreprise, et enfin attribuer/ajouter uniquement les utilisateurs souhaités à l’application. Avec cette méthode, l’administrateur offre quand même le « consentement administrateur » à l’application, mais il peut contrôler les utilisateurs en mesure d’y accéder.
-* Une autre solution consiste à utiliser l’[API Graph Azure AD](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) pour donner le consentement à chaque utilisateur spécifique. 
+* Une deuxième solution consiste à utiliser l’[API de gestion des identités et des accès Azure AD dans Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) pour fournir un consentement à chaque utilisateur spécifique. 
 
 Découvrez-en plus sur les utilisateurs Azure Active Directory et le consentement : 
 * [Limiter votre application](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) à un ensemble d’utilisateurs

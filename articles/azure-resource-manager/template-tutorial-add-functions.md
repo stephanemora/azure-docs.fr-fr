@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Ajouter des fonctions de modèle au modèle Azure Resource Manager
+title: Tutoriel - Ajouter des fonctions de modèle
 description: Ajoutez des fonctions de modèle à votre modèle Azure Resource Manager pour élaborer des valeurs.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 03a38178ec66c1c1a10934975d20778369d80dbe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963656"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405957"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Didacticiel : Ajouter des fonctions de modèle à votre modèle Resource Manager
 
@@ -25,9 +22,9 @@ Nous vous recommandons de suivre le [tutoriel sur les paramètres](template-tuto
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager et, au choix, d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
-À la fin du tutoriel précédent, votre modèle présentait le code JSON suivant :
+À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
 
@@ -73,7 +70,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="verify-deployment"></a>Vérifier le déploiement
 
 Vous pouvez vérifier le déploiement en explorant le groupe de ressources à partir du portail Azure.
 

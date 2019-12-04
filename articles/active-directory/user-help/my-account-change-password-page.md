@@ -1,6 +1,6 @@
 ---
-title: Modifier votre mot de passe à partir du portail Mon compte - Azure Active Directory | Microsoft Docs
-description: Comment modifier le mot de passe de votre compte professionnel ou scolaire à partir de la page Modifier le mot de passe du portail Mon compte.
+title: Modifier le mot de passe de votre compte professionnel ou scolaire - Azure AD
+description: Découvrir comment modifier le mot de passe de votre compte professionnel ou scolaire à partir de la page Modifier le mot de passe du portail Mon compte.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4716ef932debe50bfe0aee6519b53e3a19e8d51
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586954"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231868"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Changer le mot de passe de votre compte professionnel ou scolaire à partir du portail Mon compte
 

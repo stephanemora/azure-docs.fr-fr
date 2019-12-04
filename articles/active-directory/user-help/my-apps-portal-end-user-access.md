@@ -1,6 +1,6 @@
 ---
-title: Accéder aux applications et les utiliser sur le portail Mes applications - Azure Active Directory | Microsoft Docs
-description: Découvrez comment accéder au portail Mes applications.
+title: Localiser et utiliser des applications sur le portail Mes applications – Azure AD
+description: Découvrez comment trouver le portail Mes applications, puis accéder aux applications informatiques de votre organisation.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68383138"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233175"
 ---
-# <a name="access-and-use-apps-on-the-my-apps-portal"></a>Accéder aux applications et les utiliser sur le portail Mes applications
+# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Localiser et utiliser les applications informatiques de votre organisation sur le portail Mes applications
 
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 

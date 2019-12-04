@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité (préversion) de SMS – Azure AD
-description: Procédure de configuration de vos informations de sécurité pour vérifier votre identité à l’aide de la messagerie texte et de votre appareil mobile.
+title: Configurer l’envoi de SMS comme méthode de vérification – Azure AD
+description: Guide pratique pour configurer votre page Informations de sécurité (préversion) pour vérifier votre identité à l’aide de SMS comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803840"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278924"
 ---
-# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte
+# <a name="set-up-text-messaging-as-your-verification-method"></a>Configurer l’envoi de SMS comme méthode de vérification
 
-Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
+Suivez ces étapes pour ajouter vos méthodes de réinitialisation de mot de passe et de vérification en deux étapes. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l’article [Configurer vos informations de sécurité à partir de l’invite de la page de connexion](security-info-setup-signin.md).
 

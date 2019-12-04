@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9780dc34aa6b146fe62b11586cbab46825e60535
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393287"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185154"
 ---
 # <a name="import-or-export-configuration-data"></a>Importer ou exporter des données de configuration
 
-Azure App Configuration prend en charge les opérations d’importation et d’exportation de données. Ces opérations vous permettent d’utiliser des données de configuration en bloc et d’échanger des données entre votre magasin de configuration d’application et le projet de code. Par exemple, vous pouvez configurer un magasin de configuration d’application à des fins de test et un autre pour la production. Vous pouvez ensuite copier les paramètres d’application entre eux via un fichier, si bien que vous n’avez pas à entrer deux fois les mêmes données.
+Azure App Configuration prend en charge les opérations d’importation et d’exportation de données. Ces opérations vous permettent d’utiliser des données de configuration en bloc et d’échanger des données entre votre magasin App Configuration et le projet de code. Par exemple, vous pouvez configurer un magasin App Configuration à des fins de test et un autre pour la production. Vous pouvez ensuite copier les paramètres d’application entre eux via un fichier, si bien que vous n’avez pas à entrer deux fois les mêmes données.
 
 Cet article fournit un guide pour importer et exporter des données avec App Configuration.
 
 ## <a name="import-data"></a>Importer des données
 
-L’importation a pour effet d’acheminer les données de configuration d’une source existante vers un magasin App Configuration, au lieu de les entrer manuellement. Utilisez la fonction d’importation pour migrer des données dans un magasin de configuration d’application ou des données agrégées issues de plusieurs sources. App Configuration prend en charge l’importation à partir d’un fichier JSON, YAML ou de propriétés.
+L’importation a pour effet d’acheminer les données de configuration d’une source existante vers un magasin App Configuration, au lieu de les entrer manuellement. Utilisez la fonction d’importation pour migrer des données dans un magasin App Configuration ou agréger des données issues de plusieurs sources. App Configuration prend en charge l’importation à partir d’un fichier JSON, YAML ou de propriétés.
 
 Importez les données à partir du [portail Azure](https://portal.azure.com) ou d’[Azure CLI](./scripts/cli-import.md). Sur le portail Azure, procédez comme suit :
 
-1. Accédez à votre magasin de configuration d’application et sélectionnez **Importer/Exporter**.
+1. Accédez à votre magasin App Configuration et sélectionnez **Importer/Exporter**.
 
 2. Sous l’onglet **Importation**, sélectionnez **Service source** > **Fichier config**.
 
@@ -51,11 +51,11 @@ Importez les données à partir du [portail Azure](https://portal.azure.com) ou 
 
 ## <a name="export-data"></a>Exporter des données
 
-L’exportation a pour effet d’écrire les données de configuration stockées dans App Configuration dans une autre destination. Utilisez la fonction d’exportation, par exemple, pour enregistrer des données d’un magasin de configuration d’application vers un fichier incorporé à votre code d’application pendant le déploiement.
+L’exportation a pour effet d’écrire les données de configuration stockées dans App Configuration dans une autre destination. Utilisez la fonction d’exportation, par exemple, pour enregistrer des données d’un magasin App Configuration vers un fichier incorporé à votre code d’application pendant le déploiement.
 
 Exportez les données à partir du [portail Azure](https://portal.azure.com) ou d’[Azure CLI](./scripts/cli-export.md). Sur le portail Azure, procédez comme suit :
 
-1. Accédez à votre magasin de configuration d’application et sélectionnez **Importer/Exporter**.
+1. Accédez à votre magasin App Configuration et sélectionnez **Importer/Exporter**.
 
 2. Sous l’onglet **Export**, sélectionnez **Service cible** > **Fichier config**.
 

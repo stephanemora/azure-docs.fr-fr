@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73412966"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566258"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -30,7 +30,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
     |  |  |
     | --- | --- |
     | **Utilisateurs et groupes spécifiques** | Choisissez cette option si vous souhaitez que seuls les utilisateurs et les groupes de votre annuaire que vous spécifiez puissent demander ce package d’accès. |
-    | **Tous les membres (à l’exclusion des invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres de votre annuaire puissent demander ce package d’accès. Cette option n’inclut pas les utilisateurs invités que vous avez invités dans votre annuaire. |
+    | **Tous les membres (à l’exclusion des invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres de votre annuaire puissent demander ce package d’accès. Cette option n’inclut pas les utilisateurs que vous avez invités dans votre annuaire. |
     | **Tous les utilisateurs (y compris les invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres et les utilisateurs invités de votre annuaire puissent demander ce package d’accès. |
 
     Les utilisateurs invités font référence à des utilisateurs externes qui ont été invités dans votre annuaire avec [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Pour plus d’informations sur les différences entre les utilisateurs membres et les utilisateurs invités, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../articles/active-directory/fundamentals/users-default-permissions.md).
@@ -47,10 +47,12 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
 
 ## <a name="for-users-not-in-your-directory"></a>Pour les utilisateurs qui ne sont pas dans votre répertoire
 
-Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre annuaire à demander ce package d’accès. Les **utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire ou domaine Azure AD et n’ont peut-être pas encore été invités dans votre annuaire. Les annuaires Azure AD doivent être configurés pour autoriser les invitations dans **Restrictions de collaboration**. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../articles/active-directory/b2b/delegate-invitations.md).
+ **Les utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire ou domaine Azure AD. Ces utilisateurs n’ont peut-être pas encore été invités dans votre annuaire. Les annuaires Azure AD doivent être configurés pour autoriser les invitations dans **Restrictions de collaboration**. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
 > Un compte d’utilisateur invité sera créé pour un utilisateur qui n’est pas encore dans votre répertoire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, quand cet utilisateur invité n’a plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne peut plus se connecter et est supprimé par la suite. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation. Pour plus d’informations sur l’objet utilisateur invité, consultez [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../articles/active-directory/b2b/user-properties.md).
+
+Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre annuaire à demander ce package d’accès :
 
 1. Dans la section **Utilisateurs pouvant demander l’accès**, cliquez sur **Pour les utilisateurs dans votre annuaire**.
 
@@ -62,8 +64,8 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 
     |  |  |
     | --- | --- |
-    | **Organisations connectées spécifiques** | Choisissez cette option si vous souhaitez sélectionner parmi une liste d’organisations que votre administrateur a ajoutées précédemment. Tous les utilisateurs des organisations sélectionnées pourront demander ce package d’accès. |
-    | **Toutes les organisations connectées** | Choisissez cette option si vous souhaitez que tous les utilisateurs de toutes les organisations connectées puissent demander ce package d’accès. |
+    | **Organisations connectées spécifiques** | Choisissez cette option si vous souhaitez sélectionner parmi une liste d’organisations que votre administrateur a ajoutées précédemment. Tous les utilisateurs des organisations sélectionnées peuvent demander ce package d’accès. |
+    | **Toutes les organisations connectées** | Choisissez cette option si tous les utilisateurs de toutes les organisations connectées peuvent demander ce package d’accès. |
 
     Une organisation connectée est un domaine ou un annuaire Azure AD externe avec lequel vous collaborez.
 
@@ -98,49 +100,88 @@ Effectuez ces étapes si vous souhaitez contourner les demandes d’accès et au
 
 Dans la section Approbation, vous spécifiez si une approbation est nécessaire quand les utilisateurs demandent ce package d’accès. Les paramètres d’approbation fonctionnent de la façon suivante :
 
-- La demande n’a besoin d’être approuvée que par un seul des approbateurs sélectionnés ou approbateurs de secours. L’approbation de tous les approbateurs n’est pas nécessaire.
+- La demande n’a besoin d’être approuvée que par un seul des approbateurs sélectionnés ou approbateurs de secours pour une approbation en une étape. 
+- Seul l’un des approbateurs sélectionnés de chaque étape doit approuver une demande d’approbation en 2 étapes.
+- L’approbateur peut être un gestionnaire, un sponsor interne ou un sponsor externe, en fonction de la personne dont la stratégie régit l’accès.
+- L’approbation de chaque approbateur sélectionné n’est pas nécessaire pour une approbation en une ou 2 étapes.
 - La décision d’approbation repose sur le premier approbateur à consulter la demande.
 
-Pour spécifier les paramètres d’approbation des utilisateurs que vous avez sélectionnés précédemment, procédez comme suit.
+Pour une démonstration de l’ajout d’approbateurs à une stratégie de demande, regardez la vidéo suivante :
 
-1. Pour exiger une approbation pour des demandes des utilisateurs sélectionnés, définissez **Exiger une approbation** sur **Oui**. Pour que les demandes soient approuvées automatiquement, définissez cette valeur sur **Non**.
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+Pour obtenir une démonstration de l’ajout d’une approbation en plusieurs étapes à une stratégie de demande, regardez la vidéo suivante :
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
+Pour spécifier les paramètres d’approbation pour les demandes de package d’accès, procédez comme suit :
+
+1. Pour exiger une approbation pour des demandes des utilisateurs sélectionnés, définissez **Exiger une approbation** sur **Oui**. Ou bien, pour que les demandes soient approuvées automatiquement, définissez cette valeur sur **Non**.
 
 1. Pour exiger des utilisateurs une justification pour demander le package d’accès, affectez la valeur **Oui** à **Exiger la justification du demandeur**.
+    
+1. À présent, déterminez si les demandes nécessitent une approbation en une ou 2 étapes. Définissez **Nombre d’étapes** sur **1** pour l’approbation en une étape, ou sur **2** pour l’approbation en 2 étapes.
 
     ![Package d’accès - Demandes - Paramètres d’approbation](./media/active-directory-entitlement-management-request-policy/approval.png)
 
+Suivez les étapes ci-dessous pour ajouter des approbateurs après avoir sélectionné le nombre d’étapes dont vous avez besoin : 
+
 ### <a name="single-stage-approval"></a>Approbation en une seule étape
 
-1. Pour les approbateurs, sélectionnez **Gestionnaire comme approbateur** ou **Choisir des approbateurs spécifiques**.
+1. Ajoutez le **Premier approbateur** :
+    
+    Si la stratégie est définie pour régir l’accès des utilisateurs dans votre annuaire, vous pouvez sélectionner **Gestionnaire comme approbateur**. Vous pouvez également ajouter un utilisateur spécifique en cliquant sur **Ajouter des approbateurs** après avoir sélectionné Choisir des approbateurs spécifiques dans le menu déroulant.
+    
+    ![Package d’accès – Demandes – Pour les utilisateurs qui sont dans votre annuaire – Premier approbateur](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    ![Package d’accès – Demandes – Paramètres d’approbation en une seule étape](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
+    Si cette stratégie est définie pour régir l’accès des utilisateurs qui ne sont pas dans votre annuaire, vous pouvez sélectionner **Sponsor externe** ou **Sponsor interne**. Vous pouvez également ajouter un utilisateur spécifique en cliquant **Ajouter des approbateurs** ou des groupes sous Choisir des approbateurs spécifiques.
+    
+    ![Package d’accès – Demandes – Pour les utilisateurs qui ne sont pas dans votre annuaire – Premier approbateur](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    
+1. Si vous avez sélectionné **Gestionnaire** en tant qu’approbateur, cliquez sur **Ajouter un secours** pour sélectionner un ou plusieurs utilisateurs ou groupes dans votre annuaire en tant qu’approbateurs de secours. Les approbateurs de secours reçoivent la demande si la gestion des droits d’utilisation ne peut pas trouver le gestionnaire de l’utilisateur demandant l’accès.
 
-1. Si vous avez sélectionné Gestionnaire en tant qu’approbateur, cliquez sur **Ajouter un secours** pour sélectionner un ou plusieurs utilisateurs ou groupes dans votre annuaire en tant qu’approbateur de secours au cas où la gestion des droits ne trouverait pas le gestionnaire.
+    La gestion des droits d’utilisation trouve le gestionnaire à l’aide de l’attribut **Manager**. L’attribut se trouve dans le profil de l’utilisateur dans Azure AD. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-    Le gestionnaire est déterminé par l’attribut **Gestionnaire** dans le profil Azure AD de l’utilisateur. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+1. Si vous avez sélectionné **Choisir des approbateurs spécifiques**, cliquez sur **Ajouter des approbateurs** pour sélectionner dans votre annuaire un ou plusieurs utilisateurs ou groupes devant assumer la fonction d’approbateurs.
 
-1. Si vous avez sélectionné Choisir des approbateurs spécifiques, cliquez sur **Ajouter des approbateurs** pour sélectionner dans votre annuaire un ou plusieurs utilisateurs ou groupes devant assumer la fonction d’approbateurs.
-
-1. Dans **La décision doit être prise dans combien de jours ?** , spécifiez le nombre de jours dont dispose un approbateur pour examiner une demande pour ce package d’accès.
+1. Dans la zone sous **La décision doit être prise dans combien de jours ?** , spécifiez le nombre de jours dont dispose un approbateur pour examiner une demande pour ce package d’accès.
 
     Si une demande n’est pas approuvée dans le délai imparti, elle est refusée automatiquement. L’utilisateur devra envoyer une autre demande pour le package d’accès.
 
-1. Pour exiger des utilisateurs une justification pour demander le package d’accès, définissez **Exiger la justification de l’approbateur** sur **Oui**.
+1. Pour exiger des approbateurs une justification de leur décision, définissez Exiger la justification de l’approbateur sur **Oui**.
 
-    Une justification est visible par les autres approbateurs et le demandeur.
+    La justification est visible par les autres approbateurs et le demandeur.
+
+### <a name="2-stage-approval-preview"></a>Approbation en 2 étapes (préversion)
+
+Si vous avez sélectionné l’approbation en 2 étapes, vous devez ajouter un deuxième approbateur.
+
+1. Ajoutez le **Deuxième approbateur** : 
+    
+    Si les utilisateurs se trouvent dans votre annuaire, ajoutez un utilisateur spécifique en tant que deuxième approbateur en cliquant **Ajouter des approbateurs** sous Choisir des approbateurs spécifiques.
+
+    ![Package d’accès – Demandes – Pour les utilisateurs qui sont dans votre annuaire – Deuxième approbateur](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+
+    Si les utilisateurs ne se sont pas dans votre annuaire, sélectionnez **Sponsor interne** ou **Sponsor externe** comme deuxième approbateur. Après avoir sélectionné l’approbateur, ajoutez les approbateurs de secours.
+
+    ![Package d’accès – Demandes – Pour les utilisateurs qui ne sont pas dans votre annuaire – Deuxième approbateur](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+
+1. Spécifiez le nombre de jours pendant lesquels le deuxième approbateur doit approuver la demande dans la zone sous **La décision doit être prise dans combien de jours ?** . 
+
+1. Définissez le commutateur Exiger la justification de l’approbateur sur **Oui** ou **Non**.
 
 ### <a name="alternate-approvers"></a>Approbateurs de substitution
 
-En plus de spécifier les approbateurs principaux autorisés à approuver des demandes, vous pouvez spécifier des approbateurs de substitution. Cela permet de s’assurer que les demandes sont approuvées ou refusées avant leur expiration (délai d’expiration).
+Vous pouvez spécifier des approbateurs substitution, comme vous avez spécifié les premier et deuxième approbateurs qui peuvent approuver les demandes. Le fait de disposer d’approbateurs de substitution garantit que les demandes sont approuvées ou refusées avant leur expiration (délai d’expiration). Vous pouvez répertorier des approbateurs de substitution, le premier approbateur et le deuxième approbateur pour l’approbation en 2 étapes. 
 
-En spécifiant des approbateurs de substitution, si les approbateurs principaux n’ont pas été en mesure d’approuver ou de refuser la demande, la demande en attente est transférée aux approbateurs de substitution, conformément à la planification de transfert que vous avez spécifiée lors de la configuration de la stratégie. Ils reçoivent un e-mail pour approuver ou refuser la demande en attente.
+En spécifiant des approbateurs de substitution, si les premier et deuxième approbateurs n’ont pas été en mesure d’approuver ou de refuser la demande, la demande en attente est transférée aux approbateurs de substitution, conformément à la planification de transfert que vous avez spécifiée lors de la configuration de la stratégie. Ils reçoivent un e-mail pour approuver ou refuser la demande en attente.
 
-Une fois la demande transférée aux approbateurs de substitution, les approbateurs principaux peuvent toujours l’approuver ou la refuser. Pour approuver ou refuser la demande en attente, les approbateurs de substitution utilisent le même site Mon Accès que les approbateurs principaux.
+Une fois la demande transférée aux approbateurs de substitution, les premier et deuxième approbateurs peuvent toujours l’approuver ou la refuser. Pour approuver ou refuser la demande en attente, les approbateurs de substitution utilisent le même site Mon Accès.
 
-Nous pouvons répertorier les personnes ou groupes de personnes qui doivent être les approbateurs principaux et les approbateurs de substitution. Veillez à répertorier des groupes de personnes différents comme approbateurs principaux et approbateurs de substitution.
-Par exemple, si vous avez répertorié Alice et Bob comme approbateurs principaux, répertoriez Carol et Dave comme approbateurs de substitution. Pour ajouter des approbateurs de substitution à un package d’accès, procédez comme suit :
+Nous pouvons répertorier les personnes ou groupes de personnes qui doivent être approbateurs et approbateurs de substitution. Veillez à répertorier des groupes de personnes différents pour les premier et deuxième approbateurs ainsi que les approbateurs de substitution.
+Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième approbateurs, mentionnez Carol et Dave comme approbateurs de substitution. Pour ajouter des approbateurs de substitution à un package d’accès, procédez comme suit :
 
-1. Cliquez sur **Afficher les paramètres de demande avancés**.
+1. Sous Premier approbateur, Deuxième approbateur, ou les deux, cliquez sur **Afficher les paramètres de demande avancés**.
 
     ![Package d’accès – Stratégie – Afficher les paramètres de demande avancés](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
@@ -152,7 +193,7 @@ Par exemple, si vous avez répertorié Alice et Bob comme approbateurs principau
 
 1. Dans la zone **Passer aux autres approbateurs après combien de jours ?** , entrez le nombre de jours dont les approbateurs disposent pour approuver ou refuser une demande. Si aucun approbateur n’a approuvé ou refusé la demande pendant la durée de validité de celle-ci, la demande expire (délai d’expiration) et l’utilisateur doit soumettre une autre demande pour le package d’accès. 
 
-    Les demandes ne peuvent être transférées aux approbateurs de substitution qu’un jour après que la durée de la demande a atteint sa demi-vie. Dans cet exemple, la durée de la demande est de 14 jours. Cela signifie que la durée de la demande atteint sa demi-vie le jour 7. La demande ne peut donc pas être transférée avant le jour 8. De même, les demandes ne peuvent pas être transférées à l’approbateur de substitution le dernier jour de leur durée. Ainsi, dans l’exemple, l’ultime limite pour le transfert de la demande est le jour 13.
+    Les demandes ne peuvent être transférées aux approbateurs de substitution qu’un jour après que la durée de la demande a atteint sa demi-vie. Dans cet exemple, la durée de la demande est de 14 jours. Ainsi, la durée de la demande atteint sa demi-vie le jour 7. La demande ne peut donc pas être transférée avant le jour 8. Par ailleurs, les demandes ne peuvent pas être transférées le dernier jour de leur durée. Ainsi, dans l’exemple, l’ultime limite pour le transfert de la demande est le jour 13.
 
 ## <a name="enable-requests"></a>Activer les demandes
 

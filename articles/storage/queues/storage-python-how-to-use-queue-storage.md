@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser Stockage Files d’attente à partir de Python - Stockage Azure
-description: Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages.
+title: Comment utiliser le stockage Files d’attente Azure v2.1 à partir de Python - Stockage Azure
+description: Découvrez comment utiliser le service de File d'attente Azure v2.1 à partir de Python pour créer et supprimer des files d'attente et insérer, obtenir et supprimer des messages.
 author: mhopkins-msft
 ms.service: storage
 ms.author: mhopkins
@@ -9,14 +9,14 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: 242ba7dbe4bfcc003899e95e76dc57d809dbc95a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b5382a6a1ea381d57a026e9d42190152e38f7696
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428000"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209520"
 ---
-# <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python
+# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Comment utiliser le stockage Files d’attente Azure v2.1 à partir de Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -41,7 +41,7 @@ Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-pytho
 Pour effectuer l’installation via PyPI (Python Package Index), tapez :
 
 ```bash
-pip install azure-storage-queue
+pip install azure-storage-blob==2.1.0
 ```
 
 > [!NOTE]

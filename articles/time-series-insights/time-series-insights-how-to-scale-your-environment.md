@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006800"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561137"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 
@@ -34,13 +34,13 @@ Toutefois, vous ne pouvez pas changer la référence SKU du niveau tarifaire. Pa
 
 1. Dans le portail Azure, recherchez et sélectionnez votre environnement Time Series Insights.
 
-1. Dans le menu de votre environnement Time Series Insights, sélectionnez **Configurer**.
+1. Dans le menu de votre environnement Time Series Insights, sélectionnez **Configuration du stockage**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![Configurer votre capacité Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Réglez le curseur **Capacité** pour sélectionner la capacité qui correspond à vos besoins en matière de débit d’entrée et de stockage. Notez que le **débit d’entrée**, la **capacité de stockage** et l’**estimation des coûts** se mettent à jour de manière dynamique pour montrer l’impact du changement.
 
-   [![Curseur](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![Configurer votre environnement à l’aide du curseur de capacités](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    Vous pouvez aussi entrer le nombre du multiplicateur de capacité dans la zone de texte à droite du curseur.
 

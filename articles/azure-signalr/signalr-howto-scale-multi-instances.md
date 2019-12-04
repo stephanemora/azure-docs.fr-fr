@@ -1,17 +1,17 @@
 ---
-title: Guide pratique pour effectuer une mise à l’échelle avec plusieurs instances d’Azure SignalR Service
+title: Mettre à l’échelle avec plusieurs instances – Azure SignalR Service
 description: Dans de nombreux scénarios de mise à l’échelle, le client doit souvent provisionner plusieurs instances et les configurer pour les utiliser ensemble, afin de créer un déploiement à grande échelle. Par exemple, le partitionnement nécessite la prise en charge de plusieurs instances.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672331"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158158"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Comment mettre à l’échelle SignalR Service avec plusieurs instances ?
 La dernière version du SDK de SignalR Service prend en charge plusieurs points de terminaison pour les instances de SignalR Service. Vous pouvez utiliser cette fonctionnalité pour la messagerie multirégion ou pour mettre à l’échelle des connexions simultanées.

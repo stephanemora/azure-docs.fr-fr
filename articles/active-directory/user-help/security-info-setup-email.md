@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité (préversion) pour utiliser une adresse e-mail - Azure AD
-description: Apprenez à configurer vos informations de sécurité pour vérifier votre identité au moyen de votre adresse e-mail.
+title: Configurer une adresse e-mail comme méthode de vérification – Azure AD
+description: Guide pratique pour configurer votre page Informations de sécurité (préversion) pour vérifier votre identité à l’aide d’une adresse e-mail comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a025005065174d5a6ca5fca27ee06ebb036b7b1d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820344"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279017"
 ---
-# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurer les informations de sécurité (préversion) pour utiliser votre adresse e-mail
+# <a name="set-up-an-email-address-as-your-verification-method"></a>Configurer une adresse e-mail comme méthode de vérification
 
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e8205497262c2c7a500769f32a473d628974220c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832583"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151799"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP
 
@@ -172,11 +172,10 @@ Dans cet exemple, nous avons utilisé Azure NetApp Files pour tous les systèmes
 
 Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver sur une architecture à haute disponibilité SUSE, tenez compte des considérations importantes suivantes :
 
-- La taille de pool de capacité minimale est de 4 Tio. La taille de pool de capacité doit être un multiple de 4 Tio.
+- La taille de pool de capacité minimale est de 4 Tio. La taille du pool de capacité peut être augmentée par incréments de 1 Tio.
 - Le volume minimal est de 100 Gio.
 - Azure NetApp Files et toutes les machines virtuelles, où les volumes Azure NetApp Files seront montés, doivent être déployés dans le même réseau virtuel Azure ou dans des [réseaux virtuels homologués](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) de la même région. L’accès à Azure NetApp Files via le peering de réseaux virtuels dans la même région est maintenant pris en charge. L’accès à Azure NetApp via le peering global n’est pas encore pris en charge.
 - Le réseau virtuel sélectionné doit avoir un sous-réseau délégué à Azure NetApp Files.
-- Azure NetApp Files ne prend actuellement en charge que NFSv3. 
 - Azure NetApp Files propose une [stratégie d’exportation](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) : vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.). 
 - La fonctionnalité Azure NetApp Files ne tient pas encore compte des zones. Actuellement, la fonctionnalité Azure NetApp Files n’est pas déployée dans toutes les zones de disponibilité d’une région Azure. Méfiez-vous de l’impact potentiel sur les temps de latence dans certaines régions Azure. 
 
@@ -403,7 +402,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    </code></pre>
    
    > [!NOTE]
-   > Actuellement, Azure NetApp Files prend uniquement en charge le protocole NFSv3. N’omettez pas le commutateur nfsvers = 3.
+   > Veillez à ce que les volumes Azure NetApp Files correspondent à la version du protocole NFS lors du montage des volumes. Dans cet exemple, les volumes Azure NetApp Files ont été créés en tant que volumes NFSv3.  
    
    Redémarrer `autofs` pour monter les nouveaux partages
     <pre><code>

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dfa5fbcf5df8ee314aab3e4a8228d81e7e14565b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160338"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Didacticiel : Intégration d’Azure Active Directory à New Relic
 
@@ -225,7 +225,7 @@ Pour se connecter à New Relic, les utilisateurs d’Azure Active Directory doiv
     c. Cliquez sur **Add this user**.
 
 >[!NOTE]
->Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par New Relic, pour approvisionner des comptes utilisateur AAD.
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par New Relic pour provisionner des comptes d’utilisateurs Azure AD.
 > 
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 

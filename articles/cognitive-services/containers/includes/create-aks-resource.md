@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/3/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4e3102912e88ef904fed3e680f8cdd23242b1f17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377392"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383424"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Créer une ressource de cluster Azure Kubernetes Service
 
@@ -28,12 +28,12 @@ ms.locfileid: "68377392"
     |Resource group|Sélectionnez un groupe de ressources disponible.|
     |Nom du cluster Kubernetes|Entrer un nom (en minuscules).|
     |Région|Sélectionnez un emplacement proche.|
-    |Version de Kubernetes|1.12.8 (par défaut).|
+    |Version de Kubernetes|Quelle que soit la valeur marquée **(par défaut)** .|
     |Préfixe du nom DNS|Créé automatiquement, mais vous pouvez le remplacer.|
     |Taille du nœud|Standard DS2 v2 :<br>`2 vCPUs`, `7 GB`|
     |Nombre de nœuds|Conservez la valeur par défaut pour le curseur.|
 
-1. Sous l’onglet **Échelle**, conservez les valeurs par défaut pour les **nœuds virtuels** et les **groupes de machines virtuelles identiques (préversion)** définis sur les valeurs par défaut.
+1. Sur l’onglet **Échelle**, conservez les valeurs par défaut définies pour **Nœuds virtuels** et **Groupes identiques de machines virtuelles**.
 1. Sur l’onglet **Authentification**, conservez les valeurs par défaut définies pour **Principal du service** et **Activer RBAC**.
 1. Sur l’onglet **Mise en réseau**, entrez les informations suivantes :
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 38a6deb8d021c5e6a20d765cc7aee5b86042f557
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 802578c79fa086c74a56db8d47f83ae96d6b0194
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585975"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152144"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion sur Linux à IoT Hub
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion sur Linux à IoT Hub (C Linux)
 
 Ce démarrage rapide vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play sur Linux, comment le connecter à votre hub IoT et comment utiliser l’outil Azure CLI pour afficher les informations qu’il envoie au hub. L’exemple d’application est écrit en C et est inclus dans l’Azure IoT device SDK pour C. Un développeur de solutions peut utiliser l’outil Azure CLI pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir à afficher de code d’appareil.
 
@@ -43,15 +43,14 @@ gcc --version
 
 ## <a name="prepare-an-iot-hub"></a>Préparer un hub IoT
 
-Vous avez également besoin d’un hub Azure IoT dans votre abonnement Azure pour suivre ce démarrage rapide. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Vous avez également besoin d’un hub Azure IoT dans votre abonnement Azure pour suivre ce démarrage rapide. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Si vous n’avez pas de hub IoT, [suivez ces instructions pour en créer un](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!IMPORTANT]
 > Dans le cadre de la préversion publique, les fonctionnalités IoT Plug-and-Play sont disponibles uniquement sur les hubs IoT créés dans les régions **USA Centre**, **Europe Nord** et **Japon Est**.
 
-Si vous utilisez Azure CLI localement, la version de `az` doit être **2.0.73** ou une version ultérieure ; Azure Cloud Shell utilise la version la plus récente. Utilisez la commande `az --version` pour vérifier la version installée sur votre ordinateur.
+Si vous utilisez Azure CLI localement, la version de `az` doit être au minimum **2.0.73** ; Azure Cloud Shell utilise la version la plus récente. Utilisez la commande `az --version` pour vérifier la version installée sur votre ordinateur.
 
-Ajoutez l’extension Microsoft Azure IoT pour Azure CLI :
-
+Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell :
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
@@ -66,31 +65,29 @@ az login
 
 Si vous utilisez Azure Cloud Shell, vous êtes déjà connecté automatiquement.
 
-Si vous n’avez pas de hub IoT, [suivez ces instructions pour en créer un](../iot-hub/iot-hub-create-using-cli.md). Au cours de la préversion publique, IoT Plug-and-Play est disponible dans les régions Europe Nord, USA Centre et Japon Est. Veillez à créer votre hub dans l’une de ces régions.
-
-Exécutez la commande suivante pour créer une identité d’appareil dans votre hub IoT. Remplacez l’espace réservé **YourIoTHubName** par le nom réel de votre hub IoT :
+Exécutez la commande suivante pour créer une identité d’appareil dans votre hub IoT. Remplacez les espaces réservés **YourIoTHubName** et **YourDeviceID** par le _nom de hub IoT_ et l’_ID d’appareil_ de votre choix.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id mydevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Exécutez les commandes suivantes pour obtenir la _chaîne de connexion_ de l’appareil que vous venez d’inscrire :
+Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire (notez-la, car vous en aurez besoin par la suite) :
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id mydevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Dans ce démarrage rapide, vous préparez un environnement de développement pour cloner et générer le Azure IoT device SDK pour C.
+Dans ce guide de démarrage rapide, vous préparez un environnement de développement pour cloner et générer le kit Azure IoT Hub Device C SDK.
 
-Ouvrez une invite de commandes. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
+Ouvrez une invite de commandes dans le répertoire de votre choix. Exécutez la commande suivante pour cloner le dépôt GitHub [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) à cet emplacement :
 
 ```bash
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
 
-Cette commande prend plusieurs minutes à s’exécuter.
+Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 ## <a name="build-the-code"></a>Générer le code
 
@@ -129,9 +126,9 @@ Avant d’exécuter l’exemple, ajoutez le modèle de fonctionnalité de l'appa
 
 1. Sélectionnez le fichier `EnvironmentalSensor.interface.json` dans le dossier `digitaltwin_client/samples/digitaltwin_sample_environmental_sensor` dans le dossier racine du kit de développement logiciel (SDK) de l’appareil. Sélectionnez **Ouvrir** puis **Enregistrer** pour télécharger le fichier d’interface dans votre référentiel.
 
-1. Sélectionnez **Référentiel d’entreprise**, puis **Chaînes de connexion**. Prenez note de la première chaîne de connexion de référentiel de modèle d’entreprise, vous l’utiliserez plus loin dans ce guide de démarrage rapide.
+1. Sélectionnez **Référentiel d’entreprise**, puis **Chaînes de connexion**. Prenez note de la première _chaîne de connexion de référentiel de modèle d’entreprise_, car vous en aurez besoin plus loin dans ce guide de démarrage rapide.
 
-## <a name="run-the-sample"></a>Exécution de l'exemple
+## <a name="run-the-device-sample"></a>Exécuter l’exemple d’appareil
 
 Exécutez un exemple d’application dans le kit de développement logiciel (SDK) pour simuler un appareil IoT Plug-and-Play qui envoie des données de télémétrie à votre hub IoT. Pour exécuter l’exemple d’application :
 
@@ -144,10 +141,10 @@ Exécutez un exemple d’application dans le kit de développement logiciel (SDK
 1. Exécutez le fichier exécutable :
 
     ```bash
-    ./digitaltwin_sample_device "{your device connection string}"
+    ./digitaltwin_sample_device "<YourDeviceConnectionString>"
     ```
 
-L’appareil simulé commence à envoyer des données de télémétrie, à écouter les commandes et à écouter les mises à jour de propriétés.
+L’appareil, désormais prêt à recevoir des commandes et des mises à jour de propriétés, a commencé à envoyer des données de télémétrie au hub. Laissez l’exemple s’exécuter pendant que vous effectuez les étapes suivantes.
 
 ### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>Utiliser Azure IoT CLI pour valider le code
 
@@ -156,14 +153,15 @@ Une fois l’exemple de client d’appareil démarré, vérifiez qu’il fonctio
 Utilisez la commande suivante pour afficher les données de télémétrie que l’exemple d’appareil envoie. Vous devrez peut-être attendre une minute ou deux avant de voir les données de télémétrie dans la sortie :
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice
+az iot dt monitor-events --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
 Utilisez la commande suivante pour afficher les propriétés envoyées par l’appareil :
 
 ```azurecli-interactive
-az iot dt list-properties --hub-name {your IoT hub} --device-id mydevice --interface sensor --source private --repo-login "{your company model repository connection string}"
+az iot dt list-properties --hub-name <YourIoTHubName> --device-id <YourDeviceID> --interface sensor --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

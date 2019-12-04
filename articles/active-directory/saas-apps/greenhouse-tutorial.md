@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: cd5a52ea47d7166c6f197b233d1a10ff063ff7c5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1cf60e13f7b3ad13d204d67cb7c538d1d11a5dbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159178"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutoriel : Intégration d’Azure Active Directory à Greenhouse
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être approvisionnés dans Greenhouse. Dans le cas de Greenhouse, l’approvisionnement est une tâche manuelle.
 
 >[!NOTE]
->Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Greenhouse pour approvisionner des comptes d’utilisateur Azure Active Directory. 
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Greenhouse pour provisionner des comptes d’utilisateurs Azure AD. 
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 

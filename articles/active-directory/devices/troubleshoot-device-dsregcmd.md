@@ -1,22 +1,22 @@
 ---
-title: Dépannage des appareils à l’aide de la commande dsregcmd - Azure Active Directory
+title: Détecter un problème à l’aide de la commande dsregcmd - Azure Active Directory
 description: Utilisation de la sortie de dsregcmd pour comprendre l’état des appareils dans Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987165"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379198"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dépannage des appareils à l’aide de la commande dsregcmd
 
@@ -84,6 +84,9 @@ S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD
 ## <a name="tenant-details"></a>Détails des locataires
 
 S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD hybride (pas inscrit dans Azure AD). Cette section répertorie les détails courants des locataires lorsqu’un appareil est joint à Azure AD.
+
+> [!NOTE]
+> Si les URL de la Gestion des données de référence de cette section sont vides, cela indique que la GPM est soit non configurée soit que l’utilisateur actuel n’est pas dans l’étendue de l’accord de mise en œuvre de la GPM. Vérifiez les paramètres de mobilité dans Azure AD pour vérifier votre configuration GPM.
 
 > [!NOTE]
 > Même si vous voyez des URL MDM, cela ne signifie pas que l’appareil est géré par un MDM. Les informations s’affichent si le locataire a une configuration MDM pour l’inscription automatique, même si l’appareil proprement dit n’est pas géré. 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280807"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -60,17 +60,17 @@ Prenez ces exemples d’énoncés :
 |Je souhaite obtenir un ordinateur, comment faire ?|
 |Quand puis-je avoir un ordinateur ?| 
 
-Ici, le terme clé, « ordinateur », n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
+Ici, le terme clé, « ordinateur », n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS peut déduire intelligemment des synonymes à partir du contexte, mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemples d’énoncés dans chaque intention
 
-Chaque intention doit être associée à des exemples d’énoncés, au minimum 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul exemple d’énoncé ou très peu d’exemples, LUIS ne prédira pas l’intention avec précision. 
+Chaque intention doit être associée à des exemples d’énoncés, au minimum 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul ou très peu d’exemples d’énoncés, LUIS peut ne pas prédire l’intention avec précision. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Ajoutez de petits groupes de 15 énoncés pour chaque itération de création
 
 Dans chaque itération du modèle, n’ajoutez pas une grande quantité d’énoncés. Ajoutez une quinzaine d’énoncés. [Formez](luis-how-to-train.md), [publiez](luis-how-to-publish-app.md) et [testez](luis-interactive-test.md) à nouveau.  
 
-LUIS génère des modèles efficaces avec des énoncés soigneusement sélectionnés par l’auteur du modèle LUIS. L’ajout d’un trop grand nombre d’énoncés n’est pas productif, car cela introduit de la confusion.  
+LUIS génère des modèles efficaces avec des énoncés soigneusement sélectionnés par l’auteur du modèle LUIS. L’ajout d’un trop grand nombre d’énoncés n’est pas productif, car cela introduit de la confusion.
 
 Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
 
@@ -112,7 +112,7 @@ La ponctuation est un jeton distinct dans LUIS. Un énoncé qui se termine par u
 
 Si la ponctuation n’est pas normalisée, LUIS n’ignore pas les marques de ponctuation, par défaut, car certaines applications clientes peuvent leur accorder une importance. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. 
 
-Veillez à ce que le modèle gère la ponctuation soit dans les [exemples d’énoncés](luis-concept-utterance.md) (avec ou sans ponctuation), soit dans les [modèles](luis-concept-patterns.md) où il est plus facile d’ignorer la ponctuation avec la syntaxe spéciale : `I am applying for the {Job} position[.]`
+Veillez à ce que le modèle gère la ponctuation soit dans les exemples d’énoncés (avec ou sans ponctuation), soit dans les [modèles](luis-concept-patterns.md) où il est plus facile d’ignorer la ponctuation avec la syntaxe spéciale : `I am applying for the {Job} position[.]`
 
 Si la ponctuation n’a aucune signification spécifique dans votre application cliente, vous pouvez [ignorer les signes de ponctuation](#utterance-normalization) en normalisant la ponctuation. 
 

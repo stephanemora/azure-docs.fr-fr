@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7bfb96a40dedf780920e6fdd6e08e1b583bea902
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501228"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279213"
 ---
 <!-- F-series, Fs-series* -->
 
-Les tailles de machine virtuelle optimisées pour le calcul ont un ratio processeur/mémoire élevé et conviennent aux serveurs web, appliances réseau, processus de traitement par lots et serveurs d’applications à trafic moyen. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
+Les machines virtuelles optimisées pour le calcul ont un ratio UC/mémoire élevé. Ces tailles conviennent pour les serveurs web au trafic moyen, les appliances réseau, les processus de traitement par lot et les serveurs d’application. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau. Il comprend également des informations relatives au débit de stockage et à la bande passante réseau pour chacune des tailles de ce regroupement.
 
-La série Fsv2 repose sur le processeur Intel® Xeon® Platinum 8168, avec une vitesse d’horloge turbo pour tous les noyaux de 3,4 GHz et une fréquence turbo monocœur maximale de 3,7 GHz. Les instructions Intel® AVX-512, une nouveauté sur les processeurs évolutifs Intel, fourniront jusqu'à 2X plus de performances pour les charges de travail de traitement vectoriel pour les opérations en virgule flottante simple ou double précision. En d’autres termes, elles sont très rapides pour les charges de travail de calcul. 
+La série Fsv2 est basée sur le processeur Intel® Xeon® Platinum 8168. Il est doté d’une fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et d’une fréquence turbo monocœur maximale de 3,7 GHz. Les instructions Intel® AVX-512 sont une nouveauté sur les processeurs Intel Scalable. Elles fourniront jusqu’à 2X plus de performances pour les charges de travail de traitement vectoriel pour les opérations en virgule flottante simple ou double précision. En d’autres termes, elles sont très rapides pour les charges de travail de calcul.
 
 Affichant le coût le plus bas par heure, la série Fsv2 offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel.
 
@@ -40,10 +40,10 @@ Mise en cache du Stockage Premium :  Pris en charge
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64 000 / 512 (512)        | 51 200 / 750              | 8/14 000              |
 | Standard_F48s_v2 | 48     | 96          | 384            | 32             | 96 000 / 768 (768)        | 76 800 / 1 100             | 8 / 21 000              |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128 000 / 1 024 (1 024)     | 80 000 / 1 100             | 8/28 000              |
-| Standard_F72s_v2<sup>2, 3</sup> | 72 | 144 | 576         | 32             | 144 000 / 1 152 (1 520)     | 80 000 / 1 100             | 8 / 30000              |
+| Standard_F72s_v2<sup>2,&nbsp;3</sup> | 72 | 144 | 576         | 32             | 144 000 / 1 152 (1 520)     | 80 000 / 1 100             | 8 / 30000              |
 
-<sup>1</sup> Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®
+<sup>1</sup> Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®.
 
-<sup>2</sup> Plus de 64 processeurs virtuels nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1
+<sup>2</sup> L’utilisation de plus de 64 processeurs virtuels nécessite l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927669"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534245"
 ---
 # <a name="deploy-farmbeats"></a>Déployer FarmBeats
 
@@ -62,12 +62,15 @@ Suivez ces étapes pour créer une offre Azure FarmBeats sur la place de marché
 3. Sélectionnez Créer et entrez les informations suivantes :
     - Le nom de l’abonnement.
     - Un nom de groupe de ressources existant (groupe de ressources vide uniquement). Vous pouvez également créer un nouveau groupe de ressources pour le déploiement d’Azure FarmBeats. Notez ce groupe de ressources pour les sections suivantes.
-4. Indiquez la région où vous souhaitez installer Azure FarmBeats. Actuellement, FarmBeats prend en charge les régions suivantes : Centre des États-Unis, Europe de l’Ouest, Est des États-Unis 2, Europe du Nord, Ouest des États-Unis, Asie du sud-est, Est des États-Unis, Est de l’Australie, Ouest des États-Unis 2.
+4. Indiquez la région où vous souhaitez installer Azure FarmBeats. Actuellement, Azure FarmBeats est pris en charge dans les régions suivantes : Centre des États-Unis, Europe de l’Ouest, Est des États-Unis 2, Europe du Nord, Ouest des États-Unis, Asie du sud-est, Est des États-Unis, Est de l’Australie, Ouest des États-Unis 2.
 5. Sélectionnez **OK**.
 La page Conditions d’utilisation apparaît. Passez en revue les termes standards de la place de marché ou sélectionnez le lien hypertexte pour passer en revue les conditions d’utilisation.
 6. Sélectionnez **Fermer**, la case à cocher « J’accepte », puis sélectionnez **Créer**.
 7. Vous avez maintenant correctement signé le contrat de licence utilisateur final (CLUF) d’Azure FarmBeats sur la place de marché.  
 7. Pour poursuivre le déploiement, suivez les étapes suivantes de ce guide.
+
+> [!NOTE]
+> La saisie semi-automatique de l’offre dans la Place de marché Azure ne termine qu’une partie de la configuration. Suivez les instructions ci-dessous pour terminer le déploiement d’Azure FarmBeats dans votre abonnement Azure.
 
 ## <a name="prepare"></a>Préparation
 
@@ -154,7 +157,7 @@ Passez en revue les paramètres avant de préparer le fichier.
 |Commande | Description|
 |--- | ---|
 |sku  | Offre la possibilité de télécharger l’un ou l’autre des composants d’Azure FarmBeats ou les deux. Spécifie les composants à télécharger. Pour installer uniquement Data Hub, utilisez « onlydatabhub ». Pour installer Data Hub et l’accélérateur, utilisez « both ».|
-|subscriptionId | Spécifie l’abonnement pour l’installation de FarmBeats|
+|subscriptionId | Spécifie l’abonnement pour l’installation d’Azure FarmBeats|
 |datahubResourceGroup| Nom du groupe de ressources pour les ressources Data Hub|
 |location |Emplacement où vous souhaitez créer les ressources|
 |acceleratorWebsiteName |Préfixe d’URL unique pour nommer votre Data Hub|
@@ -162,7 +165,7 @@ Passez en revue les paramètres avant de préparer le fichier.
 |datahubWebsiteName  | Préfixe d’URL unique à utiliser pour nommer votre site web Data Hub |
 |sentinelUsername | Nom d’utilisateur pour se connecter : https://scihub.copernicus.eu/dhus/#/self-registration.|
 |notificationEmailAddress  | Adresse e-mail pour recevoir les notifications des alertes que vous configurez dans Data Hub.|
-|updateIfExists|[Facultatif] Paramètre à inclure dans input.json seulement si vous souhaitez mettre à niveau une instance FarmBeats existante. Pour la mise à niveau, les autres détails, tels que les noms des groupes de ressources, les emplacements, etc., doivent être identiques.|
+|updateIfExists|[Facultatif] Paramètre à inclure dans input.json seulement si vous souhaitez mettre à niveau une instance Azure FarmBeats existante. Pour la mise à niveau, les autres détails, tels que les noms des groupes de ressources, les emplacements, etc., doivent être identiques.|
 |aadAppClientId | [**facultatif**] Paramètre à inclure dans Input.Json uniquement si une application Azure AD existe déjà.  |
 |aadAppClientSecret  | [**facultatif**] Paramètre à inclure dans Input.Json uniquement si une application Azure AD existe déjà.|
 
@@ -282,8 +285,8 @@ Suivez les instructions qui s’affichent à l’écran.
 9. Le programme d’installation est maintenant validé et commence la création des ressources, qui peut prendre environ 20 minutes. Laissez la session active sur Cloud Shell pendant cette période.
 10. Une fois le déploiement réussi, vous recevrez les liens de sortie ci-dessous :
 
- - **URL de Data hub** : Lien Swagger pour essayer les API FarmBeats.
- - **URL de l’accélérateur** : Interface utilisateur pour explorer l’accélérateur de fermes intelligentes FarmBeats.
+ - **URL de Data hub** : Lien Swagger pour essayer les API Azure FarmBeats.
+ - **URL de l’accélérateur** : Interface utilisateur pour explorer l’accélérateur Azure FarmBeats.
  - **Fichier journal du système de déploiement** : Fichier journal créé pendant le déploiement. Il peut être utilisé à des fins de dépannage, si nécessaire.
 
 Si vous rencontrez des problèmes, consultez [Dépannage](troubleshoot-project-farmbeats.md).
@@ -291,9 +294,9 @@ Si vous rencontrez des problèmes, consultez [Dépannage](troubleshoot-project-f
 
 ## <a name="validate-deployment"></a>Valider le déploiement
 
-### <a name="data-hub"></a>Data Hub
+### <a name="data-hub"></a>Hub de données
 
-Une fois que l’installation de Data Hub est terminée, vous recevrez l’URL permettant d’accéder aux API Azure FarmBeats via l’interface Swagger au format suivant : https://\<yourdatahub-website-name>.azurewebsites.net
+Une fois l’installation du hub de données terminée, vous recevrez l’URL d’accès aux API Azure FarmBeats via l’interface Swagger au format : https://\<yourdatahub-website-name>.azurewebsites.net/swagger
 
 1. Pour vous connecter par le biais de Swagger, copiez et collez l’URL dans le navigateur.
 2. Connectez-vous avec les informations d'identification Azure AD.
@@ -305,7 +308,7 @@ Une fois que l’installation de Data Hub est terminée, vous recevrez l’URL p
 
 ### <a name="accelerator"></a>Accélérateur
 
-Une fois que l’installation de l’accélérateur est terminée, vous recevrez l’URL permettant d’accéder à l’interface utilisateur FarmBeats au format suivant : https://\<accelerator-website-name>.azurewebsites.net
+Une fois l’installation de l’accélérateur terminée, vous recevrez l’URL d’accès à l’interface Azure FarmBeats au format : https://\<accelerator-website-name>.azurewebsites.net
 
 1. Pour vous connecter par le biais de l’accélérateur, copiez et collez l’URL dans le navigateur.
 2. Connectez-vous avec les informations d'identification Azure AD.
@@ -334,8 +337,8 @@ Suivez les instructions qui s’affichent à l’écran :
 9. Mot de passe Sentinel
 10. Le programme d’installation est maintenant validé et commence la création des ressources, qui peut prendre environ 20 minutes.
 11. Une fois le déploiement réussi, vous recevrez les liens de sortie ci-dessous :
- - **URL de Data hub** : Lien Swagger pour essayer les API FarmBeats.
- - **URL de l’accélérateur** : Interface utilisateur pour explorer l’accélérateur de fermes intelligentes FarmBeats.
+ - **URL de Data hub** : Lien Swagger pour essayer les API Azure FarmBeats.
+ - **URL de l’accélérateur** : Interface utilisateur pour explorer l’accélérateur Azure FarmBeats.
  - **Fichier journal du système de déploiement** : enregistre les journaux pendant le déploiement. Il sert à des fins de dépannage.
 
 > [!NOTE]
@@ -344,12 +347,12 @@ Suivez les instructions qui s’affichent à l’écran :
 
 ## <a name="uninstall"></a>Désinstaller l’interface
 
-Actuellement, nous ne prenons pas en charge la désinstallation automatisée de FarmBeats à l’aide du programme d’installation. Pour supprimer le Data Hub ou l’accélérateur dans le Portail Azure, supprimez le groupe de ressources au sein duquel ces composants sont installés, ou supprimez les ressources manuellement.
+La désinstallation automatique d’Azure FarmBeats n’est pas actuellement prise en charge à l’aide du programme d'installation. Pour supprimer le Data Hub ou l’accélérateur dans le Portail Azure, supprimez le groupe de ressources au sein duquel ces composants sont installés, ou supprimez les ressources manuellement.
 
 Par exemple, si vous avez déployé Data Hub et l’accélérateur dans deux groupes de ressources différents, vous supprimez ces groupes de ressources comme suit :
 
 1. Connectez-vous au portail Azure.
-2. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD où vous voulez déployer Microsoft FarmBeats.
+2. Sélectionnez votre compte en haut à droite, puis basculez vers l’abonné Azure AD où vous voulez déployer Microsoft FarmBeats.
 
    > [!NOTE]
    > Data Hub est nécessaire pour que l’accélérateur fonctionne correctement. Nous vous déconseillons de désinstaller Data Hub sans désinstaller l’accélérateur.

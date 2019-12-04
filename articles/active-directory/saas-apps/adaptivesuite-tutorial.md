@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70213621"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232122"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Didacticiel : Intégrer Adaptive Insights à Azure Active Directory
 
@@ -195,7 +195,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Adaptive Insights, v
    c. Cliquez sur **Envoyer**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Adaptive Insights fourni par ce service pour approvisionner des comptes d’utilisateur Azure Active Directory.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Adaptive Insights pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

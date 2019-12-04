@@ -1,5 +1,5 @@
 ---
-title: Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
+title: Tutoriel `:` Utiliser une identité managée de machine virtuelle Windows pour accéder à Azure AD Graph
 description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 43ef467adb8970d410404c151d0028ee4cda92b9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997782"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183023"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
 

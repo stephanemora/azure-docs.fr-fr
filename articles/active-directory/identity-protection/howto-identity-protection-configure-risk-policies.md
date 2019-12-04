@@ -1,5 +1,5 @@
 ---
-title: Comment configurer et activer les stratégies en matière de risque dans Azure Active Directory Identity Protection
+title: Stratégies de risque – Azure Active Directory Identity Protection
 description: Activer et configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f919633f6b1912ef07b7ff636eb60fb3d5859f
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886700"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382178"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procédure : Configurer et activer des stratégies de risque
 

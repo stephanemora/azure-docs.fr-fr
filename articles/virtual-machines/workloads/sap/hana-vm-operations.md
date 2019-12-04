@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3c810746218e9761ae4c821dc22fef921e62a60
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1547f0e600031f558dcc0157df2a35fdf3f9db2c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719063"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224683"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -95,7 +95,7 @@ Quand vous installez les machines virtuelles pour exécuter SAP HANA, celles-ci 
 >
 >
 
-Toutefois, pour les déploiements viables sur le long terme, vous devez créer une architecture réseau de centre de données virtuel dans Azure. Cette architecture recommande la séparation de la passerelle de réseau virtuel Azure qui établit une connexion en local dans un réseau virtuel Azure distinct. Celui-ci doit héberger tout le trafic sortant vers les destinations en local ou Internet. Cette approche vous permet de déployer un logiciel d’audit et de journalisation du trafic qui entre par ce hub de réseau virtuel distinct dans le centre de données virtuel dans Azure. Ainsi, un seul réseau virtuel héberge tous les logiciels et les configurations liés au trafic entrant et sortant vers votre déploiement Azure.
+Toutefois, pour les déploiements viables sur le long terme, vous devez créer une architecture réseau de centre de données virtuel dans Azure. Cette architecture recommande la séparation de la passerelle de réseau virtuel Azure qui établit une connexion en local dans un réseau virtuel Azure distinct. Celui-ci doit héberger tout le trafic sortant vers les destinations en local ou sur Internet. Cette approche vous permet de déployer un logiciel d’audit et de journalisation du trafic qui entre par ce hub de réseau virtuel distinct dans le centre de données virtuel dans Azure. Ainsi, un seul réseau virtuel héberge tous les logiciels et les configurations liés au trafic entrant et sortant vers votre déploiement Azure.
 
 Les articles [Centre de données virtuel Azure : une perspective réseau](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) et [Le centre de données virtuel Azure et le plan de contrôle entreprise](https://docs.microsoft.com/azure/architecture/vdc/) donnent plus d’informations sur l’approche du centre de données virtuel et la conception liée du réseau virtuel Azure.
 

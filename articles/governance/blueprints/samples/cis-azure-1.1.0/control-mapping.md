@@ -1,14 +1,14 @@
 ---
-title: Exemple de blueprint CIS Microsoft Azure Foundations Benchmark - Correspondance des recommandations
+title: Exemples de contrôles de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Correspondance des recommandations de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark avec Azure Policy.
 ms.date: 10/01/2019
 ms.topic: sample
-ms.openlocfilehash: 7974a5f9e5ccca41cdaa838cf05e3861dbae1b8d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038427"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544542"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 

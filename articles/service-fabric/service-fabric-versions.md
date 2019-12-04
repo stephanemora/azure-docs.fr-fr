@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6b29eb31f5d425fc063c8c42e7911272e63167c8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2453167bbdabbb201f2463e1eec8206be6d4223
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331100"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186491"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -47,8 +47,8 @@ Le tableau suivant répertorie les versions de Service Fabric et leurs dates de 
 | 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |26 octobre 2018   |
 | 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |31 mars 2019  |
 | 6.4.* | 6.2.301.* |Inférieure ou égale à la version 3.3 |15 septembre 2019 |
-| 6.5.* | 6.4.617.* |Inférieure ou égale à la version 3.4 |Version actuelle ; par conséquent, pas de date de fin |
-
+| 6.5.* | 6.4.617.* |Inférieure ou égale à la version 3.4 |1 mai 2020 |
+| 7.0.* | 6.4.664.# |Inférieure ou égale à la version 4.0 |Version actuelle ; par conséquent, pas de date de fin |
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Le tableau suivant répertorie les systèmes d’exploitation pris en charge pour les versions prises en charge de Service Fabric.
@@ -110,3 +110,4 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
+| 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |

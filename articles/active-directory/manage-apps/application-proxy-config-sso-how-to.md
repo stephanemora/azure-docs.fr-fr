@@ -1,5 +1,5 @@
 ---
-title: Comment configurer l’authentification unique pour une application de proxy d’application | Microsoft Docs
+title: Comment configurer l’authentification unique pour une application de proxy d’application
 description: Comment configurer rapidement l’authentification unique pour votre application de proxy d’application
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: mimart
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f26b28b34a569673b397fa4700c5332c3550500f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b5eca08e0b736937af42e58d81148636e3269df
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825863"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275632"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 

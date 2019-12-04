@@ -1,5 +1,5 @@
 ---
-title: Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
+title: Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 description: Découvrez comment rediriger des alertes de métrique Azure vers d’autres systèmes que Azure.
 author: snehithm
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345774"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286158"
 ---
-# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
 
 Cet article décrit comment définir un Webhook sur une alerte de métrique Azure. Il montre également à quoi ressemble la charge utile d’une requête HTTP POST sur un Webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de journal d’activité Azure (alertes sur les événements), consultez [Appeler un Webhook sur une alerte de journal d’activité Azure](alerts-log-webhook.md).
@@ -69,7 +69,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 ```
 
 
-| Champ | Obligatoire | Ensemble fixe de valeurs | Notes |
+| Champ | Mandatory | Ensemble fixe de valeurs | Notes |
 |:--- |:--- |:--- |:--- |
 | status |O |Activated, Resolved |État de l’alerte en fonction des conditions que vous avez définies. |
 | context |O | |Contexte de l’alerte. |

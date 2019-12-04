@@ -6,29 +6,30 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b2c840b9de25ff6997037c284c60390e7afa03ec
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 37249cc560d4493c34dd4be6139de03f9c152a08
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125480"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414498"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 * [Python 3.6](https://www.python.org/downloads/) ou version ultérieure.
 * [Visual Studio Code](https://code.visualstudio.com/)
+* ID d’application public : `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obtenir la clé LUIS
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## <a name="get-intent--programmatically"></a>Reconnaître une intention par programmation
+## <a name="get-intent-from-the-prediction-endpoint"></a>Obtenir une intention auprès du point de terminaison de prédiction
 
-Utilisez Python pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) GET du point de terminaison de prédiction afin d’obtenir le résultat de la prédiction.
+Utilisez Python pour interroger le [point de terminaison de prédiction](https://aka.ms/luis-apim-v3-prediction) afin d’obtenir le résultat d’une prédiction.
 
-1. Copiez l’un des extraits de code suivants dans un fichier nommé `predict.py` :
+1. Copiez cet extrait de code dans un fichier nommé `predict.py` :
 
     ```python
     ########### Python 3.6 #############
@@ -63,28 +64,28 @@ Utilisez Python pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction
 
 1. Remplacez les valeurs suivantes :
 
-    * `YOUR-KEY` par votre clé de démarrage
-    * `YOUR-ENDPOINT` avec votre point de terminaison, par exemple, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` par votre clé de démarrage.
+    * `YOUR-ENDPOINT` par votre point de terminaison. Par exemple : `westus2.api.cognitive.microsoft.com`.
 
-1. Installez les dépendances avec la commande de console suivante :
+1. Installez la dépendance `requests`. Celle-ci est utilisée pour effectuer des requêtes HTTP :
 
     ```console
     pip install requests
     ```
 
-1. Exécutez le script avec la commande de console suivante :
+1. Exécutez votre script avec cette commande de console :
 
     ```console
     python predict.py
     ``` 
 
-1. Évaluez la réponse de prédiction au format JSON :
+1. Examinez la réponse de prédiction, qui est retournée au format JSON :
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    La réponse JSON mise en forme pour des raisons de lisibilité : 
+    Voici la réponse JSON mise en forme pour des raisons de lisibilité : 
 
     ```JSON
     {

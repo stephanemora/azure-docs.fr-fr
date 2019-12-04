@@ -1,18 +1,14 @@
 ---
-title: Sauvegarder des partages de fichiers Azure Files avec le service de sauvegarde Azure
+title: Tutoriel - Sauvegarder des partages de fichiers Azure Files
 description: Dans ce didacticiel, vous allez apprendre à utiliser le Portail Azure pour configurer un coffre Recovery Services et sauvegarder des partages de fichiers Azure.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747052"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171863"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Sauvegarder des partages de fichiers Azure dans le portail Azure
 

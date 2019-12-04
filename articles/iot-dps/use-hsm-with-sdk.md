@@ -1,5 +1,5 @@
 ---
-title: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
+title: Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) client du service IoT Hub Device Provisioning Azure
 description: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
 author: robinsh
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: fd974ad81a641afb1c93fffb0a12a147c55b3a73
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 0cde591d2ec8c6f2f51c83b3f263c188c8cf2605
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951894"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228283"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 

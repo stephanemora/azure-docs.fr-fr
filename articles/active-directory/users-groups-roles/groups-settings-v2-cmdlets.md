@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026707"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233111"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -324,7 +324,7 @@ Quand un groupe est créé, certain points de terminaison autorisent l’utilisa
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Écriture différée de groupe au niveau local (préversion)
 
-De nos jours, de nombreux groupes sont toujours gérés localement dans Active Directory. La fonctionnalité d’écriture différée de groupes Office 365 pour Azure AD est disponible en préversion afin de répondre aux demandes de synchronisation au niveau local des groupes sur le cloud.
+De nos jours, de nombreux groupes sont toujours gérés localement dans Active Directory. Pour répondre à des requêtes visant à resynchroniser localement des groupes cloud, Office 365 regroupe la fonctionnalité d’écriture différée pour Azure AD est désormais disponible pour une préversion.
 
 Les groupes Office 365 sont créés et gérés dans le cloud. La fonctionnalité d’écriture différée vous permet de réécrire les groupes Office 365 en tant que groupes de distribution dans une forêt Active Directory sur laquelle est installé Exchange. Les utilisateurs disposant de boîtes aux lettres Exchange locales peuvent envoyer et recevoir des e-mails à partir de ces groupes. La fonctionnalité d’écriture différée de groupe ne prend pas en charge les groupes de sécurité ou les groupes de distribution Azure AD.
 

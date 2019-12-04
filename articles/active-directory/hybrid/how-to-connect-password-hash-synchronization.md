@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882842"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539020"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -160,9 +160,11 @@ La synchronisation d’un mot de passe n’a aucun impact sur l’utilisateur Az
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processus de synchronisation du hachage de mot de passe pour Azure AD Domain Services
 
-Si vous utilisez Azure AD Domain Services pour fournir une authentification héritée pour les applications et les services qui doivent utiliser Keberos, LDAP ou NTLM, certains processus supplémentaires font partie du flux de travail de synchronisation de hachage de mot de passe. Azure AD Connect utilise le processus suivant supplémentaire pour synchroniser les hachages de mot de passe vers Azure AD pour une utilisation dans Azure AD Domain Services :
+Si vous utilisez Azure AD Domain Services pour fournir une authentification héritée pour les applications et les services qui doivent utiliser Kerberos, LDAP ou NTLM, certains processus supplémentaires font partie du flux de synchronisation du hachage de mot de passe. Azure AD Connect utilise le processus suivant supplémentaire pour synchroniser les hachages de mot de passe vers Azure AD pour une utilisation dans Azure AD Domain Services :
 
 > [!IMPORTANT]
+> Azure AD Connect doit uniquement être installé et configuré pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets sur Azure AD.
+>
 > Azure AD Connect synchronise uniquement les hachages de mot de passe hérités lorsque vous activez Azure AD DS pour votre client Azure AD. Les étapes suivantes ne sont pas utilisées si vous utilisez uniquement Azure AD Connect pour synchroniser un environnement AD DS local avec Azure AD.
 >
 > Si vos applications héritées n’utilisent pas l’authentification NTLM ou les liaisons simples LDAP, nous vous recommandons de désactiver la synchronisation de hachage de mot de passe NTLM pour Azure AD DS. Pour plus d’informations, consultez [Désactiver les suites de chiffrement faible et la synchronisation des hachages des informations d’identification NTLM](../../active-directory-domain-services/secure-your-domain.md).

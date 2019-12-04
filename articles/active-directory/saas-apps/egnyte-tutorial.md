@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53f3adbf7f9909d3590a0bc34dadc49d498291d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7201b7d3f9f7e8333b18a087f58b6211101b1304
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73157297"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Didacticiel : Intégration d’Azure Active Directory à Egnyte
 
@@ -243,7 +243,7 @@ Pour se connecter à Egnyte, les utilisateurs d’Azure AD doivent être approvi
     >
 
 >[!NOTE]
->Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Egnyte fourni par ce site pour approvisionner des comptes d’utilisateurs AAD.
+>Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur Egnyte fourni par Egnyte pour provisionner des comptes d’utilisateur Azure AD.
 >
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 

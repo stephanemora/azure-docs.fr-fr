@@ -1,18 +1,14 @@
 ---
 title: Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
-ms.service: backup
-author: dcurwin
-ms.author: dacurwin
 ms.date: 08/20/2019
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 62a4f83c93230c150a7c406d0614dbee3d125e9c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091509"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171768"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 
@@ -37,7 +33,7 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 
 | messages d'erreur | Conseils de résolution ou solution de contournement |
 | ------------------ | ----------------------------- |
-| Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque**: Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.|
+| Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque**: Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.<li> Assurez-vous que la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** est cochée dans le compte de stockage.[En savoir plus.](../storage/common/storage-network-security.md)|
 | Erreur : échec de la découverte des états du portail des comptes de stockage. | Si votre abonnement est partenaire (CSP activé), ignorez l’erreur. Si votre abonnement ne dispose pas du CSP activé, et que vos comptes de stockage ne peuvent pas être découverts, contactez le support technique.|
 | Échec de la validation ou de l’enregistrement du compte de stockage sélectionné.| Réessayez l’opération et contactez le support technique si le problème persiste.|
 | Impossible de répertorier ou de trouver les partages de fichiers du compte de stockage sélectionné. | <ul><li> Assurez-vous que le compte de stockage existe dans le groupe de ressources (et qu’il n’a pas été supprimé ou déplacé après la dernière validation ou le dernier enregistrement dans le coffre).<li>Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li>Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.<li>Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.|

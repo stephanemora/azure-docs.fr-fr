@@ -1,10 +1,10 @@
 ---
-title: Ajouter ou supprimer des cartes réseau de machines virtuelles Azure | Documents Microsoft
+title: Ajouter des interfaces de réseau ou supprimer des machines virtuelles Azure
 description: Découvrez comment ajouter ou supprimer des interfaces réseau de machines virtuelles.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
-ms.openlocfilehash: 24f4b7435c2736527d033aa5ca7a65ad35a3a705
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a55bf014a2da10069e4e6a5f6f4eb4b8cd9ff205
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73022182"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196753"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 

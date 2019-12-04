@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123690"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559320"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -251,6 +251,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Copie de base de données | Vous ne pouvez pas encore utiliser la copie de base de données pour créer une base de données dans Azure SQL Hyperscale. |
 | Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement transparent de base de données à l’aide d’Azure Key Vault (communément appelé Bring Your Own Key ou BYOK) n’est pas encore pris en charge pour Azure SQL Database Hyperscale, contrairement au chiffrement transparent des données à l’aide de Clés gérées par le service qui est pleinement pris en charge. |
 |Fonctionnalités de base de données intelligente | À l’exception de l’option « Forcer le plan », aucune option de réglage automatique n’est encore prise en charge sur Hyperscale : les options peuvent sembler être activées, mais il n’y aura aucune recommandation ou aucune action ne sera effectuée. |
+| Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas actuellement pris en charge avec les bases de données Azure SQL Hyperscale. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,27 +1,28 @@
 ---
-title: Créer une stratégie pour auditer des ressources avec PowerShell
-description: Utilisez Azure PowerShell pour créer une affectation de stratégie Azure afin d’identifier les ressources non conformes.
-ms.date: 03/11/2019
+title: 'Démarrage rapide : Nouvelle affectation de stratégie à l’aide de PowerShell'
+description: Dans ce guide de démarrage rapide, vous allez utiliser Azure PowerShell pour créer une attribution de stratégie Azure afin d’identifier les ressources non conformes.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960127"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482384"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes*.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont _pas conformes_.
 
 Le module Azure PowerShell est utilisé pour gérer des ressources Azure à partir de la ligne de commande ou dans des scripts.
 Ce guide explique comment utiliser un module Az pour créer une attribution de stratégie.
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
 ## <a name="prerequisites"></a>Prérequis
 
+- Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
 - Avant de commencer, assurez-vous que la dernière version d’Azure PowerShell est installée. Pour plus d'informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+
 - Inscrivez le fournisseur de ressources Azure Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez avoir l’autorisation pour une opération de fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
   ```azurepowershell-interactive
@@ -31,9 +32,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
   Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/resource-manager-supported-services.md).
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous créez une attribution de stratégie pour la définition *Auditer des machines virtuelles sans disques managés*. Cette définition de stratégie identifie des machines virtuelles n’utilisant pas de disques managés.
+Dans ce guide de démarrage rapide, vous créez une attribution de stratégie pour la définition _Auditer des machines virtuelles sans disques managés_. Cette définition de stratégie identifie des machines virtuelles n’utilisant pas de disques managés.
 
 Exécutez la commande suivante pour créer une nouvelle attribution de stratégie :
 
@@ -50,9 +53,9 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 Les commandes précédentes utilisent les informations suivantes :
 
-- **Name** : nom réel de l’attribution. Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
-- **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation *Audit VMs without managed disks* (Auditer les machines virtuelles sans disques managés).
-- **Definition** : définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.
+- **Name** : nom réel de l’attribution. Pour cet exemple, _audit-vm-manageddisks_ a été utilisé.
+- **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
+- **Definition** : définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
 
 Vous êtes maintenant prêt à identifier les ressources non conformes pour comprendre l’état de conformité de votre environnement.

@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44db2b0b42175f7968852ad9a0f7769b05e2c008
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1f9914b84b63f271c7dd7d1b8f7dbc3b69511605
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038180"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561187"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestion de la disponibilité des machines virtuelles Windows dans Azure 
 
@@ -33,3 +33,7 @@ Pour obtenir des instructions sur la création et l’utilisation de groupes à 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’équilibrage de charge de vos machines virtuelles, consultez la rubrique concernant [l’équilibrage de charge des machines virtuelles](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+Afficher les architectures de référence pour l’exécution d’applications multiniveau sur SQL Server dans IaaS
+
+* [Application multiniveau Windows sur Azure avec SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Exécuter une application multiniveau dans plusieurs régions Azure pour une haute disponibilité](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

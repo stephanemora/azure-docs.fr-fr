@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098801"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Didacticiel : Intégration d’Azure Active Directory à Kintone
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec Kintone, effectuez le
 
 1. Cliquez sur **Users & System Administration**.
 
-    ![Administration système et utilisateurs](./media/kintone-tutorial/ic785880.png "Administration système et utilisateurs")
+    ![Users & System Administration](./media/kintone-tutorial/ic785880.png "Users & System Administration") (Administration système et des utilisateurs)
 
 1. Sous **System Administration \> Security**, cliquez sur **Login**.
 
@@ -149,11 +149,11 @@ Pour configurer l’authentification unique Azure AD avec Kintone, effectuez le
 
 1. Cliquez sur **Enable SAML authentication**.
 
-    ![Authentification SAML](./media/kintone-tutorial/ic785882.png "Authentification SAML")
+    ![Authentification SAML](./media/kintone-tutorial/ic785882.png "Authentification SAML")
 
 1. Dans la section SAML Authentication, procédez comme suit :
 
-    ![Authentification SAML](./media/kintone-tutorial/ic785883.png "Authentification SAML")
+    ![Authentification SAML](./media/kintone-tutorial/ic785883.png "Authentification SAML")
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 
@@ -228,26 +228,26 @@ Pour pouvoir se connecter à Kintone, les utilisateurs Azure AD doivent être p
 
 1. Cliquez sur **Users & System Administration**.
 
-    ![Administration système et utilisateur](./media/kintone-tutorial/ic785880.png "Administration système et utilisateur")
+    ![User & System Administration](./media/kintone-tutorial/ic785880.png "Administration système et utilisateur") (Administration système et des utilisateurs)
 
 1. Sous **User Administration**, cliquez sur **Departments & Users**.
 
-    ![Département et utilisateurs](./media/kintone-tutorial/ic785888.png "Département et utilisateurs")
+    ![Department & Users](./media/kintone-tutorial/ic785888.png "Département et utilisateurs") (Services et utilisateurs)
 
 1. Cliquez sur **New User**.
 
-    ![Nouveaux utilisateurs](./media/kintone-tutorial/ic785889.png "Nouveaux utilisateurs")
+    ![New Users](./media/kintone-tutorial/ic785889.png "Nouveaux utilisateurs") (Nouveaux utilisateurs)
 
 1. Dans la section **New User**, procédez comme suit :
 
-    ![Nouveaux utilisateurs](./media/kintone-tutorial/ic785890.png "Nouveaux utilisateurs")
+    ![New Users](./media/kintone-tutorial/ic785890.png "Nouveaux utilisateurs") (Nouveaux utilisateurs)
 
     a. Dans les zones de texte correspondantes, tapez un **Nom d’affichage**, un **Nom de connexion**, un **Nouveau mot de passe**, confirmez-le dans **Confirmer le mot de passe**, tapez une **Adresse e-mail** et indiquez d’autres détails d’un compte Azure AD valide que vous voulez provisionner.
 
     b. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Kintone fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Kintone pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -261,4 +261,4 @@ Quand vous cliquez sur la vignette Kintone dans le volet d’accès, vous devez 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

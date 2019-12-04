@@ -1,22 +1,22 @@
 ---
-title: Bien démarrer avec le serveur Azure Multi-Factor Authentication - Azure Active Directory
+title: Prise en main du Serveur Azure MFA – Azure Active Directory
 description: Prise en main pas à pas du serveur Azure Multi-Factor Authentication local
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15900758945fd5c97198caf47ff01fcfb5a6a794
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e751c7aefe888d16e6d86a0184a1a59437d665f
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057402"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404246"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -102,7 +102,7 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Sélectionnez **Azure Active Directory** > **Serveur MFA**.
+2. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Serveur MFA**.
 3. Sélectionnez **Paramètres du serveur**.
 4. Cliquez sur **Télécharger** et suivez les instructions de la page de téléchargement pour enregistrer le programme d’installation. 
 

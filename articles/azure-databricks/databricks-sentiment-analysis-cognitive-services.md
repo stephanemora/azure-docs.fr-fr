@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 12e6d292779d497d907bb68eece3fc2338f072fd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602058"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286540"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
@@ -102,7 +102,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **5.2**.
+   * Pour cet article, créez un cluster avec le runtime **6.0**.
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
    Sélectionnez la taille des nœuds worker et de pilote adaptée à vos critères techniques et à votre [budget](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).

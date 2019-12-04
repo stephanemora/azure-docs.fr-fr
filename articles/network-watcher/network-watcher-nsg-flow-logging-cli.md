@@ -1,5 +1,6 @@
 ---
-title: Gérer les journaux d’activité des flux de groupe de sécurité réseau avec Azure Network Watcher - Azure CLI | Microsoft Docs
+title: Gérer les journaux de flux NSG – Azure CLI
+titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’interface de ligne de commande Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 950b014d7e08eeeeed40ba7b294e53e1c200474b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563491"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278013"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’interface de ligne de commande Azure
 

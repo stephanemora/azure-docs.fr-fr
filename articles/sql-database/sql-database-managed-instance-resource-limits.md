@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823338"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548369"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -31,7 +31,7 @@ L’instance gérée a des caractéristiques et des limites de ressources qui d�
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast NVMe, vCore = 1 LP (hyperthread) |
+| Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz et Intel SP-8160 (Skylake), disque SSD fast NVMe, vCore = 1 LP (hyperthread) |
 | Nombre de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire maximale (ratio mémoire/cœur) | 7 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | 5,1 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | Mémoire OLTP maximum en mémoire | Limite de l’instance : 1 à 1,5 Go par vCore| Limite de l’instance : 0,8 à 1,65 Go par vCore |

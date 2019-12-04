@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031426"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326641"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -33,7 +33,7 @@ La reconnaissance d’entité nommée (NER) est la capacité d’identifier diff
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Préversion publique de la reconnaissance d’entité nommée v3
 
-La [prochaine version de la reconnaissance d’entité nommée]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) est désormais disponible en préversion publique. Elle offre des mises à jour des liaisons d’entités et une reconnaissance d’entité nommée. 
+La prochaine version de la reconnaissance d’entité nommée est désormais disponible en préversion publique. Elle offre des mises à jour des liaisons d’entités et une reconnaissance d’entité nommée. Essayez-la en utilisant la [console de test d’API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral).
 
 :::row:::
     :::column span="":::
@@ -120,6 +120,8 @@ Liaison d’entités
 | DateTime      | Définir           | « Chaque mardi »     |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
+| Numéro de téléphone aux États-Unis  | N/A\*         | (Numéros de téléphone américains uniquement) « (312) 555-0176 » |
+| Adresse IP    | N/A\*         | « 10.0.0.100 » |
 
 \* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.  Tous les types d’entités pris en charge répertoriés sont disponibles uniquement en anglais, chinois simplifié, français, allemand et espagnol.
 

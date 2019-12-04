@@ -1,5 +1,6 @@
 ---
-title: Introduction à la résolution des problèmes des ressources dans Azure Network Watcher | Microsoft Docs
+title: Présentation de la résolution des problèmes liés aux ressources
+titleSuffix: Azure Network Watcher
 description: Cette page fournit une vue d’ensemble des fonctionnalités de résolution des problèmes des ressources de Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684243"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277770"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 

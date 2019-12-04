@@ -1,22 +1,22 @@
 ---
-title: Activer la connexion par clé de sécurité sans mot de passe pour Azure AD (préversion) – Azure Active Directory
+title: Connexion par clé de sécurité sans mot de passe (préversion) - Azure Active Directory
 description: Activer la connexion par clé de sécurité sans mot de passe à Azure AD à l’aide de clés de sécurité FIDO2 (préversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603444"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381851"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 

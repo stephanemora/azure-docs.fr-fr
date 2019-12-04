@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a4d8cd9f8198002b0b9ade8fe5058de1fcacc68f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937352"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209654"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Single Server
 
@@ -19,11 +19,11 @@ Azure Database pour PostgreSQL crée automatiquement des sauvegardes de serveur 
 
 ## <a name="backups"></a>Sauvegardes
 
-Azure Database pour PostgreSQL accepte les sauvegardes complètes, différentielles et du journal des transactions. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
+Azure Database pour PostgreSQL effectue des sauvegardes des fichiers de données et du journal des transactions. Selon la taille de stockage maximale prise en charge, nous prenons en charge des sauvegardes complètes et différentielles (serveurs de stockage de 4 To maximum) ou des sauvegardes d’instantanés (serveurs de stockage jusqu’à 16 To maximum). Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
-En règle générale, les sauvegardes complètes se produisent une fois par semaine, les sauvegardes différentielles ont lieu deux fois par jour, et les sauvegardes du journal des transactions se déroulent toutes les cinq minutes. La première sauvegarde complète est planifiée immédiatement après la création d’un serveur. La sauvegarde initiale peut prendre plus de temps sur un serveur restauré volumineux. Le point dans le temps le plus ancien vers lequel un nouveau serveur peut être restauré est le moment où la sauvegarde complète initiale est terminée.
+En général, les sauvegardes complètes sont effectuées toutes les semaines et les sauvegardes différentielles sont effectuées deux fois par jour pour les serveurs avec un stockage pris en charge maximal de 4 To. Les sauvegardes d’instantanés ont lieu au moins une fois par jour pour les serveurs prenant en charge jusqu’à 16 To de stockage. Dans les deux cas, les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. Le premier instantané de la sauvegarde complète est planifié immédiatement après la création d’un serveur. La sauvegarde complète initiale peut prendre plus de temps sur un serveur restauré volumineux. Le point dans le temps le plus ancien vers lequel un nouveau serveur peut être restauré est le moment où la sauvegarde complète initiale est terminée. Du fait que les instantanés sont immédiats, les serveurs prenant en charge jusqu’à 16 To de stockage peuvent être restaurés jusqu’au moment de la création.
 
 ### <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
 
@@ -62,7 +62,9 @@ Vous devez peut-être attendre la prochaine sauvegarde du journal des transactio
 
 ### <a name="geo-restore"></a>Géo-restauration
 
-Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
+Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. Les serveurs qui prennent en charge jusqu’à 4 To de stockage peuvent être restaurés dans la région géographiquement associée ou dans n’importe quelle région qui prend en charge jusqu’à 16 To de stockage. Pour les serveurs prenant en charge jusqu’à 16 To de stockage, les géo-sauvegardes peuvent être restaurées dans n’importe quelle région qui prend également en charge les serveurs de 16 To. Passez en revue [Niveaux tarifaires d’Azure Database pour PostgeSQL](concepts-pricing-tiers.md) pour obtenir la liste des régions prises en charge.
+
+La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
 
 Pendant la géorestauration, les configurations de serveur qui peuvent être changées incluent la génération de calcul, les vCores, la période de conservation des sauvegardes et les options de redondance de sauvegarde. La modification du niveau tarifaire (De base, Usage général ou À mémoire optimisée) ou de la taille du stockage n’est pas prise en charge.
 

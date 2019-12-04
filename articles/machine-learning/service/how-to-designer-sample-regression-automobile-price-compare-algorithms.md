@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Prédire les prix des véhicules (régression)'
+title: 'Concepteur : Exemple de prix de prédiction de véhicule (avancé)'
 titleSuffix: Azure Machine Learning
-description: Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code. Découvrez comment effectuer l’apprentissage de plusieurs modèles de régression et comment les comparer pour prédire le prix d’une voiture en fonction de fonctionnalités techniques
+description: Générez et comparez plusieurs modèles de régression ML pour prédire un prix d’automobiles basé sur des fonctionnalités techniques avec un concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 60baf2229b6c704f951e6cc54949109d5e403bc0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647951"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225053"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Formez et comparez plusieurs modèles de régression pour prédire un prix de voitures basé sur des fonctionnalités techniques avec un concepteur Azure Machine Learning.
+
+**Exemple 2 du concepteur (préversion)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Découvrez comment générer un pipeline Machine Learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans ce pipeline, pour que vous puissiez résoudre vos propres problèmes de Machine Learning.
@@ -26,7 +29,7 @@ Si vous êtes débutant en Machine Learning, commencez par examiner la [version 
 
 Voici le graphique complet associé à ce pipeline :
 
-[![Graphique du pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +56,7 @@ Les principales tâches de préparation des données incluent leur nettoyage, in
 
 Utilisez le module **Sélectionner des colonnes dans le jeu de données** pour exclure les pertes normalisées qui ont de nombreuses valeurs manquantes. Nous utilisons ensuite le module **Nettoyage des données manquantes** pour supprimer les lignes qui ont des valeurs manquantes. Cela permet de créer un jeu de données d’apprentissage propre.
 
-![Prétraitement des données](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Prétraitement des données](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## <a name="train-the-model"></a>Formation du modèle
 
@@ -75,7 +78,7 @@ Une fois que le modèle est entraîné, utilisez les modules **Noter le modèle*
 
 Voici les résultats :
 
-![Comparer les résultats](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Comparer les résultats](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 Ces résultats montrent que le modèle créé avec **Régression d’arbre de décision optimisé** a un écart quadratique moyen inférieur à celui du modèle généré avec **Régression de forêt d’arbres décisionnels**.
 

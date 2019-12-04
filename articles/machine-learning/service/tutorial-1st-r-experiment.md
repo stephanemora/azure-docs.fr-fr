@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Votre première expérience ML avec R'
+title: 'Didacticiel : Votre premier modèle ML avec R'
 titleSuffix: Azure Machine Learning
 description: Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux dans Azure Machine Learning et effectuer l’apprentissage d’un modèle de régression logistique à l’aide des packages R azuremlsdk et caret pour prédire la probabilité de décès au cours d’un accident automobile.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092258"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307290"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Didacticiel : Effectuer l’apprentissage de votre premier modèle et le déployer dans R avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

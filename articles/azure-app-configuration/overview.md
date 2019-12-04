@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129691"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185081"
 ---
 # <a name="what-is-azure-app-configuration"></a>Présentation d’Azure App Configuration
 
@@ -58,12 +58,12 @@ App Configuration complète [Azure Key Vault](https://azure.microsoft.com/servic
 
 ## <a name="use-app-configuration"></a>Utilisation d’App Configuration
 
-Le moyen le plus simple d’ajouter un magasin de configuration d’application à votre application fait intervenir une bibliothèque cliente fournie par Microsoft. Voici, en fonction du langage de programmation et du framework, les meilleures méthodes mises à votre disposition.
+Le moyen le plus simple d’ajouter un magasin App Configuration à votre application fait intervenir une bibliothèque cliente fournie par Microsoft. Voici, en fonction du langage de programmation et du framework, les meilleures méthodes mises à votre disposition.
 
 | Langage de programmation et framework | Comment se connecter |
 |---|---|
 | .NET Core et ASP.NET Core | Fournisseur d’App Configuration pour .NET Core |
-| .NET et ASP.NET | Générateur App Configuration pour .NET |
+| .NET Framework et ASP.NET | Générateur App Configuration pour .NET |
 | Java Spring | Client App Configuration pour Spring cloud |
 | Autres | API REST App Configuration |
 
@@ -72,7 +72,7 @@ Le moyen le plus simple d’ajouter un magasin de configuration d’application 
 * [Démarrage rapide ASP.NET Core](./quickstart-aspnet-core-app.md)
 * [Démarrage rapide .NET Core](./quickstart-dotnet-core-app.md)
 * [Démarrage rapide .NET Framework](./quickstart-dotnet-app.md)
-* [Démarrage rapide Azure Function](./quickstart-azure-function-csharp.md)
+* [Guide de démarrage rapide Azure Functions](./quickstart-azure-functions-csharp.md)
 * [Démarrage rapide Java Spring](./quickstart-java-spring-app.md)
 * [Démarrage rapide des indicateurs de fonctionnalités ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 * [Démarrage rapide des indicateurs de fonctionnalités Spring Boot](./quickstart-feature-flag-spring-boot.md)

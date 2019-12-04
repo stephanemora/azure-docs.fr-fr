@@ -1,14 +1,14 @@
 ---
-title: Exemple de blueprint Canada Federal PBMM - Étapes de déploiement
+title: Déployer un exemple de blueprint Canada Federal PBMM
 description: Étapes de déploiement pour l’exemple de blueprint Canada Federal PBMM et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 09/05/2019
-ms.topic: conceptual
-ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 087112df7ab18cd71bde80f22b13c9c7800c05e9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038410"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544597"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Déployer les exemples de blueprint Canada Federal PBMM
 

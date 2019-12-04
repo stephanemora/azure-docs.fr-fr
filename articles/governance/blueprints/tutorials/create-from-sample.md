@@ -1,14 +1,14 @@
 ---
-title: Créer un nouvel environnement à partir d’un exemple de blueprint
-description: Utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu'à deux groupes de ressources et configure une attribution de rôle pour chacun.
-ms.date: 03/05/2019
+title: 'Didacticiel : Exemple de blueprint dans un nouvel environnement'
+description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu’à deux groupes de ressources et configure une attribution de rôle pour chacun.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960265"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321734"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Didacticiel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
@@ -183,9 +183,7 @@ Une fois le didacticiel terminé, supprimez les ressources suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
-- Découvrir comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md)
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](../concepts/sequencing-order.md)
-- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md)
+Dans ce tutoriel, vous avez appris à créer un blueprint à partir d’un exemple de définition. Pour plus d’informations sur Azure Blueprints, consultez l’article concernant le cycle de vie des blueprints.
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur le cycle de vie des blueprints](../concepts/lifecycle.md)

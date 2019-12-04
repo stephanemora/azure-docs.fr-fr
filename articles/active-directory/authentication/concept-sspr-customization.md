@@ -1,22 +1,22 @@
 ---
-title: Personnalisation de la réinitialisation du mot de passe libre-service Azure AD - Azure Active Directory
+title: Personnaliser la réinitialisation de mot de passe en libre-service - Azure Active Directory
 description: Options de personnalisation de la réinitialisation du mot de passe libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 0dfd035f73ea529ddb55bac6ce601185fda51a4d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666296"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381935"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 

@@ -1,19 +1,14 @@
 ---
-title: 'Didacticiel : Déployer un groupe multiconteneur dans Azure Container Instances - YAML'
+title: Didacticiel - déployer un groupe de plusieurs conteneurs - YAML
 description: Dans ce didacticiel, vous découvrez comment déployer un groupe multiconteneur dans Azure Container Instances à l’aide d’Azure CLI et d’un fichier YAML.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178571"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533590"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Didacticiel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 

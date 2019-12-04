@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151225"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208395"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -114,6 +114,7 @@ Voici des guides pas à pas sur la façon dont vous pouvez utiliser l’accès c
 - [Exiger MFA pour la gestion Azure](howto-conditional-access-policy-azure-management.md)
 - [Bloquer l’authentification héritée](howto-conditional-access-policy-block-legacy.md)
 - [Exiger MFA pour tous les utilisateurs](howto-conditional-access-policy-all-users-mfa.md)
+- [Exiger l’inscription Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) – nécessite Azure AD Identity Protection
 
 ## <a name="enabling-security-defaults"></a>Activation des paramètres de sécurité par défaut
 

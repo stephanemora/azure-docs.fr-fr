@@ -1,5 +1,5 @@
 ---
-title: Créer et utiliser des cibles de calcul pour l’apprentissage du modèle
+title: Utiliser des cibles de calcul pour la formation des modèles
 titleSuffix: Azure Machine Learning
 description: Configurer les environnements d’entraînement (cibles de calcul) pour l’entraînement des modèles de machine learning. Vous pouvez facilement basculer entre différents environnements d’entraînement. Commencer l’entraînement en local. Si une montée en charge est nécessaire, basculez vers une cible de calcul basée sur le cloud.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489563"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305316"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Cet article explique comment utiliser les différentes cibles de calcul pour l�
 
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.39.
+> Le code présenté dans cet article a été testé avec le Kit de développement logiciel (SDK) Azure Machine Learning version 1.0.74.
 
 ## <a name="compute-targets-for-training"></a>Cibles de calcul pour l’entraînement
 
@@ -105,9 +105,6 @@ Vous pouvez créer un environnement Compute Azure Machine Learning à la demande
 #### <a name="run-based-creation"></a>Création basée sur l’exécution
 
 Vous pouvez créer une capacité de calcul Azure Machine Learning en tant que cible de calcul au moment de l’exécution. La capacité de calcul est automatiquement créée pour votre exécution. La capacité de calcul est automatiquement supprimée une fois l’exécution terminée. 
-
-> [!NOTE]
-> Pour spécifier le nombre maximal de nœuds à utiliser, vous définissez normalement `node_count` sur le nombre de nœuds. Il existe actuellement (au 4 avril 2019) un bogue qui empêche cela de fonctionner. Pour résoudre ce problème, utilisez la propriété `amlcompute._cluster_max_node_count` de la configuration d’exécution. Par exemple : `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La création de la capacité de calcul Azure Machine Learning basée sur l’exécution est actuellement en préversion. N’utilisez pas la création basée sur l’exécution si vous utilisez l’optimisation automatisée des hyperparamètres ou le machine learning automatisé. Pour utiliser un réglage d’hyperparamètre ou un apprentissage automatique, créez plutôt un cible de [calcul persistante](#persistent).

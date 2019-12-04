@@ -1,17 +1,14 @@
 ---
-title: Exporter un modèle Resource Manager – Portail Azure
+title: Exporter le modèle dans le Portail Azure
 description: Utilisez le portail Azure pour exporter un modèle Azure Resource Manager à partir de ressources de votre abonnement.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0605e24590fa2d702a1385429a7808a7e1226809
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.date: 11/21/2019
+ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532347"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306793"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
@@ -36,7 +33,7 @@ Selon l’option choisie, les modèles exportés ont différentes qualités.
 | Le modèle est un instantané de l’état actuel des ressources. Il inclut toutes les modifications manuelles apportées après le déploiement. | Le modèle affiche uniquement l’état des ressources au moment du déploiement. Toutes les modifications manuelles apportées après le déploiement ne sont pas incluses. |
 | Vous pouvez sélectionner les ressources à exporter à partir d’un groupe de ressources. | Toutes les ressources pour un déploiement spécifique sont incluses. Vous ne pouvez pas choisir un sous-ensemble de ces ressources ou ajouter des ressources qui ont été ajoutés à un autre moment. |
 | Le modèle inclut toutes les propriétés des ressources, y compris certaines propriétés que vous ne définiriez normalement pas pendant le déploiement. Vous souhaiterez peut-être supprimer ou nettoyer ces propriétés avant de réutiliser le modèle. | Le modèle inclut uniquement les propriétés nécessaires au déploiement. Le modèle est prêt à l’emploi. |
-| Le modèle probablement n’inclut probablement pas tous les paramètres dont vous avez besoin pour le réutiliser. La plupart des valeurs de propriété sont codées en dur dans le modèle. Pour redéployer le modèle dans d’autres environnements, vous devez ajouter des paramètres qui augmentent la possibilité de configurer les ressources. | Le modèle inclut des paramètres qui permettent de facilement le redéployer dans différents environnements. |
+| Le modèle probablement n’inclut probablement pas tous les paramètres dont vous avez besoin pour le réutiliser. La plupart des valeurs de propriété sont codées en dur dans le modèle. Pour redéployer le modèle dans d’autres environnements, vous devez ajouter des paramètres qui augmentent la possibilité de configurer les ressources.  Vous avez également la possibilité de désélectionner **Inclure des paramètres** afin de pouvoir créer vos propres paramètres. | Le modèle inclut des paramètres qui permettent de facilement le redéployer dans différents environnements. |
 
 Exportez le modèle à partir d’une ressource ou d’un groupe de ressources, lorsque :
 
@@ -65,6 +62,8 @@ Pour exporter une ou plusieurs ressources à partir d’un groupe de ressources 
 
    ![Afficher le modèle](./media/export-template-portal/show-template.png)
 
+   **Inclure des paramètres** est sélectionné par défaut.  Une fois sélectionnés, tous les exemples de paramètres seront inclus après génération du modèle. Si vous souhaitez créer vos propres paramètres, cochez cette case pour ne pas les inclure.
+
 ## <a name="export-template-from-a-resource"></a>Exportation du modèle à partir d’une ressource
 
 Pour exporter une ressource :
@@ -77,7 +76,7 @@ Pour exporter une ressource :
 
    ![Exporter une ressource](./media/export-template-portal/export-single-resource.png)
 
-1. Le modèle exporté s’affiche et est disponible au téléchargement et au déploiement. Le modèle contient uniquement la ressource unique.
+1. Le modèle exporté s’affiche et est disponible au téléchargement et au déploiement. Le modèle contient uniquement la ressource unique. **Inclure des paramètres** est sélectionné par défaut.  Une fois sélectionnés, tous les exemples de paramètres seront inclus après génération du modèle. Si vous souhaitez créer vos propres paramètres, cochez cette case pour ne pas les inclure.
 
 ## <a name="export-template-before-deployment"></a>Exporter un modèle avant le déploiement
 

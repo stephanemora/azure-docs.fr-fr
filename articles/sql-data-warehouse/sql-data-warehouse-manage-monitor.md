@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 629ba904d055977fe70f749a46fbbec71be71b79
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b71d3b4824d8c1c73f40c8c6d87db315aabd423b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083650"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555489"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.
@@ -63,7 +63,7 @@ ORDER BY total_elapsed_time DESC;
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes dont l’état est **Interrompu** peuvent être mises en file d’attente en raison d’un grand nombre de requêtes actives en cours d’exécution. Ces requêtes apparaissent également dans la requête [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de simultanéité, consultez [Niveaux de performances](/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu#performance-tiers-and-data-warehouse-units) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
+Les requêtes dont l’état est **Interrompu** peuvent être mises en file d’attente en raison d’un grand nombre de requêtes actives en cours d’exécution. Ces requêtes apparaissent également dans la requête [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Limites de mémoire et de concurrence pour Azure SQL Data Warehouse](memory-concurrency-limits.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
 
 Pour simplifier la recherche d’une requête dans la table [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), utilisez [LABEL][LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
 

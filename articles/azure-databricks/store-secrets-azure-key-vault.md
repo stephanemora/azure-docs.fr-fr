@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 7983e18066578e3f036da84c73b6554ead2c40a1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791567"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539070"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Didacticiel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
 
@@ -129,7 +129,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 4. Une fois que votre espace de travail Azure Databricks est ouvert dans une fenêtre distincte, ajoutez **#secrets/createScope** à l’URL. L’URL doit avoir le format suivant : 
 
-   **https://<\location>.azuredatabricks.net/?o=<\id>#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/#secrets/createScope**.
 
 5. Entrez un nom d’étendue, puis entrez le nom DNS et l’ID de ressource du coffre de clés Azure que vous avez enregistrés précédemment. Enregistrez le nom de l’étendue dans un éditeur de texte pour l’utiliser plus tard dans ce tutoriel. Sélectionnez ensuite **Create** (Créer).
 

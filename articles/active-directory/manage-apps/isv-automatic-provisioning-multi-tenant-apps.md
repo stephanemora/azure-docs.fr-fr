@@ -1,5 +1,5 @@
 ---
-title: Activer l'approvisionnement automatique d'utilisateurs pour les applications mutualisées Azure Active Directory
+title: Activer l’approvisionnement automatique d’utilisateurs pour les applications multilocataires – Azure AD
 description: Guide d'activation de l'approvisionnement automatisé destiné aux éditeurs de logiciels indépendants
 services: active-directory
 documentationcenter: azure
@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429454"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232310"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Activer l'approvisionnement automatique d'utilisateurs pour votre application multilocataire
 

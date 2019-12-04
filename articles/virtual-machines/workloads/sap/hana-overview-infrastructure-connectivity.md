@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101158"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224672"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Déploiement de SAP HANA (grandes instances) 
 
@@ -36,7 +36,7 @@ Microsoft a besoin des informations suivantes pour déployer les unités de gran
 - Pour chaque région de déploiement Azure :
     - Une plage d’adresses IP /29 pour les connexions ER-P2P qui relient les réseaux virtuels Azure aux grandes instances HANA.
     - Un bloc CIDR /24 utilisé pour le pool d’adresses IP du serveur de grandes instances HANA.
-    - Facultatif avec [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct depuis un site local vers des unités de grandes instances HANA ou le routage entre des unités de grandes instances HANA dans différentes régions Azure, vous devez réserver une autre adresse IP/29 vont. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
+    - Facultatif avec [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct depuis un site local vers des unités de grandes instances HANA ou le routage entre des unités de grandes instances HANA dans différentes régions Azure, vous devez réserver une autre plage d’adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 - Les valeurs de plage d’adresses IP utilisées dans l’attribut Espace d’adressage du réseau virtuel de chaque réseau virtuel Azure qui se connecte à de grandes instances HANA.
 - Données pour chaque système de grandes instances HANA :
   - Nom d’hôte souhaité, idéalement avec le nom de domaine complet.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7feb62bb3e38452a441c505107569457d7c90a3f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164361"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
@@ -223,7 +223,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Créer un groupe de sécurité Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > Pour affecter des groupes de sécurité Azure Active Directory à SharePoint (local), il est nécessaire d’installer et de configurer [AzureCP](https://yvand.github.io/AzureCP/) dans la batterie de serveurs SharePoint (local) OU de développer et configurer un autre fournisseur de revendications personnalisé pour SharePoint.  Consultez la section d’informations supplémentaires à la fin du document concernant la création de votre propre fournisseur de revendications personnalisé, si vous n’utilisez pas le fournisseur de revendications Azure.
+    > Pour affecter des groupes de sécurité Azure Active Directory à SharePoint en local, il est nécessaire d’installer et de configurer [AzureCP](https://yvand.github.io/AzureCP/) dans la batterie de serveurs SharePoint en local OU de développer et de configurer un autre fournisseur de revendications personnalisé pour SharePoint.  Consultez la section d’informations supplémentaires à la fin du document concernant la création de votre propre fournisseur de revendications personnalisé, si vous n’utilisez pas le fournisseur de revendications Azure.
 
 ### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Accorder l’accès à un groupe de sécurité local SharePoint
 

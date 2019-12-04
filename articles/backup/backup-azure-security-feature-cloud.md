@@ -1,18 +1,14 @@
 ---
-title: Fonctionnalités de sécurité pour protéger les charges de travail cloud utilisant Sauvegarde Azure
+title: Fonctionnalités de sécurité pour protéger les charges de travail cloud
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622006"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278236"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Fonctionnalités de sécurité pour protéger les charges de travail cloud utilisant Sauvegarde Azure
 
@@ -45,7 +41,7 @@ La suppression réversible est actuellement prise en charge dans USA Centre-Oues
    > [!NOTE]
    > Si des éléments de sauvegarde supprimés de manière réversible sont présents dans le coffre, celui-ci ne peut pas être supprimé à ce moment-là. Essayez de supprimer le coffre une fois que les éléments de sauvegarde ont été supprimés définitivement et qu’il ne contient plus d’élément dans l’état de suppression réversible.
 
-4. Pour restaurer la machine virtuelle supprimée de manière réversible, vous devez d’abord annuler sa suppression. Pour ce faire, choisissez la machine virtuelle supprimée de manière réversible, puis cliquez sur l’option **Annuler la suppression**.
+4. Pour restaurer la machine virtuelle supprimée de manière réversible, vous devez d’abord annuler sa suppression. Pour ce faire, choisissez la machine virtuelle supprimée de manière réversible, puis sélectionnez l’option **Annuler la suppression**.
 
    ![Capture d’écran du portail Azure, annulation de la suppression de la machine virtuelle](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -64,7 +60,7 @@ La suppression réversible est actuellement prise en charge dans USA Centre-Oues
 
    ![Capture d’écran du portail Azure, option Reprendre la sauvegarde](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-Cet organigramme montre les différentes étapes et états d’un élément de sauvegarde :
+Cet organigramme montre les différentes étapes et états d’un élément de sauvegarde lorsque la suppression réversible est activée :
 
 ![Cycle de vie d’un élément de sauvegarde supprimé de manière réversible](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -72,26 +68,47 @@ Pour plus d’informations, consultez la section [Questions fréquentes (FAQ)](b
 
 ## <a name="disabling-soft-delete"></a>Désactivation de la suppression réversible
 
-La suppression réversible est activée par défaut sur les coffres nouvellement créés. Si la fonctionnalité de sécurité de la suppression réversible est désactivée, les données de sauvegarde ne sont pas protégées contre les suppressions accidentelles ou malveillantes. Sans la fonctionnalité de suppression réversible, toutes les suppressions d’éléments protégés entraînent une suppression immédiate, sans possibilité de restauration. Étant donné que les données de sauvegarde dans l’état « suppression réversible » n’entraînent aucun frais pour le client, la désactivation de cette fonctionnalité n’est pas recommandée. La seule circonstance dans laquelle vous devez envisager la désactivation de la suppression réversible est si vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple).
+La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité n’est pas recommandée. La seule circonstance dans laquelle vous devez envisager la désactivation de la suppression réversible est si vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple). Seul un administrateur de sauvegarde peut désactiver cette fonctionnalité. Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés entraînent une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde dans l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>Conditions préalables à la désactivation de la suppression réversible
-
-- L’activation ou la désactivation de la suppression réversible pour les coffres (sans éléments protégés) ne peut être effectuée que via le Portail Azure. Cela s’applique aux :
-  - Coffres nouvellement créés qui ne contiennent pas d’éléments protégés
-  - Coffres existants dont les éléments protégés ont été supprimés et ont expiré (au-delà de la période de rétention fixe de 14 jours)
-- Si la fonctionnalité de suppression réversible est désactivée pour le coffre, vous pouvez la réactiver, mais vous ne pouvez pas inverser ce choix et la désactiver si le coffre contient des éléments protégés.
-- Vous ne pouvez pas désactiver la suppression réversible pour les coffres contenant des éléments protégés ou des éléments en état de suppression réversible. Si vous devez désactiver la fonctionnalité, procédez comme suit :
-  - Arrêtez la protection des données supprimées pour tous les éléments protégés.
-  - Attendez que le délai de rétention de la sécurité de 14 jours expire.
-  - Désactivez la suppression réversible.
-
-Pour désactiver la suppression réversible, assurez-vous que les conditions préalables sont remplies, puis procédez comme suit :
+Pour désactiver la suppression réversible, procédez comme suit :
 
 1. Dans le Portail Azure, accédez à votre coffre, puis accédez à **Paramètres** -> **Propriétés**.
-2. Dans le volet Propriétés, sélectionnez **Paramètres de sécurité** -> **Mettre à jour**.
-3. Dans le volet Paramètres de sécurité, sous Suppression réversible, sélectionnez **Désactiver**.
+2. Dans le volet Propriétés, sélectionnez **Paramètres de sécurité** -> **Mettre à jour**.  
+3. Dans le volet Paramètres de sécurité, sous **Suppression réversible**, sélectionnez **Désactiver**.
+
 
 ![Désactiver la suppression réversible](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Suppression définitive d’éléments de sauvegarde supprimés de manière réversible
+
+Les données de sauvegarde dans l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement. 
+
+Procédez comme suit :
+
+1. Suivez les étapes pour [désactiver la suppression réversible](#disabling-soft-delete). 
+2. Dans le portail Azure, accédez à votre coffre, accédez à **Éléments de sauvegarde** et choisissez la machine virtuelle supprimée de manière réversible. 
+
+![Choisir la machine virtuelle supprimée de manière réversible](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Sélectionnez l’option **Annuler la suppression**.
+
+![Choisir Annuler la suppression](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. Une fenêtre s’affiche. Sélectionnez **Annuler la suppression**.
+
+![Sélectionner Annuler la suppression](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Choisissez **Supprimer les données de sauvegarde** pour supprimer définitivement les données de sauvegarde.
+
+![Choisir Supprimer les données de sauvegarde](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
+
+![Entrez le nom de l’élément de sauvegarde](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
+
 
 ## <a name="other-security-features"></a>Autres fonctionnalités de sécurité
 
@@ -143,7 +160,7 @@ Une annulation de la suppression suivie d’une opération de reprise reprotège
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Puis-je supprimer mon coffre s’il contient des éléments supprimés de manière réversible ?
 
-Le coffre Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde dans l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours de l’opération de suppression. Vous pouvez supprimer le coffre qu’une fois que tous les éléments supprimés de manière réversible ont été vidés.  
+Le coffre Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde dans l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours après l’opération de suppression. Si vous ne pouvez pas attendre 14 jours, [désactivez la suppression réversible](#disabling-soft-delete), annulez la suppression des éléments supprimés de manière réversible et supprimez-les à nouveau pour qu’ils soient définitivement supprimés. Lorsque vous vous êtes assuré qu’il n’y a pas d’éléments protégés et d’éléments supprimés de manière réversible, le coffre peut être supprimé.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Puis-je supprimer les données antérieures à la période de suppression réversible de 14 jours après la suppression ?
 

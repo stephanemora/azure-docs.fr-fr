@@ -1,17 +1,17 @@
 ---
-title: Configurer une appliance pour l’évaluation de serveurs physiques avec Azure Migrate Server Assessment
-description: Explique comment configurer une appliance pour l’évaluation de serveurs physiques à l’aide d’Azure Migrate Server Assessment.
+title: Configurer une appliance Azure Migrate pour les serveurs physiques
+description: Découvrez comment configurer une appliance Azure Migrate pour l’évaluation de serveurs physiques.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907168"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278330"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurer une appliance pour les serveurs physiques
 
@@ -55,14 +55,15 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du disque dur virtuel
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Pour l’appliance version 1.19.05.10, le hachage généré doit correspondre à ces valeurs.
+3.  Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces paramètres.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>Exécuter le script du programme d’installation Azure Migrate
 Le script du programme d’installation effectue les opérations suivantes :
 
@@ -110,7 +111,7 @@ Configurez l’appliance pour la première fois.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
 1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure. 
+2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion effectuée, revenez à l’application web.
@@ -132,14 +133,14 @@ Vous pouvez ajouter un ensemble d’informations d’identification pour les ser
     - Pour supprimer un serveur, sélectionnez > **Supprimer**.
 4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
 
-Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure. 
+Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure.
 
 ## <a name="verify-servers-in-the-portal"></a>Vérifier les serveurs dans le portail
 
 Une fois la découverte terminée, vous pouvez vérifier que les serveurs apparaissent dans le portail.
 
 1. Ouvrez le tableau de bord Azure Migrate.
-2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**. 
+2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

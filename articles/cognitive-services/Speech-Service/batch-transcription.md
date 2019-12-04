@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515889"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538117"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
@@ -65,7 +65,7 @@ Les paramètres de configuration sont fournis au format JSON :
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<locale to us, for example en-US>",
+  "locale": "<locale to use, for example en-US>",
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
@@ -96,12 +96,6 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
 
 La transcription Batch prend en charge le [Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) pour la lecture audio et l’écriture de transcriptions dans le stockage.
 
-## <a name="webhooks"></a>webhooks
-
-Il se peut que l’interrogation de l’état de transcription ne soit pas la plus performante ni qu’elle fournisse la meilleure expérience utilisateur. Pour effectuer une interrogation de l’état, vous pouvez inscrire des rappels, qui informent le client quand de longues tâches de transcription sont terminées.
-
-Pour plus d’informations, consultez [Webhooks](webhooks.md).
-
 ## <a name="speaker-separation-diarization"></a>Séparation de l’orateur (diarisation)
 
 La diarisation est le processus de séparation des orateurs dans une partie de l’audio. Notre pipeline Batch prend en charge la diarisation et est capable de reconnaître deux orateurs sur des enregistrements dans un canal unique.
@@ -122,7 +116,7 @@ Pour demander à ce que votre demande de transcription audio soit traitée à de
 }
 ```
 
-Les timestamps au niveau du mot doivent également être « activés », comme l’indiquent les paramètres dans la requête ci-dessus.
+Les timestamps au niveau du mot doivent également être « activés », comme l’indiquent les paramètres dans la requête ci-dessus. 
 
 L’audio correspondant contient alors les orateurs identifiés par un numéro (nous prenons en charge uniquement deux voix à l’heure actuelle, identifiées par Speaker1 et Speaker2) suivi de la sortie de transcription.
 
@@ -190,7 +184,7 @@ Vous devez personnaliser l’exemple de code avec vos informations d’abonnemen
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-L’exemple de code installe le client et envoie la demande de transcription. Il demande ensuite des informations d’état et imprime les détails de la progression de la transcription.
+L’exemple de code configure le client et envoie la demande de transcription. Il demande ensuite des informations d’état et imprime les détails de la progression de la transcription.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 

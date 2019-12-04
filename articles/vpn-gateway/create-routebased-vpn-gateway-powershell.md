@@ -1,5 +1,5 @@
 ---
-title: 'Créez une passerelle VPN Azure basée sur une route : PowerShell | Microsoft Docs'
+title: 'Passerelle VPN Azure : Créer une passerelle basée sur un itinéraire : PowerShell'
 description: Création rapide d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2a1c34ea25c8ef4bdc3e75e18d6f4a603efc67d5
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4e5a3fa8068b55f67246832cbc706fc4a9417cb3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953830"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151599"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 

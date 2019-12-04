@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159222"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Didacticiel : Intégration d'Azure Active Directory à Deputy
 
@@ -273,7 +273,7 @@ Pour se connecter à Deputy, les utilisateurs d’Azure AD doivent être approvi
    
     d. Cliquez sur le bouton **Save & Invite**.
 
-5. Le détenteur du compte AAD reçoit un message électronique et suit un lien pour confirmer le compte avant qu’il ne soit activé. Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Deputy pour approvisionner des comptes d’utilisateurs AAD.
+5. Le détenteur du compte Azure AD reçoit un message électronique et suit un lien pour confirmer le compte avant qu’il ne soit activé. Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Deputy pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

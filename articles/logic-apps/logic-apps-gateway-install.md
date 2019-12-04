@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076937"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326375"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -66,7 +66,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 * **Considérations associées**
 
-  * Vous pouvez uniquement installer la passerelle de données locale sur un ordinateur local, et pas sur un contrôleur de domaine. Néanmoins, il n’est pas absolument nécessaire d’installer la passerelle sur le même ordinateur que celui sur lequel se trouve votre source de données. Vous n’avez besoin que d’une seule passerelle pour toutes vos sources de données : il n’est donc pas nécessaire d’installer une passerelle pour chaque source de données.
+  * Installez la passerelle de données locale sur un ordinateur local, et non sur un contrôleur de domaine. Vous ne devez pas nécessairement installer la passerelle sur le même ordinateur que votre source de données. Vous n’avez besoin que d’une seule passerelle pour toutes vos sources de données : il n’est donc pas nécessaire d’installer une passerelle pour chaque source de données.
 
     > [!TIP]
     > Pour réduire la latence, vous pouvez installer la passerelle le plus près possible de votre source de données, ou sur le même ordinateur, en supposant que vous disposiez des autorisations nécessaires.
@@ -76,6 +76,8 @@ Cet article explique comment télécharger, installer et configurer votre passer
   * Si vous prévoyez d’utiliser l’authentification Windows, veillez à installer la passerelle sur un ordinateur membre du même environnement Active Directory que vos sources de données.
 
   * La région que vous sélectionnez pour l’installation de votre passerelle est le même emplacement que celui que vous devez sélectionner quand vous créez plus tard la ressource de passerelle Azure pour votre application logique. Par défaut, cette région est le même emplacement que votre locataire Azure AD qui gère votre compte Azure. Vous pouvez cependant changer l’emplacement lors de l’installation de la passerelle.
+
+  * Si vous mettez à jour votre installation de passerelle vers la dernière version, désinstallez d’abord votre passerelle actuelle pour obtenir une expérience plus propre.
 
   * La passerelle a deux modes : le mode standard et le mode personnel, qui s’applique seulement à Power BI. Vous ne pouvez pas avoir plusieurs passerelles s’exécutant dans le même mode sur le même ordinateur.
 

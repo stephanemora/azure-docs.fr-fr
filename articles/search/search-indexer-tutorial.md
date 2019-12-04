@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel C# : Indexer les données de bases de données Azure SQL'
+title: 'Didacticiel : Indexer les données en C# de bases de données Azure SQL'
 titleSuffix: Azure Cognitive Search
-description: Exemple de code C# montrant comment se connecter à Azure SQL Database, extraire des données pouvant faire l’objet de recherches et charger ces données dans un index Recherche cognitive Azure.
+description: Dans ce tutoriel C#, vous vous connectez à une base de données Azure SQL, extrayez des données interrogeables et les chargez dans un index de Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113328"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406709"
 ---
-# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>Tutoriel C# : Importer une base de données Azure SQL à l’aide des indexeurs de la Recherche cognitive Azure
+# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Didacticiel : Importer une base de données Azure SQL en C# à l’aide d’indexeurs de Recherche cognitive Azure
 
 Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données Azure SQL. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche cognitive Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
 

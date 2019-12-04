@@ -1,5 +1,5 @@
 ---
-title: Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur pour les applications SaaS | Documents Microsoft
+title: Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur pour les applications SaaS
 description: Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033524"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275059"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 

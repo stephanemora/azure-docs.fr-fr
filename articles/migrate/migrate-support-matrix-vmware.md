@@ -1,19 +1,18 @@
 ---
-title: Tableau de prise en charge d’Azure Migrate pour l’évaluation et la migration VMware
-description: Récapitule les paramètres et les limites de la prise en charge de l’évaluation et de la migration de machines virtuelles VMware vers Azure avec le service Azure Migrate.
-services: backup
+title: Prise en charge de l’évaluation et de la migration VMware dans Azure Migrate
+description: Découvrez la prise en charge de l’évaluation ou de la migration VMware dans Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838910"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196278"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -79,7 +78,13 @@ Ce tableau récapitule la prise en charge et les limitations de l’évaluation 
 
 ## <a name="assessment-vcenter-server-permissions"></a>Évaluation - Autorisations de vCenter Server
 
-Pour l’évaluation, vous avez besoin d’un compte en lecture seule pour vCenter Server.
+Azure Migrate doit accéder à vCenter Server pour découvrir les machines virtuelles à des fins d’évaluation et de migration sans agent.
+
+- Si vous envisagez de découvrir des applications ou de visualiser la dépendance sans agent, créez un compte vCenter Server avec un accès en lecture seule, ainsi que des privilèges activés pour **Machines virtuelles** > **Opérations invité**.
+
+  ![Privilèges du compte vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Si vous n’envisagez pas d’effectuer une détection d’applications et une visualisation de la dépendance sans agent, configurez un compte en lecture seule pour vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Évaluation - Exigences relatives à l’appliance
 
@@ -324,7 +329,7 @@ Télécharger et installer dans Azure Migrate | Lorsque vous installez l’appli
 **Disques indépendants** | Pris en charge.
 **Disques directs** | Pris en charge.
 **NFS** | Les volumes NFS montés en tant que volumes sur les machines virtuelles ne sont pas répliqués.
-Cibles iSCSI | Les machines virtuelles avec des cibles iSCSI ne sont pas prises en charge pour la migration sans agent.
+**Cibles iSCSI** | Les machines virtuelles avec des cibles iSCSI ne sont pas prises en charge pour la migration sans agent.
 **Multipath I/O** | Non pris en charge.
 **Storage vMotion** | Pris en charge
 **Cartes réseau associées** | Non pris en charge.

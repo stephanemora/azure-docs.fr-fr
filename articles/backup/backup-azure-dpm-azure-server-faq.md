@@ -1,19 +1,15 @@
 ---
-title: FAQ sur le serveur de sauvegarde Azure et Data Protection Manager (DPM)
-description: Cet article fournit des réponses à des questions courantes sur la serveur Sauvegarde Microsoft Azure (MABS) et DPM.
+title: Forum aux questions sur le serveur de sauvegarde Azure et DPM
+description: Cet article fournit des réponses à des questions courantes sur la serveur Sauvegarde Microsoft Azure (MABS) et DPM (Gestionnaire de protection des données).
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 940ac4d94bf39583fad828545a45cbb033908f15
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091656"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173154"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Serveur de sauvegarde Azure et DPM - Forum aux questions
 

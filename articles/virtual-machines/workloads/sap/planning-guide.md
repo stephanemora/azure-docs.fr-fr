@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067860"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224704"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -1629,7 +1629,7 @@ Les ports de communication SAP classiques sont répertoriés dans le tableau ci-
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| de diffusion en continu | Nom du port | Exemple `<nn`> = 01 | Plage par défaut (min-max.) | Commentaire |
+| Service | Nom du port | Exemple `<nn`> = 01 | Plage par défaut (min-max.) | Commentaire |
 | --- | --- | --- | --- | --- |
 | Répartiteur |sapdp`<nn>` voir * |3201 |3200 - 3299 |Répartiteur SAP, utilisé par l’interface utilisateur graphique SAP pour Windows et Java |
 | Serveur de messagerie |sapms`<sid`> voir ** |3600 |sapms gratuit`<anySID`> |sid = SAP-System-ID |

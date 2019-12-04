@@ -12,23 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90922a48f213ecd506f08f616fe8c28ab44776a2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893891"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207599"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi d’autorisation d’appareil OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 La plateforme d’identités Microsoft prend en charge l’[octroi d’autorisation d’appareil](https://tools.ietf.org/html/rfc8628), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
+
+Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
 > [!NOTE]
 > Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
@@ -82,7 +84,7 @@ Une réponse réussie est un objet JSON contenant les informations requises pour
 
 ## <a name="authenticating-the-user"></a>Authentification de l’utilisateur
 
-Après avoir reçu `user_code` et `verification_uri`, le client les présente à l’utilisateur, en l’invitant à se connecter à l’aide de son téléphone mobile ou du navigateur de son PC.
+Après avoir reçu `user_code` et `verification_uri`, le client les présente aux utilisateurs, en les invitant à se connecter à l’aide de leur téléphone mobile ou navigateur PC.
 
 Si l’utilisateur s’authentifie avec un compte personnel (sur /common ou /consumers), il est invité à se connecter à nouveau pour transférer l’état d’authentification à l’appareil.  Il est également invité à donner son consentement pour s’assurer qu’il connaît les autorisations accordées.  Cela ne s’applique pas aux comptes professionnels ou scolaires utilisés pour l’authentification. 
 

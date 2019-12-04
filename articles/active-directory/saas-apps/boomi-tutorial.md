@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1044a78d9bf1b52a7b0dd9e47d7db6d98b45299c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081964"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Boomi
 
@@ -189,7 +189,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez le
     f. Cliquez sur **OK**.
 
     > [!NOTE]
-    > L’utilisateur ne recevra pas d’e-mail de notification de bienvenue contenant un mot de passe pouvant être utilisé pour se connecter au compte AtomSphere, car son mot de passe est géré par le biais du fournisseur d’identité. Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Boomi pour approvisionner des comptes d’utilisateur Azure Active Directory.
+    > L’utilisateur ne recevra pas d’e-mail de notification de bienvenue contenant un mot de passe pouvant être utilisé pour se connecter au compte AtomSphere, car son mot de passe est géré par le biais du fournisseur d’identité. Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Boomi pour provisionner des comptes d’utilisateurs Azure AD.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

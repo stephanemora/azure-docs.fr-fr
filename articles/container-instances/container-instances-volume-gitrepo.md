@@ -1,19 +1,14 @@
 ---
-title: Monter un volume GitRepo dans Azure Container Instances
+title: Monter le volume gitRepo pour le groupe de conteneurs
 description: Découvrez comment monter un volume GitRepo pour cloner un référentiel Git dans vos instances de conteneurs
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: danlep
-ms.openlocfilehash: e8afa9e14941920cdcfb984e6660bdc666240716
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 708fca185227292e7cdf33952bde6f42b3d4951f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325433"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533213"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monter un volume GitRepo dans Azure Container Instances
 

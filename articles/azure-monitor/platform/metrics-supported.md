@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 58c0db1f8200a757c95d7f66f9d821968e7e1839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 30e2b880f32f896098778942deb67d7ced9f5c2d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121129"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484224"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -1450,7 +1450,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cpu_limit|Limite UC|Count|Moyenne|Limite UC. S’applique aux bases de données basées sur vCore.|Aucune dimension|
 |cpu_used|UC utilisée|Count|Moyenne|UC utilisée. S’applique aux bases de données basées sur vCore.|Aucune dimension|
 |deadlock|Blocages|Count|Total|Interblocages. Non applicable aux entrepôts de données.|Aucune dimension|
-|diff_backup_size_bytes|Taille de stockage de sauvegarde différentielle|Octets|Maximale|Taille de stockage de sauvegarde différentielle cumulée. S’applique aux bases de données basées sur vCore. Ne s'applique pas aux bases de données Hyperscale.|Aucune dimension|
+|diff_backup_size_bytes|Taille de stockage de sauvegarde différentielle|Octets|Maximale|Taille de stockage de sauvegarde différentielle cumulée. S’applique aux bases de données à usage général et critiques pour l’entreprise. Ne s’applique pas actuellement à la gestion des bases de données d’instance.|Aucune dimension|
 |dtu_limit|Limite DTU|Count|Moyenne|Limite DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
 |dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
 |dtu_used|DTU utilisé|Count|Moyenne|DTU utilisé. S’applique aux bases de données basées sur DTU.|Aucune dimension|
@@ -1459,9 +1459,9 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |dwu_consumption_percent|Pourcentage DWU|Pourcentage|Maximale|Pourcentage DWU. S’applique uniquement aux entrepôts de données.|Aucune dimension|
 |dwu_limit|Limite DWU|Count|Maximale|Limite DWU. S’applique uniquement aux entrepôts de données.|Aucune dimension|
 |dwu_used|DWU utilisé|Count|Maximale|DWU utilisé. S’applique uniquement aux entrepôts de données.|Aucune dimension|
-|full_backup_size_bytes|Taille de stockage de sauvegarde complète|Octets|Maximale|Taille de stockage de sauvegarde complète cumulée. S’applique aux bases de données basées sur vCore. Ne s'applique pas aux bases de données Hyperscale.|Aucune dimension|
+|full_backup_size_bytes|Taille de stockage de sauvegarde complète|Octets|Maximale|Taille de stockage de sauvegarde complète cumulée. S’applique aux bases de données à usage général et critiques pour l’entreprise. Ne s’applique pas actuellement à la gestion des bases de données d’instance.|Aucune dimension|
 |local_tempdb_usage_percent|Pourcentage de tempdb locale|Pourcentage|Moyenne|Pourcentage de tempdb locale. S’applique uniquement aux entrepôts de données.|Aucune dimension|
-|log_backup_size_bytes|Taille de stockage de fichier journal|Octets|Maximale|Taille de stockage de fichier journal cumulée. S’applique aux bases de données basées sur vCore. Ne s'applique pas aux bases de données Hyperscale.|Aucune dimension|
+|log_backup_size_bytes|Taille de stockage de fichier journal|Octets|Maximale|Taille de stockage de fichier journal cumulée. S’applique aux bases de données à usage général et critiques pour l’entreprise. Ne s’applique pas actuellement à la gestion des bases de données d’instance.|Aucune dimension|
 |log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal. Non applicable aux entrepôts de données.|Aucune dimension|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|Aucune dimension|
 |sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions. Non applicable aux entrepôts de données.|Aucune dimension|

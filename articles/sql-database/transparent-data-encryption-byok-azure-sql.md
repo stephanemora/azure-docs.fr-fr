@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 3ae5403c2313bc1d2f271aeba9d4a99d9a0c5db7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/19/2019
+ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822280"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227980"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 
 [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) Azure SQL avec une clé managée par le client active le scénario Bring Your Own Key scénario (BYOK) pour la protection des données au repos et permet aux organisations d’implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement transparent des données managé par le client, le client est responsable et dans un contrôle total de la gestion du cycle de vie des clés (création, chargement, rotation, suppression des clés), des autorisations d’utilisation de la clé et de l’audit des opérations sur les clés.
 
-Dans ce scénario, la clé utilisée pour le chiffrement de la Clé de chiffrement (DEK) de la base de données, appelée protecteur TDE, est une clé asymétrique managée par le client, stockée dans un système de gestion des clés externes informatique [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) appartenant au client et managé par le client. Key Vault fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, sauvegardé par les modules de sécurité matériels validés FIPS 140-2 niveau 2. Il n’autorise pas l’accès direct à une clé stockée, mais fournit des services de chiffrement/déchiffrement à l’aide de la clé aux entités autorisées. La clé peut être générée par le coffre de clés, importée ou [transférée vers le coffre de clés à partir d’un dispositif HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+Dans ce scénario, la clé utilisée pour le chiffrement de la Clé de chiffrement (DEK) de la base de données, appelée protecteur TDE, est une clé asymétrique managée par le client, stockée dans un système de gestion des clés externes informatique [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) appartenant au client et managé par le client. Key Vault fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels validés FIPS 140-2 niveau 2 (HSM). Il n’autorise pas l’accès direct à une clé stockée, mais fournit des services de chiffrement/déchiffrement à l’aide de la clé aux entités autorisées. La clé peut être générée par le coffre de clés, importée ou [transférée vers le coffre de clés à partir d’un dispositif HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 Pour Azure SQL Database et Data Warehouse Azure SQL, le protecteur TDE est défini au niveau du serveur logique et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur logique et à l’instance gérée SQL Database tout au long de ce document, sauf indication contraire. 
 
@@ -82,9 +82,9 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Le protecteur TDE peut uniquement être une clé asymétrique, RSA 2048 ou RSA HSM 2048.
 
-- La clé ne peut pas avoir d’activation ni de date d’expiration définie.
+- La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration (si définie) doit être une date et une heure ultérieures.
 
-- La clé doit être dans l’état activé dans le coffre de clés.
+- La clé doit être dans l’état *activé*.
 
 - Si vous importez une clé existante dans le coffre de clés, veillez à la fournir dans les formats de fichiers pris en charge (.pfx, .byok ou .backup).
 

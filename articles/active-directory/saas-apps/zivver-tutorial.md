@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68943119"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Didacticiel : Intégration d’Azure Active Directory à ZIVVER
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec ZIVVER, effectuez les
     | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
     >[!NOTE]
-    >Si vous utilisez une configuration hybride avec Active Directory local et l’outil Azure AD Connect, la valeur doit être définie sur `user.objectGUID`.
+    >Si vous utilisez une configuration hybride avec Active Directory local et l’outil Azure AD Connect, VALUE doit être défini sur `user.objectGUID`.
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 

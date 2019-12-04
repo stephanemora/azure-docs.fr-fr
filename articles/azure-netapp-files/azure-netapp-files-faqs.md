@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/26/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298472"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546940"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -105,14 +105,7 @@ Azure NetApp Files fournit des métriques de performance des volumes. Vous pouve
 
 Pour qu’un volume NFS soit monté automatiquement au moment du démarrage ou du redémarrage de la machine virtuelle, ajoutez une entrée au fichier `/etc/fstab` sur l’hôte. 
 
-Par exemple : `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    L’adresse IP du volume Azure NetApp Files se trouvant dans le volet Propriétés de volume
-- $FILEPATH  
-    Le chemin d’exportation du volume Azure NetApp Files
-- $MOUNTPOINT  
-    Le répertoire créé sur l’hôte Linux utilisé pour monter l’exportation NFS
+Consultez [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) pour plus d’informations.  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Pourquoi la commande DF sur le client NFS n’affiche-t-elle pas la taille du volume approvisionné ?
 
@@ -149,6 +142,10 @@ Si vous utilisez Azure NetApp Files avec Azure Active Directory Domain Services,
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quelles versions de Windows Server Active Directory sont prises en charge ?
 
 Azure NetApp Files prend en charge les versions Windows Server 2008r2SP1-2019 d’Active Directory Domain Services.
+
+### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Pourquoi l’espace disponible sur mon client SMB n’affiche-t-il pas la taille approvisionnée ?
+
+La taille du volume signalée dans le client SMB est la taille maximale que peut atteindre le volume Azure NetApp Files. La taille du volume Azure NetApp Files comme affichée sur le client SMB ne représente pas le quota ou la taille du volume. Vous pouvez obtenir la taille du volume Azure NetApp Files ou son quota par le biais du portail Azure ou de l’API.
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

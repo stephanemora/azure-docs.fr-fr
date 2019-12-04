@@ -1,20 +1,15 @@
 ---
-title: Tutoriel - Préparer un registre de conteneurs pour Azure Container Instances
+title: Tutoriel - Préparer le registre de conteneurs pour déployer une image
 description: Tutoriel Azure Container Instances (partie 2 sur 3) - Préparer un registre de conteneurs Azure et envoyer une image
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325609"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533324"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutoriel : Déployer un registre de conteneurs Azure et envoyer une image conteneur
 

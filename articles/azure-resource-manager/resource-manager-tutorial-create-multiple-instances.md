@@ -1,24 +1,16 @@
 ---
-title: Créer plusieurs instances de ressources - Azure Resource Manager
+title: Créer plusieurs instances de ressource
 description: Découvrez comment créer un modèle Azure Resource Manager pour déployer plusieurs instances de ressources Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528251"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326531"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Didacticiel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager
 
@@ -39,7 +31,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* [Visual Studio Code](https://code.visualstudio.com/) avec l’[extension Outils Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -57,7 +49,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="edit-the-template"></a>Modifier le modèle
 
-Le modèle existant crée un unique compte de stockage. Vous personnalisez le modèle pour créer trois comptes de stockage.  
+Le modèle existant crée un unique compte de stockage. Vous personnalisez le modèle pour créer trois comptes de stockage.
 
 Dans Visual Studio Code, effectuez les quatre modifications suivantes :
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970400"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158316"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -69,7 +69,7 @@ Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-r
 
 ## <a name="connect-to-a-replica"></a>Se connecter à un réplica
 
-Quand vous créez un réplica, il n’hérite pas des règles de pare-feu ni du point de terminaison de service VNet (réseau virtuel) du serveur maître. Ces règles doivent être configurés indépendamment pour le réplica.
+Au moment de sa création, un réplica hérite des règles de pare-feu ou du point de terminaison de service VNet (réseau virtuel) du serveur maître. Ensuite, ces règles sont indépendantes du serveur maître.
 
 Le réplica hérite du compte Administrateur du serveur maître. Tous les comptes d’utilisateur sur le serveur maître sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur maître.
 
@@ -121,6 +121,8 @@ Un réplica est créé à partir de la même configuration que celle du serveur 
 
 > [!IMPORTANT]
 > Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
+
+Les règles de pare-feu, les règles de réseau virtuel et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 

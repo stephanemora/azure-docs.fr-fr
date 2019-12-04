@@ -2,18 +2,18 @@
 title: 'Avantages : Effectuer la migration d’Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les avantages et raisons pour lesquelles il est recommandé de migrer des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494936"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267325"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight : raisons et avantages
 
@@ -103,7 +103,7 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Configuration des nœuds de périphérie|m/y, UC, disque, etc.|
 |Chiffrement HDFS ?|OUI|
 |Haute disponibilité|HDFS, metastore|
-|Récupération d’urgence/sauvegarde|Cluster de sauvegarde ?|  
+|Récupération d'urgence / sauvegarde|Cluster de sauvegarde ?|  
 |Systèmes dépendants du cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Intégrations tierces|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Rubrique** : **Sécurité**|||

@@ -1,17 +1,14 @@
 ---
-title: Fonctions des modèles Azure Resource Manager - tableaux et objets
+title: Fonctions des modèles - tableaux et objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-ms.openlocfilehash: 3366a1be88043c792de8efa3b0d0ab735e558e2a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d530027c05195caf8b93a61f4e002ce835d021c5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528491"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149677"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 

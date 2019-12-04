@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174139"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561924"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -42,6 +42,10 @@ La manière dont les utilisateurs de l’annuaire ou du domaine Azure AD s’aut
 - Azure AD
 - [Fédération directe](../b2b/direct-federation.md)
 - [Code secret à usage unique](../b2b/one-time-passcode.md) (domaine)
+
+Pour une démonstration de l’ajout d’une organisation connectée, regardez la vidéo suivante :
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Ajouter une organisation connectée
 

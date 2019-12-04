@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996602"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227823"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -57,6 +57,7 @@ Pour confirmer si la plupart de vos demandes sont centrées sur les métadonnée
 ### <a name="workaround"></a>Solution de contournement
 
 - Vérifiez si l’application peut être modifiée pour réduire le nombre d’opérations de métadonnées.
+- Ajoutez un disque dur virtuel sur le partage de fichiers et montez le disque dur virtuel sur SMB à partir du client pour effectuer des opérations de fichiers sur les données. Cette approche fonctionne pour les scénarios d’écriture unique et de lecteurs multiples et permet aux opérations de métadonnées d’être locales, ce qui offre des performances similaires à celles d’un stockage en attachement direct local.
 
 ### <a name="cause-3-single-threaded-application"></a>Cause 3 : Application à thread unique
 

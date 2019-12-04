@@ -1,20 +1,19 @@
 ---
-title: 'Didacticiel : Provisionner un appareil à l’aide du service Azure IoT Hub Device Provisioning'
-description: 'Didacticiel : Approvisionner votre appareil sur un seul hub IoT avec le service IoT Hub Device Provisioning'
+title: Provisionner un appareil à l’aide du service Azure IoT Hub Device Provisioning
+description: Tutoriel - Provisionner votre appareil sur un seul hub IoT avec le service IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: be0b926b6beae2cb339ca232d2b792f50834d801
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6be3832163d4aa857b15f73671985b96d864b730
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112039"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228287"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Didacticiel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 

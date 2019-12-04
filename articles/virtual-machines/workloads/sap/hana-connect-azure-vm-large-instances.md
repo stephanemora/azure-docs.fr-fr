@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 919e253b6d9ddf8d65f86897a299416e93f3e660
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099916"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224723"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connexion de machines virtuelles Azure à de grandes instances HANA
 
@@ -94,7 +94,7 @@ Certaines plages d’adresses IP nécessaires au déploiement de grandes instan
 
 Plages d'adresses IP facultatives susceptibles de devoir être soumises à Microsoft :
 
-- Si vous optez pour [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct du niveau local vers des unités de grande instance HANA, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
+- Si vous optez pour utiliser [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct du niveau local vers des unités de grande instance HANA, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 - Si vous choisissez d’utiliser [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct entre un locataire de grandes instances HANA dans une région Azure et un autre locataire de grandes instances HANA dans une autre région Azure, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 
 Pour plus d’informations sur l’utilisation d'ExpressRoute Global Reach et de grandes instances HANA, consultez les documents suivants :

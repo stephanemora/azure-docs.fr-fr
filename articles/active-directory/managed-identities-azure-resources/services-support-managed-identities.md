@@ -1,5 +1,5 @@
 ---
-title: Services Azure prenant en charge les identités managées pour ressources Azure
+title: Services Azure qui prennent en charge les identités managées - Azure AD
 description: Liste des services qui prennent en charge les identités managées pour ressources Azure et l’authentification Azure AD
 services: active-directory
 author: MarkusVi
@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0731510977c01b08d9aa557246dce3bd92b2f826
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ead9b53f530a309d6bdb3bd384c29650bf5c8e6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473216"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224301"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 

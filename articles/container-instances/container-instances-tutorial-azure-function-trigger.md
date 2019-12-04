@@ -1,20 +1,15 @@
 ---
-title: 'Tutoriel : Déclencher des instances de conteneur Azure à l’aide d’une fonction Azure'
+title: Tutoriel - Déclencher un groupe de conteneurs par fonction Azure
 description: Créer une fonction PowerShell serverless déclenchée par HTTP pour automatiser la création d’instances de conteneur Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 00bd017b0bcff6386e678802c301087819792744
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179947"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533369"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Didacticiel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
 

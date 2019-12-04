@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132610"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325862"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech
+# <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs de service Speech (préversion)
 
 Les conteneurs vous permettent d’exécuter certaines des API du service Speech dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Speech.
 
@@ -155,10 +155,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>Paramètres régionaux de reconnaissance vocale
 
-Toutes les balises, à l’exception de `latest`, sont au format suivant, où `<culture>` indique le conteneur des paramètres régionaux :
+Toutes les balises, à l’exception de `latest`, respectent le format suivant et sont sensibles à la casse :
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 La balise suivante illustre le format :
@@ -197,10 +197,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### <a name="text-to-speech-locales"></a>Paramètres régionaux de synthèse vocale
 
-Toutes les balises, à l’exception de `latest`, sont au format suivant, où `<culture>` indique les paramètres régionaux et `<voice>` la voix du conteneur :
+Toutes les balises, à l’exception de `latest`, respectent le format suivant et sont sensibles à la casse :
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 La balise suivante illustre le format :

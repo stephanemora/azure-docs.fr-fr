@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120024"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170657"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -91,7 +91,7 @@ La connexion aux sources de données locales à partir d’un serveur Azure Anal
 
 ## <a name="specifying-a-different-provider"></a>Spécifier un autre fournisseur
 
-Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'** .
+Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que MSOLEDBSQL, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'** .
 
 Lorsque vous migrez un modèle tabulaire SQL Server Analysis Services local vers Azure Analysis Services, il peut être nécessaire de modifier le fournisseur.
 

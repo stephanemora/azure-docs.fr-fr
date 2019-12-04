@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087632"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Didacticiel : Intégration d'Azure Active Directory à UserVoice
 
@@ -136,15 +136,15 @@ Pour configurer l’authentification unique Azure AD avec UserVoice, effectuez l
 
 2. Dans la barre d’outils en haut, cliquez sur **Paramètres** et sélectionnez **Portail Web** dans le menu.
    
-    ![Section Paramètres côté application](./media/uservoice-tutorial/ic777519.png "Paramètres")
+    ![Section Settings (Paramètres) côté application](./media/uservoice-tutorial/ic777519.png "Paramètres")
 
 3. Dans la section **Authentification utilisateur** de l’onglet **Portail Web**, cliquez sur **Modifier** pour ouvrir la page de la boîte de dialogue **Edit User Authentication** (Modifier l’authentification utilisateur).
    
-    ![Onglet Portail Web](./media/uservoice-tutorial/ic777520.png "Portail Web")
+    ![Onglet Web portal](./media/uservoice-tutorial/ic777520.png "Web portal") (Portail web)
 
 4. Dans la page **Edit User Authentication** , procédez comme suit :
    
-    ![Modifier l’authentification utilisateur](./media/uservoice-tutorial/ic777521.png "modifier l’authentification utilisateur")
+    ![Edit User Authentication](./media/uservoice-tutorial/ic777521.png "Edit User Authentication") (Modifier l’authentification utilisateur)
    
     a. Cliquez sur **Single Sign-On (SSO)** .
  
@@ -222,22 +222,22 @@ Pour permettre aux utilisateurs Azure AD de se connecter à UserVoice, ils doive
 
 4. Cliquez sur **Agents and permissions**.
    
-    ![Agents et autorisations](./media/uservoice-tutorial/ic777812.png "Agents et autorisations")
+    ![Agents and permissions](./media/uservoice-tutorial/ic777812.png "Agents and permissions") (Agents et autorisations)
 
 5. Cliquez sur **Add admins**.
    
-    ![Ajouter des administrateurs](./media/uservoice-tutorial/ic777813.png "ajouter des administrateurs")
+    ![Add admins](./media/uservoice-tutorial/ic777813.png "Add admins") (Ajouter des administrateurs)
 
 6. Dans la boîte de dialogue **Invite admins** , procédez comme suit :
    
-    ![Inviter des administrateurs](./media/uservoice-tutorial/ic777814.png "inviter des administrateurs")
+    ![Invite admins](./media/uservoice-tutorial/ic777814.png "Invite admins") (Inviter des administrateurs)
    
     a. Dans la zone de texte E-mails, entrez l’adresse de messagerie du compte que vous souhaitez approvisionner, puis cliquez sur **Ajouter**.
    
     b. Cliquez sur **Invite**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par UserVoice, pour approvisionner des comptes d’utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par UserVoice pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
@@ -251,5 +251,5 @@ Le fait de cliquer sur la vignette UserVoice dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

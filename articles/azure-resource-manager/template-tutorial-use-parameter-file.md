@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Utiliser les fichiers de paramètres pour faciliter le déploiement d’un modèle Azure Resource Manager
+title: Tutoriel - Utiliser un fichier de paramètres pour déployer un modèle
 description: Utilisez les fichiers de paramètres qui contiennent les valeurs à utiliser pour le déploiement de votre modèle Azure Resource Manager.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177555"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405986"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Didacticiel : Utiliser les fichiers de paramètres pour déployer votre modèle Resource Manager
 
@@ -25,7 +22,7 @@ Nous vous recommandons de suivre le [tutoriel sur les étiquettes](template-tuto
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager et, au choix, d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
 Votre modèle contient de nombreux paramètres que vous pouvez fournir pendant le déploiement. À la fin du tutoriel précédent, votre modèle ressemblait à ceci :
 
@@ -49,7 +46,7 @@ Encore une fois, créez un fichier avec le contenu suivant. Enregistrez le fichi
 
 Il s’agit de votre fichier de paramètres pour l’environnement de production. Notez qu’il utilise Standard_GRS pour le compte de stockage, nomme les ressources avec un préfixe **contoso** et définit l’étiquette **Environment** sur **Production**. Dans un environnement de production réel, vous pouvez également avoir envie d’utiliser un service d’application avec une référence SKU payante, cependant, pour les besoins de ce tutoriel, nous allons continuer à utiliser cette référence.
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-template"></a>Déployer un modèle
 
 Utilisez Azure CLI ou Azure PowerShell pour déployer le modèle.
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="verify-deployment"></a>Vérifier le déploiement
 
 Vous pouvez vérifier le déploiement en explorant les groupes de ressources à partir du portail Azure.
 

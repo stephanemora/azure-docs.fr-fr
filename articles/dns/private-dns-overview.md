@@ -1,18 +1,18 @@
 ---
 title: Qu’est-ce qu’Azure Private DNS ?
-description: Vue d’ensemble du service d’hébergement DNS privé sur Microsoft Azure.
+description: Dans cet article, vous allez découvrir le service d’hébergement DNS privé de Microsoft Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
-ms.author: victorh
-ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 2e457dcccfd89d2dcf94a0cc3728cfee9bb1a611
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959347"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210653"
 ---
 # <a name="what-is-azure-private-dns"></a>Qu’est-ce qu’Azure Private DNS ?
 

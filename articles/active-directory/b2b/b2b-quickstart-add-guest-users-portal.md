@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Azure - Azure Active Directory'
+title: 'Démarrage rapide : Ajouter des utilisateurs invités dans le portail Azure - Azure AD'
 description: Utilisez ce guide de démarrage rapide pour savoir comment les administrateurs Azure AD peuvent ajouter des utilisateurs invités B2B dans le portail Azure, et pour connaître les étapes du workflow d’une invitation B2B.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 431d2eac6b612bee629df184ed80c5c8a15513db
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008549"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273372"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
 
@@ -48,8 +48,8 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
 5. Dans la page **Nouvel utilisateur**, sélectionnez **Inviter un utilisateur**, puis ajoutez les informations de l’utilisateur invité. 
 
-   - **Nom :** prénom et nom de l’utilisateur invité.
-   - **Adresse e-mail (obligatoire)**  : l’adresse e-mail de l’utilisateur invité.
+   - **Nom.** Prénom et nom de l’utilisateur invité.
+   - **Adresse e-mail (obligatoire)** . Adresse e-mail de l’utilisateur invité.
    - **Message personnel (facultatif)**  : inclure un message d’accueil personnalisé pour l’utilisateur invité.
    - **Groupes** : permet d’ajouter l’utilisateur invité à un ou plusieurs groupes.
    - **Rôle d’annuaire** : si vous devez attribuer des autorisations d’administration Azure AD à l’utilisateur, vous pouvez les ajouter à un rôle Azure AD. 

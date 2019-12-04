@@ -1,5 +1,6 @@
 ---
-title: Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - démarrage rapide - portail Azure | Microsoft Docs
+title: 'Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle - Portail Azure'
+titleSuffix: Azure Network Watcher
 description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702881"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276008"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -45,9 +46,9 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **USA Est**.|
+    |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -78,10 +79,10 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
 
     |Paramètre            |Valeur                                                                                              |
     |---------          |---------                                                                                          |
-    | Groupe de ressources    | Sélectionner myResourceGroup                                                                            |
+    | Resource group    | Sélectionner myResourceGroup                                                                            |
     | Machine virtuelle   | Sélectionner myVm                                                                                       |
     | interface réseau | myvm - le nom de l’interface réseau créée par le portail lorsque vous avez créé la machine virtuelle est différent. |
-    | Protocole          | TCP                                                                                               |
+    | Protocol          | TCP                                                                                               |
     | Direction         | Règle de trafic sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |

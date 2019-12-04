@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour Node.js'
+title: 'Démarrage rapide : Obtenir des insights sur des images avec le SDK pour Node.js - Recherche visuelle Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour commencer à obtenir des insights sur les images à partir du service Recherche visuelle Bing, à l’aide du SDK Node.js.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: fd69179c98e999323936daf7e83b165126c20381
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 494ef8b76f9767b43e5e1d739c47933ee0f3c40d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111587"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383564"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour Node.js
 

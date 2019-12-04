@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25b1da7a91dc52aed680bc587dfc20aaee876c4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 363b5b2dc2891166f779c98c6de1487bc45047a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989567"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone OnDemand
 
@@ -141,7 +141,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 Pour configurer l’approvisionnement d’utilisateurs, envoyez les informations sur l’utilisateur Azure AD que vous souhaitez approvisionner (par exemple : nom, adresse e-mail) à [l’équipe du support technique Cornerstone OnDemand](mailto:moreinfo@csod.com).
 
 >[!NOTE]
->Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur fourni par Cornerstone OnDemand pour approvisionner des comptes d’utilisateurs AAD.
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Cornerstone OnDemand pour provisionner des comptes d’utilisateurs Azure AD.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

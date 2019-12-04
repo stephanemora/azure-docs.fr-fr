@@ -1,5 +1,5 @@
 ---
-title: Accès distant aux applications locales - Proxy d’application Azure Active Directory | Microsoft Docs
+title: Accès à distance aux applications locales – Proxy d’application Azure Active Directory
 description: Le proxy d’application Azure Active Directory offre un accès à distance sécurisé pour les applications web. Après une authentification unique à Azure AD, les utilisateurs peuvent accéder aux applications cloud et locales par le biais d’une URL externe ou un portail d’applications interne. Par exemple, Application Proxy peut fournir un accès à distance et une authentification unique aux applications Bureau à distance, SharePoint, Teams, Tableau, Qlik et aux applications métier (LOB).
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4780786f0caea2c211b6b93fb0736feaade8de80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108379"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274833"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accès à distance aux applications locales via le service Proxy d’application Azure Active Directory 
 

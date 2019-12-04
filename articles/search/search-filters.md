@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 960f6f0de94c6bb4fc6b03c31740b63270cf9e14
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f4ce3cd0db20f76aa6169f15254cf36ee64151a5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132932"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406746"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
 
@@ -61,7 +61,6 @@ Au moment de la requête, un analyseur de filtre accepte les critères en entré
 Le filtrage se produit en même temps que la recherche. Il permet de qualifier les documents à inclure dans le traitement en aval pour la récupération de documents et le scoring de leur pertinence. En association avec une chaîne de recherche, le filtre réduit efficacement l’ensemble de rappels de l’opération de recherche suivante. Utilisé seul (par exemple, lorsque la chaîne de requête est vide, où `search=*`), le critère de filtre est la seule entrée. 
 
 ## <a name="defining-filters"></a>Définition des filtres
-
 Les filtres sont des expressions OData articulées à l’aide d’un [sous-ensemble de la syntaxe OData V4 prise en charge dans la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Vous pouvez spécifier un filtre pour chaque opération de **recherche**, mais le filtre lui-même peut inclure plusieurs champs, plusieurs critères et, si vous utilisez une fonction **ismatch**, plusieurs expressions de recherche en texte intégral. Dans une expression de filtre comportant plusieurs parties, vous pouvez spécifier des prédicats dans n’importe quel ordre (soumis aux règles de précédence de l’opérateur). Vous n’obtenez aucun gain sensible des performances si vous tentez de réorganiser les prédicats dans une séquence particulière.
@@ -72,14 +71,14 @@ Les exemples suivants illustrent des définitions de filtre prototypiques dans p
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
-    "filter": "baseRate lt 150",
-    "select": "hotelId,description"
+    "filter": "Rooms/any(room: room/BaseRate lt 150.0)",
+    "select": "HotelId, HotelName, Rooms/Description, Rooms/BaseRate"
 }
 ```
 
@@ -87,8 +86,8 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     parameters =
         new SearchParameters()
         {
-            Filter = "baseRate lt 150",
-            Select = new[] { "hotelId", "description" }
+            Filter = "Rooms/any(room: room/BaseRate lt 150.0)",
+            Select = new[] { "HotelId", "HotelName", "Rooms/Description" ,"Rooms/BaseRate"}
         };
 
     var results = searchIndexClient.Documents.Search("*", parameters);
@@ -101,31 +100,31 @@ Les exemples suivants illustrent plusieurs modèles d’utilisation pour des sc�
 + **$filter** autonome, sans chaîne de requête, utile lorsque l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. À défaut de chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni notation, ni classement. Notez que la chaîne de recherche comporte uniquement un astérisque, ce qui signifie « faire correspondre tous les documents ».
 
    ```
-   search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
+   search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ Combinaison de chaîne de requête et de **$filter**, où le filtre crée le sous-ensemble, et la chaîne de requête fournit les entrées de condition de recherche en texte intégral sur le sous-ensemble filtré. Utiliser un filtre avec une chaîne de requête constitue le modèle d’utilisation le plus courant.
++ Combinaison de chaîne de requête et de **$filter**, où le filtre crée le sous-ensemble, et la chaîne de requête fournit les entrées de condition de recherche en texte intégral sur le sous-ensemble filtré. L’ajout de termes (théâtres à distance de marche) introduit des scores de recherche dans les résultats, où les documents qui correspondent le mieux aux termes sont mieux classés. Utiliser un filtre avec une chaîne de requête constitue le modèle d’utilisation le plus courant.
 
    ```
-   search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
+  search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
 + Requêtes composées, séparées par « OR » (ou), chacune avec ses propres critères de filtre (par exemple, « beagle » dans « chien » ou « siamois » dans « chat »). Les expressions combinées utilisant `or` sont évaluées individuellement et la correspondance des documents joints avec chaque expression est retournée avec la réponse. Ce modèle d’utilisation est obtenu via la fonction `search.ismatchscoring`. Vous pouvez également utiliser la version sans scoring, `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
-   $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+   $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
    # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
-   $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
+   $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
   Il est également possible de combiner la recherche en texte intégral via `search.ismatchscoring` avec des filtres utilisant `and` au lieu de `or`. Toutefois, cette opération équivaut à utiliser les paramètres `search` et `$filter` dans une demande de recherche sur le plan fonctionnel. Par exemple, les deux requêtes suivantes génèrent le même résultat :
 
   ```
-  $filter=search.ismatchscoring('pool') and rating ge 4
+  $filter=search.ismatchscoring('pool') and Rating ge 4
 
-  search=pool&$filter=rating ge 4
+  search=pool&$filter=Rating ge 4
   ```
 
 Pour obtenir des instructions complètes sur des cas d’usage spécifiques, consultez les articles suivants :

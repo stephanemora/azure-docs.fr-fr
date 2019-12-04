@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f87d835973410a7d8e134c676530a9476cd3c2fe
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012744"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561407"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ Pour joindre Azure Databricks comme cible de calcul, fournissez les informations
 * __Nom de l’espace de travail Databricks__ : nom de l’espace de travail Azure Databricks.
 * __Jeton d’accès Databricks__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
 
-Le code suivant montre comment attacher Azure Databricks comme cible de calcul avec le SDK Azure Machine Learning :
+Le code suivant montre comment joindre Azure Databricks en tant que cible de calcul avec le kit de développement logiciel (SDK) Azure Machine Learning (__l’espace de travail Databricks doit être présent dans le même abonnement que votre espace de travail AML__) :
 
 ```python
 import os
@@ -404,7 +404,7 @@ Consultez la liste de tous vos pipelines et les détails relatifs à leur exécu
  
 1. Sélectionnez un pipeline spécifique pour afficher les résultats de l’exécution.
 
-## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
+## <a name="git-tracking-and-integration"></a>Intégration et suivi Git
 
 Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Pour plus d’informations, consultez [Obtenir une intégration pour Azure Machine Learning](concept-train-model-git-integration.md).
 
@@ -459,6 +459,39 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
+## <a name="create-a-versioned-pipeline-endpoint"></a>Créer un point de terminaison de pipeline en versions gérées
+Vous pouvez créer un point de terminaison de pipeline avec plusieurs pipelines publiés derrière. Cela peut être utilisé comme un pipeline publié mais vous procure un point de terminaison REST au moment de l’itération et de la mise à jour de vos pipelines de Machine Learning.
+
+```python
+from azureml.pipeline.core import PipelineEndpoint
+
+published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
+                                            pipeline=published_pipeline, description="Test description Notebook")
+```
+
+### <a name="submit-a-job-to-a-pipeline-endpoint"></a>Soumettre un travail à un point de terminaison de pipeline
+Vous pouvez soumettre un travail à la version par défaut d’un point de terminaison de pipeline :
+```python
+pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
+print(run_id)
+```
+Vous pouvez également envoyer un travail à une version spécifique :
+```python
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
+print(run_id)
+```
+
+La restauration peut être effectuée à l’aide de l’API REST :
+```python
+rest_endpoint = pipeline_endpoint_by_name.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=aad_token, 
+                         json={"ExperimentName": "PipelineEndpointExperiment",
+                               "RunSource": "API",
+                               "ParameterAssignments": {"1": "united", "2":"city"}})
+```
 
 ### <a name="use-published-pipelines-in-the-studio"></a>Utiliser des pipelines publiés dans le studio
 

@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un index de recherche dans PowerShell à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
-description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de l’applet de commande PowerShell Invoke-RestMethod et de l’API REST de la Recherche cognitive Azure.
+description: Dans ce guide de démarrage rapide de l’API REST, découvrez comment créer un index, charger des données et exécuter des requêtes avec la méthode Invoke-RestMethod de PowerShell et l’API REST de Recherche cognitive Azure.
 manager: nitinme
 author: heidisteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: e9b2b8e8b3585bc747efb5b2916ddf1fe07d3645
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: db474b7e880ec2d65b9b9a71194964740e4fb329
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792253"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406910"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans PowerShell à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -391,7 +391,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## <a name="clean-up"></a>Nettoyer 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

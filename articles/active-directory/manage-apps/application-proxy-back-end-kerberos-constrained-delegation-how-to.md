@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application | Microsoft Docs
+title: Détecter un problème de délégation Kerberos contrainte - Proxy d’application
 description: Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381525"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275693"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 

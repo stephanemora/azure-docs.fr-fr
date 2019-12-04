@@ -1,5 +1,5 @@
 ---
-title: Obtenir du support pour B2B Collaboration - Azure Active Directory | Microsoft Docs
+title: Obtention d’un support pour la collaboration B2B - Azure Active Directory
 description: Quelle est l’expérience en matière de support pour Azure Active Directory B2B Collaboration ?
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00817acf93295becefab2d1a61de84a3f5519338
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768430"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272766"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtenir du support pour B2B Collaboration
 

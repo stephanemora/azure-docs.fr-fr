@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490400"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232587"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
@@ -52,11 +52,9 @@ Une fois l’apprentissage terminé :
 
 +  Pour afficher les valeurs dans le jeu de données, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Result datasets** (Jeux de données de résultats), puis cliquez sur **Visualiser**.
 
-+ Pour enregistrer le modèle entraîné en vue d’une réutilisation ultérieure, cliquez sur le module, sélectionnez **Modèle formé**, puis cliquez sur **Save As Trained Model** (Enregistrer en tant que modèle formé).
++ Pour enregistrer le modèle formé en vue d’une réutilisation ultérieure, cliquez avec le bouton droit sur le module, sélectionnez **Modèle formé**, puis cliquez sur **Enregistrer en tant que modèle formé**.
 
 + Pour générer des scores à partir du modèle, utilisez l’option [Attribuer des données à des clusters](assign-data-to-clusters.md).
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

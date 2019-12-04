@@ -1,5 +1,5 @@
 ---
-title: Accorder aux utilisateurs B2B l’accès à vos applications locales - Azure Active Directory | Microsoft Docs
+title: Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales - Azure AD
 description: Montre comment accorder aux utilisateurs B2B cloud l’accès aux applications locales avec Azure AD B2B Collaboration.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113034"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272794"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 

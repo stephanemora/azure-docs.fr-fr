@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: cecd37c16d34c0cd6cf7a4d98732762d16073864
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884155"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561620"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -74,17 +74,11 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
 
     Entrez votre chaîne de connexion pour l’espace de noms en tant que variable `ServiceBusConnectionString`. Entrez le nom de votre file d’attente.
 
-1. Remplacez le contenu par défaut de `Main()` par la ligne de code suivante :
+1. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. Elle appelle la méthode SendMessagesAsync que vous ajouterez à l’étape suivante pour envoyer des messages à la file d’attente. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Juste après `Main()`, ajoutez la méthode `MainAsync()` asynchrone suivante qui appelle la méthode d’envoi de messages :
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         const int numberOfMessages = 10;
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
@@ -100,7 +94,6 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
         await queueClient.CloseAsync();
     }
     ```
-
 1. Juste après la méthode `MainAsync()`, ajoutez la méthode `SendMessagesAsync()` suivante qui effectue l’opération d’envoi du nombre de message spécifié par `numberOfMessagesToSend` (la valeur est actuellement définie sur 10) :
 
     ```csharp
@@ -147,25 +140,20 @@ namespace CoreSenderApp
         const string QueueName = "<your_queue_name>";
         static IQueueClient queueClient;
 
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        static async Task MainAsync()
-        {
+        public static async Task Main(string[] args)
+        {    
             const int numberOfMessages = 10;
             queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+    
             Console.WriteLine("======================================================");
             Console.WriteLine("Press ENTER key to exit after sending all the messages.");
             Console.WriteLine("======================================================");
-
-            // Send Messages
+    
+            // Send messages.
             await SendMessagesAsync(numberOfMessages);
-
+    
             Console.ReadKey();
-
+    
             await queueClient.CloseAsync();
         }
 
@@ -235,14 +223,8 @@ Pour recevoir les messages que vous avez envoyés, créez un autre application *
 1. Remplacez le contenu par défaut de `Main()` par la ligne de code suivante :
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Juste après `Main()`, ajoutez la méthode `MainAsync()` asynchrone suivante qui appelle la méthode `RegisterOnMessageHandlerAndReceiveMessages()` :
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");

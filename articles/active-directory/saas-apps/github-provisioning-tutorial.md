@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer GitHub pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Approvisionnement d’utilisateurs pour GitHub - Azure AD'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes utilisateur sur GitHub.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356af6567cea96efc7edbe8bc4932182d35ebc07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bae60622ca8f0e660c8fafbd21189d8e368ba9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963944"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276610"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Didacticiel : Configurer GitHub pour l’approvisionnement automatique d’utilisateurs
 

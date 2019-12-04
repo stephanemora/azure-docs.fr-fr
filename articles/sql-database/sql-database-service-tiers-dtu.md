@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/26/2019
+ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822519"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539309"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
@@ -42,6 +42,12 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |Indexation Columnstore |N/A|S3 et supérieur|Pris en charge|
 |OLTP en mémoire|N/A|N/A|Pris en charge|
 |||||
+
+> [!IMPORTANT]
+> Les niveaux de service De base, Standard S0, S1 et S2 fournissent moins d’un seul vCore (UC).  Pour les charges de travail gourmandes en ressources processeur, un niveau de service S3 ou supérieur est recommandé. 
+>
+>En ce qui concerne le stockage des données, les niveaux de service De base, Standard S0 et S1 sont placés sur les objets blob de pages Standard. Les objets blob de pages Standard utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement, de test et d’accès peu fréquent, qui sont moins sensibles à la variabilité du niveau de performance.
+>
 
 > [!NOTE]
 > Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).

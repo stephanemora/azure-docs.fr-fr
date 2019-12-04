@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035540"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185139"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>S’intégrer avec des identités managées Azure
+# <a name="integrate-with-azure-managed-identities"></a>Intégrer avec des identités managées Azure
 
-Les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure Active Directory permettent de simplifier la gestion des secrets pour votre application cloud. Avec une identité managée, vous pouvez configurer votre code pour utiliser le principal de service qui a été créé pour le service de calcul Azure sur lequel il s’exécute. Vous utilisez une identité managée à la place d’une information d’identification distincte stockée dans Azure Key Vault ou une chaîne de connexion locale. 
+Les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure Active Directory permettent de simplifier la gestion des secrets pour votre application cloud. Grâce à une identité managée, vous pouvez configurer votre code pour utiliser le principal de service qui a été créé pour le service Azure sur lequel il s’exécute. Vous utilisez une identité managée à la place d’une information d’identification distincte stockée dans Azure Key Vault ou une chaîne de connexion locale. 
 
-Azure App Configuration et ses bibliothèques clientes .NET Core, .NET et Java Spring sont fournis avec une prise en charge de MSI (Managed Service Identity) qui leur est intégrée. Bien que vous ne soyez pas obligé de l’utiliser, MSI élimine le besoin d’un jeton d’accès contenant des secrets. Votre code peut accéder au magasin de configuration d’application à l’aide du point de terminaison de service uniquement. Vous pouvez incorporer cette URL directement dans votre code sans avoir à vous préoccuper de l’exposition des secrets.
+Azure App Configuration et ses bibliothèques clientes .NET Core, .NET Framework et Java Spring sont fournis avec la prise en charge de l’identité managée qui leur est intégrée. Bien que vous ne soyez pas obligé de l’utiliser, l’identité managée élimine le besoin d’un jeton d’accès contenant des secrets. Votre code peut accéder au magasin App Configuration à l’aide du point de terminaison de service uniquement. Vous pouvez incorporer cette URL directement dans votre code sans avoir à vous préoccuper de l’exposition des secrets.
 
-Ce tutoriel montre comment vous pouvez tirer parti de MSI pour accéder à App Configuration. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
+Ce tutoriel montre comment vous pouvez tirer parti de l’identité managée pour accéder à App Configuration. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
 
-De plus, ce tutoriel vous montre comment utiliser MSI conjointement avec les références Key Vault d’App Configuration. Vous pouvez ainsi accéder en continu aux secrets stockés dans Key Vault, ainsi qu’aux valeurs de configuration incluses dans App Configuration. Si vous voulez explorer cette fonctionnalité, commencez par terminer [Utiliser des références Key Vault avec ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+De plus, ce tutoriel vous montre comment utiliser l’identité managée conjointement avec les références Key Vault d’App Configuration. Vous pouvez ainsi accéder en continu aux secrets stockés dans Key Vault, ainsi qu’aux valeurs de configuration incluses dans App Configuration. Si vous voulez explorer cette fonctionnalité, commencez par terminer [Utiliser des références Key Vault avec ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce tutoriel. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
 
@@ -64,7 +64,7 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
 
 ## <a name="grant-access-to-app-configuration"></a>Accorder l’accès à App Configuration
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis sélectionnez le magasin de configuration d’application que vous avez créé dans le guide de démarrage rapide.
+1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis sélectionnez le magasin App Configuration que vous avez créé dans le guide de démarrage rapide.
 
 1. Sélectionnez **Contrôle d’accès (IAM)** .
 
@@ -82,9 +82,9 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
 
 ## <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
-1. Recherchez l’URL de votre magasin de configuration d’application en accédant à son écran de configuration dans le portail Azure, puis en cliquant sur l’onglet **Clés d’accès**.
+1. Recherchez l’URL de votre magasin App Configuration en accédant à son écran de configuration dans le Portail Azure, puis en cliquant sur l’onglet **Clés d’accès**.
 
-1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin de configuration d’application. 
+1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin App Configuration. 
 
     ```json
     "AppConfig": {
@@ -203,7 +203,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Utiliser des identités managées dans d’autres langages
 
-Les fournisseurs App Configuration pour .NET Framework et Java Spring disposent également d’une prise en charge intégrée de l’identité managée. Dans ce cas-là, utilisez le point de terminaison de l’URL de votre magasin de configuration d’application au lieu de sa chaîne de connexion complète quand vous configurez un fournisseur. Par exemple, pour l’application console .NET Framework créée dans le démarrage rapide, spécifiez les paramètres suivants dans le fichier *App.config* :
+Les fournisseurs App Configuration pour .NET Framework et Java Spring disposent également d’une prise en charge intégrée de l’identité managée. Dans ce cas-là, utilisez le point de terminaison de l’URL de votre magasin App Configuration au lieu de sa chaîne de connexion complète quand vous configurez un fournisseur. Par exemple, pour l’application console .NET Framework créée dans le démarrage rapide, spécifiez les paramètres suivants dans le fichier *App.config* :
 
 ```xml
     <configSections>
@@ -228,6 +228,7 @@ Les fournisseurs App Configuration pour .NET Framework et Java Spring disposent
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+Dans ce tutoriel, vous avez ajouté une identité managée Azure pour simplifier l’accès à App Configuration et améliorer la gestion des informations d’identification pour votre application. Pour en savoir plus sur l’utilisation d’App Configuration, passez aux exemples Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Exemples d’interface de ligne de commande](./cli-samples.md)

@@ -1,18 +1,14 @@
 ---
-title: Gérer et superviser des bases de données SQL Server sur une machine virtuelle Azure - Sauvegarde Azure
+title: Gérer et superviser des bases de données SQL Server sur une machine virtuelle Azure
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1aba8777a5b0f5851922e292004a74d74065eabf
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090524"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172154"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 

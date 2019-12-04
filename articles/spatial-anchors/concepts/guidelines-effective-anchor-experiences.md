@@ -1,5 +1,5 @@
 ---
-title: Instructions pour des expériences d’ancrage efficaces qui utilisent Azure Spatial Anchors | Microsoft Docs
+title: Instructions pour les expériences d’ancrage efficaces
 description: Instructions et considérations pour une création et une localisation efficaces des ancres à l’aide d’Azure Spatial Anchors.
 author: mattwojo
 manager: jken
@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566033"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270516"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Créer une expérience d’ancrage efficace à l’aide d’Azure Spatial Anchors
 
@@ -40,7 +40,7 @@ Pour les localisations dynamiques, réfléchissez à la manière de former ou gu
 
 ## <a name="stable-visual-features"></a>Des caractéristiques visuelles stables
 
-Les systèmes de suivi visuel utilisés sur des appareils de réalité mixte et de réalité augmentée s’appuient sur les caractéristiques visuelles de l’environnement. Pour obtenir l’expérience la plus fiable :  
+Les systèmes de suivi visuel utilisés sur des appareils de réalité mixte et de réalité augmentée s’appuient sur les caractéristiques visuelles de l’environnement. Pour obtenir l’expérience la plus fiable :
 
 - *Créez* des ancres sur des localisations dont les caractéristiques visuelles sont stables (autrement dit, des caractéristiques qui ne changent pas souvent).
 
@@ -62,9 +62,9 @@ En règle générale, quand vous créez une ancre, scannez-la selon les perspect
 
 ## <a name="multiple-anchors"></a>Multiplicité des ancres
 
-L’éclairage peut faire la différence dans les caractéristiques visuelles qu’une application détecte. Les ancres créées sous une lumière naturelle forte peuvent être difficiles à localiser sous une lumière artificielle, et vice versa.  
+L’éclairage peut faire la différence dans les caractéristiques visuelles qu’une application détecte. Les ancres créées sous une lumière naturelle forte peuvent être difficiles à localiser sous une lumière artificielle, et vice versa.
 
-Si vous rencontrez ce problème, la création de deux ancres peut s’avérer salutaire. Au même endroit, créez une première ancre sous la lumière du jour, puis une autre sous une lumière artificielle. Votre application peut alors rechercher les deux ancres. Quand l’une ou l’autre est localisée, l’application sait où la poser. 
+Si vous rencontrez ce problème, la création de deux ancres peut s’avérer salutaire. Au même endroit, créez une première ancre sous la lumière du jour, puis une autre sous une lumière artificielle. Votre application peut alors rechercher les deux ancres. Quand l’une ou l’autre est localisée, l’application sait où la poser.
 
 De même, dans les environnements où les caractéristiques visuelles changent en raison du déplacement de la plupart des objets, il est judicieux d’utiliser plusieurs ancres. Quand une ancre devient trop difficile à trouver en raison d’importants changements dans l’environnement, vous pouvez la remplacer par une autre. Ce peut être le cas, par exemple, dans un magasin de vente au détail où l’agencement est retravaillé à chaque changement de saison.
 
@@ -74,7 +74,7 @@ Dans de nombreux cas, une ancre est un point d’entrée dans l’expérience de
 
 ### <a name="targets"></a>Cibles
 
-Dans le scénario avec des cibles, la localisation d’une ancre est connue. Par exemple, dans une application de peinture fictive en réalité mixte, un utilisateur place une toile sur le mur. Il demande aux autres utilisateurs présents dans la salle de pointer leurs appareils vers ce même endroit sur le mur pour localiser l’ancre afin de démarrer l’expérience.  
+Dans le scénario avec des cibles, la localisation d’une ancre est connue. Par exemple, dans une application de peinture fictive en réalité mixte, un utilisateur place une toile sur le mur. Il demande aux autres utilisateurs présents dans la salle de pointer leurs appareils vers ce même endroit sur le mur pour localiser l’ancre afin de démarrer l’expérience.
 
 Autre exemple de scénario avec des cibles : une pancarte dans une brûlerie indiquant « Scannez pour découvrir les offres ». La brûlerie a placé une ancre à cet endroit. Quand les clients scannent la pancarte, ils localisent l’ancre et entrent dans l’expérience de réalité augmentée pour découvrir les offres spéciales sur le café.
 
@@ -104,7 +104,7 @@ Tout d’abord, si l’utilisateur ne localise pas une ancre en quelques seconde
 
 Pour les scénarios avec des cibles, demandez à l’utilisateur de se déplacer autour de la cible pour la voir depuis des perspectives différentes. En d’autres termes, demandez à l’utilisateur de capturer la cible depuis des perspectives nouvelles jusqu’à ce qu’il trouve l’ancre.
 
-Pour les scénarios avec des salles, demandez-lui de scanner lentement la pièce. Par exemple, demandez à l’utilisateur de tourner sur lui-même pour capturer 180 degrés voire 360 degrés de la salle. Ou demandez-lui de voir la salle depuis une nouvelle perspective. 
+Pour les scénarios avec des salles, demandez-lui de scanner lentement la pièce. Par exemple, demandez à l’utilisateur de tourner sur lui-même pour capturer 180 degrés voire 360 degrés de la salle. Ou demandez-lui de voir la salle depuis une nouvelle perspective.
 
 La méthode la plus significative consiste à traverser la salle pendant le scan. Un scan en traversant la pièce permet de capturer plus de caractéristiques visuelles de l’environnement qu’un scan à proximité d’un mur, par exemple. Un scan à proximité d’un mur ne capture pas autant de caractéristiques visuelles utiles de l’environnement.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671967"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533719"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de requête pour la traduction de texte Translator Text
 
@@ -58,7 +58,7 @@ Ces limites s’appliquent uniquement aux modèles de traduction standard de Mic
 
 ## <a name="latency"></a>Latence
 
-L’API de traduction de texte Translator Text a une latence maximale de 15 secondes avec les modèles standards. Les traductions ont une latence maximale de 25 secondes avec des modèles personnalisés. Dans ce délai, vous recevez un résultat ou une réponse de délai dépassé. En général, les réponses sont retournées dans un délai de 150 à 300 millisecondes. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas une traduction ou une [réponse d’erreur](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pendant ce laps de temps, vérifiez votre connexion réseau et réessayez.
+L’API de traduction de texte Translator Text a une latence maximale de 15 secondes avec les modèles standards et de 120 secondes avec les modèles personnalisés. En général, les réponses *pour un texte de moins de 100 caractères* sont retournées dans un délai de 150 à 300 millisecondes. Les modèles de traducteurs personnalisés ont des caractéristiques de latence similaires sur le taux de requêtes soutenu et peuvent avoir une latence plus élevée lorsque le taux de requêtes est intermittent. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas une traduction ou une [réponse d’erreur](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pendant ce laps de temps, vérifiez votre code et votre connexion réseau, puis réessayez. 
 
 ## <a name="sentence-length-limits"></a>Limites de longueur de phrase
 

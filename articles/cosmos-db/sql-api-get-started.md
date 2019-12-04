@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132571"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173911"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Didacticiel : Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
@@ -259,7 +259,7 @@ Une base de données est le conteneur logique d’éléments partitionnés entre
 1. Sélectionnez F5 pour exécuter votre application.
 
    > [!NOTE]
-   > Si vous recevez une « exception de service non disponible 503 », il est possible que les [ports](performance-tips.md#networking) requis en mode direct soient bloqués par un pare-feu. Pour résoudre ce problème, ouvrez les [ports](performance-tips.md#networking) requis ou essayez d’utiliser le mode passerelle comme indiqué ci-dessous.
+   > Si vous recevez une erreur « Exception 503 - Service indisponible », il est possible que les [ports](performance-tips.md#networking) nécessaires pour le mode de connectivité directe soient bloqués par un pare-feu. Pour résoudre ce problème, ouvrez les ports nécessaires ou utilisez la connectivité en mode de passerelle, comme indiqué dans le code suivant :
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

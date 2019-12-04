@@ -10,18 +10,19 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488819"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278601"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Se connecter au portail LUIS
 
 Un nouvel utilisateur de LUIS doit suivre cette procédure :
 
-1. Connectez-vous au [portail LUIS](https://www.luis.ai), sélectionnez votre pays, puis acceptez les conditions d’utilisation.
+1. Connectez-vous au [portail LUIS (préversion)](https://preview.luis.ai), sélectionnez votre pays, puis acceptez les conditions d’utilisation. Si vous voyez à la place **Mes applications**, c’est qu’une ressource LUIS existe déjà et vous devez passer directement à la création d’une application.
+
 1. Sélectionnez **Create Azure resource** (Créer une ressource Azure), puis **Create an authoring resource to migrate your apps to** (Créer une ressource de création vers laquelle migrer vos applications).
 
     ![Choisir un type de ressource de création Language Understanding](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)

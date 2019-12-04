@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961497"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561502"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -143,7 +143,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
     **Emplacement cible** | région cible utilisée pour la récupération d’urgence.<br/><br/> Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
     **Groupe de ressources cible** | groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement.<br/><br/> Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées.
     **Réseau virtuel cible** | réseau dans la région cible où se trouvent les machines virtuelles après le basculement.<br/><br/> Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».
-    **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) Vérifiez également que vous autorisez l’accès à au moins un sous-réseau de réseau virtuel source.
     **Comptes de stockage cibles (si la machine virtuelle source utilise des disques non managés)** | par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.<br/><br/> Activez **Autoriser les services Microsoft approuvés** si vous utilisez un compte de stockage de cache autorisé par le pare-feu.
     **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** | par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source. Seul le type de disque peut être personnalisé. 
     **Groupes à haute disponibilité cibles** | par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.

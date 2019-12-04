@@ -1,6 +1,6 @@
 ---
-title: 'Créer des mots de passe d’application dans la page Informations de sécurité (version préliminaire) : Azure AD'
-description: Définissez des mots de passe générés automatiquement (mots de passe d’application) à utiliser avec n’importe quelle application sans navigateur, ou n’importe quelle application qui ne prend pas en charge la vérification à deux facteurs, dans votre organisation. Ce mot de passe d’application est différent d’un mot de passe normal et peut être configuré à partir de la page Informations de sécurité.
+title: Créer des mots de passe d’application à partir de la page Informations de sécurité (préversion) - Azure AD
+description: Créez des mots de passe générés automatiquement (mots de passe d’application) à utiliser avec toute application sans navigateur ou toute application qui ne prend pas en charge la vérification à 2 facteurs dans votre organisation. Ce mot de passe d’application est différent d’un mot de passe normal et peut être configuré à partir de la page Informations de sécurité.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820322"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231808"
 ---
-# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Créer des mots de passe d’application à partir de votre page Informations de sécurité (préversion)
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Créer des mots de passe d’application à partir de la page Informations de sécurité (préversion)
 
 Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 

@@ -1,22 +1,17 @@
 ---
-title: Géoreprise d’activité après sinistre et haute disponibilité Azure Functions | Microsoft Docs
+title: Géo-reprise d’activité après sinistre et haute disponibilité Azure Functions
 description: Découvrez comment utiliser les régions géographiques pour la redondance et basculer dans Azure Functions.
-services: functions
-documentationcenter: na
 author: wesmc7777
-manager: jeconnoc
-keywords: Azure Functions, modèles, bonnes pratiques, fonctions
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: 1d75d58a6df622ffb1b277f75ceedc2c2a66369d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576238"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226971"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Géo-reprise d’activité après sinistre dans Azure Functions
 

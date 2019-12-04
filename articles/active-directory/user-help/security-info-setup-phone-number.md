@@ -1,6 +1,6 @@
 ---
-title: 'Configurer les informations de sécurité (préversion) pour les appels téléphoniques : Azure AD'
-description: Apprenez à configurer vos informations de sécurité pour vérifier votre identité au moyen d'un appel téléphonique.
+title: Configurer votre numéro de téléphone comme méthode de vérification – Azure AD
+description: Guide pratique pour configurer votre page Informations de sécurité (préversion) et vérifier votre identité avec votre numéro de téléphone et votre appareil mobile comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5dc5ec06e60112e69a31d1ce4c69e698576609f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803799"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278964"
 ---
-# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurer les informations de sécurité (préversion) pour utiliser un appel téléphonique
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurer un numéro de téléphone comme méthode de vérification
 
-Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
+Suivez ces étapes pour ajouter vos méthodes de réinitialisation de mot de passe et de vérification en deux étapes. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l'article [Configurer vos informations de sécurité à partir de l'invite de la page de connexion](security-info-setup-signin.md).
 

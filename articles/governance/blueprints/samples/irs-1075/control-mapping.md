@@ -1,14 +1,14 @@
 ---
-title: Exemple de blueprint IRS 1075 - Correspondance des contrôles
+title: Exemples de contrôles de blueprint IRS 1075
 description: Correspondance des contrôles de l’exemple de blueprint IRS 1075. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 08/07/2019
+ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: b56e1a2c8a71e3bb7927dc487e0c2f1e7709d413
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 86570012000e660b53b2c3c7291b9ca98576a004
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032211"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546824"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Correspondance des contrôles de l’exemple blueprint IRS 1075
 
@@ -324,7 +324,8 @@ Advanced Threat Protection pour Stockage Azure détecte les tentatives d’accè
 Vous venez de passer en revue la mise en correspondance des contrôles du blueprint IRS 1075. Consultez à présent les articles suivants pour en savoir plus sur le blueprint et découvrir comment déployer cet exemple :
 
 > [!div class="nextstepaction"]
-> [Blueprint IRS 1075 - Vue d’ensemble](./index.md)
+> [Blueprint IRS 1075 - Vue d’ensemble](./index.md)
+> [Blueprint IRS 1075 - Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

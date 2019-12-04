@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python'
+title: 'Démarrage rapide : Envoyer une requête à l’API en Python avec Recherche d’entreprises locales Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez cet article pour commencer à utiliser l’API Recherche d’entreprises locales Bing en Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 11/06/2019
 ms.author: aahi
-ms.openlocfilehash: ec13555b478404c7e2169af5bcb33f37d8afc5bb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8a0a7c27294838f8f5c4459eda890c1cbbec7a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796154"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326665"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python
 

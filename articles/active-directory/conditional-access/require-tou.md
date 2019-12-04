@@ -1,22 +1,22 @@
 ---
-title: Démarrage rapide – Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud Azure Active Directory protégées par accès conditionnel | Microsoft Docs
+title: 'Accès conditionnel : Exiger l’acceptation des conditions d’utilisation - Azure Active Directory'
 description: Dans ce guide de démarrage rapide, vous découvrirez comment exiger que vos conditions d’utilisation soient acceptées avant d’accorder l’accès à une sélection d’applications cloud grâce à l’accès conditionnel Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506914"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380099"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
 
@@ -150,7 +150,7 @@ Dans votre stratégie, définissez :
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Évaluer une connexion simulée
 
-À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact de cette connexion sur vos stratégies et génère un rapport de simulation.  
+À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation.  
 
 Pour initialiser l’outil d’évaluation de stratégie **What If**, définissez ce qui suit :
 

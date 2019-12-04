@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes - Résoudre les problèmes liés à votre configuration d’Azure Front Door Service | Microsoft Docs
+title: Détecter des problèmes de configuration d’Azure Front Door Service
 description: Dans ce tutoriel, vous allez apprendre à résoudre vous-même certains des problèmes courants que vous pouvez rencontrer concernant votre porte d’entrée.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335882"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184555"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 Cet article explique comment résoudre certains des problèmes de routage courants que vous pouvez rencontrer concernant votre configuration Azure Front Door Service. 

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 11/13/2018
-ms.openlocfilehash: 5b828f62d5a8c7c518f3d28e92f52aac3b77f65c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: ca0fcd3b68722d44fc285b2dff52b560c591d0be
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932807"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306550"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -165,7 +165,8 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
     |*.ods.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
     |*.oms.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
     |*.blob.core.windows.net | Port 443| Trafic entrant et sortant |  
-    |\* .azure-automation.net | Port 443| Trafic entrant et sortant | 
+
+    Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser des runbooks et des solutions de gestion dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problème : vous voyez une erreur 403 lorsque vous tentez d’effectuer l’intégration
 

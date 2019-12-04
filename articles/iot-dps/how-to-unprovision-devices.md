@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning | Microsoft Docs
+title: Déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning
 description: Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ba62d8cff646ce5ef4f4b8a36fdad78ddc354227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60d0647522fbce2fea43531e164e0a6d1b0de144
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626510"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229689"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 

@@ -1,14 +1,14 @@
 ---
-title: Exemple de blueprint PCI-DSS v3.2.1 - Mappage des contrôles
+title: Exemples de contrôles de blueprint PCI-DSS v3.2.1
 description: Mappage des contrôles de l'exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 vers Azure Policy et RBAC.
 ms.date: 06/24/2019
-ms.topic: conceptual
-ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 38db59a7f0b93e2c87b3c7acdfbcc2b8cbd11489
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037281"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546572"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 

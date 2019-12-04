@@ -1,5 +1,6 @@
 ---
-title: Gérer les journaux d’activité des flux de groupe de sécurité réseau avec Azure Network Watcher - API REST | Microsoft Docs
+title: Gérer les journaux de flux NSG – API REST Azure
+titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’API REST
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 636a422cd46dc6b6274766b92753f04195a829a0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563423"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277936"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’API REST
 
@@ -218,7 +219,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 
 > [!IMPORTANT]
-> Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les objets blob de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+> Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

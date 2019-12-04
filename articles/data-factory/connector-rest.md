@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6bb597ab49050c2bb365379cfac44f4b4d176af1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680404"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546970"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 
@@ -174,7 +174,7 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. Le connecteur HTTP copie les données à partir de l’URL combinée : `[URL specified in linked service]/[relative URL specified in dataset]`. | Non |
 
 Si vous avez défini `requestMethod`, `additionalHeaders`, `requestBody` et `paginationRules` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
 
@@ -216,6 +216,9 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 | paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non |
 | requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non |
+
+>[!NOTE]
+>Le connecteur REST ignore tout en-tête « accepter » spécifié dans `additionalHeaders`. Comme le connecteur REST ne prend en charge que la réponse dans JSON, il génère automatiquement un en-tête de `Accept: application/json`.
 
 **Exemple 1 : Utilisation de la méthode Get avec la pagination**
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706499"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185274"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Résilience et reprise d’activité après sinistre
 
@@ -25,7 +25,7 @@ Actuellement, Azure App Configuration est un service régional. Chaque magasin d
 
 ## <a name="high-availability-architecture"></a>Architecture de haute disponibilité
 
-Pour obtenir une redondance entre régions, vous devez créer plusieurs magasins de configuration App Configuration dans différentes régions. Avec cette configuration, votre application a au moins un magasin de configuration supplémentaire vers lequel basculer si le magasin principal devient inaccessible. Le diagramme suivant illustre la topologie entre votre application et ses magasins de configuration principal et secondaire :
+Pour obtenir une redondance entre régions, vous devez créer plusieurs magasins App Configuration dans différentes régions. Avec cette configuration, votre application a au moins un magasin de configuration supplémentaire vers lequel basculer si le magasin principal devient inaccessible. Le diagramme suivant illustre la topologie entre votre application et ses magasins de configuration principal et secondaire :
 
 ![Stockages géoredondants](./media/geo-redundant-app-configuration-stores.png)
 

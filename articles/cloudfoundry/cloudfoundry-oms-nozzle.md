@@ -1,5 +1,5 @@
 ---
-title: Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry | Microsoft Docs
+title: Déployer Azure Log Analytics Nozzle pour la surveillance de Cloud Foundry
 description: Procédure de déploiement pas à pas du compileur de fichiers log de Cloud Foundry Nozzle pour Azure Log Analytics. Surveillez les mesures de performances et d’intégrité du système Cloud Foundry via l’infrastructure Nozzle.
 services: virtual-machines-linux
 author: ningk
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199395"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286640"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 

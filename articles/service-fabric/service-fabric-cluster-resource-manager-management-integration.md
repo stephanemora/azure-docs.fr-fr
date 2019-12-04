@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743511"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196498"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
 Service Fabric Cluster Resource Manager n’actionne pas les mises à niveau dans Service Fabric, mais il y participe. La première manière dont Cluster Resource Manager aide à la gestion consiste à suivre l’état souhaité du cluster et des services qu’il contient. Cluster Resource Manager envoie des rapports d’intégrité lorsqu’il ne peut pas placer le cluster dans la configuration souhaitée. Par exemple, si la capacité est insuffisante, Cluster Resource Manager envoie des avertissements d’intégrité et des erreurs indiquant le problème. Le fonctionnement des mises à niveau est un autre composant de l’intégration. Cluster Resource Manager modifie légèrement son comportement pendant les mises à niveau.  
