@@ -1,6 +1,6 @@
 ---
-title: La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
-description: Vue d’ensemble de la mise hors service des services et des fonctionnalités de supervision classique, présentée précédemment dans le portail Azure sous Alertes (classiques). La fonctionnalité de gestion des alertes et de la supervision classiques inclut les alertes de métriques classiques pour les ressources Azure, les alertes de métriques classiques pour Application Insights, les alertes de test web classiques pour Application Insights, la métrique personnalisée classique basées sur des alertes pour Application Insights et les alertes classiques pour Application Insights SmartDetection v1
+title: Mise à jour de la gestion des alertes et de la supervision classiques dans Azure Monitor
+description: Description de la mise hors service des services et des fonctionnalités de supervision classique, présentée précédemment dans le Portail Azure sous Alertes (classique).
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676892"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307087"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 

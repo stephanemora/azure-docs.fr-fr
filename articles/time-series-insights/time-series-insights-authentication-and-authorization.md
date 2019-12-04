@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 60099689c79308a45e3d40d63e0f993b030db7cd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d47f846f77d3552288dfea43b417d8c60856f41a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133643"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327887"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -72,7 +72,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 1. Enregistrez la stratégie en sélectionnant **OK**.
 
    > [!TIP]
-   > En savoir plus sur l'[octroi d'un accès aux données](./time-series-insights-data-access.md) de votre environnement Time Series Insights dans Azure Active Directory.
+   > Pour plus d’informations sur les options avancées d’accès aux données, consultez [Octroi d’un accès aux données](./time-series-insights-data-access.md).
 
 ### <a name="client-app-initialization"></a>Initialisation de l'application cliente
 

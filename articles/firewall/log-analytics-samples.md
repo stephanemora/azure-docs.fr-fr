@@ -1,18 +1,18 @@
 ---
 title: Exemples d’analytique des journaux pour le Pare-feu Azure
-description: Exemples d’analytique des journaux pour le Pare-feu Azure
+description: Vous pouvez utiliser les journaux d’activité Azure Monitor pour analyser votre Pare-feu Azure. Un exemple de fichier est généré dans le concepteur de vues d’Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033977"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168894"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exemples d’analytique des journaux pour le Pare-feu Azure
 
@@ -26,7 +26,7 @@ Voici comment configurer un exemple de visualisation des journaux Azure Monitor.
 
 Effectuez les étapes suivantes pour ajouter la vue à votre espace de travail Log Analytics :
 
-1. Ouvrez l’espace de travail Log Analytics dans le portail Azure.
+1. Ouvrez l’espace de travail Log Analytics dans le Portail Azure.
 2. Ouvrez **Concepteur de vues** sous **Général**.
 3. Cliquez sur **Importer**.
 4. Recherchez et sélectionnez le fichier **AzureFirewall.omsview** que vous avez téléchargé.

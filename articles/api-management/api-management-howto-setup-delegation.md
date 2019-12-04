@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 63ff91c6b4db351e5ec72973874466cff74432b5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073442"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454362"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
-La délégation vous permet d’utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l’abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
+La délégation vous permet d’utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l’abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Elle permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Délégation de la connexion et de l’inscription des développeurs
+## <a name="delegate-signin-up"></a>Délégation de la connexion et de l’inscription des développeurs
 
 Pour déléguer la connexion et l’inscription des développeurs à votre site web existant, vous devez créer un point de terminaison de délégation spécifique sur votre site. Il doit faire office de point d’entrée pour toute demande initiée à partir du portail des développeurs Gestion des API.
 
@@ -173,6 +173,9 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 
 var signature = digest.toString('base64');
 ```
+
+> [!IMPORTANT]
+> Vous devez [republier le portail des développeurs](api-management-howto-developer-portal-customize.md#publish) pour que les modifications apportées à la délégation prennent effet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la délégation, regardez la vidéo suivante :

@@ -1,14 +1,14 @@
 ---
 title: Exemple - Bande passante ExpressRoute autorisée
-description: Cet exemple de définition de stratégie exige qu’ExpressRoute utilise un ensemble spécifié de bandes passantes.
+description: Cet exemple de définition de stratégie demande qu’ExpressRoute utilise un ensemble spécifié de bandes passantes défini dans un paramètre.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 20841b5476c50fb98d6b2d4a59f351525e1ecc9e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7c60879b62020a0864eb2da3a29e1bfe57215c0
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072095"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463744"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>Exemple - Bande passante ExpressRoute autorisée
 

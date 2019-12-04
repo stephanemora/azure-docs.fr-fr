@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 7/29/2019
+ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b2a9a7b0b759f5853d83a4b1999887414fd5f430
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685397"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483207"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cet article répertorie les questions de résolution de problèmes courantes.
@@ -41,6 +41,7 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 | Problème                                                        | Résolution :                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Résolution des problèmes de performances des requêtes                            | Si vous tentez de dépanner une requête spécifique, commencez avec l’article relatif à la [surveillance de vos requêtes][Learning how to monitor your queries]. |
+| Problèmes d’espaces TempDB | [Surveillez l’utilisation de l’espace TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Les causes courantes de l’insuffisance d’espace TempDB sont les suivantes :<br>- Les ressources allouées à la requête ne sont pas suffisantes et les données sont propagées dans TempDB.  Consultez [Gestion des charges de travail](resource-classes-for-workload-management.md) <br>- Les statistiques sont manquantes ou obsolètes, ce qui entraîne un déplacement excessif des données.  Consultez la section[Maintenance des statistiques de table][Statistics] pour plus d’informations sur la création de statistiques<br>- L’espace TempDB est alloué par niveau de service.  [La mise à l’échelle de votre base de données de l'entrepôt de données SQL][Scaling your SQL Data Warehouse] à un paramètre DWU plus élevé alloue plus d’espace TempDB.|
 | Des performances des requêtes et des plans médiocres sont souvent le résultat de statistiques manquantes | La cause la plus courante de la médiocrité des performances est le manque de statistiques concernant vos tables.  Consultez la section[Maintenance des statistiques de table][Statistics] pour plus d’informations sur la création de statistiques et les raisons pour lesquelles elles sont essentielles à vos performances. |
 | Concurrence faible / requêtes en file d’attente                             | Comprendre la [gestion des charges de travail][Workload management] est important pour comprendre comment équilibrer l’allocation de mémoire avec l’accès concurrentiel. |
 | Comment mettre en œuvre les meilleures pratiques                              | L’article [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse best practices] est le point de départ idéal pour apprendre à améliorer les performances des requêtes. |

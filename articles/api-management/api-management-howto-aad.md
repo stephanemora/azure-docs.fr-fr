@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012961"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454458"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -81,12 +81,16 @@ Une fois les changements enregistrés, les utilisateurs de l’instance Azure AD
 
 ## <a name="add-an-external-azure-ad-group"></a>Ajouter un groupe Azure AD externe
 
-Après avoir activé l’accès pour les utilisateurs dans une instance Azure AD, vous pouvez ajouter des groupes Azure AD dans Gestion des API. Vous pourrez ainsi gérer plus facilement l’association entre les développeurs du groupe et les produits désirés.
+Après avoir activé l’accès pour les utilisateurs dans un locataire Azure AD, vous pouvez ajouter des groupes Azure AD dans Gestion des API. Par conséquent, vous pouvez contrôler la visibilité des produits à l’aide de groupes Azure AD.
 
- > [!IMPORTANT]
- > Pour ajouter un groupe Azure AD externe, vous devez d’abord configurer l’instance Azure AD sous l’onglet **Identités** en suivant la procédure décrite dans la section précédente. En outre, l’application doit avoir accès à l’API Graph Azure AD avec l’autorisation `Directory.Read.All`. 
+Pour ajouter un groupe Azure AD externe dans APIM, vous devez d’abord effectuer la section précédente. En outre, l’application que vous avez inscrite doit avoir accès à l’API Graph d’Azure Active Directory avec l’autorisation `Directory.ReadAll` en suivant les étapes ci-dessous : 
 
-Vous ajoutez des groupes Azure AD externes à partir de l’onglet **Groupes** de votre instance Gestion des API.
+1. Revenez à l’inscription de votre application qui a été créée dans la section précédente.
+2. Cliquez sur l’onglet **Autorisations de l’API**, puis cliquez sur le bouton **+ Ajouter une autorisation**. 
+3. Dans le volet **Demander les autorisations de l’API**, sélectionnez l’onglet **API Microsoft**, puis faites défiler vers le bas pour trouver la vignette **Azure Active Directory Graph** dans la section API héritées prises en charge, puis cliquez dessus. Cliquez ensuite sur le bouton **Autorisations pour les APPLICATIONS**, sélectionnez **Directory.ReadAll**, puis ajoutez cette autorisation à l’aide du bouton en bas de l’écran. 
+4. Cliquez sur le bouton **Accorder un consentement administrateur pour {tenantname}** afin d’accorder l’accès à tous les utilisateurs de ce répertoire. 
+
+Vous pouvez maintenant ajouter des groupes Azure AD externes à partir de l’onglet **Groupes** de votre instance Gestion des API.
 
 1. Sélectionnez l’onglet **Groupes** .
 2. Sélectionnez le bouton **Ajouter un groupe AAD**.
@@ -105,6 +109,9 @@ Dans le portail des développeurs, il est possible de se connecter avec AAD à l
 ![Widget Boutons AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
 Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+
+> [!IMPORTANT]
+> Vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications apportées à AAD prennent effet.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portail des développeurs hérité : comment s’inscrire avec Azure AD
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/28/2019
-ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b8fdefb5e8555e90b5c9065672f4593e5bf98e06
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044238"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326507"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Supprimer et restaurer un espace de travail Azure Log Analytics
 
@@ -20,7 +20,7 @@ Cet article décrit le concept de suppression réversible d'un espace de travail
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Considérations relatives à la suppression d'un espace de travail
 
-Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. À l'issue de cette période de suppression réversible, l'espace de travail et ses données deviennent irrécupérables et sont mis en file d'attente pour une suppression définitive dans un délai de 30 jours.
+Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. Après la période de suppression réversible, l’espace de travail et ses données sont non récupérables : les données sont mises en file d’attente pour une suppression définitive dans les 30 jours et le nom de l’espace de travail est disponible et peut être utilisé pour créer un nouvel espace de travail.
 
 Soyez prudent lorsque vous supprimez un espace de travail, car celui-ci peut contenir une configuration et des données importantes dont la suppression peut avoir un impact négatif sur le fonctionnement de votre service. Examinez les agents, les solutions ainsi que les autres services et sources Azure qui stockent leurs données dans Log Analytics, comme :
 

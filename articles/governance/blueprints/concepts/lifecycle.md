@@ -1,14 +1,14 @@
 ---
 title: Présentation du cycle de vie d’un blueprint
-description: Découvrez le cycle de vie d’un blueprint et les détails de chaque phase.
+description: Découvrez le cycle de vie que traverse une définition de blueprint ainsi que les détails sur chaque phase, notamment la mise à jour et la suppression des affectations blueprint.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960489"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404591"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -35,8 +35,7 @@ Vous créez et modifiez un blueprint avec le [portail Azure](../create-blueprint
 
 ## <a name="publishing-a-blueprint"></a>Publication d’un blueprint
 
-Une fois que tous les changements planifiés ont été apportés à un blueprint en mode **Brouillon**, vous pouvez le **publier** et l’affecter. La version **publiée** du blueprint ne peut pas être modifiée.
-Une fois **publié**, le blueprint est affecté d’une icône différente des blueprints en mode **Brouillon**, et le numéro de version fourni est affiché dans la colonne **Dernière version**.
+Une fois que tous les changements planifiés ont été apportés à un blueprint en mode **Brouillon**, vous pouvez le **publier** et l’affecter. La version **publiée** du blueprint ne peut pas être modifiée. Une fois **publié**, le blueprint est affecté d’une icône différente des blueprints en mode **Brouillon**, et le numéro de version fourni est affiché dans la colonne **Dernière version**.
 
 Vous publiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#publish-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
@@ -64,9 +63,9 @@ Chaque version d’un blueprint est un objet unique qui peut être **publié** i
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Cliquez dessus pour ouvrir la page de modification.
+1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Sélectionnez-le pour ouvrir la page de modification.
 
-1. Cliquez sur l’onglet **Versions publiées** et recherchez la version que vous souhaitez supprimer.
+1. Sélectionnez l’onglet **Versions publiées** et recherchez la version que vous souhaitez supprimer.
 
 1. Cliquez avec le bouton droit sur la version à supprimer, puis sélectionnez **Supprimer cette version**.
 

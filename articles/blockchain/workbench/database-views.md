@@ -1,23 +1,17 @@
 ---
-title: Vues de la base de données dans Azure Blockchain Workbench Preview
-description: Présentation des vues de base de données Azure Blockchain Workbench Preview SQL DB.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Affichages de la base de données Azure Blockchain Workbench
+description: Aperçu des affichages de la base de données SQL DB en préversion Azure Blockchain Workbench.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 7548d460d0d99642d11e4eb5755730400b509e94
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 585084b4c85c48533bdad96d4f99813ef2e418b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845046"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325989"
 ---
-# <a name="database-views-in-azure-blockchain-workbench-preview"></a>Vues de la base de données dans Azure Blockchain Workbench Preview
+# <a name="azure-blockchain-workbench-database-views"></a>Affichages de la base de données Azure Blockchain Workbench
 
 Azure Blockchain Workbench Preview fournit des données provenant de registres distribués à une base de données SQL DB *off-chain*. La base de données « off-chain» permet d’utiliser SQL et les outils existants, tels que [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), pour interagir avec les données de blockchain.
 

@@ -1,14 +1,14 @@
 ---
 title: Exemple - Appliquer un modèle de correspondance de balise
-description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de correspondance pour la valeur des étiquettes.
+description: Cet exemple de définition de stratégie demande que les ressources respectent le modèle de correspondance pour la valeur d’étiquette pour un format de date spécifique.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e56d5d401f525f94bce4567204a7f18074fb1a90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2d5f85f02a2197e9e213b7e9fd7dfec7adc7813
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076291"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463347"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Exemple - Appliquer le modèle de correspondance des étiquettes pour les valeurs d’étiquettes
 

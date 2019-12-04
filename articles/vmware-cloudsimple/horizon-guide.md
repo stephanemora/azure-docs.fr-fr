@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972749"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206554"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Utiliser le site du cloud privé CloudSimple pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
 
@@ -54,7 +54,7 @@ Les sections suivantes expliquent comment déployer une solution VDI à l'aide d
 1. Créez un cloud privé à partir du portail CloudSimple en suivant les instructions présentées dans [Configurer un environnement de cloud privé](quickstart-create-private-cloud.md).  CloudSimple crée un utilisateur vCenter par défaut nommé « cloudowner » dans chaque cloud privé nouvellement créé. Pour plus d'informations sur l'utilisateur et le modèle d'autorisation par défaut du cloud privé, consultez [Modèle d'autorisation du cloud privé](learn-private-cloud-permissions.md).
 2. Créez un réseau local virtuel (VLAN) dans votre cloud privé pour le plan de gestion Horizon, et attribuez-lui un CIDR de sous-réseau. Pour plus d'informations, consultez [Créer et gérer des réseaux VLAN/sous-réseaux](create-vlan-subnet.md). Il s'agit du réseau sur lequel tous les composants de solution (serveurs Unified Access Gateway, Connection Server, App Volume Server et User Environment Manager) seront installés.
 3. Vous pouvez choisir d'utiliser un fournisseur d'identité externe avec l'instance vCenter de votre cloud privé. Dans ce cas, choisissez l'une des options suivantes :
-    * Utilisez votre instance locale d'Active Directory comme fournisseur d'identité externe. Pour plus d'informations, consultez [Sources d'identités vCenter](set-vcenter-identity.md).
+    * Utilisez votre Active Directory local comme fournisseur d'identité externe. Pour plus d'informations, consultez [Sources d'identités vCenter](set-vcenter-identity.md).
     * Configurez un serveur Active Directory du cloud privé du réseau VLAN du plan de gestion Horizon pour l'utiliser comme fournisseur d'identité externe. Pour plus d'informations, consultez [Sources d'identités vCenter](set-vcenter-identity.md).
     * Configurez un serveur DNS et DHCP du réseau VLAN du plan de gestion Horizon dans le cloud privé. Pour plus d'informations, consultez [Configurer des applications et des charges de travail DNS et DHCP dans votre cloud privé CloudSimple](dns-dhcp-setup.md).
 4. Configurez le transfert DNS sur le serveur DNS installé dans le cloud privé. Pour plus d'informations, consultez [Créer un redirecteur conditionnel](on-premises-dns-setup.md#create-a-conditional-forwarder).

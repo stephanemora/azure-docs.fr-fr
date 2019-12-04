@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083733"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224379"
 ---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour en savoir plus sur le coût de chaque *unité* dans chaque couche, consultez [la tarification relative à Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -41,9 +41,10 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 | Profondeur maximale de la file d’attente cloud-à-appareil pour chaque appareil |50 |
 | Nombre de remises maximal pour les messages de commentaire <br/> en réponse à un message Cloud vers appareil |100 |
 | Durée de vie maximale des messages de commentaire <br/> en réponse à un message Cloud vers appareil |2 jours |
-| [Taille maximale du jumeau d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (balises, propriétés signalées et propriétés souhaitées) | 8 Ko |
-| Taille maximale de la valeur de chaîne du jumeau d’appareil | 4 Ko |
-| [Profondeur maximale de l’objet dans le jumeau d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5\. |
+| [Taille maximale du jumeau d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 Ko pour la section des balises et 32 Ko pour les sections de propriétés souhaitées et signalées chacune |
+| Longueur maximale de la clé de chaîne du jumeau d’appareil | 1 Ko |
+| Longueur maximale de la valeur de chaîne du jumeau d’appareil | 4 Ko |
+| [Profondeur maximale de l’objet dans le jumeau d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
 | Taille maximale de la charge utile de la méthode directe | 128 Ko |
 | Conservation maximale de l’historique des travaux | 30 jours |
 | Nombre maximal de travaux simultanés | 10 (pour S3), 5 pour (S2), 1 (pour S1) |

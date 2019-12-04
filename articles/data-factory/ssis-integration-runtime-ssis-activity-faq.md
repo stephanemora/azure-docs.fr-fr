@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: de90614d9d24b3f57cb170e9a590de859f689331
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9692c754e59eba02d3d483d44430150107d703a4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683984"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217534"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -77,7 +77,7 @@ Cette erreur signifie que le disque local est entièrement utilisé dans le nœu
       * Le domaine doit être « Azure »
       * Le nom d’utilisateur doit être \<nom du compte de stockage\>
       * Le mot de passe doit être \<clé d’accès du stockage\>
-    * Si vous utilisez un fichier local, vérifiez si le réseau virtuel, les informations d’identification et l’autorisation d’accès au package sont configurés correctement pour que votre runtime d’intégration Azure-SSIS puisse accéder à votre partage de fichiers local.
+    * Si vous utilisez un fichier local, veillez vérifier si les informations d'identification et les autorisations d’accès au réseau virtuel et au package sont correctement configurées pour que votre runtime d'intégration SSIS Azure puisse accéder à votre partage de fichiers locaux
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Message d’erreur : « Le nom de fichier '...' spécifié dans la connexion n’est pas valide »
 

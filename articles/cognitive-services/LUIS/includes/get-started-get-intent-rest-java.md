@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4e2fb81b19694136896b1dee07c3bd74c63fc01b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125477"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414512"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de développement Java, Édition Standard)
 * [Visual Studio Code](https://code.visualstudio.com/) ou l’IDE de votre choix.
-* ID d’application publique : df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* ID d’application public : `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obtenir la clé LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125477"
 
 ## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
-Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) GET du point de terminaison de prédiction afin d’obtenir le résultat de la prédiction.
+Utilisez Java pour interroger le [point de terminaison de prédiction](https://aka.ms/luis-apim-v3-prediction) afin d’obtenir le résultat de la prédiction.
 
 1. Créez un sous-répertoire nommé `lib` et copiez-le dans les bibliothèques Java suivantes :
 
@@ -36,7 +36,6 @@ Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) 
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. Copiez le code suivant pour créer une classe dans un fichier nommé `Predict.java` :
-
 
     ```java
     import java.io.*;
@@ -108,10 +107,10 @@ Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) 
 1. Remplacez les valeurs suivantes :
 
     * `YOUR-KEY` par votre clé de démarrage
-    * `YOUR-ENDPOINT` avec votre point de terminaison, par exemple, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` par votre point de terminaison. Par exemple : `westus2.api.cognitive.microsoft.com`.
 
 
-1. Compilez le programme Java à partir d’une ligne de commande : 
+1. Compilez le programme Java à partir de la ligne de commande : 
 
     ```console
     javac -cp ":lib/*" Predict.java
@@ -123,7 +122,7 @@ Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) 
     java -cp ":lib/*" Predict
     ```
 
-1. Évaluez la réponse de prédiction au format JSON :
+1. Examinez la réponse de prédiction, qui est retournée au format JSON :
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}

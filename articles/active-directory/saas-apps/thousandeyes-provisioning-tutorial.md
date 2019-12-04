@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Approvisionnement d’utilisateurs pour ThousandEyes – Azure AD'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur sur ThousandEyes.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f8325737a62bba71364c02a234636999b0b1b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eaf019303c311519c4b7d483d8f9193f432b8385
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964136"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278836"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Didacticiel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs
 

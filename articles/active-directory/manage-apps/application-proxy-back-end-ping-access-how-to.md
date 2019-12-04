@@ -1,5 +1,5 @@
 ---
-title: Comment configurer une application de proxy d’application pour utiliser PingAccess | Microsoft Docs
+title: Comment configurer une application Proxy d’application pour utiliser PingAccess
 description: Découvrez comment utiliser PingAccess pour apporter les avantages du proxy d’application aux applications utilisant l’authentification basée sur l’en-tête
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d555aaf99470588bb3ed2b328adb3e99f6c4a50e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852c69b6f64b59845b551202bd1a25646a49eb6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783993"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275652"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Comment configurer une application de proxy d’application pour utiliser PingAccess
 

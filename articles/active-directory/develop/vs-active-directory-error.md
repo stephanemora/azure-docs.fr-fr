@@ -12,18 +12,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941380"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271250"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostic d’erreurs avec le service connecté Azure Active Directory
 
-Lors de la détection du code d'authentification précédent, le serveur de connexion Azure Active Director a détecté un type d’authentification incompatible.
+Lors de la détection du code d’authentification précédent, le service connecté Azure Active Directory a détecté un type d’authentification incompatible.
 
-Afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré.  Si vous rencontrez cette erreur et qu'aucun code d'authentification précédent n'est disponible dans votre projet, régénérez et réessayez.
+Afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être regénéré. Si vous rencontrez cette erreur et qu'aucun code d'authentification précédent n'est disponible dans votre projet, régénérez et réessayez.
 
 ## <a name="project-types"></a>Types de projet
 

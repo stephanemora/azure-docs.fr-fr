@@ -1,20 +1,15 @@
 ---
-title: Tutoriel – Générer une image sur validation du code – Azure Container Registry Tasks
+title: Tutoriel - Générer une image lors de la validation du code
 description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche Azure Container Registry Task pour déclencher automatiquement la génération des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/04/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d01863979f4cf74d544ef2b1ff121022abb8d4f6
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931423"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454759"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 

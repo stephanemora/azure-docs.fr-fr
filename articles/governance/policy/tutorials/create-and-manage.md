@@ -1,14 +1,14 @@
 ---
-title: Créer et gérer des stratégies pour appliquer la conformité
-description: Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise.
-ms.date: 02/04/2019
+title: 'Didacticiel : Générer des stratégies pour appliquer la conformité'
+description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959542"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482326"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Didacticiel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -20,7 +20,11 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 > - Résoudre une ressource non conforme ou refusée
 > - Implémenter une nouvelle stratégie dans l’ensemble de l’entreprise
 
-Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la conformité de vos ressources existantes, consultez les articles de démarrage rapide qui passent en revue la marche à suivre. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la conformité de vos ressources existantes, consultez les articles de démarrage rapide qui passent en revue la marche à suivre.
+
+## <a name="prerequisites"></a>Prérequis
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="assign-a-policy"></a>Attribution d’une stratégie
 
@@ -443,7 +447,7 @@ Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les éta
 
 1. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="review"></a>Révision
 
 Dans ce didacticiel, vous avez effectué avec succès les tâches suivantes :
 
@@ -452,6 +456,8 @@ Dans ce didacticiel, vous avez effectué avec succès les tâches suivantes :
 > - Créé et attribué une définition d’initiative pour effectuer le suivi de la conformité de plusieurs ressources
 > - Résolu une ressource non conforme ou refusée
 > - Implémenté une nouvelle stratégie dans l’ensemble de l’entreprise
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les structures des définitions de stratégie, consultez cet article :
 

@@ -1,25 +1,19 @@
 ---
-title: Se connecter à l’aide de Truffle
+title: Utiliser Truffle pour vous connecter à Azure Blockchain Service
 description: Se connecter à un réseau Azure Blockchain Service à l’aide de Truffle
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.reviewer: janders
+ms.openlocfilehash: 9ea96aa32072775fe6fb9563442f5e3564d37ea5
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932595"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455802"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Démarrage rapide : Utiliser Truffle pour se connecter à un nœud de transaction
+# <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>Démarrage rapide : Utiliser Truffle pour vous connecter à Azure Blockchain Service
 
-Truffle est un environnement de développement de blockchain qui vous permet de vous connecter à un nœud de transaction Azure Blockchain Service.
+Dans ce guide de démarrage rapide, vous allez utiliser Truffle pour vous connecter à un nœud de transaction Azure Blockchain Service. Ensuite, vous utiliserez la console interactive Truffle pour appeler des méthodes **web3** afin d’interagir avec votre réseau blockchain.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,12 +52,15 @@ Truffle est un environnement de développement de blockchain qui vous permet de 
 
 Pour configurer le projet Truffle, vous avez besoin d’obtenir certaines informations sur le nœud de transaction à partir du portail Azure.
 
-### <a name="transaction-node-endpoint-addresses"></a>Adresses des points de terminaison de nœud de transaction
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
 
-1. Dans le portail Azure, accédez au nœud de transaction par défaut et sélectionnez **Nœuds de transaction > Chaînes de connexion**.
-1. Copiez et enregistrez l’URL du point de terminaison à partir de **HTTPS (clé d’accès 1)** . Vous aurez besoin des adresses des points de terminaison pour le fichier de configuration du contrat intelligent, plus tard dans ce tutoriel.
+    ![Sélectionner le nœud de transaction par défaut](./media/connect-truffle/transaction-nodes.png)
 
-    ![Adresse de point de terminaison de transaction](./media/connect-truffle/endpoint.png)
+1. Sélectionnez **Chaînes de connexion**.
+1. Copiez la chaîne de connexion située sous **HTTPS (Clé d’accès 1)** . Vous aurez besoin de cette chaîne pour la section suivante.
+
+    ![Chaîne de connexion](./media/connect-truffle/connection-string.png)
 
 ### <a name="edit-configuration-file"></a>Modifier le fichier de configuration
 
@@ -100,7 +97,7 @@ Utilisez *Web3* pour vous connecter au nœud de transaction.
 
     Truffle se connecte au nœud de transaction par défaut et fournit une console interactive.
 
-    Vous pouvez appeler des méthodes sur l’objet **web3** pour interagir avec votre nœud de transaction.
+    Vous pouvez appeler des méthodes sur l’objet **web3** pour interagir avec votre réseau blockchain.
 
 1. Appelez la méthode **getBlockNumber** pour retourner le nombre actuel de blocs.
 
@@ -122,9 +119,9 @@ Utilisez *Web3* pour vous connecter au nœud de transaction.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un projet Truffle pour vous connecter à votre nœud de transaction Azure Blockchain Service par défaut.
+Dans ce guide de démarrage rapide, vous avez utilisé Truffle pour vous connecter à un nœud de transaction Azure Blockchain Service par défaut, et vous avez utilisé la console interactive pour retourner le numéro de bloc blockchain actuel.
 
-Essayez le tutoriel suivant pour utiliser le kit de développement Azure Blockchain pour Ethereum et Truffle, afin de créer, générer, déployer et exécuter une fonction de contrat intelligent via une transaction.
+Essayez le tutoriel suivant pour utiliser Azure Blockchain Development Kit pour Ethereum afin de créer, générer, déployer et exécuter une fonction de contrat intelligent via une transaction.
 
 > [!div class="nextstepaction"]
-> [Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents](send-transaction.md)
+> [Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service](send-transaction.md)

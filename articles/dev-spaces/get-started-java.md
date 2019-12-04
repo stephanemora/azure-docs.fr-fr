@@ -1,8 +1,6 @@
 ---
-title: Créer un espace de développement Kubernetes dans le cloud à l’aide de Java et de VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Créer un espace de développement Kubernetes : Visual Studio Code et Java'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
@@ -10,14 +8,14 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: ec1c2b385797b1219814e584a9db7da82d111e2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704082"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325827"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à Java
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Créer un espace de développement Kubernetes : Visual Studio Code et Java avec Azure Dev Spaces
 
 Dans ce guide, vous allez apprendre à :
 

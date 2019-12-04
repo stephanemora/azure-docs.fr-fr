@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 1848f7230ed189f139a223020f08db150295132d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2b095f76eb2c2c9ca420e0049ced3e7af1e742c4
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647480"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405915"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
 
@@ -53,13 +53,13 @@ Créez une application .NET Core dans votre éditeur ou IDE favori.
 
 Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `face-quickstart`. Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n face-quickstart
 ```
 
 Déplacez vos répertoires vers le dossier d’application nouvellement créé. Vous pouvez générer l’application avec :
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -85,7 +85,7 @@ Dans la méthode `Main` de l’application, créez des variables pour le point d
 
 Dans le répertoire de l’application, installez la bibliothèque de client Visage pour .NET avec la commande suivante :
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
 ```
 
@@ -174,7 +174,7 @@ La méthode suivante détecte des visages dans un ensemble d’images cibles et 
 
 ### <a name="print-matches"></a>Afficher les correspondances
 
-Le code suivant affiche les détails relatifs aux correspondances sur la console.
+Le code suivant affiche les détails relatifs aux correspondances sur la console :
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
@@ -287,7 +287,7 @@ Le reste des opérations de capture instantanée doivent s’effectuer dans une 
 
 Exécutez l’application à partir de votre répertoire d’application avec la commande `dotnet run`.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

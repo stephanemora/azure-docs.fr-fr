@@ -1,6 +1,6 @@
 ---
-title: S’inscrire pour réinitialiser son propre mot de passe – Azure AD
-description: Inscrivez vos données d’authentification à la réinitialisation de mot de passe en libre-service Azure AD pour pouvoir réinitialiser votre propre mot de passe sans l’aide d’un administrateur.
+title: Inscrire des informations d’authentification pour réinitialiser son propre mot de passe – Azure AD
+description: Inscrivez vos informations de méthode de vérification destinées à la réinitialisation de mot de passe en libre-service Azure AD pour pouvoir réinitialiser votre propre mot de passe sans l’aide d’un administrateur.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820448"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279049"
 ---
-# <a name="register-to-reset-your-own-password"></a>S’inscrire pour réinitialiser son propre mot de passe
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Inscrire vos informations de méthode de vérification pour réinitialiser votre mot de passe
 
 > [!IMPORTANT]
 > Vous ne pouvez pas vous connecter et vous êtes retrouvé ici ? Dans ce cas, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](active-directory-passwords-update-your-own-password.md).
 
-En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte vous-même au moyen de la réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD). Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire vos méthodes d’authentification ou confirmer les méthodes d’authentification prédéfinies et remplies par votre administrateur.
+En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte vous-même au moyen de la réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD). Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire vos méthodes de vérification ou confirmer les méthodes de vérification prédéfinies et remplies par votre administrateur.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Inscrire ou confirmer les données d’authentification avec SSPR
 
@@ -38,13 +38,13 @@ En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou
     * **Question de sécurité** : votre administrateur a approuvé cette liste de questions auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même question ou réponse plusieurs fois.
 4. Fournissez et vérifiez les informations que demande votre administrateur. Si plusieurs options sont disponibles, nous vous suggérons d’inscrire plusieurs méthodes. Cela vous donne une grande souplesse si une des méthodes n’est pas disponible. C’est par exemple le cas quand vous êtes en déplacement et que vous ne pouvez pas accéder à votre téléphone de bureau.
 
-    ![Inscrire des méthodes d’authentification et sélectionne Terminer][Register]
+    ![Inscrire des méthodes de vérification et sélectionner Terminer][Register]
 
 5. Sélectionnez **Terminer**. Vous pouvez désormais utiliser la fonctionnalité SSPR.
 
 Si vous entrez des données pour **Téléphone d’authentification** ou **E-mail d’authentification**, elles ne sont pas visibles dans l’annuaire global. Les seules personnes qui peuvent voir ces données sont vos administrateurs et vous-même. Vous êtes la seule personne à pouvoir voir les réponses à vos questions de sécurité.
 
-Vos administrateurs peuvent vous demander de confirmer vos méthodes d’authentification après quelque temps pour vérifier que les méthodes inscrites sont toujours les bonnes.
+Vos administrateurs peuvent vous demander de confirmer vos méthodes de vérification après quelque temps pour vérifier que les méthodes inscrites sont toujours les bonnes.
 
 ## <a name="common-problems-and-their-solutions"></a>Problèmes courants et leurs solutions
 

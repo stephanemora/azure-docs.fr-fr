@@ -1,20 +1,20 @@
 ---
 title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
-description: Cet article fournit une vue d’ensemble de l’utilisation de la gestion des mises à jour d’Azure Automation pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure.
+description: Cet article fournit une vue d’ensemble de l’utilisation d’Azure Automation Update Management afin de gérer les mises à jour et les correctifs pour vos machines virtuelles Azure et non-Azure.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469732"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278780"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -51,15 +51,15 @@ Pour ce tutoriel, vous devez d’abord activer la gestion des mises à jour sur 
 1. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Update Management.
 1. Sur la page de la machine virtuelle, sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**. Le volet **Activer la gestion des mises à jour** s’ouvre.
 
-Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle. Cette validation inclut la vérification de l’existence d’un espace de travail Azure Log Analytics et d’un compte Automation lié, et détermine si la solution de gestion des mises à jour se trouve dans l’espace de travail.
+Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle. Cette validation inclut la recherche d’un espace de travail Log Analytics et d’un compte Automation lié, et détermine si la solution Update Management est activée dans l’espace de travail.
 
-Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+Un espace de travail [Log Analytics](../azure-monitor/platform/data-platform-logs.md) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
-Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook Worker hybride Automation. Cet agent est utilisé pour communiquer avec Azure Automation et obtenir des informations sur l’état des mises à jour. L’agent nécessite que le port 443 soit ouvert pour communiquer avec le service Azure Automation et télécharger des mises à jour.
+Le processus de validation vérifie également si la machine virtuelle est provisionnée avec l’agent Log Analytics et un runbook Worker hybride Automation. Cet agent est utilisé pour communiquer avec Azure Automation et obtenir des informations sur l’état des mises à jour. L’agent nécessite que le port 443 soit ouvert pour communiquer avec le service Azure Automation et télécharger des mises à jour.
 
 Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
-* Espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
+* Espace de travail [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 * Un [compte Automation](./automation-offering-get-started.md)
 * Un [runbook Worker hybride](./automation-hybrid-runbook-worker.md) (activé sur la machine virtuelle)
 
@@ -71,9 +71,9 @@ L’activation de la solution peut prendre quelques minutes. Pendant ce temps, n
 
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
-Une fois la gestion des mises à jour activée, le volet **Gestion des mises à jour** s’ouvre. Si des mises à jour sont manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
+Une fois la gestion des mises à jour activée, le volet **Gestion des mises à jour** s’ouvre. Si des mises à jour sont identifiées comme manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
 
-Sous le **LIEN D'INFORMATIONS**, sélectionnez le lien de mise à jour pour ouvrir l’article du support de la mise à jour dans une nouvelle fenêtre. Vous y trouverez des informations importantes sur la mise à jour.
+Sous **LIEN D’INFORMATIONS**, sélectionnez le lien de mise à jour pour ouvrir l’article du support de la mise à jour. Vous y trouverez des informations importantes sur la mise à jour.
 
 ![Afficher l’état des mises à jour](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

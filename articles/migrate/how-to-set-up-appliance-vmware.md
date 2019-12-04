@@ -1,17 +1,17 @@
 ---
-title: Configurer une appliance pour Azure Migrate Server Assessment/Migration des machines virtuelles VMware | Microsoft Docs
-description: Décrit comment configurer une appliance pour la découverte, l’évaluation et la migration sans agent des machines virtuelles VMware à l’aide de Azure Migrate Server Assessment/Migration.
+title: Configurer une appliance Azure Migrate pour VMware
+description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467127"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185858"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
@@ -48,11 +48,12 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Pour l’appliance version 1.0.0.5, le hachage généré doit correspondre à ces valeurs.
+3. Pour la dernière version de l’appliance, le hachage généré doit correspondre à ces paramètres.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
@@ -116,13 +117,13 @@ L’appliance doit se connecter à vCenter Server pour détecter les données de
 2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
 
-### <a name="specify-vm-credentials"></a>Spécifier les informations d’identification de machine virtuelle
-Pour la découverte des applications, des rôles et des fonctionnalités et la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui ont accès aux machines virtuelles VMware. Vous pouvez ajouter une information d’identification pour les machines virtuelles Windows et une autre pour les machines virtuelles Linux. [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les privilèges d’accès nécessaires.
+### <a name="specify-vm-credentials"></a>Spécifier des informations d’identification de machine virtuelle
+Pour la découverte des applications, des rôles et des fonctionnalités, et pour la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui permettent d’accéder aux machines virtuelles VMware. Vous pouvez ajouter des informations d’identification pour les machines virtuelles Windows et d’autres pour les machines virtuelles Linux. [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les privilèges d’accès nécessaires.
 
 > [!NOTE]
-> Cette entrée est facultative et nécessaire pour activer la détection des applications et la visualisation des dépendances sans agent.
+> Cette entrée est facultative. Elle est nécessaire pour activer la découverte des applications et pour visualiser les dépendances sans agent.
 
-1. Dans **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez **Ajouter les informations d’identification**.
+1. Dans **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez sur **Ajouter les informations d’identification**.
 2. Sélectionnez le **Système d’exploitation**.
 3. Fournissez un nom convivial pour les informations d’identification.
 4. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez un compte disposant au moins d’un accès invité sur les machines virtuelles.

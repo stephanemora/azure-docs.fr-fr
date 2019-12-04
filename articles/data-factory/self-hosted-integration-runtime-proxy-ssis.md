@@ -1,5 +1,5 @@
 ---
-title: Configurer un runtime d’intégration auto-hébergé en tant que proxy pour SSIS dans Azure Data Factory
+title: Configurer un runtime d’intégration auto-hébergé en tant que proxy pour SSIS
 description: Apprenez à configurer un runtime d'intégration auto-hébergé en tant que proxy pour Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
@@ -7,19 +7,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/12/2019
+ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954739"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217648"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurer un runtime d'intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF
+
 Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF) avec un runtime d'intégration auto-hébergé configuré en tant que proxy.  Cette fonctionnalité vous permet d'accéder aux données locales sans avoir à [joindre votre instance d'Azure-SSIS IR à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Ceci est particulièrement utile lorsque la stratégie de configuration/stratégie restrictive de votre réseau d'entreprise est trop complexe pour y injecter votre instance d'Azure-SSIS IR.
 
 Cette fonctionnalité divisera un package contenant une tâche de flux de données avec source de données locale en deux tâches intermédiaires : la première exécutée sur votre runtime d'intégration auto-hébergé transférera d'abord les données de la source locale vers une zone de transit de votre Stockage Blob Azure, tandis que la seconde exécutée sur votre instance d'Azure-SSIS IR transférera ensuite les données de la zone de transit vers la destination prévue.
@@ -47,7 +49,7 @@ Si ce n'est déjà fait, créez un service lié Stockage Blob Azure sous la fabr
 ## <a name="configure-azure-ssis-ir-with-self-hosted-ir-as-a-proxy"></a>Configurer Azure-SSIS IR avec le runtime d'intégration auto-hébergé comme proxy
 Une fois votre runtime d'intégration auto-hébergé et votre service lié Stockage Blob Azure prêts pour le transit, vous pouvez configurer votre instance d'Azure-SSIS IR nouvelle/existante avec le runtime d'intégration auto-hébergé comme proxy sur le portail/l'application ADF.  Si l'instance existante d'Azure-SSIS IR est en cours d'exécution, arrêtez-la. Vous la redémarrerez plus tard.
 
-Sur la page **Paramètres avancés**, cochez la case **Configurer le runtime d'intégration auto-hébergé en tant que proxy pour votre instance d'Azure-SSIS Integration Runtime**, sélectionnez votre runtime d'intégration auto-hébergé et votre service lié Stockage Blob Azure pour le transit et, si vous le souhaitez, spécifiez un nom de conteneur d'objets blob sous **Chemin d'accès intermédiaire**.
+Sur la page **Paramètres avancés**, cochez la case **Configurer le runtime d'intégration auto-hébergé en tant que proxy pour votre Azure-SSIS Integration Runtime**, sélectionnez votre IR auto-hébergé et votre service lié Stockage Blob Azure pour le transit et, si vous le souhaitez, spécifiez un nom de conteneur d'objets blob sous **Chemin d'accès intermédiaire**.
 
 ![Configurer Azure-SSIS IR avec le runtime d'intégration auto-hébergé comme proxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
@@ -58,7 +60,7 @@ Lors de la conception de nouveaux packages contenant des tâches de flux de donn
 
 ![Activer la propriété ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
-Vous pouvez également activer cette propriété lors de l'exécution de packages existants sans qu'il soit nécessaire de les modifier manuellement un par un.  Il existe 2 options :
+Vous pouvez également activer cette propriété lors de l'exécution de packages existants sans qu'il soit nécessaire de les modifier manuellement un par un.  Nous avons deux options :
 - Ouvrir, régénérer et redéployer le projet contenant ces packages avec la dernière version de SSDT pour une exécution sur votre instance d'Azure-SSIS IR : La propriété peut ensuite être activée en choisissant la valeur **True** pour les gestionnaires de connexions appropriés qui apparaissent dans l'onglet **Gestionnaires de connexions** de la fenêtre indépendante Exécuter le package lors de l'exécution des packages à partir de SSMS.
 
   ![Activer la propriété ConnectByProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)

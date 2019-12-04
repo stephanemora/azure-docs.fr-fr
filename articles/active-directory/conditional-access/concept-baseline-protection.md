@@ -1,22 +1,22 @@
 ---
-title: Stratégies de protection de référence de l’accès conditionnel - Azure Active Directory
+title: Stratégies de référence de l’accès conditionnel – Azure Active Directory
 description: Stratégies de référence de l’accès conditionnel pour protéger les entreprises contre les attaques courantes
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430332"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420558"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
@@ -26,7 +26,7 @@ La gestion de stratégies d’accès conditionnel personnalisé requiert une lic
 
 ## <a name="baseline-policies"></a>Stratégies de base de référence
 
-![Stratégies de référence d’accès conditionnel dans le portail Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Stratégies de référence d’accès conditionnel dans le portail Azure](./media/concept-baseline-protection/conditional-access-policies.png)
 
 Il existe quatre stratégies de référence :
 

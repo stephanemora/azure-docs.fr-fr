@@ -1,18 +1,18 @@
 ---
-title: Protection de zones et d’enregistrements DNS Azure
-description: Comment protéger les jeux d’enregistrements et de zones DNS dans le DNS Microsoft Azure.
+title: Protection des zones DNS et des enregistrements - Azure DNS
+description: Dans ce parcours d’apprentissage, commencez à protéger des zones DNS et des jeux d’enregistrement dans Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: victorh
-ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121442"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211443"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 

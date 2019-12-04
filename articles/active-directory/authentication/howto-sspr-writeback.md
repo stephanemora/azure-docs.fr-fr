@@ -1,22 +1,22 @@
 ---
-title: Comment configurer la réécriture du mot de passe pour Azure AD SSPR - Azure Active Directory
+title: Configurer la réécriture du mot de passe pour SSPR - Azure Active Directory
 description: Utilisation d’Azure AD et d’Azure AD Connect pour l’écriture différée des mots de passe dans un annuaire local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1acda877ecadc8ad0abd09b78d5453743e2470b1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021771"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381151"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procédure : Configuration de l’écriture différée du mot de passe
 

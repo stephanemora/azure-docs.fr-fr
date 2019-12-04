@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un index de recherche dans Postman à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment appeler les API REST de la Recherche cognitive Azure à l’aide de Postman ainsi que d’exemples de données et de définitions.
+description: Dans ce guide de démarrage rapide de l’API REST, découvrez comment appeler les API REST de Recherche cognitive Azure avec Postman, et des exemples de données et de définitions.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792281"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406957"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Postman à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -288,7 +288,7 @@ L’ajout de `/stats` à votre URL retourne des informations d’index. Dans Pos
 
 Notez que la syntaxe de la version d’API diffère. Pour cette requête, utilisez `?` pour ajouter la version d’API. `?` sépare le chemin de l’URL de la chaîne de requête, alors que le signe & sépare chaque paire « nom=valeur » dans la chaîne de requête. Pour cette requête, la version d’API est le premier et seul élément de la chaîne de requête.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

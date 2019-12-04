@@ -1,24 +1,23 @@
 ---
-title: 'Démarrage rapide : Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager'
-description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
+title: Configurer Azure IoT Hub Device Provisioning avec un modèle Azure Resource Manager
+description: Démarrage rapide Azure - Configurer le service Azure IoT Hub Device Provisioning avec un modèle
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903360"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276378"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
-Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour configurer par programme les ressources du cloud Azure nécessaires à l’approvisionnement de vos appareils. Ces étapes montrent comment créer un IoT Hub et un service IoT Hub Device Provisioning et comment lier les deux services à l’aide d’un modèle Azure Resource Manager. Ce guide de démarrage rapide utilise [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) pour effectuer les étapes de programmation nécessaires pour créer un groupe de ressources et déployer le modèle. Cependant, vous pouvez facilement utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou d’autres langages de programmation pour effectuer ces étapes et déployer votre modèle. 
+Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour configurer par programme les ressources du cloud Azure nécessaires à l’approvisionnement de vos appareils. Ces étapes montrent comment créer un hub IoT et un service IoT Hub Device Provisioning et comment lier les deux avec un modèle Azure Resource Manager. Ce guide de démarrage rapide utilise [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) pour effectuer les étapes de programmation nécessaires pour créer un groupe de ressources et déployer le modèle. Cependant, vous pouvez facilement utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby ou d’autres langages de programmation pour effectuer ces étapes et déployer votre modèle. 
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -78,7 +77,7 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
    }
    ```
 
-2. Remplacez la section **parameters** par ce qui suit. La section parameters spécifie les paramètres qui peuvent être transmis à partir d’un autre fichier. Cette section spécifie le nom de l’IoT Hub et du service d’approvisionnement à créer. Elle indique également leur emplacement. Les valeurs sont limitées aux régions Azure qui prennent en charge les IoT Hubs et les services d’approvisionnement. Pour obtenir la liste des emplacements pris en charge pour le service Device Provisioning, vous pouvez exécuter la commande suivante `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou accéder à la page [État d’Azure](https://azure.microsoft.com/status/) et rechercher « service Device Provisioning ».
+2. Remplacez la section **parameters** par ce qui suit. La section parameters définit les paramètres dont les valeurs peuvent être passées à partir d’un autre fichier. Cette section définit le nom du hub IoT et du service de provisionnement à créer. Elle définit également leur emplacement. Les valeurs sont limitées aux régions Azure qui prennent en charge les hubs IoT et les services de provisionnement. Pour obtenir la liste des emplacements pris en charge pour le service Device Provisioning, vous pouvez exécuter la commande suivante `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou accéder à la page [État d’Azure](https://azure.microsoft.com/status/) et rechercher « service Device Provisioning ».
 
    ```json
     "parameters": {
@@ -114,7 +113,7 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
 
    ```
 
-4. Pour créer un IoT Hub, ajoutez les lignes suivantes à la collection **ressources**. Le format JSON spécifie les propriétés minimales requises pour créer un IoT Hub. Les propriétés **name** et **location** sont transmises en tant que paramètres. Pour en savoir plus sur les propriétés que vous pouvez spécifier pour un IoT Hub dans un modèle, consultez l’article [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs) (Informations de référence sur le modèle Microsoft.Devices/IotHubs).
+4. Pour créer un IoT Hub, ajoutez les lignes suivantes à la collection **ressources**. Le code JSON spécifie les propriétés minimales requises pour créer un hub IoT. Les valeurs **name** et **location** sont passées en tant que paramètres à partir d’un autre fichier. Pour en savoir plus sur les propriétés que vous pouvez spécifier pour un hub IoT dans un modèle, consultez les [informations de référence sur le modèle Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -134,9 +133,9 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
 
    ``` 
 
-5. Pour créer le service d’approvisionnement, ajoutez les lignes suivantes après la spécification du IoT Hub dans la collection **ressources**. Le **nom** et **l’emplacement** de ce service sont transmis dans les paramètres. Spécifiez les IoT Hubs à lier au service d’approvisionnement dans la collection **iotHubs**. Vous devez spécifier au moins les propriétés **connectionString** et **location** pour chaque IoT Hub lié. Vous pouvez également définir les propriétés telles que **allocationWeight** et **applyAllocationPolicy** sur chaque IoT Hub, ainsi que les propriétés comme **allocationPolicy** et  **authorizationPolicies** dans le service d’approvisionnement proprement dit. Pour plus d’informations, consultez l’article [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Informations de référence sur le modèle Microsoft.Devices/provisioningServices).
+5. Pour créer le service d’approvisionnement, ajoutez les lignes suivantes après la spécification du IoT Hub dans la collection **ressources**. Les valeurs **name** et **location** du service de provisionnement sont passées en tant que paramètres. La collection **iotHubs** spécifie les hubs IoT à lier au service de provisionnement. Vous devez spécifier au moins les propriétés **connectionString** et **location** pour chaque IoT Hub lié. Vous pouvez également définir les propriétés telles que **allocationWeight** et **applyAllocationPolicy** sur chaque IoT Hub, ainsi que les propriétés comme **allocationPolicy** et  **authorizationPolicies** dans le service d’approvisionnement proprement dit. Pour plus d’informations, consultez l’article [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Informations de référence sur le modèle Microsoft.Devices/provisioningServices).
 
-   La propriété **dependsOn** permet de s’assurer que Resource Manager crée l’IoT Hub avant le service d’approvisionnement. Le modèle nécessite que la chaîne de connexion du IoT Hub spécifie sa liaison avec le service d’approvisionnement. Vous devez donc créer en premier lieu le Hub et ses clés. Le modèle utilise des fonctions telles que **concat** et **listKeys** pour créer la chaîne de connexion. Pour en savoir plus, consultez l’article [Fonctions des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
+   La propriété **dependsOn** permet de s’assurer que Resource Manager crée l’IoT Hub avant le service d’approvisionnement. Le modèle nécessite que la chaîne de connexion du IoT Hub spécifie sa liaison avec le service d’approvisionnement. Vous devez donc créer en premier lieu le Hub et ses clés. Le modèle utilise des fonctions telles que **concat** et **listKeys** pour créer la chaîne de connexion à partir de variables paramétrées. Pour en savoir plus, consultez l’article [Fonctions des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -235,7 +234,7 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
-Le modèle que vous avez défini à la dernière étape utilise des paramètres pour spécifier le nom de l’IoT Hub, le nom du service d’approvisionnement et l’emplacement (région Azure) pour les créer. Vous transmettez ces paramètres dans un fichier distinct. En procédant ainsi, vous pouvez réutiliser le même modèle pour plusieurs déploiements. Pour créer le fichier de paramètres, procédez comme suit :
+Le modèle que vous avez défini à la dernière étape utilise des paramètres pour spécifier le nom du hub IoT, le nom du service de provisionnement et l’emplacement (région Azure) pour les créer. Vous passez ces paramètres au modèle à partir d’un fichier distinct. En procédant ainsi, vous pouvez réutiliser le même modèle pour plusieurs déploiements. Pour créer le fichier de paramètres, procédez comme suit :
 
 1. Dans un éditeur de texte, créez un fichier de paramètres Azure Resource Manager appelé **parameters.json** avec le contenu squelette suivant : 
 
@@ -248,7 +247,7 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
    }
    ```
 
-2. Ajoutez la valeur **iotHubName** à la section de paramètre. Si vous modifiez le nom, assurez-vous qu’il suit les conventions d’affectation de noms appropriées pour un IoT Hub. Il doit comporter 3 à 50 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules ou majuscules ou des traits d’union (« - »). 
+2. Ajoutez la valeur **iotHubName** à la section de paramètre.  Un nom de hub IoT doit être globalement unique dans Azure. Vous pouvez donc ajouter un préfixe ou un suffixe unique à l’exemple de nom ou choisir un nouveau nom. Vérifiez que votre nom respecte les conventions de nommage pour les hubs IoT, à savoir qu’il doit comprendre entre 3 et 50 caractères et contenir uniquement des caractères alphanumériques en minuscules ou majuscules ou des traits d’union (« - »). 
 
    ```json
     "parameters": {
@@ -259,7 +258,7 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
    
    ```
 
-3. Ajoutez la valeur **provisioningServiceName** à la section de paramètre. Si vous modifiez le nom, assurez-vous qu’il suit les conventions d’affectation de noms appropriées pour un service IoT Hub Device Provisioning. Il doit comporter 3 à 64 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules ou majuscules ou des traits d’union (« - »).
+3. Ajoutez la valeur **provisioningServiceName** à la section de paramètre. Vous devez également choisir un nom global unique pour votre service de provisionnement. Vérifiez qu’il respecte les conventions de nommage pour les services IoT Hub Device Provisioning, à savoir qu’il doit comprendre entre 3 et 64 caractères et contenir uniquement des caractères alphanumériques en minuscules ou majuscules ou des traits d’union (« - »).
 
    ```json
     "parameters": {
@@ -273,7 +272,7 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
 
    ```
 
-4. Ajoutez la valeur **hubLocation** à la section de paramètre. Cette valeur spécifie l’emplacement de l’IoT Hub et du service d’approvisionnement. La valeur doit correspondre à l’un des emplacements spécifiés dans la collection **allowedValues** de la définition de paramètre du modèle de fichier. Cette collection limite les valeurs aux emplacements Azure qui prennent en charge les IoT Hubs et les services d’approvisionnement. Pour obtenir la liste des emplacements pris en charge pour le service Device Provisioning, vous pouvez exécuter la commande suivante `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou accéder à la page [État d’Azure](https://azure.microsoft.com/status/) et rechercher « service Device Provisioning ».
+4. Ajoutez la valeur **hubLocation** à la section de paramètre. Cette valeur spécifie l’emplacement de l’IoT Hub et du service d’approvisionnement. La valeur doit correspondre à l’un des emplacements spécifiés dans la collection **allowedValues** de la définition de paramètre du modèle de fichier. Cette collection limite les valeurs aux emplacements Azure qui prennent en charge les IoT Hubs et les services d’approvisionnement. Pour obtenir la liste des emplacements pris en charge pour le service Device Provisioning, vous pouvez exécuter la commande `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou accéder à la page [État d’Azure](https://azure.microsoft.com/status/) et rechercher « service Device Provisioning ».
 
    ```json
     "parameters": {
@@ -301,13 +300,13 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
 
 Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérifier le déploiement.
 
-1. Pour déployer votre modèle, exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) :
+1. Pour déployer votre modèle, accédez au dossier contenant les fichiers de modèle et de paramètres, puis exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) :
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
     ```
 
-   Recherchez la propriété **provisioningState** définie sur « Succeeded » dans la sortie. 
+   Cette opération peut prendre quelques minutes. Une fois l’opération terminée, recherchez la propriété **provisioningState** et vérifiez qu’elle indique « Succeeded » dans la sortie. 
 
    ![Sortie de l’approvisionnement](./media/quick-setup-auto-provision-rm/output.png) 
 
@@ -321,7 +320,7 @@ Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérif
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Si vous ne pensez pas continuer, vous pouvez utiliser l’interface Azure CLI pour [supprimer une ressource][lnk-az-resource-command], par exemple un IoT Hub ou un service d’approvisionnement ou bien un groupe de ressources et l’ensemble de ses ressources.
+Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Si vous ne pensez pas continuer, vous pouvez utiliser Azure CLI pour [supprimer une ressource][lnk-az-resource-command], comme un hub IoT ou un service de provisionnement, ou bien un groupe de ressources et l’ensemble de ses ressources.
 
 Pour supprimer le service d’approvisionnement, exécutez la commande suivante :
 
@@ -340,11 +339,11 @@ Pour supprimer un groupe de ressources et toutes ses ressources, exécutez la co
 az group delete --name {your resource group name}
 ```
 
-Vous pouvez également supprimer des groupes de ressources et des ressources individuelles à l’aide du portail Azure, de PowerShell ou des API REST ou des Kits de développement logiciel (SDK) de plateforme prise en charge publiés pour Azure Resource Manager ou le service IoT Hub Device Provisioning.
+Vous pouvez également supprimer des groupes de ressources et des ressources individuelles à l’aide du portail Azure, de PowerShell, des API REST ou encore des kits SDK de plateforme prise en charge publiés pour Azure Resource Manager ou le service IoT Hub Device Provisioning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez déployé un IoT Hub et une instance de service d’approvisionnement d’appareil, puis vous avez lié les deux ressources. Pour savoir comment utiliser cette configuration pour approvisionner un appareil simulé, référez-vous au démarrage rapide relatif à la création d’appareil simulé.
+Dans ce guide de démarrage rapide, vous avez déployé un hub IoT et une instance de service Device Provisioning, puis vous avez lié ces deux ressources. Pour savoir comment utiliser cette configuration pour provisionner un appareil simulé, passez au guide de démarrage rapide relatif à la création d’un appareil simulé.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide pour créer un appareil simulé](./quick-create-simulated-device.md)

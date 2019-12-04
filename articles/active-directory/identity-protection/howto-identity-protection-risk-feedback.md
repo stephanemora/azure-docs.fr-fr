@@ -1,22 +1,22 @@
 ---
-title: Fournir des commentaires sur les détections de risques dans Azure AD Identity Protection - Azure Active Directory
+title: Fournir des commentaires relatifs au risque dans Azure Active Directory Identity Protection
 description: Comment et pourquoi vous devez fournir des commentaires sur les détections de risques dans Azure AD Identity Protection.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be83f7fd71a4e5b300bd2a04bf335b494d9f05ac
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 4be8290f12d64f0c556100c63ec159bd414c6fcb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886856"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382095"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Procédure : Indiquer des commentaires sur les risques dans Azure AD Identity Protection
 

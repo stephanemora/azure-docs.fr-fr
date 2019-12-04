@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ad88066ebf19bdcc9bcdb77309ce76828c09ce47
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b11b2c42087b8724c7d90b87bc33965eb7270dc6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671120"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422005"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Octroyer l’accès aux données d’objet blob et de file d’attente Azure dans le portail Azure
 
@@ -53,12 +53,12 @@ Avant d’attribuer un rôle à un principal de sécurité, veillez à tenir com
 
 La procédure illustrée ici attribue un rôle limité à un conteneur, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle limité à une file d’attente : 
 
-1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis affichez la **Vue d’ensemble** du compte.
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis affichez l’**Aperçu** du compte.
 1. Sous Services, sélectionnez **Blobs**. 
 1. Recherchez le conteneur pour lequel vous souhaitez attribuer un rôle, puis affichez les paramètres de ce conteneur. 
 1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du conteneur. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
 
-    ![Capture d’écran montrant les paramètres de contrôle d’accès du conteneur](media/storage-auth-aad-rbac-portal/portal-access-control-container.png)
+    ![Capture d’écran montrant les paramètres de contrôle d’accès du conteneur](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
 
 1. Cliquez sur le bouton **Ajouter une attribution de rôle** pour ajouter un nouveau rôle.
 1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle Stockage Azure que vous souhaitez attribuer. Recherchez ensuite le principal de sécurité auquel vous souhaitez attribuer ce rôle.

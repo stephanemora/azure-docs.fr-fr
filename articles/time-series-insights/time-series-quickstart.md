@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/15/2019
+ms.openlocfilehash: 7bccc75b4a70e98f069d1ffb86909368105b9a32
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006436"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167625"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Démarrage rapide : Explorer Azure Time Series Insights
 
@@ -38,45 +38,47 @@ Ce guide de démarrage rapide consacré à l’explorateur Time Series Insights 
 
 1. La page de présentation Time Series Insights s’affiche. Sélectionnez **Suivant** pour commencer la visite guidée.
 
-   [![Sélectionner Suivant](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Bienvenue dans le tutoriel de démarrage rapide - sélectionnez Suivant](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Explorer l’environnement de démonstration
 
 1. Le **Volet de sélection de temps** s’affiche. Utilisez ce volet pour sélectionner un intervalle de temps à visualiser.
 
-   [![Volet de sélection d’heure](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [![Volet de sélection d’heure](media/quickstart/quickstart-time-selection-panel.png)](media/quickstart/quickstart-time-selection-panel.png#lightbox)
 
 1. Sélectionnez un intervalle de temps et faites-le glisser dans la région. Ensuite, sélectionner **Rechercher**.
 
-   [![Sélectionner un délai d’exécution](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![Sélectionner un délai d’exécution](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
    Time Series Insights affiche une visualisation de graphique pour l’intervalle de temps spécifié. Vous pouvez effectuer diverses actions dans le graphique en courbes. Par exemple, vous pouvez filtrer, épingler, trier et empiler.
 
    Pour revenir au **volet de sélection de temps**, sélectionnez la flèche vers le bas, comme illustré :
 
-   [![Graphique](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![Graphique](media/quickstart/quickstart-select-down-arrow.png)](media/quickstart/quickstart-select-down-arrow.png#lightbox)
 
 1. Sélectionnez **Ajouter** dans le **Volet de temps** pour ajouter un nouveau terme de recherche.
 
-   [![Ajouter un élément](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![Ajouter un volet de termes de recherche](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
 
 1. Dans le graphique, vous pouvez sélectionner une région en cliquant avec le bouton droit de la région et en sélectionnant **Explorer les événements**.
 
-   [![Explorer les événements](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![Explorer les événements](media/quickstart/quickstart-explore-events.png)](media/quickstart/quickstart-explore-events.png#lightbox)
 
    Une grille de vos données brutes s’affiche à partir de la région que vous explorez.
 
-   [![Affichage de grille](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![Explorer les événements - Vue des données de la grille](media/quickstart/quickstart-explore-events-grid-data.png)](media/quickstart/quickstart-explore-events-grid-data.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Sélectionner et filtrer les données
 
 1. Modifiez vos termes pour changer les valeurs dans le graphique. Ajoutez un autre terme pour effectuer une corrélation croisée entre différents types de valeurs.
 
-   [![Ajouter un terme](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![Ajouter un terme](media/quickstart/quickstart-add-a-term.png)](media/quickstart/quickstart-add-a-term.png#lightbox)
 
-1. Entrez une condition de filtre dans la zone **Filtrer les séries** pour le filtrage improvisé de séries. Pour le démarrage rapide, saisissez **Station5** pour avoir une corrélation croisée de la température et de la pression pour cette station.
+1. Laissez la zone **Filter la série** vide pour afficher tous les termes de recherche sélectionnés ou entrez un terme de filtre dans la zone **Filtrer la série** pour le filtrage de série improvisé.
 
-   [![Filtrer les séries](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![Filtrer les séries](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
+
+   Pour le démarrage rapide, saisissez **Station5** pour avoir une corrélation croisée de la température et de la pression pour cette station.
 
 Après avoir terminé le démarrage rapide, vous pouvez tester l’exemple de jeu de données pour créer différentes visualisations.
 

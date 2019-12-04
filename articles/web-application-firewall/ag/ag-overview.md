@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067149"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384108"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -89,7 +89,12 @@ Pour plus d’informations, voir [Règles et groupes de règles CRS de pare-feu 
 
 Application Gateway prend également en charge des règles personnalisées. Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête passant par WAF. Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Si un ensemble de conditions sont remplies, une action est entreprise pour autoriser ou bloquer. 
 
-Pour plus d’informations, voir [Règles personnalisées pour Application Gateway](custom-waf-rules-overview.md).
+L’opérateur de géocorrespondance est désormais disponible en préversion publique pour les règles personnalisées. Pour plus d’informations, consultez [Règles personnalisées de géocorrespondance](custom-waf-rules-overview.md#geomatch-custom-rules-preview).
+
+> [!NOTE]
+> L’opérateur de géocorrespondance pour les règles personnalisées est actuellement disponible en préversion publique et il est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Pour plus d’informations sur les règles personnalisées, consultez [Règles personnalisées pour Application Gateway](custom-waf-rules-overview.md).
 
 ### <a name="bot-mitigation-preview"></a>Atténuation de robot (préversion)
 

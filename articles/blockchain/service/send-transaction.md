@@ -1,21 +1,17 @@
 ---
-title: Utiliser Visual Studio Code - Azure Blockchain Service
+title: Tutoriel pour créer, générer et déployer des contrats intelligents - Azure Blockchain Service
 description: Tutoriel expliquant comment utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d2cb174656f5ed8f13d4463d416455ebb3f9ec9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329243"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325166"
 ---
-# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Didacticiel : Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Didacticiel : Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service
 
 Dans ce tutoriel, vous allez utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service. Vous allez aussi utiliser Truffle pour exécuter une fonction de contrat intelligent via une transaction.
 
@@ -32,6 +28,21 @@ Vous utilisez Azure Blockchain Development Kit pour Ethereum afin de :
 ## <a name="prerequisites"></a>Prérequis
 
 * Effectuer l’étape [Démarrage rapide : Utiliser Visual Studio Code pour se connecter à un réseau de consortium Azure Blockchain Service](connect-vscode.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Azure Blockchain Development Kit pour l’extension Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js 10.15.x ou ultérieur](https://nodejs.org/download)
+* [Git 2.10.x ou ultérieur](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Ajoutez python.exe à votre chemin. La présence de Python version 2.7.15 dans votre chemin est obligatoire pour le Kit de développement Azure Blockchain.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+Sur Windows, un compilateur C++ doit être installé pour le module node-gyp. Vous pouvez utiliser les outils MSBuild :
+
+* Si Visual Studio 2017 est installé, configurez npm pour utiliser les outils MSBuild avec la commande `npm config set msvs_version 2017 -g`
+* Si Visual Studio 2019 est installé, définissez le chemin des outils de build MS pour npm. Par exemple, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Dans le cas contraire, installez les outils de build Visual Studio autonomes à l’aide de `npm install --global windows-build-tools` dans une interface de commande *Exécuter en tant qu’administrateur* avec élévation de privilèges.
+
+Pour plus d’informations sur node-gyp, consultez le [dépôt node-gyp sur GitHub](https://github.com/node-gyp).
 
 ## <a name="create-a-smart-contract"></a>Créer un contrat intelligent
 
@@ -165,7 +176,7 @@ Le script interroge le contrat intelligent en appelant la fonction getMessage. L
 
 ![Sortie du script](./media/send-transaction/execute-get.png)
 
-Notez que la valeur n’est pas **Hello,blockchain!** . Un espace réservé est la valeur retournée à la place. Lorsque vous modifiez et déployez le contrat, celui-ci obtient une nouvelle adresse de contrat et des valeurs sont attribuées aux variables d’état dans le constructeur de contrat intelligent. Le script de migration **2_deploy_contracts. js** de l’exemple de Truffle déploie le contrat intelligent et passe une valeur d’espace réservé en tant qu’argument. Le constructeur affecte la variable d’état **RequestMessage** à la valeur d’espace réservé : c’est ce qui est retourné.
+Notez que la valeur n’est pas **Hello,blockchain!** . Un espace réservé est la valeur retournée à la place. Quand vous changez et déployez le contrat, celui-ci est déployé à une nouvelle adresse et des valeurs sont attribuées aux variables d’état dans le constructeur de contrat intelligent. Le script de migration **2_deploy_contracts. js** de l’exemple de Truffle déploie le contrat intelligent et passe une valeur d’espace réservé en tant qu’argument. Le constructeur affecte la variable d’état **RequestMessage** à la valeur d’espace réservé : c’est ce qui est retourné.
 
 1. Pour définir la variable d’état **RequestMessage** et interroger la valeur, réexécutez les scripts **sendrequest.js** et **getmessage.js**.
 

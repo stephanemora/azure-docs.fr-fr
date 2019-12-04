@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976318"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480651"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -83,7 +83,7 @@ Les expressions de données permettent d’accéder aux données de propriété 
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | objet | Récupère un élément à partir d’un tableau. |
+| `['at', number, array]` | object | Récupère un élément à partir d’un tableau. |
 | `['geometry-type']` | string | Obtient le type de géométrie de la fonctionnalité : Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Obtient la valeur de propriété à partir des propriétés de la fonctionnalité actuelle. Retourne la valeur null si la propriété demandée est manquante. |
 | `['get', string, object]` | value | Obtient la valeur de propriété à partir des propriétés de l’objet fourni. Retourne la valeur null si la propriété demandée est manquante. |
@@ -375,6 +375,24 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
+L’exemple suivant utilise une expression `coalesce` pour récupérer la première icône d’image disponible dans le sprite de mappage à partir d’une liste de noms d’images spécifiés.
+
+```javascript
+var layer = new atlas.layer.SymbolLayer(datasource, null, {
+    iconOptions: {
+        image: [
+            'coalesce',
+
+            //Try getting the image with id 'missing-image'.
+            ['image', 'missing-image'],
+
+            //Specify an image id to fallback to. 
+            'marker-blue'
+        ]
+    }
+});
+``` 
+
 ## <a name="type-expressions"></a>Expressions du type
 
 Les expressions du type fournissent des outils permettant de tester et de convertir différents types de données comme des chaînes, des nombres et des valeurs booléennes.
@@ -382,6 +400,7 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | tableau\|objet | Retourne une valeur littérale d’objet ou de tableau. Utilisez cette expression pour empêcher qu’un tableau ou un objet soit évalué en tant qu’expression. Cela est nécessaire quand un tableau ou un objet doit être retourné par une expression. |
+| `['image', string]` | string | Vérifie si un ID d’image spécifié est chargé dans le sprite d’image de mappages. Si c’est le cas, l’ID est retourné ; sinon, la valeur null est retournée. |
 | `['to-boolean', value]` | boolean | Convertit la valeur d’entrée en une valeur booléenne. Le résultat est `false` quand l’entrée est une chaîne vide, `0`, `false`, `null` ou `NaN` ; sinon, il prend la valeur `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convertit la valeur d’entrée en une couleur. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Convertit la valeur d’entrée en un nombre, si cela est possible. Si l’entrée est `null` ou `false`, le résultat est 0. Si l’entrée est `true`, le résultat est 1. Si l’entrée est une chaîne, elle est convertie en un nombre à l’aide de la fonction de chaîne [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la spécification de langage ECMAScript. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
@@ -400,7 +419,7 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 >             //Get the entityType value.
 >             ['get', 'entityType'],
 >
->             //If there is no title, try getting the subtitle. 
+>             //If the entity type is 'restaurant', return a different pixel offset. 
 >             'restaurant', ['literal', [0, -10]],
 >
 >             //Default to value.
@@ -665,6 +684,7 @@ L’expression de format de champ de texte peut être utilisée avec l’option 
 
  * `'font-scale'` : spécifie le facteur d’échelle pour la taille de police. Si elle est spécifiée, cette valeur remplace la propriété `size` des `textOptions` pour la chaîne individuelle.
  * `'text-font'` : spécifie une ou plusieurs familles de polices qui doivent être utilisés pour cette chaîne. Si elle est spécifiée, cette valeur remplace la propriété `font` des `textOptions` pour la chaîne individuelle.
+ * `'text-color'` : spécifie une couleur à appliquer à un texte lors du rendu. 
 
 Le pseudo-code suivant définit la structure de l’expression de format de champ de texte. 
 
@@ -674,12 +694,14 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[],
+        'text-color': color
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[] ,
+        'text-color': color
     },
     …
 ]
@@ -687,7 +709,7 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
 
 **Exemple**
 
-L’exemple suivant met en forme le champ de texte en ajoutant une police gras et en effectuant un scale-up de la taille de police de la propriété `title` de la fonctionnalité. Cet exemple ajoute également la propriété `subtitle` de la fonctionnalité sur une nouvelle ligne, avec un scale-down de la taille de police.
+L’exemple suivant met en forme le champ de texte en ajoutant une police gras et en effectuant un scale-up de la taille de police de la propriété `title` de la fonctionnalité. Cet exemple ajoute également la propriété `subtitle` de la fonctionnalité sur une nouvelle ligne, avec une taille de police Descendre en puissance et de couleur rouge.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -706,7 +728,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             //Scale the font size down of the subtitle property. 
             ['get', 'subtitle'],
-            { 'font-scale': 0.75 }
+            { 
+                'font-scale': 0.75, 
+                'text-color': 'red' 
+            }
         ]
     }
 });
@@ -840,7 +865,7 @@ Pour obtenir plus d’exemples de code qui implémentent des expressions, consul
 > [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter une couche de lignes](map-add-line-layer.md)
+> [Ajouter un calque de lignes](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de polygones](map-add-shape.md)

@@ -1,25 +1,25 @@
 ---
-title: Configurer le routage du trafic en tourniquet par pondération - Azure Traffic Manager
-description: Cet article explique comment équilibrer le trafic à l’aide d’une méthode en tourniquet dans Traffic Manager.
+title: Tutoriel - Configurer le routage du trafic en tourniquet par pondération avec Azure Traffic Manager
+description: Ce tutoriel explique comment équilibrer le trafic en utilisant une méthode en tourniquet (round robin) dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 0bfed558ec8db0ef715dad044c3965c1b1d8052b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 06bb86e635b7b3377e1f313ef3aa3487e1c215bc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040330"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422772"
 ---
-# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic par pondération dans Traffic Manager
+# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Didacticiel : Configurer la méthode de routage du trafic par pondération dans Traffic Manager
 
 Il est courant d'utiliser un ensemble de points de terminaison identiques, comprenant des services cloud et des sites web, et de répartir le trafic à parts égales entre eux. Les étapes suivantes décrivent comment configurer ce type de méthode de routage du trafic.
 

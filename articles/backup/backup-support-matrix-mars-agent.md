@@ -1,18 +1,14 @@
 ---
-title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services
+title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090548"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195000"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -54,7 +50,7 @@ Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en a
 
 ## <a name="networking-and-access-support"></a>Prise en charge du réseau et de l’accès
 
-### <a name="url-access"></a>Accès URL
+### <a name="url-and-ip-access"></a>URL et accès IP
 
 L’agent MARS doit avoir accès à ces URL :
 
@@ -63,6 +59,13 @@ L’agent MARS doit avoir accès à ces URL :
 - *.MicrosoftAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+Et à ces adresses IP :
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
+L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protocole HTTPS sur le port 443.
 
 ### <a name="throttling-support"></a>Prise en charge de la limitation
 
@@ -76,7 +79,12 @@ Limitation du réseau | Non disponible pour les machines sauvegardées qui exéc
 >[!NOTE]
 > L’agent MARS ne prend pas en charge les références SKU Windows Server Core.
 
-Vous pouvez utiliser l’agent MARS pour sauvegarder directement sur Azure, sur certains systèmes d’exploitation qui s’exécutent sur des machines locales et sur des machines virtuelles Azure. Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 bits et doivent utiliser les derniers Service Packs et les dernières mises à jour. Ces systèmes d’exploitation sont décrits dans le tableau suivant :
+Vous pouvez utiliser l’agent MARS pour sauvegarder directement vers Azure sur les systèmes d’exploitation listés ci-dessous qui s’exécutent sur :
+
+1. Serveurs Windows locaux
+2. Machines virtuelles Azure exécutant Windows
+
+Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 bits et doivent utiliser les derniers Service Packs et les dernières mises à jour. Ces systèmes d’exploitation sont décrits dans le tableau suivant :
 
 **Système d’exploitation** | **Fichiers/dossiers** | **État du système** | **Configuration requise concernant les logiciels et les modules**
 --- | --- | --- | ---
@@ -128,7 +136,7 @@ OneDrive (les fichiers synchronisés sont des flux partiellement alloués)| Non 
 Volumes en lecture seule| Non pris en charge | Volume Copy Shadow Service (VSS) ne fonctionne que si le volume est accessible en écriture.
 Volumes hors connexion| Non pris en charge |VSS ne fonctionne que si le volume est en ligne.
 Partage réseau| Non pris en charge |Le volume doit être local sur le serveur.
-Volumes protégés par BitLocker| Non pris en charge |Le volume doit être déverrouillé pour que la sauvegarde démarre.
+Volumes verrouillés par BitLocker| Non pris en charge |Le volume doit être déverrouillé pour que la sauvegarde démarre.
 Identification du système de fichiers| Non pris en charge |Seul le système NTFS est pris en charge.
 Médias amovibles| Non pris en charge |Toutes les sources d’éléments de sauvegarde doivent avoir un état *fixe*.
 Lecteurs dédupliqués | Pris en charge | Sauvegarde Azure convertit les données dédupliquées en données normales. Le service optimise les données, les chiffre, les stocke et les envoie au coffre.

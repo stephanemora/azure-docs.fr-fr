@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un index de recherche en C# à l’aide de .NET'
 titleSuffix: Azure Cognitive Search
-description: Explique comment créer un index, charger des données et exécuter des requêtes en C# à l’aide du kit SDK .NET pour la Recherche cognitive Azure.
+description: Dans ce guide de démarrage rapide C#, découvrez comment créer un index, charger des données et exécuter des requêtes avec le SDK .NET de Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112027"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406756"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en C# à l’aide du kit SDK .NET
 > [!div class="op_single_selector"]
@@ -548,7 +548,7 @@ La classe [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/micros
 
     La sortie contient les mêmes messages qu’auparavant, avec l’ajout des informations et des résultats de la requête.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

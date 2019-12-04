@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495619"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406197"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Pare-feu d’applications web Azure sur Azure Front Door
 
@@ -92,16 +92,16 @@ L’ensemble de règles par défaut est activé en mode Détection par défaut d
 Les règles personnalisées sont toujours appliquées avant l’évaluation des règles de l’ensemble de règles par défaut. Si une requête correspond à une règle personnalisée, l’action de règle correspondante est appliquée, et la requête est soit bloquée, soit transmise au back-end, sans appliquer aucune autre règle personnalisée ni règle de l’ensemble de règles par défaut. Par ailleurs, vous avez la possibilité de supprimer l’ensemble de règles par défaut de vos stratégies WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Règle de protection bot (préversion)
+### <a name="bot-protection-rule-set-preview"></a>Ensemble de règles de protection des bots (préversion)
 
-Un ensemble de règles de protection bot managées peut être activé pour votre stratégie WAF afin d’effectuer des actions personnalisées sur les requêtes provenant d’adresses IP malveillantes. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, dont Azure Security Center.
+Un ensemble de règles de protection des bots managées peut être activé pour votre pare-feu WAF afin d’effectuer des actions personnalisées sur les requêtes provenant de catégories de bots connues. Trois catégories de bots sont prises en charge : Bad Bots (Mauvais bots), Good Bots (Bons bots) et Unknown Bots (Bots inconnus). Les signatures de bot sont gérées et mises à jour dynamiquement par la plateforme WAF. Les adresses IP malveillantes pour les Bad Bots (Mauvais bots) proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, notamment Azure Security Center. Les Good Bots (Bons bots), incluent les moteurs de recherche validés. Les catégories inconnues incluent des groupes de bots supplémentaires. Vous pouvez définir des actions personnalisées pour bloquer, autoriser, journaliser ou rediriger pour les différentes catégories de bots.
 
 ![Ensemble de règles de protection bot](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
-> Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’ensemble de règles de protection des bots, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si la protection bot est activée, les requêtes entrantes qui correspondent à des adresses IP clientes de bots malveillants sont consignées dans le journal FrontdoorWebApplicationFirewallLog. Vous pouvez accéder aux journaux WAF à partir du compte de stockage, du hub d’événements ou de l’analytique des journaux. 
+Si la protection des bots est activée, les demandes entrantes qui correspondent à des règles de bot sont journalisées dans le journal FrontdoorWebApplicationFirewallLog. Vous pouvez accéder aux journaux WAF à partir d’un compte de stockage, d’un hub d’événements ou de Log Analytics.
 
 ## <a name="configuration"></a>Configuration
 

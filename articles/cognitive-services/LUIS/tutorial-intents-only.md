@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822763"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325916"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Didacticiel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Didacticiel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
 Dans ce didacticiel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur sur la base de l’énoncé (texte). 
 
@@ -58,7 +58,7 @@ Ces intentions sont classées dans la catégorie **intentions**.
 
 ## <a name="create-a-new-intent"></a>Créer une intention 
 
-1. Dans le [portail LUIS en préversion](https://preview.luis.ai), dans la section **Générer** de l’application, sélectionnez **+ Créer**. Entrez le nom de la nouvelle intention indiqué ci-dessous, puis sélectionnez **Terminé**.
+1. Sur le portail, dans la section **Générer**, sélectionnez **+ Créer**. Entrez le nom de l’intention (`OrderPizza`), puis sélectionnez **Terminé**.
 
     L’intention `OrderPizza` est prédite quand un utilisateur veut commander une pizza. 
 
@@ -122,7 +122,7 @@ Ces intentions sont classées dans la catégorie **intentions**.
 
     Ceci n’est pas exactement la même chose qu’un exemple d’énoncé. C’est donc un bon test pour voir si LUIS peut savoir ce qui faut prédire avec cette intention.
 
-    Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **requête**. Cet énoncé diffère de tous les exemples d’énoncés. Il constitue un bon test et doit retourner l’intention `OrderPizza` en tant qu’intention avec le score le plus élevé. 
+    Le dernier paramètre de la chaîne de requête est `query`, l’énoncé est **requête**. Cet énoncé diffère de tous les exemples d’énoncés. Il constitue un bon test et doit retourner l’intention `OrderPizza` en tant qu’intention avec le score le plus élevé. 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ Ces intentions sont classées dans la catégorie **intentions**.
     }
     ```
 
-    Le tableau d’entités est vide, car cette application n’a pas d’entités. 
+    Le tableau d’entités est vide, car cette application n’a pas encore d’entités (unités de données d’un énoncé à extraire). 
 
     Le résultat JSON identifie l’intention avec le score le plus élevé en tant que propriété **`prediction.topIntent`** . Tous les scores sont compris entre 1 et 0, le meilleur score étant celui qui est le plus proche de 1. 
 
@@ -205,4 +205,4 @@ Une fois que LUIS a retourné la réponse JSON, il en a fini avec cette demande.
 Dans ce didacticiel, vous avez créé une application LUIS et des intentions, ajouté des exemples d’énoncés pour chaque intention, ajouté des exemples d’énoncés à l’intention None, puis effectué un apprentissage, publié et testé au niveau du point de terminaison. Ce sont les étapes de base de la génération d’un modèle LUIS. 
 
 > [!div class="nextstepaction"]
-> [Ajouter des intentions et des entités prédéfinies à cette application](tutorial-machine-learned-entity.md)
+> [Ajouter une entité décomposable à cette application](tutorial-machine-learned-entity.md)

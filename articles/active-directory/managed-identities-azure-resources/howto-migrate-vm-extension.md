@@ -1,5 +1,5 @@
 ---
-title: Cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser le point de terminaison Azure Instance Metadata Service
+title: Arrêter d’utiliser l’extension de machine virtuelle d’une identité managée - Azure AD
 description: Instructions pas à pas pour cesser d’utiliser l’extension de machine virtuelle et commencer à utiliser Azure Instance Metadata Service (IMDS) pour l’authentification.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3440713c287967655678e1cde2c000a6ed28b900
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65406787"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183954"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Comment cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser Azure Instance Metadata Service
 

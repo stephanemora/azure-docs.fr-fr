@@ -1,19 +1,16 @@
 ---
-title: Azure Container Registry - Forum aux questions
+title: Questions fréquentes (FAQ)
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
-services: container-registry
 author: sajayantony
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622703"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456390"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -256,11 +253,13 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 - [Contrôler l’intégrité avec `az acr check-health`](#check-health-with-az-acr-check-health)
 - [La commande docker pull échoue avec l’erreur : net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [La commande docker push réussit, mais la commande docker pull échoue avec l’erreur : unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` est réussie, mais les commandes docker ont échoué avec l’erreur : non autorisé : authentification requise](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Activer et obtenir les journaux de débogage du démon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
 - [Les nouvelles autorisations utilisateur peuvent ne pas entrer en vigueur dès la mise à jour](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Les informations d’authentification ne sont pas fournies dans le format correct sur les appels directs de l’API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Pourquoi le portail Azure ne liste-t-il pas tous mes dépôts ou étiquettes ?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Pourquoi le portail Azure ne parvient-il pas à récupérer les dépôts ou les étiquettes ?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
+- [Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
 - [Comment collecter les traces http sur Windows ?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Contrôler l’intégrité avec `az acr check-health`
@@ -318,6 +317,10 @@ Pour résoudre l’erreur :
   ```
 
 Pour obtenir des informations détaillées sur `--signature-verification`, vous pouvez exécuter `man dockerd`.
+
+### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>la connexion az acr est réussie, mais docker a échoué avec l’erreur : non autorisé : authentification requise
+
+Assurez-vous d’utiliser une URL de serveur tout en minuscules, par exemple, `docker push myregistry.azurecr.io/myimage:latest`, même si le nom de la ressource du registre est en majuscules ou à casse mixte, comme `myRegistry`.
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Activer et obtenir les journaux de débogage du démon docker  
 
@@ -421,6 +424,13 @@ Le navigateur n'est peut-être pas en mesure d'envoyer la demande de récupérat
 * Erreurs DNS
 
 Contactez votre administrateur réseau ou vérifiez la configuration et la connectivité de votre réseau. Essayez d’exécuter `az acr check-health -n yourRegistry` à l’aide de votre Azure CLI pour vérifier si votre environnement est en mesure de se connecter au registre de conteneurs. En outre, vous pouvez également essayer une session incognito ou privée dans votre navigateur pour éviter tout cache ou cookie périmé.
+
+### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?
+
+Voici quelques scénarios dans lesquels les opérations peuvent ne pas être autorisées :
+* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers des [références SKU](https://aka.ms/acr/skus) à l’aide de [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou du portail Azure.
+* L’image ou le référentiel peuvent être verrouillés afin qu’il ne soit pas possible de les supprimer ou de les mettre à jour. Vous pouvez utiliser la commande [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) pour afficher les attributs actuels.
+* Certaines opérations ne sont pas autorisées si l’image est en contrôle. En savoir plus sur le [contrôle](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
 

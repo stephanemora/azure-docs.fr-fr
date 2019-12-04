@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595064"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457040"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -76,7 +76,7 @@ Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des ad
 - x.x.x.255 : Adresse de diffusion réseau
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
-Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
+Le plus petit sous-réseau IPv4 pris en charge est /29 et le plus grand est /8 (à l’aide des définitions de sous-réseaux CIDR).  La taille des sous-réseaux IPv6 doit être exactement de /64.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Puis-je ajouter mes VLAN à Azure à l’aide de réseaux virtuels ?
 Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend en charge aucune sémantique de couche 2.
@@ -109,7 +109,7 @@ Oui. Vous pouvez ajouter, supprimer et modifier les blocs CIDR utilisés par un 
 Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Créer, modifier ou supprimer une adresse IP publique](virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
 ### <a name="do-vnets-support-ipv6"></a>Les réseaux virtuels prennent-ils en charge IPv6 ?
-Non. Vous ne pouvez pas utiliser IPv6 avec les réseaux virtuels pour l’instant. Vous pouvez toutefois attribuer des adresses IPv6 aux équilibreurs de charge Azure pour équilibrer la charge des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble du protocole IPv6 pour Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Oui, les réseaux virtuels peuvent être IPv4 seulement ou à double pile (IPv4 + IPv6).  Pour plus d’informations, consultez [Aperçu du protocole IPv6 pour des réseaux virtuels Azure](./ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>Un réseau virtuel peut-il couvrir plusieurs régions ?
 Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’un peering de réseaux virtuels. Pour plus d’informations, consultez [Peering de réseaux virtuels](virtual-network-peering-overview.md)
@@ -241,8 +241,8 @@ Le peering VNet (ou peering de réseau virtuel) permet de connecter des réseaux
 Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure, dans les régions cloud de Chine et dans les régions cloud Government. Vous ne pouvez pas procéder au peering mondial à partir de régions publiques Azure vers des régions cloud nationales.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et à Global VNet Peering ?
-Si les deux réseaux virtuels se trouvent dans des régions différentes (Global VNet Peering), vous ne pouvez pas vous connecter aux ressources qui utilisent l’équilibreur de charge de base. Vous pouvez vous connecter aux ressources qui utilisent l’équilibreur Standard Load Balancer.
-Les ressources suivantes utilisent des équilibreurs de charge de base, ce qui signifie que vous ne pouvez pas communiquer avec eux via Global VNet Peering :
+Si les deux réseaux virtuels dans deux régions différentes sont associés sur le Peering de réseaux virtuels globaux, vous ne pouvez pas vous connecter aux ressources qui se trouvent derrière un Load Balancer de base par le biais de l’adresse IP frontale du Load Balancer. Cette restriction n’existe pas pour un Standard Load Balancer.
+Les ressources suivantes peuvent utiliser des Load Balancers de base, ce qui signifie que vous ne pouvez pas les atteindre via l’adresse IP frontale du Load Balancer sur le peering de réseaux virtuels globaux. Toutefois, vous pouvez utiliser le peering de réseaux virtuels globaux pour atteindre les ressources directement par le biais de leurs adresses IP de réseau virtuel privé, si cela est autorisé. 
 - Machines virtuelles sur lesquelles reposent les équilibreurs de charge de base
 - Groupes de machines virtuelles identiques avec des équilibreurs de charge de base 
 - Cache Redis 

@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Ajouter des sorties à un modèle Azure Resource Manager
+title: Tutoriel - Ajouter des sorties au modèle
 description: Ajoutez des sorties à votre modèle Azure Resource Manager pour simplifier la syntaxe.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001538"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405998"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Didacticiel : Ajouter des sorties à votre modèle Resource Manager
 
@@ -25,9 +22,9 @@ Nous vous recommandons de suivre le [tutoriel sur les variables](template-tutori
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager et, au choix, d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
-À la fin du tutoriel précédent, votre modèle présentait le code JSON suivant :
+À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
 
@@ -49,7 +46,7 @@ Il utilise la fonction [reference](resource-group-template-functions-resource.md
 
 Finalement, il retourne la propriété **primaryEndpoints** à partir du compte de stockage.
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-template"></a>Déployer un modèle
 
 Vous êtes prêt à déployer le modèle et à examiner la valeur retournée.
 

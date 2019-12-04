@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570607"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Freshservice
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Dans le menu situé en haut, cliquez sur **Admin**.
 
-    ![Administrateur](./media/freshservice-tutorial/ic790814.png "Administrateur")
+    ![Administrateur](./media/freshservice-tutorial/ic790814.png "Admin")
 
 5. Dans le **Customer Portal**, cliquez sur **Security**.
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 6. Dans la section **Security** , procédez comme suit :
 
-    ![Single Sign On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
+    ![Authentification unique](./media/freshservice-tutorial/ic790816.png "Authentification unique")
 
     a. Activez **Single Sign On**.
 
@@ -187,19 +187,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à FreshService, vous 
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
 
-    ![Administrateur](./media/freshservice-tutorial/ic790814.png "Administrateur")
+    ![Administrateur](./media/freshservice-tutorial/ic790814.png "Admin")
 
 3. Dans la section **User Management**, cliquez sur **Requesters**.
 
-    ![Requesters](./media/freshservice-tutorial/ic790818.png "Requesters")
+    ![Requesters](./media/freshservice-tutorial/ic790818.png "Requesters") (Demandeurs)
 
 4. Cliquez sur **New Requester**.
 
-    ![New Requesters](./media/freshservice-tutorial/ic790819.png "New Requesters")
+    ![New Requesters](./media/freshservice-tutorial/ic790819.png "Nouveaux demandeurs") (Nouveaux demandeurs)
 
 5. Dans la section **New Requester** , procédez comme suit :
 
-    ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester")  
+    ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester") (Nouveau demandeur)  
 
     a. Entrez le prénom et l’adresse de messagerie d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte **Prénom** et **Email**.
 
@@ -210,7 +210,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à FreshService, vous 
     >  
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par FreshService, pour approvisionner des comptes utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par FreshService pour provisionner des comptes d’utilisateurs Azure AD.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell | Microsoft Docs'
-description: Découvrez comment accorder un accès de groupe aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell.
+title: Tutoriel - Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+description: Dans ce tutoriel, découvrez comment accorder un accès de groupe aux ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC) et Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343687"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418592"
 ---
-# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Didacticiel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
 
@@ -48,8 +48,8 @@ Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle. Une a
 
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
-| Groupe<br>(Groupe du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Abonnement |
-| Groupe<br>(Groupe du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
+| Groupe<br>(Groupe du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Subscription |
+| Groupe<br>(Groupe du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Attributions de rôles pour un groupe](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/21/2019
+ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494895"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406248"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -71,9 +71,9 @@ ou pour le point de terminaison privé :
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `<username>` par le compte de connexion de votre cluster. Remarque pour les clusters ESP, utilisez l’UPN complet (par exemple, user@domain.com). Remplacez `password` par le mot de passe du compte de connexion du cluster.
+Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `<username>` par le compte de connexion de votre cluster. Pour les cluster ESP, utilisez le nom d'utilisateur principal complet (par ex. user@domain.com). Remplacez `password` par le mot de passe du compte de connexion du cluster.
 
-Les points de terminaison privés pointent vers un équilibreur de charge de base, qui est uniquement accessible à partir des réseaux virtuels homologués dans la même région. Voir [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (Contraintes liées à l’homologation Global VNet Peering et aux équilibreurs de charge) pour plus d’informations. Vous pouvez utiliser la commande `curl` avec l’option `-v` pour résoudre les problèmes de connectivité avec les points de terminaison publics ou privés avant d’utiliser Beeline.
+Les points de terminaison privés pointent vers un équilibreur de charge de base, qui est uniquement accessible à partir des réseaux virtuels associés dans la même région. Voir [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (Contraintes liées à l’homologation Global VNet Peering et aux équilibreurs de charge) pour plus d’informations. Vous pouvez utiliser la commande `curl` avec l’option `-v` pour résoudre les problèmes de connectivité avec les points de terminaison publics ou privés avant d’utiliser Beeline.
 
 ---
 
@@ -85,19 +85,19 @@ Apache Spark fournit sa propre implémentation de HiveServer2, qui est quelquefo
 
 La chaîne de connexion utilisée est légèrement différente. Au lieu de contenir `httpPath=/hive2`, elle contient `httpPath/sparkhive2` :
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
 ou pour le point de terminaison privé :
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `<username>` par le compte de connexion de votre cluster. Remarque pour les clusters ESP, utilisez l’UPN complet (par exemple, user@domain.com). Remplacez `password` par le mot de passe du compte de connexion du cluster.
+Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `<username>` par le compte de connexion de votre cluster. Pour les cluster ESP, utilisez le nom d'utilisateur principal complet (par ex. user@domain.com). Remplacez `password` par le mot de passe du compte de connexion du cluster.
 
-Les points de terminaison privés pointent vers un équilibreur de charge de base, qui est uniquement accessible à partir des réseaux virtuels homologués dans la même région. Voir [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (Contraintes liées à l’homologation Global VNet Peering et aux équilibreurs de charge) pour plus d’informations. Vous pouvez utiliser la commande `curl` avec l’option `-v` pour résoudre les problèmes de connectivité avec les points de terminaison publics ou privés avant d’utiliser Beeline.
+Les points de terminaison privés pointent vers un équilibreur de charge de base, qui est uniquement accessible à partir des réseaux virtuels associés dans la même région. Voir [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (Contraintes liées à l’homologation Global VNet Peering et aux équilibreurs de charge) pour plus d’informations. Vous pouvez utiliser la commande `curl` avec l’option `-v` pour résoudre les problèmes de connectivité avec les points de terminaison publics ou privés avant d’utiliser Beeline.
 
 ---
 
@@ -264,7 +264,7 @@ Il s’agit de la suite de l’exemple précédent. Utilisez les étapes suivant
     > [!NOTE]  
     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-3. Pour enregistrer le fichier, utilisez **Ctrl**+_+**X**, saisissez ensuite **Y**, puis appuyez sur **Entrée**.
+3. Pour enregistrer le fichier, utilisez **Ctrl**+**X**, puis, entrez **Y** et enfin appuyez sur **Entrée**.
 
 4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants :
 
@@ -290,15 +290,10 @@ Il s’agit de la suite de l’exemple précédent. Utilisez les étapes suivant
         | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (1.538 seconds)
+        3 rows selected (0.813 seconds)
 
 ## <a id="summary"></a><a id="nextsteps"></a>Étapes suivantes
 
-Pour plus d’informations générales sur Hive sur HDInsight, consultez le document suivant :
+* Pour plus d’informations sur Hive dans HDInsight, consultez [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-* [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
-
-Pour plus d’informations sur les autres façons de travailler avec Hadoop sur HDInsight, consultez les documents suivants :
-
-* [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
-* [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* Pour plus d’informations sur les autres façons de travailler avec Hadoop sur HDInsight, consultez [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)

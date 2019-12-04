@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur la résolution des problè
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
-ms.date: 02/12/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39cf6126f6212b6e83f1974dae7aaab0038e69c6
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 31d81c6946fc256f5c22b93674469d7b87500173
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240978"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480719"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -22,9 +22,9 @@ Cet article fournit des informations sur la résolution des problèmes liés aux
 
 ## <a name="general"></a>Généralités
 
-Le Runbook Worker hybride dépend d’un agent pour communiquer avec votre compte Automation et ainsi enregistrer le worker, recevoir des travaux de runbook et signaler l’état. Pour Windows, cet agent est Microsoft Monitoring Agent. Pour Linux, il s’agit de l’Agent OMS pour Linux.
+Le Runbook Worker hybride dépend d’un agent pour communiquer avec votre compte Automation et ainsi enregistrer le worker, recevoir des travaux de runbook et signaler l’état. Pour Windows, cet agent est l’agent Log Analytics pour Windows (également appelé Microsoft Monitoring Agent [MMA]). Pour Linux, il s’agit de l’agent Log Analytics pour Linux.
 
-### <a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un runbook
+### <a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un runbook
 
 #### <a name="issue"></a>Problème
 
@@ -83,17 +83,17 @@ Si votre Runbook Worker hybride est une machine virtuelle Azure, vous pouvez uti
 
 ## <a name="linux"></a>Linux
 
-Le Runbook Worker hybride Linux dépend de l’agent OMS pour Linux pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
+Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
-### <a name="oms-agent-not-running"></a>Scénario : L’agent OMS pour Linux n’est pas en cours d’exécution.
+### <a name="oms-agent-not-running"></a>Scénario : L’agent Log Analyics pour Linux n’est pas en cours d’exécution
 
 #### <a name="issue"></a>Problème
 
-L’agent OMS pour Linux n’est pas en cours d’exécution.
+L’agent Log Analytics pour Linux n’est pas en cours d’exécution.
 
 #### <a name="cause"></a>Cause :
 
-Si l’agent OMS pour Linux n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. L'agent peut ne pas fonctionner pour diverses raisons.
+Si l’agent n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. L'agent peut ne pas fonctionner pour diverses raisons.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -114,11 +114,11 @@ La liste suivante présente les processus démarrés pour un Runbook Worker hybr
 
 * **diy/worker.conf** : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si la solution Azure Automation est désactivée et si le Worker hybride Linux personnalisé n’est pas inscrit.
 
-Si l’agent OMS pour Linux n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+Si l’agent n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-### <a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
+### <a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
 
-Si vous recevez l’erreur : **La classe spécifiée n’existe pas.** dans `/var/opt/microsoft/omsconfig/omsconfig.log`, alors l’agent OMS pour Linux a besoin d’une mise à jour. Exécutez la commande suivante pour réinstaller l’agent OMS :
+Si vous recevez l’erreur : **La classe spécifiée n’existe pas.** dans `/var/opt/microsoft/omsconfig/omsconfig.log`, alors l’agent Log Analytics pour Linux a besoin d’une mise à jour. Exécutez la commande suivante pour réinstaller l’agent :
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -126,7 +126,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Le Runbook Worker hybride Windows dépend de l’agent Microsoft Monitoring Agent pour communiquer avec votre compte Automation, et ainsi enregistrer le Worker, recevoir des travaux de Runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
+Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
 ### <a name="mma-not-running"></a>Scénario : Microsoft Monitoring Agent n’est pas en cours d’exécution
 
@@ -146,15 +146,15 @@ Vérifiez que l’agent est en cours d’exécution en entrant la commande suiva
 
 #### <a name="issue"></a>Problème
 
-Dans le journal des événements **Journaux des applications et des services\Operations Manager**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *Le certificat présenté par le service \<wsid\>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL. L’article KB3126513 contient des informations supplémentaires pour la résolution des problèmes de connectivité.*
+Dans le journal des événements **Journaux des applications et des services\Gestionnaire des opérations**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *Le certificat présenté par le service \<wsid\>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.*
 
 #### <a name="cause"></a>Cause :
 
-Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur les ports 443.
+Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur les ports 443. 
 
 #### <a name="resolution"></a>Résolution :
 
-Les journaux d’activité sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des évènements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème dans le cadre d’un fonctionnement normal.
+Les journaux d’activité sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des évènements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème dans le cadre d’un fonctionnement normal. Pour obtenir de l’aide supplémentaire concernant la résolution des problèmes liés à l’agent Log Analytics, consultez [Résoudre les problèmes liés à l’agent Log Analytics Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 La [sortie et les messages de runbooks](../automation-runbook-output-and-messages.md) sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de runbook qui sont exécutées dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
 

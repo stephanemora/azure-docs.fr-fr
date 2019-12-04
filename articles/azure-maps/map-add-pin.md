@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976174"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480610"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 
@@ -22,6 +22,14 @@ Un symbole peut être connecté à une source de données et utilisé pour resti
 
 > [!TIP]
 > Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
+
+Le gestionnaire de sprites d’images Maps, qui est utilisé pour charger les images personnalisées utilisées par le calque de symboles, prend en charge les formats d’image suivants :
+
+- JPEG
+- PNG
+- SVG
+- BMP
+- GIF (sans animation)
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
@@ -102,7 +110,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Création d'une source de données](create-data-source-web-sdk.md)
+> [Créer une source de données](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une fenêtre contextuelle](map-add-popup.md)

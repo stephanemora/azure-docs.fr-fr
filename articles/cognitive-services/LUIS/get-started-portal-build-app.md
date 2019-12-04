@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669681"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278571"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-Ce guide de démarrage rapide traite de la génération d’une application dans le [portail LUIS](https://www.luis.ai). Vous commencez par créer les composants de base d’une application, les **intentions**, et les **entités**. Ensuite, vous testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue.
+Dans ce guide de démarrage rapide, vous allez créer une application dans le portail LUIS. Vous commencez par créer les composants de base d’une application, les **intentions**, et les **entités**. Ensuite, vous testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue.
 
 La création d’une application est gratuite et ne nécessite pas d’abonnement Azure. Lorsque vous êtes prêt à déployer votre application, consultez le [guide de démarrage rapide pour déployer une application](get-started-portal-deploy-app.md). Il indique comment créer une ressource Azure Cognitive Service et l'affecter à l’application.
 

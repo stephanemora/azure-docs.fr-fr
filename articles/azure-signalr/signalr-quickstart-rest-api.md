@@ -1,19 +1,19 @@
 ---
 title: Démarrage rapide - API REST Service Azure SignalR
-description: Un guide de démarrage rapide pour l’utilisation de l’API REST Service Azure SignalR.
+description: Découvrez comment utiliser l’API REST avec les exemples Azure SignalR Service suivants. Trouvez les informations de spécification de l’API REST.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724653"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157687"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Démarrage rapide : Diffuser des messages en temps réel à partir de l’application de console
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Démarrage rapide : Diffuser des messages en temps réel à partir de l’application de console
 
 Le service Azure SignalR fournit une [API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) permettant de prendre en charge les scénarios de communication du serveur vers le client, par exemple la diffusion. Vous pouvez choisir n’importe quel langage de programmation qui peut appeler l’API REST. Vous pouvez publier des messages pour tous les clients connectés, un client spécifique par nom ou un groupe de clients.
 

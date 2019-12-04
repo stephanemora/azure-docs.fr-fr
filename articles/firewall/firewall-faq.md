@@ -1,18 +1,18 @@
 ---
 title: FAQ Pare-feu Azure
-description: FAQ concernant le Pare-feu Azure
+description: FAQ sur Pare-feu Azure. Service de sécurité réseau cloud managé qui protège vos ressources Réseau virtuel Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 418fafdec9bd44fa3682e33cc53bbca9c716dcf2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596776"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167038"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 

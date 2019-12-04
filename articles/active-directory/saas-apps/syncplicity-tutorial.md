@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089293"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233283"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Didacticiel : Intégrer Syncplicity à Azure Active Directory
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ### <a name="create-syncplicity-test-user"></a>Créer un utilisateur de test Syncplicity
 
-Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisionnés dans l’application Syncplicity. Cette section décrit comment créer des comptes d’utilisateur AAD dans Syncplicity.
+Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être provisionnés pour l’application Syncplicity. Cette section explique comment créer des comptes d’utilisateurs Azure AD dans Syncplicity.
 
 **Pour approvisionner un compte d’utilisateur dans Syncplicity, procédez comme suit :**
 
@@ -160,28 +160,28 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
 1. Cliquez sur **admin** et sélectionnez **user accounts** (comptes d’utilisateur), puis cliquez sur **ADD A USER** (Ajouter un utilisateur).
 
-    ![Gestion des utilisateurs](./media/syncplicity-tutorial/ic769764.png "Gestion des utilisateurs")
+    ![Gérer les utilisateurs](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
 1. Entrez l’**adresse e-mail** d’un compte Azure AD que vous souhaitez provisionner, sélectionnez **User** (Utilisateur) pour **Role**, puis cliquez sur **NEXT** (SUIVANT).
 
-    ![Informations du compte](./media/syncplicity-tutorial/ic769765.png "Informations du compte")
+    ![Account Information](./media/syncplicity-tutorial/ic769765.png "Informations sur le compte") (Informations sur le compte)
 
     > [!NOTE]
-    > Le détenteur du compte AAD reçoit un message électronique contenant un lien pour confirmer et activer le compte.
+    > Le détenteur du compte Azure AD reçoit un e-mail contenant un lien pour confirmer et activer le compte.
 
 1. Sélectionnez un groupe dans votre société dont votre nouvel utilisateur doit devenir membre, puis cliquez sur **SUIVANT**.
 
-    ![Appartenance de groupe](./media/syncplicity-tutorial/ic769772.png "Appartenance de groupe")
+    ![Group Membership](./media/syncplicity-tutorial/ic769772.png "Appartenance au groupe") (Appartenance aux groupes)
 
     > [!NOTE]
     > Si aucun groupe n’est répertorié, cliquez sur **SUIVANT**.
 
 1. Sélectionnez les dossiers que vous souhaitez placer sous le contrôle de Syncplicity sur l’ordinateur de l’utilisateur, puis cliquez sur **SUIVANT**.
 
-    ![Dossiers Syncplicity](./media/syncplicity-tutorial/ic769773.png "Dossiers Syncplicity")
+    ![Syncplicity Folders](./media/syncplicity-tutorial/ic769773.png "Dossiers Syncplicity") (Dossiers Syncplicity)
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Syncplicity, pour approvisionner des comptes utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Syncplicity pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
@@ -193,4 +193,4 @@ Le fait de sélectionner la vignette Syncplicity dans le panneau d’accès doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

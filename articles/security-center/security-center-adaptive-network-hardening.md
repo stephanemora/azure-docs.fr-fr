@@ -1,6 +1,6 @@
 ---
 title: Renforcement du réseau adaptatif dans Azure Security Center | Microsoft Docs
-description: " Découvrez comment activer le renforcement du réseau adaptatif dans Azure Security Center. "
+description: Découvrez comment renforcer vos règles de groupes de sécurité réseau (NSG) et améliorer votre position de sécurité, en fonction de modèles de trafic réels.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255243"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559279"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptatif dans Azure Security Center
 Découvrez comment configurer le renforcement du réseau adaptatif dans Azure Security Center.
@@ -47,7 +47,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
 
      ![ressources non saines](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Dans l’onglet **Unhealthy resources** (Ressources non saines), sélectionnez une machine virtuelle pour afficher ses alertes et les règles de renforcement recommandées à appliquer.
+2. Dans l’onglet **Ressources non saines**, sélectionnez une machine virtuelle pour afficher ses alertes et les règles de renforcement recommandées à appliquer.
 
     ![alertes de renforcement](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
@@ -83,7 +83,7 @@ Voici des instructions importantes relatives à la modification d’une règle d
 * Vous ne pouvez pas modifier des règles « allow » en règles « deny ». 
 
   > [!NOTE]
-  > La création et la modification de règles « deny » s’effectue directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, modifier ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La création et la modification des règles de « refus » sont effectuées directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * Une règle **Deny all traffic** (Refuser tout le trafic) est la seule règle de type « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez toutefois la supprimer (consultez [Supprimer une règle](#delete-rule)).
   > [!NOTE]

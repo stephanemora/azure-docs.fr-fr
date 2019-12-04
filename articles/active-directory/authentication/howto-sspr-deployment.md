@@ -1,22 +1,22 @@
 ---
-title: Plan de déploiement de réinitialisation de mot de passe en libre-service - Azure Active Directory
+title: Déploiement de réinitialisation de mot de passe en libre-service - Azure Active Directory
 description: Stratégie pour réussir l’implémentation de la réinitialisation du mot de passe en libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081517"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381286"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Déployer la réinitialisation de mot de passe en libre-service Azure AD
 
@@ -136,7 +136,7 @@ Pour vous assurer que le déploiement fonctionne comme prévu, vous devez prévo
 | L’utilisateur se connecte lorsque l’inscription à la réinitialisation de mot de passe est appliquée | L’utilisateur est invité à inscrire ses informations de sécurité |
 | L’utilisateur se connecte lorsque l’inscription à la réinitialisation de mot de passe est terminée | L’utilisateur n’est pas invité à inscrire ses informations de sécurité |
 | Le portail SSPR est accessible lorsque l’utilisateur ne dispose pas d’une licence | Accessible |
-| Réinitialiser le mot de passe utilisateur à partir de l’écran de verrouillage d’appareil Windows 10 AADJ ou H+AADJ une fois que l’utilisateur est inscrit | L’utilisateur peut réinitialiser le mot de passe |
+| Réinitialiser le mot de passe utilisateur à partir de l’écran de verrouillage d’appareil Windows 10 Azure AD joint ou Azure AD hybride joint une fois que l’utilisateur est inscrit | L’utilisateur peut réinitialiser le mot de passe |
 | Les données d’utilisation et d’inscription SSPR sont disponibles pour les administrateurs quasiment en temps réel | Disponible via les journaux d’audit |
 
 ### <a name="support-plan"></a>Plan de support

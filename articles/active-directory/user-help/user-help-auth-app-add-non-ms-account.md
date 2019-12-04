@@ -1,6 +1,6 @@
 ---
-title: 'Ajouter un compte non Microsoft à une application Microsoft Authenticator : Azure AD'
-description: Ajouter vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes
+title: Ajouter vos comptes non-Microsoft à l’application Microsoft Authenticator – Azure AD
+description: Ajoutez vos comptes non-Microsoft, tels que Google ou Facebook, à l’application Microsoft Authenticator pour vérifier votre identité lors de la vérification à deux facteurs.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803675"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278877"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>Ajouter vos comptes non-Microsoft
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter vos comptes non-Microsoft à l’application Microsoft Authenticator
 
 Ajoutez vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
 

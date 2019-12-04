@@ -1,22 +1,22 @@
 ---
-title: 'Tutoriel : Améliorer la réponse d’un site web – Traffic Manager'
+title: 'Tutoriel : Améliorer la réponse d’un site web avec Azure Traffic Manager'
 description: Cet article de didacticiel explique comment créer un profil Traffic Manager pour développer un site web très réactif.
 services: traffic-manager
 author: asudbring
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
-ms.openlocfilehash: a988b16bb07b1486c4434114eb8653c959aefc6a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3686e9a7d82f8134b44cd40468c5e430eb2e72f3
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023293"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422848"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Didacticiel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 

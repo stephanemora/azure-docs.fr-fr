@@ -1,20 +1,15 @@
 ---
-title: Tutoriel – Déployer une application à partir d’un registre de conteneurs Azure géorépliqué
+title: Tutoriel - Effectuer un déploiement à partir d’un registre géorépliqué
 description: Déployez une application web basée sur Linux sur deux régions Azure différentes à l’aide d’une image conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931416"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456108"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 

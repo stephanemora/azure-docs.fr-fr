@@ -1,6 +1,6 @@
 ---
 title: Préparation à la modification du format dans les journaux de diagnostics Azure Monitor
-description: Les journaux de diagnostics Azure seront déplacés pour utiliser des objets blob d’ajout le 1er novembre 2018.
+description: Décrit l’impact et la façon de mettre à jour vos outils pour gérer les nouveaux journaux de diagnostic Azure qui ont été modifiés pour utiliser des blobs d’ajout le 1er novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258382"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307063"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage
 

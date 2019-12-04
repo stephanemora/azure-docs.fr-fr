@@ -1,22 +1,22 @@
 ---
-title: Inscription combinée pour Azure AD SSPR et l'authentification multifacteur (préversion) - Azure Active Directory
+title: Inscription combinée pour SSPR et MFA - Azure Active Directory
 description: Inscription à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service Azure AD (préversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808472"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381959"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 

@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726422"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227907"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 
@@ -32,10 +32,14 @@ Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour 
 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
-* **Linux :** suivez les instructions disponibles dans la page [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows :** Dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
-  
-     Install-Package wastorage
+* **Linux :** Suivez les instructions disponibles dans la page [Bibliothèque de client du stockage Azure pour C++ README : Prise en main de la page Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+* **Windows :** Sous Windows, utilisez [vcpkg](https://github.com/microsoft/vcpkg) en tant que manager de dépendances. Suivez le [démarrage rapide](https://github.com/microsoft/vcpkg#quick-start) pour initialiser vcpkg. Puis, pour installer la bibliothèque, utilisez la commande suivante :
+
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+
+Vous trouverez un guide sur la façon de générer le code source et de l’exporter vers Nuget dans le fichier Lisez-moi [README](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurer votre application pour accéder au stockage d’objets blob
 Ajoutez l'instruction include suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob :  

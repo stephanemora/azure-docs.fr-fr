@@ -1,20 +1,14 @@
 ---
-title: 'Démarrage rapide : générer et exécuter une image conteneur dans Azure Container Registry'
+title: Guide de démarrage rapide - Générer et exécuter une image conteneur
 description: Exécutez rapidement des tâches avec Azure Container Registry pour générer et exécuter une image conteneur à la demande, dans le cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: b97249aa61916975fa641d4620179be33e1d5276
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: f0b510607a4d0acf12e0b9caa43835c1cfe6a83d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931550"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454948"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 

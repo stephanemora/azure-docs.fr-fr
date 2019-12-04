@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell | Microsoft Docs'
-description: Découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell.
+title: Tutoriel - Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343474"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418630"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
 
@@ -48,8 +48,8 @@ Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle. Une a
 
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
-| Utilisateur<br>(Utilisateur du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Abonnement |
-| Utilisateur<br>(Utilisateur du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
+| Utilisateur<br>(Utilisateur du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Subscription |
+| Utilisateur<br>(Utilisateur du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Attributions de rôles pour un utilisateur](./media/tutorial-role-assignments-user-powershell/rbac-role-assignments-user.png)
 

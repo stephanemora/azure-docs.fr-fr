@@ -1,5 +1,6 @@
 ---
-title: Diagnostiquer un problème de routage réseau d’une machine virtuelle - didacticiel - portail Azure | Microsoft Docs
+title: 'Didacticiel : Diagnostiquer un problème de routage réseau de machine virtuelle – portail Azure'
+titleSuffix: Azure Network Watcher
 description: Dans ce didacticiel, vous allez découvrir comment diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide de la fonctionnalité de tronçon suivant d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684516"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276043"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
 
@@ -53,9 +54,9 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **USA Est**.|
+    |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -85,7 +86,7 @@ Azure crée automatiquement des itinéraires vers les destinations par défaut. 
 
     |Paramètre                  |Valeur                                                   |
     |---------                |---------                                               |
-    | Groupe de ressources          | Sélectionner myResourceGroup                                 |
+    | Resource group          | Sélectionner myResourceGroup                                 |
     | Machine virtuelle         | Sélectionner myVm                                            |
     | interface réseau       | myvm : le nom de votre interface réseau peut être différent.   |
     | Adresse IP source       | 10.0.0.4                                               |

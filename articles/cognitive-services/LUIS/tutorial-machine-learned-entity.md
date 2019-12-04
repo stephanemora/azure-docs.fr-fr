@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 36b75f33b4fc9062d09fbc670a509594142f09bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 913fa3c846ea00649a584be02975fdde449dc7cf
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828255"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383284"
 ---
-# <a name="tutorial-extract-structured-data-with-machine-learned-entities-in-language-understanding-luis"></a>Didacticiel : Extraire des données structurées avec des entités issues de l’apprentissage automatique dans Language Understanding (LUIS)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Didacticiel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS
 
 Dans ce didacticiel, vous allez extraire des données structurées d’un énoncé à l’aide de l’entité issue de l’apprentissage automatique. 
 
@@ -58,11 +58,11 @@ Commencez avec une entité issue de l’apprentissage automatique, qui est l’e
 
 Si vous ignorez à quel point votre entité doit être détaillée, lorsque vous démarrez votre application, la meilleure pratique consiste à commencer avec une entité issue de l’apprentissage automatique, puis à décomposer celle-ci en sous-composants à mesure que votre application mûrit.
 
-En pratique, vous allez créer une entité issue de l’apprentissage automatique pour représenter une commande pour une application de pizza. La commande doit contenir tous les éléments nécessaires à son traitement commande. Pour commencer, l’entité doit inclure tout le texte associé à la commande, en particulier la taille et la quantité. 
+En pratique, vous allez créer une entité issue de l’apprentissage automatique pour représenter une commande pour une application de pizza. La commande doit contenir tous les éléments nécessaires à son traitement commande. Pour commencer, l’entité va extraire le texte relatif à la commande, notamment la taille et la quantité. 
 
-Un énoncé pour `deliver one large cheese pizza` doit extraire l’énoncé en tant que commande, puis extraire les éléments `1` et `large`. 
+Un énoncé pour `Please deliver one large cheese pizza to me` doit extraire `one large cheese pizza` comme la commande, puis extraire également `1` et `large`. 
 
-Vous pouvez opérer une décomposition supplémentaire, par exemple, pour la garniture ou la croûte. À l’issue de ce didacticiel, vous ne devriez pas hésiter à ajouter ces sous-composants à votre entité `Order` existante.
+Vous pouvez ajouter une autre décomposition, en créant par exemple des sous-composants correspondant à la garniture et au type de pâte. À l’issue de ce didacticiel, vous ne devriez pas hésiter à ajouter ces sous-composants à votre entité `Order` existante.
 
 ## <a name="import-example-json-to-begin-app"></a>Exemple d’importation .json pour commencer une application
 
@@ -70,12 +70,12 @@ Vous pouvez opérer une décomposition supplémentaire, par exemple, pour la gar
 
 1. Dans le [portail LUIS en préversion](https://preview.luis.ai), dans la page **Mes applications**, sélectionnez **Importer**, puis **Importer en tant que JSON**. Recherchez le fichier JSON enregistré à l’étape précédente. Vous n’avez pas besoin de modifier le nom de l’application. Sélectionnez **Terminé**
 
-1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version, choisissez **Cloner** pour la cloner, puis nommez-la `mach-learn`. Sélectionnez ensuite **Terminé** pour achever le processus de clonage. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version, choisissez **Cloner** pour la cloner, nommez-la `mach-learn`, puis sélectionnez **Terminé** pour terminer le processus de clonage. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
     > [!TIP] 
-    > Le clonage est la meilleure pratique à adopter avant de modifier votre application. Lorsque vous en avez terminé avec une version, exportez-la en tant que fichier. JSON ou .lu, puis vérifiez-la dans votre contrôle de code source.
+    > Le clonage d’une version dans une nouvelle version est considéré comme une bonne pratique avant la modification de votre application. Lorsque vous en avez terminé avec une version, exportez-la (au format .json ou .lu), puis vérifiez le fichier dans votre système de contrôle de code source.
 
-1. Sélectionnez **Générer** puis **Intentions** pour voir les principaux composants d’une application LUIS, les intentions.
+1. Sélectionnez **Générer** puis **Intentions** pour voir les intentions, qui sont les principaux composants d’une application LUIS.
 
     ![Passez de la page Versions à la page Intentions.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
@@ -96,9 +96,9 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     ![Étiqueter le début et de fin du texte pour une commande complète](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > Une entité n’est pas toujours l’intégralité d’un énoncé. Dans ce cas spécifique, `pickup` indique la manière dont la commande doit être reçue afin qu’elle fasse partie de l’entité étiquetée pour la commande. 
+    > Une entité n’est pas toujours l’intégralité d’un énoncé. Dans ce cas précis, `pickup` indique comment la commande doit être reçue. D’un point de vue conceptuel, `pickup` doit faire partie de l’entité étiquetée pour la commande. 
 
-1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajour de sous-composants tels que la taille et la quantité.
+1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-composants tels que la taille et la quantité.
 
     ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -133,11 +133,11 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     ![Créez une entité et des sous-composants dans tous les exemples d’énoncés restants.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > Comment traiter des données implicites telles que la lettre `a` impliquant une seule pizza ? Ou l’absence de `pickup` et `delivery` pour indiquer où la pizza est attendue ? Ou l’absence de taille pour indiquer votre taille par défaut, petite ou grande ? Envisagez une gestion des données implicites traitées dans le cadre de vos règles d’entreprise dans l’application cliente. 
+    > Comment traiter des données implicites telles que la lettre `a` impliquant une seule pizza ? Ou l’absence de `pickup` et `delivery` pour indiquer où la pizza est attendue ? Ou l’absence de taille pour indiquer votre taille par défaut, petite ou grande ? Envisagez d’inclure la gestion des données implicites dans les règles métier de l’application cliente, à la place de, ou en plus de LUIS. 
 
 1. Pour effectuer l’apprentissage de l’application, sélectionnez **Former**. La formation applique les modifications, telles que les nouvelles entités et les énoncés étiquetés, au modèle actif.
 
-1. Une fois la formation terminée, ajoutez un nouvel exemple d’énoncé pour voir comment LUIS comprend l’entité issue de l’apprentissage automatique. 
+1. Une fois l’entraînement terminé, ajoutez un nouvel exemple d’énoncé à l’intention pour voir comment LUIS comprend l’entité issue du Machine Learning. 
 
     |Exemple d’énoncé de commande|
     |--|
@@ -147,19 +147,19 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
 
     ![Nouvel exemple d’énoncé prédit avec une entité](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    Le lien en pointillés indique la prédiction. 
+    La ligne en pointillés indique la prédiction. 
 
-1. Dans Modifier la prédiction dans une entité étiquetée, sélectionnez la ligne, puis choisissez **Confirmer les prédictions d’entité**.
+1. Pour modifier la prédiction dans une entité étiquetée, sélectionnez la ligne, puis choisissez **Confirmer les prédictions d’entité**.
 
     ![Acceptez la prédiction en sélectionnant Confirmer la prédiction d’entité.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
     À ce stade, l’entité issue de l’apprentissage automatique fonctionne, car elle peut trouver l’entité dans un nouvel exemple d’énoncé. Lorsque vous ajoutez des exemples d’énoncés, si l’entité n’est pas correctement prédite, étiquetez-la, ainsi que les sous-composants. Si l’entité est correctement prédite, veillez à confirmer les prédictions. 
 
-## <a name="add-prebuilt-number-to-app-to-help-extract-data"></a>Ajouter un numéro prédéfini à l’application pour faciliter l’extraction des données
+## <a name="add-prebuilt-number-to-help-extract-data"></a>Ajouter un numéro prédéfini pour faciliter l’extraction des données
 
 Les informations de commande doivent également inclure le nombre d’exemplaires d’un article dans la commande, par exemple le nombre de pizzas. Pour extraire ces données, un nouveau sous-composant issu de l’apprentissage automatique doit être ajouté à `Order`, qui nécessite une contrainte de nombre prédéfini. Si vous limitez l’entité à un nombre prédéfini, elle trouve et extrait des nombres, que le texte soit un chiffre `2` ou un mot `two`.
 
-Commencez par ajouter le numéro prédéfini à l’application. 
+Commencez par ajouter l’entité du numéro prédéfini à l’application. 
 
 1. Sélectionnez **Entités** dans le menu de gauche, puis sélectionnez **+ Ajouter une entité prédéfinie**. 
 
@@ -175,6 +175,8 @@ L’entité `Order` doit avoir un sous-composant `Quantity` pour déterminer le 
 
 Une contrainte est appliquée comme une correspondance de texte, soit avec une correspondance exacte (telle une entité de liste), soit via des expressions régulières (telle une entité d’expression régulière ou une entité prédéfinie). 
 
+Quand vous utilisez une contrainte, seul le texte correspondant à cette contrainte est extrait. 
+
 1. Sélectionnez **Entités** puis l’entité `Order`. 
 1. Sélectionnez **+ Ajouter un composant**, entrez le nom `Quantity`, puis sélectionnez Entrée pour ajouter la nouvelle entité à l’application.
 1. Après la notification de réussite, sélectionnez le sous-composant `Quantity`, puis sélectionnez le crayon Contrainte.
@@ -182,12 +184,14 @@ Une contrainte est appliquée comme une correspondance de texte, soit avec une c
 
     ![Créer une entité Quantity avec un nombre prédéfini en tant que contrainte.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
+    L’entité `Quantity` est appliquée si et seulement si le texte correspondant à l’entité du nombre prédéfini est trouvé.
+
     L’entité contrainte est créée mais pas encore appliquée aux exemples d’énoncés.
 
     > [!NOTE]
     > Un sous-composant peut être imbriqué dans un sous-composant de niveau supérieur, jusqu’à 5 niveaux. Bien que cela ne soit pas illustré dans cet article, il est disponible à partir du portail et de l’API.  
 
-## <a name="label-example-utterance-with-subcomponent-for-quantity-to-teach-luis-about-the-entity"></a>Étiqueter l’exemple d’énoncé avec un sous-composant pour la quantité afin d’enseigner l’entité à LUIS
+## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Étiqueter l’exemple d’énoncé pour que LUIS puisse en savoir plus sur l’entité
 
 1. Sélectionnez **Intentions** dans le volet de navigation gauche, puis choisissez l’intention **OrderPizza**. Les trois nombres dans les énoncés suivants sont étiquetés, et repérés visuellement sous la ligne d’entité `Order`. Ce niveau inférieur signifie que les entités sont trouvées, mais ne sont pas considérées comme séparées de l’entité `Order`.
 

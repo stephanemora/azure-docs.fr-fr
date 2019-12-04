@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d51891c076f1784fbddb88bfaed28ac1d889afdc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631600"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227762"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options pour migrer des données de la gamme StorSimple 5000-7000 
 
@@ -67,7 +67,7 @@ Nasuni dispose de l’expérience nécessaire pour faciliter votre migration. Fr
 
 #### <a name="migrate-to-talon-fast"></a>Migrer vers Talon FAST
 
-Talon permet aux clients StorSimple 5000-7000 de continuer à bénéficier des précieux avantages offerts par la plateforme StorSimple (faible encombrement sur site et ressources cloud illimitées) avec encore plus de fonctions.  Avec la solution Talon FAST, les clients peuvent facilement migrer et conserver leurs données dans Azure. Avec un encombrement sur site encore plus réduit se limitant des logiciels, ils bénéficient de nouveaux avantages comme le verrouillage de fichiers global, l’espace de noms global et la collaboration multisite.  Talon est une solution d’écosystème Azure de premier plan qui permet à des clients du monde entier de migrer leurs charges de travail de serveurs de fichiers locaux pour bénéficier d’un encombrement Azure consolidé sans compromettre le workflow ou l’expérience utilisateur.  
+Talon permet aux clients StorSimple 5000-7000 de continuer à bénéficier des précieux avantages offerts par la plateforme StorSimple (faible encombrement sur site et ressources cloud illimitées) avec encore plus de fonctions.  Avec la solution Talon FAST, les clients peuvent facilement migrer et conserver leurs données dans Azure. Avec un encombrement sur site encore plus réduit se limitant des logiciels, ils bénéficient de nouveaux avantages comme le verrouillage de fichiers global, l’espace de noms global et la collaboration multisite.  Talon est une solution d’écosystème Azure de premier plan qui permet à des clients du monde entier de migrer leurs charges de travail de serveurs de fichiers locaux pour bénéficier d’une empreinte Azure consolidé sans compromettre le workflow ou l’expérience utilisateur.  
 
 Découvrez plus en détail comment consolider votre entreprise dans le cloud à l’adresse https://www.talonstorage.com/alliances/microsoft-storsimple.
 

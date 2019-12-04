@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388048"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184667"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de flux de données de mappage
 
@@ -77,6 +77,40 @@ Avec des fonctions d’expression qui retournent des tableaux, utilisez des croc
 
 Quand vous avez des noms de colonnes qui comportent des espaces ou des caractères spéciaux, placez ces noms entre accolades.
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>Raccourcis clavier
+
+* ```Ctrl-K Ctrl-C```: Marquer un commentaire sur la ligne entière
+* ```Ctrl-K Ctrl-U```: Supprimer les marques de commentaire
+* ```F1```: Fournir à l’éditeur des commandes d’aide
+* ```Alt-Down Arrow```: Déplacer la ligne active vers le bas
+* ```Alt-Up Arrow```: Déplacer la ligne active vers le haut
+* ```Cntrl-Space```: Afficher l’aide contextuelle
+
+## <a name="manual-comments"></a>Commentaires manuels
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+Si vous placez un commentaire en haut de votre expression, il apparaît dans la zone de texte de transformation afin de documenter vos expressions de transformation :
+
+![Commentaires](media/data-flow/comments2.png "Commentaires")
+
+## <a name="convert-to-dates-or-timestamps"></a>Convertir en dates ou en timestamps
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Notez que pour inclure des littéraux de chaîne dans votre sortie de timestamp, vous devez envelopper votre conversion dans un toString()
+
+## <a name="handling-column-names-with-special-characters"></a>Gestion des noms de colonne avec des caractères spéciaux
+
+Quand vous avez des noms de colonnes qui comportent des espaces ou des caractères spéciaux, placez ces noms entre accolades.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

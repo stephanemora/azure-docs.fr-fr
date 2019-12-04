@@ -1,14 +1,14 @@
 ---
 title: Exemple - Vérifier si une extension n’existe pas
-description: Cet exemple de définition de stratégie permet d’effectuer un audit si une extension n’est pas déployée avec une machine virtuelle.
+description: Cet exemple de définition de stratégie vérifie si une extension définie dans un paramètre n’est pas déployée sur une machine virtuelle.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 72d7728ef89678998a5fc3726d643142e3842635
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0b81a5f7b59d236cd8edb30cf0cb4f59ed9a7eab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071445"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463400"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>Exemple - Vérifier si une extension n’existe pas
 

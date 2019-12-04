@@ -2,19 +2,19 @@
 title: Comprendre les résultats de la vérification de l’agent Windows dans Azure Update Management
 description: Découvrez comment résoudre les problèmes rencontrés avec l’agent Update Management.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d3099498c3abea428e04d94ca0fcd553e6a0fec6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886400"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480775"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
 
@@ -55,11 +55,11 @@ La vérification du système d’exploitation vérifie si le Runbook Worker hybr
 |Système d’exploitation  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Prend uniquement en charge les évaluations de mises à jour.         |
-|Windows Server 2008 R2 SP1 et versions ultérieures |.NET Framework 4.6.1 ou version ultérieure est requis. ([Télécharger le .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 est requis.  ([Télécharger Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 et versions ultérieures |.NET Framework 4.6 ou version ultérieure est requis. ([Télécharger le .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 est requis.  ([Télécharger Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-461"></a>.NET 4.6.1+
+### <a name="net-462"></a>.NET 4.6.2
 
-La fonctionnalité de vérification de .NET Framework vérifie que [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) ou version ultérieure est installé sur le système.
+La fonctionnalité de vérification de .NET Framework vérifie que [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) ou une version ultérieure est installé sur le système.
 
 ### <a name="wmf-51"></a>WMF 5.1
 

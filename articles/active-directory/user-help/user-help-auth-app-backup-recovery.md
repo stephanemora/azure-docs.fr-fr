@@ -1,6 +1,6 @@
 ---
-title: Sauvegarder et récupérer avec l’application Microsoft Authenticator – Azure AD
-description: Découvrez comment sauvegarder et récupérer les Informations d’identification de votre compte à l’aide de l’application Microsoft Authenticator.
+title: Sauvegarder et récupérer des comptes avec l’application Microsoft Authenticator – Azure AD
+description: Découvrez comment sauvegarder et récupérer les informations d’identification sauvegardées de votre compte à l’aide de l’application Microsoft Authenticator.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 827213c8d243e9d66c58195e1d9400bed9c3e337
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820260"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267002"
 ---
-# <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
+# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’identification de compte avec l’application Microsoft Authenticator
 
 **S’applique à :**
 

@@ -1,6 +1,6 @@
 ---
-title: Afficher les informations relatives à la confidentialité sur le portail Mon compte – Azure AD
-description: Guide pratique pour afficher les informations relatives à la confidentialité sur la page Confidentialité du portail Mon compte.
+title: Afficher les informations relatives à la confidentialité sur le portail Mon compte - Azure AD
+description: Découvrez comment votre organisation utilise vos informations relatives à la confidentialité sur la page Confidentialité du portail Mon compte.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb05bdb3aa2cf89328051b196475338eb5a3b3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820364"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231817"
 ---
-# <a name="view-your-privacy-related-info-from-the-my-account-portal"></a>Afficher les informations relatives à la confidentialité sur le portail Mon compte
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Afficher la façon dont votre organisation utilise vos données relatives à la confidentialité
 
 Vous pouvez voir comment votre organisation utilise vos données sur la page **Confidentialité** du portail **Mon profil**.
 

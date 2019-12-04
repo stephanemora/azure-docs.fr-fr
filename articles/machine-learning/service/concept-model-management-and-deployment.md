@@ -9,36 +9,35 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123605"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420075"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : gestion des modèles, déploiement et surveillance avec Azure Machine Learning
 
-Dans cet article, découvrez comment utiliser Azure Machine Learning pour gérer le cycle de vie de vos modèles. Azure Machine Learning utilise une approche des opérations Machine Learning (MLOps), ce qui améliore la qualité et la cohérence de vos solutions de machine learning. 
+Dans cet article, découvrez comment utiliser Azure Machine Learning pour gérer le cycle de vie de vos modèles. Azure Machine Learning utilise une approche d’Opérations de Machine Learning (MLOps). MLOps améliore la qualité et la cohérence de vos solutions de Machine Learning. 
 
 Azure Machine Learning propose les fonctionnalités MLOps suivantes :
 
-- **Déployer des projets ML depuis n’importe où**
-- **Superviser les applications ML pour détecter des problèmes de fonctionnement et liés à ML** : comparez les entrées de modèle entre l’entraînement et l’inférence, explorez les métriques spécifiques au modèle et fournissez des alertes et la supervision pour votre infrastructure ML.
-- **Capturer les données requises pour l’établissement d’une piste d’audit de bout en bout du cycle de vie ML**, notamment qui publie des modèles, pourquoi des modifications sont apportées et quand les modèles ont été déployés ou utilisés en production.
+- **Créer des pipelines ML reproductibles**. Les pipelines vous permettent de définir des étapes reproductibles et réutilisables pour vos processus de préparation, d’apprentissage et de scoring de données.
+- **Inscrire, empaqueter et déployer des modèles à partir de n’importe où**, et suivre les métadonnées associées requises pour utiliser le modèle.
+- **Capturer les données de gouvernance requises pour la capture de bout en bout du cycle de vie ML**, notamment qui publie des modèles, pourquoi des modifications sont apportées et quand les modèles ont été déployés ou utilisés en production.
+- **Notifier et alerter sur les événements du cycle de vie ML** tels que l’accomplissement d’expérimentation, l’inscription de modèle, le déploiement de modèle et la détection de dérive des données.
+- **Superviser les applications ML pour détecter des problèmes de fonctionnement et liés à ML**. Comparez les entrées de modèle entre l’entraînement et l’inférence, explorez les métriques spécifiques du modèle et fournissez des alertes et une supervision pour votre infrastructure ML.
 - **Automatiser le cycle de vie ML de bout en bout avec Azure Machine Learning et Azure DevOps** pour mettre fréquemment à jour les modèles, tester de nouveaux modèles et déployer en permanence de nouveaux modèles ML en même temps que vos autres applications et services.
 
-Pour en savoir plus sur les concepts qui sous-tendent MLOps et comment ils s’appliquent à Azure Machine Learning, regardez la vidéo suivante.
+## <a name="create-reproducible-ml-pipelines"></a>Créer des pipelines ML reproductibles
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
+Utilisez des pipelines ML d’Azure Machine Learning pour réunir toutes les étapes impliquées dans votre processus d’entraînement de modèle.
 
-## <a name="deploy-ml-projects-from-anywhere"></a>Déployer des projets ML depuis n’importe où
+Un pipeline ML peut contenir des étapes allant de la préparation des données à l’extraction de fonctionnalité, pour le réglage d’hyperparamètre sur l’évaluation du modèle. Pour plus d’informations, consultez [Pipelines ML](concept-ml-pipelines.md).
 
-### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>Transformer votre processus d’entraînement en un pipeline reproductible
-Utilisez des pipelines ML à partir d’Azure Machine Learning pour combiner toutes les étapes impliquées dans votre processus d’entraînement de modèle : préparation des données, extraction des caractéristiques, optimisation des hyperparamètres et évaluation du modèle.
-
-Pour plus d’informations, consultez [Pipelines ML](concept-ml-pipelines.md).
+## <a name="register-package-and-deploy-models-from-anywhere"></a>Inscrire, empaqueter et déployer des modèles à partir de n’importe quel emplacement
 
 ### <a name="register-and-track-ml-models"></a>Inscrire et suivre des modèles ML
 
@@ -46,8 +45,8 @@ L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azu
 
 > [!TIP]
 > Un modèle inscrit est un conteneur logique pour un ou plusieurs fichiers qui composent votre modèle. Par exemple, si vous avez un modèle qui est stocké dans plusieurs fichiers, vous pouvez inscrire ces derniers en tant que modèle unique dans votre espace de travail Azure Machine Learning. Après l’inscription, vous pouvez ensuite télécharger ou déployer le modèle inscrit et recevoir tous les fichiers qui ont été inscrits.
- 
-Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles. Azure Machine Learning prend en charge tous les modèles pouvant être chargés avec Python 3.5.2 ou version ultérieure.
+
+Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Des balises de métadonnées supplémentaires peuvent être fournies lors de l’inscription. Ces balises sont ensuite utilisées lors de la recherche d’un modèle. Azure Machine Learning prend en charge tous les modèles pouvant être chargés avec Python 3.5.2 ou version ultérieure.
 
 > [!TIP]
 > Vous pouvez également inscrire des modèles formés en dehors d'Azure Machine Learning.
@@ -57,7 +56,7 @@ Pour plus d’informations, consultez la section consacrée à l’inscription d
 
 ### <a name="package-and-debug-models"></a>Empaqueter et déboguer des modèles
 
-Avant de déployer un modèle en production, il est empaqueté dans une image Docker. Dans la plupart des cas, la création d’image a lieu automatiquement en arrière-plan pendant le déploiement. Pour les scénarios avancés, vous pouvez spécifier manuellement l’image.
+Avant de déployer un modèle en production, il est empaqueté dans une image Docker. Dans la plupart des cas, la création d’image a lieu automatiquement en arrière-plan pendant le déploiement. Vous pouvez spécifier l’image manuellement.
 
 Si vous rencontrez des problèmes avec le déploiement, vous pouvez déployer sur votre environnement de développement local pour la résolution des problèmes et le débogage.
 
@@ -75,7 +74,7 @@ Pour plus d’informations sur ONNX avec Azure Machine Learning, consultez l’a
 
 ### <a name="use-models"></a>Utiliser des modèles
 
-Les modèles Machine Learning entraînés peuvent être déployés en tant que services web dans le cloud ou localement sur votre environnement de développement. Vous pouvez également déployer les modèles sur des appareils Azure IoT Edge. Les déploiements peuvent utiliser un processeur, un processeur graphique ou des tableaux FPGA (Field-Programmable Gate Array) pour l’inférence. Vous pouvez également utiliser des modèles de Power BI.
+Les modèles Machine Learning entraînés sont déployés en tant que services web dans le cloud ou localement. Vous pouvez également déployer les modèles sur des appareils Azure IoT Edge. Les déploiements utilisent un processeur, un processeur graphique ou des tableaux FPGA (Field-Programmable Gate Array) pour l’inférence. Vous pouvez également utiliser des modèles de Power BI.
 
 Lorsque vous utilisez un modèle comme un service web ou un appareil IoT Edge, vous fournissez les éléments suivants :
 
@@ -84,22 +83,14 @@ Lorsque vous utilisez un modèle comme un service web ou un appareil IoT Edge, v
 * Fichier d’environnement conda qui décrit les dépendances requises par les modèles et le script d’entrée.
 * Autres ressources, telles que le texte ou les données, entre autres, qui sont requises par les modèles et le script d’entrée.
 
-Ces ressources sont empaquetées dans une image Docker et déployées en tant que service web ou module IoT Edge.
-
-Si vous le souhaitez, vous pouvez utiliser les paramètres suivants pour affiner le déploiement :
-
-* Activer le GPU : permet d’activer la prise en charge du processeur graphique dans l’image Docker. L’image doit être utilisée sur les services Microsoft Azure comme Azure Container Instances, Azure Kubernetes Service, Capacité de calcul Azure Machine Learning ou les machines virtuelles Azure.
-* Étapes supplémentaires du fichier Docker : fichier qui contient des étapes Docker supplémentaires à exécuter lors de la création de l’image Docker.
-* Image de base : image personnalisée à utiliser comme image de base. Si vous n’utilisez pas une image personnalisée, l’image de base est fournie par Azure Machine Learning.
-
 Vous fournissez également la configuration de la plateforme de déploiement cible, par exemple le type de famille de machines virtuelles, la mémoire disponible et nombre de cœurs lors du déploiement sur Azure Kubernetes Service.
 
 Lorsque l’image est créée, les composants requis par Azure Machine Learning sont également ajoutés, par exemple les ressources nécessaires pour exécuter le service web et interagir avec IoT Edge.
 
-> [!NOTE]
-> Vous ne pouvez pas modifier ni changer le serveur web ou les composants IoT Edge utilisés dans l’image Docker. Azure Machine Learning utilise une configuration de serveur web et des composants IoT Edge qui sont testés et pris en charge par Microsoft.
+#### <a name="batch-scoring"></a>Notation par lots
+La notation par lots est prise en charge via des pipelines ML. Pour plus d’informations, consultez [Prédictions par lots sur le Big Data](how-to-run-batch-predictions.md).
 
-#### <a name="web-service"></a>Service Web
+#### <a name="real-time-web-services"></a>Services web en temps réel
 
 Vous pouvez utiliser vos modèles dans les **services web** avec les cibles de calcul suivantes :
 
@@ -126,6 +117,18 @@ Pour plus d’informations, consultez [Déployer des modèles](how-to-deploy-and
 Microsoft Power BI prend en charge l’utilisation de modèles Machine Learning pour l’analytique données. Pour plus d’informations, consultez [Intégration d’Azure Machine Learning dans Power BI (préversion)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
+## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capturer les données de gouvernance nécessaires pour la capture du cycle de vie ML de bout en bout
+
+Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audit de bout en bout de toutes vos ressources ML. Plus précisément :
+
+- Azure ML [s’intègre à Git](how-to-set-up-training-targets.md#gitintegration) pour le suivi des informations sur le dépôt / la branche / la validation d’où provient votre code.
+- Les [jeux de données Azure ML](how-to-create-register-datasets.md) vous aident à suivre, à profiler et à gérer la version des données. 
+- L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et du calcul utilisés pour entraîner un modèle.
+- Le registre de modèles Azure ML capture toutes les métadonnées associées à votre modèle (l’expérience qui l’a entraîné, où il est déployé, si ses déploiements sont sains).
+
+## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifier, automatiser et alerter sur des événements du cycle de vie ML
+Azure ML publie des événements clés dans Azure EventGrid, qui peuvent être utilisés pour notifier et automatiser des événements du cycle de vie ML. Pour plus d’informations, consultez [ce document](how-to-use-event-grid.md).
+
 ## <a name="monitor-for-operational--ml-issues"></a>Superviser les problèmes opérationnels et Machine Learning
 
 La supervision vous permet de comprendre les données envoyées à votre modèle et les prédictions qu’il retourne.
@@ -134,15 +137,6 @@ Ces informations vous aident à comprendre l’utilisation de votre modèle. Les
 
 Pour plus d’informations, consultez [Guide pratique pour activer la collecte des données de modèle](how-to-enable-data-collection.md).
 
-
-## <a name="audit-trail-of-the-ml-lifecycle"></a>Piste d’audit du cycle de vie ML
-
-Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audit de bout en bout de toutes vos ressources ML. Plus précisément :
-
-- Azure ML [s’intègre à Git](how-to-set-up-training-targets.md#gitintegration) pour le suivi des informations du dépôt / de la branche / de la validation d’où provient votre code.
-- Les [jeux de données Azure ML](how-to-create-register-datasets.md) vous permettent de suivre et de gérer la version des données.
-- L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et du calcul utilisés pour entraîner un modèle.
-- Le registre de modèles Azure ML capture toutes les métadonnées associées à votre modèle (l’expérience qui l’a entraîné, où il est déployé, si ses déploiements sont sains).
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatiser le cycle de vie ML 
 
@@ -169,6 +163,6 @@ Découvrez plus d’informations en lisant et en explorant les ressources suivan
 
 + Créer des clients qui [consomment un modèle déployé](how-to-consume-web-service.md)
 
-+ [Machine Learning à l’échelle](/architecture/data-guide/big-data/machine-learning-at-scale)
++ [Machine Learning à l’échelle](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Dépôt des architectures de référence et des bonnes pratiques d’Azure AI](https://github.com/microsoft/AI)

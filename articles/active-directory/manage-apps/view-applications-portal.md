@@ -1,6 +1,6 @@
 ---
-title: Afficher les applications du tenant - Azure Active Directory | Microsoft Docs
-description: Utilisez le portail Azure pour afficher les applications dans votre tenant Azure Active Directory (Azure AD).
+title: Démarrage rapide - Voir les applications du locataire avec Azure Active Directory
+description: Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour voir les applications dans votre locataire Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477193"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421821"
 ---
-# <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Démarrage rapide : Afficher les application du tenant Azure Active Directory
 
 Ce démarrage rapide utilise le portail Azure pour afficher les applications dans votre tenant Azure Active Directory (Azure AD).
 

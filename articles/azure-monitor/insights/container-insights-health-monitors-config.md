@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b782581318751830ec47b9fecb056fecefb353eb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134385"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279696"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guide de configuration des moniteurs d’intégrité Azure Monitor pour conteneurs
 
-Les moniteurs sont l’élément principal permettant de mesurer l’intégrité et de détecter les erreurs dans Azure Monitor pour conteneurs. Cet article vous aide à comprendre les concepts de mesure de l’intégrité et les éléments qui composent le modèle d’intégrité pour surveiller et signaler l’intégrité de votre cluster Kubernetes à l’aide de la [fonctionnalité Intégrité](container-insights-health.md).
+Les moniteurs sont l’élément principal permettant de mesurer l’intégrité et de détecter les erreurs dans Azure Monitor pour conteneurs. Cet article vous aide à comprendre les concepts de mesure de l’intégrité et les éléments qui composent le modèle d’intégrité pour superviser et signaler l’intégrité de votre cluster Kubernetes à l’aide de la fonctionnalité (d’évaluation) [Intégrité](container-insights-health.md).
+
+>[!NOTE]
+>La fonctionnalité Intégrité est actuellement une fonctionnalité d’évaluation publique.
+>
 
 ## <a name="monitors"></a>Analyses
 

@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Déployer un modèle Machine Learning avec le concepteur'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer une solution d’analytique prédictive dans le concepteur Azure Machine Learning (préversion). Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
+description: Ce tutoriel vous montre comment créer une solution d’analyse prédictive dans le concepteur Azure Machine Learning (préversion). Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932047"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483312"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Didacticiel : Déployer un modèle Machine Learning avec le concepteur (préversion)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
     Votre pipeline doit maintenant se présenter comme suit : 
 
-   ![Capture d’écran montrant la configuration attendue du pipeline après sa préparation pour le déploiement](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Capture d’écran montrant la configuration attendue du pipeline après sa préparation pour le déploiement](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     Quand vous sélectionnez **Créer un pipeline d’inférence**, plusieurs choses se produisent :
     
@@ -70,7 +70,7 @@ Dans la boîte de dialogue qui s’affiche, vous pouvez sélectionner n’import
 
 1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau**.
 
-    ![Capture d’écran montrant comment accéder au volet Nouveau cluster d’inférence](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Capture d’écran montrant comment accéder au volet Nouveau cluster d’inférence](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. Dans le volet Cluster d’inférence, configurez un nouveau service Kubernetes.
 
@@ -96,7 +96,7 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 1. Sélectionnez **Déployer**.
 
-    ![Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     Une notification de réussite s’affiche au-dessus du canevas, une fois le déploiement effectué. Cela peut prendre quelques minutes.
 
@@ -106,7 +106,7 @@ Une fois le déploiement effectué, vous pouvez tester votre point de terminaiso
 
 1. Dans la page **Points de terminaison**, sélectionnez le point de terminaison que vous avez déployé.
 
-    ![Capture d’écran montrant l’onglet des points de terminaison en temps réel avec le point de terminaison créé récemment mis en surbrillance](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Capture d’écran montrant l’onglet des points de terminaison en temps réel avec le point de terminaison créé récemment mis en surbrillance](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Sélectionnez **Test**.
 
@@ -114,7 +114,7 @@ Une fois le déploiement effectué, vous pouvez tester votre point de terminaiso
 
     Le portail soumet une requête de test au point de terminaison et affiche les résultats. Bien qu’une valeur de prix soit générée pour les données d’entrée, elle n’est pas utilisée pour générer la valeur de prédiction.
 
-    ![Capture d’écran montrant comment tester le point de terminaison en temps réel avec l’étiquette scorée pour le prix mise en surbrillance](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Capture d’écran montrant comment tester le point de terminaison en temps réel avec l’étiquette scorée pour le prix mise en surbrillance](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

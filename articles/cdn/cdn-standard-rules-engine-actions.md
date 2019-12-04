@@ -1,121 +1,116 @@
 ---
-title: Actions du moteur des règles standard Azure CDN de Microsoft | Microsoft Docs
-description: Documentation de référence pour les actions du moteur des règles standard Azure CDN de Microsoft.
+title: Actions du moteur de règles Standard pour Azure CDN | Microsoft Docs
+description: Documentation de référence sur les actions du moteur de règles Standard pour Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: dbde93cc7ffd21e341653407e6e4f910e4620974
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615848"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74171634"
 ---
-# <a name="azure-cdn-from-microsoft-standard-rules-engine-actions"></a>Actions du moteur des règles standard Azure CDN de Microsoft
+# <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Actions du moteur de règles Standard pour Azure CDN
 
-Cet article fournit les descriptions détaillées des actions disponibles pour le [Moteur des règles standard](cdn-standard-rules-engine.md) Azure Content Delivery Network (CDN) de Microsoft.
+Dans le [moteur de règles Standard](cdn-standard-rules-engine.md) pour Azure Content Delivery Network (Azure CDN), une règle se compose d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des actions que vous pouvez utiliser dans le moteur de règles Standard pour Azure CDN.
 
-La deuxième partie d’une règle est une action. Une action définit le comportement appliqué au type de requête qui est identifié par un ensemble de conditions de correspondance.
+La deuxième partie d’une règle est une action. Une action définit le comportement appliqué au type de requête qu’une condition de correspondance ou un ensemble de conditions de correspondance identifie.
 
 ## <a name="actions"></a>Actions
 
-Les actions suivantes peuvent être utilisées. 
+Les actions suivantes peuvent être utilisées dans le moteur de règles Standard pour Azure CDN. 
 
-## <a name="cache-expiration"></a>Expiration du cache
+### <a name="cache-expiration"></a>Expiration du cache
 
-Cette action vous permet de remplacer la durée de vie du point de terminaison pour les requêtes spécifiées par les conditions de correspondance des règles.
+Utilisez cette action pour remplacer la valeur de durée de vie (TTL) du point de terminaison pour les requêtes spécifiées par les conditions de correspondance des règles.
 
-**Champs obligatoires**
+#### <a name="required-fields"></a>Champs obligatoires
 
-Comportement du cache |                
+Comportement du cache |  Description              
 ---------------|----------------
 Ignorer le cache | Lorsque cette option est sélectionnée et que la règle correspond, le contenu n’est pas mis en cache.
-Écraser | Lorsque cette option est sélectionnée et que la règle correspond, la valeur TTL retournée par origine est remplacée par la valeur spécifiée dans l’action.
-Définir en cas d’absence | Lorsque cette option est sélectionnée et que la règle correspond, s’il n’y a aucune valeur TTL retournée par origine, la règle définira la durée de vie sur la valeur spécifiée dans l’action.
+Écraser | Lorsque cette option est sélectionnée et que la règle correspond, la valeur TTL retournée par votre origine est remplacée par la valeur spécifiée dans l’action.
+Définir en cas d’absence | Lorsque cette option est sélectionnée et que la règle correspond, s’il n’y a aucune valeur TTL retournée par votre origine, la règle définit la TTL sur la valeur spécifiée dans l’action.
 
-**Champs supplémentaires**
+#### <a name="additional-fields"></a>Champs supplémentaires
 
 Jours | Heures | Minutes | Secondes
 -----|-------|---------|--------
 Int | Int | Int | Int 
 
-## <a name="cache-key-query-string"></a>Chaîne de requête de clé de cache
+### <a name="cache-key-query-string"></a>Chaîne de requête de clé de cache
 
-Cette action vous permet de modifier la clé de cache en fonction des chaînes de requête.
+Utilisez cette action pour modifier la clé de cache en fonction des chaînes de requête.
 
-**Champs obligatoires**
+#### <a name="required-fields"></a>Champs obligatoires
 
 Comportement | Description
 ---------|------------
-Inclure | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête spécifiées dans les paramètres sont incluses lors de la génération de la clé de cache. 
-Mettre en cache chaque URL unique | Lorsque cette option est sélectionnée et que la règle correspond, chaque URL unique aura sa propre clé de cache. 
-Exclure | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête spécifiées dans les paramètres sont excluses lors de la génération de la clé de cache.
-Ignorer les chaînes de requête | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête sont considérées lors de la génération de la clé de cache. 
+Inclure | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête spécifiées dans les paramètres sont incluses lorsque la clé de cache est générée. 
+Mettre en cache chaque URL unique | Lorsque cette option est sélectionnée et que la règle correspond, chaque URL unique a sa propre clé de cache. 
+Exclure | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête spécifiées dans les paramètres sont exclues lorsque la clé de cache est générée.
+Ignorer les chaînes de requête | Lorsque cette option est sélectionnée et que la règle correspond, les chaînes de requête ne sont pas prises en compte lorsque la clé de cache est générée. 
 
-## <a name="modify-request-header"></a>Modifier l'en-tête de requête
+### <a name="modify-request-header"></a>Modifier l’en-tête de requête
 
-Cette action vous permet de modifier les en-têtes présents dans les requêtes envoyées à votre origine.
+Utilisez cette action pour modifier les en-têtes présents dans les requêtes envoyées à votre origine.
 
-**Champs obligatoires**
-
-Action | Nom de l’en-tête HTTP | Valeur
--------|------------------|------
-Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans Nom de l’en-tête est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera ajoutée à la valeur existante. | Chaîne
-Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans Nom de l’en-tête est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera remplacée par la valeur existante. | Chaîne
-Supprimer | Lorsque cette option est sélectionnée et que la règle correspond et que l’en-tête spécifié dans la règle est présent, elle est supprimée de la requête. | Chaîne
-
-## <a name="modify-response-header"></a>Modifier l'en-tête de réponse
-
-Cette action vous permet de modifier les en-têtes présents dans les réponses retournées à vos clients finaux
-
-**Champs obligatoires**
+#### <a name="required-fields"></a>Champs obligatoires
 
 Action | Nom de l’en-tête HTTP | Valeur
 -------|------------------|------
-Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans Nom de l’en-tête est ajouté à la réponse avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera ajoutée à la valeur existante. | Chaîne
-Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans Nom de l’en-tête est ajouté à la réponse avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera remplacée par la valeur existante. | Chaîne
-Supprimer | Lorsque cette option est sélectionnée et que la règle correspond et que l’en-tête spécifié dans la règle est présent, elle est supprimée de la réponse. | Chaîne
+Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera ajoutée à la valeur existante. | Chaîne
+Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur spécifiée remplace la valeur existante. | Chaîne
+Supprimer | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la requête. | Chaîne
 
-## <a name="url-redirect"></a>Redirection d'URL
+### <a name="modify-response-header"></a>Modifier l’en-tête de réponse
 
-Cette action vous permet de rediriger les clients finaux vers une nouvelle URL. 
+Utilisez cette action pour modifier les en-têtes présents dans les réponses retournées à vos clients.
 
-**Champs obligatoires**
+#### <a name="required-fields"></a>Champs obligatoires
+
+Action | Nom de l’en-tête HTTP | Valeur
+-------|------------------|------
+Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** est ajoutée à la valeur existante. | Chaîne
+Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** remplace la valeur existante. | Chaîne
+Supprimer | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la réponse. | Chaîne
+
+### <a name="url-redirect"></a>Redirection d’URL
+
+Utilisez cette action pour rediriger les clients vers une nouvelle URL. 
+
+#### <a name="required-fields"></a>Champs obligatoires
 
 Champ | Description 
 ------|------------
-Type | Sélectionnez le type de réponse qui sera renvoyé au demandeur. Les options disponibles sont : 302 Trouvé, 301 Déplacé, 307 Redirection temporaire et 308 Redirection permanente
-Protocol | Requête correspondante, HTTP ou HTTPS
-Nom d’hôte | Sélectionnez le nom d’hôte vers lequel la requête sera redirigée. Laissez vide pour conserver l’hôte entrant.
-Path | Définissez le chemin d’accès à utiliser dans la redirection. Laissez vide pour conserver le chemin d'accès entrant.  
+Type | Sélectionnez le type de réponse à renvoyer au demandeur : Trouvé (302), Déplacé (301), Redirection temporaire (307) et Redirection permanente (308).
+Protocol | Requête correspondante, HTTP ou HTTPS.
+Nom d’hôte | Sélectionnez le nom d’hôte vers lequel vous souhaitez rediriger la requête. Laissez vide pour conserver l’hôte entrant.
+Path | Définissez le chemin d’accès à utiliser dans la redirection. Laissez vide pour conserver le chemin d’accès entrant.  
 Chaîne de requête | Définissez la chaîne de requête utilisée dans la redirection. Laissez vide pour conserver la chaîne de requête entrante. 
 Fragment | Définissez le fragment à utiliser dans la redirection. Laissez vide pour conserver le fragment entrant. 
 
-Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL CDN vers un chemin d’accès non valide. 
+Nous vous recommandons vivement d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL Azure CDN vers un chemin d’accès non valide. 
 
-## <a name="url-rewrite"></a>Réécriture d’URL
+### <a name="url-rewrite"></a>Réécrire URL
 
-Cette action vous permet de réécrire le chemin d’accès d’une requête en cours d’acheminement vers votre origine.
+Utilisez cette action pour réécrire le chemin d’accès d’une requête en cours d’acheminement vers votre origine.
 
-**Champs obligatoires**
+#### <a name="required-fields"></a>Champs obligatoires
 
 Champ | Description 
 ------|------------
-Modèle source | Définissez le modèle source dans le chemin d’accès de l’URL à remplacer. Actuellement, le modèle source utilise une correspondance basée sur un préfixe. Pour correspondre à tous les chemins d’accès d’URL, utilisez « / » comme valeur de modèle source.
-Destination | Définissez le chemin d’accès de destination à utiliser lors de la réécriture. Cela remplacera le modèle source
-Conserver le chemin d’accès sans correspondance | Si c’est le cas, le chemin d’accès restant après le modèle source est ajouté au nouveau chemin d’accès de destination. 
-
-
-[Revenir en haut](#actions)
-
-</br>
+Modèle source | Définissez le modèle source dans le chemin d’accès de l’URL à remplacer. Actuellement, le modèle source utilise une correspondance basée sur un préfixe. Pour correspondre à tous les chemins d’accès d’URL, utilisez une barre oblique ( **/** ) comme valeur de modèle source.
+Destination | Définissez le chemin d’accès de destination à utiliser lors de la réécriture. Le chemin d’accès de destination remplace le modèle source.
+Conserver le chemin d’accès sans correspondance | S’il est défini sur **Oui**, le chemin d’accès restant après le modèle source est ajouté au nouveau chemin d’accès de destination. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md)
-- [Informations de référence du moteur de règles](cdn-standard-rules-engine-reference.md)
-- [Conditions de correspondance du moteur de règles](cdn-standard-rules-engine-match-conditions.md)
-- [Contraindre HTTPS à l’aide du moteur de règles standard](cdn-standard-rules-engine.md)
+- [Vue d’ensemble d’Azure CDN](cdn-overview.md)
+- [Informations de référence sur le moteur de règles Standard](cdn-standard-rules-engine-reference.md)
+- [Conditions de correspondance du moteur de règles Standard](cdn-standard-rules-engine-match-conditions.md)
+- [Appliquer HTTPS en utilisant le moteur de règles Standard](cdn-standard-rules-engine.md)

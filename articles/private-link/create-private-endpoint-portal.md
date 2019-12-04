@@ -1,20 +1,20 @@
 ---
-title: Gérer les points de terminaison privés dans Azure
-description: Découvrez comment créer un point de terminaison privé au moyen du portail Azure
+title: Démarrage rapide - Gérer les points de terminaison privés dans Azure
+description: Découvrez dans ce guide de démarrage rapide comment créer un point de terminaison privé avec le portail Azure
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372243"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419768"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Créer un point de terminaison privé au moyen du portail Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure
 
 Un point de terminaison privé est le composant fondamental d’une liaison privée dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez découvrir comment créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec un point de terminaison privé Azure à l’aide du portail Azure. Ensuite, vous pouvez accéder de façon sécurisée au serveur SQL Database à partir de la machine virtuelle.
 
@@ -241,4 +241,3 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur S
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, un serveur SQL Database et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur de base de données SQL via une liaison privée. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).
-

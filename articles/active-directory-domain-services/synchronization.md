@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474484"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481300"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure AD Domain Services
 
@@ -98,6 +98,9 @@ Le tableau suivant illustre la façon dont certains attributs pour les objets de
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Synchronisation d’AD DS local vers Azure AD et Azure AD DS
 
 Azure AD Connect est utilisé pour synchroniser les comptes d’utilisateur, les appartenances aux groupes et les hachages d’informations d’identification à partir d’un environnement AD DS local vers Azure AD. Les attributs des comptes d’utilisateur tels que l’UPN et l’identificateur de sécurité (SID) sont synchronisés en local. Pour vous connecter à l’aide d’Azure AD Domain Services, les hachages de mot de passe hérités requis pour l’authentification NTLM et Kerberos sont également synchronisés avec Azure AD.
+
+> [!IMPORTANT]
+> Azure AD Connect ne peut être installé et configuré que pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets vers Azure AD.
 
 Si vous configurez l’écriture différée, les modifications d’Azure AD sont resynchronisées dans l’environnement AD DS local. Par exemple, si un utilisateur modifie son mot de passe à l’aide de la gestion des mots de passe en libre-service d’Azure AD, le mot de passe est mis à jour dans l’environnement AD DS local.
 

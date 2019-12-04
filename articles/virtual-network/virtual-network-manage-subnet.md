@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 4af8c6dbbcbb877351018eb881f4d3b0b447bbce
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e8717d10f61dfd50b9cdfa20a91203a5842d4c7d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098982"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185378"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -92,7 +92,7 @@ Vous pouvez supprimer un sous-réseau uniquement si aucune ressource ne s’y tr
 
 **Commandes**
 
-- Azure CLI : [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
+- Azure CLI : [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell : [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Autorisations

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une stratégie de pare-feu d’applications web pour Azure Front Door à l’aide du portail Azure'
+title: 'Didacticiel : Créer une stratégie WAF pour Azure Front - Portail Azure'
 description: Dans ce tutoriel, vous allez apprendre à créer une stratégie de pare-feu d’applications web (WAF) à l’aide du portail Azure.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/07/2019
 ms.author: victorh
-ms.openlocfilehash: 602a8620ef35ea247c5865d97495ea43a7d7d93c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508903"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186719"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Didacticiel : Créer une stratégie de pare-feu d’applications web dans Azure Front Door à l’aide du portail Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en Java'
+title: 'Démarrage rapide : Envoyer une requête de recherche à l’API REST avec Java - Recherche d’entités Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer une requête à l’API REST Recherche d’entités Bing à l’aide de Java et recevoir une réponse JSON.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 1f7d9620198042adc7f96e7c4aaa269f73870df0
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 13e25ce0a237d34b98ec42140b86c4955f9058cb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478996"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323791"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en Java
 

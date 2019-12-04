@@ -1,19 +1,15 @@
 ---
-title: Résoudre les erreurs de sauvegarde avec les machines virtuelles Azure
+title: Détecter un problème d’erreurs de sauvegarde avec les machines virtuelles Azure
 description: Dans cet article, découvrez comment résoudre les erreurs rencontrées lors de la sauvegarde et de la restauration de machines virtuelles Azure.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090908"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172462"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 

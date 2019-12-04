@@ -1,14 +1,14 @@
 ---
 title: Exemple - Forcer l’application d’une balise et d’une valeur sur les groupes de ressources
-description: Cet exemple de définition de stratégie exige une étiquette et une valeur sur un groupe de ressources.
+description: Cet exemple de définition de stratégie demande une étiquette et une valeur définies dans un paramètre sur un groupe de ressources.
 ms.date: 01/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076276"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463625"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
 

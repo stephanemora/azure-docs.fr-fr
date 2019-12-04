@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029797"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184900"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Créer un magasin Azure App Configuration
 
@@ -71,16 +71,16 @@ Consignez le nom généré pour le nouveau groupe de ressources. Vous utiliserez
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer un groupe de ressources et un magasin de configuration d’application. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour créer un groupe de ressources et un magasin App Configuration. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Crée une ressource de magasin de configuration d’application. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Liste les clés stockées dans un magasin de configuration d’application. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crée une ressource de magasin App Configuration. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Liste les clés stockées dans un magasin App Configuration. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts d’interface de ligne de commande App Configuration dans la [documentation Azure App Configuration](../cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts d’interface de ligne de commande App Configuration dans les [exemples d’interface de ligne de commande Azure App Configuration](../cli-samples.md).

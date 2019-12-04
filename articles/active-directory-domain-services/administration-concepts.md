@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: b82927efa9054e71379d01993d1669527bc71402
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249411"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481020"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure Active Directory Domain Services
 
@@ -59,6 +59,21 @@ Pour les utilisateurs synchronisés à partir d’un environnement AD DS local �
 
 Une fois configurés de façon appropriée, les hachages de mot de passe utilisables sont stockés dans le domaine managé Azure AD DS. Si vous supprimez le domaine managé Azure AD DS, tout hachage de mot de passe stocké à ce stade est également supprimé. Les informations d’identification synchronisées dans Azure AD ne peuvent pas être réutilisées si vous créez par la suite un domaine managé Azure AD DS : vous devez reconfigurer la synchronisation de hachage de mot de passe pour stocker à nouveau les hachages de mot de passe. Les machines virtuelles ou les utilisateurs auparavant joints à un domaine ne pourront pas s’authentifier immédiatement : Azure AD doit générer et stocker les hachages de mot de passe dans le nouveau domaine managé Azure AD DS. Pour plus d’informations, consultez [Processus de synchronisation du hachage de mot de passe pour Azure AD DS et Azure AD Connect][azure-ad-password-sync].
 
+> [!IMPORTANT]
+> Azure AD Connect ne peut être installé et configuré que pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets vers Azure AD.
+
+## <a name="forests-and-trusts"></a>Forêts et approbations
+
+Une *forêt* est une construction logique utilisée par Active Directory Domain Services (AD DS) pour regrouper un ou plusieurs *domaines*. Les domaines stockent alors les objets pour un utilisateur ou des groupes et fournissent des services d’authentification.
+
+Dans Azure AD DS, la forêt ne contient qu’un seul domaine. Les forêts AD DS locales contiennent souvent de nombreux domaines. Dans les grandes organisations, en particulier après des fusions et acquisitions, vous pouvez vous retrouver avec plusieurs forêts locales qui contiennent chacune plusieurs domaines.
+
+Par défaut, un domaine managé Azure AD DS est créé en tant que forêt *d’utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, y compris les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine managé Azure AD DS, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt d’utilisateurs fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
+
+Dans une forêt Azure AD DS de *ressources*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification. Les forêts de ressources Azure AD DS sont actuellement en préversion.
+
+Pour plus d’informations sur les types de forêts dans Azure AD DS, consultez [Qu’est-ce que des forêts de ressources ?][concepts-forest] et [Comment faire fonctionner des approbations de forêts dans Azure AD DS ?][concepts-trust]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour commencer, [créons un domaine managé Azure AD DS][create-instance].
@@ -69,3 +84,6 @@ Pour commencer, [créons un domaine managé Azure AD DS][create-instance].
 [secure-domain]: secure-your-domain.md
 [azure-ad-password-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[concepts-forest]: concepts-resource-forest.md
+[concepts-trust]: concepts-forest-trust.md

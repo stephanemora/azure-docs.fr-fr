@@ -1,18 +1,14 @@
 ---
-title: Matrice de prise en charge pour le serveur de sauvegarde Microsoft Azure et System Center DPM
-description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous utilisez un serveur de sauvegarde Microsoft Azure ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
-author: dcurwin
-ms.service: backup
+title: Matrice de support MABS et System Center DPM
+description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2bec2818eaabaa2d2d74ab7181db0eabcba092ec
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012792"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172051"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 

@@ -1,24 +1,16 @@
 ---
-title: Résoudre les problèmes liés aux déploiements Resource Manager | Microsoft Docs
+title: Dépanner les déploiements
 description: Découvrez comment superviser et dépanner les déploiements de modèle Azure Resource Manager. Affiche les journaux d’activité et l’historique des déploiements.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390213"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325353"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager
 
@@ -26,7 +18,7 @@ Découvrez comment corriger les erreurs de déploiement des modèles Resource Ma
 
 Il existe deux types d’erreurs liées au déploiement d’un modèle :
 
-- Les **erreurs de validation** sont liées à des scénarios pouvant être identifiés avant le déploiement. Elles incluent notamment les erreurs de syntaxe dans votre modèle ou le déploiement de ressources entraînant un dépassement des quotas d’abonnement. 
+- Les **erreurs de validation** sont liées à des scénarios pouvant être identifiés avant le déploiement. Elles incluent notamment les erreurs de syntaxe dans votre modèle ou le déploiement de ressources entraînant un dépassement des quotas d’abonnement.
 - Les **erreurs de déploiement** sont liées aux événements se produisant lors du déploiement. Elles incluent la tentative d’accès à une ressource qui est déployée en parallèle.
 
 Les deux types d’erreurs retournent un code d’erreur qui vous permet de résoudre les problèmes liés au déploiement. Les deux types d’erreurs apparaissent dans le journal d’activité. Toutefois, les erreurs de validation n’apparaissent pas dans l’historique de votre déploiement, car le déploiement n’a jamais démarré.
@@ -47,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-- [Visual Studio Code](https://code.visualstudio.com/) avec l’[extension Outils Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="create-a-problematic-template"></a>Créer un modèle problématique
 

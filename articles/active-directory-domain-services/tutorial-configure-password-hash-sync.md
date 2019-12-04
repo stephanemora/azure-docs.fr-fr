@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172852"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481164"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Didacticiel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
 
@@ -51,6 +51,9 @@ Azure AD Connect est utilisé pour synchroniser des objets tels que des comptes
 Pour authentifier les utilisateurs sur le domaine managé, Azure AD DS nécessite les hachages de mot de passe dans un format adapté à l’authentification NTLM et Kerberos. Azure AD ne stocke pas les hachages de mot de passe au format exigé pour l’authentification NTLM ou Kerberos tant que vous n’activez pas Azure AD DS pour votre locataire. Pour des raisons de sécurité, Azure AD ne stocke pas non plus d’informations d’identification de mot de passe sous forme de texte en clair. Par conséquent, Azure AD ne peut pas générer automatiquement ces hachages de mot de passe NTLM ou Kerberos en fonction des informations d’identification existantes des utilisateurs.
 
 Azure AD Connect peut être configuré pour synchroniser les hachages de mot de passe NTLM ou Kerberos exigés pour Azure AD DS. Vérifiez que vous avez effectué les étapes nécessaires pour [activer Azure AD Connect pour la synchronisation de hachage de mot de passe][enable-azure-ad-connect]. Si vous aviez une instance d’Azure AD Connect, [téléchargez et mettez à jour la dernière version][azure-ad-connect-download] pour garantir que vous pouvez synchroniser les hachages de mot de passe existant pour NTLM et Kerberos. Cette fonctionnalité n’est pas disponible dans les versions antérieures d’Azure AD Connect ou avec l’outil DirSync existant. Azure AD Connect version *1.1.614.0* ou ultérieure est nécessaire.
+
+> [!IMPORTANT]
+> Azure AD Connect doit uniquement être installé et configuré pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets sur Azure AD.
 
 ## <a name="enable-synchronization-of-password-hashes"></a>Activer la synchronisation des hachages de mot de passe
 

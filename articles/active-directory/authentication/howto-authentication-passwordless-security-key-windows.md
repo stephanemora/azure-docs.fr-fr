@@ -1,22 +1,22 @@
 ---
-title: Activer la connexion par clé de sécurité sans mot de passe pour Azure AD (préversion) – Azure Active Directory
+title: Connexion par clé de sécurité sans mot de passe pour Windows – Azure Active Directory
 description: Activer la connexion par clé de sécurité sans mot de passe à Azure AD à l’aide de clés de sécurité FIDO2 (préversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081559"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452948"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 (préversion)
 
@@ -45,6 +45,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 - L’opération « Run As» n’est **pas prise en charge** avec la clé de sécurité.
 - La connexion à un serveur à l’aide d’une clé de sécurité n’est **pas prise en charge**.
 - Si vous n’avez pas utilisé votre clé de sécurité pour vous connecter à votre appareil une fois en ligne, vous ne pouvez pas l’utiliser pour vous connecter ou le déverrouiller hors connexion.
+- Connexion ou déverrouillage d’un appareil Windows 10 avec une clé de sécurité contenant plusieurs comptes Azure AD. Ce scénario utilisera le dernier compte ajouté à la clé de sécurité. WebAuthN permettra aux utilisateurs de choisir le compte qu’ils souhaitent utiliser.
 
 ## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
 

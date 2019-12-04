@@ -17,12 +17,12 @@ ms.date: 10/28/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014487"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232140"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -41,7 +41,7 @@ Cet article présente une vue d’ensemble du rapport de connexions.
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
-* Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
+* Les utilisateurs ayant les rôles Administrateur de la sécurité, Lecteur Sécurité, Lecteur général et Lecteur de rapports
 * Les administrateurs généraux
 * Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 

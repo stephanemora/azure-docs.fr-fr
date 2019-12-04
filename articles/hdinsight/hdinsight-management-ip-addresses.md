@@ -7,15 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/22/2019
+ms.openlocfilehash: 9caf0a41096a22e94aeb80ccfd0e6e6f70954a3d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076629"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185651"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
+
+> [!Important]
+> Utilisez la fonctionnalité [balise de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau. Les nouvelles régions seront ajoutées uniquement pour les balises de service et les adresses IP statiques seront éventuellement déconseillées.
 
 Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour contrôler le trafic vers votre cluster HDInsight, assurez-vous que votre cluster peut communiquer avec les services de gestion et d’intégrité Azure.  Certaines adresses IP sont propres à une région, et d'autres s’appliquent à toutes les régions Azure. Vous devrez peut-être autoriser le trafic provenant du service Azure DNS si vous n’utilisez pas de DNS personnalisé.
 
@@ -41,7 +44,7 @@ Autorisez le trafic provenant des adresses IP suivantes pour les services de ges
 Autorisez le trafic provenant des adresses IP répertoriées pour les services de gestion et d’intégrité Azure HDInsight dans la région Azure spécifique où vos ressources sont situées :
 
 > [!IMPORTANT]  
-> Si la région Azure que vous utilisez n’est pas répertoriée, utilisez uniquement les quatre adresses IP de la section précédente.
+> Si la région Azure que vous utilisez n’est pas répertoriée, utilisez la fonctionnalité [balise de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau.
 
 | Country | Région | Adresses IP sources autorisées | Destination autorisée | Direction |
 | ---- | ---- | ---- | ---- | ----- |

@@ -1,22 +1,22 @@
 ---
-title: Activer la connexion sans mot de passe avec l’application Microsoft Authenticator (préversion) – Azure Active Directory
+title: Connexion sans mot de passe avec l’application Microsoft Authenticator - Azure Active Directory
 description: Activer la connexion sans mot de passe pour Azure AD à l’aide de l’application Microsoft Authenticator (préversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474365"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381860"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -46,7 +46,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe par téléphone
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Accédez à **Sécurité Azure AD** > **Méthodes d’authentification** > **Stratégie de méthode d’authentification (préversion)**
+1. Recherchez et sélectionnez *Azure Active Directory*. Sélectionner **Sécurité** > **Méthodes authentification** > **Stratégie des méthodes authentification (Préversion)**
 1. Sous **Authentification sans mot de passe par téléphone**, choisissez les options suivantes
    1. **Activer** - Oui ou Non
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés

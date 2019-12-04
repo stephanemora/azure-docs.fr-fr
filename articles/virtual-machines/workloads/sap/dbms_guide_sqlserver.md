@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d0c6841e29323ceab0758f4c4d6881abd24532d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099974"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328290"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -341,7 +341,7 @@ Conformément à la description générale, les exécutables SQL Server doivent 
 Ces configurations permettent à la base de données tempdb de consommer davantage d’espace que celui que peut proposer le lecteur système. Le lecteur D:\ non persistant offre également un débit et une latence d’E/S améliorés (à l’exception des machines virtuelles de la série A). Pour déterminer la taille de base de données tempdb appropriée, vous pouvez consulter les tailles des bases de données tempdb sur les systèmes existants. 
 
 >[!NOTE]
-> Si vous placez un fichier journal et les fichiers de données tempdb dans un dossier sur le lecteur D:\ que vous avez créé, vous devez vous assurer que le dossier existe après un redémarrage de la machine virtuelle. Étant donné que le lecteur D:\ vient d’être initialisé après le redémarrage d’une machine virtuelle, toutes les structures de répertoires et de fichiers sont effacées. La possibilité de recréer des structures de répertoires ultérieurement sur lecteur D:\ avant le démarrage du service SQL Server est documentée dans [cet article](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> Si vous placez un fichier journal et les fichiers de données tempdb dans un dossier sur le lecteur D:\ que vous avez créé, vous devez vous assurer que le dossier existe après un redémarrage de la machine virtuelle. Étant donné que le lecteur D:\ vient d’être initialisé après le redémarrage d’une machine virtuelle, toutes les structures de répertoires et de fichiers sont effacées. La possibilité de recréer des structures de répertoires ultérieurement sur lecteur D:\ avant le démarrage du service SQL Server est documentée dans [cet article](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 Voici un exemple de configuration de machine virtuelle qui exécute SQL Server avec une base de données SAP, et dans laquelle les données et le fichier journal de tempdb sont placés sur le lecteur D:\ :
 

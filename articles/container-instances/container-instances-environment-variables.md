@@ -1,19 +1,14 @@
 ---
-title: Définir des variables d’environnement dans Azure Container Instances
+title: Définir des variables d’environnement dans une instance de conteneur
 description: Découvrez comment définir des variables d’environnement dans les conteneurs que vous exécutez dans Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d12d3204740f2971216636f9f5dd6403b17ecbff
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68326038"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483218"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Définir des variables d’environnement dans des instances de conteneur
 

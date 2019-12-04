@@ -1,5 +1,5 @@
 ---
-title: Configurer une réponse personnalisée pour le pare-feu d’applications web avec Azure Front Door
+title: Configurer une réponse personnalisée pour le pare-feu d’applications web à l’aide d’Azure Front Door
 description: Découvrez comment configurer un code et un message de réponse personnalisée lorsque le pare-feu d’applications web (WAF) bloque une requête.
 services: web-application-firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: ae3099373bbaece57c2896eb0fb4e7d59d817f25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511610"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185341"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurer une réponse personnalisée pour le pare-feu d’applications web Azure
 

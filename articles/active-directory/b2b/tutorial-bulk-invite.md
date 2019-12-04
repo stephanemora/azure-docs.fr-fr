@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Inviter en bloc des utilisateurs B2B Collaboration - Azure Active Directory | Microsoft Docs'
+title: Tutoriel pour inviter en bloc des utilisateurs B2B Collaboration - Azure AD
 description: Dans ce tutoriel, vous découvrez comment utiliser PowerShell et un fichier CSV pour envoyer des invitations en bloc à des utilisateurs Azure AD B2B Collaboration externes.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128722"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272354"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Didacticiel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration (préversion)
 
@@ -57,7 +57,7 @@ Vous avez besoin d’au moins deux comptes de messagerie de test auxquels vous p
     ![Exemple de fichier CSV avec des utilisateurs invités entrés](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
    > [!NOTE]
-   > N’utilisez pas de virgules dans le <bpt id="p1">**</bpt>Message d’invitation personnalisé<ept id="p1">**</ept>, car elles empêchent le message d’être correctement analysé.
+   > N’utilisez pas de virgules dans le **Message d’invitation personnalisé**, car le message ne pourrait pas être analysé correctement.
 
 6. Enregistrez le fichier .
 7. Dans la page **Inviter des utilisateurs en bloc (préversion)** , sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier .csv démarre. 

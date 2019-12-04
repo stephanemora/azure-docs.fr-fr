@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640619"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209716"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -245,11 +245,11 @@ Les kits [Azure IoT device SDK](iot-hub-devguide-sdks.md) simplifient l’utilis
 
 Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalées (Reported) sont des objets JSON soumis aux restrictions suivantes :
 
-* Toutes les clés dans des objets JSON sont des chaînes UNICODE UTF-8 de 64 octets respectant la casse. Les caractères autorisés excluent les caractères de contrôle UNICODE (segments C0 et C1), ainsi que `.`, `$` et SP.
+* Toutes les clés des objets JSON sont encodées en UTF-8, respectent la casse et mesurent jusqu’à 1 Ko. Les caractères autorisés excluent les caractères de contrôle UNICODE (segments C0 et C1), ainsi que `.`, `$` et SP.
 
 * Toutes les valeurs figurant dans les objets JSON peuvent être des types JSON suivants : booléen, nombre, chaîne, objet. Les tableaux ne sont pas autorisés. La valeur maximale pour les entiers est 4503599627370495, tandis que la valeur minimale pour les entiers est-4503599627370496.
 
-* Tous les objets JSON dans les balises ainsi que dans les propriétés souhaitées et signalées, peuvent avoir une profondeur maximale de 5. Par exemple, l’objet suivant est valide :
+* Tous les objets JSON dans les balises ainsi que dans les propriétés souhaitées et signalées, peuvent avoir une profondeur maximale de 10. Par exemple, l’objet suivant est valide :
 
    ```json
    {
@@ -260,7 +260,17 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -271,7 +281,7 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
    }
    ```
 
-* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 512 octets.
+* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 4 Ko.
 
 ## <a name="device-twin-size"></a>Taille de jumeau d’appareil
 

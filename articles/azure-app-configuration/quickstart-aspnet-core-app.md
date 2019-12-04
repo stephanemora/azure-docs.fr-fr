@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299939"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185083"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -30,7 +30,7 @@ Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
+## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -81,7 +81,7 @@ Pour utiliser Secret Manager, ajoutez un élément `UserSecretsId` à votre fich
 
 L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source. Pour plus d’informations sur Secret Manager, consultez [Stockage sécurisé des secrets d’application en développement dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
-## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
+## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
 
@@ -95,7 +95,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
     ```
 3. Ajoutez un secret nommé *ConnectionStrings:AppConfig* à Secret Manager.
 
-    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin de configuration d’application. Dans la commande suivante, remplacez la valeur par la chaîne de connexion de votre magasin de configuration d’application.
+    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin App Configuration. Dans la commande suivante, remplacez la valeur par la chaîne de connexion de votre magasin App Configuration.
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
@@ -216,7 +216,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et l’avez utilisé avec une application web ASP.NET Core par l’intermédiaire du [fournisseur d’App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Pour en savoir plus sur l’utilisation d’App Configuration, passez au tutoriel suivant qui montre comment configurer votre application web pour actualiser de manière dynamique les paramètres de configuration.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et l’avez utilisé avec une application web ASP.NET Core par l’intermédiaire du [fournisseur App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Pour savoir comment configurer votre application ASP.NET Core afin d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Utiliser la configuration dynamique dans une application ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)
+> [Activer la configuration dynamique](./enable-dynamic-configuration-aspnet-core.md)

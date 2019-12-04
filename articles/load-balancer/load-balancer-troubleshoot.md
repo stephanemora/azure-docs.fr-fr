@@ -3,7 +3,7 @@ title: Résoudre les problèmes liés à Azure Load Balancer
 description: Découvrez comment résoudre les problèmes connus liés à Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
-ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.author: allensu
+ms.openlocfilehash: eab86b3643dde2a6e854d73c38b5267c65fb7e3e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076921"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214758"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -28,7 +28,9 @@ Cette page contient des informations de résolution des problèmes liés aux que
 - Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas aux sondes d’intégrité 
 - Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas au trafic sur le port configuré
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptôme : Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas aux sondes d’intégrité
+Lorsque les clients externes aux machines virtuelles principales passent par l’équilibreur de charge, l’adresse IP des clients est utilisée pour la communication. Assurez-vous que l’adresse IP des clients est ajoutée à la liste d’autorisation des NSG. 
+
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptôme : Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas aux sondes d’intégrité
 Pour que les serveurs principaux participent au jeu d’équilibrage de charge, ils doivent réussir la vérification de la sonde. Pour plus d’informations sur les sondes d’intégrité, consultez la page [Comprendre les sondes de l’équilibrage de charge](load-balancer-custom-probe-overview.md). 
 
 Les machines virtuelles du pool principal de l’équilibreur de charge peuvent ne pas répondre aux sondes en raison des raisons suivantes : 
@@ -96,18 +98,20 @@ Si une machine virtuelle ne répond pas au trafic de données, il se peut que le
 1. Connectez-vous à la machine virtuelle principale. 
 2. Ouvrez une invite de commandes et exécutez la commande suivante pour vérifier qu’une application écoute sur le port de données :  netstat -an 
 3. Si l’état du port indiqué n’est pas « ÉCOUTE », configurez le port d’écoute approprié. 
-4. Si l’état du port est Écoute, recherchez dans l’application cible sur ce port des problèmes possibles. 
+4. Si l’état du port est Écoute, recherchez dans l’application cible sur ce port des problèmes possibles.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Cause 2 : Un groupe de sécurité réseau bloque le port sur la machine virtuelle du pool principal de l’équilibreur de charge  
 
 Si un ou plusieurs groupes de sécurité réseau configurés sur le sous-réseau ou sur la machine virtuelle bloquent l’adresse IP source ou le port, alors la machine virtuelle ne peut pas répondre.
 
-* Répertoriez les groupes de sécurité réseau configurés sur la machine virtuelle du pool principal. Pour plus d’informations, consultez [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md) (Créer, modifier ou supprimer un groupe de sécurité réseau).
-* Dans la liste des groupes de sécurité réseau, vérifiez si :
+Pour l’équilibreur de charge public, l’adresse IP des clients Internet sera utilisée pour la communication entre les clients et les machines virtuelles principales de l’équilibreur de charge. Assurez-vous que l’adresse IP des clients est autorisée dans le groupe de sécurité réseau de la machine virtuelle principale.
+
+1. Répertoriez les groupes de sécurité réseau configurés sur la machine virtuelle du pool principal. Pour plus d’informations, consultez [Créer, modifier ou supprimer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
+1. Dans la liste des groupes de sécurité réseau, vérifiez si :
     - le trafic entrant ou sortant sur le port de données subit des interférences ; 
-    - une règle **Refuser tout** des groupes de sécurité réseau sur la carte d’interface réseau de la machine virtuelle ou du sous-réseau a une priorité supérieure à celle de la règle par défaut qui autorise les sondes et le trafic de l’équilibreur de charge (les groupes de sécurité réseau doivent autoriser l’adresse IP 168.63.129.16 de l’équilibreur de charge qui correspond au port de la sonde). 
-* Si l’une des règles bloque le trafic, supprimez et reconfigurez ces règles pour autoriser le trafic de données.  
-* Vérifiez si la machine virtuelle répond à présent aux sondes d’intégrité.
+    - une règle **Refuser tout** des groupes de sécurité réseau sur la carte d’interface réseau de la machine virtuelle ou du sous-réseau a une priorité supérieure à celle de la règle par défaut qui autorise les sondes et le trafic de l’équilibreur de charge (les groupes de sécurité réseau doivent autoriser l’adresse IP 168.63.129.16 de l’équilibreur de charge qui correspond au port de la sonde).
+1. Si l’une des règles bloque le trafic, supprimez et reconfigurez ces règles pour autoriser le trafic de données.  
+1. Vérifiez si la machine virtuelle répond à présent aux sondes d’intégrité.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Cause 3 : Accès à l’équilibreur de charge à partir des mêmes machine virtuelle et interface réseau 
 

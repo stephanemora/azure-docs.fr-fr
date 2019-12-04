@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84290ee3c242b5ccb91bdca8a6b82fc0bf963751
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c387e2d78adcaebc430073a2a45818c4a0928b9f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194590"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422351"
 ---
 # <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Mettre à jour un groupe dynamique pour gérer l'appartenance dans Azure Active Directory
 
@@ -46,7 +46,7 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 
 ## <a name="to-update-a-group-membership-rule"></a>Pour mettre à jour une règle d'appartenance à un groupe
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans le locataire.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans l’abonné.
 1. Sélectionnez **Groupes** > **Tous les groupes**.
 1. Sélectionnez un groupe pour ouvrir son profil.
 1. Sur la page de profil du groupe, sélectionnez **Règles d'appartenance dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.

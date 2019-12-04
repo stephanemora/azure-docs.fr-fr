@@ -1,14 +1,14 @@
 ---
-title: Exemple - Blueprint SWIFT CSP-CSCF v2020 - Correspondance des contrôles
+title: Exemples de contrôles de blueprint SWIFT CSP-CSCF v2020
 description: Correspondance des contrôles de l’exemple de blueprint SWIFT CSP-CSCF v2020. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037838"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546527"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint SWIFT CSP-CSCF v2020
 

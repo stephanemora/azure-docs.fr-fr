@@ -1,23 +1,23 @@
 ---
-title: DNS inversés dans les services Azure | Microsoft Docs
-description: Apprenez à configurer des recherches DNS inversées dans les services hébergés par Azure
+title: DNS inversé pour les services Azure - Azure DNS
+description: Grâce à ce parcours d’apprentissage, commencez à configurer des recherches DNS inversé pour les services hébergés dans Azure.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
+author: asudbring
+manager: KumudD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: c33914fb404467a20a9799df9643e9702234c300
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: allensu
+ms.openlocfilehash: 550ba617dec0359fd7d4e0bc309e411095de0d1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224495"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211227"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurer des DNS inversés dans les services hébergés par Azure
 

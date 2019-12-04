@@ -6,59 +6,69 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511830"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196170"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Le concepteur pour Azure Machine Learning permet de préparer des données, de former, de tester, de déployer et de suivre les modèles Machine Learning sans écrire de code.
+Le concepteur Azure Machine Learning vous permet de connecter visuellement les [jeux de données](#datasets) et les [modules](#module) sur un canevas interactif afin de créer des modèles Machine Learning. Pour plus d'informations sur la prise en main du concepteur, consultez [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
 
-Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des [jeux de donnée](#datasets)s et des [modules](#module) pour construire votre modèle.
+![Exemple de concepteur Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-Le concepteur utilise votre [espace de travail](concept-workspace.md) Azure Machine Learning pour :
+Le concepteur utilise votre [espace de travail](concept-workspace.md) Azure Machine Learning pour organiser des ressources partagées telles que :
 
-+ Créer, modifier et exécuter des [pipelines](#pipeline) dans l’espace de travail.
-+ Accéder aux [jeux de données](#datasets).
-+ Utilisez les [ressources de calcul](#compute) dans l’espace de travail pour exécuter le pipeline. 
-+ Inscrivez les [modèles](concept-azure-machine-learning-architecture.md#models).
-+ [Publier](#publish) des pipelines en tant que points de terminaison REST.
-+ [Déployez](#deployment) des modèles en tant que points de terminaison de pipeline (pour l’inférence de lot) ou des points de terminaison en temps réel sur les ressources de calcul dans l’espace de travail.
++ [Pipelines](#pipeline)
++ [Groupes de données](#datasets)
++ [Ressources de calcul](#compute)
++ [Modèles inscrits](concept-azure-machine-learning-architecture.md#models)
++ [Pipelines publiés](#publish)
++ [Points de terminaison en temps réel](#deploy)
 
-![Vue d’ensemble du concepteur](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>Formation et déploiement du modèle
 
-## <a name="workflow"></a>Workflow
+Le concepteur vous donne un canevas visuel permettant de générer, tester et déployer des modèles Machine Learning. À l’aide du concepteur, vous pouvez :
 
-Le concepteur offre un canevas visuel interactif pour générer, tester et effectuer une itération rapidement sur un modèle. 
++ Glisser-déplacer les [jeux de données](#datasets) et les [modules](#module) sur le canevas.
++ Connecter les modules ensemble pour former un [brouillon de pipeline](#pipeline-draft).
++ Envoyer une [exécution de pipeline](#pipeline-run) à l’aide des ressources de calcul de votre espace de travail Azure Machine Learning.
++ Convertir vos **pipelines de formation** en **pipelines d’inférence**.
++ [Publier](#publish) vos pipelines sur un **point de terminaison de pipeline** REST pour envoyer de nouvelles exécutions de pipeline avec des paramètres et des jeux de données différents.
+    + Publier un **pipeline de formation** pour réutiliser un pipeline unique afin d’effectuer l’apprentissage de plusieurs modèles tout en modifiant les paramètres et les jeux de données.
+    + Publier un **pipeline d’inférence par lot** pour effectuer des prédictions sur de nouvelles données à l’aide d’un modèle préalablement formé.
++ [Déployer](#deploy) un **pipeline d’inférence en temps réel** vers un point de terminaison en temps réel pour effectuer des prédictions sur de nouvelles données en temps réel.
 
-+ Vous glissez-déplacez les [jeux de données](#datasets) et [modules](#module) sur le canevas.
-+ Connectez les modules ensemble pour former un [pipeline](#pipeline).
-+ Exécutez le pipeline à l’aide de la ressource de calcul de l’espace de travail du service Machine Learning.
-+ Effectuez une itération sur la conception de votre modèle en modifiant le pipeline et en l’exécutant à nouveau.
-+ Lorsque vous êtes prêt, convertissez votre **pipeline de formation** en un **pipeline d’inférence**.
-+ [Publiez](#publish) votre pipeline en tant que point de terminaison REST si vous souhaitez le renvoyer sans que le code Python ne l’ait construit.
-+ [Déployez](#deployment) le pipeline d’inférence comme point de terminaison de pipeline ou point de terminaison en temps réel afin que votre modèle soit accessible par d’autres utilisateurs.
+![Diagramme de flux de travail pour la formation, l’inférence par lot et l’inférence en temps réel dans le concepteur](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Créez un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) de Machine Learning à partir de zéro ou utilisez un échantillon de pipeline existant comme modèle. Chaque fois que vous exécutez un pipeline, des artefacts sont stockés dans votre espace de travail. Les exécutions de pipeline sont regroupées en [expériences](concept-azure-machine-learning-architecture.md#experiments).
+Un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) se compose de jeux de données et de modules d’analyse que vous connectez ensemble. Les pipelines ont de nombreuses utilisations : vous pouvez créer un pipeline qui effectue l’apprentissage d’un modèle unique ou un pipeline qui effectue l’apprentissage de plusieurs modèles. Vous pouvez créer un pipeline qui réalise des prédictions en temps réel ou par lot ou un pipeline qui nettoie uniquement les données. Les pipelines vous permettent de réutiliser votre travail et d’organiser vos projets.
 
-Un pipeline se compose de jeux de données et de modules d’analyse que vous connectez ensemble pour construire un modèle. En particulier, un pipeline valide a les caractéristiques suivantes :
+### <a name="pipeline-draft"></a>Brouillon de pipeline
 
-* Il est possible de connecter des jeux de données uniquement à des modules.
-* Les modules peuvent être connectés à des jeux de données ou à d’autres modules.
+Lorsque vous modifiez un pipeline dans le concepteur, votre progression est enregistrée en tant que **brouillon de pipeline**. Vous pouvez modifier un brouillon de pipeline à tout moment en ajoutant ou en supprimant des modules, en configurant des cibles de calcul, en créant des paramètres et ainsi de suite.
+
+Un pipeline valide a les caractéristiques suivantes :
+
+* Les jeux de données peuvent uniquement se connecter à des modules.
+* Les modules peuvent uniquement se connecter à des jeux de données ou à d’autres modules.
 * Tous les ports d’entrée des modules doivent comporter une connexion au flux de données.
 * Tous les paramètres obligatoires de chaque module doivent être configurés.
 
+Lorsque vous êtes prêt à exécuter votre brouillon de pipeline, vous soumettez une exécution de pipeline.
 
-Pour plus d'informations sur la prise en main du concepteur, consultez [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md).
+### <a name="pipeline-run"></a>Exécution du pipeline
+
+Chaque fois que vous exécutez un pipeline, la configuration du pipeline et ses résultats sont stockés dans votre espace de travail sous la forme d’une **exécution de pipeline**. Vous pouvez revenir à n’importe quelle exécution de pipeline pour l’inspecter à des fins de résolution de problèmes ou d’audit. **Clonez** une exécution de pipeline pour créer un brouillon de pipeline que vous pouvez modifier.
+
+Les exécutions de pipeline sont regroupées en [expériences](concept-azure-machine-learning-architecture.md#experiments) afin d’organiser l’historique des exécutions. Vous pouvez définir l’expérience pour chaque exécution de pipeline. 
 
 ## <a name="datasets"></a>Groupes de données
 
@@ -68,7 +78,7 @@ Un jeu de données Machine Learning facilite l’accès aux données et l’util
 
 Un module est un algorithme que vous appliquez à vos données. Le concepteur comporte divers modules, allant de fonctions d’entrée des données à des procédures de formation, de notation et de validation.
 
-Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle.
+Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
 
 ![Propriétés du module](media/ui-concept-visual-interface/properties.png)
 
@@ -85,21 +95,24 @@ Utilisez les ressources de calcul de votre espace de travail pour exécuter votr
 
 Les cibles de calcul sont associées à votre [espace de travail](concept-workspace.md) de Machine Learning. Vous gérez vos cibles de calcul dans votre espace de travail de [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="publish"></a>Publish
+## <a name="deploy"></a>Déployer
 
-Une fois que vous avez un pipeline prêt, vous pouvez le publier en tant que point de terminaison REST. Un [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) peut être soumis sans le code Python qui l’a construit.
+Pour effectuer une inférence en temps réel, vous devez déployer un pipeline en tant que **point de terminaison en temps réel**. Le point de terminaison en temps réel crée une interface entre une application externe et votre modèle de scoring. Un appel à un point de terminaison en temps réel renvoie les résultats de prédiction à l’application en temps réel. Pour générer un appel vers un point de terminaison en temps réel, vous transmettez la clé API créée au moment du déploiement du point de terminaison. Le point de terminaison s’appuie sur l’architecture populaire REST, souvent choisie pour les projets de programmation web.
 
-En outre, un PublishedPipeline peut être utilisé pour renvoyer un pipeline avec différentes valeurs et entrées PipelineParameter.
-
-## <a name="deployment"></a>Déploiement
-
-Une fois votre modèle prédictif prêt, déployez-le en tant que point de terminaison de pipeline ou de point de terminaison en temps réel à partir du concepteur.
-
-Le point de terminaison de pipeline est un PublishedPipeline, que vous pouvez soumettre à une exécution de pipeline avec différentes valeurs PipelineParameter et entrées pour l’inférence de lot.
-
-Le point de terminaison en temps réel fournit une interface entre une application et votre modèle de scoring. Une application externe peut communiquer en temps réel avec le modèle de scoring. Un appel à un point de terminaison en temps réel renvoie les résultats de prédiction à une application externe. Pour générer un appel vers un point de terminaison en temps réel, vous transmettez une clé API créée au moment du déploiement du point de terminaison. Le point de terminaison s’appuie sur l’architecture populaire REST, souvent choisie pour les projets de programmation web.
+Les points de terminaison en temps réel doivent être déployés sur un cluster Azure Kubernetes Service.
 
 Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployez un modèle Machine Learning avec le concepteur](tutorial-designer-automobile-price-deploy.md).
+
+## <a name="publish"></a>Publish
+
+Vous pouvez également publier un pipeline sur un **point de terminaison de pipeline**. Semblable à un point de terminaison en temps réel, un point de terminaison de pipeline vous permet d’envoyer de nouvelles exécutions de pipeline à partir d’applications externes à l’aide d’appels REST. Toutefois, vous ne pouvez pas envoyer ni recevoir de données en temps réel à l’aide d’un point de terminaison de pipeline.
+
+Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effectuer ou réeffectuer l’apprentissage de modèles, effectuer des inférences par lot, traiter de nouvelles données et bien plus encore. Vous pouvez publier plusieurs pipelines sur un point de terminaison de pipeline unique et spécifier la version de pipeline à exécuter.
+
+Un pipeline publié s’exécute sur les ressources de calcul que vous définissez dans le brouillon de pipeline pour chaque module.
+
+Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que le Kit de développement logiciel (SDK).
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passer de l’interface visuelle au concepteur
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 799b2b6ee6074472a951e69dec7e9a87056373b4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274292"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384022"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de supervision pour fournir un insight sur le comportement de votre serveur.
@@ -33,8 +33,8 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Pourcentage de stockage du journal du serveur utilisé par rapport au stockage du journal du serveur maximal défini pour le serveur.|
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Quantité de stockage du journal du serveur en cours d’utilisation.|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Stockage du journal du serveur maximal défini pour ce serveur.|
-|active_connections|Connexions actives|Nombre|Nombre de connexions actives sur le serveur.|
-|connections_failed|Connexions ayant échoué|Nombre|Nombre de connexions au serveur ayant échoué.|
+|active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
+|connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
@@ -52,6 +52,14 @@ Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont égal
 
 ## <a name="performance-recommendations"></a>Recommandations sur les performances
 La fonctionnalité [Recommandations sur les performances](concepts-performance-recommendations.md) identifie les opportunités d’amélioration des performances des charges de travail. La fonctionnalité Recommandations sur les performances fournit des recommandations pour créer des index susceptibles d’améliorer les performances de vos charges de travail. Pour générer des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de la base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements. 
+
+## <a name="service-health"></a>État d’intégrité du service
+[Azure Service Health](../service-health/overview.md) fournit un affichage de toutes les notifications d’intégrité de service dans votre abonnement. Vous pouvez configurer des alertes Service Health pour vous avertir par le biais de vos canaux de communication préférés en cas de problèmes ou de modifications susceptibles de perturber les services et régions Azure que vous utilisez.
+
+Vous pouvez afficher les événements de maintenance planifiée pour Azure Database pour PostgreSQL - Serveur unique à l’aide du type d’événement **maintenance planifiée**. Pour savoir comment créer des **alertes d’intégrité de service**, consultez l’article [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
+
+> [!IMPORTANT]
+> Les notifications de maintenance planifiée sont disponibles en préversion pour USA Est et Royaume-Uni Sud uniquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.

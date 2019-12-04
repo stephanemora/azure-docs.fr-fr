@@ -1,18 +1,14 @@
 ---
-title: Créer une Function App sur Linux à l’aide du Portail Azure | Microsoft Docs
+title: Créer une application de fonction sur Linux à l’aide du portail Azure
 description: Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide du portail Azure.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.author: glenga
-ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fdc2d9c7b5945e48cc87f3edd918498c3d45f55e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571667"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233101"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Créer une application de fonction dans un plan App Service sur Linux
 

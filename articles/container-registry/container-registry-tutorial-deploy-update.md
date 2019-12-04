@@ -1,20 +1,15 @@
 ---
-title: 'Tutoriel : Envoyer (push) la mise à jour au registre de conteneurs Azure géorépliqué'
+title: Tutoriel - Envoyer par push une mise à jour à un registre géorépliqué
 description: Envoyez (push) une image Docker mise à jour à votre registre de conteneurs Azure géorépliqué, puis déployez les modifications automatiquement sur les applications web qui s’exécutent dans plusieurs régions. Troisième partie d’une série en trois parties.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: adf6348e3b4c5fa728a0289ccd5bd3f289872108
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931370"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454696"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutoriel : Envoyer une image conteneur mise à jour à un registre de conteneurs géorépliqué pour les déploiements d’applications web régionaux
 

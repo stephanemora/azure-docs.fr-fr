@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834101"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150055"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -88,14 +88,14 @@ Pour plus d’informations, consultez le document [Ports utilisés par les servi
 
 Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr/hdp`. Le répertoire contient les sous-répertoires suivants :
 
-* **2.6.5.3006-29** : le nom du répertoire correspond à la version de la plateforme Hadoop utilisée par HDInsight. Le numéro qui figure sur votre cluster peut être différent de celui indiqué ici.
-* **current** : ce répertoire contient des liens vers des sous-répertoires sous le répertoire **2.6.5.3006-29**. Ce répertoire vous évite d’avoir à mémoriser le numéro de version.
+* **2.6.5.3009-43** : le nom du répertoire correspond à la version de la plateforme Hadoop utilisée par HDInsight. Le numéro qui figure sur votre cluster peut être différent de celui indiqué ici.
+* **current** : ce répertoire contient des liens vers des sous-répertoires sous le répertoire **2.6.5.3009-43**. Ce répertoire vous évite d’avoir à mémoriser le numéro de version.
 
 Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop Distributed File System) dans `/example` et `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Stockage Azure et Data Lake Storage
 
-Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS, qui est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
+Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS, qui est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage local peut être coûteuse pour une solution informatique où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
 
 Quand vous utilisez HDInsight, les fichiers de données sont stockés de manière évolutive et résiliente dans le cloud, à l’aide du Stockage Blob Azure et, éventuellement, d’Azure Data Lake Storage. Ces services offrent les avantages suivants :
 
@@ -105,7 +105,7 @@ Quand vous utilisez HDInsight, les fichiers de données sont stockés de manièr
 
 Pour plus d’informations, consultez [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-Quand vous utilisez Stockage Azure ou Data Lake Storage, vous n’avez aucune opération particulière à effectuer à partir de HDInsight pour accéder aux données. Par exemple, la commande suivante liste les fichiers dans le dossier `/example/data`, qu’il soit stocké sur Stockage Azure ou sur Data Lake Storage :
+Quand vous utilisez Stockage Azure ou Data Lake Storage, vous n’avez aucune opération particulière à effectuer à partir de HDInsight pour accéder aux données. Par exemple, la commande suivante répertorie les fichiers dans le dossier `/example/data`, qu’il soit stocké sur Stockage Azure ou sur Data Lake Storage :
 
     hdfs dfs -ls /example/data
 
@@ -284,5 +284,4 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 
 * [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)

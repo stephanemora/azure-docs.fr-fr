@@ -1,20 +1,15 @@
 ---
-title: Tutoriel – Déclencher la génération d’images en cas de mise à jour de l’image de base – Azure Container Registry
+title: Tutoriel – Déclencher la génération d’images lors de la mise à jour d’images de base
 description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche Azure Container Registry pour déclencher automatiquement la génération des images conteneur dans le cloud lorsqu’une image de base est mise à jour.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b89bf0364165822368647b4c5b773bf422902aec
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931682"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456133"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Didacticiel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
@@ -272,10 +267,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez découvert comment utiliser une tâche pour déclencher automatiquement la génération des images de conteneur lorsqu’une image de base a été mise à jour. À présent, vous allez découvrir l’authentification du registre de conteneurs.
+Dans ce didacticiel, vous avez découvert comment utiliser une tâche pour déclencher automatiquement la génération des images de conteneur lorsqu’une image de base a été mise à jour. À présent, passez au tutoriel suivant pour découvrir comment déclencher des tâches selon une planification définie.
 
 > [!div class="nextstepaction"]
-> [Authentification dans Azure Container Registry](container-registry-authentication.md)
+> [Exécuter une tâche selon une planification](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

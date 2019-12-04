@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c639cb059d773042b7f45160dea18bfc2130cae9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896277"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287048"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Créer une application Azure IoT Central (fonctionnalités en préversion)
 
@@ -46,13 +46,13 @@ Pour créer une nouvelle application Azure IoT Central :
 
 1. Choisissez de créer cette application avec une évaluation gratuite de sept jours ou avec un abonnement Paiement à l’utilisation.
     - Les applications **d’évaluation** sont gratuites pendant sept jours et prennent en charge jusqu’à cinq appareils. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration. Si vous créez une application d’évaluation, entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft.
-    - Les applications avec **paiement à l’utilisation** sont facturées par appareil, les deux premiers étant gratuits. Apprenez-en davantage sur les [tarifs d’IoT Central](https://aka.ms/iotcentral-pricing). Si vous créez une application avec paiement à l’utilisation, vous devez sélectionner votre *Annuaire*, votre *Abonnement Azure* et votre *Région* :
+    - Les applications avec **paiement à l’utilisation** sont facturées par appareil, les deux premiers étant gratuits. Apprenez-en davantage sur les [tarifs d’IoT Central](https://aka.ms/iotcentral-pricing). Si vous créez une application avec paiement à l’utilisation, vous devez sélectionner votre *Annuaire*, votre *Abonnement Azure* et votre *Emplacement* :
         - *Annuaire* correspond à l’annuaire Azure Active Directory (AAD) dans lequel vous allez créer votre application. Un annuaire Azure AD contient les identités et les informations d’identification des utilisateurs, ainsi que d’autres informations propres à l’organisation. Si vous n’avez pas d’annuaire Azure AD, il s’en crée un automatiquement quand vous créez un abonnement Azure.
         - Un *Abonnement Azure* vous permet de créer des instances de services Azure. IoT Central provisionne des ressources dans votre abonnement. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un dans la [page d’inscription à Azure](https://aka.ms/createazuresubscription). Après avoir créé l’abonnement Azure, revenez à la page **Créer une application**. Votre nouvel abonnement apparaîtra dans la liste déroulante **Abonnement Azure**.
-        - *Région* correspond à l’emplacement physique où les données de vos appareils seront stockées. D’une façon générale, il est recommandé de choisir la région qui est physiquement la plus proche de vos appareils pour obtenir des performances optimales et pour garantir la conformité en termes de souveraineté des données. Une fois que vous aurez choisi une région, vous ne pourrez plus déplacer votre application vers une autre région.
+        - L’*Emplacement* correspond à la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez créer votre application. D'une façon générale, il est recommandé de choisir l'emplacement qui est physiquement le plus proche de vos appareils pour obtenir des performances optimales. La préversion publique d’Azure IoT Central est actuellement disponible aux **États-Unis** et en **Europe**. Une fois que vous aurez choisi un emplacement, vous ne pourrez plus déplacer votre application vers un autre emplacement.
 
         > [!NOTE]
-        > Dans le cadre de la préversion publique, les seules régions disponibles pour les **applications en préversion** sont les régions **Europe Nord** et **USA Centre**.
+        > Dans le cadre de la préversion publique, les seuls emplacements disponibles pour les **applications en préversion** sont l’**Europe** et les **États-Unis**.
 
 1. Consultez les Conditions d’utilisation et sélectionnez **Créer** en bas de la page.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 43adb9f9d9989b39faa3af705a61ae8b0626a43e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005548"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209614"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -185,6 +185,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+
+1. Dans Service Fabric Explorer, accédez à l’onglet Sauvegardes et sélectionnez Actions > Créer une stratégie de sauvegarde.
+
+    ![Créer la stratégie de sauvegarde][6]
+
+2. Renseignez les informations. Pour les clusters Azure, AzureBlobStore doit être sélectionné.
+
+    ![Créer une stratégie de sauvegarde du stockage Blob Azure][7]
+
 ### <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
@@ -310,3 +320,5 @@ Pour afficher les sauvegardes dans Service Fabric Explorer, accédez à une part
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png

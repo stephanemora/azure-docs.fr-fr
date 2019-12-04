@@ -1,25 +1,25 @@
 ---
-title: Préparer des machines virtuelles Hyper-V pour l’évaluation et la migration vers Azure avec Azure Migrate | Microsoft Docs
-description: Décrit comment préparer l’évaluation et la migration des machines virtuelles Hyper-V vers Azure à l’aide d’Azure Migrate.
+title: Préparer des machines virtuelles Hyper-V pour les évaluer et les migrer avec Azure Migrate
+description: Découvrez comment préparer l’évaluation/la migration des machines virtuelles Hyper-V avec Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010317"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196259"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Préparer l’évaluation et la migration de machines virtuelles Hyper-V vers Azure
 
 Cet article explique comment préparer l’évaluation et la migration de machines virtuelles Hyper-V locales vers Azure avec [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers. 
+[Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers.
 
 Ce tutoriel est le premier d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -42,7 +42,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez définir des autorisations pour le déploiement Azure Migrate.
 
-- Autorisations pour permettre à votre compte Azure de créer un projet Azure Migrate. 
+- Autorisations pour permettre à votre compte Azure de créer un projet Azure Migrate.
 - Autorisations pour permettre à votre compte d’inscrire l’appliance Azure Migrate. L’appliance est utilisée pour la détection et la migration Hyper-V. Lors de l’inscription de l’appliance, Azure Migrate crée deux applications Azure Active Directory (Azure AD) qui identifient de façon unique l’appliance :
     - La première application communique avec les points de terminaison de service Azure Migrate.
     - La seconde application accède à un coffre de clés Azure Key Vault créé pendant l’inscription pour stocker les informations Azure AD App et les paramètres de configuration de l’appliance.
@@ -70,7 +70,7 @@ Vous pouvez affecter des autorisations pour permettre à Azure Migrate de créer
 Il est intéressant de noter que :
 
 - Les applications n’ont aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
-- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée. 
+- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée.
 
 
 #### <a name="grant-account-permissions"></a>Accorder des autorisations au compte
@@ -87,7 +87,7 @@ L’administrateur général/locataire peut accorder des autorisations comme sui
 
 
 
-#### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications 
+#### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications
 
 L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
@@ -98,7 +98,7 @@ Pour préparer l’évaluation d’Hyper-V, procédez comme suit :
 
 1. Vérifiez les paramètres de l’hôte Hyper-V.
 2. Configurez la communication à distance PowerShell sur chaque hôte, afin que l’appliance Azure Migrate puisse exécuter des commandes PowerShell sur l’hôte, via une connexion WinRM.
-3. Si les disques de machine virtuelle se trouvent dans un stockage SMB distant, une délégation des informations d’identification est nécessaire. 
+3. Si les disques de machine virtuelle se trouvent dans un stockage SMB distant, une délégation des informations d’identification est nécessaire.
     - Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte.
     - Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance, comme décrit ci-dessous.
     - Plus tard, quand vous configurerez l’appliance, vous activerez la délégation sur l’appliance.
@@ -122,7 +122,7 @@ Le script valide les hôtes Hyper-V et configure les paramètres dont vous avez 
 - Vérifie que l’hôte exécute une version prise en charge d’Hyper-V et le rôle Hyper-V.
 - Active le service WinRM et ouvre les ports 5985 (HTTP) et 5986 (HTTPs) sur l’ordinateur hôte (nécessaire pour la collecte de métadonnées).
 - Active la communication à distance PowerShell sur l’hôte.
-- Vérifie que le service d’intégration Hyper-V est activé sur toutes les machines virtuelles gérées par l’hôte. 
+- Vérifie que le service d’intégration Hyper-V est activé sur toutes les machines virtuelles gérées par l’hôte.
 - Active CredSSP sur l’hôte si nécessaire.
 
 Exécutez le script comme suit :
@@ -133,7 +133,7 @@ Exécutez le script comme suit :
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
-    Exemple d’utilisation : 
+    Exemple d’utilisation :
     ```
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
@@ -215,7 +215,7 @@ Azure Migrate a besoin d’autorisations pour découvrir les machines virtuelles
 
 Les services d’intégration doivent être activés sur chaque machine virtuelle afin qu’Azure Migrate puisse capturer les informations du système d’exploitation sur la machine virtuelle.
 
-Activez les [services d’intégration Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) sur chaque machine virtuelle que vous souhaitez découvrir et évaluer. 
+Activez les [services d’intégration Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) sur chaque machine virtuelle que vous souhaitez découvrir et évaluer.
 
 ## <a name="prepare-for-hyper-v-migration"></a>Préparer la migration Hyper-V
 
@@ -226,12 +226,12 @@ Activez les [services d’intégration Hyper-V](https://docs.microsoft.com/windo
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous allez :
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configuré les autorisations de compte Azure.
 > * Préparé les machines virtuelles et hôtes Hyper-V à l’évaluation et à la migration.
 
 Passez au tutoriel suivant pour créer un projet Azure Migrate et évaluer les machines virtuelles Hyper-V à migrer vers Azure.
 
-> [!div class="nextstepaction"] 
-> [Évaluer les machines virtuelles Hyper-V](./tutorial-assess-hyper-v.md) 
+> [!div class="nextstepaction"]
+> [Évaluer les machines virtuelles Hyper-V](./tutorial-assess-hyper-v.md)

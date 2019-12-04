@@ -1,7 +1,7 @@
 ---
-title: Meilleures pratiques - LUIS
+title: Meilleures pratiques pour la création de votre application LUIS
 titleSuffix: Azure Cognitive Services
-description: Découvrez les bonnes pratiques LUIS pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
+description: Découvrez les meilleures pratiques pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487623"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280922"
 ---
-# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Meilleures pratiques pour la création d’une application LUIS (Language Understanding)
 Suivez le processus de création d’applications pour générer votre application LUIS : 
 
 * Créer des modèles de langage (intentions et entités)

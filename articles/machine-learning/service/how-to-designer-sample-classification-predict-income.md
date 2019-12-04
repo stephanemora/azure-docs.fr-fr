@@ -1,7 +1,7 @@
 ---
-title: 'Concepteur : Classifier, prédire des revenus'
+title: 'Concepteur : Classifier, prédire un exemple de revenus'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment générer un classifieur de Machine Learning sans écrire une seule ligne de code à l’aide du concepteur (préversion).
+description: Suivez cet exemple pour créer un classifieur sans code afin de prédire des revenus avec le concepteur Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: adc7712a4f41daea9ed691e6df52290e98e8d81f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647977"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214116"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Échantillon 3 - Classification avec sélection des caractéristiques : Prédiction des revenus
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser une sélection de fonctionnalités afin de prédire des revenus avec le concepteur Azure Machine Learning
+
+**Échantillon 3 de Concepteur (préversion)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Découvrez comment générer un classifieur de Machine Learning sans écrire une seule ligne de code à l’aide du concepteur (préversion). Cet échantillon forme un **arbre de décision optimisé à deux classes** pour prédire le revenu du recensement pour adultes (> = 50 000 ou < = 50 000).
@@ -26,7 +29,7 @@ Comme cela répond à la question « Lequel ?», il s’agit d’un problème 
 
 Voici le graphique final du pipeline pour cet échantillon :
 
-![Graphique du pipeline](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
+![Graphique du pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +41,7 @@ Voici le graphique final du pipeline pour cet échantillon :
 
 ## <a name="data"></a>Données
 
-Le jeu de données contient 14 fonctionnalités et une colonne d’étiquettes. Il existe plusieurs types de fonctionnalités, notamment numériques et catégoriques. Le diagramme suivant montre un extrait du jeu de données : ![données](media/how-to-ui-sample-classification-predict-income/data.png)
+Le jeu de données contient 14 fonctionnalités et une colonne d’étiquettes. Il existe plusieurs types de fonctionnalités, notamment numériques et catégoriques. Le diagramme suivant montre un extrait du jeu de données : ![données](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
@@ -52,7 +55,7 @@ Effectuez les étapes suivantes pour créer le pipeline :
 1. Ajoutez un module **Two-Class Boosted Decision Tree** (Arbre de décision optimisé à deux classes) pour initialiser un classifieur d’arbre de décision optimisé.
 1. Ajoutez un module **Train Model** (Entraîner le modèle). Connectez le classifieur de l’étape précédente au port d’entrée gauche du module **Train Model** (Entraîner le modèle). Connectez le jeu de données filtré à partir du module de sélection de fonctionnalités basée sur le filtre en tant que jeu de données de formation.  Le module **Train Model** (Entraîner le modèle) va effectuer l’apprentissage du classifieur.
 1. Ajoutez le module Sélectionner la transformation des colonnes et appliquer la transformation pour appliquer la même transformation (sélection de fonctionnalité basée sur des filtres) au jeu de données de test.
-![apply-transformation](media/how-to-ui-sample-classification-predict-income/transformation.png)
+![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
 1. Ajoutez un module **Modèle de score** et connectez le module **Modèle de formation** à celui-ci. Ajoutez ensuite le jeu de test (la sortie du module Appliquer la transformation qui applique la sélection des fonctionnalités à l’ensemble de tests) au **Modèle de score**. Le module **Score Model** (Noter le modèle) effectuera les prédictions. Vous pouvez sélectionner son port de sortie pour afficher les prédictions et les probabilités de classe positive.
 
 
@@ -62,7 +65,7 @@ Effectuez les étapes suivantes pour créer le pipeline :
 
 ## <a name="results"></a>Résultats
 
-![Évaluer les résultats](media/how-to-ui-sample-classification-predict-income/evaluate-result.png)
+![Évaluer les résultats](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
 Dans les résultats d’évaluation, vous pouvez voir que les courbes comme ROC sont, par exemple, des mesures de rappel de précision et de confusion. 
 

@@ -1,23 +1,17 @@
 ---
-title: Gérer des membres Azure Blockchain Service à l’aide d’Azure PowerShell
+title: Gérer les membres d’un consortium Azure Blockchain Service – PowerShell
 description: Découvrez comment gérer les membres d’un consortium Azure Blockchain Service à l’aide d’Azure PowerShell.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: c35a3bd99518825805c2f29cfdc586e1ccf5b0bb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4eb35838394d3324f460b5e83cfbcb47b8114221
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329180"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455541"
 ---
-# <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Gérer les membres d’un consortium dans Azure Blockchain Service à l’aide de PowerShell
+# <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Gérer les membres d’un consortium dans Azure Blockchain Service à l’aide de PowerShell
 
 Vous pouvez utiliser PowerShell pour gérer les membres d’un consortium blockchain pour votre service Azure Blockchain Service. Les membres qui disposent des privilèges d’administrateur peuvent inviter, ajouter, supprimer et modifier des rôles pour tous les participants dans le consortium blockchain. Les membres qui disposent des privilèges d’utilisateur peuvent visualiser tous les participants du consortium blockchain et modifier leur nom complet de membre.
 
@@ -325,7 +319,4 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les nœuds, les membres et les consortiums, consultez :
-
-> [!div class="nextstepaction"]
-> [Consortium Azure Blockchain Service](consortium.md)
+Pour plus d’informations sur les nœuds, les membres et les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md)

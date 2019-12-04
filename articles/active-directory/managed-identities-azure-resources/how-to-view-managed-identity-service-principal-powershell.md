@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour afficher le principal du service d’une identité managée à l’aide de PowerShell
+title: AAfficher le principal de service d’une identité managée à l’aide de PowerShell - Azure AD
 description: Instructions pas à pas pour afficher le principal du service d’une identité managée à l’aide de PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa5ab96ae85833e59ed40161cafcc1eb88379be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ac2d1d4fc5e669f63bff49a7948db74ec1baa62
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441778"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184122"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Afficher le principal du service d’une identité managée à l’aide de PowerShell
 

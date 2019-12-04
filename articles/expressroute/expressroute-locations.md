@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 397e4215e32ee5d9bf5eced60b456c26fa80c901
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 793d88ec67fbd839851894077e8f5c481b9ebda7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083402"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217095"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -143,7 +143,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Pris en charge |Pris en charge |Amsterdam, Chennai, Hong Kong (R.A.S.), Londres, Mumbaï, Sao Paulo, Silicon Valley, Singapour, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Pris en charge |Pris en charge |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Pris en charge |Pris en charge |Londres, Londres2 |
-| **Telenor** |Pris en charge |Pris en charge |Amsterdam, Londres |
+| **Telenor** |Pris en charge |Pris en charge |Amsterdam, Londres, Oslo |
 | **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Pris en charge | Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (R.A.S.), Londres, Paris, Silicon Valley, Stockholm, Washington DC |
 | **Telmex Uninet**| Pris en charge | Pris en charge | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Pris en charge |Pris en charge |Melbourne, Singapour, Sydney |
@@ -163,7 +163,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 
 ### <a name="national-cloud-environment"></a>Environnement de cloud national
 
-Les Clouds nationaux Azure sont isolés les uns des autres et des instances Azure commerciales globales. ExpressRoute pour un Cloud Azure ne peut pas se connecter aux régions Azure dans les autres Clouds. 
+Les Clouds nationaux Azure sont isolés les uns des autres et des instances Azure commerciales globales. ExpressRoute pour un cloud Azure ne peut pas se connecter aux régions Azure dans les autres clouds. 
 
 ### <a name="us-government-cloud"></a>Cloud du gouvernement des États-Unis
 
@@ -332,7 +332,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australie |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australie |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Allemagne) |
-| **[Nelite](https://www.nelite.com/offres-services/)** | Europe |
+| **[Nelite](https://www.exakis-nelite.com/offres/)** | Europe |
 | **[New Signature](https://newsignature.com/technologies/express-route/)** | Europe |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asie |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |

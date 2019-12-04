@@ -1,23 +1,25 @@
 ---
-title: Automatiser la migration d’un grand nombre de machines virtuelles vers Azure | Microsoft Docs
-description: Explique comment utiliser des scripts pour migrer un grand nombre de machines virtuelles à l’aide d’Azure Site Recovery
+title: Automatiser la migration de la machine de migration dans Azure Migrate
+description: Décrit comment utiliser des scripts pour migrer un grand nombre de machines dans Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808023"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196364"
 ---
-# <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Mettre à l’échelle la migration de machines virtuelles à l’aide d’Azure Site Recovery
+# <a name="scale-migration-of-vms"></a>Mettre à l'échelle une migration de machines virtuelles 
 
-Cet article vous aide à comprendre le processus d’utilisation de scripts pour migrer un grand nombre de machines virtuelles à l’aide d’Azure Site Recovery. Ces scripts sont disponibles pour votre téléchargement dans le dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) sur GitHub. Il est possible d’utiliser les scripts pour migrer des machines virtuelles VMware, AWS, GCP et des serveurs physiques vers des disques managés dans Azure. Vous pouvez également utiliser ces scripts pour migrer des machines virtuelles Hyper-V si vous migrez les machines virtuelles en tant que serveurs physiques. Les scripts qui tirent parti d’Azure Site Recovery PowerShell sont documentés [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Cet article vous aide à comprendre le processus d’utilisation de scripts pour migrer un grand nombre de machines virtuelles. Pour mettre à l’échelle la migration, utilisez [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-## <a name="current-limitations"></a>Limitations actuelles :
+Les scripts Site Recovery sont disponibles pour votre téléchargement dans le dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) sur GitHub. Il est possible d’utiliser les scripts pour migrer des machines virtuelles VMware, AWS, GCP et des serveurs physiques vers des disques managés dans Azure. Vous pouvez également utiliser ces scripts pour migrer des machines virtuelles Hyper-V si vous migrez les machines virtuelles en tant que serveurs physiques. Les scripts qui tirent parti d’Azure Site Recovery PowerShell sont documentés [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+
+## <a name="current-limitations"></a>Limitations actuelles
 - Prendre en charge la spécification de l’adresse IP statique uniquement pour la carte réseau principale de la machine virtuelle cible
 - Les scripts ne prennent pas les entrées associées à Azure Hybrid Benefit. Vous devez mettre à jour manuellement les propriétés de la machine virtuelle répliquée dans le portail
 
@@ -57,7 +59,7 @@ Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes p
 3 | asr_updateproperties.ps1 | Une fois les machines virtuelles répliquées/protégées, utilisez ce script pour mettre à jour les propriétés cibles de la machine virtuelle (propriétés réseau et de calcul)
 4 | asr_propertiescheck.ps1 | Vérifier si les propriétés sont correctement mises à jour
 5\. | asr_testmigration.ps1 |  Démarrer le test de basculement des machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle
-6\. | asr_cleanuptestmigration.ps1 | Après avoir validé manuellement les machines virtuelles dont le test de basculement a échoué, vous pouvez utiliser ce script pour nettoyer les machines virtuelles du test de basculement
+6 | asr_cleanuptestmigration.ps1 | Après avoir validé manuellement les machines virtuelles dont le test de basculement a échoué, vous pouvez utiliser ce script pour nettoyer les machines virtuelles du test de basculement
 7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script n’arrête pas les machines virtuelles locales avant de déclencher le basculement. Pour la cohérence des applications, il est recommandé d’arrêter manuellement les machines virtuelles avant l’exécution du script.
 8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités Azure Site Recovery
 9 | asr_postmigration.ps1 | Si vous envisagez d’attribuer des groupes de sécurité réseau aux cartes réseau après le basculement, vous pouvez, pour cela, utiliser ce script. Cela attribue un groupe de sécurité réseau à une des cartes réseau de la machine virtuelle cible.

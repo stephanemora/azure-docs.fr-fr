@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: e56aba81b2e6b8e66aeb2c3e5284843055713826
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316085"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185196"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application .NET Core
 
@@ -33,8 +33,8 @@ Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les éta
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer votre application afin de mettre à jour sa configuration à la demande à l’aide d’un magasin de configuration d’application.
-> * Injecter la configuration la plus récente dans les contrôleurs de votre application.
+> * Configurer votre application .NET Core pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
+> * Utiliser la configuration la plus récente dans votre application.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -90,14 +90,14 @@ class Program
 }
 ```
 
-La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin de configuration d’application, lorsqu’une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `Refresh` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
+La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `Refresh` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
     
 > [!NOTE]
 > Pour un paramètre de configuration, le délai d’expiration du cache par défaut est de 30 secondes. Toutefois, vous pouvez le modifier en appelant la méthode `SetCacheExpiration` de l’initialiseur d’options qui est passé en tant qu’argument à la méthode `ConfigureRefresh`.
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin de configuration d’application. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -119,7 +119,7 @@ La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés po
 
     ![Démarrage rapide du lancement d’application local](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance de magasin de configuration d’application que vous avez créée dans le démarrage rapide.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 1. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs des clés suivantes :
 
@@ -140,7 +140,7 @@ La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté une identité de service managée Azure pour simplifier l’accès à App Configuration et améliorer la gestion des informations d’identification pour votre application. Pour en savoir plus sur l’utilisation d’App Configuration, passez aux exemples Azure CLI.
+Dans ce tutoriel, vous avez permis à votre application .NET Core d’actualiser dynamiquement les paramètres de configuration à partir d’App Configuration. Pour savoir comment utiliser une identité managée Azure afin de simplifier l’accès à App Configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Exemples d’interface de ligne de commande](./cli-samples.md)
+> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)

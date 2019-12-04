@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5ce8bfb593b1973e76b90223de9261134ec71dd4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882847"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483252"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez le panneau **Azure Active Directory**, accédez au panneau Inscriptions des applications, puis sélectionnez **Nouvelle inscription**. 
+1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**. 
 
    ![Nouvelle inscription d’application dans Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
@@ -114,6 +114,19 @@ La commande ci-dessus donne une sortie similaire à la capture d’écran ci-des
 
 1. Une fois le formulaire rempli, sélectionnez **Enregistrer**
 
+## <a name="register-your-certificate-with-azure-ad"></a>Inscrire votre certificat dans Azure AD
+
+Vous pouvez associer les informations d’identification basées sur un certificat à l’application cliente dans Azure AD via le Portail Azure. Pour associer les informations d’identification, vous devez télécharger le fichier de certificat en procédant comme suit :
+
+Dans l’inscription d’application Azure pour l’application cliente :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis ouvre l’exemple d’application que vous avez créé à l’étape précédente. 
+
+1. Sélectionnez **Certificats et secrets**, puis **Télécharger un certificat**. Parcourez jusqu’au fichier de certificat que vous avez créé à l’étape précédente pour le télécharger.
+
+1. Sélectionnez **Ajouter**. Une fois le certificat téléchargé, les valeurs d’empreinte, de date de début et d’expiration s’affichent.
 
 ## <a name="access-the-keys-from-powershell"></a>Accéder aux clés à partir de PowerShell
 

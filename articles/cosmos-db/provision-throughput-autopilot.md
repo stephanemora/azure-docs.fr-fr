@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953118"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383086"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot (Préversion)
 
@@ -68,7 +68,7 @@ Les solutions aux problèmes précédents requièrent non seulement un temps con
 | **Tarification** | Approvisionnement manuel en unités de requête (RU) par heure. | Pour les comptes à une seule région d'écriture, le débit utilisé est facturé sur une base horaire, en utilisant le taux d'unités de requête par heure du mode Autopilot. <br/><br/>Pour les comptes à plusieurs régions d'écriture, aucuns frais supplémentaires ne s'appliquent au mode Autopilot. Vous payez le débit utilisé sur une base horaire en utilisant le même taux de RU multimaîtres par heure. |
 | **Idéal pour les types de charges de travail** |  Charges de travail prévisibles et stables|   Charges de travail imprévisibles et variables  |
 
-## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> Activer Autopilot dans le portail Azure
+## <a id="enable-autopilot"></a> Activer AutoPilot à partir du portail Azure
 
 Vous pouvez essayer la fonctionnalité Autopilot dans vos comptes Azure Cosmos en l’activant à partir du portail Azure. Utilisez les étapes suivantes pour activer l’option Autopilot :
 
@@ -93,6 +93,17 @@ Vous pouvez configurer les bases de données ou les conteneurs en mode AutoPilot
 1. Sélectionnez **OK**.
 
 Suivez les mêmes étapes pour créer une base de données avec débit provisionné en mode Autopilot.
+
+## <a id="autopilot-limits"></a> Limites de débit et de stockage pour AutoPilot
+
+Le tableau suivant indique les limites de débit et de stockage pour AutoPilot pour les différentes options en mode AutoPilot :
+
+|Limite de débit maximale  |Limite de stockage maximale  |
+|---------|---------|
+|4 000 RU/s  |   50 Go    |
+|20 000 RU/s  |  200 Go  |
+|100 000 RU/s    |  1 To   |
+|500 000 RU/s    |  5 To  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

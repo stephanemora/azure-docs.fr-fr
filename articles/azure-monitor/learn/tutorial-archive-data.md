@@ -1,6 +1,6 @@
 ---
 title: Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
-description: Archivez les données de journal et de métrique produites dans Azure sur un compte de stockage.
+description: Archivez les données métriques et de journal générées par les ressources Azure dans un compte de stockage.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433348"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304705"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
 

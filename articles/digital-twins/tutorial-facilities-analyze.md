@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Analyser des événements à partir d’une configuration Azure Digital Twins'
+title: 'Didacticiel : Analyser des événements dans Time Series Insights - Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide d’Azure Time Series Insights, en suivant les étapes de ce tutoriel.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107679"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383056"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir d’Azure Digital Twins à l’aide de Time Series Insights
 
@@ -54,6 +54,8 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
 1. Recherchez et sélectionnez **Event Hubs**. Sélectionnez **Create** (Créer).
 
+    [![Créer un espace de noms Event Hubs](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Entrez un **Nom** pour votre espace de noms Event Hubs. Choisissez **Standard** comme **Niveau tarifaire**, votre **Abonnement**, le **Groupe de ressources** que vous avez utilisé pour votre instance Digital Twins et l’**Emplacement**. Sélectionnez **Create** (Créer).
 
 1. Dans le déploiement d’espace de noms Event Hubs, sélectionnez le volet **Vue d’ensemble**, puis **Accéder à la ressource**.
@@ -77,7 +79,10 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
     [![Chaînes de connexion Event Hub](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Ouvrez la stratégie ManageSend que vous avez créée, copiez les valeurs de **Chaîne de connexion--clé primaire** et **Chaîne de connexion--clé secondaire** dans un fichier temporaire. Vous en aurez besoin pour créer un point de terminaison du hub d’événements à la section suivante.
+    > [!TIP]
+    > Vérifiez que vous créez une stratégie SAS pour votre instance de hub d’événements plutôt que pour votre espace de noms.
+
+1. Ouvrez la stratégie **ManageSend** que vous avez créée, copiez les valeurs de **Chaîne de connexion--clé primaire** et **Chaîne de connexion--clé secondaire** dans un fichier temporaire. Vous en aurez besoin pour créer un point de terminaison du hub d’événements à la section suivante.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Créer un point de terminaison pour le hub d’événements
 
@@ -105,13 +110,13 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
 1. Remplacez les espaces réservés `Primary_connection_string_for_your_event_hub` par la valeur de la **Chaîne de connexion--clé primaire** pour le hub d’événements. Assurez-vous que le format de cette chaîne de connexion est le suivant :
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Remplacez les espaces réservés `Secondary_connection_string_for_your_event_hub` par la valeur de la **Chaîne de connexion--clé secondaire** pour le hub d’événements. Assurez-vous que le format de cette chaîne de connexion est le suivant : 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

@@ -1,19 +1,19 @@
 ---
-title: Questions fréquences (FAQ) sur Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors est un service cloud managé et une plateforme de développement qui autorise des expériences de réalité mixte multi-utilisateurs entre différents types d’appareils (HoloLens, iOS et Android). Ces questions fréquentes répondent à des questions sur le service d’un point de vue technique.
+title: Questions fréquentes (FAQ)
+description: Questions fréquentes (FAQ) sur le service Azure Spatial Anchors
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927511"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277082"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 

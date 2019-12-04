@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490924"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184841"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Créer un mot clé personnalisé à l’aide du service Speech
 
@@ -46,7 +46,7 @@ Vous devez respecter les consignes suivantes lors du choix d’un mot clé :
 
 ## <a name="create-your-keyword"></a>Créer votre mot clé
 
-Avant de pouvoir utiliser un mot clé personnalisé avec votre appareil, vous devez en créer un avec le service de génération de mot clé personnalisé de Microsoft. Une fois que vous avez fourni un mot clé, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot clé sur votre appareil.
+Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer un mot clé à l’aide de la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal) sur [Speech Studio](https://aka.ms/sdsdk-speechportal). Une fois que vous avez fourni un mot clé, le logiciel génère un fichier que vous déployez sur votre appareil.
 
 1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
@@ -62,7 +62,7 @@ Avant de pouvoir utiliser un mot clé personnalisé avec votre appareil, vous de
 
     ![Télécharger votre mot clé](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot clé personnalisé dans le kit de développement.
+1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot clé personnalisé sur votre appareil.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

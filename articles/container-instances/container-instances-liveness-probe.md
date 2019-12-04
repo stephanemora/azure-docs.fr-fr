@@ -1,19 +1,14 @@
 ---
-title: Configurer les sondes probe liveness dans Azure Container Instances
+title: Configurer la probe liveness sur l’instance de conteneur
 description: Découvrez comment configurer les sondes probe liveness pour redémarrer les conteneurs non intègres dans Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: danlep
-ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904433"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481679"
 ---
 # <a name="configure-liveness-probes"></a>Configurer les probe liveness
 

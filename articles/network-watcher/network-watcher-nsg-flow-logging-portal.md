@@ -1,6 +1,7 @@
 ---
-title: Enregistrer le flux du trafic réseau vers et depuis une machine virtuelle - Didacticiel - Portail Azure | Microsoft Docs
-description: Découvrez comment enregistrer le flux du trafic réseau vers et depuis une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
+title: 'Tutoriel : Journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure'
+titleSuffix: Azure Network Watcher
+description: Dans ce tutoriel, découvrez comment journaliser le flux du trafic réseau à destination et en provenance d’une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636213"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419635"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -116,7 +117,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
     > [!IMPORTANT]
-    > Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage blob en fonction des paramètres de stratégie de rétention. Si vous avez une stratégie de conservation différente de zéro, nous vous recommandons de supprimer régulièrement les objets blob de stockage qui ont dépassé leur période de conservation afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+    > Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage blob en fonction des paramètres de stratégie de rétention. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Télécharger le journal de flux
 
@@ -215,7 +216,7 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 | 13.67.143.118     | Adresse IP de destination | Adresse IP de destination du flux.                                                                                  |
 | 44931        | Port source            | Port source dont provient le flux.                                           |
 | 443         | Port de destination       | Port de destination du flux. Comme le trafic était destiné au port 443, la règle nommée **UserRule_default-allow-rdp** dans le fichier journal a traité le flux.                                                |
-| T            | Protocole               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
+| T            | Protocol               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
 | O            | Direction              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
 | A            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
 | C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies. |

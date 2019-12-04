@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a80c61efbcbff569f5fed53734def3979ed70616
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820778"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229119"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -71,8 +71,16 @@ Pour améliorer le score de confiance d’une réponse spécifique à une questi
 Lorsque plusieurs réponses ont un score de confiance similaire, il est probable que la question était trop générique et donc mise en correspondance à probabilité égale avec plusieurs réponses. Essayez de mieux structurer vos Questions et réponses afin que chaque entité QnA ait une intention distincte.
 
 
-## <a name="confidence-score-differences"></a>Différences entre les scores de confiance
-Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche cognitive Azure différents. Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure. Découvrez le fonctionnement de l’opération de [publication](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+## <a name="confidence-score-differences-between-test-and-production"></a>Différences entre les scores de confiance entre le test et la production
+Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche cognitive Azure différents. 
+
+L’index de test contient toutes les paires QnA de vos bases de connaissances. Lors de l’interrogation de l’index de test, la requête s’applique à l’ensemble de l’index, puis les résultats sont limités à la partition de cette base de connaissances spécifique. Si les résultats de la requête de test ont un impact négatif sur votre capacité à vérifier la base de connaissances, vous pouvez :
+* organiser votre base de connaissances à l’aide d’un des éléments suivants :
+    * 1 ressource limitée à 1 Ko : limitez votre ressource QnA unique (et l’index de test Recherche cognitive Azure résultant) à une base de connaissances unique. 
+    * 2 ressources (1 pour le test, 1 pour la production) : avoir deux ressources QnA Maker, en utilisant l’une pour le test (avec ses propres index de test et de production) et l’autre pour le produit (ayant également ses propres index de test et de production)
+* et toujours utilisez les mêmes paramètres, tels que **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** lorsque vous interrogez à la fois votre base de connaissances de test et celle de production
+
+Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure. Découvrez le fonctionnement de l’opération de [publication](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 Si vous avez une base de connaissances dans des régions différentes, chacune d’elles utilise son propre index de Recherche cognitive Azure. Étant donné que différents index sont utilisés, les scores ne seront pas exactement les mêmes. 
 

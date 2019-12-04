@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904913"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384279"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
 
@@ -63,10 +63,9 @@ Suivez ces instructions pour déployer le modèle Azure Resource Management :
 ### <a name="guidance-for-template-parameters"></a>Conseils pour les paramètres des modèles
 Voici comment entrer des paramètres pour la configuration de l’outil :
 
-- Voici l’URL du service Broker Bureau à distance :  https:\//rdbroker.wvd.microsoft.com/
-- Voici l’URL de la ressource :  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Utilisez vos informations d’identification AAD avec MFA désactivée pour vous connecter à Azure. Consultez [Conditions nécessaires pour exécuter le modèle Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Utilisez un nom unique pour l’application qui sera inscrit dans votre annuaire Azure Active Directory pour l’outil de gestion, par exemple, Apr3UX.
+- Pour le paramètre **isServicePrincipal**, sélectionnez **false**.
+- Pour les informations d’identification, entrez vos informations d’identification Azure Active Directory avec l’authentification multifacteur désactivée. Ces informations d’identification sont celles que vous utilisez pour vous connecter à Azure, et pour créer l’application Azure AD et les ressources de l’application web Azure. Pour plus d’informations, consultez [Conditions nécessaires pour exécuter le modèle Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
+- Pour **applicationName**, utilisez un nom unique pour l’application qui sera inscrite dans votre annuaire Azure Active Directory. Ce nom sera également utilisé pour l’URL de l’application web. Par exemple, vous pouvez utiliser un nom comme « Apr3UX ».
 
 ## <a name="provide-consent-for-the-management-tool"></a>Donner son consentement pour l’outil de gestion
 

@@ -1,22 +1,22 @@
 ---
-title: Comment atténuer les risques et débloquer les utilisateurs dans Azure AD Identity Protection
+title: Atténuer les risques et débloquer des utilisateurs dans Azure AD Identity Protection
 description: Découvrez les possibilités dont vous disposez pour fermer les détections de risques actives.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61fe0e14fbb6c6251b3bf19843b9c065df60dd86
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886872"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382113"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Atténuer les risques et débloquer les utilisateurs
 
@@ -76,18 +76,18 @@ Un administrateur peut choisir de bloquer une connexion en fonction de sa strat�
 
 Pour débloquer un compte bloqué en raison d’un risque utilisateur, les administrateurs disposent des options suivantes :
 
-1. **Réinitialiser le mot de passe** : vous pouvez réinitialiser le mot de passe de l’utilisateur.
+1. **Réinitialiser le mot de passe réinitialisé** : vous pouvez réinitialiser le mot de passe de l’utilisateur.
 1. **Ignorer le risque lié à l’utilisateur** : la stratégie de gestion du risque utilisateur bloque un utilisateur si le niveau de risque utilisateur configuré pour bloquer l’accès a été atteint. Vous pouvez réduire le niveau de risque d’un utilisateur en ignorant le risque utilisateur ou en fermant manuellement des détections de risques signalées.
-1. **Exclure l’utilisateur de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification occasionne des problèmes pour certains utilisateurs, vous pouvez les en exclure. Pour plus d’informations, voir la section Exclusions de l’article [Comment configurer et activer les stratégies en matière de risque](howto-identity-protection-configure-risk-policies.md#exclusions).
-1. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, voir l’article [Comment configurer et activer les stratégies en matière de risque](howto-identity-protection-configure-risk-policies.md).
+1. **Exclure l’utilisateur de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification occasionne des problèmes pour certains utilisateurs, vous pouvez les en exclure. Pour plus d’informations, consultez la section Exclusions de l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md).
 
 ### <a name="unblocking-based-on-sign-in-risk"></a>Déblocage basé sur le risque de connexion
 
 Pour débloquer un compte en fonction du risque de connexion, les administrateurs disposent des options suivantes :
 
 1. **Connexion à partir d’un emplacement ou d’un appareil connu** : les connexions suspectes bloquées sont généralement des tentatives de connexion effectuées à partir d’un emplacement ou d’un appareil inconnu. Vos utilisateurs peuvent déterminer rapidement s’il s’agit bien de la raison du blocage en essayant de se connecter à partir d’un appareil ou d’un emplacement connu.
-1. **Exclure l’utilisateur de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification occasionne des problèmes pour certains utilisateurs, vous pouvez les en exclure. Pour plus d’informations, voir la section Exclusions de l’article [Comment configurer et activer les stratégies en matière de risque](howto-identity-protection-configure-risk-policies.md#exclusions).
-1. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, voir l’article [Comment configurer et activer les stratégies en matière de risque](howto-identity-protection-configure-risk-policies.md).
+1. **Exclure l’utilisateur de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification occasionne des problèmes pour certains utilisateurs, vous pouvez les en exclure. Pour plus d’informations, consultez la section Exclusions de l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,20 +1,15 @@
 ---
-title: 'Résoudre les problèmes d’une Sauvegarde Azure : Problèmes liés aux agents et aux extensions'
+title: Détecter un problème lié aux agents et aux extensions
 description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074138"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172605"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 

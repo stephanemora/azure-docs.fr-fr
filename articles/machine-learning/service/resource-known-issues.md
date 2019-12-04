@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619786"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286979"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -25,7 +25,7 @@ Cet article vous permet de rechercher et de corriger les erreurs ou les défaill
 
 Azure Compute mettra à jour les références SKU de NCv3 à partir du début du mois de novembre 2019 pour prendre en charge toutes les implémentations et versions MPI, ainsi que les verbes RDMA pour les machines virtuelles équipées d’InfiniBand. Cela nécessitera un bref temps d’arrêt : [en savoir plus sur la mise à niveau de SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-En tant que client de l’offre AmlCompute (offre de calcul managée) d’Azure Machine Learning, vous n’êtes pas obligé d’apporter des modifications pour l’instant. En fonction de la [planification de mise à jour](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) vous devez planifier une brève interruption de votre formation. Le service est chargé de mettre à jour les images de machine virtuelle sur vos nœuds de cluster et de faire monter automatiquement en puissance votre cluster (scale up). Une fois la mise à niveau terminée, vous pourrez peut-être, en plus d’obtenir une bande passante InfiniBand supérieure, des latences inférieures et de meilleures performances des applications distribuées, utiliser toutes les autres distributions MPI (comme OpenMPI avec Pytorch).
+En tant que client de l’offre AmlCompute (offre de calcul managée) d’Azure Machine Learning, vous n’êtes pas obligé d’apporter des modifications pour l’instant. En fonction de la [planification de mise à jour](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) vous devez planifier une brève interruption de votre formation. Le service est chargé de mettre à jour les images de machine virtuelle sur vos nœuds de cluster et de faire monter automatiquement en puissance votre cluster (scale up). Une fois la mise à niveau terminée, vous pourrez peut-être utiliser toutes les autres distributions MPI (comme OpenMPI avec Pytorch) en plus d’obtenir une bande passante InfiniBand supérieure, des latences inférieures et de meilleures performances des applications distribuées.
 
 ## <a name="azure-machine-learning-designer-issues"></a>Problèmes de concepteur Azure Machine Learning
 

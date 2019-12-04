@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: bbe40083159d433c0b5746834e1c530b23b03851
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e4147fbb27c8538f801f6c49f8b535a283faf50f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648088"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325909"
 ---
-L’application cliente doit savoir si un énoncé est inutile ou inapproprié pour l’application. L’intention **None** est ajoutée à chaque application dans le cadre du processus de création pour déterminer si un énoncé ne peut pas être traité par l’application cliente.
+L’application cliente doit savoir si un énoncé est inutile ou inapproprié pour l’application. L’intention **None** est ajoutée à chaque application dans le cadre du processus de création pour déterminer si un énoncé ne doit pas être traité par l’application cliente.
 
 Si LUIS retourne l’intention **None** pour un énoncé, votre application cliente peut demander si l’utilisateur souhaite mettre fin à la conversation ou donner d’autres instructions pour poursuivre la conversation. 
 
@@ -25,10 +25,12 @@ Si vous ne complétez pas l’intention **Aucune**, un énoncé qui devrait êtr
 
 1. Dans le panneau gauche, sélectionnez **Intents** (Intentions).
 
-1. Sélectionnez l’intention **None**. Ajoutez trois énoncés que votre utilisateur est susceptible d’entrer, mais qui ne sont pas pertinents pour votre application :
+1. Sélectionnez l’intention **None**. Ajoutez trois énoncés que votre utilisateur est susceptible d’entrer, mais qui ne sont pas pertinents pour votre application de commande de pizzas :
 
     |Exemples d’énoncés `None`|
     |--|
     |`Barking dogs are annoying`|
     |`Order a pizza for me`|
     |`Penguins in the ocean`|
+
+    Ces exemples ne doivent pas utiliser des mots que vous attendez dans le domaine couvert, par exemple `pizza`, `cheese``crust`, `pickup` `deliver`.

@@ -1,22 +1,22 @@
 ---
-title: Collecte de données utilisateur de Microsoft Azure Multi-Factor Authentication - Azure Active Directory
+title: Collecte de données utilisateur Azure MFA – Azure Active Directory
 description: Quelles informations sont utilisées pour permettre l’authentification des utilisateurs par Microsoft Azure Multi-Factor Authentication ?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359039"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381758"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Collecte de données utilisateur de Microsoft Azure Multi-Factor Authentication
 
@@ -116,7 +116,7 @@ Contournements (utilisé pour la création de rapports) :
 - Motif de la saisie semi-automatique
 - Utilisation du contournement
 
-Modifications (utilisé pour synchroniser les modifications utilisateur sur le serveur MFA ou AAD) :
+Modifications (utilisé pour synchroniser les modifications utilisateur sur le serveur MFA ou Azure AD) :
 
 - Horodatage de la modification
 - Nom d’utilisateur

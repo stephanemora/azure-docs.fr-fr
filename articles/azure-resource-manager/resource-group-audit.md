@@ -1,17 +1,14 @@
 ---
-title: Afficher les journaux d’activité Azure pour surveiller les ressources | Microsoft Docs
+title: Afficher les journaux d’activité Azure pour surveiller les ressources
 description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le Portail Microsoft Azure, PowerShell, l’interface de ligne de commande Azure et REST.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7b70d2a8c158b6f8b3dc87c22e5ca90f2861aebb
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329440"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422258"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
@@ -31,9 +28,11 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Pour afficher les journaux d’activité via le portail, sélectionnez **Surveiller**.
+Pour afficher les journaux d’activité via le portail, procédez comme suit :
 
-    ![Sélectionner Surveiller](./media/resource-group-audit/select-monitor.png)
+1. Dans le menu du Portail Azure, sélectionnez **Surveiller** ou recherchez et sélectionnez **Surveiller** dans n’importe quelle page.
+
+    ![Sélectionner Surveiller](./media/resource-group-audit/select-monitor-from-menu.png)
 
 1. Sélectionnez **Journal d'activité**.
 
@@ -67,9 +66,9 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Filtres de nom](./media/resource-group-audit/name-filters.png)
 
-1. Le filtre est disponible dans le tableau de bord.
+1. Le filtre est disponible dans le tableau de bord. Dans le menu du Portail Azure, sélectionnez **Tableau de bord**.
 
-    ![Afficher le filtre sur le tableau de bord](./media/resource-group-audit/show-dashboard.png)
+    ![Afficher le filtre sur le tableau de bord](./media/resource-group-audit/activity-log-on-dashboard.png)
 
 1. Dans le portail, vous pouvez afficher les modifications apportées à une ressource. Revenez à l’affichage par défaut dans Monitor, puis sélectionnez une opération qui impliquait la modification d’une ressource.
 

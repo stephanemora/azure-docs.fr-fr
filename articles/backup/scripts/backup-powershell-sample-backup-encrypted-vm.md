@@ -1,19 +1,15 @@
 ---
-title: Exemple de script Azure PowerShell – Sauvegarder une machine virtuelle Azure
+title: Exemple de script PowerShell – Sauvegarder une machine virtuelle Azure
 description: Cet article explique comment utiliser un exemple de script Azure PowerShell pour sauvegarder une machine virtuelle Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: fe2fa6d77f7ec59ef73ac0e8779dcfbd660c0680
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad4d290961bd39659283795f6a58ccb815b639b0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747124"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171803"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Sauvegarder une machine virtuelle Azure chiffrée avec PowerShell
 

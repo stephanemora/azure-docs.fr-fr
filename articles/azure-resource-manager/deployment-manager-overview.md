@@ -1,18 +1,15 @@
 ---
 title: Déploiement sécurisé entre les régions - Azure Deployment Manager
 description: Explique comment déployer un service sur plusieurs régions avec Azure Deployment Manager. Montre des pratiques de déploiement sécurisé consistant à vérifier la stabilité d’un déploiement avant sa propagation à toutes les régions.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: tomfitz
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 9b0e314b3911dcd3b96dc2b5b32081bd2e9c0c0c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532318"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307045"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion publique)
 
@@ -341,3 +338,5 @@ Dans cet article, vous avez découvert Deployment Manager. Passez à l’article
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md)
+>
+> [Démarrage rapide : Essayez Azure Deployment Manager en seulement quelques minutes](https://github.com/Azure-Samples/adm-quickstart)

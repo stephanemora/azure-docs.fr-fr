@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088745"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Didacticiel : Intégration d'Azure AD à Thoughtworks Mingle
 
@@ -130,11 +130,11 @@ Pour configurer l’authentification unique Azure AD avec Thoughtworks Mingle, e
 
 2. Cliquez sur l’onglet **Admin**, puis sur **SSO Config (Configuration SSO)** .
    
-    ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuration SSO")
+    ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO Config")
 
 3. Dans la section **SSO Config** , procédez comme suit :
    
-    ![Configuration de l’authentification unique](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuration de l’authentification unique")
+    ![SSO Config](./media/thoughtworks-mingle-tutorial/ic785158.png "SSO Config") (Configuration de l’authentification unique)
     
     a. Pour charger le fichier de métadonnées, cliquez sur **Choose file**. 
 
@@ -200,7 +200,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
 
 2. Cliquez sur **Profile**.
    
-    ![Votre premier projet](./media/thoughtworks-mingle-tutorial/ic785160.png "Votre premier projet")
+    ![Your First Project](./media/thoughtworks-mingle-tutorial/ic785160.png "Votre premier projet") (Votre premier projet)
 
 3. Cliquez sur l’onglet **Admin**, puis sur **Users (Utilisateurs)** .
    
@@ -212,7 +212,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
 
 5. Dans la boîte de dialogue **New User** , procédez comme suit :
    
-    ![Boîte de dialogue Nouvel utilisateur](./media/thoughtworks-mingle-tutorial/ic785163.png "Nouvel utilisateur")  
+    ![Boîte de dialogue New User](./media/thoughtworks-mingle-tutorial/ic785163.png "Nouvel utilisateur") (Nouvel utilisateur)  
  
     a. Renseignez les zones de texte **Sign-in name** (Nom de connexion), **Display name** (Nom d’affichage), **Choose password** (Choisir le mot de passe) et **Confirm password** (Confirmer le mot de passe) du compte Azure AD valide que vous souhaitez approvisionner. 
 
@@ -221,7 +221,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
     c. Cliquez sur **Create This Profile**.
 
 >[!NOTE]
->Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par Thoughtworks Mingle, pour approvisionner des comptes d’utilisateur AAD.
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Thoughtworks Mingle pour provisionner des comptes d’utilisateurs Azure AD.
 > 
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
@@ -236,5 +236,5 @@ Quand vous cliquez sur la vignette Thoughtworks Mingle dans le volet d’accès,
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

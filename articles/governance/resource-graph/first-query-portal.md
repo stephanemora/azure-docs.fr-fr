@@ -1,20 +1,22 @@
 ---
-title: Exécuter votre première requête à l’aide de l’Explorateur Azure Resource Graph
-description: Cet article vous guide tout au long des étapes à suivre pour exécuter votre première requête à partir du portail Azure à l’aide de l’Explorateur Azure Resource Graph.
-ms.date: 10/21/2019
+title: 'Démarrage rapide : Votre première requête dans le portail'
+description: Dans ce guide de démarrage rapide, vous suivez les étapes pour exécuter votre première requête à partir du portail Azure en utilisant l’Explorateur Azure Resource Graph.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958824"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406791"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
 Vous pouvez accéder à la puissance d’Azure Resource Graph directement dans le portail Azure via l’Explorateur Azure Resource Graph. L’Explorateur Resource Graph fournit des informations parmi lesquelles vous pouvez naviguer à propos des propriétés et types de ressource Azure Resource Manager que vous pouvez interroger. L’Explorateur Resource Graph fournit également une interface épurée qui vous permet d’utiliser plusieurs requêtes, d’évaluer les résultats et même de convertir les résultats de certaines requêtes sous forme de graphique que vous pouvez épingler à un tableau de bord Azure.
 
 À la fin de ce guide de démarrage rapide, vous aurez utilisé le portail Azure et l’Explorateur Resource Graph pour exécuter votre première requête Resource Graph, et vous aurez épinglé les résultats à un tableau de bord.
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -105,7 +107,7 @@ Pour disposer d’exemples de requêtes Resource Graph et savoir comment utilise
 
 Le tableau de bord importé s’affiche automatiquement. Dans la mesure où il existe désormais dans votre portail Azure, vous pouvez l’explorer et lui apporter des changements selon les besoins, ou vous pouvez créer d’autres tableaux de bord à partir de l’exemple pour les partager avec vos équipes. Pour plus d’informations sur l’utilisation des tableaux de bord, consultez [Créer et partager des tableaux de bord dans le portail Azure](../../azure-portal/azure-portal-dashboards.md).
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous souhaitez supprimer les exemples de tableaux de bord Resource Graph de l’environnement de votre portail Azure, vous pouvez le faire en effectuant les étapes suivantes :
 
@@ -117,9 +119,7 @@ Si vous souhaitez supprimer les exemples de tableaux de bord Resource Graph de l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Obtenir plus d’informations sur le [langage de requête](./concepts/query-language.md).
-- Découvrir plus en détails comment [explorer des ressources](./concepts/explore-resources.md).
-- Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md).
-- Consulter des exemples de [requêtes de démarrage](./samples/starter.md).
-- Consulter des exemples de [requêtes avancées](./samples/advanced.md).
-- Envoyer des commentaires sur [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+Dans ce guide de démarrage rapide, vous avez utilisé l’Explorateur Azure Resource Graph pour exécuter votre première requête et vous avez examiné les exemples de tableau de bord produits par Resource Graph. Pour plus d’informations sur le langage Resource graph, consultez la page des détails du langage de requête.
+
+> [!div class="nextstepaction"]
+> [Obtenir plus d’informations sur le langage de requête](./concepts/query-language.md)

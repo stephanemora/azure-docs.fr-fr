@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469682"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185259"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les éta
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer votre application pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin de configuration d’application.
+> * Configurer votre application pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
 > * Injecter la configuration la plus récente dans les contrôleurs de votre application.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -78,7 +78,7 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
             .UseStartup<Startup>();
     ```
 
-    La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin de configuration d’application, lorsqu’une opération d’actualisation est déclenchée. Pour déclencher une opération d’actualisation, un intergiciel d’actualisation doit être configuré pour que l’application actualise les données de configuration en cas de modification.
+    La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Pour déclencher une opération d’actualisation, un intergiciel d’actualisation doit être configuré pour que l’application actualise les données de configuration en cas de modification.
 
 2. Ajoutez un fichier *Settings.cs* qui définit et implémente une nouvelle classe `Settings`.
 
@@ -122,7 +122,7 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
     }
     ```
     
-    L’intergiciel utilise la configuration d’actualisation spécifiée dans la méthode `AddAzureAppConfiguration` de `Program.cs` afin de déclencher une actualisation pour chaque demande reçue par l’application web ASP.NET Core. Pour chaque demande, une opération d’actualisation est déclenchée et la bibliothèque de client vérifie si la valeur mise en cache pour les paramètres de configuration inscrits a expiré. Pour les valeurs mises en cache ayant expiré, les valeurs des paramètres sont mises à jour avec celles du magasin de configuration d’application. Quant aux valeurs restantes, elles ne changent pas.
+    L’intergiciel utilise la configuration d’actualisation spécifiée dans la méthode `AddAzureAppConfiguration` de `Program.cs` afin de déclencher une actualisation pour chaque demande reçue par l’application web ASP.NET Core. Pour chaque demande, une opération d’actualisation est déclenchée et la bibliothèque de client vérifie si la valeur mise en cache pour les paramètres de configuration inscrits a expiré. Pour les valeurs mises en cache ayant expiré, les valeurs des paramètres sont mises à jour avec celles du magasin App Configuration. Quant aux valeurs restantes, elles ne changent pas.
     
     > [!NOTE]
     > Pour un paramètre de configuration, le délai d’expiration du cache par défaut est de 30 secondes. Toutefois, vous pouvez le modifier en appelant la méthode `SetCacheExpiration` de l’initialiseur d’options qui est passé en tant qu’argument à la méthode `ConfigureRefresh`.
@@ -195,7 +195,7 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
 
     ![Démarrage rapide du lancement d’application local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance de magasin de configuration d’application que vous avez créée dans le démarrage rapide.
+4. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 5. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs des clés suivantes :
 
@@ -210,7 +210,7 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
     ![Démarrage rapide de l’actualisation locale de l’application](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > Étant donné que les paramètres de configuration sont mis en cache avec un délai d’expiration par défaut de 30 secondes, toute modification apportée aux paramètres dans le magasin de configuration d’application n’apparaît dans l’application web qu’après l’expiration du cache.
+    > Étant donné que les paramètres de configuration sont mis en cache avec un délai d’expiration par défaut de 30 secondes, toute modification apportée aux paramètres dans le magasin App Configuration n’apparaît dans l’application web qu’après l’expiration du cache.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -218,7 +218,7 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté une identité de service managée Azure pour simplifier l’accès à App Configuration et améliorer la gestion des informations d’identification pour votre application. Pour en savoir plus sur l’utilisation d’App Configuration, passez aux exemples Azure CLI.
+Dans ce tutoriel, vous avez permis à votre application web ASP.NET Core d’actualiser dynamiquement les paramètres de configuration à partir d’App Configuration. Pour savoir comment utiliser une identité managée Azure afin de simplifier l’accès à App Configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Exemples d’interface de ligne de commande](./cli-samples.md)
+> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)

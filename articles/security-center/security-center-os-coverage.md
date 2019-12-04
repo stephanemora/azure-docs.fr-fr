@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803918"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307305"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -113,6 +113,8 @@ Azure Security Center prend en charge les ressources Azure PaaS suivantes :
 * Coffre de clés
 
 Pour en savoir plus sur les fonctionnalités prises en charge pour la liste ci-dessus de ressources PaaS, voir [fonctionnalités prises en charge par les services PaaS](security-center-services.md#paas-services).
+
+La protection des machines virtuelles résidant dans Azure Stack est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack, consultez [Intégrer vos machines virtuelles Azure Stack à Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

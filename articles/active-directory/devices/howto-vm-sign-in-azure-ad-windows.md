@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832867"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420538"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -34,8 +34,8 @@ Les avantages liés à l’utilisation de l’authentification Azure AD pour se 
 - Azure RBAC vous permet d’accorder l’accès approprié aux machines virtuelles en fonction des besoins et de le supprimer lorsque l’accès n’est plus nécessaire.
 - Avant d’autoriser l’accès à une machine virtuelle, l’accès conditionnel Azure AD peut imposer des exigences supplémentaires telles que : 
    - Authentification multifacteur
-   - Risque à la connexion
-- Automatisez et mettez à l’échelle la jonction Azure AD pour les machines virtuelles Windows Azure.
+   - Vérification du risque de connexion
+- Automatisez et mettez à l’échelle la jointure Azure AD de machines virtuelles Microsoft Azure qui font partie de vos déploiements VDI.
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -68,7 +68,7 @@ Pour utiliser la connexion Azure AD pour une machine virtuelle Windows dans Azur
 Vous pouvez activer la connexion Azure AD pour votre machine virtuelle Windows de plusieurs façons :
 
 - À l’aide de l’expérience Portail Azure lors de la création d’une machine virtuelle Windows
-- À l’aide de l’expérience Azure Cloud Shell lors de la création d’une machine virtuelle Windows ou pour une machine virtuelle Windows existante
+- À l’aide de l’expérience Azure Cloud Shell lors de la création d’une machine virtuelle Windows **ou pour une machine virtuelle Windows existante**
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>À l’aide du Portail Azure, créer une expérience de machine virtuelle pour activer la connexion Azure AD
 
@@ -186,6 +186,13 @@ Pour plus d’informations sur l’utilisation du contrôle d’accès en foncti
 - [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 - [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+
+## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
+
+Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Windows dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Microsoft Azure » à partir de l’option d’affectation d’applications ou actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle pour l’octroi d’accès. 
+
+> [!NOTE]
+> Si vous utilisez « Exiger l’authentification multifacteur » comme contrôle pour l’octroi d’accès pour demander l’accès à l’application « Connexion à une machine virtuelle Microsoft Azure », vous devez fournir une revendication d’authentification multifacteur avec le client qui lance la session Bureau à distance (RDP) sur la machine virtuelle Windows cible dans Azure. La seule façon d’y parvenir sur un client Windows 10 est d’utiliser le code PIN Windows Hello Entreprise ou une authentification biométrique avec le client RDP. La prise en charge de l’authentification biométrique a été ajoutée au client RDP dans Windows 10 version 1809. Le Bureau à distance utilisant l’authentification Windows Hello Entreprise est disponible uniquement pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
@@ -337,7 +344,12 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 ![La méthode de connexion que vous essayez d’utiliser n’est pas autorisée.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Si vous avez configuré une stratégie d’accès conditionnel qui requiert l’authentification multifacteur avant de pouvoir accéder à la ressource RBAC, vous devez vous assurer que le PC Windows 10 qui établit la connexion Bureau à distance à votre machine virtuelle se connecte à l’aide d’une méthode d’authentification forte, telle que Windows Hello. Si vous n’utilisez pas une méthode d’authentification forte pour votre connexion Bureau à distance, l’erreur suivante s’affiche.
+Si vous avez configuré une stratégie d’accès conditionnel qui requiert un authentification multifacteur (MFA) pour vous permettre d’accéder à la ressource, vous devez vous assurer que le PC Windows 10 qui établit la connexion Bureau à distance à votre machine virtuelle se connecte à l’aide d’une méthode d’authentification forte, telle que Windows Hello. Si vous n’utilisez pas une méthode d’authentification forte pour votre connexion Bureau à distance, l’erreur précédente s’affiche.
+
+Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « Connexion à une machine virtuelle Microsoft Azure » de la liste des applications cloud qui exigent une authentification MFA. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+
+> [!NOTE]
+> L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
  
 ## <a name="preview-feedback"></a>Commentaires de la préversion
 

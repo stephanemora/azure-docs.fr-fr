@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511912"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167560"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -38,6 +38,9 @@ Les profils techniques de validation sont exécutés dans l’ordre où ils appa
 Un profil technique de validation peut être exécuté de manière conditionnelle en fonction de conditions préalables définies dans l’élément **ValidationTechnicalProfile**. Par exemple, vous pouvez vérifier si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée.
 
 Un profil technique autodéclaré peut définir un profil technique de validation à utiliser pour valider toutes ou certaines de ses revendications de sortie. Toutes les revendications d’entrée du profil technique référencé doivent apparaître dans les revendications de sortie du profil technique de validation de référencement.
+
+> [!NOTE]
+> Seuls les profils techniques à déclaration automatique peuvent utiliser des profils techniques de validation. Si vous devez valider les revendications de sortie à partir de profils techniques non déclarés automatiquement, envisagez d’utiliser une étape d’orchestration supplémentaire dans votre parcours utilisateur pour prendre en compte le profil technique en charge de la validation.    
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 

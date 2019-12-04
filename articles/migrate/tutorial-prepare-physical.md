@@ -1,27 +1,23 @@
 ---
-title: Préparer les serveurs physiques à une évaluation avec l’évaluation de serveur Azure Migrate
-description: Explique comment préparer les serveurs physiques à une évaluation et à une migration vers Azure à l’aide de l’évaluation de serveur Azure Migrate.
+title: Préparer des serveurs physiques pour les évaluer et les migrer avec Azure Migrate
+description: Découvrez comment préparer l’évaluation/la migration des serveurs physiques avec Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091916"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196395"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
 Cet article explique comment préparer les serveurs physiques locaux à une évaluation et à une migration avec [Azure Migrate](migrate-services-overview.md).
-
-
-> [!NOTE]
-> Si vous ne voyez pas encore certaines de ces fonctionnalités dans le portail Azure Migrate, patientez un peu. Elles apparaîtront au cours de la semaine suivante ou un peu plus tard.
 
 [Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
@@ -45,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez définir des autorisations pour le déploiement Azure Migrate.
 
-- Autorisations pour permettre à votre compte Azure de créer un projet Azure Migrate. 
+- Autorisations pour permettre à votre compte Azure de créer un projet Azure Migrate.
 - Autorisations pour permettre à votre compte d’inscrire l’appliance Azure Migrate. L’appliance est utilisée pour la détection et la migration Hyper-V. Lors de l’inscription de l’appliance, Azure Migrate crée deux applications Azure Active Directory (Azure AD) qui identifient de façon unique l’appliance :
     - La première application communique avec les points de terminaison de service Azure Migrate.
     - La seconde application accède à un coffre de clés Azure Key Vault créé pendant l’inscription pour stocker les informations Azure AD App et les paramètres de configuration de l’appliance.
@@ -73,7 +69,7 @@ Vous pouvez affecter des autorisations pour permettre à Azure Migrate de créer
 Il est intéressant de noter que :
 
 - Les applications n’ont aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
-- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée. 
+- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée.
 
 
 #### <a name="grant-account-permissions"></a>Accorder des autorisations au compte
@@ -88,7 +84,7 @@ L’administrateur général/locataire peut accorder des autorisations comme sui
 > [!NOTE]
 > Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
-#### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications 
+#### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications
 
 L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
@@ -124,12 +120,12 @@ Azure Migrate a besoin d’autorisations pour découvrir les serveurs locaux.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous allez :
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configuré les autorisations de compte Azure.
 > * Serveurs physiques préparés pour l’évaluation.
 
 Passez au tutoriel suivant pour créer un projet Azure Migrate et évaluer les serveurs physiques qui doivent faire l’objet d’une migration vers Azure.
 
-> [!div class="nextstepaction"] 
-> [Évaluer des serveurs physiques](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Évaluer des serveurs physiques](./tutorial-assess-physical.md)

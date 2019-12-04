@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819683"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559021"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
@@ -67,7 +67,12 @@ Il existe une limitation actuelle pour le même groupe de ressources, qui vous e
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux d’activité Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP. Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux App Service**. Le paramètre prend effet immédiatement. App Service détecte le changement et redémarre le conteneur automatiquement.
+> [!NOTE]
+> La [Supervision Azure (préversion)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) comprend une nouvelle fonctionnalité de journalisation intégrée. 
+>
+>
+
+Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux d’activité Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP. Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer le **Journal des applications** sous **Journaux App Service**. Le paramètre prend effet immédiatement. App Service détecte le changement et redémarre le conteneur automatiquement.
 
 Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu **Outils de développement**.
 

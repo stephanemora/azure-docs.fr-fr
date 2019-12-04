@@ -1,6 +1,6 @@
 ---
-title: Configurer les informations de sécurité (préversion) d’une clé de sécurité – Azure AD
-description: Comment configurer vos informations de sécurité pour vérifier votre identité à l’aide d’une clé de sécurité Fast Identity Online (FIDO2).
+title: Configurer une clé de sécurité comme méthode de vérification - Azure AD
+description: Comment configurer votre page Informations de sécurité (préversion) pour vérifier votre identité au moyen d’une clé de sécurité Fast Identity Online (FIDO2) comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803791"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278944"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>Configurer les informations de sécurité (préversion) d’une clé de sécurité
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Configurer la clé de sécurité comme méthode de vérification
 
-Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mot de passe dans votre organisation. Une clé de sécurité est un appareil physique qui est utilisé avec un code confidentiel unique pour se connecter à votre compte professionnel ou scolaire. Étant donné que les clés de sécurité nécessitent que vous disposiez de l’appareil physique et d’un nom que vous seul connaissez, il s’agit d’une méthode d’authentification plus puissante qu’un nom d’utilisateur et un mot de passe.
+Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mot de passe dans votre organisation. Une clé de sécurité est un appareil physique qui est utilisé avec un code confidentiel unique pour se connecter à votre compte professionnel ou scolaire. Étant donné que les clés de sécurité nécessitent que vous disposiez de l’appareil physique et d’un nom que vous seul connaissez, il s’agit d’une méthode de vérification plus puissante qu’un nom d’utilisateur et un mot de passe.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -35,7 +35,7 @@ Nous prenons actuellement en charge plusieurs conceptions et fournisseurs de cl�
 Votre administrateur ou votre organisation vous fournit une clé de sécurité si elle en a besoin pour votre compte professionnel ou scolaire. Il existe différents types de clés de sécurité que vous pouvez utiliser, par exemple une clé USB que vous connectez à votre appareil ou une clé NFC que vous connectez à un lecteur NFC. Vous pouvez obtenir plus d’informations sur votre clé de sécurité, notamment son type, dans la documentation du fabricant.
 
 > [!Note]
-> Si vous ne parvenez pas à utiliser une clé de sécurité FIDO2, vous pouvez utiliser d’autres méthodes d’authentification par mot de passe, telles que l’application Microsoft Authenticator ou Windows Hello. Pour plus d’informations sur l’application Microsoft Authenticator, consultez [Qu’est-ce que l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) Pour plus d’informations sur Windows Hello, consultez [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Si vous ne parvenez pas à utiliser une clé de sécurité FIDO2, vous pouvez utiliser d’autres méthodes de vérification par mot de passe, telles que l’application Microsoft Authenticator ou Windows Hello. Pour plus d’informations sur l’application Microsoft Authenticator, consultez [Qu’est-ce que l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) Pour plus d’informations sur Windows Hello, consultez [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -150,7 +150,7 @@ Pour enregistrer une clé de sécurité, vous devez avoir au moins une méthode 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les méthodes d’authentification par mot de passe, consultez le billet de blog [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins (Azure AD de Microsoft commence la préversion publique des clés de sécurité FIDO2, en activant les connexions sans mot de passe)](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou lisez les articles [Présentation de l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) et [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
+- Pour plus d’informations sur les méthodes de vérification sans mot de passe, lisez le blog [Azure AD de Microsoft démarre une préversion publique des clés de sécurité FIDO2, en activant des connexions sans mot de passe](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou lisez les articles [Qu’est-ce que l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) et [Aperçu Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 - Plus d’informations sur les [clés de sécurité conformes Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

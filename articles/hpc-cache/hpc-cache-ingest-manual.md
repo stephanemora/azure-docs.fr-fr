@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582286"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168487"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache - Copie manuelle
 
 Cet article fournit des instructions détaillées sur la copie manuelle de données vers un conteneur de stockage Blob en vue d’une utilisation avec Azure HPC Cache. Il utilise des opérations parallèles multithread pour accélérer la copie des données.
 
-Pour plus d’informations sur le déplacement des données vers le stockage Blob pour Azure HPC Cache, consultez [Déplacer les données dans le stockage d’objets blob Azure pour le cache Azure HPC Cache](hpc-cache-ingest.md).
+Pour plus d’informations sur le déplacement des données vers le stockage Blob pour Azure HPC Cache, consultez [Déplacer les données vers le stockage Blob Azure](hpc-cache-ingest.md).
 
 ## <a name="simple-copy-example"></a>Exemple simple de copie
 

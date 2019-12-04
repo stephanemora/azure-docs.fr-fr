@@ -1,6 +1,6 @@
 ---
-title: Tutoriel sur la surveillance de la communication réseau - Portail Azure | Microsoft Docs
-description: Découvrez comment surveiller la communication réseau entre deux machines virtuelles à l’aide de la fonctionnalité de surveillance de connexion Azure Network Watcher.
+title: 'Tutoriel : Superviser la communication réseau à l’aide du portail Azure'
+description: Dans ce tutoriel, découvrez comment superviser la communication réseau entre deux machines virtuelles avec la fonctionnalité de supervision de connexion d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233892"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419695"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Didacticiel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -54,9 +54,9 @@ Créez deux machines virtuelles.
     |Nom|myVm1|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **USA Est**.|
+    |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, sélectionnez **Extensions**. Sélectionnez **Ajouter une extension**, puis **Agent Network Watcher pour Windows**, comme l’illustre l’image suivante :
@@ -76,8 +76,8 @@ Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle]
 | 1 | Sélectionner une version de **Ubuntu Server** |                                                                         |
 | 3 | Nom                                  | myVm2                                                                   |
 | 3 | Type d'authentification                   | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
-| 3 | Groupe de ressources                        | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
-| 6. | Extensions                            | **Agent Network Watcher pour Linux**                                             |
+| 3 | Resource group                        | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
+| 6 | Extensions                            | **Agent Network Watcher pour Linux**                                             |
 
 Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Attendez la fin du déploiement de la machine virtuelle avant d’effectuer les étapes restantes.
 
@@ -151,7 +151,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
     | ---                     | ---            |
     | Plages de ports de destination | 22             |
     | Action                  | Deny           |
-    | Priorité                | 100            |
+    | Priority                | 100            |
     | Nom                    | DenySshInbound |
 
 5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)** . Les résultats sont à présent différents, comme l’illustre l’image suivante :

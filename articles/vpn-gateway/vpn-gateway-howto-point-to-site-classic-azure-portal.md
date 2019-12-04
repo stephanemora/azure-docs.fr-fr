@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845457"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424162"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 
@@ -89,7 +89,7 @@ Avant de commencer, vérifiez que vous disposez d'un abonnement Azure. Si vous n
 
 Si vous n'avez pas de réseau virtuel, créez-en un. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour créer un réseau virtuel à l’aide du portail Azure, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre. 
+1. Dans le menu du [Portail Azure](https://portal.azure.com) ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre.
 
 2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s'ouvre.
 
@@ -210,7 +210,7 @@ Pour créer une connexion P2S à partir d'un ordinateur client autre que celui u
 >
 >
 
-1. Pour vous connecter à votre réseau virtuel, sur l'ordinateur client, accédez aux **connexions VPN** sur le portail Azure et recherchez celle que vous avez créée. La connexion VPN porte le même nom que votre réseau virtuel. Sélectionnez **Connecter**. Si un message contextuel relatif au certificat s'affiche, sélectionnez **Continuer** pour utiliser des privilèges élevés.
+1. Pour vous connecter à votre réseau virtuel, sur l'ordinateur client, accédez aux **connexions VPN** sur le Portail Azure et recherchez celle que vous avez créée. La connexion VPN porte le même nom que votre réseau virtuel. Sélectionnez **Connecter**. Si un message contextuel relatif au certificat s'affiche, sélectionnez **Continuer** pour utiliser des privilèges élevés.
 
 2. Sur la page d'état **Connexion**, sélectionnez **Connecter** pour établir la connexion. Si l'écran **Sélectionner un certificat** apparaît, vérifiez que le certificat client affiché est le bon. Si ce n'est pas le cas, sélectionnez le bon certificat dans la liste déroulante, puis cliquez sur **OK**.
 

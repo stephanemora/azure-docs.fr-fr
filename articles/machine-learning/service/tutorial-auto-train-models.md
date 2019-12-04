@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel sur un modèle de régression : ML automatisé'
+title: 'Tutoriel sur la régression : ML automatisé'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment générer un modèle Machine Learning à l’aide du machine learning automatisé. Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final est ensuite déployé avec Azure Machine Learning.
+description: Dans ce tutoriel, vous apprenez à générer un modèle Machine Learning à l’aide du Machine Learning automatisé. Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2a47b6851d9c3250913783c8a63b666e8a8474d9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582452"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483545"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Didacticiel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

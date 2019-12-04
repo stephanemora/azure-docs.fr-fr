@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821626"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185251"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application .NET Framework
 
@@ -31,16 +31,15 @@ Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la conf
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer votre application afin de mettre à jour sa configuration à la demande à l’aide d’un magasin de configuration d’application.
-> * Injecter la configuration la plus récente dans les contrôleurs de votre application.
-
+> * Configurer votre application .NET Framework pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
+> * Injecter la configuration la plus récente dans votre application.
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 ou ultérieur](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
+## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
 
-## <a name="create-a-net-console-app"></a>Créer une application console .NET
+## <a name="create-a-net-framework-console-app"></a>Créer une application console .NET Framework
 
 1. Démarrez Visual Studio, puis sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
@@ -99,7 +98,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
         PrintMessage().Wait();
     }
     ```
-    La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin de configuration d’application, lorsqu’une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `Refresh` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
+    La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `Refresh` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
 
     > [!NOTE]
     > Pour un paramètre de configuration, le délai d’expiration du cache par défaut est de 30 secondes. Toutefois, vous pouvez le modifier en appelant la méthode `SetCacheExpiration` de l’initialiseur d’options qui est passé en tant qu’argument à la méthode `ConfigureRefresh`.
@@ -121,7 +120,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin de configuration d’application. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -135,7 +134,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     ![Lancement local de l’application](./media/dotnet-app-run.png)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance de magasin de configuration d’application que vous avez créée dans le démarrage rapide.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 1. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs des clés suivantes :
 
@@ -156,7 +155,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté une identité de service managée Azure pour simplifier l’accès à App Configuration et améliorer la gestion des informations d’identification pour votre application. Pour savoir comment ajouter une identité de service gérée par Azure qui simplifie l’accès à App Configuration, passez au tutoriel suivant.
+Dans ce tutoriel, vous avez permis à votre application .NET Framework d’actualiser dynamiquement les paramètres de configuration à partir d’App Configuration. Pour savoir comment utiliser une identité managée Azure afin de simplifier l’accès à App Configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)

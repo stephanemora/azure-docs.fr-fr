@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 645d40e51b69272f1883f5ad1fb73c425f7b4b8f
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: e9c83a25147696b5e492241a191b3104df001c7c
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019317"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424026"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrer d'Azure Media Encoder vers Media Encoder Standard
 
-Cet article décrit la procédure de migration du processeur multimédia Azure Media Encoder (AME) hérité, qui sera mis hors service le 30 novembre 2019, vers le processeur multimédia Media Encoder Standard.  
+Cet article décrit la procédure de migration du processeur multimédia Azure Media Encoder (AME) hérité, qui sera mis hors service le 1 mars 2020, vers le processeur multimédia Media Encoder Standard.  
 
 Lors de l’encodage de fichiers avec AME, les clients ont généralement utilisé une chaîne prédéfinie nommée telle que `H264 Adaptive Bitrate MP4 Set 1080p`. Pour migrer, votre code doit être mis à jour afin d'utiliser le processeur multimédia **Media Encoder Standard** plutôt que AME, et une des [présélections système](media-services-mes-presets-overview.md) équivalentes comme `H264 Multiple Bitrate 1080p`. 
 
@@ -58,7 +58,7 @@ IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standar
 // In this case " H264 Multiple Bitrate 1080p" preset is used. 
 ITask task = job.Tasks.AddNew("My encoding task", 
     processor, 
-    " H264 Multiple Bitrate 1080p", 
+    "H264 Multiple Bitrate 1080p", 
     TaskOptions.None); 
 ```
 
@@ -75,4 +75,4 @@ Plus robuste et plus fiable que l'encodeur AME hérité, Media Encoder Standard 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Composants hérités](legacy-components.md)
-* [Page de tarification](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [Page des tarifs](https://azure.microsoft.com/pricing/details/media-services/#encoding)

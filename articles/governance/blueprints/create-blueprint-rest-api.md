@@ -1,28 +1,24 @@
 ---
-title: Créer un blueprint avec l'API REST
-description: Utilisez Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
-ms.date: 02/04/2019
+title: "Démarrage rapide : Créer un blueprint avec l'API REST"
+description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960411"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322155"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
-> [!div class="checklist"]
-> - Créer un blueprint et ajouter divers artefacts pris en charge
-> - Apporter des changements à un blueprint existant à l’état **Brouillon**
-> - Marquer un blueprint comme prêt à être affecté en le faisant passer à l’état **Publié**
-> - Affecter un blueprint à un abonnement existant
-> - Vérifier l’état et la progression d’un blueprint affecté
-> - Supprimer un blueprint affecté à un abonnement
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Bien démarrer avec l’API REST
 
@@ -393,7 +389,8 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 
    - Identité managée affectée par l’utilisateur
 
-     Une affectation de blueprint peut également utiliser une [identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md). Dans ce cas, la partie **identité** du corps de la requête change de la façon suivante.  Remplacez `{yourRG}` et `{userIdentity}` par le nom de votre groupe de ressources et le nom de votre identité managée affectée par l’utilisateur, respectivement.
+     Une affectation de blueprint peut également utiliser une [identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md).
+     Dans ce cas, la partie **identité** du corps de la requête change de la façon suivante. Remplacez `{yourRG}` et `{userIdentity}` par le nom de votre groupe de ressources et le nom de votre identité managée affectée par l’utilisateur, respectivement.
 
      ```json
      "identity": {
@@ -432,9 +429,7 @@ Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](./concepts/lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md).
-- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./concepts/sequencing-order.md).
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](./concepts/resource-locking.md).
-- Découvrir comment [mettre à jour des affectations existantes](./how-to/update-existing-assignments.md).
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](./troubleshoot/general.md).
+Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de l’API REST. Pour plus d’informations sur Azure Blueprints, consultez l’article sur le cycle de vie des blueprints.
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md)

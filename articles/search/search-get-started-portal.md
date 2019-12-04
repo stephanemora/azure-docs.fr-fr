@@ -1,19 +1,19 @@
 ---
 title: Créer un index de recherche dans le portail Azure
 titleSuffix: Azure Cognitive Search
-description: Utilisez l’Assistant Importation de données pour créer, charger et interroger votre premier index de recherche dans la Recherche cognitive Azure.
+description: Dans ce guide de démarrage rapide du portail, découvrez comment utiliser l’Assistant Importation de données pour créer, charger et interroger votre premier index de recherche dans Recherche cognitive Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890031"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406992"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73890031"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Utilisez le portail pour assimiler rapidement les concepts et écrire en quelques minutes des requêtes intéressantes qui ciblent un index.
-
-> [!div class="checklist"]
-> * Commencez par un exemple de jeu de données public gratuit hébergé sur Azure
-> * Exécutez l’Assistant **Importation de données** dans la Recherche cognitive Azure pour charger des données et générer un index
-> * Surveillez la progression de l’indexation dans le portail
-> * Affichez un index existant et les options disponibles pour le modifier
-> * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**
+Utilisez l’Assistant **Importation de données** du portail et les outils de l’**Explorateur de recherche** pour assimiler rapidement les concepts et écrire en quelques minutes des requêtes intéressantes qui ciblent un index.
 
 Si les outils sont trop limités, vous pouvez suivre une [Présentation basée sur du code de la programmation pour la Recherche cognitive Azure dans .NET](search-howto-dotnet-sdk.md), ou utiliser [Postman pour effectuer des appels d’API REST](search-get-started-postman.md). 
 
@@ -265,7 +258,7 @@ Vous avez appris à créer un index de recherche à l’aide de l’Assistant **
 
 Vous avez également appris à rechercher des index, des indexeurs et des sources de données dans le portail. À l’avenir, pour toute nouvelle source de données et afin de limiter vos efforts, vous pourrez utiliser le portail pour vérifier rapidement ses définitions ou les collections de champs.
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
@@ -275,8 +268,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez en découvrir davantage sur la Recherche cognitive Azure à l’aide des outils programmatiques :
+Le portail est pratique pour une première exploration et les petites tâches, tandis que l’examen préalable des API vous aidera à comprendre les concepts et le workflow à un niveau plus approfondi :
 
-* [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Création d’un index à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Créer un index à l’aide de Postman ou Fiddler et des API REST de la Recherche cognitive Azure](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

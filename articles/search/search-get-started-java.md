@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Créer un index de recherche dans Java à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
-description: Explique comment créer un index, charger des données et exécuter des requêtes en Java à l’aide des API REST de la Recherche cognitive Azure.
+description: Dans ce guide de démarrage rapide Java, découvrez comment créer un index, charger des données et exécuter des requêtes avec les API REST de Recherche cognitive Azure.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792811"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406731"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Java à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -817,7 +817,7 @@ Maintenant que vous avez chargé les documents d’hôtels, vous pouvez créer d
 
     Recherchez un résumé de chaque requête et ses résultats. L’exécution doit se terminer par un message BUILD SUCCESS et un code de sortie zéro (0).
 
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de supprimer les ressources dont vous n’avez plus besoin. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
@@ -827,10 +827,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide Java, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons les articles suivants pour approfondir vos connaissances.
+Dans ce guide de démarrage rapide Java, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons l’article suivant qui liste les opérations d’indexeur dans REST.
 
-+ [Opérations d’index](/rest/api/searchservice/index-operations)
-
-+ [Opérations de document](/rest/api/searchservice/document-operations)
-
-+ [Opérations d’indexeur](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [Opérations d’indexeur](/rest/api/searchservice/indexer-operations)

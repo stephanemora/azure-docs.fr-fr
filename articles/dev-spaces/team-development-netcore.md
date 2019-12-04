@@ -1,22 +1,18 @@
 ---
-title: Développement en équipe avec les espaces Azure Dev Spaces à l’aide de .NET Core et VS Code
-titleSuffix: Azure Dev Spaces
+title: Développement en équipe à l’aide de .NET Core et Visual Studio Code
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: bccbcf6665fa08ba940e3d4c9ad6099fffe96d3e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 30d132b78279e9ae1ca190c0037c962a7cbd8e6f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132036"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325509"
 ---
-# <a name="team-development-with-azure-dev-spaces-using-net-core-and-vs-code"></a>Développement en équipe avec les espaces Azure Dev Spaces à l’aide de .NET Core et VS Code
+# <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio Code avec Azure Dev Spaces
 
 Dans ce tutoriel, vous allez voir comment les développeurs d’une même équipe peuvent travailler simultanément sur un même cluster Kubernetes à l’aide de Dev Spaces.
 

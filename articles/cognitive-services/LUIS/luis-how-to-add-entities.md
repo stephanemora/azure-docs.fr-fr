@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132695"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383683"
 ---
 # <a name="add-entities-to-extract-data"></a>Ajouter des entités pour extraire des données 
 
@@ -66,7 +66,7 @@ L’utilisation d’entités de correspondance à du texte permet d’extraire d
 |--|--|
 |[Entité de liste](#add-list-entities-for-exact-matches)|Liste de noms canoniques complétée de synonymes en tant que formes alternatives|
 |Entité d’expression régulière|Correspondance à du texte à l’aide d’une entité d’expression régulière|
-|[Entité prédéfinie](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|Correspondance à des types de données courants comme un nombre, un e-mail, une date|
+|[Entité prédéfinie](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|Correspondance à des types de données courants comme un nombre, un e-mail, une date|
 |Détail du domaine prédéfini|Correspondance à l’aide de domaines sélectionnés|
 |[Pattern.any](#add-a-patternany-entity)| Correspondance à des entités pouvant être facilement confondues avec le texte environnant|  
 
@@ -179,14 +179,18 @@ LUIS n’autorise pas la modification du type de l’entité, car il ne sait pas
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur les modèles :
+> [!div class="nextstepaction"] 
+> [Utiliser des modèles prédéfinis](howto-add-prebuilt-models.md) 
 
-* [Concepts des modèles](luis-concept-patterns.md)
-* [Syntaxe des modèles](reference-pattern-syntax.md)
+Pour en savoir plus :
+* Guide pratique pour [effectuer l’apprentissage](luis-how-to-train.md)
+* Guide pratique pour [tester](luis-interactive-test.md)
+* Guide pratique pour [publier](luis-how-to-publish-app.md)
+* Modèles :
+    * [Concepts](luis-concept-patterns.md)
+    * [Syntaxe](reference-pattern-syntax.md)
+* [Référentiel GitHub des entités prédéfinies](https://github.com/Microsoft/Recognizers-Text)
+* [Concepts de l’extraction des données](luis-concept-data-extraction.md)
 
-Pour plus d’informations sur les entités prédéfinies, consultez le projet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 
 
-Pour plus d’informations sur la façon dont l’entité apparaît dans la réponse à la requête de point de terminaison JSON, consultez [Extraction de données](luis-concept-data-extraction.md).
-
-Maintenant que vous avez ajouté des intentions, des énoncés et des entités, vous avez une application LUIS de base. Découvrez comment [entraîner](luis-how-to-train.md), [tester](luis-interactive-test.md), et [publier](luis-how-to-publish-app.md) votre application.
  

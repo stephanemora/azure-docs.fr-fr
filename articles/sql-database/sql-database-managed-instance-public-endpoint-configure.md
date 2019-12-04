@@ -10,16 +10,16 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828026"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227985"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Database Managed Instance
 
-Un point de terminaison public pour une [instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permet l’accès aux données de votre instance gérée depuis un emplacement extérieur au [réseau virtuel](../virtual-network/virtual-networks-overview.md). Vous pouvez accéder à votre instance gérée à partir de services Azure multi-locataire tels que Power BI, Azure App Service ou un réseau local. Comme vous utilisez le point de terminaison public sur une instance gérée, vous n’avez pas besoin de recourir à un VPN, ce qui peut aider à éviter les problèmes de débit VPN.
+Un point de terminaison public pour une [instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permet l’accès aux données de votre instance gérée depuis un emplacement extérieur au [réseau virtuel](../virtual-network/virtual-networks-overview.md). Vous pouvez accéder à votre instance gérée à partir de services Azure multilocataires, tels que Power BI et Azure App Service, ou d’un réseau local. Comme vous utilisez le point de terminaison public sur une instance gérée, vous n’avez pas besoin de recourir à un VPN, ce qui peut aider à éviter les problèmes de débit VPN.
 
 Cet article porte sur les points suivants :
 

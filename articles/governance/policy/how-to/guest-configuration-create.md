@@ -1,20 +1,20 @@
 ---
 title: Créer des stratégies Guest Configuration
-description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows ou Linux.
-ms.date: 09/20/2019
+description: Découvrez comment créer une stratégie Guest Configuration Azure Policy pour des machines virtuelles Windows ou Linux à l’aide d’Azure PowerShell.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c7b214a07b89f4b66aa32724259b01129b9b7e9
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959478"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407058"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
 Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer la configuration pour l’audit de machines Azure. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
 
-La [configuration d’invité Azure Policy](/azure/governance/policy/concepts/guest-configuration) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
+La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
 
 Utilisez les actions suivantes pour créer votre propre configuration pour la validation de l’état d’une machine Azure.
 
@@ -23,7 +23,7 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 
 ## <a name="add-the-guestconfiguration-resource-module"></a>Ajouter le module de ressource GuestConfiguration
 
-Pour créer une stratégie Guest Configuration, le module de ressources doit être ajouté. Vous pouvez utiliser ce module de ressources avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell](https://hub.docker.com/rsdk-powershell/).
+Pour créer une stratégie Guest Configuration, le module de ressources doit être ajouté. Vous pouvez utiliser ce module de ressources avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 ### <a name="base-requirements"></a>Configuration de base requise
 
@@ -165,7 +165,8 @@ Paramètres de la cmdlet `New-GuestConfigurationPackage` :
 - **Chemin d’accès** : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
 - **ChefProfilePath** : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
 
-Le package terminé doit être stocké à un emplacement accessible par les machines virtuelles gérées. Exemples : référentiels GitHub, référentiel Azure ou stockage Azure. Si vous préférez ne pas rendre le package public, vous pouvez inclure un [jeton SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) dans l’URL. Vous pouvez également implémenter le [point de terminaison de service](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) pour les machines dans un réseau privé, bien que cette configuration s’applique uniquement à l’accès au package et ne communique pas avec le service.
+Le package terminé doit être stocké à un emplacement accessible par les machines virtuelles gérées. Exemples : référentiels GitHub, référentiel Azure ou stockage Azure. Si vous préférez ne pas rendre le package public, vous pouvez inclure un [jeton SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) dans l’URL.
+Vous pouvez également implémenter le [point de terminaison de service](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) pour les machines dans un réseau privé, bien que cette configuration s’applique uniquement à l’accès au package et ne communique pas avec le service.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>Utilisation des secrets dans les packages Guest Configuration
 
@@ -412,4 +413,4 @@ Pour plus d’informations sur les applets de commande de cet outil, utilisez la
 
 - En savoir plus sur l’audit des machines virtuelles avec [Guest Configuration](../concepts/guest-configuration.md).
 - Découvrez comment [créer des stratégies par programmation](programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](get-compliance-data.md).

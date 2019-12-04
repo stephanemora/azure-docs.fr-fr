@@ -1,19 +1,19 @@
 ---
-title: Préparer des ordinateurs locaux à une migration vers Azure avec Azure Migrate
-description: Cet article explique comment préparer des ordinateurs locaux à une migration vers Azure avec Azure Migrate.
+title: Préparer des machines pour la migration avec Azure Migrate
+description: Découvrez comment préparer des machines locales pour la migration avec Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480119"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196437"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -46,8 +46,7 @@ Dans cet article, vous découvrirez comment :
 
 - Pour les machines virtuelles VMware, la migration de serveur Azure Migrate prend en charge la [migration avec ou sans agent](server-migrate-overview.md). Vérifiez la configuration requise/la prise en charge des machines virtuelles VMware pour les migrations [sans agent](migrate-support-matrix-vmware.md#migration---limitations) et [avec agent](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements).
 - Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) des machines virtuelles Hyper-V.
-- Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) des machines physiques locales ou d’autres serveurs virtualisés. La configuration requise est ici comparable à celle des machines virtuelles VMware.
-
+- Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-physical.md) des machines physiques locales ou d’autres serveurs virtualisés. 
 
 
 

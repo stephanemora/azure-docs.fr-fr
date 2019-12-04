@@ -1,25 +1,23 @@
 ---
-title: Matrice de prise en charge Azure Migrate pour l’évaluation et la migration de serveurs physiques
-description: Résume les paramètres et les limites de l'évaluation de serveur physique et de la migration Hyper-V à l'aide du service Azure Migrate.
+title: Prise en charge pour l’évaluation ou la migration de serveurs physiques à l’aide d’Azure Migrate
+description: Résume la prise en charge pour l’évaluation ou la migration de serveurs physiques à l’aide d’Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091888"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196352"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice de prise en charge pour l’évaluation et la migration de serveurs physiques
 
 Vous pouvez utiliser le [service Azure Migrate](migrate-overview.md) pour évaluer et migrer des machines vers le cloud Microsoft Azure. Cet article récapitule les paramètres et les limites de la prise en charge de l’évaluation et la migration de serveurs physiques locaux.
 
-> [!NOTE]
-> Si vous ne voyez pas encore dans le portail Azure Migrate des fonctionnalités mentionnées ici, patientez un peu. Elles apparaîtront au cours de la semaine suivante ou un peu plus tard.
 
 
 ## <a name="physical-server-scenarios"></a>Scénarios avec serveurs physiques

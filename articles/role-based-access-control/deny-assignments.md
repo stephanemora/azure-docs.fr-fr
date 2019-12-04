@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165982"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479354"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
 
@@ -30,7 +30,10 @@ Cet article explique comment définir des attributions de refus.
 
 ## <a name="how-deny-assignments-are-created"></a>Création des affectations de refus
 
-Les affectations de refus sont créées et gérées par Azure pour protéger les ressources. Par exemple, Azure Blueprints et les applications managées Azure utilisent les affectations de refus pour protéger les ressources managées par le système. Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+Les affectations de refus sont créées et gérées par Azure pour protéger les ressources. Azure Blueprints et les applications managées Azure utilisent les affectations de refus pour protéger les ressources managées par le système. Azure Blueprints et les applications managées Azure constituent la seule façon de créer des affectations de refus. Vous ne pouvez pas directement créer vos propres affectations de refus.  Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+
+> [!NOTE]
+> Vous ne pouvez pas directement créer vos propres affectations de refus.
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>Comparer les attributions de rôles et les affectations de refus
 

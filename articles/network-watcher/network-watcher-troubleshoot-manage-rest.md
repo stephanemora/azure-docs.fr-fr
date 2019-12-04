@@ -1,5 +1,6 @@
 ---
-title: Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions par le biais d’Azure Network Watcher - REST | Microsoft Docs
+title: Détecter un problème lié à la passerelle de réseau virtuel et aux connexions - API REST Azure
+titleSuffix: Azure Network Watcher
 description: Cette page explique comment résoudre les problèmes liés aux passerelles de réseau virtuel et aux connexions avec Azure Network Watcher à l’aide de REST
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686115"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277798"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide d’Azure Network Watcher
 

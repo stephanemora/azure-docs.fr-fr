@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 944ddb7f83a4d10861e5a16dbc69b8f9e4dabfe0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973796"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422688"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Qu’est-ce que le service QnA Maker ?
 
@@ -26,7 +26,7 @@ Toute application de conversation qui communique avec un utilisateur en langage 
 ## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 
 * **Quand vous avez des informations statiques** : utilisez QnA Maker quand vous avez des informations statiques dans votre base de connaissances de réponses. Cette base de connaissances, créée avec des documents tels que [des PDF et des contenus accessibles par des URL](../concepts/data-sources-supported.md), est personnalisée en fonction de vos besoins.
-* **Quand vous souhaitez fournir la même réponse à une requête, une question ou une commande** : quand différents utilisateurs soumettent la même question, la même réponse est retournée à chacun d’eux. 
+* **Quand vous souhaitez fournir la même réponse à une requête, une question ou une commande** : quand différents utilisateurs soumettent la même question, la même réponse est retournée. 
 * **Quand vous souhaitez filtrer des informations statiques en fonction de méta-informations** : ajoutez des balises de [métadonnées](../how-to/metadata-generateanswer-usage.md) pour fournir des options de filtrage supplémentaires relatives aux utilisateurs et informations de votre application cliente. Les [échanges](../how-to/chit-chat-knowledge-base.md), types ou formats de contenu, objets de contenu et actualisations de contenu représentent des informations de métadonnées courantes.
 * **Quand vous souhaitez gérer une conversation de bot incluant des informations statiques** : votre base de connaissances répond à une commande ou au texte conversationnel d’un utilisateur. Si la réponse fait partie d’un flux de conversation prédéterminé, représenté dans votre base de connaissances avec un [contexte multitour](../how-to/multiturn-conversation.md), le bot peut facilement fournir ce flux.  
 
@@ -40,14 +40,17 @@ Une fois qu’une base de connaissances QnA Maker est publiée, une application 
 |:--|:--|
 |1|L’application cliente envoie la _question_ de l’utilisateur (texte dans ses propres mots) « How do I programmatically update my Knowledge Base? » au point de terminaison de votre base de connaissances.|
 |2|QnA Maker utilise la base de connaissances entraînée pour fournir la réponse correcte et les invites de suivi qui peuvent être utilisées pour affiner la recherche de la meilleure réponse. QnA Maker retourne une réponse au format JSON.|
-|3|L’application cliente utilise la réponse JSON pour prendre des décisions concernant la manière de poursuivre la conversation. Ces décisions peuvent inclure l’affichage de la réponse principale ou la présentation de choix supplémentaires pour affiner la recherche de la meilleure réponse. |
+|3|L’application cliente utilise la réponse JSON pour prendre des décisions concernant la manière de poursuivre la conversation. Ces décisions peuvent inclure l’affichage de la réponse principale et la présentation de choix supplémentaires pour affiner la recherche de la meilleure réponse. |
 |||
 
 ## <a name="what-is-a-knowledge-base"></a>Qu’est-ce qu’une base de connaissances ? 
 
 QnA Maker [importe votre contenu](../concepts/data-sources-supported.md) dans une base de connaissances comprenant des ensembles de questions et de réponses. Le processus d’importation extrait des informations sur la relation entre les différentes parties de votre contenu structuré et semi-structuré pour définir des relations entre les ensembles de questions et de réponses. Vous pouvez modifier ces ensembles de questions et de réponses ou en ajouter de nouveaux.  
 
-Le contenu de l’ensemble de questions et de réponses inclut toutes les questions alternatives correspondant à une réponse spécifique, les balises de métadonnées utilisées pour filtrer les choix de réponses lors de la recherche et les invites de suivi pour continuer à affiner la recherche.
+Le contenu de l’ensemble question-réponse comprend les éléments suivants :
+* Toutes les autres formes de la question
+* Les étiquettes de métadonnées utilisées pour filtrer les choix de réponse lors de la recherche
+* Des invites de suivi pour poursuivre le perfectionnement de la recherche
 
 ![Exemple de question et de réponse avec des métadonnées](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
@@ -55,7 +58,7 @@ Une fois que vous avez publié votre base de connaissances, une application clie
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Créer un bot, le gérer et publier sur le bot sans code
 
-Le portail QnA Maker offre tout l’environnement nécessaire pour créer une base de connaissances. Vous pouvez importer des documents sous leur forme actuelle dans votre base de connaissances. Ces documents (tels qu’un FAQ, un manuel produit, une feuille de calcul ou une page web) sont convertis en ensembles de questions et de réponses. Chaque ensemble est analysé pour identifier des invites de suivi et est connecté à d’autres ensembles. Le format Markdown final prend en charge les présentations riches et notamment les images et les liens. 
+Le portail QnA Maker offre tout l’environnement nécessaire pour créer une base de connaissances. Vous pouvez importer des documents sous leur forme actuelle dans votre base de connaissances. Ces documents (tels qu’un FAQ, un manuel produit, une feuille de calcul ou une page web) sont convertis en ensembles de questions et de réponses. Chaque ensemble est analysé pour identifier des invites de suivi et est connecté à d’autres ensembles. Le format _Markdown_ final prend en charge les présentations riches, notamment les images et les liens. 
 
 Une fois votre base de connaissances modifiée, publiez-la sur un [bot Azure Web App](https://azure.microsoft.com/services/bot-service/) de travail sans écrire le moindre code. Testez votre bot dans le [portail Azure](https://portal.azure.com) ou procédez au téléchargement et poursuivez le développement. 
 
@@ -81,9 +84,9 @@ QnA Maker offre des fonctionnalités de création, d’entraînement et de publi
 
 **Étape 2** : Créez une base de connaissances dans le portail [QnA Maker](https://www.qnamaker.ai). Ajoutez des [fichiers et des URL](../concepts/data-sources-supported.md) pour créer la base de connaissances.  
 
-**Étape 3** : Publiez votre base de connaissances et testez-la à partir de votre point de terminaison personnalisé à l’aide de [cURL](../quickstarts/get-answer-from-kb-using-curl.md) ou [Postman](../quickstarts/get-answer-from-kb-using-postman.md). 
+**Étape 3** : Publiez votre base de connaissances et testez-la à partir de votre point de terminaison personnalisé à l’aide de [cURL ou de Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md). 
 
-**Étape 4** : À partir de votre application cliente, appelez programmatiquement le point de terminaison de votre base de connaissances et lisez la réponse JSON qui présente la meilleure réponse à l’utilisateur.  
+**Étape 4** : À partir de votre application cliente, appelez programmatiquement le point de terminaison de votre base de connaissances. L’application cliente traite la réponse JSON afin de montrer la meilleure réponse à l’utilisateur.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 QnA Maker fournit tout ce dont vous avez besoin pour créer, gérer et déployer une base de connaissances personnalisée. 

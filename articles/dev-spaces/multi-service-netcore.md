@@ -1,22 +1,18 @@
 ---
-title: Exécution de plusieurs services dépendants à l’aide de .NET Core et de VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Exécution de plusieurs services dépendants : .NET Core et Visual Studio Code'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 2a1e99ba1c19dfdcaaf1b6709e6d3976968cf623
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503109"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325678"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>Développement multiservice avec Azure Dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Exécution de plusieurs services dépendants : .NET Core et Visual Studio Code avec Azure Dev Spaces
 
 Dans ce tutoriel, vous allez apprendre à développer des applications multiservices à l’aide d’Azure Dev Spaces, et découvrir certains des avantages de Dev Spaces.
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706467"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185219"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -29,7 +29,7 @@ Les clés servent de nom pour les paires clé-valeur ; elles sont utilisées po
 
 L’utilisation des données de configuration dans des frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit des ressources `Environment` qui fournissent des paramètres à une application Spring pour qu’elle soit paramétrée par des variables qui incluent le *nom de l’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
 
-Les clés stockées dans App Configuration sont des chaînes Unicode qui respectent la casse. Les clés *app1* et *App1* sont des clés distinctes dans un magasin de configuration d’application. Gardez cette précision à l’esprit quand vous utilisez des paramètres de configuration au sein d’une application, car certains frameworks gèrent les clés de configuration sans tenir compte de la casse. Par exemple, le système de configuration ASP.NET Core traite les clés comme des chaînes qui ne respectent pas la casse. Pour éviter tout comportement inattendu quand vous interrogez App Configuration au sein d’une application ASP.NET Core, n’utilisez pas de clés qui diffèrent uniquement par leur casse.
+Les clés stockées dans App Configuration sont des chaînes Unicode qui respectent la casse. Les clés *app1* et *App1* sont distinctes dans un magasin App Configuration. Gardez cette précision à l’esprit quand vous utilisez des paramètres de configuration au sein d’une application, car certains frameworks gèrent les clés de configuration sans tenir compte de la casse. Par exemple, le système de configuration ASP.NET Core traite les clés comme des chaînes qui ne respectent pas la casse. Pour éviter tout comportement inattendu quand vous interrogez App Configuration au sein d’une application ASP.NET Core, n’utilisez pas de clés qui diffèrent uniquement par leur casse.
 
 Vous pouvez utiliser tous les caractères Unicode dans les noms de clés entrés dans App Configuration, à l’exception de `*`, `,` et `\`. Ces caractères sont réservés. Si vous avez besoin d’inclure un caractère réservé, vous devez l’échapper au moyen de `\{Reserved Character}`. La taille combinée d’une paire clé-valeur est limitée à 10 000 caractères. Sont inclus tous les caractères de la clé, sa valeur et tous les attributs facultatifs associés. À la hauteur de cette limite, vous pouvez avoir de nombreux niveaux hiérarchiques pour les clés.
 
@@ -57,7 +57,7 @@ Voici plusieurs exemples de la façon dont vous pouvez structurer vos noms de cl
 
 ### <a name="label-keys"></a>Clés d’étiquette
 
-Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin de configuration d’application. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
+Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin App Configuration. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
 
 Label offre un moyen pratique de créer des variantes d’une clé. Les étiquettes sont souvent utilisées pour spécifier plusieurs environnements pour la même clé :
 
@@ -73,7 +73,7 @@ Vous pouvez utiliser n’importe quel caractère Unicode dans les étiquettes, �
 
 ### <a name="query-key-values"></a>Interroger des valeurs de clé
 
-Chaque valeur de clé est identifiée de manière unique par sa clé et une étiquette pouvant être `null`. Pour interroger un magasin de configuration d’application sur des valeurs de clé, vous spécifiez un modèle. Le magasin de configuration d’application retourne toutes les valeurs de clé qui correspondent au modèle, ainsi que leurs valeurs et attributs correspondants. Utilisez les modèles de clé suivants dans les appels d’API REST à App Configuration :
+Chaque valeur de clé est identifiée de manière unique par sa clé et une étiquette pouvant être `null`. Pour interroger un magasin App Configuration afin de connaître des valeurs de clé, vous devez spécifier un modèle. Le magasin App Configuration retourne toutes les valeurs de clé qui correspondent au modèle, ainsi que leurs valeurs et attributs correspondants. Utilisez les modèles de clé suivants dans les appels d’API REST à App Configuration :
 
 | Clé | |
 |---|---|
@@ -100,7 +100,7 @@ Vous pouvez également inclure les modèles d’étiquette suivants :
 
 Les valeurs attribuées aux clés sont également des chaînes Unicode. Vous pouvez utiliser tous les caractères Unicode pour les valeurs. Il existe un type de contenu facultatif et défini par l’utilisateur, associé à chaque valeur. Utilisez cet attribut pour stocker des informations, par exemple un schéma d’encodage, sur une valeur afin d’aider votre application à la traiter correctement.
 
-Les données de configuration stockées dans un magasin de configuration d’application, y compris toutes les clés et les valeurs, sont chiffrées au repos et en transit. App Configuration n’est pas une solution de remplacement à Azure Key Vault. N’y stockez pas de secrets d’application.
+Les données de configuration stockées dans un magasin App Configuration, y compris toutes les clés et les valeurs, sont chiffrées au repos et en transit. App Configuration n’est pas une solution de remplacement à Azure Key Vault. N’y stockez pas de secrets d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

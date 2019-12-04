@@ -1,21 +1,20 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959321"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484019"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Vue d’ensemble du service Azure Policy
+# <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
 La gouvernance valide le fait que votre organisation peut atteindre ses objectifs via une utilisation efficace de l’informatique. Elle répond à ce besoin en clarifiant les objectifs métier et les projets informatiques.
 
-Votre société rencontre un nombre important de problèmes informatiques qui ne semblent jamais résolus ?
-Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. De cette manière, vous pouvez gérer et éviter les problèmes de manière plus efficace. C’est pour répondre à ce besoin stratégique qu’Azure Policy entre en jeu,
+Votre société rencontre un nombre important de problèmes informatiques qui ne semblent jamais résolus ? Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. De cette manière, vous pouvez gérer et éviter les problèmes de manière plus efficace. C’est pour répondre à ce besoin stratégique qu’Azure Policy entre en jeu,
 
 Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise. en évaluant vos ressources pour vérifier leur conformité par rapport aux stratégies affectées. Par exemple, vous pouvez disposer d’une stratégie qui n’autorise qu’une certaine taille de référence SKU de machines virtuelles dans votre environnement. Une fois que cette stratégie est implémentée, les ressources nouvelles et existantes sont évaluées en termes de conformité. Avec le bon type de stratégie, les ressources existantes peuvent être mises en conformité. Plus tard dans ce document, nous allons parler plus en détail de la manière de créer et d’implémenter des stratégies avec Azure Policy.
 
@@ -35,7 +34,7 @@ Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux f
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource (préversion)** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** peuvent utiliser toutes les opérations en lecture d’Azure Policy, mais le rôle **Contributeur** peut aussi les corriger.
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** peuvent utiliser toutes les opérations en lecture d’Azure Policy, mais le rôle **Contributeur** peut aussi les corriger.
 
 Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
@@ -81,6 +80,9 @@ Pour plus d’informations sur les paramètres de stratégie, consultez [Definit
 
 Une définition d’initiative est une collection de définitions de stratégie qui sont spécialement conçues pour atteindre un objectif global particulier. Les définitions d’initiative simplifient la gestion et l’affectation des définitions de stratégie. Elles simplifient ces procédures en regroupant un ensemble de stratégies en un seul élément. Par exemple, vous pouvez créer une initiative intitulée **Activer la surveillance dans Azure Security Center**, avec comme objectif de surveiller toutes les recommandations de sécurité disponibles dans votre centre Azure Security Center.
 
+> [!NOTE]
+> Le SDK, et notamment Azure CLI et Azure PowerShell, utilisent des propriétés et des paramètres nommés **PolicySet** pour référencer les initiatives.
+
 Dans cette initiative, vous avez par exemple des définitions de stratégie comme celles-ci :
 
 - **Surveiller les bases de données non chiffrées dans Security Center** : pour surveiller les bases de données et les serveurs SQL Server non chiffrés.
@@ -125,11 +127,12 @@ Voici quelques conseils et astuces à garder à l’esprit :
 - Tenez compte des hiérarchies de l’organisation lors de la création de définitions et d’affectations. Nous vous recommandons de créer des définitions à des niveaux supérieurs, comme au niveau de l’abonnement ou du groupe d’administration. Ensuite, créez l’affectation au niveau enfant suivant. Si vous créez une définition au niveau d’un groupe d’administration, l’affectation peut être limitée à un abonnement ou groupe de ressources au sein de ce groupe d’administration.
 
 - Nous vous recommandons de créer et d’affecter des définitions d’initiative même pour une définition de stratégie unique.
-Par exemple, vous avez la définition de stratégie *policyDefA* et la créez sous la définition d’initiative *initiativeDefC*. Si vous créez une autre définition de stratégie ultérieurement pour *policyDefB* avec des objectifs similaires à *policyDefA*, vous pouvez l’ajouter sous *initiativeDefC* et les suivre ensemble.
+  Par exemple, vous avez la définition de stratégie *policyDefA* et la créez sous la définition d’initiative *initiativeDefC*. Si vous créez une autre définition de stratégie ultérieurement pour *policyDefB* avec des objectifs similaires à *policyDefA*, vous pouvez l’ajouter sous *initiativeDefC* et les suivre ensemble.
 
 - Une fois que vous avez créé une affectation d’initiative, les définitions de stratégie ajoutées à l’initiative font également partie des affectations d’initiatives.
 
-- Lors de l’évaluation d’une affectation d’initiative, toutes les stratégies dans l’initiative sont également évaluées. Si vous devez évaluer une stratégie individuellement, il est préférable de ne pas l’inclure dans une initiative.
+- Lors de l’évaluation d’une affectation d’initiative, toutes les stratégies dans l’initiative sont également évaluées.
+  Si vous devez évaluer une stratégie individuellement, il est préférable de ne pas l’inclure dans une initiative.
 
 ## <a name="video-overview"></a>Présentation vidéo
 
@@ -141,8 +144,6 @@ La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour 
 
 Maintenant que vous avez une vue d’ensemble d’Azure Policy et des autres concepts clés, voici les étapes suivantes que nous suggérons :
 
-- [Affecter une définition de stratégie à l’aide du portail](assign-policy-portal.md).
-- [Affecter une définition de stratégie avec Azure CLI](assign-policy-azurecli.md).
-- [Affecter une définition de stratégie avec PowerShell](assign-policy-powershell.md).
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](..//management-groups/overview.md).
-- Regarder [Gouverner votre environnement Azure à l’aide d’Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) sur Channel 9.
+- [Affecter une définition de stratégie à l’aide du portail](./assign-policy-portal.md).
+- [Affecter une définition de stratégie avec Azure CLI](./assign-policy-azurecli.md).
+- [Affecter une définition de stratégie avec PowerShell](./assign-policy-powershell.md).

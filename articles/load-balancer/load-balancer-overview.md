@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce qu’Azure Load Balancer ?
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne Load Balancer et l’exploiter dans le cloud.
 services: load-balancer
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: be293a925e507468d96be4c9f6b47f30eea5f025
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888672"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423912"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -41,7 +41,9 @@ Vous pouvez utiliser Azure Load Balancer pour :
 * Fournir une [connectivité sortante](load-balancer-outbound-connections.md) aux machines virtuelles de votre réseau virtuel à l’aide d’un équilibreur de charge public.
 
 >[!NOTE]
-> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios. Si vous recherchez une terminaison de protocole TLS (« déchargement SSL ») ou un traitement de couche d’application par requête HTTP/HTTPS, consultez [Qu’est-ce qu’Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Si vous recherchez un équilibrage de charge DNS global, consultez [Qu’est-ce que Traffic Manager](../traffic-manager/traffic-manager-overview.md). Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions.
+> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios. Si vous recherchez des informations sur l’arrêt du protocole TLS (Transport Layer Security) (« déchargement SSL ») ou sur le traitement au niveau de la couche application par requête HTTP/HTTPS, consultez [Présentation d’Azure Application Gateway](../application-gateway/overview.md) Si vous recherchez des informations sur l’équilibrage de charge du DNS global, consultez [Présentation de Traffic Manager](../traffic-manager/traffic-manager-overview.md) Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions.
+>
+> Pour obtenir une comparaison des options d’équilibrage de charge Azure, consultez [Vue d’ensemble des options d’équilibrage de charge dans Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="what-are-load-balancer-resources"></a>Que sont les ressources Load Balancer ?
 

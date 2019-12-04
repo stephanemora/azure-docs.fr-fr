@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory dans AirWatch | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans AirWatch | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AirWatch.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227748"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231990"
 ---
-# <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutoriel : Intégrer AirWatch à Azure Active Directory
+# <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Didacticiel : Intégrer AirWatch à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer AirWatch à Azure Active Directory (Azure AD). Quand vous intégrez AirWatch à Azure AD, vous pouvez :
 
@@ -146,11 +146,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **SAML 2.0**, pour charger le certificat téléchargé, cliquez sur **Upload**.
 
-    ![Télécharger](./media/airwatch-tutorial/ic791932.png "Télécharger")
+    ![Charger](./media/airwatch-tutorial/ic791932.png "Télécharger")
 
 1. Dans la section **Request** , procédez comme suit :
 
-    ![Demande](./media/airwatch-tutorial/ic791925.png "Demande")  
+    ![Requête](./media/airwatch-tutorial/ic791925.png "Requête")  
 
     a. Pour **Request Binding Type**, sélectionnez **POST**.
 
@@ -239,7 +239,7 @@ Pour pouvoir se connecter à AirWatch, les utilisateurs d’Azure AD doivent êt
    b. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur AirWatch fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par AirWatch pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

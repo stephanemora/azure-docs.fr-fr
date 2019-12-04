@@ -1,5 +1,5 @@
 ---
-title: Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
+title: Envoyer des mesures de machine virtuelle Windows classiques à une base de données de mesures Azure Monitor
 description: Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
 author: anirudhcavale
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844926"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286145"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envoyer les mesures du système d’exploitation invité à une base de données de mesures Azure Monitor d’une machine virtuelle Windows (classique)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [L’extension Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (également appelée « WAD » ou « Diagnostics ») d’Azure Monitor vous permet de collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Cet article décrit le processus permettant d’envoyer les métriques de performances du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de métriques Azure Monitor. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
+Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows (classique) à la base de données des mesures Azure Monitor. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
 En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc. Avant, l’extension Diagnostics écrivait les données dans Stockage Azure, et non dans le magasin de données Azure Monitor. 
 

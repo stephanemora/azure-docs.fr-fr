@@ -1,14 +1,14 @@
 ---
 title: Exemple - Références SKU ExpressRoute autorisées
-description: Pour cet exemple de définition de stratégie, ExpressRoute doit utiliser une référence SKU approuvée.
+description: Cet exemple de définition de stratégie exige qu’ExpressRoute utilise une référence SKU approuvée définie dans un paramètre.
 ms.date: 01/29/2019
 ms.topic: sample
-ms.openlocfilehash: a9fa0e98a2973cbaa689358c0922b0eda23dd042
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e4bd9dfe9c9851f80fe7e6f7b93a1c251e163bf7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072022"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463731"
 ---
 # <a name="sample---allowed-expressroute-skus"></a>Exemple - Références SKU ExpressRoute autorisées
 

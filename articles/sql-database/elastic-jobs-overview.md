@@ -11,16 +11,18 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: f5eaed807e69dcc1a0b7ad426bab91abd2f8309a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283b4004f34372104eb083496400772884f5965e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827260"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420382"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 
-Dans cet article, vous allez apprendre à créer, configurer et gérer des travaux élastiques. Si vous n’avez pas encore utilisé de travaux élastiques, [découvrez-en plus sur les concepts d’automatisation des travaux dans Azure SQL Database](sql-database-job-automation-overview.md).
+Dans cet article, vous allez apprendre à créer, configurer et gérer des travaux élastiques.
+
+Si vous n’avez pas encore utilisé de travaux élastiques, [découvrez-en plus sur les concepts d’automatisation des travaux dans Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>Créer et configurer l’agent
 
@@ -31,13 +33,13 @@ Dans cet article, vous allez apprendre à créer, configurer et gérer des trava
 
 ## <a name="create-run-and-manage-jobs"></a>Créer, exécuter et gérer des travaux
 
-1. Créez des informations d’identification pour l’exécution de travaux dans la *base de données des travaux* à l’aide de [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) ou de [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Définissez le groupe cible (bases de données sur lesquelles exécuter le travail) à l’aide de [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) ou de [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](sql-database-control-access.md). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
-4. Créez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md#create-a-job) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-5. Ajoutez des étapes de travail à l’aide de [PowerShell](elastic-jobs-powershell.md#create-a-job-step) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+1. Créez des informations d’identification pour l’exécution de travaux dans la *Base de données des travaux* à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Définissez le groupe cible (bases de données sur lesquelles exécuter le travail) à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](sql-database-control-access.md). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md).
+4. Créez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+5. Ajoutez des étapes de travail à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Exécutez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md#run-the-job) ou de [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Surveillez l’état d’exécution du travail à l’aide du portail, de [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou de [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+7. Supervisez l’état d’exécution du travail à l’aide du portail, de [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou de [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portail](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 

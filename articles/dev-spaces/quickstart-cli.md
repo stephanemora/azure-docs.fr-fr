@@ -1,23 +1,19 @@
 ---
-title: Déployer une application sur Kubernetes à l’aide d’Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: Développer une application dans Kubernetes
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Déployer un microservice sur AKS à l’aide d’Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 58cb436a7c2ba0d6a49f5138e46a1f92cdc97a94
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815821"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325637"
 ---
-# <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>Démarrage rapide : Développer une application sur Kubernetes à l’aide d’Azure Dev Spaces
+# <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développer une application dans Kubernetes - Azure Dev Spaces
 Dans ce guide, vous allez apprendre à :
 
 - Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.

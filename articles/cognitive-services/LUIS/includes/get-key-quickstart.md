@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b74d28aa840079d85c9d798e54107d2ed2d32d6e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6938220cd4f0dc21f188089c8764ab6e18982c17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499625"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414568"
 ---
-L’accès aux clés et aux points de terminaison est fourni sur le portail LUIS, dans la section Gérer de la page Ressources Azure. 
+Les clés et les points de terminaison sont fournis dans le portail LUIS, dans la section **Gérer** de la page **Ressources Azure**. 
  
-1. Connectez-vous au portail LUIS. 
-1. Sélectionnez votre application dans la liste des applications.
+1. Connectez-vous au [portail LUIS](https://preview.luis.ai/). 
+1. Créez une application ou sélectionnez une application existante dans la liste des applications.
 1. Sélectionnez **Gérer**, puis sélectionnez **Ressources Azure**. 
-1. Copiez les valeurs de la clé et du point de terminaison pour la ressource de démarrage.
-
-    La clé de **démarrage** permet d’envoyer gratuitement des requêtes à l’API de création, et jusqu’à 1 000 requêtes à l’API de point de terminaison de prédiction par mois pour toutes vos applications LUIS. 
+1. Copiez les valeurs de la clé et du point de terminaison pour la ressource de démarrage. Vous en aurez besoin pour exécuter l’exemple ci-dessous.
+   > [!NOTE]
+   > La clé de **démarrage** permet d’envoyer gratuitement des requêtes à l’API de création, et jusqu’à 1 000 requêtes à l’API de point de terminaison de prédiction par mois pour toutes vos applications LUIS. 

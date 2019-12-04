@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173704"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554089"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -80,6 +80,30 @@ Une fois que vous avez trouvé le package d’accès dans le portail Mon Accès,
 Si vous demandez l’accès à un package d’accès auquel plusieurs stratégies s’appliquent, il pourra vous être demandé de sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec deux stratégies pour deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès pendant 2 jours et ne nécessiter aucune approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
 
 ![Portail Mon Accès – Demander l’accès – plusieurs stratégies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>Resoumettre une demande
+
+Lorsque vous demandez l’accès à un package d’accès, votre demande peut être refusée ou expirer si les approbateurs ne répondent pas dans le délai imparti. Si vous avez besoin de cet accès, vous pouvez réessayer de soumettre votre demande. La procédure suivante explique comment resoumettre une demande d’accès :
+
+**Rôle prérequis :** Demandeur
+
+1. Connectez-vous au portail **Mon Accès**.
+
+1. Cliquez sur **Historique des demandes** dans le menu de navigation à gauche.
+
+1. Recherchez le package d’accès pour lequel vous resoumettre une demande.
+
+1. Cliquez sur la coche pour sélectionner le package d’accès.
+
+1. Cliquez sur le lien **Afficher** en bleu à droite du package d’accès sélectionné.
+    
+    ![Sélectionner un package d’accès et afficher le lien](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    Un volet s’ouvre à droite, affichant l’Historique des demandes pour le package d’accès.
+    
+    ![Sélectionner le bouton Soumettre à nouveau](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Cliquez sur le bouton **Soumettre à nouveau** en bas du volet.
 
 ## <a name="cancel-a-request"></a>Annuler une demande
 

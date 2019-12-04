@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177449"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451500"
 ---
 1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
    
@@ -52,9 +52,9 @@ Pour attribuer des balises en bloc à plusieurs ressources :
 
 Pour afficher toutes les ressources ayant un mot clé :
 
-1. Sélectionnez **Tous les services**, puis **Mots clés**.
+1. Dans le menu du Portail Azure, sélectionnez **Tous les services**. Sélectionnez **Générale**, puis **Balises**.
 
-     ![Rechercher par mot clé](./media/resource-manager-tag-resources/find-tags.png)
+     ![Rechercher par mot clé](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Sélectionnez le mot clé pour afficher les ressources associées.
 
@@ -70,4 +70,4 @@ Pour afficher toutes les ressources ayant un mot clé :
 
 1. La vue est disponible à partir du tableau de bord.
 
-     ![tableau de bord](./media/resource-manager-tag-resources/dashboard.png)
+     ![tableau de bord](./media/resource-manager-tag-resources/dashboard-with-view.png)

@@ -1,18 +1,14 @@
 ---
-title: Sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
+title: Sauvegarder et récupérer des machines virtuelles Azure avec PowerShell
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969058"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172544"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -21,6 +17,7 @@ Cet article explique comment sauvegarder et restaurer une machine virtuelle Azur
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
+>
 > * Créer un coffre Recovery Services et définir le contexte du coffre.
 > * Créer une stratégie de sauvegarde
 > * Appliquer la stratégie de sauvegarde pour protéger plusieurs machines virtuelles
@@ -29,7 +26,7 @@ Dans cet article, vous apprendrez comment :
 ## <a name="before-you-start"></a>Avant de commencer
 
 * [En savoir plus](backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
-* [Examinez](backup-architecture.md#architecture-direct-backup-of-azure-vms) l’architecture de sauvegarde de la machine virtuelle Azure, [apprenez-en davantage sur](backup-azure-vms-introduction.md) le processus de sauvegarde et [examinez](backup-support-matrix-iaas.md) la prise en charge, les limites et les prérequis.
+* [Examinez](backup-architecture.md#architecture-built-in-azure-vm-backup) l’architecture de sauvegarde de la machine virtuelle Azure, [apprenez-en davantage sur](backup-azure-vms-introduction.md) le processus de sauvegarde et [examinez](backup-support-matrix-iaas.md) la prise en charge, les limites et les prérequis.
 * Passez en revue la hiérarchie des objets PowerShell pour Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hiérarchie des objets dans Recovery Services

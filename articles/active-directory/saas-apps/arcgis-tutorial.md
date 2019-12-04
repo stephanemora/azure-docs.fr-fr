@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 74cf0c1e055570df7702465df79dcdfbd8ea9e9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158029"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Online
 
@@ -223,7 +223,7 @@ Pour ArcGIS Online, cette attribution s’effectue manuellement.
    
      ![Ajouter et vérifier](./media/arcgis-tutorial/ic784749.png "Add And Review")
     
-     a. Entrez **l’adresse e-mail**, le **prénom** et le **nom** d’un compte Azure AD valide que vous voulez attribuer.
+     a. Entrez **l’adresse e-mail**, le **prénom** et le **nom** du compte Azure AD valide que vous voulez provisionner.
   
      b. Cliquez sur **Add And Review** (Ajouter et vérifier).
 5. Passez en revue les données que vous avez entrées, puis cliquez sur **Add Members** (Ajouter des membres).

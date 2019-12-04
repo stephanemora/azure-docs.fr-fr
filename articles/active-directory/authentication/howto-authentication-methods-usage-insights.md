@@ -1,22 +1,22 @@
 ---
-title: Utilisation des méthodes d’authentification et de création de rapport des informations (préversion) - Azure Active Directory
+title: Utilisation de méthodes d’authentification et informations – Azure Active Directory
 description: Création de rapports sur la réinitialisation du mot de passe en libre-service d’Azure AD et l’utilisation de la méthode d’authentification par authentification multi-facteurs
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfea07989f52c463816318276fd5b6643cb2041
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255062"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381897"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 

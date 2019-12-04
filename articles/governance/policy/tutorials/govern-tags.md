@@ -1,14 +1,14 @@
 ---
-title: Gérer la gouvernance des balises
-description: Utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur d’anciennes et de nouvelles ressources.
-ms.date: 11/04/2019
+title: 'Didacticiel : Gérer la gouvernance des balises'
+description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069661"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482250"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Didacticiel : Gérer la gouvernance des balises avec Azure Policy
 
@@ -21,7 +21,16 @@ L’effet [modify](../concepts/effects.md#modify) d’Azure Policy est conçu po
 - Vous possédez déjà des milliers de ressources sans gouvernance des balises.
 - Vous disposez déjà d’une taxonomie que vous devez modifier.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Dans ce didacticiel, vous allez apprendre à effectuer les tâches suivantes :
+
+> [!div class="checklist"]
+> - Identifier vos exigences métier
+> - Associer chaque spécification à une définition de stratégie
+> - Regrouper les stratégies de balises dans une initiative
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="identify-requirements"></a>Identifier les exigences
 
@@ -184,6 +193,16 @@ Cette règle de stratégie recherche les ressources qui n’ont pas la valeur de
 Une fois les stratégies de balises ci-dessus créées, groupez-les en une initiative unique de gouvernance des balises et attribuez-les à un groupe d’administration ou à un abonnement. L’initiative et les stratégies incluses évalueront la conformité des ressources existantes et des demandes de modification des nouvelles ressources et des ressources mises à jour qui correspondent à la propriété **if** de la règle de stratégie. Toutefois, la stratégie ne met pas automatiquement à jour les ressources non conformes existantes en intégrant les modifications de balise définies.
 
 Comme les stratégies [deployIfNotExists](../concepts/effects.md#deployifnotexists), la stratégie **modify** utilise des tâches de correction pour modifier les ressources non conformes existantes. Suivez les instructions indiquées dans [Guide pratique pour corriger les ressources](../how-to/remediate-resources.md) pour identifier vos ressources **modify** non conformes et corriger les balises en fonction de la taxonomie définie.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
+
+1. Sélectionnez **Définitions** (ou **Affectations** si vous essayez de supprimer une affectation) sous **Création** dans la partie gauche de la page Azure Policy.
+
+1. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) à supprimer.
+
+1. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
 ## <a name="review"></a>Révision
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32511b638d4674198ce919b8b3a90e67b1c3cfc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96d212df51a58125e3b959a18f5cf2ac9d391d30
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793252"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422378"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurer un groupe Office 365 supprimé dans Azure Active Directory
 
@@ -29,9 +29,9 @@ Lorsque vous supprimez un groupe Office 365 dans Azure Active Directory (Azure A
 
 Les autorisations requises pour restaurer un groupe peuvent être les suivantes :
 
-Rôle | Autorisations
+Role | Autorisations
 --------- | ---------
-Administrateur général, Prise en charge du partenaire de niveau 2 et Administrateur Intune | Peut restaurer n’importe quel groupe Office 365 supprimé
+Administrateur général, Administrateur de groupe Prise en charge du partenaire de niveau 2 et Administrateur Intune | Peut restaurer n’importe quel groupe Office 365 supprimé
 Administrateur d’utilisateurs et Prise en charge du partenaire de niveau 1 | Peut restaurer n’importe quel groupe Office 365 supprimé, à l’exception de ceux affectés au rôle Administrateur de la société
 Utilisateur | Peut restaurer n’importe quel groupe Office 365 supprimé dont il est propriétaire
 

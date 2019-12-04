@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5d5815467444afeb5f08380eea6868336044d237
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892325"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404553"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Didacticiel : Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil IoT Plug-and-Play et le connecter à votre application IoT Central
 
@@ -34,7 +34,7 @@ Suivez le guide de démarrage rapide [Créer une application Azure IoT Central (
 
 Pour suivre ce tutoriel, vous devez installer les logiciels suivants sur votre ordinateur local :
 
-* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) : veillez à inclure le composant **Gestionnaire de package NuGet** et la charge de travail **Développement Desktop en C++** quand vous installez Visual Studio.
+* [Build Tools pour Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) avec les **outils de génération C++** et les charges de travail du **composant Gestionnaire de package Nuget**. Ou, si vous l'avez déjà, [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 avec les mêmes charges de travail.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/) : lorsque vous installez **CMake**, sélectionnez l’option **Add CMake to the system PATH (Ajouter CMake au chemin d’accès système)** .
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -55,23 +55,27 @@ Pour installer le pack d’extension Azure IoT Tools dans VS Code, effectuez le
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Se procurer Azure IoT device SDK pour C
+Dans ce tutoriel, vous utilisez le gestionnaire de bibliothèques [Vcpkg](https://github.com/microsoft/vcpkg) pour installer le kit Azure IoT device SDK pour C dans votre environnement de développement.
 
-Préparez un environnement de développement pour générer le Azure IoT device SDK pour C.
+1. Ouvrez une invite de commandes. Exécutez la commande suivante pour installer Vcpkg :
 
-1. Ouvrez une invite de commandes. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
+    ```cmd
+    git clone https://github.com/Microsoft/vcpkg.git
+    cd vcpkg
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+    .\bootstrap-vcpkg.bat
     ```
 
-    Attendez-vous à ce que cette opération prenne plusieurs minutes.
+    Ensuite, pour raccorder [l’intégration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md) à l’utilisateur, exécutez la commande suivante. La première fois que vous exécutez cette commande, elle nécessite des droits d’administration :
 
-1. Créez un dossier `central_app` à la racine du clone local du dépôt. Vous utilisez ce dossier pour les fichiers de modèle d’appareil et le stub de code d’appareil.
+    ```cmd
+    .\vcpkg.exe integrate install
+    ```
 
-    ```cmd/sh
-    cd azure-iot-sdk-c
-    mkdir central_app
+1. Installez le Vcpkg du kit de développement logiciel (SDK) C de l’appareil Azure IoT :
+
+    ```cmd
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
 ## <a name="generate-device-key"></a>Générer la clé de l’appareil
@@ -89,7 +93,7 @@ Pour connecter un appareil à une application IoT Central, vous avez besoin d’
 1. Ouvrez une invite de commandes et exécutez la commande suivante pour générer une clé d’appareil :
 
     ```cmd/sh
-    dps-keygen  -di:mxchip-01 -mk:{Primary Key from previous step}
+    dps-keygen -di:mxchip-001 -mk:{Primary Key from previous step}
     ```
 
     Prenez note de la _clé d’appareil_ générée. Vous utiliserez cette valeur dans une étape ultérieure de ce tutoriel.
@@ -98,7 +102,7 @@ Pour connecter un appareil à une application IoT Central, vous avez besoin d’
 
 Dans ce tutoriel, vous allez utiliser le modèle de fonctionnalité d’appareil public pour un appareil DevKit IoT MxChip. Vous n’avez pas besoin d’un appareil DevKit réel pour exécuter le code. Dans ce tutoriel, vous allez compiler le code à exécuter sur Windows.
 
-1. Ouvrez le dossier `azure-iot-sdk-c\central_app` avec VS Code.
+1. Créez un dossier nommé `central_app` et ouvrez-le dans VS Code.
 
 1. Utilisez **Ctrl + Maj + P** pour ouvrir la palette de commandes, entrez **IoT Plug-and-Play**, puis sélectionnez **Open Model Repository (Ouvrir le référentiel de modèles)** . Sélectionnez **Public repository (Référentiel public)** . VS Code affiche une liste des modèles de fonctionnalités d’appareils dans le référentiel de modèles public.
 
@@ -124,9 +128,11 @@ Maintenant que vous avez le modèle de fonctionnalité d’appareil **MXChip IoT
 
 1. Choisissez **ANSI C** comme langage.
 
-1. Choisissez **Projet CMake** comme type de projet. Ne choisissez pas **Projet MXChip IoT DevKit**. Cette option est prévue pour les appareils DevKit réel.
-
 1. Choisissez la méthode de connexion **Via DPS (Device Provisioning Service) symmetric key (Avec une clé symétrique DPS (service Device Provisioning))** .
+
+1. Choisissez **Projet CMake sur Windows** comme type de projet. Ne choisissez pas **Projet MXChip IoT DevKit**. Cette option est prévue pour les appareils DevKit réel.
+
+1. Choisissez **Via Vcpkg** pour inclure le kit SDK.
 
 1. VS Code ouvre une nouvelle fenêtre avec les fichiers de stub de code d’appareil générés dans le dossier `devkit_device`.
 
@@ -136,35 +142,37 @@ Maintenant que vous avez le modèle de fonctionnalité d’appareil **MXChip IoT
 
 Vous utilisez le SDK d’appareil pour générer le stub de code d’appareil généré. L’application que vous créez simule un appareil **MXChip IoT DevKit** et se connecte à votre application IoT central. L’application envoie les données de télémétrie et les propriétés et reçoit des commandes.
 
-1. Dans VS Code, ouvrez le fichier `CMakeLists.txt` dans le dossier `azure-iot-sdk-c`. Veillez à ouvrir le fichier `CMakeLists.txt` du dossier `azure-iot-sdk-c`, et non celui du dossier `devkit_device`.
+1. Depuis une invite de commandes, créez un sous-répertoire `cmake` dans le dossier `devkit_device`, puis accédez à ce dossier :
 
-1. Ajoutez la ligne ci-dessous au bas du fichier `CMakeLists.txt` pour inclure le dossier stub de code de l’appareil lors de la compilation :
-
-    ```txt
-    add_subdirectory(central_app/devkit_device)
-    ```
-
-1. Créez un dossier `cmake` dans le dossier `azure-iot-sdk-c`, puis accédez à ce dossier à partir d’une invite de commandes :
-
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
-1. Exécutez les commandes suivantes pour générer le SDK d’appareil et le stub de code généré :
+1. Exécutez les commandes suivantes pour générer le stub de code généré. Remplacez l’espace réservé `<directory of your Vcpkg repo>` par le chemin de votre copie du dépôt **Vcpkg** :
 
-    ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
-    cmake --build . -- /m /p:Configuration=Release
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build . -- /p:Configuration=Release
     ```
 
-1. Une fois la génération terminée, dans la même invite de commandes, exécutez votre application. Remplacez `scopeid` et `primarykey` par les valeurs que vous avez notées précédemment :
+    Si vous utilisez Visual Studio 2017 ou 2015, vous devez spécifier le générateur CMake en fonction des outils de génération employés :
 
-    ```cmd\sh
-    .\central_app\devkit_device\Release\devkit_device.exe scopeid primarykey mxchip-001
+    ```cmd
+    # Either
+    cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+    # or
+    cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. L’application de l’appareil commence à envoyer des données à votre application IoT Central.
+1. Une fois la génération terminée, dans la même invite de commandes, exécutez votre application. Remplacez `<scopeid>` et `<devicekey>` par les valeurs que vous avez notées :
+
+    ```cmd
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    ```
+
+1. L’application de l’appareil commence à envoyer des données à IoT Hub. Parfois, vous voyez l’erreur `Error registering device for DPS` la première fois que vous exécutez la commande précédente. Si vous voyez cette erreur, réexécutez la commande.
 
 ## <a name="view-the-device"></a>Afficher l’appareil
 

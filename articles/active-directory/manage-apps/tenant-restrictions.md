@@ -1,5 +1,5 @@
 ---
-title: Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS - Azure | Microsoft Docs
+title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824377"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276502"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 

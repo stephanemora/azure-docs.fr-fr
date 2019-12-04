@@ -5,23 +5,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: 02ea164a1fa29b494801623d418be73fc47d069c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: e7be8fbf5f6c2c59e93d48729785dd34bae5955e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077077"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327383"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identités managées dans Azure HDInsight
 
-Une identité managée est une identité inscrite dans Azure Active Directory (Azure AD) dont les informations d’identification sont gérées par Azure. Avec les identités managées, vous n’avez pas besoin d’inscrire des principaux de service dans Azure AD, ni de tenir à jour les informations d’identification telles que les certificats.
+Une identité managée est une identité inscrite dans Azure Active Directory (Azure AD) dont les informations d’identification sont gérées par Azure. Grâce aux identités managées, vous n’avez pas besoin d’inscrire des principaux de service dans Azure AD, ni de tenir à jour les informations d’identification telles que les certificats.
 
 L’utilisation d’identités managées dans Azure HDInsight permet aux clusters d’accéder aux services de domaine Azure AD, à Azure Key Vault ou aux fichiers stockés dans Azure Data Lake Storage Gen2.
 
-Il existe deux types d’identités managées : celles affectées par l’utilisateur et celles affectées par le système. Azure HDInsight utilise des identités managées affectées par l’utilisateur. Une identité managée affectée par l’utilisateur est créée en tant que ressource Azure autonome, laquelle peut ensuite être affectée à une ou plusieurs instances de service Azure. En revanche, une identité managée affectée par le système est créée dans Azure AD, après quoi elle est automatiquement activée directement sur une instance de service Azure particulière. La durée de vie de cette identité managée affectée par le système est alors liée à celle de l’instance de service sur laquelle l’identité managée est activée.
+Il existe deux types d’identités managées : celles affectées par l’utilisateur et celles affectées par le système. Azure HDInsight utilise des identités managées affectées par l’utilisateur. Une identité managée attribuée par l’utilisateur est créée en tant que ressource Azure autonome, laquelle peut ensuite être attribuée à une ou plusieurs instances de service Azure. En revanche, une identité managée affectée par le système est créée dans Azure AD, après quoi elle est automatiquement activée directement sur une instance de service Azure particulière. La durée de vie de cette identité managée affectée par le système est alors liée à celle de l’instance de service sur laquelle l’identité managée est activée.
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implémentation des identités managées dans HDInsight
 

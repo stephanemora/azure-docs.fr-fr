@@ -1,25 +1,25 @@
 ---
-title: Configurer le routage du trafic prioritaire - Azure Traffic Manager
-description: Cet article explique comment configurer la méthode de routage du trafic prioritaire dans Traffic Manager
+title: Tutoriel - Configurer le routage du trafic prioritaire avec Azure Traffic Manager
+description: Ce tutoriel explique comment configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040349"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420291"
 ---
-# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
+# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Didacticiel : Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 
 Indépendamment du mode de site web, Sites web Azure fournit des fonctionnalités basculement pour des sites web à l’intérieur d’un centre de données (également appelé région). Traffic Manager assure le basculement pour des sites web dans différents centres de données.
 

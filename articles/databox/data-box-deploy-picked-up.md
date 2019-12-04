@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172676"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407040"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 2. Vérifiez que la copie des données sur l’appareil a été effectuée et que la **préparation de l’expédition** a réussi.
 3. Mettez l’appareil hors tension et débranchez les câbles.
 4. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
-5. Envoyez un e-mail à Quantium Solutions pour demander un enlèvement. Consultez le numéro de référence de service spécifié sur le portail Azure. Utilisez le modèle d’e-mail suivant : - *Demande d’étiquette d’expédition inverse avec code TAU*. Veillez à inclure les informations suivantes dans l’e-mail : 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia vous enverra par e-mail une étiquette d’expédition pour le retour.
-7. Imprimez l’étiquette de retour et collez-la sur la boîte d’expédition.
-8. Remettez le colis au transporteur.
-
-Si nécessaire, envoyez un e-mail au Support Quantium Solution à l’adresse Azure@quantiumsolutions.com, ou contactez-les par téléphone.
-
-Pour toute demande relative à votre commande par téléphone :
-
-- Envoyez d’abord un e-mail pour l’enlèvement.
-- Indiquez votre nom de commande par téléphone.
+5. Réservez un enlèvement en ligne sur [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Comment inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de C#'
+title: Inscrire un appareil X.509 auprès du service Azure Device Provisioning avec C#
 description: Ce démarrage rapide utilise des inscriptions de groupe. Dans ce guide de démarrage rapide, vous inscrivez des appareils X.509 auprès du service Azure IoT Hub Device Provisioning avec C#.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903432"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423321"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec C#
 
@@ -80,13 +79,13 @@ Cette section montre comment créer une application console .NET Core qui ajoute
 
 1. Ouvrez Visual Studio et sélectionnez **Créer un projet**. Dans **Créer un projet**, choisissez le modèle de projet **Application console (.NET Core)** pour C#, puis sélectionnez **Suivant**.
 
-1. Nommez le projet *CreateEnrollmentGroup*, puis sélectionnez **Créer**.
+1. Nommez le projet *CreateEnrollmentGroup*, puis appuyez sur **Créer**.
 
     ![Configurer un projet Visual C# pour poste de travail classique Windows](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **CreateEnrollmentGroup**, puis sélectionnez **Gérer les packages NuGet**.
+1. Quand la solution s’ouvre dans Visual Studio, dans le volet **Explorateur de solutions**, cliquez avec le bouton droit sur le projet **CreateEnrollmentGroup**, puis sélectionnez **Gérer les packages NuGet**.
 
-1. Dans le **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, recherchez et choisissez **Microsoft.Azure.Devices.Provisioning.Service**, puis sélectionnez **Installer**.
+1. Dans le **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, recherchez et choisissez **Microsoft.Azure.Devices.Provisioning.Service**, puis appuyez sur **Installer**.
 
     ![Fenêtre du gestionnaire de package NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ Cette section montre comment créer une application console .NET Core qui ajoute
 1. Ajoutez les champs suivants à la classe `Program` et effectuez les modifications mentionnées.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Remplacez la valeur de l’espace réservé `ProvisioningConnectionString` par la chaîne de connexion du service de provisionnement pour lequel vous voulez créer l’inscription.
+   * Remplacez la valeur de l’espace réservé `ProvisioningServiceConnectionString` par la chaîne de connexion du service de provisionnement pour lequel vous voulez créer l’inscription.
 
    * Remplacez la valeur de l’espace réservé `X509RootCertPath` par le chemin d’un fichier .pem ou .cer. Ce fichier représente la partie publique d’un certificat X.509 d’autorité de certification racine ou intermédiaire qui a été au préalable chargé et vérifié avec votre service de provisionnement.
 
@@ -168,7 +167,7 @@ Cette section montre comment créer une application console .NET Core qui ajoute
 
 ## <a name="run-the-enrollment-group-sample"></a>Exécuter l’exemple de groupe d’inscription
   
-Exécutez l’exemple dans Visual Studio pour créer le groupe d’inscription. Une fois la création terminée, la fenêtre d’invite de commandes affiche les propriétés du nouveau groupe d’inscription.
+Exécutez l’exemple dans Visual Studio pour créer le groupe d’inscription. Une fenêtre d’invite de commandes s’affiche et commence à afficher des messages de confirmation. Une fois la création terminée, la fenêtre d’invite de commandes affiche les propriétés du nouveau groupe d’inscription.
 
 Vérifiez que le groupe d’inscription a bien été créé. Accédez au récapitulatif du service Device Provisioning et sélectionnez **Gérer les inscriptions**, puis sélectionnez **Groupes d’inscription**. Vous devez voir une nouvelle entrée d’inscription qui correspond à l’ID d’inscription que vous avez utilisé dans l’exemple.
 
@@ -182,9 +181,9 @@ Si vous prévoyez d’explorer l’exemple de service C#, ne supprimez pas les r
 
 1. Fermez la fenêtre de sortie de l’exemple C# sur votre ordinateur.
 
-1. Accédez à votre service Device Provisioning dans le portail Azure, sélectionnez **Gérer les inscriptions**, puis sélectionnez **Groupes d’inscription**. Sélectionnez l’*ID d’inscription* correspondant à l’entrée d’inscription créée avec ce guide de démarrage rapide, puis sélectionnez **Supprimer**.
+1. Accédez à votre service Device Provisioning dans le portail Azure, sélectionnez **Gérer les inscriptions**, puis sélectionnez **Groupes d’inscription**. Sélectionnez l’*ID d’inscription* correspondant à l’entrée d’inscription que vous avez créée à l’aide de ce guide de démarrage rapide, puis appuyez sur **Supprimer**.
 
-1. À partir de votre service Device Provisioning dans le portail Azure, sélectionnez **Certificats**, choisissez le certificat que vous avez chargé pour ce guide de démarrage rapide, puis sélectionnez **Supprimer** en haut de **Détails du certificat**.  
+1. À partir de votre service Device Provisioning dans le portail Azure, sélectionnez **Certificats**, choisissez le certificat que vous avez chargé pour ce guide de démarrage rapide, puis appuyez sur **Supprimer** en haut de **Détails du certificat**.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

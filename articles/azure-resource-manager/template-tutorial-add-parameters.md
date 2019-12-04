@@ -1,19 +1,16 @@
 ---
-title: Tutoriel - Ajouter des paramètres au modèle Azure Resource Manager
+title: Tutoriel - Ajouter des paramètres au modèle
 description: Ajoutez des paramètres à votre modèle Azure Resource Manager pour le rendre réutilisable.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001501"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406088"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Didacticiel : Ajouter des paramètres à votre modèle Resource Manager
 
@@ -25,7 +22,7 @@ Nous vous recommandons de suivre le [tutoriel sur les ressources](template-tutor
 
 Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Manager, et au choix d’Azure PowerShell ou d’Azure CLI. Pour plus d’informations, consultez les [outils de modèle](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examiner votre modèle
+## <a name="review-template"></a>Vérifier le modèle
 
 À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
@@ -33,7 +30,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 Vous avez peut-être remarqué d’ailleurs que ce modèle a un problème. Le nom du compte de stockage est codé en dur. Vous pouvez utiliser ce modèle uniquement pour déployer le même compte de stockage à chaque fois. Pour déployer un compte de stockage avec un nom différent, vous devez créer un nouveau modèle, ce qui n’est évidemment pas un moyen pratique d’automatiser vos déploiements.
 
-## <a name="make-your-template-reusable"></a>Rendre votre modèle réutilisable
+## <a name="make-template-reusable"></a>Rendre le modèle réutilisable
 
 Vous pouvez réutiliser votre modèle en ajoutant un paramètre que vous définissez pour transmettre un nom de compte de stockage. Le code JSON mis en évidence dans l’exemple suivant montre ce qui a changé dans votre modèle. Le paramètre **storageName** est identifié en tant que chaîne. La longueur maximale est définie sur 24 caractères pour empêcher les noms trop longs.
 
@@ -41,7 +38,7 @@ Copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-template"></a>Déployer un modèle
 
 Déployons le modèle. L’exemple suivant déploie le modèle avec Azure CLI ou PowerShell. Notez que vous fournissez le nom du compte de stockage en tant que valeur dans la commande de déploiement. En guise de nom de compte de stockage, indiquez le nom que vous avez utilisé dans le tutoriel précédent.
 
@@ -87,7 +84,7 @@ Le modèle précédent a toujours déployé un compte de stockage Standard_LRS. 
 
 Le paramètre **storageSKU** possède une valeur par défaut. Cette valeur est utilisée quand aucune valeur n’est spécifiée pendant le déploiement. Il présente également une liste de valeurs autorisées. Ces valeurs correspondent aux valeurs nécessaires à la création d’un compte de stockage. Vous ne souhaitez pas que les utilisateurs de votre modèle transmettent des références SKU qui ne fonctionnent pas.
 
-## <a name="redeploy-the-template"></a>Redéployer le modèle
+## <a name="redeploy-template"></a>Redéployer le modèle
 
 Vous êtes prêt à déployer de nouveau. La référence SKU par défaut étant définie sur **Standard_LRS**, vous n’avez pas besoin de fournir de valeur pour ce paramètre.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089532"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Didacticiel : Intégration d'Azure Active Directory à SumoLogic
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec SumoLogic, effectuez l
 
 1. Accédez à **Manage \> Security**.
 
-    ![Gestion](./media/sumologic-tutorial/ic778556.png "Gestion")
+    ![Gérer](./media/sumologic-tutorial/ic778556.png "gérer")
 
 1. Cliquez sur **SAML**.
 
@@ -148,11 +148,11 @@ Pour configurer l’authentification unique Azure AD avec SumoLogic, effectuez l
 
 1. Dans la liste **Select a configuration or create a new one**, sélectionnez **Azure AD**, puis cliquez sur **Configure**.
 
-    ![Configurer SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configurer SAML 2.0")
+    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0") (Configurer SAML 2.0)
 
 1. Dans la boîte de dialogue **Configure SAML 2.0** , procédez comme suit :
 
-    ![Configurer SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configurer SAML 2.0")
+    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0") (Configurer SAML 2.0)
 
     a. Dans la zone de texte **Configuration Name**, entrez **Azure AD**.
 
@@ -250,7 +250,7 @@ Pour se connecter à SumoLogic, les utilisateurs Azure AD doivent être provisio
     d. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par SumoLogic, pour approvisionner des comptes utilisateur AAD.
+> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par SumoLogic pour provisionner des comptes d’utilisateurs Azure AD.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -264,5 +264,5 @@ Lorsque vous cliquez sur la vignette SumoLogic dans le volet d’accès, vous de
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

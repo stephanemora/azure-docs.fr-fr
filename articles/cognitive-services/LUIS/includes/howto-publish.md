@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647450"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325927"
 ---
 Pour recevoir une prédiction LUIS dans un chatbot ou une autre application cliente, vous devez publier l’application sur le point de terminaison. 
 
@@ -27,7 +27,7 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
     ![LUIS - Publier sur le point de terminaison](../media/howto-publish/publish-app-popup.png)
 
-3. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+3. La publication est terminée quand la barre d’état verte s’affiche en haut de la page, confirmant ainsi sa réussite.
 
     ![LUIS - Publier sur le point de terminaison](../media/howto-publish/publish-endpoint-success.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer une règle de limitation du débit du pare-feu d’applications web pour Front Door - Azure PowerShell
+title: Configurer une règle de limitation du débit WAF pour Front Door – Azure PowerShell
 description: Découvrez comment configurer une règle de limitation du débit pour un point de terminaison Front Door existant.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511606"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186620"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limitation du débit du pare-feu d’applications web à l’aide d’Azure PowerShell
 La règle de limitation du débit du pare-feu d’applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées à partir d’une adresse IP cliente pendant une durée d’une minute.

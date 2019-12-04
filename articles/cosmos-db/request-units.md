@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 6e5d95a47261445e3031f55368f4e2cd8e2830a7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754862"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383106"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Azure Cosmos DB prend en charge de nombreuses API, notamment SQL, MongoDB, Cassa
 
 Le coût de toutes les opérations de base de données, normalisé par Azure Cosmos DB, est exprimé en *unités de requête* (RU). Vous pouvez considérer les RU/s comme la devise du débit, qui dépend de la vitesse. Elles représentent une abstraction des ressources système (processeur, IOPS et mémoire, notamment) nécessaires pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB. 
 
-Le coût de lecture d’un élément de 1 Ko est d’une unité de requête (1 RU). Toutes les autres opérations de base de données se voient aussi attribuer un coût en unités de requête. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, que l’opération de base de données soit une opération d’écriture, de lecture ou de requête.
+Le coût de lecture d’un élément de 1 Ko est d’une unité de requête (1 RU). Un minimum de 10 RU/s est requis pour stocker chaque gigaoctet de données. Toutes les autres opérations de base de données se voient aussi attribuer un coût en unités de requête. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, que l’opération de base de données soit une opération d’écriture, de lecture ou de requête.
 
 L’image suivante illustre l’idée générale des unités de requête :
 

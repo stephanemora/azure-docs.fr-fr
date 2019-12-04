@@ -1,18 +1,16 @@
 ---
-title: Tutoriel - Ajouter une ressource au modèle Azure Resource Manager
+title: Tutoriel - Ajouter une ressource au modèle
 description: Décrit les étapes de la création de votre premier modèle Azure Resource Manager. Vous découvrez la syntaxe du fichier de modèle et comment déployer un compte de stockage.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6b8bd73a1248168ff8f434afa0a9317a8fe0c618
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963576"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148200"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Didacticiel : Ajouter une ressource à votre modèle Resource Manager
 
@@ -40,9 +38,9 @@ Vous vous demandez peut-être comment trouver les propriétés à utiliser pour 
 
 Chaque ressource que vous déployez présente au moins les trois propriétés suivantes :
 
-- **type** : type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme Microsoft.Storage/storageAccounts).
-- **apiVersion** : la version de l'API REST à utiliser pour la création de la ressource. Chaque fournisseur de ressources publiant ses propres versions d’API, cette valeur est donc propre au type.
-- **name** : nom de la ressource.
+- **type** : Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme Microsoft.Storage/storageAccounts).
+- **apiVersion** : La version de l'API REST à utiliser pour la création de la ressource. Chaque fournisseur de ressources publiant ses propres versions d’API, cette valeur est donc propre au type.
+- **nom** : Nom de la ressource.
 
 La plupart des ressources possèdent également une propriété **location**, qui définit la région dans laquelle la ressource est déployée.
 

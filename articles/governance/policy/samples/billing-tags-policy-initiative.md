@@ -1,14 +1,14 @@
 ---
 title: 'Exemple : Initiative de la stratégie de facturation en fonction de balises'
-description: Cet exemple de définition de stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts.
+description: Cet exemple d’initiative de stratégie (ensemble de stratégies) exige des valeurs d’étiquette spécifiées définies dans des paramètres pour le centre de coûts et le nom de produit.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e2fc9a7251fbe548b22f24356e555f92a3a6e22f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076351"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463394"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemple : Initiative de la stratégie de facturation en fonction de balises
 

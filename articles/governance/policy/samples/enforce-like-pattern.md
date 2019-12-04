@@ -1,14 +1,14 @@
 ---
 title: Exemple - Appliquer un modèle de similitude
-description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de similitude pour les conventions de nommage.
+description: Cet exemple de définition de stratégie exige que les ressources respectent le modèle de similitude défini dans un paramètre pour les conventions de nommage.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 34013753c18ad3b84a29b04fead9ea83aeb03d7b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df72db59e0370e82ca9f4aff199498ffdf06d834
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076303"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463611"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Exemple - Appliquer le modèle de similitude pour les conventions de nommage
 

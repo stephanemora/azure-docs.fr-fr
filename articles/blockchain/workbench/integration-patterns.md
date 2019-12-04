@@ -1,21 +1,15 @@
 ---
-title: Modèles d’intégration de contrat intelligent dans Azure Blockchain Workbench
+title: Modèles d’intégration de contrat intelligent - Azure Blockchain Workbench
 description: Vue d’ensemble des modèles d’intégration de contrat intelligent dans Azure Blockchain Workbench Preview.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 7176cddae6affd19df4fe418afcf420f92d624ab
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579786"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325966"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 

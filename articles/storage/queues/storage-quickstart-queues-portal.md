@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure - Créer une file d’attente dans le stockage Azure à l’aide du portail Azure | Microsoft Docs
-description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une file d’attente, Ensuite, vous utilisez le portail Azure pour ajouter un message, en afficher les propriétés et l’enlever de la file d’attente.
+title: 'Démarrage rapide : Créer des files d’attente Stockage Azure dans le portail'
+description: Utilisez le portail Azure pour créer une file d’attente. Ensuite, utilisez le portail Azure pour ajouter un message, en afficher les propriétés et l’enlever de la file d’attente.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/06/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721331"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269242"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Démarrage rapide : Créer une file d’attente et ajouter un message à l’aide du portail Azure
 

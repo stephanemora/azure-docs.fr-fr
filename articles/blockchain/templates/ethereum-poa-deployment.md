@@ -1,28 +1,21 @@
 ---
-title: Ethereum Proof-of-Authority Consortium - Azure
-description: Utiliser la solution Ethereum Proof-of-Authority Consortium pour déployer et configurer un réseau Ethereum de consortium de plusieurs membres
-services: azure-blockchain
-keywords: ''
-author: CodyBorn
-ms.author: coborn
+title: Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
+description: Utiliser la solution Ethereum de consortium de preuve d’autorité pour déployer et configurer un réseau Ethereum de consortium sur Azure
 ms.date: 04/08/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: brendal
-manager: vamelech
-ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: coborn
+ms.openlocfilehash: c3e449c1d6ebaf7c6cb2c35dc9f91d55f569447a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698449"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326173"
 ---
-# <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
+# <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
-[Cette solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) a été conçue pour faciliter et accélérer le déploiement, la configuration et la gouvernance d’un réseau Proof-of-authority Ethereum pour un consortium de plusieurs membres avec des connaissances minimales d’Azure et d’Ethereum.
+[Le modèle de solution Azure Ethereum de consortium de preuve d’autorité](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) a été conçue pour faciliter le déploiement, la configuration et la gouvernance d’un réseau Ethereum de consortium de preuve d’autorité de plusieurs membres avec des connaissances minimales d’Azure et d’Ethereum.
 
 Moyennant quelques entrées de l’utilisateur et un déploiement par simple clic via le portail Azure, chaque membre peut fournir son empreinte réseau en utilisant Microsoft Azure Compute, une mise en réseau et des services de stockage dans le monde entier. L’empreinte réseau de chaque membre se compose d’un ensemble de nœuds de validateur avec équilibrage de charge grâce auquel une application ou un utilisateur peut interagir pour soumettre des transactions Ethereum.
 

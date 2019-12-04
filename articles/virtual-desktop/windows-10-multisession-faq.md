@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: f1ba54547b947e18d2d42520c0fb51a0855fb37c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 10724407b8ba5568b38a844f2bf475060e2b7699
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901604"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227664"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -32,7 +32,7 @@ Windows 10 Entreprise multisession est une édition virtuelle de Windows 10 En
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Est-il possible d’exécuter Windows 10 Entreprise multisession localement ?
 
-Windows 10 Entreprise multisession ne peut pas s’exécuter dans des environnements de production locaux, car il est optimisé pour le service Windows Virtual Desktop pour Azure. Il est contraire au contrat de licence d’exécuter Windows 10 Entreprise multisession en dehors d’Azure à des fins de production. Windows 10 Entreprise multisession ne peut pas être activé à l’aide des services locaux du gestionnaire de clé (KMS).
+Windows 10 Entreprise multisession ne peut pas s’exécuter dans des environnements de production locaux, car il est optimisé pour le service Windows Virtual Desktop pour Azure. Il est contraire au contrat de licence d’exécuter Windows 10 Entreprise multisession en dehors d’Azure à des fins de production. Windows 10 Entreprise multisession ne peut pas être activé à l’aide des services locaux de gestion des clés (KMS).
  
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Comment personnaliser l’image de Windows 10 Entreprise multisession pour mon organisation ?
 

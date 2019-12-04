@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062017"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560183"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Sortie Azure Stream Analytics dans Azure Cosmos DB  
 Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration.
@@ -98,6 +98,16 @@ Lorsque vous créez une sortie Cosmos DB dans Stream Analytics, vous devez four
 |Base de données        | Nom de la base de données Azure Cosmos DB.|
 |Nom du conteneur | Nom du conteneur à utiliser. `MyContainer` est un exemple d’entrée valide ; un conteneur nommé `MyContainer` doit exister.  |
 |ID du document     | facultatif. Nom de colonne dans les événements de sortie utilisé comme clé unique sur laquelle doivent être basées les opérations d’insertion ou de mise à jour. Si vide, tous les événements sont insérés, sans option de mise à jour.|
+
+Une fois la sortie Cosmos DB configurée, elle peut être utilisée dans la requête en tant que cible d’une [instruction INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Lors de l’utilisation d’une sortie Cosmos DB en tant que tel, [une clé de partition doit être définie explicitement](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). L’enregistrement de sortie doit contenir une colonne qui respecte la casse nommée d’après la clé de partition dans Cosmos DB. Pour obtenir une plus grande parallélisation, l’instruction peut exiger une [clause PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) utilisant la même colonne.
+
+**Exemple de requête** :
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
 
 ## <a name="error-handling-and-retries"></a>Gestion des erreurs et nouvelles tentatives
 

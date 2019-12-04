@@ -1,5 +1,5 @@
 ---
-title: Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD | Microsoft Docs
+title: Guide pratique pour configurer l’approvisionnement d’utilisateurs pour une application relevant de la galerie Azure AD
 description: Comment configurer rapidement un approvisionnement et une annulation d’approvisionnement complets des comptes d’utilisateur pour des applications déjà répertoriées dans la galerie d’applications Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5a2955a418aa0ce43c030afc588a2840bbb9b50f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789043"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275825"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 

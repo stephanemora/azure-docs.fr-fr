@@ -1,20 +1,15 @@
 ---
-title: Authentification avec un registre de conteneurs Azure
+title: Options d’authentification du Registre
 description: Options d’authentification pour un registre de conteneurs Azure, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a55cba27c676b283a4da490f05dd6fc672e10d49
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 29e23f6a983ccc2197e609511aee2ce13726ed0f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032391"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455391"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 

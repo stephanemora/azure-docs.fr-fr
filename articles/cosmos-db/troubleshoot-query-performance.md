@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515816"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184713"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Résoudre les problèmes de performance des requêtes pour Azure Cosmos DB
 Cet article explique comment identifier, diagnostiquer et résoudre les problèmes de requête SQL Azure Cosmos DB. Afin d'obtenir des performances optimales pour les requêtes Azure Cosmos DB, suivez les étapes de dépannage ci-dessous. 
@@ -26,7 +26,7 @@ Le [niveau de cohérence](consistency-levels.md) peut avoir un impact sur les pe
 
 ## <a name="log-the-executed-sql-query"></a>Journaliser la requête SQL exécutée 
 
-Vous pouvez journaliser la requête SQL exécutée dans un compte de stockage ou dans la table du journal de diagnostics. Les [journaux de requête SQL via des journaux de diagnostics](logging.md#turn-on-logging-in-the-azure-portal) vous permettent de journaliser la requête obfusquée dans le compte de stockage de votre choix. Cela vous permet d’examiner les journaux et de trouver la requête qui utilise le plus grand nombre d’unités de requête. Plus tard, vous pouvez utiliser l’ID d’activité pour faire correspondre la requête réelle dans QueryRuntimeStatistics. La requête est obfusquée pour des raisons de sécurité et les noms des paramètres de requête et leurs valeurs dans les clauses WHERE sont différents des noms et valeurs réels. Vous pouvez utiliser la journalisation dans le compte de stockage pour conserver la rétention à long terme des requêtes exécutées.  
+Vous pouvez journaliser la requête SQL exécutée dans un compte de stockage ou dans la table du journal de diagnostics. Les [journaux de requête SQL via des journaux de diagnostics](monitor-cosmos-db.md#diagnostic-settings) vous permettent de journaliser la requête obfusquée dans le compte de stockage de votre choix. Cela vous permet d’examiner les journaux et de trouver la requête qui utilise le plus grand nombre d’unités de requête. Plus tard, vous pouvez utiliser l’ID d’activité pour faire correspondre la requête réelle dans QueryRuntimeStatistics. La requête est obfusquée pour des raisons de sécurité et les noms des paramètres de requête et leurs valeurs dans les clauses WHERE sont différents des noms et valeurs réels. Vous pouvez utiliser la journalisation dans le compte de stockage pour garder la conservation à long terme des requêtes exécutées.  
 
 ## <a name="log-query-metrics"></a>Métriques de requête de journal
 

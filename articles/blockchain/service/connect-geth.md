@@ -1,25 +1,19 @@
 ---
-title: Utiliser Geth pour vous connecter à Azure Blockchain Service
-description: Se connecter à un réseau Azure Blockchain Service à l’aide de Geth
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+title: Utiliser Geth pour une jonction à Azure Blockchain Service
+description: Effectuer une jonction à une instance Geth sur un nœud de transaction Azure Blockchain Service
+ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: a26899e291c4f44d3c9d91032b2ee191ba03133a
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.reviewer: janders
+ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931774"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455832"
 ---
-# <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Démarrage rapide : Utiliser Geth pour vous connecter à un nœud de transaction
+# <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Démarrage rapide : Utiliser Geth pour effectuer une jonction à un nœud de transaction Azure Blockchain Service
 
-Geth est un client Go Ethereum que vous pouvez utiliser pour attacher une instance Geth à un nœud de transaction Azure Blockchain Service.
+Dans ce guide de démarrage rapide, vous allez utiliser le client Geth pour effectuer une jonction à l’instance Geth sur un nœud de transaction Azure Blockchain Service. Une fois la jonction effectuée, vous devez utiliser la console JavaScript Geth pour appeler une API JavaScript Dapp Web3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,9 +22,9 @@ Geth est un client Go Ethereum que vous pouvez utiliser pour attacher une instan
 * Installer [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
 * Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md)
 
-## <a name="get-the-geth-connection-string"></a>Obtenir la chaîne de connexion Geth
+## <a name="get-geth-connection-string"></a>Obtenir une chaîne de connexion Geth
 
-La chaîne de connexion Geth se trouve dans le portail Azure.
+Vous pouvez obtenir la chaîne de connexion Geth pour un nœud de transaction Azure Blockchain Service dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
@@ -38,16 +32,16 @@ La chaîne de connexion Geth se trouve dans le portail Azure.
     ![Sélectionner le nœud de transaction par défaut](./media/connect-geth/transaction-nodes.png)
 
 1. Sélectionnez **Chaînes de connexion**.
-1. Copiez la chaîne de connexion située sous **HTTPS (Clé d’accès 1)** . Vous aurez besoin de cette commande pour la section suivante.
+1. Copiez la chaîne de connexion située sous **HTTPS (Clé d’accès 1)** . Vous aurez besoin de cette chaîne pour la section suivante.
 
     ![Chaîne de connexion](./media/connect-geth/connection-string.png)
 
 ## <a name="connect-to-geth"></a>Se connecter à Geth
 
 1. Ouvrez une invite de commandes ou un interpréteur de commandes.
-1. Dans Geth, utilisez la sous-commande attach pour attacher l’instance Geth en cours d’exécution à votre nœud de transaction. Collez la chaîne de connexion en tant qu’argument pour la sous-commande attach. Par exemple,
+1. Dans Geth, utilisez la sous-commande attach pour attacher l’instance Geth en cours d’exécution à votre nœud de transaction. Collez la chaîne de connexion en tant qu’argument pour la sous-commande attach. Par exemple :
 
-    ```
+    ``` bash
     geth attach <connection string>
     ```
 
@@ -55,11 +49,11 @@ La chaîne de connexion Geth se trouve dans le portail Azure.
 
     Par exemple, vous pouvez utiliser l’API suivante pour connaître le chainId.
 
-    ```bash
+    ``` bash
     admin.nodeInfo.protocols.istanbul.config.chainId
     ```
 
-    Dans cet exemple, le chainId est 297.
+    Dans cet exemple, le chainId est 661.
 
     ![Option Azure Blockchain Service](./media/connect-geth/geth-attach.png)
 
@@ -67,7 +61,7 @@ La chaîne de connexion Geth se trouve dans le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé le client Geth pour attacher une instance Geth à un nœud de transaction Azure Blockchain Service. Essayez le tutoriel suivant pour utiliser le kit de développement Azure Blockchain pour Ethereum et Truffle, afin de créer, générer, déployer et exécuter une fonction de contrat intelligent via une transaction.
+Dans ce guide de démarrage rapide, vous avez utilisé le client Geth pour attacher une instance Geth à un nœud de transaction Azure Blockchain Service. Essayez le tutoriel suivant pour utiliser Azure Blockchain Development Kit pour Ethereum afin de créer, générer, déployer et exécuter une fonction de contrat intelligent via une transaction.
 
 > [!div class="nextstepaction"]
-> [Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents](send-transaction.md)
+> [Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service](send-transaction.md)

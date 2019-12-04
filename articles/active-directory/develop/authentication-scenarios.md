@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927111"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167798"
 ---
 # <a name="authentication-basics"></a>Principes fondamentaux de l’authentification
 
@@ -148,7 +148,7 @@ Cet attribut force ASP.NET à vérifier la présence d’un cookie de session co
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Comment une application web délègue la connexion à Azure AD et obtient un jeton
 
 L’authentification de l’utilisateur s’effectue via le navigateur. Le protocole OpenID utilise des messages de protocole HTTP standard.
-- L’application web envoie un état HTTP 202 (redirection) au navigateur pour utiliser Azure AD.
+- L’application web envoie un état HTTP 302 (redirection) au navigateur pour utiliser Azure AD.
 - Lorsque l’utilisateur est authentifié, Azure AD envoie le jeton à l’application web en utilisant une redirection via le navigateur.
 - La redirection est fournie par l’application web sous la forme d’un URI de redirection. Cet URI de redirection est inscrit auprès de l’objet d’application Azure AD. Il peut y avoir plusieurs URI de redirection, car l’application peut être déployée sur plusieurs URL. Par conséquent, l’application web doit également spécifier l’URi de redirection à utiliser.
 - Azure AD vérifie que l’URI de redirection envoyé par l’application web est l’un des URI de redirection inscrits pour l’application.
@@ -159,7 +159,7 @@ Le flux décrit ci-dessus s’applique, avec de légères différences, aux appl
 
 Les applications mobiles et de bureau peuvent utiliser un contrôle web incorporé, ou un navigateur système, pour l’authentification. Le diagramme suivant montre comment une application mobile ou de bureau utilise la bibliothèque d’authentification Microsoft (MSAL) pour acquérir des jetons d’accès et appeler des API web.
 
-![Application de bureau - son apparence](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Application de bureau - son apparence](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL utilise un navigateur pour obtenir des jetons et, comme avec les applications web, il délègue l’authentification à Azure AD.
 

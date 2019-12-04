@@ -1,14 +1,14 @@
 ---
 title: Exemple - Créer une machine virtuelle à l’aide d’un disque managé
-description: Cet exemple de définition de stratégie exige que les machines virtuelles utilisent des disques managés.
+description: Cet exemple de définition de stratégie exige que les machines virtuelles et les groupes de machines virtuelles identiques utilisent des disques managés.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0ad21e255e771cd94c6f2eb794e20dc9b67f49d5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e849f30c57a6e9776eec561d79cbb263f647b45e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069782"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463027"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>Exemple - Créer une machine virtuelle à l’aide d’un disque managé
 

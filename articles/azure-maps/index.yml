@@ -45,7 +45,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">Définir une limite géographique</a>
-          - html: <a href="/azure-maps/tutorial-iot-hub-maps">Analytique spatiale</a>
+          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">Analytique spatiale</a>
           - html: <a href=/azure/azure-maps/tutorial-ev-routing">Routage EV avec Azure Notebooks (Python)</a>
   - title: Informations de référence
     items:

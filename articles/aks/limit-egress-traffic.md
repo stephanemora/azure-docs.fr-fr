@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: cfef8ff79f62eca9946dcbb49cafc253f36ab7bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472738"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481150"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -132,6 +132,17 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | *.oms.opinsights.azure.com | HTTPS:443 | Cette adresse est utilisée par omsagent pour authentifier le service Log Analytics. |
 |*.microsoftonline.com | HTTPS:443 | Permet d’authentifier et d’envoyer des métriques à Azure Monitor. |
 |*.monitoring.azure.com | HTTPS:443 | Utilisé pour envoyer des données de métriques à Azure Monitor. |
+
+## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>Adresses et ports requis avec Azure Dev Spaces activé
+
+Les règles de nom de domaine complet/d’application suivantes sont requises pour les clusters AKS avec Azure Dev Spaces activé :
+
+| FQDN                                    | Port      | Utilisation      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
+| gcr.io | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
+| storage.googleapis.com | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces de votre contrôleur. Le nom de domaine complet exact peut se trouver dans le « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Adresses et ports requis pour les clusters AKS avec Azure Policy (en préversion publique) activé
 
