@@ -4,28 +4,25 @@ description: Décrit comment découvrir les applications, rôles et fonctionnali
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/20/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715791"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278473"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine 
-
-> [!NOTE]
-> Si vous ne voyez pas encore cette fonctionnalité dans le portail Azure Migrate, patientez un peu. Elle apparaîtra au cours de la semaine suivante ou un peu plus tard.
+# <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
 Cet article décrit comment découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate : Server Assessment.
 
-La découverte de l’inventaire des applications et des rôles/fonctionnalités sur vos machines locales vous aide à identifier et planifier votre migration vers Azure en prenant en compte vos charges de travail. 
-
-La découverte d’applications à l’aide de l’évaluation de serveur d’Azure Migrate est sans agent. Rien n’a besoin d’être installé sur les ordinateurs et machines virtuelles. L’évaluation de serveur utilise l’appliance Azure Migrate pour effectuer la détection avec les informations d’identification de l’invité de l’ordinateur. L’appliance accède à distance aux machines à l’aide d’appels WMI et SSH. 
+La découverte de l’inventaire des applications et des rôles/fonctionnalités sur vos machines locales vous aide à identifier et planifier votre migration vers Azure en prenant en compte vos charges de travail.
 
 > [!NOTE]
 > La détection d’applications est actuellement prise en charge pour les machines virtuelles VMware uniquement et est limitée à la détection uniquement. Nous n’offrons pas encore d’évaluation basée sur les applications.  À l’heure actuelle, l’évaluation de serveur évalue actuellement les machines virtuelles VMware, machines virtuelles Hyper-V et serveurs physiques au niveau de la machine, pour les migrations de type lift-and-shift.
+
+La découverte d’applications à l’aide de l’évaluation de serveur d’Azure Migrate est sans agent. Rien n’a besoin d’être installé sur les ordinateurs et machines virtuelles. L’évaluation de serveur utilise l’appliance Azure Migrate pour effectuer la détection avec les informations d’identification de l’invité de l’ordinateur. L’appliance accède à distance aux machines VMware à l’aide des API VMware.
 
 
 ## <a name="before-you-start"></a>Avant de commencer
@@ -50,7 +47,7 @@ Une fois que l’appliance a été déployée et que vous avez fourni les inform
 
 ## <a name="review-and-export-the-inventory"></a>Examiner et exporter l’inventaire
 
-Une fois la détection terminée, si vous avez fourni des informations d’identification pour la découverte d’application, vous pouvez passer en revue et exporter l’inventaire des applications dans le portail Azure. 
+Une fois la détection terminée, si vous avez fourni des informations d’identification pour la découverte d’application, vous pouvez passer en revue et exporter l’inventaire des applications dans le portail Azure.
 
 1. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Évaluation de serveur**, cliquez sur le nombre affiché pour ouvrir la page **Serveurs découverts**.
 

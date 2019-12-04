@@ -1,25 +1,24 @@
 ---
-title: Modèle de données des journaux Azure Monitor pour Sauvegarde Azure
+title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: dacurwin
-ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: eed3f66c1743bb21118a2d90343989d2b6a081de
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074949"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278490"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
 Utilisez le modèle de données Log Analytics pour créer des alertes personnalisées à partir de Log Analytics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+>
+> Ce modèle de données fait référence au mode Diagnostics Azure pour envoyer des événements de diagnostic à Log Analytics (LA). Pour découvrir le modèle de données pour le nouveau mode spécifique aux ressources, vous pouvez vous reporter à l’article suivant : [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](https://aka.ms/diagnosticsdatamodel)
 
 ## <a name="using-azure-backup-data-model"></a>Utilisation du modèle de données de sauvegarde Azure
 

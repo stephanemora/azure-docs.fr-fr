@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour gérer une identité managée affectée par l’utilisateur Azure en utilisant REST
+title: Gérer des identités managées affectées par l’utilisateur Azure en utilisant REST - Azure AD
 description: Instructions détaillées pour créer, répertorier et supprimer une identité managée affectée par l’utilisateur afin d’effectuer des appels d’API REST.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75867242358881c963ab4470bdb7963d0ea4671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440179"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547425"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant des appels d’API REST
 
@@ -32,7 +32,7 @@ Dans cet article, découvrez comment créer, répertorier et supprimer une ident
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - Si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installez la console locale Azure CLI](/cli/azure/install-azure-cli).

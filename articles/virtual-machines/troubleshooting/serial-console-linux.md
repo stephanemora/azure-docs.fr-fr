@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949672"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287009"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -169,7 +169,7 @@ R. Oui. Comme la console série ne nécessite pas de clés SSH, il vous suffit d
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez la console série pour [accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 * Utilisez la console série pour les [appels SysRq et NMI](serial-console-nmi-sysrq.md).
-* Découvrez comment utiliser la console série pour [activer le GRUB dans plusieurs distributions](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+* Découvrez comment utiliser la console série pour [activer GRUB dans plusieurs distributions](serial-console-grub-proactive-configuration.md) 
 * La console série est également disponible pour les [machines virtuelles Windows](../windows/serial-console.md).
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md).
 

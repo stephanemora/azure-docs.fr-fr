@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669095"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382280"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -248,6 +249,10 @@ Pour router le trafic de production automatiquement :
 Une fois le paramètre enregistré, le pourcentage de clients spécifié est routé de manière aléatoire vers l’emplacement hors production. 
 
 Lorsqu’un client est automatiquement routé vers un emplacement particulier, il est « épinglé » à cet emplacement pendant toute la durée de cette session cliente. Dans le navigateur client, vous pouvez voir à quel emplacement votre session est épinglée en examinant le cookie `x-ms-routing-name` dans les en-têtes HTTP. Une requête qui est acheminée vers l’emplacement « intermédiaire » contient le cookie `x-ms-routing-name=staging`. Une requête qui est acheminée vers l’emplacement de production a le cookie `x-ms-routing-name=self`.
+
+   > [!NOTE]
+   > À côté du Portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
+   > 
 
 ### <a name="route-production-traffic-manually"></a>Acheminer le trafic de production manuellement
 

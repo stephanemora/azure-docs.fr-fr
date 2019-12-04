@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 6067a60ed2883ea358dbdfff523b9224175bc5c2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 90348ad05879aff75dadab85af4e905d92228a2d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113480"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287127"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
 > [!IMPORTANT]
-> Il est prévu de déprécier les connecteurs Serveur d’applications SAP et Serveur de messagerie SAP antérieurs le 30 novembre 2019. Le connecteur SAP actuel regroupe ces connecteurs SAP antérieurs : vous ne devez donc pas changer le type de connexion, il est entièrement compatible avec les connecteurs précédents, il offre de nombreuses fonctionnalités supplémentaires et continue d’utiliser la bibliothèque de connecteurs .NET SAP (SAP NCo).
+> Il est prévu de déprécier les connecteurs Serveur d’applications SAP et Serveur de messagerie SAP antérieurs le 29 février 2020. Le connecteur SAP actuel regroupe ces connecteurs SAP antérieurs : vous ne devez donc pas changer le type de connexion, il est entièrement compatible avec les connecteurs précédents, il offre de nombreuses fonctionnalités supplémentaires et continue d’utiliser la bibliothèque de connecteurs .NET SAP (SAP NCo).
 >
 > Pour les applications logiques qui utilisent les connecteurs plus anciens, [migrez vers le connecteur le plus récent](#migrate) avant la date de dépréciation. Sinon, ces applications logiques subiront des échecs d’exécution et ne seront pas en mesure d’envoyer des messages à votre système SAP.
 

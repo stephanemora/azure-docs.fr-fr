@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075297"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326546"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -303,7 +303,7 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |ruleSetVersion     | Version d’ensemble de règles utilisée. Les valeurs disponibles sont 2.2.9 et 3.0.     |
 |ruleId     | ID de règle de l’événement de déclenchement.        |
 |message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
-|action     |  Action effectuée sur la requête. Les valeurs disponibles sont bloquées et autorisées.      |
+|action     |  Action effectuée sur la requête. Les valeurs disponibles sont Correspondance et Bloqué.      |
 |site     | Site pour lequel le journal a été généré. Actuellement, seul Global est répertorié car les règles sont globales.|
 |details     | Détails de l’événement de déclenchement.        |
 |details.message     | Description de la règle.        |

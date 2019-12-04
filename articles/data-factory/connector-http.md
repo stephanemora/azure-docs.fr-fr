@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 125841697a8ad7d34441dfca3a4c079ef59e5f96
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 214809df692bc7e43203fe4a736d6cc53908e0bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680834"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278519"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -178,7 +178,7 @@ Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres 
 | Propriété    | Description                                                  | Obligatoire |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | La propriété de type sous `location` dans le jeu de données doit être définie sur **HttpServerLocation**. | OUI      |
-| relativeUrl | URL relative de la ressource qui contient les données.       | Non       |
+| relativeUrl | URL relative de la ressource qui contient les données. Le connecteur HTTP copie les données à partir de l’URL combinée : `[URL specified in linked service]/[relative URL specified in dataset]`.   | Non       |
 
 > [!NOTE]
 > La taille de charge utile de requête HTTP prise en charge est d’environ 500 Ko. Si la taille de charge utile que vous souhaitez passer au point de terminaison web est supérieure à 500 Ko, envisagez de la traiter en blocs plus petits.
@@ -284,7 +284,7 @@ Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres 
 | requestMethod            | Méthode HTTP. <br>Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non       |
 | addtionalHeaders         | En-têtes de requête HTTP supplémentaires.                             | Non       |
 | requestBody              | Corps de la requête HTTP.                               | Non       |
-| requestTimeout           | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**. | Non       |
+| httpRequestTimeout           | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
 **Exemple :**
