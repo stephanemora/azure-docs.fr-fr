@@ -1,5 +1,6 @@
 ---
-title: Analyser la sécurité réseau avec la vue Groupe de sécurité réseau Network Watcher - Azure CLI | Microsoft Docs
+title: Analyser la sécurité réseau avec la vue Groupe de sécurité – Azure CLI
+titleSuffix: Azure Network Watcher
 description: Cet article décrit comment utiliser l’interface de ligne de commande Azure pour analyser la sécurité des machines virtuelles par le biais de la vue Groupe de sécurité.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 68222a90eb60ab4f84a34b5e46833128ea081ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724441"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277846"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans l’interface de ligne de commande Azure
 

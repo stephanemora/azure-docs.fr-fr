@@ -1,18 +1,14 @@
 ---
 title: Informations de référence sur le fichier host.json pour Azure Functions 2.x
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: glenga
-ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129079"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323073"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -158,7 +154,10 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes.  
-Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
+
+Dans le plan Premium, la plage valide est comprise entre 1 seconde et 60 minutes, et la valeur par défaut est de 30 minutes.
+
+Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution illimitée, mais il est recommandé de conserver une limite supérieure fixe.
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487530"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280883"
 ---
 # <a name="intents-in-your-luis-app"></a>Intentions dans votre application LUIS
 
@@ -47,7 +47,7 @@ Si vous souhaitez connaître les scores de toutes les intentions de l’énoncé
 |V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Différence entre intention et entité
-L’intention correspond à l’action que le bot doit effectuer pour l’utilisateur ; elle s’appuie sur la totalité de l’énoncé. Un énoncé ne peut avoir qu’une seule meilleure intention, mais il peut comporter de nombreuses entités. 
+L’intention correspond à l’action que l’application doit effectuer pour l’utilisateur ; elle s’appuie sur la totalité de l’énoncé. Un énoncé ne peut avoir qu’une seule meilleure intention, mais il peut comporter de nombreuses entités. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 

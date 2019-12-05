@@ -1,14 +1,14 @@
 ---
 title: Mettre à jour une affectation à partir du portail
-description: Découvrez le mécanisme de mise à jour d’affectation dans Azure Blueprints sur le portail Azure.
-ms.date: 10/25/2018
+description: Découvrez le mécanisme de mise à jour d’une attribution de blueprint existante dans Azure Blueprints à partir du portail Azure.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960357"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406391"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -28,7 +28,8 @@ Quand un blueprint est affecté, l’affectation peut être mis à jour. Plusieu
 
    ![Mettre à jour une affectation de blueprint existante](../media/update-existing-assignments/update-assignment.png)
 
-1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’affectation d’origine. Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Cliquez sur **Affecter** une fois que vous terminé les modifications.
+1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’affectation d’origine.
+   Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Cliquez sur **Affecter** une fois que vous terminé les modifications.
 
 1. Dans la page de détails de l’affectation mise à jour, examinez le nouvel état. Dans cet exemple, nous avons ajouté **Verrouillage** à l’affectation.
 
@@ -46,7 +47,8 @@ Le déploiement des affectations mises à jour obéit à quelques règles import
   - Si le rôle ou son destinataire (utilisateur, groupe ou application) change, une nouvelle affectation de rôle est créée. Les affectations de rôles déployées précédemment sont maintenues en place.
 - Affectations de stratégies
   - Si les paramètres de l’affectation de stratégie sont modifiés, l’affectation existante est mise à jour.
-  - Si la définition de l’affectation de stratégie est modifiée, une autre affectation de stratégie est créée. Les affectations de stratégies déployées précédemment sont maintenues en place.
+  - Si la définition de l’affectation de stratégie est modifiée, une autre affectation de stratégie est créée.
+    Les affectations de stratégies déployées précédemment sont maintenues en place.
   - Si l’artefact d’affectation de stratégie est supprimé du blueprint, les affectations de stratégies déployées sont maintenues en place.
 - Modèles Microsoft Azure Resource Manager
   - Le modèle est traité via Resource Manager en tant que **PUT**. Sachant que chaque type de ressource gère cette action différemment, consultez la documentation de chaque ressource incluse pour déterminer l’impact de cette action quand elle est exécutée par des blueprints.

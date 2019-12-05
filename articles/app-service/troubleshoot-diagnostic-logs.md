@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958044"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558568"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -189,7 +189,7 @@ Grâce à la nouvelle [intégration d’Azure Monitor](https://aka.ms/appsvcblog
 
 Le tableau suivant renseigne sur les types et la descriptions des journaux pris en charge : 
 
-| Type de journal | Prise en charge de Windows | Prise en charge de Linux | Description |
+| Type de journal | Prise en charge de Windows | Prise en charge de Linux (Docker) | Description |
 |-|-|-|
 | AppServiceConsoleLogs | À confirmer | OUI | Sortie standard et erreur standard |
 | AppServiceHTTPLogs | OUI | OUI | Journaux d’activité des serveurs Web |

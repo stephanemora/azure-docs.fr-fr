@@ -1,19 +1,16 @@
 ---
-title: Gérer des groupes Azure Resource Manager à l’aide d’Azure CLI | Microsoft Docs
+title: Gérer des groupes de ressources - Azure CLI
 description: Utilisez Azure CLI pour gérer vos groupes de ressources dans Azure Resource Manager. Montre comment créer, lister et supprimer des groupes de ressources.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: d6a6ea0425bc9dd08e7eedb520b4fa1334ad242f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 68b82425fe5eb7bc9dce633b21a251de3fe463c9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390422"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149812"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide d’Azure CLI
 

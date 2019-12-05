@@ -1,21 +1,15 @@
 ---
-title: Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs
+title: Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données
 description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes régulièrement.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: glenga
-ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815975"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230382"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 

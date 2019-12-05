@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26d61e0b1ec50e7a3831970af1fd8fad7fed99
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605773"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483656"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
 
-Nous vous recommandons d'utiliser des conteneurs de profils FSLogix en tant que solution de profil utilisateur pour la [préversion du service Windows Virtual Desktop](overview.md). Les conteneurs de profils FSLogix stockent un profil utilisateur complet dans un même conteneur et sont conçus pour l'itinérance des profils dans les environnements informatiques distants non persistants comme Windows Virtual Desktop. Lorsque vous vous connectez, le conteneur se connecte de manière dynamique à l'environnement informatique à l'aide d'un disque dur virtuel (VHD) et d'un disque dur virtuel Hyper-V (VHDX) pris en charge localement. Grâce à ces technologies avancées de pilote de filtre, le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur local. Pour en savoir plus sur les conteneurs de profils FSLogix, consultez [Conteneurs de profils FSLogix et fichiers Azure](fslogix-containers-azure-files.md).
+Nous vous recommandons d’utiliser des conteneurs de profils FSLogix en tant que solution de profil utilisateur pour le [service Windows Virtual Desktop](overview.md). Les conteneurs de profils FSLogix stockent un profil utilisateur complet dans un même conteneur et sont conçus pour l'itinérance des profils dans les environnements informatiques distants non persistants comme Windows Virtual Desktop. Lorsque vous vous connectez, le conteneur se connecte de manière dynamique à l'environnement informatique à l'aide d'un disque dur virtuel (VHD) et d'un disque dur virtuel Hyper-V (VHDX) pris en charge localement. Grâce à ces technologies avancées de pilote de filtre, le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur local. Pour en savoir plus sur les conteneurs de profils FSLogix, consultez [Conteneurs de profils FSLogix et fichiers Azure](fslogix-containers-azure-files.md).
 
 Vous pouvez créer des conteneurs de profils FSLogix à l'aide d'[Azure NetApp Files](https://azure.microsoft.com/services/netapp/), un service de plateforme natif d'Azure facile à utiliser qui aide les clients à approvisionner rapidement et en toute fiabilité des volumes SMB de classe entreprise pour leurs environnements Windows Virtual Desktop. Pour en savoir plus sur Azure NetApp Files, consultez [Présentation d'Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md).
 
@@ -179,6 +179,11 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
 11.  Créez une valeur nommée **Enabled** avec un type **REG_DWORD** défini sur la valeur de donnée **1**.
 
 12. Créez une valeur nommée **VHDLocations** avec un type **Multi-String** et définissez sa valeur de données sur l'URI du partage Azure NetApp Files.
+
+13. Créez une valeur nommée **DeleteLocalProfileWhenVHDShouldApply** avec une valeur DWORD de 1 pour éviter les problèmes avec les profils locaux existants avant de vous connecter.
+
+     >[!WARNING]
+     >Soyez prudent lors de la création de la valeur DeleteLocalProfileWhenVHDShouldApply. Lorsque le système FSLogix Profiles détermine qu’un utilisateur doit avoir un profil FSLogix, mais qu’un profil local existe déjà, le conteneur de profils supprime définitivement le profil local. L’utilisateur est ensuite connecté avec le nouveau profil FSLogix.
 
 ## <a name="assign-users-to-session-host"></a>Attribuer des utilisateurs à l'hôte de la session
 

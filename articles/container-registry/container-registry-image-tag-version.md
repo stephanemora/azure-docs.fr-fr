@@ -1,18 +1,16 @@
 ---
-title: Images de balises et de versions dans le registre Azure Container Registry
+title: Bonnes pratiques relatives aux étiquettes d’image
 description: Bonnes pratiques pour l’étiquetage et le versioning des images conteneur Docker lors de l’envoi (push) et du tirage (pull) d’images vers et depuis un registre de conteneurs Azure
-services: container-registry
 author: stevelasker
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931564"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455001"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggestions pour la création de balises et de versions pour les images de conteneurs
 

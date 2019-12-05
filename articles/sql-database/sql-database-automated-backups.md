@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821942"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421422"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -33,10 +33,10 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 - **Restaurer une base de données existante dans le temps**, à un moment situé pendant la période de rétention, à l’aide du portail Microsoft Azure, de Microsoft Azure PowerShell, de Microsoft Azure CLI ou de l’API REST. Dans une base de données unique et des pools élastiques, cette opération crée une base de données au sein du même serveur que la base de données d’origine. Dans Managed Instance, cette opération peut créer une copie de la base de données, ou une instance Managed Instance, identique ou non, pour le même abonnement.
   - **[Modifier la période de rétention des sauvegardes](#how-to-change-the-pitr-backup-retention-period)** (entre 7 et 35 jours) pour configurer votre stratégie de sauvegarde.
-  - **Modifier la stratégie de conservation à long terme (10 ans maximum)** dans la base de données unique et les pools élastiques avec [le portail Microsoft Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
+  - **Modifier la stratégie de conservation à long terme (10 ans maximum)** dans la base de données unique et les pools élastiques avec [le portail Microsoft Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell).
 - **Restaurer une base de données supprimée sur le moment où elle été supprimée,** ou tout moment pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le serveur logique ou Managed Instance sur lequel la base de données d’origine a été créée.
 - **Restaurer une base de données dans une autre région géographique**. La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
-- **Restaurer une base de données à partir d’une sauvegarde à long terme spécifique** dans une base de données unique ou un pool élastique, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) ou de [Microsoft Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+- **Restaurer une base de données à partir d’une sauvegarde à long terme spécifique** dans une base de données unique ou un pool élastique, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](sql-database-long-term-backup-retention-configure.md#using-azure-portal) ou de [Microsoft Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 - Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,8 +46,8 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 
 | | Le portail Azure | Azure PowerShell |
 |---|---|---|
-| Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#managed-instance-database) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Modifier la rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Base de données unique](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance - N/A  |
+| Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Modifier la rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Base de données unique](sql-database-long-term-backup-retention-configure.md)<br/>Managed Instance - N/A  |
 | Restaurer la base de données dans le temps | [Base de données unique](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restauration d’une base de données supprimée | [Base de données unique](sql-database-recovery-using-backups.md) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restauration d’une base de données à partir du Stockage Blob Azure | Base de données unique - N/A <br/>Managed Instance - N/A  | Base de données unique - N/A <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -84,6 +84,15 @@ Pour plus d’informations, consultez [Conservation des sauvegardes à long term
 ## <a name="storage-costs"></a>Coûts de stockage
 Pour les bases de données uniques et les instances gérées, une quantité minimale de stockage de sauvegarde égale à 100 % de la taille de la base de données est fournie sans frais supplémentaires. Pour les pools élastiques, une quantité minimale de stockage de sauvegarde égale à 100 % du stockage de données alloué pour le pool est fournie sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois. Cette consommation supplémentaire dépend de la charge de travail et de la taille des bases de données individuelles.
 
+Vous pouvez utiliser l’analyse du coût d’abonnement Azure pour déterminer vos dépenses actuelles sur le stockage de sauvegarde.
+
+![Analyse du coût du stockage de sauvegarde](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+Si vous accédez à votre abonnement et que vous ouvrez le panneau Analyse du coût, vous pouvez sélectionner la sous-catégorie de compteur **mi pitr backup storage** pour connaître le coût actuel de votre sauvegarde et vos prévisions de frais. Vous pouvez aussi inclure d’autres sous-catégories de compteur, par exemple **managed instance general purpose - storage** ou **managed instance general purpose - compute gen5**, pour comparer le coût de stockage de sauvegarde avec d’autres catégories de coût.
+
+> [!Note]
+> Vous pouvez [faire passer la période de conservation à 7 jours](#change-pitr-backup-retention-period-using-azure-portal) pour réduire le coût de stockage de sauvegarde.
+
 Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="are-backups-encrypted"></a>Les sauvegardes sont-elles chiffrées ?
@@ -118,17 +127,19 @@ Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut 
 
 Pour changer la période de rétention des sauvegardes PITR dans le portail Microsoft Azure, accédez à l’objet serveur dont vous souhaitez changer la période de rétention dans le portail, puis sélectionnez l’option appropriée, selon l’objet serveur que vous modifiez.
 
-#### <a name="single-azure-sql-database"></a>Base de données Azure SQL unique
+#### <a name="single-database--elastic-poolstabsingle-database"></a>[Base de données unique et pools élastiques](#tab/single-database)
 
 Le changement de la conservation des sauvegardes PITR pour les bases de données Azure SQL uniques est effectué au niveau du serveur. Les changements effectués au niveau du serveur s’appliquent aux bases de données sur le serveur concerné. Pour changer le processus PITR pour un serveur Azure SQL Database à partir du portail Azure, accédez au panneau de vue d’ensemble du serveur, cliquez sur Gérer les sauvegardes dans le menu de navigation, puis cliquez sur Configurer la rétention dans la barre de navigation.
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instance-database"></a>Base de données d’instance managée
+#### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
 
 La modification de la conservation des sauvegardes PITR pour une instance managée SQL Database est effectuée au niveau d’une base de données individuelle. Pour changer la conservation des sauvegardes PITR pour une base de données d’instance à partir du portail Azure, accédez au panneau de vue d’ensemble de la base de données concernée, puis cliquez sur Configurer la conservation de sauvegarde dans la barre de navigation.
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modifier la période de conservation des sauvegardes PITR et à l’aide de PowerShell
 

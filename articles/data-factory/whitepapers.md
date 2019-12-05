@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 960969b13799eb2e56c2391393a0f9a71749bac8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9421a4bbc5f05e8473d25aa63f31e9a8e23e3c98
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278164"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555191"
 ---
 # <a name="azure-data-factory-whitepapers"></a>Livres blancs sur Azure Data Factory 
 
@@ -27,7 +27,7 @@ Ces livres blancs vous permettent d’approfondir vos connaissances sur Azure Da
 | **Livre blanc** | **Description** |
 | --- | --- |
 |[Azure Data Factory : intégration de données dans le Cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-data-integration-in-the-cloud/Azure_Data_Factory_Data_Integration_in_the_Cloud.pdf) | Cet article décrit comment Azure Data Factory peut vous permettre de construire un entrepôt de données moderne, d’effectuer des analyses avancées pour piloter des applications SaaS intelligentes et de faire migrer vos services d’intégration SQL Server vers Azure.|
-|[Utilisation d’Azure Data Factory pour migrer des données à partir d’un entrepôt de données relationnelles local vers Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf) | Cet article traite de la complexité de la migration de dizaines de To de données d’un entrepôt de données relationnelles local (par exemple, Netezza, Oracle, Teradata, SQL server) vers Azure (par exemple, Stockage Blob ou ADLS) en utilisant Azure Data Factory. Les défis et les meilleures pratiques sont illustrées autour d’une exploration de la résilience, des performances, de l’évolutivité, de la gestion et de la sécurité pour l’ingestion par Azure de données volumineuses, en utilisant Azure Data Factory. |
+|[Utilisation d’Azure Data Factory pour migrer des données à partir d’un entrepôt de données relationnelles local vers Azure](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/) | Cet article traite de la complexité de la migration de dizaines de To de données d’un entrepôt de données relationnelles local (par exemple, Netezza, Oracle, Teradata, SQL server) vers Azure (par exemple, Stockage Blob ou ADLS) en utilisant Azure Data Factory. Les défis et les meilleures pratiques sont illustrées autour d’une exploration de la résilience, des performances, de l’évolutivité, de la gestion et de la sécurité pour l’ingestion par Azure de données volumineuses, en utilisant Azure Data Factory. |
 |[Intégration de données SAP avec Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) | Ce document résume la prise en charge actuelle de l’intégration de données SAP par Azure Data Factory, notamment le scénario cible, les options de connecteur SAP et la comparaison pour différentes exigences et l’introduction de chaque connecteur SAP dans Data Factory. | 
 |[Azure Data Factory : SSIS dans le cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-ssis-in-the-cloud/Azure_Data_Factory_SSIS_in_the_Cloud.pdf)| Ce document explique pourquoi vous devriez migrer vos charges de travail SSIS existantes vers Azure Data Factory. Il aborde différentes considérations et préoccupations d’ordre général. Il développe ensuite des détails techniques de la création d'une instance d’Azure-SSIS Integration Runtime. Vous découvrirez comment télécharger, exécuter et surveiller vos packages via Azure Data Factory en utilisant des outils que vous connaissez probablement déjà, comme SQL Server Management Studio (SSMS). |
 |[Azure Data Factory – transmission de paramètres](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)| Cet article vous montre comment transmettre des paramètres entre un pipeline et une activité et entre les activités. |

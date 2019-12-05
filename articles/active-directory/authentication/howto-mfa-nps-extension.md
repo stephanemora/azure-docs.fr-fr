@@ -1,22 +1,22 @@
 ---
-title: Utiliser les serveurs NPS existants pour exploiter les fonctionnalités d’Azure MFA | Azure Active Directory
+title: Fournir les fonctionnalités Azure MFA en utilisant NPS | Azure Active Directory
 description: Ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061484"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420648"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -68,9 +68,9 @@ Le module Microsoft Azure Active Directory pour Windows PowerShell est installé
 
 Tous les utilisateurs de l’extension NPS doivent être synchronisés avec Azure Active Directory à l’aide d’Azure AD Connect et doivent être inscrits pour l’authentification MFA.
 
-Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoire et des informations d’identification de l’administrateur pour votre client Azure AD. Vous trouverez votre ID de répertoire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur, sélectionnez l’icône **Azure Active Directory** sur la gauche, puis cliquez sur **Propriétés**. Copiez le GUID dans la zone **ID répertoire** et enregistrez. Vous utilisez ce GUID comme ID client lors de l’installation de l’extension NPS.
+Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoire et des informations d’identification de l’administrateur pour votre client Azure AD. Vous trouverez votre ID de répertoire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur. Recherchez et sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**. Copiez le GUID dans la zone **ID répertoire** et enregistrez. Vous utilisez ce GUID comme ID client lors de l’installation de l’extension NPS.
 
-![Identification de votre ID de répertoire dans les propriétés Azure Active Directory](./media/howto-mfa-nps-extension/find-directory-id.png)
+![Identification de votre ID de répertoire dans les propriétés Azure Active Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 

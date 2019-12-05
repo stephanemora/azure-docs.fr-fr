@@ -1,22 +1,22 @@
 ---
-title: Opérations de protection par mot de passe AD Azure et création de rapports – Azure Active Directory
+title: Opérations de protection par mot de passe et rapports - Azure Active Directory
 description: Opérations et rapports post-déploiement de protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097630"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381660"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
 

@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174899"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74553996"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -76,6 +76,24 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 1. Cliquez sur **Ajouter** pour affecter directement les utilisateurs sélectionnés au package d'accès.
 
     Après quelques instants, cliquez sur **Actualiser** pour voir les utilisateurs dans la liste des affectations.
+
+## <a name="remove-an-assignment"></a>Supprimer une affectation
+
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+
+1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+
+1. Dans le menu de gauche, cliquez sur **Packages d’accès**, puis ouvrez le package d'accès.
+
+1. Dans le menu gauche, cliquez sur **Affectations**.
+ 
+1. Cochez la case en regard de l’utilisateur dont vous souhaitez supprimer l’affectation du package d’accès. 
+
+1. Cliquez sur le bouton **Supprimer** en haut du volet gauche. 
+ 
+    ![Affectations - Supprimer un utilisateur du package d’accès](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    Une notification s’affiche pour vous informer que l’affectation a été supprimée. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

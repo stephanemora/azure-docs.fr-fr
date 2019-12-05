@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112738"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530998"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
@@ -48,7 +48,7 @@ L’indexeur Cosmos DB dans Recherche cognitive Azure peut analyser les [éléme
 
 La méthode la plus simple pour l’indexation d’éléments Azure Cosmos DB consiste à utiliser un Assistant dans le [portail Azure](https://portal.azure.com/). En analysant les données et en lisant les métadonnées dans le conteneur, l’Assistant [**Importation de données**](search-import-data-portal.md) peut créer un index par défaut, mapper des champs sources aux champs d’index cibles et charger l’index en une seule opération. Selon la taille et la complexité de la source de données, vous pouvez obtenir un index de recherche en texte intégral opérationnel en quelques minutes.
 
-Nous vous recommandons d’utiliser le même abonnement Azure pour Recherche cognitive Azure et Azure Cosmos DB, de préférence dans la même région.
+Nous vous recommandons d’utiliser la même région ou le même emplacement pour Recherche cognitive Azure et Azure Cosmos DB pour bénéficier d’une latence plus faible et éviter des frais de bande passante.
 
 ### <a name="1---prepare-source-data"></a>1 - Préparez les données sources
 
@@ -80,7 +80,7 @@ Dans la page **Source de données**, la source doit être **Cosmos DB**, avec le
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – Ignorer la page « Enrichir le contenu » de l’Assistant
 
-L’ajout de compétences cognitives (ou enrichissement) n’est pas une exigence pour l’importation. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
+L’ajout de compétences cognitives (ou enrichissement) n’est pas une condition d’importation. Si vous n’avez pas besoin d’[ajouter un enrichissement de l’IA](cognitive-search-concept-intro.md) à votre pipeline d’indexation, ignorez cette étape.
 
 Pour ignorer cette étape, cliquez sur les boutons bleus au bas de la page pour « Suivant » et « Ignorer ».
 

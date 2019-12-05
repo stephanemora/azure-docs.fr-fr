@@ -1,19 +1,19 @@
 ---
 title: Spark Streaming dans Azure HDInsight
 description: Utilisation d’applications Apache Spark Streaming sur des clusters HDInsight Spark.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2019
-ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813997"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406261"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
 
@@ -27,9 +27,9 @@ Les applications Spark Streaming doivent attendre quelques fractions de seconde 
 
 Spark Streaming représente un flux continu de données entrantes utilisant un *flux de données discrétisé* appelé DStream. Un DStream peut être créé à partir de sources d’entrée telles que Event Hubs ou Kafka ou en appliquant des transformations à un autre DStream.
 
-Un DStream fournit une couche d’abstraction sur les données d’événement brutes. 
+Un DStream fournit une couche d’abstraction sur les données d’événement brutes.
 
-Commençons par un événement unique, par exemple une lecture de température depuis un thermostat connecté. Lorsque cet événement arrive à votre application Spark Streaming, l’événement est stocké de manière fiable, où elle est répliquée sur plusieurs nœuds. Cette tolérance de panne garantit que la défaillance d’un nœud unique n’entraînera pas la perte de votre événement. Le cœur de Spark utilise une structure de données qui distribue les données sur plusieurs nœuds du cluster, où chaque nœud conserve généralement ses propres données en mémoire pour des performances optimales. Cette structure de données est appelée un *jeu de données distribué résilient* (RDD).
+Commençons par un événement unique, par exemple une lecture de température depuis un thermostat connecté. Quand cet événement arrive à votre application Spark Streaming, il y est stocké de manière fiable et y est répliqué sur plusieurs nœuds. Cette tolérance de panne garantit que la défaillance d’un nœud unique n’entraîne pas la perte de votre événement. Le cœur de Spark utilise une structure de données qui distribue les données sur plusieurs nœuds du cluster, où chaque nœud conserve généralement ses propres données en mémoire pour des performances optimales. Cette structure de données est appelée un *jeu de données distribué résilient* (RDD).
 
 Chaque RDD représente les événements collectés sur un laps de temps défini par l’utilisateur appelé *l’intervalle de lots*. Au fur et à mesure que chacun de ces intervalles s’écoule, un nouveau RDD contenant toutes les données de cet intervalle est produit. L’ensemble continu de RDD est collecté dans un DStream. Par exemple, si l’intervalle de traitement par lots est d’une seconde, votre DStream émet chaque seconde un lot incluant un RDD qui contient toutes les données ingérées durant cette seconde. Lors du traitement du DStream, l’événement de température apparaît dans l’un de ces lots. Une application Spark Streaming traite les lots qui contiennent les événements et agit en fin de compte sur les données stockées dans chaque RDD.
 
@@ -139,7 +139,7 @@ stream.foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
@@ -214,7 +214,7 @@ stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
     .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()

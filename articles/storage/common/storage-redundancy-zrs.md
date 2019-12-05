@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013192"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555470"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) pour la création d’applications Stockage Azure hautement disponibles
 
@@ -22,15 +22,15 @@ ms.locfileid: "74013192"
 
 ## <a name="support-coverage-and-regional-availability"></a>Couverture du support et disponibilité régionale
 
-Le stockage ZRS prend actuellement en charge les types de compte de stockage standard v2 universel et FileStorage. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
+Le stockage ZRS prend actuellement en charge les types de compte de stockage standard v2 à usage général, FileStorage et BlockBlobStorage. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
 
-Le stockage ZRS est disponible pour les objets blob de blocs, les objets blob de pages hors disque, les partages de fichiers standard, les tables et les files d’attente.
+Les comptes ZRS v2 à usage général prennent en charge les objets blob de blocs, les objets blob de pages hors disque, les partages de fichiers standard, les tables et les files d’attente.
 
 Pour les comptes v2 universels, le stockage ZRS est généralement disponible dans les régions suivantes :
 
 - Asie du Sud-Est
-- Europe occidentale
 - Europe septentrionale
+- Europe occidentale
 - France Centre
 - Japon Est
 - Sud du Royaume-Uni
@@ -39,7 +39,7 @@ Pour les comptes v2 universels, le stockage ZRS est généralement disponible da
 - USA Est 2
 - USA Ouest 2
 
-Pour les comptes FileStorage (partages de fichiers Premium), le stockage ZRS est en disponibilité générale dans les régions suivantes :
+Pour les comptes FileStorage (partages de fichiers Premium) et les comptes BlockBlobStorage (objets blob de blocs Premium), le stockage ZRS est en disponibilité générale dans les régions suivantes :
 
 - Europe occidentale
 - USA Est

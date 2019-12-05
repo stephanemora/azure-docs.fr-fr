@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 81e24712de186e2d5ec03e33ecabe485cc0d9f31
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894145"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480371"
 ---
 # <a name="export-your-application-preview-features"></a>Exporter une application (fonctionnalités en préversion)
 
@@ -31,6 +31,9 @@ Deux options s'offrent à vous :
 Vous pouvez créer une copie de n’importe quelle application, à l’exception des instances d’appareils, de l’historique des données d’un appareil et des données utilisateur. Cette copie est une application avec paiement à l’utilisation qui vous sera facturée. Il n’est pas possible de créer une application d’évaluation en copiant une application.
 
 Sélectionnez **Copier**. Dans la boîte de dialogue, entrez les détails de la nouvelle application avec paiement à l’utilisation. Ensuite, sélectionnez **Copier** pour confirmer que vous souhaitez continuer. Pour plus d’informations sur les champs du formulaire, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
+
+> [!NOTE]
+> Vous pouvez **Copier votre application** dans les emplacements **Europe** et **USA**uniquement.
 
 ![Page Paramètres de l’application](media/howto-use-app-templates/appcopy2.png)
 
@@ -82,6 +85,9 @@ Pour utiliser un modèle d’application afin de créer une application IoT Cent
 ![Créer une application à partir d’un modèle](media/howto-use-app-templates/create-app.png)
 
 Sélectionnez votre plan de paiement et remplissez les autres champs du formulaire. Sélectionnez ensuite **Créer** pour créer une application IoT Central à partir d’un modèle d’application.
+
+> [!NOTE]
+> Quand une application est créée à l’aide de l’option **Lien partageable**, les emplacements disponibles sont **Europe** et **USA**.
 
 ### <a name="manage-application-templates"></a>Gérer des modèles d’application
 

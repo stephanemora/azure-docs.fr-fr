@@ -1,20 +1,14 @@
 ---
-title: Développer et exécuter des fonctions Azure en local | Microsoft Docs
+title: Développer et exécuter des fonctions Azure en local
 description: Apprenez à coder et à tester des fonctions Azure sur votre ordinateur local avant de les exécuter dans Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.author: glenga
-ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709325"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230645"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 

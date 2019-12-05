@@ -1,6 +1,6 @@
 ---
 title: Stocker et afficher des données de diagnostic le stockage Azure
-description: Obtenir des données de diagnostics Azure dans Stockage Azure et les afficher
+description: Découvrez comment collecter les données de diagnostics Azure dans un compte Stockage Azure afin de pouvoir les afficher avec l’un des outils disponibles.
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395065"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304968"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Stocker et afficher des données de diagnostic dans Azure Storage
 Les données de diagnostic ne sont pas définitivement stockées, sauf si vous les transférez vers l’émulateur de stockage Microsoft Azure ou dans le stockage Azure. Une fois dans le stockage, elles peuvent être affichées avec un des outils disponibles.

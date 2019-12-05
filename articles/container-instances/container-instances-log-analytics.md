@@ -1,21 +1,17 @@
 ---
-title: Journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
-description: Découvrez comment envoyer des journaux à partir d’instances de conteneurs Azure vers des journaux Azure Monitor.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
-ms.topic: overview
+title: Journaux des ressources pour les groupes de conteneurs
+description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258472"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533733"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
 Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge intégrée de l’envoi des journaux et des données d’événements aux journaux Azure Monitor.
 

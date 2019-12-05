@@ -1,6 +1,6 @@
 ---
 title: Score de confiance dans Azure Security Center | Microsoft Docs
-description: " Découvrez comment utiliser le score de confiance d’Azure Security Center. "
+description: Security Center génère des scores de confiance pour aider votre équipe à déterminer si une menace est légitime et à trier et hiérarchiser les alertes.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0f0380ca4a285d9cb4a8472a40c77130a8f63035
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202380"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558975"
 ---
 # <a name="alert-confidence-score"></a>Score de confiance de l’alerte 
 

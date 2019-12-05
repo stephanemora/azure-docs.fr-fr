@@ -1,67 +1,79 @@
 ---
-title: Appliquer HTTPS à l’aide du moteur de règles standard Azure CDN | Microsoft Docs
-description: Le moteur de règles standard vous permet de personnaliser la manière dont Azure CDN de Microsoft gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenus, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP.
+title: Utiliser un moteur de règles pour appliquer le protocole HTTPS dans Azure CDN Standard | Microsoft Docs
+description: Utilisez le moteur de règles de Microsoft Standard Azure Content Delivery Network (Azure CDN) pour personnaliser la façon dont Azure CDN gère les requêtes HTTP, notamment le blocage de la livraison de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP. Dans cet article, vous allez apprendre à créer une règle pour rediriger les utilisateurs vers HTTPS.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: b24c4a04e0c02258a918ee075066d90c22ea0c75
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615828"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171586"
 ---
-# <a name="azure-cdn-standard-rules-engine"></a>Moteur de règles standard Azure CDN
+# <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurer le moteur de règles Standard pour Azure CDN
+
+Cet article explique comment configurer et utiliser le moteur de règles Standard pour Azure Content Delivery Network (Azure CDN).
+
+## <a name="standard-rules-engine"></a>Moteur de règles Standard
+
+Vous pouvez utiliser le moteur de règles Standard pour Azure CDN afin de personnaliser la façon dont les requêtes HTTP sont gérées. Par exemple, vous pouvez utiliser le moteur de règles afin que la livraison de contenu utilise des protocoles spécifiques, de définir une stratégie de mise en cache ou de modifier un en-tête HTTP. Cet article montre comment créer une règle qui redirige automatiquement les utilisateurs vers HTTPS. 
 
 > [!NOTE]
-> Le moteur de règles standard est uniquement disponible pour Azure CDN de Microsoft. 
+> Le moteur de règles décrit dans cet article est uniquement disponible pour Azure CDN Standard de Microsoft. 
 
-Le moteur de règles Azure CDN standard vous permet de personnaliser la gestion des requêtes HTTP. Par exemple, l’application de la distribution de contenu sur des protocoles spécifiques, la définition d’une stratégie de mise en cache ou la modification d’un en-tête HTTP. Ce didacticiel montre comment créer une règle qui redirige automatiquement vos utilisateurs vers HTTPS. 
+## <a name="redirect-users-to-https"></a>Rediriger les utilisateurs vers HTTPS
 
+1. Dans vos profils Microsoft, accédez à Azure Content Delivery Network.
 
-## <a name="tutorial"></a>Didacticiel
-
-1. Dans la page **Profil CDN** sur Azure CDN à partir des profils Microsoft, sélectionnez le point de terminaison pour lequel vous souhaitez configurer des règles.
+1. Dans la page **Profil CDN**, sélectionnez le point de terminaison pour lequel vous souhaitez créer des règles.
   
-2. Sélectionnez l’onglet **Moteur de règles** à gauche.
+1. Sélectionnez l’onglet **Moteur de règles**.
    
-    Le panneau du moteur de règles s’affiche, avec la règle globale. 
+    Le volet **Moteur de règles** s’ouvre et affiche la liste des règles globales disponibles. 
    
-    [![Page de nouvelles règles CDN](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
-   
-   > [!IMPORTANT]
-   > L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
-   >
-
-3. Cliquez sur le bouton **Ajouter une règle** et spécifiez un nom de règle. Les noms de règle doivent commencer par une lettre et contenir uniquement des chiffres et des lettres.
-
-4. Identifiez le type de requêtes auxquelles la règle s’applique. Utilisez la liste déroulante pour sélectionner la condition de correspondance **Protocole de requête**, et utilisez la valeur **Est égal à** **HTTP**.
-   
-   [![Condition de correspondance de règle CDN](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
-   
-   > [!NOTE]
-   > Plusieurs conditions de correspondance sont disponibles dans la liste déroulante. Pour obtenir la liste détaillée des conditions de correspondance, consultez [Conditions de correspondance du moteur de règles](cdn-standard-rules-engine-match-conditions.md).
-   
-5. Choisissez l’action qui sera appliquée aux demandes identifiées. Utilisez la liste déroulante pour sélectionner l’action **Redirection d’URL** et utilisez la valeur **Trouvé (302)** pour le type, et **HTTPS** pour le protocole. Laissez tous les autres champs vides pour utiliser les valeurs entrantes.
-   
-   [![Action de règle CDN](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
-   
-   > [!NOTE]
-   > Plusieurs actions sont disponibles dans la liste déroulante. Pour obtenir une liste détaillée des actions, consultez [Actions du moteur de règles](cdn-standard-rules-engine-actions.md).
-
-6. Sélectionnez **Enregistrer** pour enregistrer la nouvelle règle.  La nouvelle règle sera maintenant déployée.
+    [![Page de nouvelles règles Azure CDN](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
    
    > [!IMPORTANT]
-   > Les modifications de règles peuvent prendre jusqu’à 15 minutes avant d’être propagées à travers Azure CDN.
+   > L’ordre dans lequel plusieurs règles sont listées affecte la façon dont elles sont gérées. Les actions spécifiées dans une règle peuvent être remplacées par une règle suivante.
+   >
+
+1. Sélectionnez **Ajouter une règle** et entrez un nom de règle. Les noms de règle doivent commencer par une lettre et peuvent contenir uniquement des chiffres et des lettres.
+
+1. Pour identifier le type de requêtes auxquelles la règle s’applique, créez une condition de correspondance :
+    1. Sélectionnez **Ajouter une condition**, puis sélectionnez la condition de correspondance **Protocole de demande**.
+    1. Pour **Opérateur**, sélectionnez **Est égal à**.
+    1. Pour **Valeur**, sélectionnez **HTTP**.
+   
+   [![Condition de correspondance de règle Azure CDN](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
+   
+   > [!NOTE]
+   > Vous pouvez sélectionner plusieurs conditions de correspondance dans la liste déroulante **Ajouter une condition**. Pour obtenir la liste détaillée des conditions de correspondance, consultez [Conditions de correspondance du moteur de règles Standard](cdn-standard-rules-engine-match-conditions.md).
+   
+1. Sélectionnez l’action à appliquer aux requêtes qui répondent à la condition de correspondance :
+   1. Sélectionnez **Ajouter une action**, puis sélectionnez **Redirection de l’URL**.
+   1. Pour **Type**, sélectionnez **Trouvé (302)** .
+   1. Pour **Protocole**, sélectionnez **HTTPS**.
+   1. Laissez tous les autres champs vides pour utiliser les valeurs entrantes.
+   
+   [![Action de règle Azure CDN](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
+   
+   > [!NOTE]
+   > Vous pouvez sélectionner plusieurs actions dans la liste déroulante **Ajouter une action**. Pour obtenir une liste détaillée des actions, consultez [Actions du moteur de règles Standard](cdn-standard-rules-engine-actions.md).
+
+6. Sélectionnez **Enregistrer** pour enregistrer la nouvelle règle. La règle peut désormais être utilisée.
+   
+   > [!IMPORTANT]
+   > Les modifications de règle peuvent prendre jusqu’à 15 minutes avant d’être propagées à travers Azure CDN.
    >
    
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble d’Azure CDN](cdn-overview.md)
-- [Informations de référence du moteur de règles standard](cdn-standard-rules-engine-reference.md)
-- [Conditions de correspondance du moteur de règles standard](cdn-standard-rules-engine-match-conditions.md)
-- [Actions du moteur de règles standard](cdn-standard-rules-engine-actions.md)
+- [Informations de référence sur le moteur de règles Standard](cdn-standard-rules-engine-reference.md)
+- [Conditions de correspondance du moteur de règles Standard](cdn-standard-rules-engine-match-conditions.md)
+- [Actions du moteur de règles Standard](cdn-standard-rules-engine-actions.md)

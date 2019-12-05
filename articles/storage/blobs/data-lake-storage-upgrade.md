@@ -1,21 +1,21 @@
 ---
-title: Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
-description: Mettre à niveau votre solution pour utiliser Azure Data Lake Storage Gen2
+title: Mettre à niveau Azure Data Lake Storage de Gen1 à Gen2
+description: Mettezà niveau Azure Data Lake Storage de Gen1 à Gen2.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 11/01/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: d86e2cca31487a73e089124e9552b574bcc9166f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 41074561b4805fef1889bd889b625e1a59d57d91
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584392"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327878"
 ---
-# <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
+# <a name="upgrade-azure-data-lake-storage-from-gen1-to-gen2"></a>Mettre à niveau Azure Data Lake Storage de Gen1 à Gen2
 
 Si Azure Data Lake Storage Gen1 fait partie de vos solutions d’analytique de Big Data, ce guide vous permet de mettre à jour ces solutions pour utiliser Azure Data Lake Storage Gen2. Vous pouvez utiliser ce document pour évaluer les dépendances entre votre solution et Data Lake Storage Gen1. Ce guide vous explique également comment planifier et effectuer la mise à niveau.
 

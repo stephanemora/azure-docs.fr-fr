@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510302"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184250"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>FAQ sur Azure Internet Analyzer (Préversion)
 
@@ -98,6 +98,10 @@ Les points de terminaison préconfigurés suivants sont disponibles durant la p�
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>En quoi Internet Analyzer diffère-t-il des autres services d’analyse d’Azure ?
 
 Internet Analyzer vous aide à comprendre les performances de vos utilisateurs finaux, mais prendre les meilleures décisions pour améliorer leurs performances. Bien que d’autres outils d’analyse d’Azure fournissent des insights sur vos services Azure, Internet Analyzer se concentre sur la mesure des performances Internet de bout en bout pour vos utilisateurs.
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>Comment les données de mesure sont-elles gérées par Internet Analyzer ?
+
+Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Les données sont chiffrées, en transit comme au repos.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,19 +1,14 @@
 ---
-title: Tâche multiétape pour compiler, tester et corriger des images - Azure Container Registry
+title: Tâche multiétape pour compiler, tester et corriger des images
 description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des workflows basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931492"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456177"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -84,7 +79,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Consultez ces [exemples de tâches][task-examples] pour obtenir des fichiers YAML de tâche en plusieurs étapes et les fichiers Dockerfile pour plusieurs scénarios complets.
+Consultez ces [exemples de tâches](container-registry-tasks-samples.md) pour obtenir des fichiers YAML de tâche multiétapes et les fichiers Dockerfile pour plusieurs scénarios.
 
 ## <a name="run-a-sample-task"></a>Exécuter un exemple de tâche
 
@@ -155,7 +150,7 @@ Pour en savoir plus sur les compilations automatiques lors de la validation Git 
 Vous trouverez ici des références et des exemples de tâches multiétapes :
 
 * [Tâches de référence](container-registry-tasks-reference-yaml.md) : types d’étapes de tâches, leurs propriétés et leur utilisation.
-* [Exemples de tâches][task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
+* [Exemples de tâches](container-registry-tasks-samples.md) : exemples de fichiers `task.yaml` et Docker pour plusieurs scénarios, simples et complexes.
 * [Référentiel Cmd](https://github.com/AzureCR/cmd) - Une collection de conteneurs agissant en tant que commandes pour les tâches ACR.
 
 <!-- IMAGES -->

@@ -1,6 +1,6 @@
 ---
-title: 'Configurer les informations de sécurité (préversion) pour une application d’authentification : Azure AD'
-description: Apprenez à configurer vos informations de sécurité pour vérifier votre identité avec l’application Microsoft Authenticator.
+title: Configurer l’application Microsoft Authenticator comme méthode de vérification - Azure AD
+description: Guide pratique pour configurer votre page Informations de sécurité (préversion) et vérifier votre identité avec l’application Microsoft Authenticator comme méthode de vérification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f44f4df9e3c17c376830c6a404a21e8a5d67b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805079"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279063"
 ---
-# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurer les informations de sécurité (préversion) pour utiliser une application d’authentification
+# <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurer l’application Microsoft Authenticator comme méthode de vérification
 
 Suivez ces étapes pour ajouter vos méthodes de réinitialisation de mot de passe et de vérification en deux étapes. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 

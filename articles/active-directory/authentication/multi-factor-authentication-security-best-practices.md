@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2756d39a93751271c8c7bf2a51108b9fe5b09b1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357967"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208429"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Conseils de sécurité pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
 
@@ -52,7 +52,7 @@ Lorsque vous créez le fournisseur d’authentification, vous devez sélectionne
 * Vous n’avez pas besoin d’un annuaire Azure AD pour créer un fournisseur d’authentification MFA, mais il vous permet de bénéficier de davantage de fonctionnalités. Les fonctionnalités suivantes sont activées lorsque vous associez le fournisseur d’authentification à un annuaire Azure AD :
   * Étendre la vérification en deux étapes à tous les utilisateurs
   * Offrir à vos administrateurs généraux des fonctionnalités supplémentaires, telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports
-* Si vous synchronisez votre environnement Active Directory local avec un annuaire Azure AD, vous avez besoin de DirSync ou d’AAD Sync. Si vous utilisez un annuaire Azure AD qui n’est pas synchronisé avec une instance locale d’Active Directory, DirSync ou AAD Sync est inutile.
+* Si vous synchronisez votre environnement Active Directory local avec un annuaire Azure AD, vous avez besoin de DirSync ou d’Azure AD Sync. Si vous utilisez un annuaire Azure AD qui n’est pas synchronisé avec une instance locale d’Active Directory, vous n’avez pas besoin de DirSync ou d’Azure AD Sync.
 * Choisissez le modèle de consommation qui correspond le mieux à votre entreprise. Une fois le modèle d’utilisation sélectionné, vous ne pourrez plus en changer. Les deux modèles sont les suivants :
   * Par authentification : vous payez pour chaque vérification. Utilisez ce modèle si vous souhaitez la vérification en deux étapes pour toute personne qui accède à une certaine application, et non pour des utilisateurs spécifiques.
   * Par utilisateur activé : vous payez pour chaque utilisateur que vous activez pour Azure MFA. Utilisez ce modèle si une partie seulement des utilisateurs possède des licences Azure AD Premium Enterprise Mobility Suite.

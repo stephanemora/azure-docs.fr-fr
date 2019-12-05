@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3a413249cb9058e4098f2836131494670a1727
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491325"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554839"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publier votre application active, formée sur un point de terminaison intermédiaire ou de production
 
-Quand vous avez terminé la création et les tests de votre application LUIS active, mettez-la à disposition de votre application cliente en la publiant sur le point de terminaison. 
+Quand vous avez terminé la génération, l’entraînement et les tests de votre application LUIS active, mettez-la à disposition de votre application cliente en la publiant sur le point de terminaison. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
-<a name="publish-your-trained-app-to-an-http-endpoint"></a>
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="publishing"></a>Publication
 
@@ -40,16 +38,19 @@ Quand vous avez terminé la création et les tests de votre application LUIS act
 
 Sélectionnez l’emplacement correct quand la fenêtre contextuelle s’affiche : 
 
-* Mise en lots.
-* Production. 
+* Staging
+* Production 
 
 L’utilisation des deux emplacements de publication vous permet d’avoir deux versions différentes de votre application disponibles aux points de terminaison publiés, ou la même version sur deux points de terminaison différents. 
 
 ### <a name="publishing-regions"></a>Régions de publication
 
-L’application est publiée dans toutes les régions associées aux ressources de point de terminaison de prédiction LUIS ajoutées dans le portail LUIS. 
+L’application est publiée sur toutes les régions associées aux ressources de point de terminaison de prédiction LUIS ajoutées dans le portail LUIS à partir de la page **Gérer** ->  **[Ressources Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
 
 Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai), si vous créez une ressource LUIS dans deux régions **westus** et **eastus**, et ajoutez celles-ci à l’application en tant que ressources, l’application est publiée dans les deux régions. Pour plus d’informations sur les régions LUIS, consultez [Régions](luis-reference-regions.md).
+
+> [!TIP]
+> Il existe 3 régions de création. Vous devez créer dans la région sur laquelle vous souhaitez publier. Si vous devez publier sur toutes les régions, vous devez gérer votre processus de création et le modèle entraîné résultant dans l’ensemble des 3 régions de création. 
 
 
 ## <a name="configuring-publish-settings"></a>Configuration des paramètres de publication
@@ -57,16 +58,14 @@ Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai)
 Après avoir sélectionné l’emplacement, configurez les paramètres de publication suivants :
 
 * analyse de sentiments
-* Correction orthographique
+* Correction orthographique - point de terminaison de prédiction V2 uniquement
 * Préparation vocale 
 
 Après publication, ces paramètres sont accessibles via la page **Paramètres de publication** de la section **Gérer**. Vous pouvez modifier les paramètres pour chaque publication. Si vous annulez une publication, les modifications que vous avez apportées lors de la publication sont également annulées. 
 
 ### <a name="when-your-app-is-published"></a>Quand votre application est publiée
 
-Une fois votre application correctement publiée, une notification de réussite de couleur verte s’affiche en haut du navigateur. La barre de notification verte comprend également un lien vers les points de terminaison. 
-
-![Fenêtre contextuelle de publication avec un lien au point de terminaison](./media/luis-how-to-publish-app/publish-success.png)
+Une fois votre application correctement publiée, une notification de réussite s’affiche en haut du navigateur. La notification comprend également un lien vers les points de terminaison. 
 
 Si vous avez besoin de l’URL de point de terminaison, sélectionnez le lien. Vous pouvez également accéder aux URL de point de terminaison en sélectionnant **Gérer** dans le menu supérieur, puis **Ressources Azure** dans le menu gauche. 
 
@@ -83,6 +82,8 @@ Les données de sentiment correspondent à un score compris entre 1 et 0 indiq
 Pour plus d’informations sur la réponse du point de terminaison JSON avec l’analyse des sentiments, voir [Analyse des sentiments](luis-concept-data-extraction.md#sentiment-analysis).
 
 ## <a name="spelling-correction"></a>Correction orthographique
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 Les corrections orthographiques sont effectuées avant la prédiction d’énoncé utilisateur LUIS. Vous pouvez voir toutes les modifications apportées à l’énoncé d’origine, y compris en lien avec l’orthographe, dans la réponse.
 

@@ -40,6 +40,10 @@
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configurer des certificats pour un VPN utilisateur (point à site)
       href: certificates-point-to-site.md
+    - name: Configurer un locataire Azure AD pour un VPN utilisateur
+      href: openvpn-azure-ad-tenant.md
+    - name: Activer l’authentification multifacteur (MFA) pour un VPN utilisateur
+      href: openvpn-azure-ad-mfa.md
     - name: Configurer l’authentification Azure AD pour un VPN utilisateur (préversion)
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Configurer l’automatisation (partenaires Virtual WAN)

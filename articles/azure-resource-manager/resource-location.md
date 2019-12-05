@@ -1,17 +1,14 @@
 ---
-title: Emplacement des ressources dans un modèle Azure Resource Manager
+title: Emplacement de la ressource de modèle
 description: Décrit comment définir un emplacement de ressource dans un modèle Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6af5d82766533ef7bbacab04381db9a37502923e
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1e711b2cfeb42c33dbfa68b1fbdabd42cbd46d10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70293763"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150627"
 ---
 # <a name="set-resource-location-in-resource-manager-template"></a>Définir l’emplacement des ressources dans un modèle Resource Manager
 
@@ -99,4 +96,4 @@ L’exemple suivant illustre le déploiement d’un compte de stockage dans un e
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
-* Pour plus d’informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
+* Pour plus d’informations sur les fichiers de modèle, voir [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).

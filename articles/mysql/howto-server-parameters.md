@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422133"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419719"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure
 
@@ -35,30 +35,23 @@ La liste des paramètres de serveur pris en charge s’allonge en permanence. Ut
 
 ## <a name="non-configurable-server-parameters"></a>Paramètres de serveur non configurables
 
-Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont pas configurables et dépendent de votre [niveau tarifaire](concepts-service-tiers.md).
+La taille du pool de mémoires tampons InnoDB n’est pas configurable et dépend du [niveau tarifaire](concepts-service-tiers.md) choisi.
 
-|**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**| **Nombre maximal de connexions**|
-|---|---|---|---|--|
-|De base| Gen 4| 1| 960| 50|
-|De base| Gen 4| 2| 2560| 100|
-|De base| Gen 5| 1| 960| 50|
-|De base| Gen 5| 2| 2560| 100|
-|Usage général| Gen 4| 2| 3584| 300|
-|Usage général| Gen 4| 4| 7680| 625|
-|Usage général| Gen 4| 8| 15360| 1250|
-|Usage général| Gen 4| 16| 31232| 2 500|
-|Usage général| Gen 4| 32| 62976| 5 000|
-|Usage général| Gen 5| 2| 3584| 300|
-|Usage général| Gen 5| 4| 7680| 625|
-|Usage général| Gen 5| 8| 15360| 1250|
-|Usage général| Gen 5| 16| 31232| 2 500|
-|Usage général| Gen 5| 32| 62976| 5 000|
-|Usage général| Gen 5| 64| 125952| 10000|
-|Mémoire optimisée| Gen 5| 2| 7168| 600|
-|Mémoire optimisée| Gen 5| 4| 15360| 1250|
-|Mémoire optimisée| Gen 5| 8| 30720| 2 500|
-|Mémoire optimisée| Gen 5| 16| 62464| 5 000|
-|Mémoire optimisée| Gen 5| 32| 125952| 10000|
+|**Niveau tarifaire**|**vCore(s)**|**Taille du pool de mémoires tampons InnoDB en Mo <br> (serveurs prenant en charge un stockage jusqu’à 4 To)**| **Taille du pool de mémoires tampons InnoDB en Mo <br> (serveurs prenant en charge un stockage jusqu’à 16 To)**|
+|:---|---:|---:|---:|
+|De base| 1| 832| |
+|De base| 2| 2560| |
+|Usage général| 2| 3584| 7168|
+|Usage général| 4| 7680| 15360|
+|Usage général| 8| 15360| 30720|
+|Usage général| 16| 31232| 62464|
+|Usage général| 32| 62976| 125952|
+|Usage général| 64| 125952| 251904|
+|Mémoire optimisée| 2| 7168| 14336|
+|Mémoire optimisée| 4| 15360| 30720|
+|Mémoire optimisée| 8| 30720| 61440|
+|Mémoire optimisée| 16| 62464| 124928|
+|Mémoire optimisée| 32| 125952| 251904|
 
 Ces paramètres de serveur ne sont pas configurables dans le système :
 

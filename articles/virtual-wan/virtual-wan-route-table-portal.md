@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN : Créer une table d’itinéraires de hub virtuel sur des appliances réseau virtuelles : Portail Azure'
+title: 'Virtual WAN : Créer une table d’itinéraires de hub virtuel sur des appliances réseau virtuelles : Portail Azure'
 description: Table de routage de hub virtuel Azure Virtual WAN pour diriger le trafic vers une appliance réseau virtuelle à l’aide du portail.
 services: virtual-wan
 author: cherylmc
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 8f24b94226daffb769993c9f6659909fdff039b6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014978"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534131"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Créer une table de routage de hub Virtual WAN pour des appliances réseau virtuelles : Portail Azure
 
-Dans cet article, découvrez comment diriger le trafic à partir d’un hub vers une appliance réseau virtuelle (NVA).
+Cet article explique comment diriger le trafic à partir d’une branche (site local) connectée au hub Virtual WAN vers un réseau virtuel spoke via une appliance virtuelle réseau.
 
 ![Diagramme WAN virtuel](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -31,7 +31,7 @@ Vérifiez que vous respectez les critères suivants :
 
     * L’appliance réseau virtuelle n’est pas déployée dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct.
 
-    *  Le réseau virtuel de l’appliance réseau virtuelle peut avoir un ou plusieurs réseaux virtuels qui y sont connectés. Dans cet article, nous désignons le réseau virtuel de l’appliance réseau virtuelle par le terme « réseau virtuel spoke indirect ». Ces réseaux virtuels peuvent être connectés au réseau virtuel de l’appliance réseau virtuelle à l’aide de VNet Peering.
+    *  Le réseau virtuel de l’appliance réseau virtuelle peut avoir un ou plusieurs réseaux virtuels qui y sont connectés. Dans cet article, nous désignons le réseau virtuel de l’appliance réseau virtuelle par le terme « réseau virtuel spoke indirect ». Ces réseaux virtuels peuvent être connectés au réseau virtuel de l’appliance réseau virtuelle à l’aide de VNet Peering. Les liens de peering de réseau virtuel sont représentés par des flèches noires dans la figure ci-dessus, entre le réseau virtuel 1, le réseau virtuel 2 et le réseau virtuel d’appliance virtuelle réseau.
 *  Vous avez créé deux réseaux virtuels. Ils seront utilisés en tant que réseaux virtuels spoke.
 
     * Dans cet exercice, les réseaux virtuels spoke ont les espaces d’adressage suivants : VNet1 : 10.0.2.0/24 et VNet2 : 10.0.3.0/24. Pour plus d’informations sur la création d’un réseau virtuel, consultez [Créer un réseau virtuel](../virtual-network/quick-create-portal.md).
@@ -79,7 +79,7 @@ Mettez à jour le hub avec une table de routage de hub. Dans le cadre de cet exe
 
 ## <a name="connections"></a>5. Créer les connexions de réseau virtuel
 
-Créez une connexion au hub à partir de chaque réseau virtuel spoke indirect (VNet1 et VNet2). Ensuite, créez une connexion au hub à partir du réseau virtuel de l’appliance réseau virtuelle.
+Créez une connexion de réseau virtuel au hub à partir de chaque réseau virtuel spoke indirect (VNet1 et VNet2). Ces connexions de réseau virtuel sont représentées par les flèches bleues dans la figure ci-dessus. Créez ensuite une connexion de réseau virtuel à partir du réseau virtuel d’appliance virtuelle réseau au hub (flèche noire dans la figure). 
 
  Pour cette étape, vous pouvez utiliser les valeurs suivantes :
 

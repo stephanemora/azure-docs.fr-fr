@@ -8,18 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d5432c794c26e350b23fe47aa1574422143ca4b2
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521479"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483962"
 ---
 # <a name="using-custom-security-policies-preview"></a>Utilisation de stratégies de sécurité personnalisées (préversion)
 
 Pour vous aider à sécuriser vos systèmes et votre environnement, Azure Security Center génère des recommandations de sécurité. Ces recommandations sont basées sur les meilleures pratiques du secteur, qui sont incorporées à la stratégie de sécurité par défaut générique fournie à tous les clients. Elles peuvent également provenir des connaissances que Security Center a des normes et réglementations du secteur.
 
-Avec cette fonctionnalité en préversion, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si vos ordinateurs ne suivent pas les stratégies que vous créez.
+Avec cette fonctionnalité en préversion, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez.
+
+Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) dans la documentation Azure Policy, quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Pour ajouter une initiative personnalisée à votre abonnement 
 
@@ -30,7 +32,9 @@ Avec cette fonctionnalité en préversion, vous pouvez ajouter vos propres initi
     [![Sélection d’un abonnement pour lequel vous allez créer votre stratégie personnalisée](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > Lorsque vous ajoutez une norme personnalisée, elle attribue une *initiative* à cette étendue. Nous vous recommandons donc de sélectionner l’étendue la plus vaste requise pour cette attribution. 
+    > Vous devez ajouter des standards personnalisés au niveau de l’abonnement (ou à un niveau supérieur) pour qu’ils soient évalués et affichés dans Security Center. 
+    >
+    > Lorsque vous ajoutez une norme personnalisée, elle attribue une *initiative* à cette étendue. Nous vous recommandons donc de sélectionner l’étendue la plus vaste requise pour cette attribution.
 
 1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées (préversion), cliquez sur **Ajouter une initiative personnalisée**.
 
@@ -55,7 +59,7 @@ Avec cette fonctionnalité en préversion, vous pouvez ajouter vos propres initi
     > [!NOTE]
     > La création d’initiatives nécessite les informations d’identification du propriétaire de l’abonnement. Pour plus d’informations sur les rôles Azure, consultez [Autorisations dans Azure Security Center](security-center-permissions.md).
 
-1. Pour afficher les recommandations qui en résultent pour votre stratégie, cliquez sur **Recommandations** dans la barre latérale pour ouvrir la page de recommandations. Les recommandations s’affichent avec une étiquette « Personnalisée » et sont disponibles pendant 30 minutes.
+1. Pour afficher les recommandations qui en résultent pour votre stratégie, cliquez sur **Recommandations** dans la barre latérale pour ouvrir la page de recommandations. Les recommandations apparaissent avec une étiquette « Personnalisée » et sont disponibles dans un délai d’une heure environ.
 
     [![Recommandations personnalisées](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 

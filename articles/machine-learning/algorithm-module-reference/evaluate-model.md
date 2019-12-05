@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497921"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214584"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -26,7 +26,6 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
   
 -   **Modèles de classification**    
 -   **Modèles de régression**    
-
 
 
 > [!TIP]
@@ -107,7 +106,7 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
 
 ##  <a name="bkmk_regression"></a> Métriques pour les modèles de régression
  
-Les métriques retournées pour les modèles de régression sont généralement conçues pour estimer la quantité d’erreurs.  Un modèle est jugé correctement adapté aux données si la différence entre valeurs observées et prévues est faible. Toutefois, l’observation du modèle des résidus (la différence entre n’importe quel point prédit et sa valeur réelle correspondante) peut vous en apprendre beaucoup sur un éventuel décalage dans le modèle.  
+Les métriques retournées pour les modèles de régression sont conçues pour estimer la quantité d’erreurs.  Un modèle est jugé correctement adapté aux données si la différence entre valeurs observées et prévues est faible. Toutefois, l’observation du modèle des résidus (la différence entre n’importe quel point prédit et sa valeur réelle correspondante) peut vous en apprendre beaucoup sur un éventuel décalage dans le modèle.  
   
  Les métriques suivantes sont rapportées lors de l’évaluation de modèles de régression. Lorsque vous comparez des modèles, elles sont classées selon la métrique que vous sélectionnez pour l’évaluation.  
   

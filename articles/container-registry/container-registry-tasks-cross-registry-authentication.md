@@ -1,18 +1,14 @@
 ---
-title: Authentification multiregistre à partir d’une tâche Azure Container Registry
+title: Authentification multiregistre à partir d’une tâche ACR
 description: Configurez une tâche Azure Container Registry (Tâche ACR) pour accéder à un autre registre de conteneur Azure privé à l’aide d’une identité managée pour les ressources Azure.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
-ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931516"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456183"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification multiregistre dans une tâche ACR à l’aide d’une identité managée par Azure 
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure à l’aide d’informations d’identification SAP
+title: Tutoriel`:` Utiliser une identité managée pour accéder à Stockage Azure à l’aide d’informations d’identification SAP - Azure AD
 description: Tutoriel montrant comment utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ec4d2a67beb9b5f903aa0b7f03196b47db3f78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66226465"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232157"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure avec des informations d’identification SAP
 

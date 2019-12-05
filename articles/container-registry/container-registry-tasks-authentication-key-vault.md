@@ -1,18 +1,14 @@
 ---
-title: Authentification externe dans une tâche Azure Container Registry
+title: Authentification externe à partir d’une tâche ACR
 description: Activez une identité managée pour les ressources Azure dans une tâche Azure Container Registry (ACR) pour permettre à la tâche de lire les informations d’identification Docker Hub stockées dans un coffre de clés Azure.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
-ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a7086050a4aef380f11298c819817692396216b2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509235"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456224"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification externe dans une tâche ACR à l’aide d’une identité managée par Azure 
 

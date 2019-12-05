@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: cb5c53f3f473c10a3c9a12bb1aac20b109c06422
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992365"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545585"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -183,22 +183,33 @@ Un éditeur d’événements définit un point de terminaison virtuel pour un hu
 
 En règle générale, un hub d’événements utilise un seul éditeur par client. Tous les messages qui sont envoyés à l’un des éditeurs d’un hub d’événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d’accès précis.
 
-Un jeton unique, qui est téléchargé sur le client, est affecté à chaque hub d’événement. Les jetons sont produits de façon à ce que chaque jeton unique donne accès à un éditeur unique différent. Un client qui possède un jeton ne peut envoyer qu’à un seul éditeur et à aucun autre. Si plusieurs clients partagent le même jeton, alors ils partagent un éditeur.
+Un jeton unique, qui est téléchargé sur le client, est affecté à chaque hub d’événement. Les jetons sont produits de façon à ce que chaque jeton unique donne accès à un éditeur unique différent. Un client qui possède un jeton ne peut envoyer qu’à un seul éditeur et à aucun autre. Si plusieurs clients partagent le même jeton, alors ils partagent l’éditeur.
 
-Des clés SAS sont attribuées à tous les jetons. En règle générale, tous les jetons sont signés avec la même clé. Les clients n’ont pas connaissance de la clé. Cela empêche que d’autres clients fabriquent des jetons. Les clients utilisent les mêmes jetons jusqu’à leur expiration.
+Des clés SAS sont attribuées à tous les jetons. En règle générale, tous les jetons sont signés avec la même clé. Les clients n’ont pas connaissance de la clé, ce qui les empêche de fabriquer des jetons. Les clients utilisent les mêmes jetons jusqu’à leur expiration.
 
 Par exemple, pour définir des règles d’autorisation limitées à l’envoi et à la publication sur Event Hubs, vous devez définir une règle d’autorisation d’envoi. Cela peut être effectué au niveau de l’espace de noms. Il est également possible d’attribuer à une entité particulière (rubrique ou instance de hubs d’événements) une étendue plus granulaire. Un client ou une application dont l’étendue est définie avec ce type d’accès granulaire est appelé éditeur Event Hubs. Pour ce faire, procédez comme suit :
 
 1. Créez une clé SAS sur l’entité que vous souhaitez publier pour lui attribuer l’étendue d’**envoi**. Pour plus d’informations, consultez [Stratégies d’autorisation d’accès partagé](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Générez un jeton SAS avec un délai d’expiration pour un éditeur spécifique à l’aide de la clé générée à l’étape 1.
-3. Fournissez le jeton au client de l’éditeur, qui peut uniquement effectuer des envois à l’entité à laquelle le jeton octroie l’accès.
-4. Quand le jeton expire, le client perd l’accès lui permettant d’effectuer des envois et des publications vers l’entité. 
+
+    ```csharp
+    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
+                new Uri("Service-Bus-URI"),
+                "eventub-name",
+                "publisher-name",
+                "sas-key-name",
+                "sas-key",
+                TimeSpan.FromMinutes(30));
+    ```
+3. Fournissez le jeton au client de l’éditeur, qui peut uniquement effectuer des envois à l’entité et à l’éditeur auxquels le jeton octroie l’accès.
+
+    Quand le jeton expire, le client perd l’accès lui permettant d’effectuer des envois et des publications vers l’entité. 
 
 
 > [!NOTE]
-> Même si cela est déconseillé, il est possible d’équiper les appareils de jetons qui octroient un accès à un hub d’événements. N’importe quel appareil qui détient ce jeton peut envoyer des messages directement à ce hub d’événements. En outre, il est impossible d’empêcher l’appareil d’effectuer des envois à ce hub d’événements.
+> Même si cela est déconseillé, il est possible d’équiper les appareils de jetons qui octroient un accès à un hub d’événements ou à un espace de noms. N’importe quel appareil qui détient ce jeton peut envoyer des messages directement à ce hub d’événements. En outre, il est impossible d’empêcher l’appareil d’effectuer des envois à ce hub d’événements.
 > 
-> Le comportement ci-dessus peut être observé quand le même jeton est distribué à plusieurs appareils, ce qui vous donne un accès au niveau de l’espace de noms. Dans ce cas, un appareil/éditeur non autorisé ne peut pas être isolé et révoqué. Il est toujours recommandé de fournir des étendues spécifiques et granulaires.
+> Il est toujours recommandé de fournir des étendues spécifiques et granulaires.
 
 > [!IMPORTANT]
 > Une fois les jetons créés, chaque client est configuré avec son propre jeton unique.
@@ -223,4 +234,4 @@ Consultez les articles associés suivants :
 - [Authentifier les requêtes adressées à Azure Event Hubs à partir d’une application à l’aide d’Azure Active Directory](authenticate-application.md)
 - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)
 - [Autoriser l’accès aux ressources Event Hubs avec Azure Active Directory](authorize-access-azure-active-directory.md)
-- [Autoriser l’accès aux ressources Event Hubs avec des signatures d’accès partagé](authorize-access-shared-access-signature.md)
+- [Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé](authorize-access-shared-access-signature.md)

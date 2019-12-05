@@ -1,20 +1,20 @@
 ---
 title: Gérer les mises à jour pour plusieurs machines virtuelles Azure
-description: Cet article décrit la gestion des mises à jour pour les machines virtuelles Azure.
+description: Cet article décrit la gestion des mises à jour pour les machines virtuelles Azure et non-Azure.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374497"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278687"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -31,6 +31,8 @@ Pour utiliser la gestion des mises à jour, vous devez avoir :
 
 - Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
 
+- Un accès à un référentiel de mises à jour pour les machines virtuelles Linux intégrées à la solution.
+
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 La gestion des mises à jour est prise en charge par les systèmes d’exploitation suivants :
@@ -39,17 +41,13 @@ La gestion des mises à jour est prise en charge par les systèmes d’exploitat
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
 |Windows Server 2008 R2 SP1 et versions ultérieures     |Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité. ([Télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
-|Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
-|Ubuntu 14.04 LTS, 16.04 LTS et 18.04 LTS (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
+|CentOS 6 (x86/x64) et 7 (x64)      | |
+|Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | |
+|SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | |
+|Ubuntu 14.04 LTS, 16.04 LTS et 18.04 LTS (x86/x64)      | |
 
 > [!NOTE]
 > Pour empêcher que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations, consultez la [rubrique Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-Les agents Linux doivent avoir accès à un référentiel de mise à jour.
-
-Cette solution ne prend pas en charge les agents Log Analytics pour Linux configurés pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 
@@ -69,9 +67,7 @@ Une fois que l’intégration est terminée, la gestion des mises à jour est ac
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Activer la gestion des mises à jour pour les machines et ordinateurs virtuels non Azure
 
-Pour apprendre à activer Update Management pour les machines et ordinateurs virtuels Windows non Azure, consultez [Connecter des ordinateurs Windows au service Azure Monitor dans Azure](../log-analytics/log-analytics-windows-agent.md).
-
-Pour apprendre à activer Update Management pour les machines et ordinateurs virtuels Linux non Azure, consultez [Connecter vos ordinateurs Linux aux journaux Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
+Vous devez installer l’agent Log Analytics pour Windows et Linux sur les machines virtuelles qui s’exécutent sur votre réseau d’entreprise ou dans un autre environnement cloud afin de les activer avec Update Management. Pour connaître la configuration système requise et les méthodes prises en charge pour déployer l’agent sur les machines hébergées en dehors d’Azure, consultez [Vue d’ensemble de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Afficher les ordinateurs attachés à votre compte Automation
 
@@ -130,8 +126,13 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
-- **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md)
-- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+- **Groupes à mettre à jour** : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour les machines virtuelles non-Azure, les recherches enregistrées sont utilisées pour créer un groupe dynamique à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md).
+- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour.
+
+   >[!NOTE]
+   >La sélection de l’option Recherche enregistrée ne retourne pas les identités de machine, mais uniquement leur nom. Si vous avez plusieurs machines virtuelles avec le même nom dans plusieurs groupes de ressources, celles-ci sont retournées dans les résultats. Il est recommandé d’utiliser l’option **Groupes à mettre à jour** pour veiller à inclure les machines virtuelles uniques correspondant à vos critères.
+
+   Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
@@ -196,5 +197,5 @@ Pour afficher les informations détaillées sur les erreurs du déploiement, sé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la gestion des mises à jour, y compris les journaux d’activité, la sortie et les erreurs, consultez [Solution de gestion de mises à jour dans Azure](../operations-management-suite/oms-solution-update-management.md).
+Pour en savoir plus sur la gestion des mises à jour, y compris les journaux d’activité, la sortie et les erreurs, consultez [Solution de gestion de mises à jour dans Azure](../operations-management-suite/oms-solution-update-management.md).
 

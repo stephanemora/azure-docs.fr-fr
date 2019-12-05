@@ -1,19 +1,14 @@
 ---
-title: Références (SKU) Azure Container Registry
+title: Niveaux de service et références SKU
 description: Découvrez les fonctionnalités et les limites des niveaux de service (SKU) De base, Standard et Premium d’Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: danlep
-ms.openlocfilehash: 19b1fb78413f82d422779b12227b4a5e2361d813
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681809"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456273"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 

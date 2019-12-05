@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802685"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555559"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gérer l’accès aux ressources Azure pour les utilisateurs invités externes à l’aide du contrôle d’accès en fonction du rôle
 
@@ -206,4 +206,4 @@ Si un utilisateur invité a reçu l’autorisation d’accéder à un annuaire, 
 - [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](../active-directory/b2b/add-users-administrator.md)
 - [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../active-directory/b2b/user-properties.md)
 - [Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [Ajout d’un utilisateur invité en tant que coadministrateur](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [Ajouter un utilisateur invité en tant que coadministrateur](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

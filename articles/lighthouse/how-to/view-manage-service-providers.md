@@ -2,13 +2,13 @@
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
 ms.date: 11/15/2019
-ms.topic: overview
-ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132181"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463817"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
@@ -49,7 +49,9 @@ Si le client souhaite supprimer une offre de fournisseur de services, il peut s�
 
 ## <a name="update-service-provider-offers"></a>Mettre à jour les offres de fournisseur de services
 
-Une fois qu’un client a ajouté une offre, un fournisseur de services peut publier une version mise à jour de cette même offre sur la place de marché Microsoft Azure. Par exemple, ils souhaiteront peut-être ajouter une nouvelle définition de rôle. Si une nouvelle version de l’offre a été publiée, la page **Offres du fournisseur** comprend une icône de « mise à jour » dans la ligne de l'offre en question. Le client peut alors sélectionner cette icône pour voir les différences entre la version actuelle de l'offre et la nouvelle. 
+Une fois qu’un client a ajouté une offre, un fournisseur de services peut publier une version mise à jour de cette même offre sur la place de marché Microsoft Azure. Par exemple, ils souhaiteront peut-être ajouter une nouvelle définition de rôle. Si une nouvelle version de l’offre a été publiée, la page **Offres du fournisseur** comprend une icône de « mise à jour » dans la ligne de l'offre en question. Le client peut alors sélectionner cette icône pour voir les différences entre la version actuelle de l'offre et la nouvelle.
+
+ ![Icône Mettre à jour une offre](../media/update-offer.jpg)
 
 Après examen des les modifications, le client peut décider de mettre à jour vers la nouvelle version. Dès qu’il le fait, les autorisations et autres paramètres spécifiés dans la nouvelle version s’appliquent à tous les abonnements et/ou groupes de ressources qui ont été délégués pour cette offre.
 

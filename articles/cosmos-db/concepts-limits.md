@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064043"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383404"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -30,7 +30,8 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | Illimité |
 | Volume de stockage maximal par base de données | Illimité |
-| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go | 
+| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go |
+| Unités de requête minimales requises par 1 Go | 10 RU/s |
 
 > [!NOTE]
 > Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
@@ -134,6 +135,10 @@ Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé prin
 | Variation d’horloge maximale pour l’autorisation de jeton| 15 min |
 
 Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture. 
+
+## <a name="autopilot-mode-limits"></a>Limites du mode Autopilot
+
+Reportez-vous à l’article [Autopilot](provision-throughput-autopilot.md#autopilot-limits) pour connaître les limites de débit et de stockage en mode Autopilot.
 
 ## <a name="sql-query-limits"></a>Limites de requête SQL
 

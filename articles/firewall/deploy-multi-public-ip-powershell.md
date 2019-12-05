@@ -1,18 +1,18 @@
 ---
-title: Déployer un pare-feu Azure avec plusieurs adresses IP publiques à l’aide d’Azure PowerShell
+title: Déployer un pare-feu Azure avec plusieurs adresses IP publiques à l’aide de PowerShell
 description: Dans cet article, vous allez apprendre à déployer un pare-feu Azure avec plusieurs adresses IP publiques à l’aide d’Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad54b60d8f15e36636f887015d97967740123669
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325231"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195861"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Déployer un pare-feu Azure avec plusieurs adresses IP publiques à l’aide d’Azure PowerShell
 

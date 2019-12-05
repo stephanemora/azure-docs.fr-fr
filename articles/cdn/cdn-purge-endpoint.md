@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593527"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546217"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
 ## <a name="overview"></a>Vue d'ensemble
@@ -69,7 +69,7 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
     ![Bouton Vider](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Le traitement des demandes de vidage prend environ 2 minutes avec les services **Azure CDN de Microsoft** et **Azure CDN de Verizon** (Standard et Premium) et environ 10 secondes avec le service **Azure CDN d’Akamai**.  Le CDN Azure impose une limite de 50 demandes de vidage simultanées à un moment donné au niveau du profil. 
+> Le traitement des demandes de vidage prend environ 10 minutes avec le service **Azure CDN de Microsoft**, environ 2 minutes avec le service **Azure CDN de Verizon** (Standard et Premium) et environ 10 secondes avec le service **Azure CDN d’Akamai**.  Le CDN Azure impose une limite de 50 demandes de vidage simultanées à un moment donné au niveau du profil. 
 > 
 > 
 

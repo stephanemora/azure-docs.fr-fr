@@ -11,16 +11,16 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033584"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464151"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -140,7 +140,7 @@ Sous l’onglet **Paramètres SQL Server**, configurez des paramètres spécifiq
 | [Configuration du stockage](#storage-configuration) |
 | [Mise à jour corrective automatisée](#automated-patching) |
 | [Sauvegarde automatisée](#automated-backup) |
-| [R Services (Analytique avancée)](#r-services-advanced-analytics) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### <a name="connectivity"></a>Connectivité
@@ -242,9 +242,9 @@ Pour chiffrer la sauvegarde, cliquez sur **Activer**. Spécifiez ensuite le **mo
 Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="r-services-advanced-analytics"></a>R Services (Analytique avancée)
+### <a name="machine-learning-services"></a>Machine Learning Services
 
-Vous avez la possibilité d’activer [SQL Server R Services (Analytique avancée)](/sql/advanced-analytics/r/sql-server-r-services/). Cette option vous permet d’exécuter des analyses avancées avec SQL Server 2017. Sélectionnez **Activer** dans la fenêtre **Paramètres SQL Server**.
+Vous avez la possibilité d’activer [Services de Machine Learning](/sql/advanced-analytics/). Cette option vous permet d’utiliser le Machine Learning avec Python et R dans SQL Server 2017. Sélectionnez **Activer** dans la fenêtre **Paramètres SQL Server**.
 
 
 ## <a name="4-review--create"></a>4. Vérifier + créer

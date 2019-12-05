@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1f47b01c4a9227d0e2ee45b17645b2ae97e4ba3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821227"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420731"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule
 
@@ -35,7 +35,7 @@ La fonctionnalité Échelle horizontale en lecture est activée par défaut sur 
 Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données de type Standard ou Usage général vers une base de données de type Premium, Critique pour l’entreprise ou Hyperscale, et souhaitez vous assurer que toutes vos connexions continuent d’aller vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d’informations sur la façon de désactiver cette fonctionnalité, voir [Activer et désactiver l’échelle horizontale en lecture](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Les fonctionnalités Magasin de données des requêtes, Magasin de données des requêtes, Générateur de profils SQL Server et Audit ne sont pas prises en charge sur les réplicas en lecture seule. 
+> Les fonctionnalités Magasin de données des requêtes, Magasin de données des requêtes, Générateur de profils SQL Server et Audit ne sont pas prises en charge sur les réplicas en lecture seule.
 
 ## <a name="data-consistency"></a>Cohérence des données
 
@@ -50,13 +50,13 @@ Lorsque vous activez la lecture du Scale-out pour une base de données, l’opti
 
 Par exemple, la chaîne de connexion suivante connecte le client à un réplica en lecture seule (en remplaçant les éléments entre crochets pointus par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
 L’une des chaînes de connexion suivantes connecte le client à un réplica en lecture-écriture (en remplaçant les éléments entre crochets pointus par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -66,7 +66,7 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 Vous pouvez vérifier si vous êtes connecté à un réplica en lecture seule en exécutant la requête suivante. Elle retourne READ_ONLY en cas de connexion à un réplica en lecture seule.
 
-```SQL
+```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
@@ -80,10 +80,9 @@ Une fois connecté à un réplica en lecture seule, vous pouvez accéder aux mé
 > [!NOTE]
 > La DMV `sys.resource_stats` dans la base de données MASTER logique retourne les données sur l’utilisation du processeur et le stockage et du réplica principal.
 
-
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture
 
-La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les niveaux de service Premium, Critique pour l’entreprise et Hyperscale. La fonctionnalité Échelle horizontale en lecture ne peut pas être activée aux niveaux de service De base, Standard ou Usage général. La fonctionnalité Échelle horizontale en lecture est automatiquement désactivée sur les bases de données Hyperscale configurées avec 0 réplica. 
+La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les niveaux de service Premium, Critique pour l’entreprise et Hyperscale. La fonctionnalité Échelle horizontale en lecture ne peut pas être activée aux niveaux de service De base, Standard ou Usage général. La fonctionnalité Échelle horizontale en lecture est automatiquement désactivée sur les bases de données Hyperscale configurées avec 0 réplica.
 
 Vous pouvez désactiver et réactiver la fonctionnalité Échelle horizontale en lecture sur des bases de données uniques et des bases de données de pool élastique aux niveaux de service Premium ou Critique pour l’entreprise à l’aide des méthodes suivantes.
 
@@ -92,29 +91,33 @@ Vous pouvez désactiver et réactiver la fonctionnalité Échelle horizontale en
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer**. 
+Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer**.
 
 ### <a name="powershell"></a>PowerShell
 
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
+
 La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Vous pouvez activer ou désactiver la fonctionnalité Échelle horizontale en lecture dans Azure PowerShell en appelant la cmdlet [Set-AzureRmSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) et en transmettant la valeur souhaitée – `Enabled` ou `Disabled` -- pour le paramètre `-ReadScale`. 
+Vous pouvez activer ou désactiver la fonctionnalité Échelle horizontale en lecture dans Azure PowerShell en appelant la cmdlet [Set-AzureRmSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) et en transmettant la valeur souhaitée – `Enabled` ou `Disabled` -- pour le paramètre `-ReadScale`.
 
 Pour désactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled
 ```
+
 Pour désactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
-New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled -Edition Premium
 ```
 
 Pour réactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
 ### <a name="rest-api"></a>API REST
@@ -124,10 +127,8 @@ Pour créer une base de données avec la fonctionnalité Échelle horizontale en
 ```rest
 Method: PUT
 URL: https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
-Body:
-{
-   "properties":
-   {
+Body: {
+   "properties": {
       "readScale":"Disabled"
    }
 }
@@ -137,7 +138,7 @@ Pour plus d’informations, consultez [Bases de données - Créer ou mettre à j
 
 ## <a name="using-tempdb-on-read-only-replica"></a>Utilisation de TempDB sur un réplica en lecture seule
 
-La base de données TempDB n’est pas répliquée vers les réplicas en lecture seule. Chaque réplica a sa propre version de la base de données TempDB créée lors de la création du réplica. Il vérifie que TempDB peut être mise à jour et modifié pendant l’exécution de votre requête. Si votre charge de travail en lecture seule dépend de l’utilisation d’objets TempDB, vous devez intégrer ceux-ci dans votre script de requête. 
+La base de données TempDB n’est pas répliquée vers les réplicas en lecture seule. Chaque réplica a sa propre version de la base de données TempDB créée lors de la création du réplica. Il vérifie que TempDB peut être mise à jour et modifié pendant l’exécution de votre requête. Si votre charge de travail en lecture seule dépend de l’utilisation d’objets TempDB, vous devez intégrer ceux-ci dans votre script de requête.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Utilisation de l’échelle horizontale en lecture avec des bases de données géorépliquées
 

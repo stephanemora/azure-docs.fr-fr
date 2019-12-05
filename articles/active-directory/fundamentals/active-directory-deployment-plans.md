@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949676c622c87831d22dcfc7e1bc6d920b622738
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473287"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558526"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
@@ -81,14 +81,14 @@ L’extension du déploiement à des groupes d’utilisateurs plus importants do
 | [ADFS et synchronisation de hachage de mot de passe](https://aka.ms/deploymentplans/adfs2phs)| Avec la synchronisation de hachage de mot de passe, les hachages des mots de passe utilisateur sont synchronisés sur Azure AD à partir de l’installation Active Directory locale. Ainsi, Azure AD permet d’authentifier les utilisateurs sans aucune interaction avec l’installation Active Directory locale. |
 | [ADFS et authentification directe](https://aka.ms/deploymentplans/adfs2pta)| L’authentification directe Azure AD permet à vos utilisateurs de se connecter aux applications locales et aux applications cloud à l’aide des mêmes mots de passe. Cette fonctionnalité offre aux utilisateurs une meilleure expérience : moins de mots de passe à mémoriser et réduction des coûts de support technique informatique, car les utilisateurs sont moins susceptibles d’oublier comment se connecter. Lorsque les utilisateurs se connectent à l’aide d’Azure AD, cette fonctionnalité valide leurs mots de passe directement à partir de l’installation Active Directory locale. |
 | [Proxy d’application Azure AD](https://aka.ms/deploymentplans/appproxy)| Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils doivent accéder aux applications SaaS dans le cloud et aux applications d’entreprise locales. Le proxy Azure AD Application offre cet accès sans réseaux privés virtuels (VPN) ni zones démilitarisées (DMZ), qui sont des systèmes coûteux et complexes. |
-| [Authentification unique fluide](https://aka.ms/SeamlessSSODPDownload)| L’authentification unique transparente Azure Active Directory connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise. Avec cette fonctionnalité, les utilisateurs n’ont plus besoin de taper leur mot de passe pour se connecter à Azure AD ni même, dans la plupart des cas, d’entrer leur nom d’utilisateur. Cette fonctionnalité offre à vos utilisateurs autorisés un accès facilité à vos applications cloud sans nécessiter de composants locaux supplémentaires. |
+| [Authentification unique fluide](../hybrid/how-to-connect-sso-quick-start.md)| L’authentification unique transparente Azure Active Directory connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise. Avec cette fonctionnalité, les utilisateurs n’ont plus besoin de taper leur mot de passe pour se connecter à Azure AD ni même, dans la plupart des cas, d’entrer leur nom d’utilisateur. Cette fonctionnalité offre à vos utilisateurs autorisés un accès facilité à vos applications cloud sans nécessiter de composants locaux supplémentaires. |
 
 ## <a name="deploy-user-provisioning"></a>Déployer l’approvisionnement d’utilisateurs
 
 | Fonctionnalité | Description|
 | -| -|
 | [Approvisionnement d’utilisateurs](https://aka.ms/deploymentplans/userprovisioning)| Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud (SaaS) comme Dropbox, Salesforce, ServiceNow, etc. |
-| [Provisionnement entrant des utilisateurs piloté par Workday](https://aka.ms/WorkdayDeploymentPlan)| Le provisionnement entrant des utilisateurs vers Active Directory piloté par Workday crée une base pour la gouvernance continue des identités et améliore la qualité des processus métier qui s’appuient sur les données d’identité faisant autorité. À l’aide de cette fonctionnalité, vous pouvez gérer en toute transparence le cycle de vie des identités des employés et des intérimaires en configurant des règles qui mappent les processus JLM (Joiner-Mover-Leaver) (nouveau recrutement, résiliation ou transfert, par exemple) aux actions d’approvisionnement du service informatique (telles que la création, l’activation, la désactivation). |
+| [Provisionnement des utilisateurs d’applications de RH cloud](https://aka.ms/deploymentplans/cloudhr)| Le provisionnement des utilisateurs d’applications de RH (ressources humaines) cloud dans Active Directory crée une base pour la gouvernance continue des identités. De plus, il améliore la qualité des processus métier qui reposent sur les données d’identité faisant autorité. En utilisant cette fonctionnalité avec votre produit de RH cloud, par exemple Workday ou Successfactors, vous pouvez gérer de manière fluide le cycle de vie des identités des employés et des intérimaires en configurant des règles qui mappent les processus Joiner-Mover-Leaver (recrutement, résiliation ou transfert, par exemple) aux actions de provisionnement du service informatique (création, activation ou désactivation, par exemple) |
 
 ## <a name="deploy-governance-and-reporting"></a>Déployer la gouvernance et la création de rapports
 

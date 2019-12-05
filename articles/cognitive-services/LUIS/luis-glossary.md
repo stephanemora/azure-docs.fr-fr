@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499567"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325949"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -30,17 +30,16 @@ La création correspond à la possibilité de créer, de gérer et de déployer 
 
 ## <a name="authoring-key"></a>Clé de création
 
-Cette clé, auparavant nommée clé « programmatique », est utilisée pour créer l’application et non pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-boundaries.md#key-limits).   
+Cette clé, auparavant nommée clé « programmatique », est utilisée pour créer l’application et non pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-boundaries.md#key-limits).
 
-## <a name="batch-test-json-file"></a>Fichier JSON texte de commandes
+## <a name="batch-test-json-file"></a>Fichier JSON de tests par lot
 
 Les tests par lot permettent de valider un modèle actuel d’application LUIS avec un ensemble cohérent et connu d’énoncés utilisateurs. Le test par lot est défini dans un [fichier au format JSON](luis-concept-batch-test.md#batch-file-format).
 
-Voir aussi : 
+Voir aussi :
 * [Concepts](luis-concept-batch-test.md)
 * [Guide pratique](luis-how-to-batch-test.md)
 * [Didacticiel](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>Collaborateur
 

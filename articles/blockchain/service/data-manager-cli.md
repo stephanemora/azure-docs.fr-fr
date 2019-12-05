@@ -1,19 +1,15 @@
 ---
-title: Configurer Blockchain Data Manager - Azure CLI
-description: Comment créer et gérer Blockchain Data Manager avec l’interface de ligne de commande Azure
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Configurer Blockchain Data Manager avec Azure CLI - Azure Blockchain Service
+description: Créez et gérez une instance Blockchain Data Manager pour Azure Blockchain Service avec Azure CLI
 ms.date: 11/04/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605901"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455926"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurer Blockchain Data Manager avec Azure CLI
 
@@ -261,7 +257,7 @@ Si vous ajoutez une application blockchain, Blockchain Data Manager décode l’
 
 
 > [!IMPORTANT]
-> Actuellement, les applications blockchain qui déclarent des [types de tableaux](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) ou des [types de mappages](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) Solidity ne sont pas entièrement prises en charge. Les propriétés déclarées comme types de tableaux ou de mappages ne sont pas décodées dans les messages *ContractPropertiesMsg* ou *DecodedContractEventsMsg*.
+> Actuellement, les applications blockchain qui déclarent des [types de tableaux](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) ou [types de mappages](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) Solidity ne sont pas entièrement prises en charge. Les propriétés déclarées comme types de tableaux ou de mappages ne sont pas décodées dans les messages *ContractPropertiesMsg* ou *DecodedContractEventsMsg*.
 
 ``` azurecli
 az resource create \
@@ -419,7 +415,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez de créer un explorateur de messages des transactions blockchain à l’aide de Blockchain Data Manager et d’Azure Cosmos DB.
+Essayez le tutoriel suivant, qui consiste à créer un explorateur de messages des transactions blockchain à l’aide de Blockchain Data Manager et d’Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB](data-manager-cosmosdb.md)

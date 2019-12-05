@@ -1,5 +1,6 @@
 ---
-title: Gérer les captures de paquets avec Azure Network Watcher - PowerShell | Microsoft Docs
+title: Gérer les captures de paquets - Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer la fonctionnalité de capture de paquets de Network Watcher à l’aide de PowerShell
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4158c2c5ce69d1811b20c9937c1d064f4fe657ee
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163942"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277878"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de PowerShell
 

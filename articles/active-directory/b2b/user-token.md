@@ -1,5 +1,5 @@
 ---
-title: Comprendre les jetons utilisateur dans B2B Collaboration - Azure Active Directory | Microsoft Docs
+title: Comprendre les jetons utilisateur dans B2B Collaboration - Azure AD
 description: Référence sur les jetons pour Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c2e872c108e19e21258610edd62899b1029fcd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767184"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271773"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Comprendre les jetons utilisateur Azure AD B2B Collaboration
 

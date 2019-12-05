@@ -1,6 +1,6 @@
 ---
 title: Gérer les problèmes de protection du point de terminaison avec Azure Security Center | Microsoft Docs
-description: Découvrez comment gérer les problèmes de protection du point de terminaison dans Azure Security Center.
+description: Découvrez la supervision de la protection de votre point de terminaison avec Security Center et la façon de résoudre les problèmes qui surviennent.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202071"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558606"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
-Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
+Azure Security Center supervise l’état de protection des logiciels anti-programme malveillant et en fait état dans la page Problèmes de protection du point de terminaison. Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
 
 Security Center signale les problèmes de protection du point de terminaison suivants :
 
@@ -30,7 +30,7 @@ Security Center signale les problèmes de protection du point de terminaison sui
 - Intégrité de la protection du point de terminaison :
 
   - Signature obsolète : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle ne dispose pas des dernières signatures de logiciels anti-programme malveillant.
-  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-services.md#endpoint-supported) pour obtenir la liste de solutions prises en charge.
+  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel. Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-services.md#endpoint-supported) pour obtenir la liste de solutions prises en charge.
   - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
   - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
 
@@ -40,7 +40,7 @@ Security Center signale les problèmes de protection du point de terminaison sui
     >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-Les problèmes de protection du point de terminaison sont présentés sous forme de recommandations dans Security Center.  Si votre environnement est vulnérable aux menaces de logiciels anti-programme malveillant, cette recommandation s’affichera dans **Recommandations** et dans **Calcul**. Pour consulter le **tableau de bord Endpoint protection issues** (Problèmes de protection du point de terminaison), vous devez suivre le flux de travail Calcul.
+Les problèmes de protection du point de terminaison sont présentés sous forme de recommandations dans Security Center. Si votre environnement est vulnérable aux menaces de logiciels anti-programme malveillant, cette recommandation s’affichera dans **Recommandations** et dans **Calcul**. Pour consulter le **tableau de bord Endpoint protection issues** (Problèmes de protection du point de terminaison), vous devez suivre le flux de travail Calcul.
 
 Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment installer des logiciels anti-programme malveillant sur des machines virtuelles Azure et sur des ordinateurs autres qu’Azure.
 

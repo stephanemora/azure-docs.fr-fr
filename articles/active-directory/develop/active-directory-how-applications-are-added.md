@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803441"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532994"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
-Il existe deux représentations des applications dans Azure AD : 
+Il existe deux représentations des applications dans Azure AD :
+
 * Les [objets d’application](app-objects-and-service-principals.md#application-object) : bien qu’il existe des [exceptions](#notes-and-exceptions), les objets d’application peuvent être considérés comme la définition d’une application.
 * Les [principaux de service](app-objects-and-service-principals.md#service-principal-object) : ils peuvent être considérés comme une instance d’une application. En règle générale, les principaux de service référencent un objet d’application, et un objet d’application peut être référencé par plusieurs principaux de service sur plusieurs annuaires.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>À quoi correspondent les objets d’application et d’où viennent-ils ?
+
 Vous pouvez gérer des [objets d’application](app-objects-and-service-principals.md#application-object) dans le portail Azure via [Inscriptions d’application](https://aka.ms/appregistrations). Les objets d’application décrivent l’application à Azure AD et peuvent être considérés comme la définition de l’application. Ils permettent au service de savoir comment émettre des jetons pour l’application, en fonction de ses paramètres. L’objet d’application existe uniquement dans son répertoire de base, même s’il s’agit d’une application mutualisée prenant en charge des principaux de service dans d’autres répertoires. L’objet d’application peut inclure les éléments suivants (ainsi que d’autres informations qui ne sont pas mentionnées ici) :
+
 * Nom, logo et éditeur
 * URI de redirection
 * Secrets (clés symétriques et/ou asymétriques utilisées pour authentifier l’application)
@@ -45,13 +48,15 @@ Vous pouvez gérer des [objets d’application](app-objects-and-service-principa
 * Configuration et métadonnées du proxy
 
 Les objets d’application peuvent être créés via plusieurs méthodes, notamment :
+
 * Via les inscriptions d’application dans le portail Azure
 * Via la création d’une application à l’aide de Visual Studio et la configuration de celle-ci pour utiliser l’authentification Azure AD
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (ce qui crée également un principal de service)
-* À l’aide de l’API Graph Microsoft, de l’API Graph Azure AD ou de PowerShell pour créer une application
+* En utilisant l’API Microsoft Graph ou PowerShell pour créer une application
 * Via beaucoup d’autres méthodes, notamment les différentes expériences de développement dans Azure et les expériences d’explorateur d’API dans tous les centres de développement
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>À quoi correspondent les principaux de service et d’où proviennent-ils ?
+
 Vous pouvez gérer les [principaux de service](app-objects-and-service-principals.md#service-principal-object) dans le portail Azure via les [ Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Ce sont les principaux de service qui gouvernent une application se connectant à Azure AD, et ils peuvent être considérés comme l’instance de l’application dans votre répertoire. Pour toute application donnée, le principal de service peut avoir au maximum un objet d’application (qui est inscrit dans un annuaire de base) et un ou plusieurs objets de principal de service représentant les instances de l’application dans tous les annuaires dans lesquels il agit. 
 
 Le principal de service peut inclure :

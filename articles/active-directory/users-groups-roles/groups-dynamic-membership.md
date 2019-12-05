@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 11/27/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027127"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538787"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 
 > [!NOTE]
 > Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques, mais vous devez posséder le nombre minimum de licences dans le locataire pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre locataire, vous devez disposer d’au moins 1 000 licences pour Azure AD Premium P1 pour répondre aux exigences de licence.
->
+> Aucune licence n’est requise pour les appareils qui sont membres d’un groupe d’appareils dynamique.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
 

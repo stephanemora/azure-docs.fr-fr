@@ -1,21 +1,15 @@
 ---
-title: Limites d’Azure Blockchain
+title: Limites d’Azure Blockchain Service
 description: Vue d’ensemble des limites de service et fonctionnelles dans Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 20c26db9453220270d17801b74d904384c74cb36
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577217"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455646"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites dans Azure Blockchain Service
 
@@ -64,4 +58,4 @@ La diminution de la taille de stockage des registres et journaux n’est pas pri
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Patching, updates, and versions](ledger-versions.md) (Application de correctifs, mises à jour et versions).
+Découvrez-en plus sur les stratégies relatives aux mises à niveau des systèmes et l’application de correctifs à ces derniers  : [Application de correctifs, mises à jour et versions](ledger-versions.md).

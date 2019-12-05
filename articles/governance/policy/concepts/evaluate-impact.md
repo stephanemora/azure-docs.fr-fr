@@ -1,14 +1,14 @@
 ---
 title: Évaluer l’impact d’une nouvelle stratégie Azure
-description: Découvrez le processus à suivre lorsque vous ajoutez une nouvelle stratégie dans votre environnement Azure.
+description: Découvrez le processus à suivre quand vous introduisez une nouvelle définition de stratégie dans votre environnement Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959825"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463528"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Évaluer l’impact d’une nouvelle stratégie Azure
 
@@ -71,6 +71,6 @@ L’implémentation et l’attribution de votre définition de stratégie ne con
 - En savoir plus sur la [structure des définitions de stratégies](./definition-structure.md)
 - En savoir plus sur la [structure des attributions de stratégies](./assignment-structure.md)
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

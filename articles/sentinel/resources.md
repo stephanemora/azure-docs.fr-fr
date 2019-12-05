@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71239976"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484079"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
 
@@ -33,6 +33,39 @@ Connecteurs Azure Logic Apps : <https://docs.microsoft.com/connectors/>
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
 Les journaux d’audit Azure Sentinel sont conservés dans les [journaux d'activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+
+Parmi les opérations prises en charge, voici celles qui peuvent faire l’objet d’un audit.
+
+|Nom d’opération|    Type de ressource|
+|----|----|
+|Créer ou mettre à jour un classeur  |Microsoft.Insights/workbooks|
+|Supprimer un classeur    |Microsoft.Insights/workbooks|
+|Définir un workflow   |Microsoft.Logic/workflows|
+|Supprimer un workflow    |Microsoft.Logic/workflows|
+|Créer une recherche enregistrée    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Supprimer une recherche enregistrée    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Définir un tableau de bord  |Microsoft.Portal/dashboards|
+|Supprimer un tableau de bord   |Microsoft.Portal/dashboards|
+|Mettre à jour des règles d’alerte |Microsoft.SecurityInsights/alertRules|
+|Supprimer des règles d’alerte |Microsoft.SecurityInsights/alertRules|
+|Mettre à jour des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules|
+|Supprimer des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules|
+|Mettre à jour des signets   |Microsoft.SecurityInsights/bookmarks|
+|Supprimer des signets   |Microsoft.SecurityInsights/bookmarks|
+|Mettre à jour des cas   |Microsoft.SecurityInsights/Cases|
+|Mettre à jour une investigation de cas  |Microsoft.SecurityInsights/Cases|
+|Créer des commentaires de cas   |Microsoft.SecurityInsights/Cases|
+|Mettre à jour des connecteurs de données |Microsoft.SecurityInsights/dataConnectors|
+|Supprimer des connecteurs de données |Microsoft.SecurityInsights/dataConnectors|
+|Mettre à jour les paramètres    |Microsoft.SecurityInsights/settings|
+
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Afficher des données audit et de rapport dans Azure Sentinel
+
+Vous pouvez afficher ces données en les transmettant en continu du journal d’activité Azure vers Azure Sentinel, d’où vous pouvez ensuite effectuer des recherches et des analyses à partir de ces données.
+
+1. Connectez la source de données [Activité Azure](connect-azure-activity.md). Une fois cette opération effectuée, les événements d’audit sont transmis en continu à une nouvelle table dans l’écran **Journaux** appelée AzureActivity.
+2. Ensuite, interrogez les données en utilisant KQL, comme vous le feriez avec n’importe quelle autre table.
+
 
 
 ## <a name="vendor-documentation"></a>Documentation du fournisseur

@@ -1,6 +1,6 @@
 ---
-title: 'Gérer vos appareils connectés sur le portail Mon compte : Azure AD'
-description: Comment afficher et désactiver vos appareils connectés à partir de la page Appareils du portail Mon compte.
+title: Gérer vos appareils connectés depuis le portail Mon compte - Azure AD
+description: Guide pratique pour voir et désactiver les appareils connectés à votre compte professionnel ou scolaire dans la page Appareils du portail Mon compte.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804271"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233219"
 ---
-# <a name="manage-your-connected-devices-from-the-my-account-portal"></a>Gérer vos appareils connectés depuis le portail Mon compte
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Gérer les appareils connectés à votre compte professionnel ou scolaire dans la page Appareils
 
 Dans la page **Appareils** du portail **Mon compte**, vous pouvez :
 

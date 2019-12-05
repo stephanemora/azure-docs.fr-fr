@@ -1,22 +1,22 @@
 ---
-title: Configurer la gestion de la session d’authentification avec l’accès conditionnel Azure Active Directory
+title: Configurer la gestion de la session d’authentification - Azure Active Directory
 description: Personnalisez la configuration de la session d’authentification Azure AD, entre autres la fréquence de connexion de l’utilisateur et la persistance de la session de navigateur.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70de9da44d52bd6e93377776a2dbfc1b802dd412
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241693"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483472"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -39,7 +39,17 @@ La configuration par défaut d’Azure Active Directory (Azure AD) pour la fréq
 
 Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
 
-Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OAUTH2 ou OIDC conformément aux standards. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile sont conformes au paramètre.
+Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OAUTH2 ou OIDC conformément aux standards. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile, notamment les applications web suivantes, sont conformes au paramètre.
+
+- Word, Excel, PowerPoint Online
+- OneNote Online
+- Office.com
+- Portail d’administration O365
+- Exchange Online
+- SharePoint et OneDrive
+- Client web Teams
+- Dynamics CRM en ligne
+- Portail Azure
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistance des sessions de navigation
 

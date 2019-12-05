@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6288a7d013256c39e83ee433e867d15f67c81e57
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132823"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555175"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -394,6 +394,146 @@ Au lieu de cela, utilisez la fonction [if()](../../../azure-resource-manager/res
 
 Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** avant d’essayer d’obtenir une `substring()` sur une valeur avec moins de 3 caractères. Si le **nom** est trop court, la valeur « ne commence pas par abc » est retournée à la place et comparée à **abc**. Une ressource avec un nom court qui ne commence pas par **abc** fait toujours échouer la règle de stratégie, mais ne provoque plus d’erreur lors de l’évaluation.
 
+### <a name="count"></a>Count
+
+Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau pour une expression de condition et additionne les résultats _true_, ce qui est ensuite comparé à l’opérateur d’expression.
+
+La structure de l’expression **count** est :
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Les propriétés suivantes sont utilisées avec **count** :
+
+- **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau. Si le tableau est manquant, l’expression est évaluée à _false_ sans tenir compte de l’expression de condition.
+- **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\] ](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
+  Il est possible d’utiliser des [opérateurs logiques](#logical-operators) à l’intérieur de cette propriété pour créer des exigences d’évaluation complexes.
+- **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition **count.where**. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
+
+#### <a name="count-examples"></a>Exemples de comptage
+
+Exemple 1 : Vérifier si un tableau est vide
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Exemple 2 : Rechercher un seul membre du tableau qui satisfait l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Exemple 3 : Rechercher au moins un membre du tableau qui satisfait l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Exemple 4 : Vérifier que tous les membres du tableau d’objets satisfont l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Exemple 5 : Vérifier que tous les membres du tableau de chaînes satisfont l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemple 6 : Utiliser **field** à l’intérieur de **value** pour vérifier que tous les membres du tableau satisfont l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemple 7 : Vérifier qu’au moins un membre du tableau correspond à plusieurs propriétés dans l’expression de condition
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Résultat
 
 Azure Policy prend en charge les types d’effet suivants :
@@ -490,14 +630,15 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 
 ### <a name="understanding-the--alias"></a>Comprendre l’alias [*]
 
-Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom « normal » et une autre avec **[\*]** ajouté. Par exemple :
+Plusieurs des alias disponibles ont une version qui s’affiche sous la forme d’un nom « normal » et une autre avec **\[\*\]** qui lui est attaché. Par exemple :
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est réservé aux scénarios de comparaison de correspondance exacte, lorsque l’ensemble de valeurs entier doit être exactement tel que défini, ni plus ni moins.
 
-L’alias **[\*]** permet de comparer la valeur de chaque élément du tableau et les propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés d’élément pour les scénarios « if none of », «if any of » ou « if all of ». Avec **ipRules[\*]** , il s’agit par exemple de valider que chaque _action_ est définie sur l’état _Deny_ (refusée), sans se préoccuper de savoir combien de règles existent ou quelle est la _valeur_ IP. Cet exemple de règle vérifie toutes les correspondances de **ipRules[\*].value** sur **10.0.4.1** et applique **effectType** uniquement s’il ne trouve pas au moins une correspondance :
+L’alias **\[\*\]** permet de comparer la valeur de chaque élément du tableau et des propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés d’élément pour les scénarios « if none of », «if any of » ou « if all of ». Pour obtenir des scénarios plus complexes, utilisez l’expression de condition [count](#count). Avec **ipRules\[\*\]** , il s’agit, par exemple, de valider que chaque _action_ est définie sur _Deny_ (Refuser), sans se préoccuper de savoir combien de règles existent ou quelle est la _valeur_ d’adresse IP.
+Cet exemple de règle vérifie toutes les correspondances de **ipRules\[\*\].value** avec **10.0.4.1** et applique **effectType** uniquement s’il ne trouve pas au moins une correspondance :
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ L’alias **[\*]** permet de comparer la valeur de chaque élément du tableau e
     }
 }
 ```
+
+
 
 Pour plus d’informations, consultez [l’évaluation de l’alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -604,6 +747,6 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 - Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

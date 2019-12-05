@@ -1,22 +1,22 @@
 ---
-title: Prévention des attaques par force brute avec le verrouillage intelligent Azure AD - Azure Active Directory
+title: Prévention des attaques avec le verrouillage intelligent - Azure Active Directory
 description: Le verrouillage intelligent d’Azure Active Directory permet de protéger votre organisation contre les attaques par force brute visant à deviner vos mots de passe.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 066c4cb598d9a8c14ab5d6ee893376266e104d15
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125018"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381529"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
@@ -67,7 +67,8 @@ En fonction des besoins de votre organisation, les valeurs de verrouillage intel
 
 Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre organisation, procédez aux étapes suivantes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** > **Méthodes d’authentification** > **Protection par mot de passe**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Méthodes d’authentification** > **Protection par mot de passe**.
 1. Définissez le **Seuil de verrouillage**, c’est-à-dire le nombre d’échecs de connexions autorisé avant qu’un compte ne soit verrouillé. La valeur par défaut est de 10.
 1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage. La valeur par défaut est 60 secondes (une minute).
 

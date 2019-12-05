@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: de0eb685e212b59705d8d659cbe9627338697e9d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854527"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546370"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -398,6 +398,45 @@ L’approche par préamorçage a actuellement quelques limitations.
 - La fidélité optimale sur les fichiers n’est pas conservée. Par exemple, les fichiers perdent les ACL et les timestamps.
 - Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation ne soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
 - Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
+
+## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)
+Versions précédentes est une fonctionnalité Windows qui vous offre la possibilité d’utiliser les instantanés VSS côté serveur d’un volume pour présenter les versions restaurables d’un fichier à un client SMB.
+Ce scénario puissant, communément appelé restauration libre-service, permet aux professionnels de l’information de ne plus dépendre de la restauration d’un administrateur informatique.
+
+Les instantanés VSS et Versions précédentes fonctionnent indépendamment d'Azure File Sync. Toutefois, la hiérarchisation cloud doit être définie sur un mode compatible. De nombreux points de terminaison de serveur Azure File Sync peuvent être présents sur le même volume. Vous devez effectuer l’appel PowerShell suivant par volume doté d'un point de terminaison de serveur sur lequel vous envisagez d'utiliser ou utilisez la hiérarchisation cloud.
+
+```powershell
+Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
+```
+
+Les instantanés VSS portent sur un volume entier. Par défaut, jusqu’à 64 instantanés peuvent être présents pour un volume donné, sous réserve d'espace suffisant pour stocker ces instantanés. VSS gère cela automatiquement. Par défaut, deux instantanés sont prévus quotidiennement, du lundi au vendredi. Cette planification peut être configurée à l’aide d’une tâche planifiée Windows. La cmdlet PowerShell ci-dessus effectue deux opérations :
+1. Elle configure la hiérarchisation cloud Azure file Sync sur le volume spécifié à des fins de compatibilité avec les versions précédentes et garantit la restauration d'un fichier à partir d’une version précédente, même si celui-ci faisait l'objet d'une hiérarchisation cloud sur le serveur. 
+2. Elle active la planification VSS par défaut. Vous pouvez cependant la modifier ultérieurement. 
+
+> [!Note]  
+> Deux points importants sont à prendre en considération :
+>- Si vous utilisez le paramètre -Force et que VSS est activé, il remplace la planification d'instantanés VSS par la planification par défaut. Veillez à enregistrer votre configuration personnalisée avant d’exécuter la cmdlet.
+> - Si vous utilisez cette cmdlet sur un nœud de cluster, vous devez également l’exécuter sur tous les autres nœuds du cluster. 
+
+Pour savoir si la compatibilité de la restauration libre-service est activée, exécutez la cmdlet suivante.
+
+```powershell
+    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+```
+
+Elle répertorie tous les volumes présents sur le serveur, ainsi que le nombre de jours compatibles avec la hiérarchisation cloud de chacun. Ce nombre est automatiquement calculé en fonction du nombre maximal d’instantanés possibles par volume et de la planification d'instantanés par défaut. Ainsi, par défaut, toutes les versions précédentes présentées à un professionnel de l’information peuvent être utilisées à des fins de restauration. Il en va de même si vous modifiez la planification par défaut afin de permettre plus d'instantanés.
+Cela étant, si vous modifiez la planification de manière à obtenir un instantané disponible sur le volume antérieur à la valeur de jours compatibles, les utilisateurs ne pourront pas utiliser cet instantané antérieur (version précédente) à des fins de restauration.
+
+> [!Note]
+> L’activation de la restauration libre-service peut avoir un impact sur votre consommation de stockage Azure et votre facture. Cet impact est limité aux fichiers actuellement hiérarchisés sur le serveur. L’activation de cette fonctionnalité permet de s’assurer qu’une version de fichier disponible dans le cloud peut être référencée via une entrée de versions précédentes (instantané VSS).
+>
+> Si vous désactivez la fonctionnalité, la consommation du stockage Azure diminue progressivement jusqu'au terme de la fenêtre de jours compatibles. Il n'existe aucun moyen de l'accélérer. 
+
+Le nombre maximal d'instantanés VSS par volume par défaut (64), ainsi que leur planification par défaut, se traduisent par un maximum de 45 jours de versions précédentes pouvant être restaurées par un professionnel de l’information et ce, en fonction du nombre d'instantanés VSS que vous pouvez stocker sur votre volume.
+
+Si le paramètre de 65 instantanés VSS par volume ne vous convient pas, vous pouvez [modifier cette valeur via une clé de Registre](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Pour que la nouvelle limite prenne effet, vous devez réexécuter la cmdlet de manière à activer la compatibilité des versions précédentes sur chaque volume sur lequel elle était précédemment activée, avec l'indicateur -Force afin de prendre en compte le nouveau nombre maximal d'instantanés VSS par volume. Un nouveau nombre de jours compatibles est alors calculé. Notez que cette modification prend uniquement effet sur les fichiers nouvellement hiérarchisés et remplace les personnalisations apportées à la planification VSS que vous avez peut-être établie.
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrer un déploiement de la réplication DFS (DFS-R) vers Azure File Sync
 Pour migrer un déploiement de DFS-R vers Azure File Sync :

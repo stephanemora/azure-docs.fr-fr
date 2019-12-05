@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821197"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279228"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication SQL Database
 
@@ -79,6 +79,9 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement d�
 ## <a name="fixed-known-issues"></a>Problèmes connus résolus
 
 - **Août 2019** : Les bases de données autonomes sont entièrement prises en charge dans une instance managée.
+- **Octobre 2019** – La restauration intégrée de base de données à un point dans le temps du niveau Critique pour l’entreprise vers le niveau Usage général échoue si la base de données source contient des objets OLTP en mémoire.
+- **Octobre 2019** – Vous pouvez utiliser la fonctionnalité **Database Mail** avec des serveurs de messagerie externes (non Azure) avec une connexion sécurisée.
+- **Novembre 2019** – La cohérence de la base de données est vérifiée à l’aide de `DBCC CHECKDB` après la restauration de la base de données à partir de Stockage Blob Azure.
 
 ## <a name="updates"></a>Mises à jour
 

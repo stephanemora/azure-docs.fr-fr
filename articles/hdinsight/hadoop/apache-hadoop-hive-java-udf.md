@@ -2,18 +2,18 @@
 title: Fonction définie par l’utilisateur (UDF) de Java avec Apache Hive Apache Hive
 description: Découvrez comment créer une fonction définie par l’utilisateur basée sur Java qui fonctionne avec Apache Hive. Cet exemple UDF convertit un tableau de chaînes de texte en minuscules.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/20/2019
+ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044778"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327206"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Apache Hive dans HDInsight
 
@@ -32,6 +32,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
     > Si vous créez les fichiers Python sur un client Windows, vous avez besoin d’un éditeur qui utilise LF comme fin de ligne. Si vous ne savez pas si votre éditeur utilise LF ou CRLF, consultez la section [Dépannage](#troubleshooting) pour savoir comment supprimer le caractère CR.
 
 ## <a name="test-environment"></a>Environnement de test
+
 L’environnement utilisé pour cet article était un ordinateur exécutant Windows 10.  Les commandes ont été exécutées dans une invite de commandes, et les différents fichiers ont été modifiés avec le bloc-notes. Modifiez en conséquence pour votre environnement.
 
 Dans une invite de commandes, entrez les commandes suivantes afin de créer un environnement de travail :
@@ -250,7 +251,7 @@ Dans les commandes ci-dessous, remplacez `sshuser` par le nom d’utilisateur r�
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque vous exécutez le travail hive, vous pouvez rencontrer une erreur similaire au texte suivant :
+Quand vous exécutez le travail hive, vous pouvez rencontrer une erreur similaire au texte suivant :
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 

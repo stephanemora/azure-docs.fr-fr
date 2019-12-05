@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506760"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280865"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Conception avec modèles d’intention et d’entité 
 
@@ -37,7 +37,7 @@ La décomposition du modèle comprend les éléments suivants :
 * [entités issues du Machine Learning](#machine-learned-entities)
     * [sous-components](#entity-subcomponents-help-extract-data) (également des entités issues du Machine Learning)
         * [descripteurs](#descriptors-are-features) fournis par des caractéristiques 
-        * [contraintes](#constraints-are-text-rules) fournies par des entités non issues du Machine Learning, telles que des expressions régulières et des listes
+        * [contraintes](#constraints-are-text-rules) fournies par des entités non issues de machine learning, telles que des expressions régulières et des listes
 
 ## <a name="v2-authoring-models"></a>Modèles de Création v2
 
@@ -134,7 +134,7 @@ Une intention est le résultat souhaité de l’énoncé _entier_, tandis que de
 
 Cet énoncé _doit_ avoir une intention et _peut_ avoir des entités :
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 Cet énoncé n’a qu’une seule intention :
 

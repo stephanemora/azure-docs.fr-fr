@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 5a1b293d4d7f652c0cdd95226113ec3ce8f8222c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466146"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555331"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 
@@ -33,7 +33,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor
+> - Intégration à Azure Monitor. Vous ne pouvez pas envoyer en streaming des journaux de diagnostic à partir d’**autres** services Azure dans Event Hubs. Toutefois, vous pouvez activer les journaux de diagnostic Azure sur le hub d’événements lui-même. Il en est de même quand le pare-feu (filtrage IP) est activé.
 > - Azure Stream Analytics
 > - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub

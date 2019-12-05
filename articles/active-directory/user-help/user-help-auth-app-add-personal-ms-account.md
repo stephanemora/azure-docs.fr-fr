@@ -1,6 +1,6 @@
 ---
-title: Ajouter un compte Microsoft personnel à une application Microsoft Authenticator – Azure AD
-description: Indique comment ajouter vos comptes Microsoft personnels, tels que vos comptes Outlook.com ou Xbox LIVE, à l’application Microsoft Authenticator pour la vérification en deux étapes.
+title: Ajouter un compte Microsoft personnel à l’application Microsoft Authenticator – Azure AD
+description: Ajoutez des comptes Microsoft personnels, tels que vos comptes Outlook.com ou Xbox LIVE, à l’application Microsoft Authenticator pour vérifier votre identité en utilisant la vérification à deux facteurs.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820239"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278898"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>Ajout de vos comptes Microsoft personnels
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter des comptes Microsoft personnels à l’application Microsoft Authenticator
 
 Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la méthode de connexion par téléphone sans mot de passe.
 

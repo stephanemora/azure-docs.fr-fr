@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e92ca85c485f8c93fc9202b9084ec37d7506e1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175056"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538800"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -30,7 +30,7 @@ Cet article vous apprend à gérer efficacement les appareils obsolètes présen
 Un appareil obsolète est un appareil qui a été inscrit auprès d’Azure AD, mais n’a pas été utilisé pour accéder à des applications cloud depuis un certain temps. Les appareils obsolètes ont un impact sur votre capacité à gérer et prendre en charge vos utilisateurs et appareils associés au locataire, et ce, pour les raisons suivantes : 
 
 - Les appareils dupliqués peuvent rendre compliquée l’identification de l’appareil actuellement actif par le personnel du support technique.
-- Le nombre accru d’appareils entraîne des réécritures d’appareil inutiles qui allongent la durée des synchronisations d’AAD Connect.
+- Le nombre accru d’appareils entraîne des réécritures d’appareil inutiles qui allongent la durée des synchronisations Azure AD Connect.
 - À des fins de maintenance générale et de conformité, vous souhaitez peut-être disposer d’appareils présentant un état propre. 
 
 Les appareils obsolètes dans Azure AD peuvent interférer avec les stratégies générales de cycle de vie des appareils de votre organisation.
@@ -89,7 +89,7 @@ Si votre appareil est contrôlé par Intune ou toute autre solution GPM, retirez
 
 ### <a name="system-managed-devices"></a>Appareils gérés par le système
 
-Ne supprimez pas des appareils gérés par le système. Il s’agit souvent d’appareils tels que des pilotes automatiques. Une fois supprimés, ces appareils ne peuvent pas être reprovisionnés. Par défaut, la nouvelle cmdlet `get-msoldevice` exclut les appareils gérés par le système. 
+Ne supprimez pas des appareils gérés par le système. Il s’agit souvent d’appareils comme Autopilot. Une fois supprimés, ces appareils ne peuvent pas être reprovisionnés. Par défaut, la nouvelle cmdlet `get-msoldevice` exclut les appareils gérés par le système. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Appareils joints Azure AD hybrides
 
@@ -125,7 +125,7 @@ Désactivez ou supprimez les appareils inscrits à Azure AD dans Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Nettoyer les appareils obsolètes dans le Portail Azure  
 
-Vous pouvez nettoyer les appareils obsolètes dans le Portail Azure. Cependant, il est plus efficace d’effectuer cette tâche à l’aide d’un script PowerShell. Utilisez le dernier module PowerShell V1 pour utiliser le filtre de timestamp et filtrer les appareils gérés par le système comme les pilotes automatiques. À ce stade, l’utilisation de PowerShell V2 est déconseillée.
+Vous pouvez nettoyer les appareils obsolètes dans le Portail Azure. Cependant, il est plus efficace d’effectuer cette tâche à l’aide d’un script PowerShell. Utilisez le dernier module PowerShell V1 pour utiliser le filtre d’horodatage et filtrer les appareils gérés par le système comme Autopilot. À ce stade, l’utilisation de PowerShell V2 est déconseillée.
 
 La procédure classique se déroule comme suit :
 

@@ -1,5 +1,6 @@
 ---
-title: Diagnostiquer la connectivité locale via une passerelle VPN avec Azure Network Watcher | Microsoft Docs
+title: Diagnostiquer la connectivité locale via une passerelle VPN
+titleSuffix: Azure Network Watcher
 description: Cet article décrit comment diagnostiquer la connectivité locale via une passerelle VPN avec la résolution des problèmes des ressources d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754066"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531826"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
 
@@ -41,7 +42,7 @@ Vous pouvez configurer une connexion site à site entre Azure et votre site loca
 
 Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant : [Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-L’une des étapes critiques de configuration consiste à configurer les paramètres de communication IPsec. Une mauvaise configuration entraîne une perte de connectivité entre le réseau local et Azure. Les passerelles VPN Azure sont actuellement configurées pour prendre en charge les paramètres IPsec suivants pour la phase 1. Notez, comme mentionné précédemment, que ces paramètres ne peuvent pas être modifiés.  Comme vous pouvez le voir dans le tableau ci-dessous, les algorithmes de chiffrement pris en charge par la passerelle VPN Azure sont AES256 AES128 et 3DES.
+L’une des étapes critiques de configuration consiste à configurer les paramètres de communication IPsec. Une mauvaise configuration entraîne une perte de connectivité entre le réseau local et Azure. Les passerelles VPN Azure sont actuellement configurées pour prendre en charge les paramètres IPsec suivants pour la phase 1. Comme vous pouvez le voir dans le tableau ci-dessous, les algorithmes de chiffrement pris en charge par la passerelle VPN Azure sont AES256 AES128 et 3DES.
 
 ### <a name="ike-phase-1-setup"></a>Configuration IKE phase 1
 
@@ -52,7 +53,7 @@ L’une des étapes critiques de configuration consiste à configurer les param�
 | Méthode d'authentification |Clé prépartagée |Clé prépartagée |
 | Algorithmes de chiffrement |AES256 AES128 3DES |AES256 3DES |
 | Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10 800 secondes |
+| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |28 800 secondes |
 
 En tant qu’utilisateur, vous êtes obligé de configurer FortiGate. Vous trouverez un exemple de configuration sur [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sans le savoir, vous avez configuré FortiGate pour qu’il utilise SHA-512 comme algorithme de hachage. Comme cet algorithme n’est pas un algorithme pris en charge pour les connexions basées sur une stratégie, votre connexion VPN ne fonctionne pas.
 

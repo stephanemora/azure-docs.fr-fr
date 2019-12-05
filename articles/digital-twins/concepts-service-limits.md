@@ -1,19 +1,19 @@
 ---
 title: Limites de service de la préversion publique – Azure Digital Twins | Microsoft Docs
-description: Découvrez les limites de service de la préversion publique pour Azure Digital Twins.
+description: Découvrez les limites de service de la préversion publique, d’abonnement, d’instance et de débit pour Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: f54311af65d9678b2a51b23a38bab66111a818ca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014164"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383069"
 ---
 # <a name="public-preview-service-limits"></a>Limites de service de la préversion publique
 

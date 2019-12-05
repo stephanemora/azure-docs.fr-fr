@@ -1,23 +1,14 @@
 ---
-title: Types de ressources et fournisseurs de ressources Azure | Microsoft Docs
+title: Fournisseurs et types de ressources
 description: Décrit les fournisseurs de ressources qui prennent en charge Resource Manager, ainsi que les schémas et versions d’API disponibles et les régions pouvant héberger les ressources.
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2019
-ms.author: tomfitz
-ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 73cc053ab2ca19f42e3c45b8350d1e2baedfcc7a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164824"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422207"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fournisseurs et types de ressources Azure
 
@@ -43,9 +34,10 @@ Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azur
 Pour afficher tous les fournisseurs de ressources et l'état d'inscription de votre abonnement :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services**.
+2. Dans le menu du portail Azure, sélectionnez **Tous les services**.
 
-    ![sélectionner les abonnements](./media/resource-manager-supported-services/select-subscriptions.png)
+    ![sélectionner les abonnements](./media/resource-manager-supported-services/select-all-services.png)
+
 3. Dans la zone **Tous les services**, entrez **Abonnement**, puis sélectionnez **Abonnements**.
 4. Sélectionnez l'abonnement dans la liste.
 5. Sélectionnez **Fournisseurs de ressources** et affichez la liste des fournisseurs de ressources disponibles.
@@ -59,11 +51,11 @@ Pour afficher tous les fournisseurs de ressources et l'état d'inscription de vo
 Pour afficher des informations pour un fournisseur de ressources particulier :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services**.
-
-    ![sélectionner Tous les services](./media/resource-manager-supported-services/more-services.png)
-
+2. Dans le menu du portail Azure, sélectionnez **Tous les services**.
 3. Dans la zone **Tous les services**, entrez **Explorateur de ressources**, puis sélectionnez **Explorateur de ressources**.
+
+    ![sélectionner Tous les services](./media/resource-manager-supported-services/select-resource-explorer.png)
+
 4. Développez **Fournisseurs** en sélectionnant la flèche droite.
 
     ![sélectionner les fournisseurs](./media/resource-manager-supported-services/select-providers.png)

@@ -3,19 +3,19 @@ title: Présentation d’Azure Advisor | Microsoft Docs
 description: Le conseiller Azure permet d’optimiser vos déploiements Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sagupt
+ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069686"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145375"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -37,6 +37,7 @@ Le tableau de bord Advisor affiche des recommandations personnalisées pour l’
 * **Sécurité** : permet de détecter les menaces et vulnérabilités pouvant conduire à des failles de sécurité. Pour plus d’informations, consultez [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md).
 * **Performances** : pour améliorer la vitesse de vos applications. Pour plus d’informations, consultez [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md).
 * **Coût** : pour optimiser et réduire vos dépenses Azure globales. Pour plus d’informations, consultez [Recommandations du conseiller en matière de coût](advisor-cost-recommendations.md).
+* **Excellence opérationnelle :** à des fins d'efficacité des processus et des workflows, de gestion des ressources et de déploiement. . Pour plus d'informations, consultez [Recommandations d’excellence opérationnelle Advisor](advisor-operational-excellence-recommendations.md).
 
   ![Types de recommandation du conseiller](./media/advisor-overview/advisor-dashboard.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
+title: Rôles, autorisations et sécurité dans Azure Monitor
 description: Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources.
 author: johnkemnetz
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260622"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305163"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

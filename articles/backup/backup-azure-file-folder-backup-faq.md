@@ -1,18 +1,14 @@
 ---
-title: Sauvegarde des fichiers et des dossiers avec Sauvegarde Azure - Questions courantes
+title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: dacurwin
-ms.openlocfilehash: c65c04a67b92642d3664293dd666236919142f12
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074190"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173057"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 

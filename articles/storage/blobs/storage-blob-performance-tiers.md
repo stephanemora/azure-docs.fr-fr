@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932271"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270217"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveaux de performance du stockage d’objets blob de blocs
 
@@ -54,6 +54,12 @@ Le stockage du niveau de performance Premium est adapté aux charges de travail 
 ## <a name="standard-performance"></a>Niveau de performance Standard
 
 Le niveau de performance Standard prend en charge différents [niveaux d'accès](storage-blob-storage-tiers.md) pour stocker les données de la manière la plus économique. Il est optimisé pour une capacité et un débit élevés sur les jeux de données volumineux.
+
+- **Jeux de données de sauvegarde et reprise d’activité après sinistre**. Le stockage de performances standard offre des niveaux à coûts réduits, ce qui en fait un cas d’utilisation parfait pour les jeux de données de reprise d’activité à court terme et à long terme, les sauvegardes secondaires et l’archivage des données de conformité.
+
+- **Contenu multimédia**. Souvent, les images et les vidéos font l’objet d’accès fréquents lorsqu’elles sont créées et stockées, puis ce type de contenu est de moins en moins utilisé au fil du temps. Le stockage de performances standard offre des niveaux adaptés aux besoins en contenus multimédia. 
+
+- **Traitement des données en bloc**. Ces types de charges de travail conviennent pour le stockage standard, car elles requièrent un stockage à haut débit et à coûts réduits plutôt qu’une faible latence constante. De grands ensembles de données brutes sont conservés pour traitement et peuvent être migrés vers des niveaux de stockage plus froids.
 
 ## <a name="migrate-from-standard-to-premium"></a>Migrer de Standard à Premium
 

@@ -1,18 +1,18 @@
 ---
 title: Ajouter des outils de migration dans Azure Migrate
-description: Décrit comment ajouter des outils de migration dans le hub Azure Migrate.
+description: Découvrez comment ajouter des outils de migration dans Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.manager: carmonm
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: b3c77f052ed92db235b363e63859b9beb9e4f5a2
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810240"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185963"
 ---
 # <a name="add-migration-tools"></a>Ajouter des outils de migration
 

@@ -1,18 +1,14 @@
 ---
-title: À propos des référentiels et des images dans Azure Container Registry
+title: À propos des dépôts et des images
 description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et des images conteneur.
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: danlep
-ms.openlocfilehash: 9a3d4a7d9c3fd4a0465d4e780024559a71372d9d
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300203"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455291"
 ---
 # <a name="about-registries-repositories-and-images"></a>À propos des registres, des dépôts et des images
 

@@ -1,19 +1,14 @@
 ---
-title: Référence de schéma de webhook Azure Container Registry
-description: Référence de charge utile JSON de requête de Webhook pour Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Référence de schéma de webhook Registry
+description: Informations de référence pour la charge utile JSON liée aux requêtes de webhook dans un registre de conteneurs Azure, qui sont générées quand des webhooks sont activés pour les événements de suppression ou d’envoi (push) d’artefacts
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: danlep
-ms.openlocfilehash: fcdee2be92f2a3052e2ebbfaab3a2f9cb96e0125
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311596"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455960"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811288"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539339"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
 
@@ -43,6 +43,12 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | Nombre maximal de sessions simultanées | 300 |
 |||
 
+> [!IMPORTANT]
+> Le niveau de service De base propose moins d’un vCore (processeur).  Pour les charges de travail gourmandes en ressources processeur, un niveau de service S3 ou supérieur est recommandé. 
+>
+>En ce qui concerne le stockage des données, le niveau de service De base est placé dans des objets blob de pages Standard. Les objets blob de pages Standard utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement, de test et d’accès peu fréquent, qui sont moins sensibles à la variabilité du niveau de performance.
+>
+
 ### <a name="standard-service-tier"></a>Niveau de service Standard
 
 | **Taille de calcul** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
 | Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
 ||||||
+
+> [!IMPORTANT]
+> Les niveaux Standard S0, S1 et S2 proposent moins d’un vCore (processeur).  Pour les charges de travail gourmandes en ressources processeur, un niveau de service S3 ou supérieur est recommandé. 
+>
+>En ce qui concerne le stockage des données, les niveaux de service Standard S0 et S1 sont placés dans des objets blob de pages Standard. Les objets blob de pages Standard utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement, de test et d’accès peu fréquent, qui sont moins sensibles à la variabilité du niveau de performance.
+>
 
 ### <a name="standard-service-tier-continued"></a>Niveau de service Standard (suite)
 

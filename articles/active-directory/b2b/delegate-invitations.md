@@ -1,5 +1,5 @@
 ---
-title: Gérer les paramètres de la collaboration B2B externe - Azure Active Directory | Microsoft Docs
+title: Activer les paramètres de collaboration B2B externe - Azure AD
 description: Découvrez comment activer la collaboration B2B externe dans Active Directory et gérer les utilisateurs autorisés à en inviter d’autres. Utilisez le rôle Inviteur d’invités pour déléguer des invitations.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812668"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272896"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 

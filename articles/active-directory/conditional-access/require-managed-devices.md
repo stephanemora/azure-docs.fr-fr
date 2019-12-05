@@ -1,22 +1,22 @@
 ---
-title: 'Guide pratique : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel Azure Active Directory | Microsoft Docs'
+title: 'Accès conditionnel : Exiger l’acceptation un appareil géré - Azure Active Directory'
 description: Découvrez comment configurer des stratégies d’accès conditionnel Azure Active Directory (Azure AD) basées sur les appareils qui exigent des appareils gérés pour accéder aux applications cloud.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/22/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509361"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452398"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -79,7 +79,7 @@ L’option *Exiger que l’appareil soit marqué comme conforme* est la façon l
 
 Cette option exige qu’un appareil soit inscrit auprès d’Azure AD et qu’il soit marqué comme conforme par :
          
-- Intune.
+- Intune
 - Système MDM tiers qui gère les appareils Windows 10 via l’intégration d’Azure AD. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
  
 ![Conditions basées sur l’appareil](./media/require-managed-devices/46.png)
@@ -90,6 +90,9 @@ Pour un appareil marqué comme conforme, vous pouvez partir du principe que :
 - Les appareils mobiles que votre personnel utilise sont gérés.
 - Les informations de votre entreprise sont protégées grâce au contrôle de la manière dont votre personnel y accède et les partage.
 - L’appareil et ses applications sont conformes aux exigences de sécurité de l’entreprise.
+
+> [!NOTE]
+> Si vous configurez une stratégie pour exiger des appareils conformes, les utilisateurs peuvent être invités sur Mac, iOS et Android à sélectionner un certificat d’appareil lors de l’évaluation de la stratégie. Il s'agit d'un comportement connu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

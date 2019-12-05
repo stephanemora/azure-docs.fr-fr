@@ -1,5 +1,5 @@
 ---
-title: Considérations sur la topologie du réseau pour le proxy d’application Azure AD | Microsoft Docs
+title: Considérations sur la topologie du réseau du proxy d’application Azure AD
 description: Couvre les considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7320df63885f562b4724285a3ca5c3cf6ea2a52
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381451"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275481"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory
 

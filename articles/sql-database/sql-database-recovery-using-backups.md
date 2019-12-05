@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3b0b5b02fa8f369bdfa03726bd5649b70b7bbd48
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091975"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228044"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes de bases de données automatisées
 
@@ -106,7 +106,7 @@ Vous pouvez restaurer des bases de données supprimées à partir du portail Azu
 
 #### <a name="single-azure-sql-database"></a>Base de données Azure SQL unique
 
-Pour récupérer une base de données unique ou mise en pool supprimée à l’aide du portail Azure, ouvrez la page de vue d’ensemble du serveur, puis sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+Pour récupérer une base de données unique ou mise en pool qui a été supprimée telle qu’elle était au moment de sa suppression à partir du portail Azure, ouvrez la page de vue d’ensemble du serveur, puis sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
   ![Capture d’écran de la restauration d’une base de données Azure SQL supprimée](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 

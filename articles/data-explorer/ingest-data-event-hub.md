@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1750267b5780dcfbb227ffcd6bb98e2f77ff1511
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028495"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539285"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingérer des données Event Hub dans Azure Data Explorer
 
@@ -137,6 +137,8 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
     > [!NOTE]
     > * Sélectionnez **My data includes routing info** pour utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires comme indiqué dans les commentaires de l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si à la fois des propriétés statiques et des propriétés dynamiques sont définies, les propriétés dynamiques remplacent les propriétés statiques. 
     > * Seuls les événements mis en file d’attente après que vous avez créé la connexion de données sont ingérés.
+    > * Activez la compression GZip pour le routage statique en ouvrant une [demande de support dans le portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Activez la compression GZip pour le routage dynamique, comme indiqué dans l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
+    > * Le format Avro et les propriétés système d’événement ne sont pas pris en charge sur la charge utile de compression.
 
 ## <a name="copy-the-connection-string"></a>Copier la chaîne de connexion
 

@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012699"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561299"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights
 
-Cet article décrit deux paramètres qui affectent la conservation des données dans votre environnement Azure Time Series Insights.
+Cet article décrit deux paramètres principaux qui affectent la conservation des données dans votre environnement Azure Time Series Insights.
 
 ## <a name="video"></a>Vidéo
 
@@ -88,7 +88,7 @@ Lorsque l’entrée reprend :
 
 Dans les Event Hubs concernés, envisagez d’ajuster la propriété **Conservation des messages** afin de minimiser la perte de données lorsque l’entrée est suspendue dans Time Series Insights.
 
-[![Conservation des messages Event Hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Conservation des messages Event Hub.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 Si aucune propriété n’est configurée sur la source d’événements (`timeStampPropertyName`), Time Series Insights utilise par défaut l’horodatage d’arrivée dans Event Hub comme axe des abscisses. Si le paramètre `timeStampPropertyName` est configuré sur une autre valeur, l’environnement recherche la propriété `timeStampPropertyName` configurée dans le paquet de données lorsque les événements sont analysés.
 

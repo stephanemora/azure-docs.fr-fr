@@ -11,72 +11,73 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013496"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422585"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entités et leur objectif dans LUIS
 
-L’objectif principal des entités est de donner à l’application cliente une extraction prévisible des données. Un objectif secondaire _facultatif_ est d’améliorer la prédiction de l’intention à l’aide de descripteurs. 
+L’objectif principal des entités est de donner à l’application cliente une extraction prévisible des données. Un objectif secondaire _facultatif_ est d’améliorer la prédiction de l’intention ou d’autres entités à l’aide de descripteurs.
 
-Il existe deux types d’entités : 
+Il existe deux types d’entités :
 
 * issue de l’apprentissage automatique, à partir du contexte
-* non issue de l’apprentissage automatique, pour les correspondances de texte exactes
+* non issue de machine learning, pour les correspondances de texte exactes, les correspondances de modèle ou la détection par des entités prédéfinies
 
-Commencez toujours par une entité issue de l’apprentissage automatique, car elle fournit le plus large éventail de choix en matière d’extraction de données.
-
-## <a name="entity-compared-to-intent"></a>Comparaison entre entité et intention
-
-L’entité représente un concept de données à l’intérieur de l’énoncé que vous souhaitez extraire. 
-
-Examinez les trois énoncés suivants :
-
-|Énoncé|Données extraites|Explication|
-|--|--|--|
-|`Help`|-|Rien à extraire.|
-|`Send Bob a present`|Bob, présent|Bob est sans aucun doute important pour accomplir la tâche. Le présent peut être une information suffisante ou le bot peut avoir besoin de clarifier ce qu’est le présent avec une question de suivi.|
-|`Send Bob a box of chocolates.`|Les deux données importantes, Bob et la boîte de chocolats, sont importantes pour compléter la demande de l’utilisateur.|
-
-Un énoncé peut inclure plusieurs entités ou aucune. Une application cliente _peut_ avoir besoin de l’entité pour accomplir sa tâche. 
-
-En comparaison, la prédiction de l’intention d’un énoncé est _obligatoire_ et représente l’énoncé entier. LUIS exige que les exemples d’énoncés soient contenus dans une intention. Si l’intention première de l’énoncé n’est pas importante pour l’application cliente, ajoutez tous les énoncés à l’intention Aucun. 
-
-Si vous constatez, plus tard dans le cycle de vie de l’application, que vous souhaitez décomposer les énoncés, vous pouvez facilement le faire. Il peut s’agir d’organiser les énoncés pendant la rédaction ou d’utiliser l’intention prédite dans l’application cliente. 
-
-Il n’est pas nécessaire d’utiliser l’intention prédite dans l’application cliente, mais elle est retournée dans le cadre de la réponse du point de terminaison de prédiction.
+Les entités issues de machine learning fournissent la plus large gamme de choix d’extraction de données. Les entités non issues de machine learning fonctionnent par correspondance de texte et peuvent être utilisées indépendamment ou comme une [contrainte](#design-entities-for-decomposition) sur une entité issue de machine learning.
 
 ## <a name="entities-represent-data"></a>Les entités représentent les données
 
-Les entités sont des données que vous voulez extraire à partir de l’énoncé. Il peut s’agir d’un nom, d’une date, d’un nom de produit ou d’un groupe de mots. 
+Les entités sont des données que vous souhaitez extraire de l’énoncé, telles que des noms, des dates, des noms de produit ou des groupes de mots significatifs. Un énoncé peut inclure plusieurs entités ou aucune. Une application cliente _peut_ avoir besoin des données pour accomplir sa tâche.
+
+Les entités doivent être étiquetées de manière cohérente sur tous les énoncés d’entraînement pour chaque intention dans un modèle.
+
+ Vous pouvez définir vos propres entités ou utiliser des entités prédéfinies afin de gagner du temps pour les concepts courants comme [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md) et [numéro de téléphone](luis-reference-prebuilt-phonenumber.md).
 
 |Énoncé|Entité|Données|
 |--|--|--|
 |Acheter 3 tickets pour New York|Nombre prédéfini<br>Location.Destination|3<br>New York|
 |Acheter un ticket de New York à Londres pour le 5 mars|Location.Origin<br>Location.Destination<br>datetimeV2 prédéfini|New York<br>Londres<br>5 mars 2018|
 
-## <a name="entities-are-optional-but-highly-recommended"></a>Les entités sont facultatives mais fortement recommandées
+### <a name="entities-are-optional"></a>Les entités sont facultatives
 
-Les intentions sont obligatoires mais les entités sont facultatives. Vous n’avez pas besoin créer des entités pour chaque concept dans votre application, mais uniquement pour ceux dont l’application a besoin pour effectuer une action. 
+Les intentions sont obligatoires mais les entités sont facultatives. Vous n’avez pas besoin créer des entités pour chaque concept dans votre application, mais uniquement pour ceux dont l’application a besoin pour effectuer une action.
 
-Si vos énoncés ne contiennent pas les détails dont votre bot a besoin pour continuer, il est inutile de les ajouter. Vous pouvez les ajouter ultérieurement, au fur et à mesure que votre application arrive à maturité. 
+Si vos énoncés n’ont pas les données requises par l’application cliente, vous n’avez pas besoin d’ajouter des entités. À mesure que votre application se développe et qu’un nouveau besoin de données est identifié, vous pouvez ajouter des entités appropriées à votre modèle LUIS par la suite.
 
-Si vous ne savez pas comment utiliser les informations, ajoutez quelques entités prédéfinies courantes, comme [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md) et [phone number](luis-reference-prebuilt-phonenumber.md).
+## <a name="entity-compared-to-intent"></a>Comparaison entre entité et intention
+
+L’entité représente un concept de données à l’intérieur de l’énoncé que vous souhaitez extraire.
+
+Un énoncé peut éventuellement inclure des entités. En comparaison, la prédiction de l’intention d’un énoncé est _obligatoire_ et représente l’énoncé entier. LUIS exige que les exemples d’énoncés soient contenus dans une intention.
+
+Examinez les 4 énoncés suivants :
+
+|Énoncé|Intention prédite|Entités extraites|Explication|
+|--|--|--|--|
+|Aide|help|-|Rien à extraire.|
+|Envoyer quelque chose|sendSomething|-|Rien à extraire. Le modèle n’a pas été entraîné pour extraire `something` dans ce contexte, et il n’y a pas non plus de destinataire.|
+|Envoyer un cadeau à Bob|sendSomething|`Bob`, `present`|Le modèle a été entraîné avec l’entité prédéfinie [personName](luis-reference-prebuilt-person.md), qui a extrait le nom `Bob`. Une entité issue de machine learning a été utilisée pour extraire `present`.|
+|Envoyer une boîte de chocolats à Bob|sendSomething|`Bob`, `box of chocolates`|Les deux éléments de données importants, `Bob` et `box of chocolates`, ont été extraits par des entités.|
 
 ## <a name="design-entities-for-decomposition"></a>Concevez des entités pour la décomposition
 
-Commencez la conception de votre entité par une entité issue de l’apprentissage automatique. Cela facilite la croissance de la conception et la modification de votre entité au fil du temps. Ajoutez des **sous-composants** (entités enfants) avec des **contraintes** et des **descripteurs** pour terminer la conception de l’entité. 
+Une conception d’entité judicieuse consiste à transformer votre entité de niveau supérieur en entité issue de machine learning. Cela permet de modifier la conception de votre entité au fil du temps et l’utilisation de **sous-composants** (entités enfants), éventuellement avec des **contraintes** et des **descripteurs**, pour décomposer l’entité de niveau supérieur en composants nécessaires à l’application cliente.
 
-Concevoir pour la décomposition permet à LUIS de restituer un degré élevé de résolution des entités à votre application cliente. Cela permet à votre application cliente de se concentrer sur les règles d’entreprise et de confier la résolution des données à LUIS.
+Concevoir pour la décomposition permet à LUIS de restituer un degré élevé de résolution des entités à votre application cliente. Cela permet à votre application cliente de se concentrer sur les règles métier et de confier la résolution des données à LUIS.
 
 ### <a name="machine-learned-entities-are-primary-data-collections"></a>Les entités issues de l’apprentissage automatique sont des collections de données primaires
 
-Les entités issues de l’apprentissage automatique sont l’unité de données de niveau supérieur. Les sous-composants sont des entités enfants d’entités issues de l’apprentissage automatique. 
+Les [**entités issues de machine learning**](tutorial-machine-learned-entity.md) constituent l’unité de données de niveau supérieur. Les sous-composants sont des entités enfants d’entités issues de l’apprentissage automatique.
 
-Les **contraintes** sont des entités de correspondance de texte exacte qui appliquent des règles pour identifier et extraire des données. Les **descripteurs** sont des fonctionnalités appliquées pour améliorer la pertinence des mots ou expressions pour la prédiction.
+Une entité issue de machine learning est déclenchée en fonction du contexte appris par le biais d’énoncés d’entraînement. Les **contraintes** sont des règles facultatives appliquées à une entité issue de machine learning qui limitent davantage le déclenchement en fonction de la définition de correspondance de texte exacte d’une entité non issue de machine learning comme [Liste](reference-entity-list.md) ou [Expression régulière](reference-entity-regular-expression.md). Par exemple, une entité issue de machine learning `size` peut avoir une contrainte d’une entité de liste `sizeList` qui limite l’entité `size` à se déclencher uniquement en présence de valeurs contenues dans l’entité `sizeList`.
+
+Les [**descripteurs**](luis-concept-feature.md) sont des fonctionnalités appliquées afin d’améliorer la pertinence des mots ou expressions pour la prédiction. Ces fonctionnalités sont appelées *descripteurs* parce qu’elles sont utilisées pour *décrire* une intention ou une entité. Les descripteurs décrivent des caractéristiques ou des attributs de données distinctifs, tels que des expressions ou mots importants, que LUIS examine et apprend.
+
+Lorsque vous créez une fonctionnalité de liste d’expressions dans votre application LUIS, elle est activée globalement par défaut et s’applique uniformément à l’ensemble des intentions et des entités. Toutefois, si vous appliquez la liste d’expressions comme descripteur (fonctionnalité) d’une entité issue de machine learning (ou *modèle*), sa portée diminue pour s’appliquer uniquement à ce modèle et n’est plus utilisée avec aucun autre modèle. L’utilisation d’une liste d’expressions comme descripteur d’un modèle participe à la décomposition en aidant à la précision du modèle auquel elle est appliquée.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -91,36 +92,52 @@ Choisissez l’entité en fonction de la façon dont les données doivent être 
 
 |Type d’entité|Objectif|
 |--|--|
-|[**Issue de l’apprentissage automatique**](tutorial-machine-learned-entity.md)|Regroupement parent d’entités, quel que soit le type d’entité. Les entités apprises par la machine apprennent à partir du contexte dans l’énoncé. Cela rend la variation du placement dans les exemples d’énoncés significative. |
+|[**Issue de l’apprentissage automatique**](tutorial-machine-learned-entity.md)|Les entités apprises par la machine apprennent à partir du contexte dans l’énoncé. Regroupement parent d’entités, quel que soit le type d’entité. Cela rend la variation du placement dans les exemples d’énoncés significative. |
 |[**Liste**](reference-entity-list.md)|Liste d’éléments et de leurs synonymes extraits avec une **correspondance exacte du texte**.|
 |[**Pattern.any**](reference-entity-pattern-any.md)|Entité dont la fin est difficile à déterminer. |
 |[**Prédéfinie**](luis-reference-prebuilt-entities.md)|Déjà entraînée à extraire un type spécifique de données comme une URL ou un e-mail. Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet.|
 |[**Expression régulière**](reference-entity-regular-expression.md)|Utilise l’expression régulière pour une **correspondance exacte du texte**.|
 
-### <a name="entity-role-defines-context"></a>Contexte défini par le rôle de l’entité
+## <a name="extracting-contextually-related-data"></a>Extraction de données relatives au contexte
 
-Le rôle d’une entité est l’alias nommé en fonction du contexte dans l’énoncé. Par exemple, un énoncé pour la réservation d’un vol ayant deux emplacements : l’origine et la destination.
+Un énoncé peut contenir au moins deux occurrences d’une entité où la signification des données est basée sur le contexte dans l’énoncé. Par exemple, un énoncé pour la réservation d’un vol ayant deux emplacements : l’origine et la destination.
 
 `Book a flight from Seattle to Cairo`
 
-Les deux exemples d’une entité `location` doivent être extraits. L’application cliente doit connaître le type d’emplacement pour chacun d’entre eux afin de finaliser l’achat du ticket. L’entité `location` a besoin de deux rôles,`origin` et `destination`, et les deux doivent être marqués dans les exemples d’énoncés. 
+Les deux exemples d’une entité `location` doivent être extraits. L’application cliente doit connaître le type d’emplacement pour chacun d’entre eux afin de finaliser l’achat du ticket.
 
-Si LUIS trouve le `location`, mais ne peut pas déterminer le rôle, l’entité de l’emplacement est tout de même retournée. L’application cliente doit donner suite avec une question pour déterminer à quel type d’emplacement l’utilisateur voulait faire référence. 
+Il existe deux techniques d’extraction de données relatives au contexte :
 
-Plusieurs entités peuvent exister dans un énoncé et être extraites sans utiliser de rôles. Si le contexte de la phrase indique la valeur de l’entité, alors un rôle doit être utilisé.
+ * L’entité `location` est une entité issue de machine learning qui utilise deux entités de sous-composants pour capturer `origin` et `destination` (par défaut)
+ * L’entité `location` utilise deux **rôles** `origin` et `destination`
 
-Si l’énoncé inclut une liste d’emplacements, `I want to travel to Seattle, Cairo, and London.`, il s’agit d’une liste où chaque élément n’a qu’une signification. 
+Plusieurs entités peuvent exister dans un énoncé et être extraites sans utiliser la décomposition ni les rôles si le contexte dans lequel elles sont utilisées n’a pas d’importance. Par exemple, si l’énoncé inclut une liste d’emplacements, `I want to travel to Seattle, Cairo, and London.`, il s’agit d’une liste où chaque élément n’a aucune autre signification.
 
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Si vous avez besoin de plus que le nombre maximal d’entités 
+### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Utilisation d’entités de sous-composants d’une entité issue de machine learning pour définir le contexte
 
-Si vous en avez besoin de plus que la limite autorisée, contactez le support. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
+Vous pouvez utiliser une [**entité issue de machine learning**](tutorial-machine-learned-entity.md) pour extraire les données qui décrivent l’action de réservation d’un vol, puis décomposer l’entité de niveau supérieur en composants distincts nécessaires à l’application cliente.
+
+Dans cet exemple, `Book a flight from Seattle to Cairo`, l’entité de niveau supérieur peut être `travelAction` et étiquetée pour extraire `flight from Seattle to Cairo`. Deux entités de sous-composants sont ensuite créées, appelées `origin` et `destination`, avec une contrainte appliquée de l’entité `geographyV2` prédéfinie. Dans les énoncés d’entraînement, les entités `origin` et `destination` sont étiquetées de manière appropriée.
+
+### <a name="using-entity-role-to-define-context"></a>Utilisation du rôle d’entité pour définir le contexte
+
+Un rôle est un alias nommé pour une entité, basé sur le contexte dans l’énoncé. Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles. Dans cet exemple, l’entité `location` a besoin de deux rôles, `origin` et `destination`, et les deux doivent être marqués dans les exemples d’énoncés.
+
+Si LUIS trouve le `location`, mais ne peut pas déterminer le rôle, l’entité de l’emplacement est tout de même retournée. L’application cliente doit donner suite avec une question pour déterminer à quel type d’emplacement l’utilisateur voulait faire référence.
+
+
+## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Si vous avez besoin de plus que le nombre maximal d’entités
+
+Si vous en avez besoin de plus que la limite autorisée, contactez le support. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>État de prédiction d’entité
 
-Le portail LUIS indique quand l’entité, dans un exemple d’énoncé, a une prédiction d’entité différente de celle de l’entité que vous avez sélectionnée. Ce score différent est basé sur le modèle entraîné actuel. 
+Le portail LUIS indique quand l’entité, dans un exemple d’énoncé, a une prédiction d’entité différente de celle de l’entité que vous avez sélectionnée. Ce score différent est basé sur le modèle entraîné actuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts relatifs aux bons [énoncés](luis-concept-utterance.md). 
+Découvrez les concepts relatifs aux bons [énoncés](luis-concept-utterance.md).
 
-Consultez [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
+Consulter [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
+
+Consultez le [tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS](tutorial-machine-learned-entity.md) pour apprendre à extraire des données structurées d’un énoncé à l’aide de l’entité issue de machine learning.

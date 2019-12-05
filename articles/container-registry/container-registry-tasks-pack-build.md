@@ -1,19 +1,14 @@
 ---
-title: Exécuter une image Azure Container Registry à partir d’une application
+title: Créer une image avec Cloud Native Buildpack
 description: Utilisez la commande AZ ACR Pack Build pour créer une image conteneur à partir d’une application et effectuer une transmission de type envoi (push) vers Azure Container Registry, sans utiliser de fichier dockerfile.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: danlep
-ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 9cd1ae464213027cba3012c93c0ca3894c804750
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965910"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456124"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -26,7 +21,7 @@ Pour utiliser les exemples de cet article, vous pouvez utiliser Azure Cloud Shel
 
 ## <a name="use-the-build-command"></a>Utiliser la commande Build
 
-Pour générer et envoyer (push) une image conteneur à l’aide de Cloud Native Buildpacks, exécutez la commande [az acr pack build][az-acr-pack-build]. Tandis que la commande [az acr build][az-acr-build] génère et envoie (push) une image à partir d’une source fichier dockerfile et du code associé, avec `az acr pack build` vous spécifiez directement une arborescence source d’application.
+Pour générer et envoyer (push) une image de conteneur à l’aide de Cloud Native Buildpacks, exécutez la commande [az acr pack build][az-acr-pack-build]. Tandis que la commande [az acr build][az-acr-build] génère et envoie (push) une image à partir d’une source fichier dockerfile et du code associé, avec `az acr pack build` vous spécifiez directement une arborescence source d’application.
 
 Au minimum, spécifiez les éléments suivants lorsque vous exécutez `az acr pack build` :
 
@@ -102,7 +97,7 @@ Accédez à `localhost:8080` dans votre navigateur favori pour voir l’exemple 
 
 Une fois que vous avez généré et envoyé une image conteneur avec `az acr pack build`, vous pouvez la déployer comme n’importe quelle image vers une cible de votre choix. Les options de déploiement Azure incluent l'exécution de cette opération dans [App Service](../app-service/containers/tutorial-custom-docker-image.md) ou le [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre autres.
 
-Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [Automatiser les builds d’image conteneur et la maintenance avec les tâches ACR](container-registry-tasks-overview.md).
+Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [Automatiser les builds d’image de conteneur et la maintenance avec les tâches ACR](container-registry-tasks-overview.md).
 
 
 <!-- LINKS - External -->

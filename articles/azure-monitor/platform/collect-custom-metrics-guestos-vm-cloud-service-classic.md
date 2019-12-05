@@ -1,6 +1,6 @@
 ---
-title: Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques
-description: Envoyez des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud
+title: Envoyer des métriques Cloud Services classiques à une base de données de métriques Azure Monitor
+description: Décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844937"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304783"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 

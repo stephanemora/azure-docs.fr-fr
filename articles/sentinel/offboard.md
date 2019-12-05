@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316743"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464128"
 ---
 # <a name="remove-azure-sentinel-from-your-tenant"></a>Supprimer Azure Sentinel de votre locataire
 
@@ -38,7 +38,7 @@ En arrière-plan, quand vous installez Azure Sentinel, la solution **SecurityIns
 3.  En haut de la page, sélectionnez **Supprimer**.
 
     > [!IMPORTANT]
-    > Si vous supprimez l’espace de travail, l’espace de travail et Azure Sentinel sont supprimés de votre locataire dans Azure Monitor.
+    > Si vous supprimez l’espace de travail, cela risque d’affecter les autres solutions et sources de données qui utilisent cet espace de travail, notamment Azure Monitor. Pour vérifier les solutions qui utilisent cet espace de travail, consultez [Lister les solutions de monitoring installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). Pour savoir quelles données de solutions sont ingérées dans l’espace de travail, consultez [Présentation du volume de données ingéré](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
     ![Supprimer la solution SecurityInsights](media/offboard/delete-solution.png)
 

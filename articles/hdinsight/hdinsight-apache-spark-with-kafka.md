@@ -1,20 +1,19 @@
 ---
 title: Streaming Apache Spark avec Apache Kafka - Azure HDInsight
 description: Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka à l’aide de DStreams. Dans cet exemple, vous diffusez des données à l’aide d’un bloc-notes Jupyter à partir de Spark sur HDInsight.
-keywords: exemple kafka, zookeeper kafka, kafka de diffusion spark, exemple kafka de diffusion spark
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 201e86908b61efa72eed76346f70cfc55e08d03c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 11/21/2019
+ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076811"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327394"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Apache Kafka sur HDInsight
 
@@ -30,7 +29,7 @@ Découvrez comment utiliser [Apache Spark](https://spark.apache.org/) pour diffu
 
 ## <a name="create-the-clusters"></a>Création des clusters
 
-Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka via l’internet public. Tout ce qui communique avec Kafka doit se trouver sur le même réseau virtuel Azure que les nœuds du cluster Kafka. Pour cet exemple, les clusters Kafka et Spark sont situés dans un réseau virtuel Azure. Le diagramme suivant illustre le flux de communication entre les clusters :
+Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka sur l’Internet public. Tout ce qui communique avec Kafka doit se trouver sur le même réseau virtuel Azure que les nœuds du cluster Kafka. Pour cet exemple, les clusters Kafka et Spark sont situés dans un réseau virtuel Azure. Le diagramme suivant illustre le flux de communication entre les clusters :
 
 ![Diagramme des clusters Spark et Kafka dans un réseau virtuel Azure](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
@@ -50,27 +49,23 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     Ce modèle crée un cluster HDInsight 3.6 pour Kafka et Spark.
 
-2. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
+1. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
+
+    |Propriété |Valeur |
+    |---|---|
+    |Resource group|créez un groupe ou sélectionnez un groupe existant.|
+    |Location|choisissez un emplacement géographiquement proche de vous.|
+    |Nom du cluster de base|cette valeur est utilisée comme nom de base pour les clusters Spark et Kafka. Par exemple, si vous entrez **hdistreaming**, un cluster Spark nommé __spark-hdistreaming__ et un cluster Kafka nommé **kafka-hdistreaming** sont créés.|
+    |Nom d’utilisateur de connexion au cluster|nom de l’utilisateur administrateur pour les clusters Spark et Kafka.|
+    |Mot de passe de connexion au cluster|mot de passe de l’utilisateur administrateur pour les clusters Spark et Kafka.|
+    |Nom d’utilisateur SSH|utilisateur SSH à créer pour les clusters Spark et Kafka.|
+    |Mot de passe SSH|mot de passe de l’utilisateur SSH pour les clusters Spark et Kafka.|
 
     ![Paramètres pour le déploiement HDInsight personnalisé](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-    * **Groupe de ressources** : créez un groupe ou sélectionnez un groupe existant. Ce groupe contient le cluster HDInsight.
+1. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
 
-    * **Emplacement** : choisissez un emplacement proche de vous géographiquement.
-
-    * **Nom de cluster de base** : cette valeur sera utilisée comme nom de base pour les clusters Spark et Kafka. Par exemple, si vous entrez **hdistreaming**, un cluster Spark nommé __spark-hdistreaming__ et un cluster Kafka nommé **kafka-hdistreaming** sont créés.
-
-    * **Nom d’utilisateur du cluster** : nom de l’utilisateur administrateur pour les clusters Spark et Kafka.
-
-    * **Mot de passe de la connexion au cluster** : mot de passe de l’utilisateur administrateur pour les clusters Spark et Kafka.
-
-    * **Nom d’utilisateur SSH** : utilisateur SSH à créer pour les clusters Spark et Kafka.
-
-    * **Mot de passe SSH** : mot de passe de l’utilisateur SSH pour les clusters Spark et Kafka.
-
-3. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
-
-4. Enfin, sélectionnez **Achat**. La création des clusters prend environ 20 minutes.
+1. Enfin, sélectionnez **Achat**. La création des clusters prend environ 20 minutes.
 
 Dès que les ressources sont créées, une page de résumé s’affiche.
 
@@ -82,8 +77,6 @@ Dès que les ressources sont créées, une page de résumé s’affiche.
 ## <a name="use-the-notebooks"></a>Obtenir les blocs-notes
 
 Le code de l’exemple décrit dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
-
-Pour terminer cet exemple, suivez les étapes du fichier `README.md`.
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
@@ -98,4 +91,3 @@ Dans ce document, vous avez appris à utiliser Spark pour lire et écrire dans K
 * [Prise en main d’Apache Kafka sur HDInsight](kafka/apache-kafka-get-started.md)
 * [Utiliser MirrorMaker pour créer un réplica d’Apache Kafka sur HDInsight](kafka/apache-kafka-mirroring.md)
 * [Utiliser Apache Storm avec Apache Kafka sur HDInsight](hdinsight-apache-storm-with-kafka.md)
-

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470123"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546189"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, back-ends mobiles et applications API dans le [portail Azure](https://portal.azure.com).
 
-Dans le portail Azure, vous pouvez examiner les *quotas* et les *métriques* d’une application, passer en revue le plan App Service et configurer automatiquement les *alertes* et la *mise à l’échelle* en fonction de ces métriques.
+Dans le portail Azure, vous pouvez examiner les *quotas* et les *métriques* d’une application et d’un plan App Service, et configurer les *alertes* et la *mise à l’échelle automatique* basées sur les métriques.
 
 ## <a name="understand-quotas"></a>Comprendre les quotas
 
@@ -46,7 +46,7 @@ Les quotas des applications gratuites ou partagées sont les suivants :
 | **Bande passante** | Quantité totale de bande passante sortante autorisée pour cette application sur une journée. Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné. |
 | **Système de fichiers** | Quantité totale de stockage autorisée. |
 
-Le seul quota applicable aux applications hébergées dans les plans *De base*, *Standard* et *Premium* est Système de fichiers.
+Le seul quota applicable aux applications hébergées dans *De base*, *Standard* et *Premium* est Système de fichiers.
 
 Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits).
 
@@ -64,6 +64,10 @@ Vous pouvez augmenter ou supprimer les quotas dans votre application en procéda
 
 ## <a name="understand-metrics"></a>Comprendre les métriques
 
+> [!NOTE]
+> **Utilisation de systèmes de fichiers** est une nouvelle métrique déployée à l’échelle mondiale. Vous n’avez aucune donnée à attendre sauf si vous figurez sur la liste verte de la préversion privée.
+> 
+
 Les métriques fournissent des informations sur le comportement de l’application ou du plan App Service.
 
 Pour une application, les métriques disponibles sont les suivantes :
@@ -77,6 +81,7 @@ Pour une application, les métriques disponibles sont les suivantes :
 | **Assemblys actuels** | Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application. |
 | **Données entrantes** | Quantité de bande passante entrante, en Mio, consommée par l’application. |
 | **Données sortantes** | Quantité de bande passante sortante, en Mio, consommée par l’application. |
+| **Utilisation de systèmes de fichiers** | Pourcentage du quota de systèmes de fichiers consommé par l’application. |
 | **Garbage collections de génération 0** | Nombre de fois que les objets de génération 0 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|
 | **Garbage collections de génération 1** | Nombre de fois que les objets de génération 1 ont été récupérés par le Garbage Collector depuis le début du processus d’application. Les garbage collections de génération supérieure comprennent toutes celles de génération inférieure.|
 | **Garbage collections de génération 2** | Nombre de fois que les objets de génération 2 ont été récupérés par le Garbage Collector depuis le début du processus d’application.|

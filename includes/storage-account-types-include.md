@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1a9cebe334b266dfcf7f06608fd6a526ded7179b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0c0f1f4dfd873c8c9a18d300b249ace0295e450e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73991318"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174013"
 ---
 Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 
@@ -27,10 +27,10 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 
 | Type de compte de stockage | Services pris en charge                       | Niveaux de performances pris en charge      | Niveaux d’accès pris en charge         | Options de réplication               | Modèle de déploiement<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Chiffrement<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Universel v2   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Chaud, froid, archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (préversion), RA-GZRS (préversion)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Gestionnaire de ressources             | Chiffré              |
+| Universel v2   | Objet blob, fichier, file d’attente, table, disque et Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Chaud, froid, archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (préversion), RA-GZRS (préversion)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Gestionnaire de ressources             | Chiffré              |
 | Universel v1   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Chiffré              |
 | BlockBlobStorage   | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | Premium                       | N/A                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestionnaire de ressources             | Chiffré              |
-| FileStorage   | Fichiers uniquement | Premium                       | N/A                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestionnaire de ressources             | Chiffré              |
+| FileStorage   | Fichier uniquement | Premium                       | N/A                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestionnaire de ressources             | Chiffré              |
 | BlobStorage         | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | standard                      | Chaud, froid, archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Gestionnaire de ressources             | Chiffré              |
 
 <div id="deployment-model"><sup>1</sup>L’utilisation du modèle de déploiement Azure Resource Manager est recommandée. Les comptes de stockage qui utilisent le modèle de déploiement classique peuvent toujours être créés à certains emplacements, et les comptes classiques existants continuent d’être pris en charge. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources</a>.</div>
@@ -41,4 +41,6 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 
 <div id="zone-redundant-storage"><sup>4</sup>Le stockage redondant interzone (ZRS) et le stockage géoredondant interzone (GZRS/RA-GZRS) (préversion) sont disponibles uniquement pour les comptes universels v2 standard, BlockBlobStorage et FileStorage dans certaines régions. Pour plus d’informations sur le stockage redondant interzone (ZRS), consultez l’article <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Stockage redondant interzone : applications Stockage Azure hautement disponibles</a>. Pour plus d’informations sur le stockage GZRS/RA-GZRS, voir <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">Stockage géoredondant interzone pour la haute disponibilité et la durabilité maximale (préversion)</a>. Pour plus d’informations sur les autres options de réplication, consultez <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Réplication de Stockage Azure</a>.</div>
 
-<div id="premium-performance"><sup>5</sup>Performances Premium pour les comptes v1 et v2 à usage général est disponible uniquement pour les objets blob de page et de disque.</div>
+<div id="premium-performance"><sup>5</sup>Performances Premium pour les comptes v1 et v2 à usage général est disponible uniquement pour les objets blob de page et de disque. Les performances Premium pour les objets blob de blocs ou d’ajout sont uniquement disponibles sur les comptes BlockBlobStorage. Les performances Premium pour les fichiers ne sont disponibles que sur les comptes FileStorage.</div>
+
+<div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et intégrées au stockage Blob Azure. Data Lake Storage Gen2 est pris en charge uniquement sur les comptes de stockage v2 universels avec un espace de noms hiérarchique activé. Pour plus d’informations sur Data Lake Storage Gen2, consultez <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Présentation d’Azure Data Lake Storage Gen2</a>.</div>

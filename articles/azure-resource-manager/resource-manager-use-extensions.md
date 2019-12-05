@@ -1,23 +1,16 @@
 ---
-title: Configuration de post-déploiement Azure au moyen d’extensions
+title: Configuration de post-déploiement au moyen d’extensions
 description: Découvrez comment utiliser les extensions de modèle Azure Resource Manager pour fournir des configurations de post-déploiement.
-services: azure-resource-manager
-documentationcenter: na
 author: mumian
-editor: ''
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: ccac91553d43a98bdef20abe451e7abec139dbaf
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: c7896efb453cac478202efedb268c4bc838aef3a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533731"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150379"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fournir des configurations de post-déploiement au moyen d’extensions
 

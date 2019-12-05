@@ -1,5 +1,5 @@
 ---
-title: Configurer l’accélération automatique de la connexion à l’aide de la stratégie de découverte du domaine d’accueil | Microsoft Docs
+title: Configurer l’accélération automatique de la connexion à l’aide de la découverte du domaine d’accueil
 description: Découvrez comment configurer la stratégie de découverte du domaine d’accueil pour l’authentification Azure Active Directory pour les utilisateurs fédérés (et notamment l’accélération automatique et les indications de domaine).
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477207"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274629"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 

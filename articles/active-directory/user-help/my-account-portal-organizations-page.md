@@ -1,6 +1,6 @@
 ---
-title: Gérer ses organisations sur le portail Mon compte – Azure AD
-description: Guide pratique pour afficher et quitter ses organisations sur la page Organisations du portail Mon compte.
+title: Gérer vos organisations dans le portail Mon compte - Azure AD
+description: Guide pratique pour voir et quitter les organisations connectées à votre compte professionnel ou scolaire dans la page Organisations du portail Mon compte.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b81ec4996ae91714b442dd2e62a0bc45c6bfd39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820410"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231859"
 ---
-# <a name="manage-your-organizations-from-the-my-account-portal"></a>Gérer ses organisations sur le portail Mon compte
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Gérer les organisations connectées à votre compte professionnel ou scolaire dans la page Organisations
 
 Vous pouvez gérer vos organisations sur la page **Organisations** du portail **Mon compte**.
 

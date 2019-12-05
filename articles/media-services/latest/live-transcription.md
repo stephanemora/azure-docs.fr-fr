@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 98084b9bb6f19d22c7995d3044bb32ceaa947dc5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040384"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327345"
 ---
 # <a name="live-transcription-preview"></a>Transcription en direct (préversion)
 
 Azure Media Services diffuse de la vidéo, de l’audio et maintenant du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML, sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30), avec la vidéo et le son. Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme de VTT segmenté. 
 
-Cet article explique comment activer la transcription en direct lors de la diffusion en continu d’un événement en direct grâce à Azure Media Services v3. Avant de continuer, assurez-vous de connaître l’utilisation des API REST de Media Services v3 (pour plus d’informations, consultez [ce tutoriel](stream-files-tutorial-with-rest.md)). Vous devez également maîtriser le concept de [streaming en direct](live-streaming-overview.md). Nous vous recommandons de terminer le tutoriel [Diffuser en continu et en direct avec Media Services](stream-live-tutorial-with-api.md). 
+Cet article explique comment activer la transcription en direct lors de la diffusion en continu d’un événement en direct grâce à Azure Media Services v3. Avant de continuer, assurez-vous de connaître l’utilisation des API REST de Media Services v3 (pour plus d’informations, consultez [ce tutoriel](stream-files-tutorial-with-rest.md)). Vous devez également maîtriser le concept de [streaming en direct](live-streaming-overview.md). Nous vous conseillons de suivre le tutoriel [Streaming en direct avec Media Services](stream-live-tutorial-with-api.md). 
 
 > [!NOTE]
 > Actuellement, la transcription en direct est disponible uniquement en tant que fonctionnalité d’évaluation dans la région USA Ouest 2. Elle prend en charge la transcription en texte des mots parlés en anglais. La référence API de cette fonctionnalité se trouve dans ce document : étant donné qu’il s’agit d’une version préliminaire, les détails ne sont pas disponibles avec nos documents REST. 

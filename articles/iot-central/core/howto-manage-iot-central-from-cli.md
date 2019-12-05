@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: ddf1cfb1cb3997431b83812d03535ed990c88922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c5622f32dbf849b9a21a1fd2e458f35b8aa1d098
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806885"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480380"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gérer IoT Central à partir d’Azure CLI
 
@@ -48,19 +48,19 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-Ces commandes créent d’abord un groupe de ressources dans la région USA Est pour l’application. Le tableau suivant décrit les paramètres utilisés avec la commande **az iotcentral app create** :
+Ces commandes créent d’abord un groupe de ressources dans l’emplacement USA st pour l’application. Le tableau suivant décrit les paramètres utilisés avec la commande **az iotcentral app create** :
 
 | Paramètre         | Description |
 | ----------------- | ----------- |
 | resource-group    | Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
-| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **USA Est**, **USA Ouest**, **Europe Nord**, **Europe Ouest**, **Australie** ou **Asie-Pacifique**. |
+| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les emplacements **États-Unis**, **Australie**, **Asie-Pacifique** ou **Europe**. |
 | Nom              | Nom de l’application dans le portail Azure. |
 | subdomain         | Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
 | sku               | Actuellement, la seule valeur est **S1** (niveau Standard). Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | Modèle d’application à utiliser. Pour plus d’informations, voir le tableau suivant : |
 | display-name      | Nom de l’application tel qu’il est affiché dans l’interface utilisateur. |
 
-**Modèles d’application**
+**Modèles d’application avec les fonctionnalités généralement disponibles**
 
 | Nom du modèle            | Description |
 | ------------------------ | ----------- |
@@ -68,8 +68,26 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | iotc-demo@1.0.0          | Crée une application qui comprend un modèle d’appareil déjà créé pour une machine de distribution réfrigérée. Utilisez ce modèle pour commencer à explorer Azure IoT Central. |
 | iotc-devkit-sample@1.0.0 | Crée une application avec des modèles d’appareil tout prêts qui vous permettent de connecter un appareil MXChip ou Raspberry Pi. Utilisez ce modèle si vous êtes développeur d’appareils et que vous testez l’un de ces appareils. |
 
+
+**Modèles d’application avec des fonctionnalités en préversion publique**
+
+| Nom du modèle            | Description |
+| ------------------------ | ----------- |
+| iotc-pnp-preview@1.0.0   | Crée une application Plug-and-Play en préversion vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
+| iotc-condition@1.0.0     | Crée une application avec un modèle Analytique dans le magasin - Supervision des conditions Utilisez ce modèle pour connecter et superviser l’environnement de magasin. |
+| iotc-consumption@1.0.0   | Créez une application avec le modèle de supervision de la consommation d’eau. Utilisez ce modèle pour superviser et contrôler le débit d’eau. |
+| iotc-distribution@1.0.0  | Crée une application avec un modèle de distribution numérique Utilisez ce modèle pour améliorer l’efficacité des sorties d’entrepôt en numérisant les ressources et les actions clés. |
+| iotc-inventory@1.0.0     | Crée une application avec un modèle de gestion intelligente des stocks. Utilisez ce modèle pour automatiser la réception, le déplacement de produits, l’inventaire tournant et le suivi des capteurs. |
+| iotc-logistics@1.0.0     | Crée une application avec un modèle Logistique connectée. Utilisez ce modèle pour suivre votre expédition en temps réel par voie aérienne, maritime et terrestre grâce à la supervision de la localisation et des conditions. |
+| iotc-meter@1.0.0         | Crée une application avec le modèle de supervision des compteurs intelligents. Utilisez ce modèle pour superviser la consommation énergétique et l’état du réseau, ainsi que pour identifier les tendances afin d’améliorer le service client et la gestion des compteurs intelligents.  |
+| iotc-patient@1.0.0       | Crée une application avec un modèle de supervision continue des patients. Utilisez ce modèle pour organiser les soins des patients, réduire le taux de réadmission et gérer les maladies. |
+| iotc-power@1.0.0         | Crée une application avec un modèle de supervision des panneaux solaires. Utilisez ce modèle pour superviser l’état des panneaux solaires et les tendances de la génération d’énergie. |
+| iotc-quality@1.0.0       | Créez une application avec le modèle de supervision de la qualité de l’eau. Utilisez ce modèle pour superviser numériquement la qualité de l’eau.|
+| iotc-store@1.0.0         | Crée une application avec un modèle Analytique dans le magasin - Paiement Utilisez ce modèle pour superviser et gérer le passage en caisse dans votre magasin. |
+| iotc-waste@1.0.0         | Crée une application avec un modèle Gestion des déchets connectée. Utilisez ce modèle pour superviser les bennes à ordures et répartir les agents. |
+
 > [!NOTE]
-> Le modèle **Aperçu de l’application** n’est actuellement disponible que dans les régions **Europe Nord** et **USA Centre**.
+> Les modèles d’application en préversion sont actuellement disponibles uniquement dans les emplacements en **Europe** et **États-Unis**.
 
 ## <a name="view-your-applications"></a>Afficher vos applications
 

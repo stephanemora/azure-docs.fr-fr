@@ -1,17 +1,17 @@
 ---
-title: Architecture de l’appliance Azure Migrate | Microsoft Docs
-description: Fournit une vue d’ensemble de l’appliance Azure Migrate
+title: Architecture de l’appliance Azure Migrate
+description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49545ca6c43c272c3fd84f8bee59b8617aae136d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685098"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232565"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -42,7 +42,7 @@ Ces agents sont installés sur l’appliance.
 
 **Agent** | **Détails**
 --- | ---
-Agent de découverte | Recueille les données de configuration des machines virtuelles locales
+Agent de découverte | Collecte les données de configuration des machines virtuelles locales.
 Agent d’évaluation | Définit le profil de l'environnement local pour collecter les données de performance des machines virtuelles.
 Adaptateur de migration | Orchestre la réplication des machines virtuelles et coordonne la communication entre les machines virtuelles et Azure.
 Passerelle de migration | Envoie à Azure les données répliquées des machines virtuelles.

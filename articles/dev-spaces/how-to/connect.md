@@ -1,20 +1,16 @@
 ---
-title: " Connecter l’ordinateur de développement à un cluster AKS"
-titleSuffix: Azure Dev Spaces
+title: Connecter l’ordinateur de développement à un cluster AKS
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Découvrez comment connecter votre ordinateur de développement à un cluster AKS avec Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888923"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482247"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connecter l’ordinateur de développement à un cluster AKS (préversion)
 
@@ -123,7 +119,6 @@ $ npm install
 > node install
 ...
 ```
-
 
 Cliquez sur *Déboguer* puis *Ouvrir des configurations*. Si vous êtes invité à sélectionner un environnement, choisissez *Node.js*. Cela crée un fichier `.vscode/launch.json`. Remplacez le contenu de ce fichier par le suivant :
 
@@ -235,6 +230,18 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 # in addition to the IP in the MYAPP1_SERVICE_HOST environment variable.
 ```
 
+## <a name="using-logging-and-diagnostics"></a>Utilisation de la journalisation et des diagnostics
+
+La sortie de la journalisation est écrite dans la fenêtre *Dev Spaces Connect* après avoir connecté votre machine de développement à votre cluster AKS.
+
+![Output](../media/how-to-connect/connect-output.png)
+
+Cliquez sur la barre d’état Azure Dev Spaces, puis choisissez *Afficher les informations de diagnostic*. Cette commande imprime les variables d’environnement actuelles et les entrées DNS dans la sortie de journalisation.
+
+![Sortie avec des diagnostics](../media/how-to-connect/connect-output-diagnostics.png)
+
+De plus, les journaux de diagnostic sont disponibles dans le répertoire `Azure Dev Spaces` se trouvant dans le [répertoire *TEMP* de votre ordinateur de développement][azds-tmp-dir].
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez à utiliser les actions Azure Dev Spaces et GitHub pour tester les modifications d’une demande de tirage (pull request) directement dans AKS avant de fusionner la requête de tirage dans la branche principale de votre référentiel.
@@ -242,11 +249,11 @@ Apprenez à utiliser les actions Azure Dev Spaces et GitHub pour tester les modi
 > [!div class="nextstepaction"]
 > [Actions GitHub & Azure Kubernetes Service][gh-actions]
 
+[azds-tmp-dir]: ../troubleshooting.md#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

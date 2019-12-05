@@ -1,6 +1,6 @@
 ---
 title: Supervision d’intégrité de fichier dans Azure Security Center | Microsoft Docs
-description: " Découvrez comment activer le monitoring d’intégrité de fichier dans Azure Security Center. "
+description: Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202197"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558786"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -93,7 +93,7 @@ Le tableau de bord **Monitoring d’intégrité de fichier** affiche les espaces
 
 ![Tableau de bord Monitoring d’intégrité de fichier][6]
 
-Le tableau de bord FIM pour un espace de travail affiche les informations suivantes :
+Le tableau de bord FIM d’un espace de travail affiche les détails suivants :
 
 - Nombre total d’ordinateurs connectés à l’espace de travail
 - Nombre total de modifications apportées au cours de la période sélectionnée
@@ -199,7 +199,7 @@ Vous pouvez désactiver la fonctionnalité FIM. La fonctionnalité FIM utilise l
 4. Sélectionnez **Supprimer** pour confirmer la désactivation.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris à utiliser la fonctionnalité Monitoring d’intégrité de fichier dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Dans cet article, vous avez appris à utiliser la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Security Center. Pour plus d’informations sur Security Center, consultez les pages suivantes :
 
 * [Définition des stratégies de sécurité](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2019
+ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5960389389e4b75794a7334c0bff12ce3ac0f170
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902902"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452461"
 ---
 # <a name="logging-in-msal-applications"></a>Journalisation dans les applications MSAL
 
@@ -41,6 +41,10 @@ MSAL fournit plusieurs niveaux de détail de journalisation :
 ## <a name="personal-and-organizational-data"></a>Données personnelles et d’organisation
 
 Par défaut, l’enregistreur d’événements MSAL ne capture pas de données personnelles ou d’organisation hautement sensibles. La bibliothèque permet d’activer la journalisation de données personnelles et d’organisation si vous décidez de le faire.
+
+Pour des détails sur la journalisation MSAL dans un langage particulier, choisissez l’onglet correspondant à votre langage :
+
+## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>Journalisation dans MSAL.NET
 
@@ -80,6 +84,8 @@ class Program
   }
  }
  ```
+
+## <a name="androidtabandroid"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>Journalisation dans MSAL pour Android à l’aide de Java
 
@@ -123,9 +129,9 @@ Par défaut, la journalisation dans logcat est désactivée. Pour activer :
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="logging-in-msaljs"></a>Journalisation dans MSAL.js
+## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
- Activez la journalisation dans MSAL.js (Javascript) en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
+ Activez la journalisation dans MSAL.js (JavaScript) en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
 
 - `localCallback` : une instance de rappel qui peut être fournie par le développeur pour consommer et publier des journaux de manière personnalisée. Implémentez la méthode localCallback en fonction de la façon dont vous souhaitez rediriger les journaux.
 - `level` (facultatif) : le niveau de journalisation configurable. Les niveaux de journalisation pris en charge sont les suivants : `Error`, `Warning`, `Info` et `Verbose`. Par défaut, il s’agit de `Info`.
@@ -155,7 +161,9 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="logging-in-msal-for-ios-and-macos"></a>Journalisation dans MSAL pour iOS et macOS
+## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+
+## <a name="msal-for-ios-and-macos-logging-objc"></a>Journalisation MSAL pour iOS et macOS - ObjC
 
 Définissez un rappel pour capturer la journalisation MSAL et l’incorporer dans la journalisation de votre propre application. La signature du rappel se présente comme suit :
 
@@ -176,7 +184,6 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
 
 Par exemple :
 
-Objective-C
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
     {
@@ -190,7 +197,71 @@ Objective-C
     }];
 ```
 
-Swift
+### <a name="personal-data"></a>Données à caractère personnel
+
+Par défaut, MSAL ne capture et n’enregistre aucune information d’identification personnelle (PII). La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une propriété de la classe MSALLogger. Lorsque vous activez `pii.Enabled`, l’application devient responsable de la gestion de façon sécurisé des données hautement sensibles et du suivi des exigences réglementaires.
+
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = YES;
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = NO;
+```
+
+### <a name="logging-levels"></a>Niveaux de journalisation
+
+Pour définir le niveau de journalisation lorsque vous utilisez MSAL pour iOS et macOS, optez pour l’une des valeurs suivantes :
+
+|Niveau  |Description |
+|---------|---------|
+| `MSALLogLevelNothing`| Désactiver la journalisation |
+| `MSALLogLevelError` | Niveau par défaut, affiche uniquement les informations lorsque des erreurs se produisent |
+| `MSALLogLevelWarning` | Avertissements |
+| `MSALLogLevelInfo` |  Points d’entrée de bibliothèque, avec paramètres et diverses opérations de trousseau |
+|`MSALLogLevelVerbose`     |  Suivi API |
+
+Par exemple :
+
+```objc
+MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
+ ```
+
+ ### <a name="log-message-format"></a>Format de message de journal
+
+La partie message des messages de journal MSAL se présente au format `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+
+Par exemple :
+
+`TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
+
+Les ID de corrélation et les timestamps facilitent le suivi des problèmes. Les informations de timestamp et d’ID de corrélation sont disponibles dans le message de journal. Seuls les messages de journalisation MSAL permettent de les récupérer de manière fiable.
+
+## <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+## <a name="msal-for-ios-and-macos-logging-swift"></a>Journalisation MSAL pour iOS et macOS - Swift
+
+Définissez un rappel pour capturer la journalisation MSAL et l’incorporer dans la journalisation de votre propre application. La signature (représentée en Objective-C) pour le rappel ressemble à ceci :
+
+```objc
+/*!
+    The LogCallback block for the MSAL logger
+ 
+    @param  level           The level of the log message
+    @param  message         The message being logged
+    @param  containsPII     If the message might contain Personally Identifiable Information (PII)
+                            this will be true. Log messages possibly containing PII will not be
+                            sent to the callback unless PIllLoggingEnabled is set to YES on the
+                            logger.
+
+ */
+typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
+```
+
+Par exemple :
+
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
     if let message = message, !containsPII
@@ -207,18 +278,6 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 Par défaut, MSAL ne capture et n’enregistre aucune information d’identification personnelle (PII). La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une propriété de la classe MSALLogger. Lorsque vous activez `pii.Enabled`, l’application devient responsable de la gestion de façon sécurisé des données hautement sensibles et du suivi des exigences réglementaires.
 
-Objective-C
-```objc
-// By default, the `MSALLogger` doesn't capture any PII
-
-// PII will be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = YES;
-
-// PII will NOT be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = NO;
-```
-
-Swift
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
 
@@ -243,12 +302,6 @@ Pour définir le niveau de journalisation lorsque vous utilisez MSAL pour iOS et
 
 Par exemple :
 
-Objective-C
-```objc
-MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
- ```
- 
- Swift
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
@@ -263,9 +316,11 @@ Par exemple :
 
 Les ID de corrélation et les timestamps facilitent le suivi des problèmes. Les informations de timestamp et d’ID de corrélation sont disponibles dans le message de journal. Seuls les messages de journalisation MSAL permettent de les récupérer de manière fiable.
 
-## <a name="logging-in-msal-for-java"></a>Journalisation dans MSAL pour Java
+## <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL pour Java (MSAL4J) vous permet d’utiliser la bibliothèque de journalisation que vous utilisez déjà avec votre application, à condition qu’elle soit compatible avec SLF4J. MSAL4j utilise la [façade de journalisation simple pour Java](http://www.slf4j.org/) (SLF4J) comme façade ou abstraction simple pour différents frameworks de journalisation, tels que [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) et [log4j](https://logging.apache.org/log4j/2.x/). SLF4J permet à l’utilisateur final de brancher le framework de journalisation souhaité au moment du déploiement.
+## <a name="msal-for-java-logging"></a>Journalisation MSAL pour Java
+
+MSAL pour Java vous permet d’utiliser la bibliothèque de journalisation que vous utilisez déjà avec votre application, à condition qu’elle soit compatible avec SLF4J. MSAL pour Java utilise la [façade de journalisation simple pour Java](http://www.slf4j.org/) (SLF4J) comme façade ou abstraction simple pour différents frameworks de journalisation tels que [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) et [log4j](https://logging.apache.org/log4j/2.x/). SLF4J permet à l’utilisateur de brancher le framework de journalisation souhaité au moment du déploiement.
 
 Par exemple, pour utiliser Logback comme framework de journalisation dans votre application, ajoutez la dépendance Logback au fichier pom Maven pour votre application :
 
@@ -310,3 +365,35 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .logPii(true)
         .build();
 ```
+
+## <a name="pythontabpython"></a>[Python](#tab/python)
+
+## <a name="msal-for-python-logging"></a>Journalisation MSAL pour Python
+
+La journalisation dans MSAL Python utilise le mécanisme de journalisation Python standard, par exemple `logging.info("msg")`. Vous pouvez configurer la journalisation MSAL comme suit (et la voir en action dans [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)) :
+
+### <a name="enable-debug-logging-for-all-modules"></a>Activer la journalisation du débogage pour tous les modules
+
+Par défaut, la journalisation dans n’importe quel script Python est désactivée. Si vous souhaitez activer la journalisation du débogage pour tous les modules dans l’intégralité de votre script Python, utilisez :
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### <a name="silence-only-msal-logging"></a>Mettre au silence uniquement la journalisation MSAL
+
+Pour mettre au silence uniquement la journalisation de la bibliothèque MSAL, tout en activant la journalisation du débogage dans tous les autres modules de votre script Python, désactivez le journaliseur utilisé par MSAL Python :
+
+```Python
+logging.getLogger("msal").setLevel(logging.WARN)
+```
+
+### <a name="personal-and-organizational-data-in-python"></a>Données personnelles et de l’organisation dans Python
+
+MSAL pour Python ne journalise pas les données personnelles ni les données de l’organisation. Il n’existe aucune propriété pour activer ou désactiver la journalisation des données personnelles ou de l’organisation.
+
+Vous pouvez utiliser la journalisation Python standard pour consigner ce que vous voulez, mais vous êtes responsable de la gestion des données sensibles et du respect des conditions réglementaires.
+
+Pour plus d’informations sur la journalisation dans Python, consultez [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial) dans la documentation de Python.
+
+---

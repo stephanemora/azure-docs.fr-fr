@@ -1,18 +1,14 @@
 ---
 title: Sauvegarder et restaurer des partages de fichiers Azure
 description: Cet article explique comment sauvegarder et restaurer vos partages de fichiers Azure et explique les tâches de gestion.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091091"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173091"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Sauvegarder et restaurer des partages de fichiers Azure
 
@@ -47,7 +43,7 @@ La sauvegarde des partages de fichiers Azure est disponible en préversion. Les 
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuration de la sauvegarde d’un partage de fichiers Azure
 
-Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure. Pour sauvegarder votre partage de fichiers Azure :
+Cet article suppose que vous ayez déjà établi un partage de fichiers Azure. Pour sauvegarder votre partage de fichiers Azure :
 
 1. Créez un coffre Recovery Services dans la même région que votre partage de fichiers. Si vous disposez déjà d’un coffre, ouvrez la page de vue d’ensemble de votre coffre et cliquez sur **Sauvegarde**.
 

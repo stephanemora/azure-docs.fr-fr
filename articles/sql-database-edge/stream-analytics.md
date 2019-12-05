@@ -1,5 +1,5 @@
 ---
-title: Utilisation du package SQL Database DAC et des tâches Stream Analytics avec Azure SQL Database Edge | Microsoft Docs
+title: Utilisation de packages DAC SQL Database et de tâches Stream Analytics avec Azure SQL Database Edge | Microsoft Docs
 description: En savoir plus sur l’utilisation des tâches Stream Analytics dans SQL Database Edge
 keywords: sql database edge, stream analytics, sqlpackage
 services: sql-database-edge
@@ -9,20 +9,20 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 21a8bb6953fd879b17816361f536596571678697
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108748"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384160"
 ---
-# <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Utilisation du package SQL Database DAC et des tâches Stream Analytics avec Azure SQL Database Edge
+# <a name="using-sql-database-dac-packages-and-stream-analytics-jobs-with-sql-database-edge"></a>Utilisation de packages DAC SQL Database et de tâches Stream Analytics avec Azure SQL Database Edge
 
 Azure SQL Database Edge en préversion est un moteur de base de données relationnelle optimisé conçu pour les déploiements IoT et Edge. Il repose sur les dernières versions du moteur de base de données Microsoft SQL Server, qui fournit des fonctionnalités de performances, de sécurité et de traitement des requêtes de pointe. Avec les fonctionnalités de gestion de base de données relationnelle de SQL Server les plus performantes du marché, Azure SQL Database Edge offre des fonctionnalités de diffusion en continu intégrées pour l’analyse en temps réel et le traitement complexe des événements.
 
-Azure SQL Database Edge fournit également une implémentation native de SQLPackage.exe qui permet aux utilisateurs de déployer un package [DAC SQL Database](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) pendant le déploiement de SQL Database Edge.
+Azure SQL Database Edge fournit également une implémentation native de SqlPackage.exe qui vous permet de déployer un package [DAC SQL Database](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) pendant le déploiement de SQL Database Edge.
 
-Azure SQL Database Edge expose deux paramètres facultatifs via l’option des *propriétés souhaitées du jumeau de module* du module IoT Edge.
+Azure SQL Database Edge expose deux paramètres facultatifs via l’option `module twin's desired properties` du module IoT Edge :
 
 ```json
 {
@@ -36,35 +36,35 @@ Azure SQL Database Edge expose deux paramètres facultatifs via l’option des *
 
 |Champ | Description |
 |------|-------------|
-| SQLPackage | URI Stockage Blob Azure du fichier *.zip contenant le package DAC SQL Database.
-| ASAJobInfo | URI Stockage Blob Azure de la tâche ASA Edge. Pour plus d’informations sur la publication de la tâche ASA Edge, consultez [Publication d’une tâche ASA Edge pour SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+| SqlPackage | URI de Stockage Blob Azure pour le fichier *.zip qui contient le package DAC SQL Database.
+| ASAJobInfo | URI de Stockage Blob Azure pour la tâche ASA Edge. Pour plus d’informations, consultez [Publication d’une tâche ASA Edge pour SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Utilisation de packages DAC SQL Database avec SQL Database Edge
 
-Pour utiliser un package DAC SQL Database (*.dacpac) avec SQL Database Edge, suivez les étapes indiquées ci-dessous.
+Pour utiliser un package DAC SQL Database (*.dacpac) avec SQL Database Edge, effectuez les étapes suivantes :
 
-1. Créez ou extrayez un package DAC SQL Database. Pour générer un DacPac d’une base de données SQL Database existante, vous pouvez vous appuyer sur les concepts décrits à la rubrique [Extraire une DAC d’une base de données](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/).
+1. Créez ou extrayez un package DAC SQL Database. Pour savoir comment générer un package DAC pour une base de données SQL Server existante, consultez [Extraire une package DAC d’une base de données](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/).
 
-2. Compressez le fichier * *. dacpac* et chargez-le dans un compte Stockage Blob Azure. Pour plus d’informations sur le chargement de fichiers vers Stockage Blob Azure, consultez [Charger, télécharger et répertorier des objets blob à l’aide du portail Microsoft Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Compressez le fichier *.dacpac et chargez-le dans un compte Stockage Blob Azure. Pour plus d’informations sur le chargement de fichiers dans Stockage Blob Azure, consultez [Charger, télécharger et lister les objets blob avec le portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-3. Générez une signature SAP pour le fichier zip à l’aide du Portail Azure. Pour plus d’informations, consultez [Déléguer l’accès avec les signature d'accès partagé (SAP)](../storage/common/storage-sas-overview.md).
+3. Générez une signature d’accès partagé pour le fichier zip à partir du portail Azure. Pour plus d’informations, consultez [Déléguer l’accès avec des signature d’accès partagé (SAP)](../storage/common/storage-sas-overview.md).
 
-4. Mettez à jour la configuration du module SQL Database Edge pour inclure l’URI SAS du package DAC. Pour mettre à jour le module SQL Database Edge
+4. Mettez à jour la configuration du module SQL Database Edge pour inclure l’URI d’accès partagé du package DAC. Pour mettre à jour le module SQL Database Edge, effectuez les étapes suivantes :
 
-    1. Dans le Portail Azure, accédez à votre déploiement IoT Hub.
+    1. Sur le portail Azure, accédez à votre déploiement IoT Hub.
 
-    2. Dans le volet gauche, cliquez sur **IoT Edge**.
+    2. Dans le volet gauche, sélectionnez **IoT Edge**.
 
-    3. Sur la page **IoT Edge**, recherchez et sélectionnez l’instance IoT Edge dans laquelle le module SQL Database Edge est déployé.
+    3. Dans la page **IoT Edge**, recherchez et sélectionnez l’instance IoT Edge dans laquelle le module SQL Database Edge est déployé.
 
-    4. Sur la page *Appareil IoT Edge*, cliquez sur **Définir des modules**. 
+    4. Dans la page **Appareil IoT Edge**, sélectionnez **Définir des modules**.
 
-    5. Sur la page **Définir des modules**, cliquez sur *configure* pour le module SQL Database Edge. 
+    5. Dans la page **Définir des modules**, sélectionnez **Configurer** pour le module SQL Database Edge.
 
-    6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez *Définir les propriétés souhaitées du jumeau de module*, puis mettez à jour les propriétés souhaitées pour inclure l’URI de l’option SQLPackage comme indiqué dans l’exemple ci-dessous. 
+    6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez **Set module twin's desired properties** (Définir les propriétés souhaitées du jumeau de module). Mettez à jour les propriétés souhaitées pour inclure l’URI de l’option `SQLPackage`, comme dans l’exemple suivant.
 
         > [!NOTE]
-        > L’URI SAP ci-dessous est fournie à titre d’exemple. Remplacez l’URI par l’URI réel de votre déploiement.
+        > L’URI SAS figurant dans le code JSON ci-dessous n’est qu’un exemple. Remplacez l’URI par l’URI réel de votre déploiement.
 
         ```json
             {
@@ -75,40 +75,40 @@ Pour utiliser un package DAC SQL Database (*.dacpac) avec SQL Database Edge, sui
             }
         ```
 
-    7. Cliquez sur **Enregistrer**.
+    7. Sélectionnez **Enregistrer**.
 
-    8. Sur la page **Définir des modules**, cliquez sur *Suivant*.
+    8. Dans la page **Définir des modules**, sélectionnez **Suivant**.
 
-    9. Sur la page **Définir des modules**, cliquez sur *Suivant*, puis sur **Envoyer**.
+    9. Dans la page **Définir des modules**, sélectionnez **Suivant**, puis **Envoyer**.
 
-5. Après la mise à jour du module, le fichier dacpac est téléchargé, décompressé et déployé sur l’instance SQL Database Edge.
+5. Après la mise à jour du module, le fichier de package DAC est téléchargé, décompressé et déployé pour l’instance SQL Database Edge.
 
 ## <a name="using-streaming-jobs-with-sql-database-edge"></a>Utilisation de tâches de diffusion en continu avec SQL Database Edge
 
-Azure SQL Database Edge possède une implémentation native du runtime Stream Analytics. Cela permet aux utilisateurs de créer une tâche Azure Stream Analytics Edge et de la déployer en tant que tâche de diffusion en continu SQL Database Edge. Pour créer une tâche Azure Stream Analytics Edge, procédez comme suit.
+Azure SQL Database Edge possède une implémentation native du runtime Stream Analytics. Cette implémentation vous permet de créer une tâche Azure Stream Analytics Edge et de la déployer en tant que tâche de streaming SQL Database Edge. Pour créer une tâche Stream Analytics Edge, effectuez les étapes suivantes :
 
-1. Accédez au Portail Azure à l’aide de [URL](https://portal.azure.com/?microsoft_azure_streamanalytics_edgeadapterspreview=true) d’aperçu. Cette URL d’aperçu permet aux utilisateurs de configurer la sortie SQL Database pour une tâche Stream Analytics Edge.
+1. Accédez au portail Azure en utilisant l’[URL](https://portal.azure.com/?microsoft_azure_streamanalytics_edgeadapterspreview=true) d’aperçu. Cette URL d’aperçu permet aux utilisateurs de configurer la sortie SQL Database pour une tâche Stream Analytics Edge.
 
-2. Créez une **tâche Azure Stream Analytics sur IoT Edge tâche** et choisissez l’environnement d’hébergement associé à **Edge**.
+2. Créez une tâche **Azure Stream Analytics sur IoT Edge**. Choisissez l’environnement d’hébergement qui cible **Edge**.
 
-3. Définissez *input* et *output* pour la tâche Azure Stream Analytics. Chaque sortie SQL (configurée ci-dessous) est liée à une table unique dans la base de données. S’il est nécessaire de diffuser en continu des données vers plusieurs tables, vous devez créer plusieurs sorties SQL Database. Les sorties SQL peuvent être configurées pour pointer vers des bases de données différentes.
+3. Définissez l’entrée et la sortie de la tâche Azure Stream Analytics. Chaque sortie SQL, que vous allez configurer ici, est liée à une seule table dans la base de données. Si vous avez besoin de transmettre en continu des données vers plusieurs tables, vous devez créer plusieurs sorties SQL Database. Vous pouvez configurer les sorties SQL pour qu’elles pointent vers différentes bases de données.
 
-    *Entrée : choisissez EdgeHub comme entrée pour la tâche Edge et fournissez les informations sur la ressource.*
+    **Entrée**. Choisissez EdgeHub comme entrée de la tâche Edge et fournissez des informations sur la ressource.
 
-    *Sortie : sélectionnez SQL Database en tant que sortie, « Indiquez manuellement les paramètres SQL Database » et fournissez les informations de configuration de la base de données et de la table.*
+    **Sortie**. Sélectionnez SQL Database comme sortie. Sélectionnez **Fournir les paramètres de base de données SQL manuellement**. Fournissez les détails de configuration pour la base de données et la table.
 
     |Champ      | Description |
     |---------------|-------------|
-    |Alias de sortie | Nom de l’Alias de sortie.|
-    |Base de données | Nom du serveur SQL Database. Il doit s’agir d’un nom de base de données valide, qui existe sur l’instance SQL Database Edge.|
+    |Alias de sortie | Nom de l’alias de sortie.|
+    |Base de données | Nom de la base de données SQL. Il doit s’agir d’un nom valide d’une base de données qui existe dans l’instance SQL Database Edge.|
     |Nom du serveur | Nom (ou adresse IP) et détails du numéro de port de l’instance SQL. Pour un déploiement SQL Database Edge, vous pouvez utiliser **tcp:.,1433** comme nom de serveur.|
-    |Nom d’utilisateur | Compte de connexion SQL disposant d’un lecteur de données et d’un accès en écriture à la base de données mentionnée ci-avant.|
-    |Mot de passe | Mot de passe du compte de connexion SQL mentionné ci-dessus.|
-    |Table | Nom de la table qui sera sortie pour la tâche de diffusion en continu.|
-    |Héritage du partitionnement| Cette option de configuration de la sortie SQL permet d’hériter le schéma de partitionnement de l’entrée ou l’étape de requête précédente. L’activation de cette option contribue à améliorer les débits lors de l’écriture dans une table sur disque et l’utilisation d’une topologie de travail massivement parallèle.|
-    |Taille du lot| La taille de lot correspond au nombre maximal d’enregistrements qui sont envoyés avec chaque opération d’insertion en bloc.|
+    |Nom d’utilisateur | Compte de connexion SQL disposant d’un accès en lecture et en écriture aux données de la base de données que vous avez spécifiée précédemment.|
+    |Mot de passe | Mot de passe du compte de connexion SQL que vous avez spécifié précédemment.|
+    |Table | Nom de la table qui sera générée pour la tâche de streaming.|
+    |Héritage du partitionnement| Permet d’hériter du schéma de partitionnement de l’entrée ou l’étape de requête précédente. Quand cette option est activée, vous pouvez tabler sur un meilleur débit d’écriture dans une table sur disque et bénéficier d’une topologie entièrement parallèle pour votre tâche.|
+    |Taille du lot| Nombre maximal d’enregistrements envoyés à chaque opération d’insertion en bloc.|
 
-    Exemple de configuration d’entrée/ sortie ci-après :
+    Voici un exemple de configuration d’entrée/sortie :
 
     ```txt
         Input:
@@ -118,7 +118,7 @@ Azure SQL Database Edge possède une implémentation native du runtime Stream An
             Encoding: UTF-8
             Event compression type: None
 
-        Output :
+        Output:
             Output alias: output
             Database:  MeasurementsDB
             Server name: tcp:.,1433
@@ -132,30 +132,30 @@ Azure SQL Database Edge possède une implémentation native du runtime Stream An
     > [!NOTE]
     > Pour plus d’informations sur l’adaptateur de sortie SQL pour Azure Stream Analytics, consultez [Sortie d’Azure Stream Analytics dans Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md).
 
-4. Définissez la requête de tâche ASA pour la tâche Edge. Cette requête doit utiliser les alias d’entrée/sortie définis comme noms d’entrée et de sortie. Pour plus d’informations, consultez [Référence sur le langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
+4. Définissez la requête de tâche ASA pour la tâche Edge. Cette requête doit utiliser les alias d’entrée/sortie définis comme noms d’entrée et de sortie. Pour plus d’informations, consultez [Informations de référence sur le langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
-5. Définissez les paramètres de compte de stockage pour le travail Edge. Le compte de stockage est utilisé comme cible de publication pour la tâche Edge.
+5. Définissez les paramètres de compte de stockage pour la tâche Edge. Le compte de stockage est utilisé comme cible de publication pour la tâche Edge.
 
-6. Sous Configurer, sélectionnez Publier, puis cliquez sur le bouton Publier. Enregistrez l’URL SAS à utiliser avec le module SQL Database Edge.
+6. Sous **Configurer**, sélectionnez **Publier**, puis cliquez sur le bouton **Publier**. Enregistrez l’URI SAS à utiliser avec le module SQL Database Edge.
 
-### <a name="deploy-the-stream-analytics-edge-job-to-the-sql-database-edge"></a>Déployer la tâche Edge Stream Analytics dans le module SQL Database Edge
+### <a name="deploy-the-stream-analytics-edge-job-to-sql-database-edge"></a>Déployer la tâche Stream Analytics Edge dans SQL Database Edge
 
-Pour déployer la tâche de diffusion en continu dans le module SQL Database Edge, mettez à jour la configuration de celui-ci afin d’inclure l’URI SAP pour la tâche de diffusion en continu à l’étape précédente. Pour mettre à jour le module SQL Database Edge
+Pour déployer la tâche de streaming dans le module SQL Database Edge, mettez à jour la configuration de celui-ci afin d’inclure l’URI SAP pour la tâche de streaming de l’étape précédente. Pour mettre à jour le module SQL Database Edge :
 
-1. Dans le Portail Azure, accédez à votre déploiement IoT Hub.
+1. Sur le portail Azure, accédez à votre déploiement IoT Hub.
 
-2. Dans le volet gauche, cliquez sur **IoT Edge**.
+2. Dans le volet gauche, sélectionnez **IoT Edge**.
 
-3. Sur la page **IoT Edge**, recherchez et sélectionnez l’instance IoT Edge dans laquelle le module SQL Database Edge est déployé.
+3. Dans la page **IoT Edge**, recherchez et sélectionnez l’instance IoT Edge dans laquelle le module SQL Database Edge est déployé.
 
-4. Sur la page *Appareil IoT Edge*, cliquez sur **Définir des modules**. 
+4. Dans la page **Appareil IoT Edge**, sélectionnez **Définir des modules**.
 
-5. Sur la page **Définir des modules**, cliquez sur *configure* pour le module SQL Database Edge. 
+5. Dans la page **Définir des modules**, sélectionnez **Configurer** pour le module SQL Database Edge.
 
-6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez *Définir les propriétés souhaitées du jumeau de module*, puis mettez à jour les propriétés souhaitées pour inclure l’URI de l’option ASAJobInfo comme indiqué dans l’exemple ci-dessous. 
+6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez **Set module twin's desired properties** (Définir les propriétés souhaitées du jumeau de module). Mettez à jour les propriétés souhaitées de façon à inclure l’URI pour l’option `ASAJobInfo`, comme dans l’exemple suivant.
 
     > [!NOTE]
-    > L’URI SAP ci-dessous est fournie à titre d’exemple. Remplacez l’URI par l’URI réel de votre déploiement.
+    > L’URI SAS figurant dans le code JSON ci-dessous n’est qu’un exemple. Remplacez l’URI par l’URI réel de votre déploiement.
 
     ```json
         {
@@ -166,17 +166,16 @@ Pour déployer la tâche de diffusion en continu dans le module SQL Database Edg
         }
     ```
 
-7. Cliquez sur **Enregistrer**.
+7. Sélectionnez **Enregistrer**.
 
-8. Sur la page **Définir des modules**, cliquez sur *Suivant*.
+8. Dans la page **Définir des modules**, sélectionnez **Suivant**.
 
-9. Sur la page **Définir des modules**, cliquez sur *Suivant*, puis sur **Envoyer**.
+9. Dans la page **Définir des modules**, sélectionnez **Suivant**, puis **Envoyer**.
 
-10. Après la mise à jour du module, le fichier de tâche d’analytique de flux est téléchargé, décompressé et déployé sur l’instance SQL Database Edge.
+10. Après la mise à jour du module, le fichier de tâche Stream Analytics est téléchargé, décompressé et déployé pour l’instance SQL Database Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la tarification et la disponibilité, consultez [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
+- Pour plus d’informations sur les tarifs et la disponibilité, consultez [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Demandez à activer Azure SQL Database Edge pour votre abonnement.
-- Pour commencer, consultez les procédures suivantes :
-  - [Déployer SQL Database Edge via le Portail Azure](deploy-portal.md)
+- Pour bien démarrer, consultez [Déployer SQL Database Edge via le portail Azure](deploy-portal.md).

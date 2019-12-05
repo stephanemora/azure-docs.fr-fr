@@ -1,14 +1,14 @@
 ---
 title: Phases du déploiement d’un blueprint
-description: Découvrez les étapes parcourues par les services Azure Blueprints lors d’un déploiement.
+description: Découvrez les étapes liées à la sécurité et aux artefacts que les services Azure Blueprints suivent lors de la création d’une attribution de blueprint.
 ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: b329613e4e4954a1ea1452017a6e6c8b7343f2d3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4c1d0cd47e0f43b73e3178e18a4ba5d705048a72
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048608"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463556"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phases du déploiement d’un blueprint
 

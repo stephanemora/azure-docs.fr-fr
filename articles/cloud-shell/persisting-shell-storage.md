@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082995"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284827"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -38,9 +38,6 @@ Lorsque vous utilisez des paramètres de base et sélectionnez uniquement un abo
 
 Le partage de fichiers est monté comme un `clouddrive` dans votre répertoire `$Home`. Cette opération n’a lieu qu’une seule fois, car le partage de fichiers est automatiquement monté dans les sessions suivantes. 
 
-> [!NOTE]
-> Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
-
 Le partage de fichiers contient également une image de 5 Go. Automatiquement créée pour vous, celle-ci conserve les données dans votre répertoire `$Home`. Cela vaut pour Bash et PowerShell.
 
 ## <a name="use-existing-resources"></a>Utiliser les ressources existantes
@@ -54,7 +51,14 @@ Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Aff
 
 ![Paramètre Groupe de ressources](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>Régions de stockage prises en charge
+## <a name="securing-storage-access"></a>Sécurisation de l’accès au stockage
+Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
+
+Cloud Shell utilise un partage de fichiers Azure dans un compte de stockage, au sein d’un abonnement spécifié. En raison des autorisations héritées, les utilisateurs disposant de droits d’accès suffisants à l’abonnement peuvent accéder à tous les comptes de stockage, ainsi qu'aux partages de fichiers contenus dans l’abonnement.
+
+Les utilisateurs doivent verrouiller l’accès à leurs fichiers en définissant des autorisations au niveau du compte de stockage ou de l’abonnement.
+
+## <a name="supported-storage-regions"></a>Régions de stockage prises en charge
 Les comptes de stockage Azure associées doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.
 
 Les machines Cloud Shell existent dans les régions suivantes :
@@ -67,8 +71,6 @@ Les machines Cloud Shell existent dans les régions suivantes :
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restreindre la création de ressources avec une stratégie de ressource Azure
 Les comptes de stockage que vous créez dans Cloud Shell sont identifiés à l’aide de la balise `ms-resource-usage:azure-cloud-shell`. Si vous souhaitez interdire aux utilisateurs de créer des comptes de stockage par le biais de Cloud Shell, créez une [stratégie de ressource Azure pour les balises](../azure-policy/json-samples.md) déclenchée par cette balise spécifique.
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Fonctionnement du stockage Cloud Shell 
 Cloud Shell conserve les fichiers à l’aide des deux méthodes suivantes : 

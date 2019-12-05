@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70242651"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485543"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -26,6 +26,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
 | Peerings VNet par réseau virtuel |500 |
+| [Passerelles de réseau virtuel (passerelles VPN) par réseau virtuel](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
 | Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65 536 |
 | Adresses IP privées par interface réseau |256 |

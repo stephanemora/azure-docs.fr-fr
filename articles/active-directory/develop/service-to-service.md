@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373895"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284912"
 ---
 # <a name="service-to-service-apps"></a>Applications service à service
 
@@ -40,7 +40,7 @@ Les applications service à service peuvent être une application démon ou serv
 
 ![Diagramme Application démon ou serveur vers API web](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>Flux DProtocol
+## <a name="protocol-flow"></a>Flux de protocole
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identité d’application avec octroi d’informations d’identification client OAuth 2.0
 
@@ -59,11 +59,11 @@ Le flux présenté ci-après part du principe qu’un utilisateur a été authen
 
 ## <a name="code-samples"></a>Exemples de code
 
-Consultez les exemples de code pour les scénarios du type application démon ou serveur vers API web. Et consultez régulièrement cette page à laquelle nous ajoutons fréquemment des exemples. [Application serveur ou démon vers API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Consultez les exemples de code pour les scénarios du type application démon ou serveur vers API web : [Application serveur ou démon vers API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Inscription d'application
 
-* Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application démon ou serveur à ses ressources. Si une identité d’utilisateur délégué est utilisée, l’application serveur doit sélectionner les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure. Cette étape n’est pas requise si une identité d’application est utilisée.
+* Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application démon ou serveur à ses ressources. Si un type d’identité utilisateur délégué est utilisé, l’application serveur doit sélectionner les autorisations souhaitées. Dans la page **Autorisation d’API** de l’inscription d’application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d’API, choisissez **Autorisations déléguées**, puis sélectionnez vos autorisations. Cette étape n’est pas requise si une identité d’application est utilisée.
 * Application mutualisée : tout d’abord, l’application démon ou serveur est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, les deux API web sont inscrites dans son annuaire.
 
 ## <a name="token-expiration"></a>Expiration du jeton

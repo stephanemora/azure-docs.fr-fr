@@ -1,17 +1,14 @@
 ---
-title: Déploiement de  ressources avec le modèle et l’API REST | Microsoft Docs
+title: Déploiement de ressources avec le modèle et l’API REST
 description: Utilisez Azure Resource Manager et l’API REST Resource Manager pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3b4242e1fec98b583d5204904bc1adbd388f7955
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834355"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149662"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager
 

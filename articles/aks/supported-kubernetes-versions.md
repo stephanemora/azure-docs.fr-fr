@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b6dd91dda559f778eaa8f5a17b46a22020dd8373
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147222"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484055"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,9 @@ Chaque chiffre de la version indique la compatibilité générale avec la versio
 En général, les utilisateurs doivent s’efforcer d’exécuter la dernière version de correctif de la version mineure qu’ils utilisent, par exemple si votre cluster de production est sur *1.12.14* et *1.12.15* est la dernière version de correctif disponible pour la série *1.12*, vous devez passer à *1.12.15* dès que vous êtes en mesure d’assurer la compatibilité et le bon état de votre cluster.
 
 ## <a name="kubernetes-version-support-policy"></a>Stratégie de prise en charge des versions de Kubernetes
+
+> [!NOTE]
+> À partir du 9 décembre 2019, AKS passe aux (N) - 2 versions les plus récentes de Kubernetes prises en charge. Ce changement est conforme à la fenêtre de prise en charge en amont des versions de Kubernetes et permet de s’assurer que les versions les plus récentes et les plus sécurisées sont utilisées. Pour en savoir plus, lisez l’[annonce ici](https://azure.microsoft.com/updates/azure-kubernetes-service-will-be-retiring-support-for-kubernetes-versions-1-11-and-1-12/).
 
 AKS prend en charge quatre versions mineures de Kubernetes :
 
@@ -112,10 +115,16 @@ L’AKS définit « publié » comme une mise à disponibilité générale, ac
 > [!NOTE]
 > Les clients sont avertis des versions de Kubernetes et des suppressions de version, lorsqu’une version mineure est dépréciée/supprimée, les utilisateurs disposent de 60 jours pour mettre à niveau vers une version supportée. Dans le cas des versions de correctifs, les clients disposent de 30 jours pour effectuer la mise à niveau vers une version prise en charge.
 
-Les notifications sont envoyées via :
+#### <a name="notification-channels-for-aks-changes"></a>Canaux de notification pour les changements AKS
+
+AKS publie une mise à jour de service hebdomadaire qui récapitule les nouvelles versions Kubernetes, les changements de service et les mises à jour de composants qui ont été publiés sur le service sur [GitHub](https://github.com/Azure/AKS/releases).
+
+Ces changements sont mises à la disposition de tous les clients dans le cadre d’une maintenance régulière qui est proposée dans le service managé. Certains nécessitent des mises à niveau explicites, tandis que d’autres ne nécessitent aucune action.
+
+Les notifications sont aussi envoyées via :
 
 * Les [notes de publication d’AKS](https://aka.ms/aks/releasenotes)
-* Les notifications du Portail Microsoft Azure
+* Notifications du portail Azure
 * Le [canal de mise à jour Azure][azure-update-channel]
 
 ### <a name="policy-exceptions"></a>Exceptions de stratégie

@@ -1,19 +1,14 @@
 ---
-title: Référence des tâches Azure Container Registry - YAML
+title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/23/2019
-ms.author: danlep
-ms.openlocfilehash: 6e55b65d58fe6545d8212b4233f2f45261d18ee5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a27f55d08a7ed5d7bf3360030eabefc4b7720b82
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043878"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454635"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 

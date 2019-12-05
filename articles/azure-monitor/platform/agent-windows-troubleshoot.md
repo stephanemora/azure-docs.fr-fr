@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 06/12/2019
-ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.date: 11/21/2019
+ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199006"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305362"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -39,9 +39,8 @@ Vérifiez que le pare-feu et le proxy sont configurés pour autoriser les URL et
 |*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
 |*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
 |*.blob.core.windows.net |Port 443 |Règle de trafic sortant|OUI |  
-|\* .azure-automation.net |Port 443 |Règle de trafic sortant|OUI |  
 
-Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser des runbooks et des solutions de gestion dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Plusieurs méthodes vous permettent de vérifier si l’agent communique correctement avec Azure Monitor.
 

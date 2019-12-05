@@ -1,6 +1,6 @@
 ---
 title: Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
-description: Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
+description: Instructions sur le déploiement de l’agent InfluxData Telegraf sur une machine virtuelle Linux dans Azure, et sur la configuration de l’agent pour publier des métriques dans Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200526"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305292"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 

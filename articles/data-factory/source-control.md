@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 5f497bd06868d586f8378cb81e870a750b8a1670
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122884"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484460"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 
@@ -232,7 +232,7 @@ En règle générale, vous ne souhaitez pas autoriser tous les membres de l’é
 *   Tous les membres de l’équipe doivent disposer d'autorisations de lecture dans la fabrique de données.
 *   Seul un ensemble sélectionné de personnes doit être autorisé à publier sur la fabrique. Pour ce faire, elles doivent avoir le rôle **Contributeurs de Data Factory** sur la fabrique. Pour plus d’informations sur les autorisations, consultez [Rôles et autorisations pour Azure Data Factory](concepts-roles-permissions.md).
    
-Il est recommandé de ne pas autoriser les archivages directs dans la branche de collaboration. Cette restriction peut aider à éviter les bogues, car chaque archivage passe par un processus de demande de tirage.
+Il est recommandé de ne pas autoriser les archivages directs dans la branche de collaboration. Cette restriction peut aider à éviter les bogues, car chaque archivage passe par un processus de demande de tirage décrit dans [Création de branches de fonctionnalités](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Utilisation de mots de passe à partir d’Azure Key Vault
 

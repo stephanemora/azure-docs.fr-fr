@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200220"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561966"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
 Les stations de travail sécurisées et isolées sont extrêmement importantes pour la sécurité des rôles sensibles comme les administrateurs, développeurs et opérateurs de service critique. Si la sécurité des stations de travail clientes est compromise, un grand nombre de contrôles de sécurité et d’assurances peuvent ne pas fonctionner ou s’avérer inefficaces.
 
-Ce document explique ce dont vous avez besoin pour créer une station de travail sécurisée, souvent appelée station de travail avec accès privilégié (PAW). Cet article contient également des instructions détaillées concernant la configuration des contrôles de sécurité initiaux. Ce guide décrit comment la technologie cloud permet de gérer le service. Cette technologie s’appuie sur les fonctionnalités de sécurité introduites dans Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory et Intune.
+Ce document explique ce dont vous avez besoin pour créer une station de travail sécurisée, souvent appelée station de travail avec accès privilégié (PAW). Cet article contient également des instructions détaillées concernant la configuration des contrôles de sécurité initiaux. Ce guide décrit comment la technologie cloud permet de gérer le service. Cette technologie s’appuie sur les fonctionnalités de sécurité introduites dans Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory et Microsoft Intune.
 
 > [!NOTE]
 > Cet article explique le concept de station de travail sécurisée et son importance. Si vous êtes déjà familiarisé avec le concept et que vous souhaitez passer directement au déploiement, consultez [Déployer une station de travail sécurisée](howto-azure-managed-workstation.md).
@@ -52,6 +52,7 @@ Ce document décrit une solution qui peut vous aider à protéger vos appareils 
 * Windows 10 (version actuelle) pour l’attestation de l’intégrité des appareils et l’expérience utilisateur
 * Defender ATP pour la protection des points de terminaison gérés dans le cloud, la détection et la réponse
 * Azure AD PIM pour la gestion des autorisations et des accès privilégiés juste-à-temps aux ressources
+* Log Analytics et Sentinel pour la supervision et les alertes
 
 ## <a name="who-benefits-from-a-secure-workstation"></a>À qui profitent les stations de travail sécurisées ?
 
@@ -63,7 +64,7 @@ Tous les utilisateurs et opérateurs peuvent tirer profit de l’utilisation d�
 * Station de travail hautement sensible, telle qu’un terminal de paiement SWIFT
 * Station de travail contenant des secrets industriels
 
-Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), la [feuille de route d’Office 365](https://aka.ms/o365secroadmap) et la [feuille de route de sécurisation de l’accès privilégié](https://aka.ms/sparoadmap)).
+Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), la [feuille de route d’Office 365](https://aka.ms/o365secroadmap) et la [feuille de route de sécurisation de l’accès privilégié](https://aka.ms/sparoadmap)).
 
 ## <a name="why-use-dedicated-workstations"></a>Pourquoi utiliser des stations de travail dédiées ?
 
@@ -78,16 +79,29 @@ Les stratégies d’imbrication renforcent la sécurité en augmentant le nombre
 
 ## <a name="supply-chain-management"></a>Gestion de la chaîne d’approvisionnement
 
-Essentielle pour une station de travail sécurisée : une solution de chaîne d’approvisionnement dans laquelle vous utilisez une station de travail approuvée appelée « racine de confiance ». Pour cette solution, la racine de confiance utilise la technologie [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Pour sécuriser une station de travail, Autopilot vous permet d’utiliser des appareils Windows 10 Microsoft OEM optimisés. Ces appareils sont fournis par le fabricant dans un état correct connu. Au lieu de réimager l’image d’un appareil potentiellement non sécurisé, Autopilot peut faire passer un appareil Windows à l’état « prêt à l’emploi ». Il applique des paramètres et des stratégies, installe des applications et modifie même l’édition de Windows 10. Par exemple, Autopilot peut changer l’installation de Windows d’un appareil de Windows 10 Professionnel vers Windows 10 Entreprise pour qu’il puisse utiliser les fonctionnalités avancées.
+Essentielle pour une station de travail sécurisée : une solution de chaîne d’approvisionnement dans laquelle vous utilisez une station de travail approuvée appelée « racine de confiance ». La technologie qui doit être prise en compte lors de la sélection de la racine du matériel de confiance doit inclure les technologies suivantes qui sont présentes sur les ordinateurs portables récents : 
+
+* [Trusted Platform Module (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
+* [Chiffrement de lecteur BitLocker](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
+* [Démarrage sécurisé UEFI](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Pilotes et microprogrammes distribués via Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualisation et intégrité HVCI activées](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
+* [Pilotes et applications HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [Protection des E/S DMA](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Veille moderne](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+
+Pour cette solution, la racine de confiance est déployée avec la technologie [Microsoft AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) avec du matériel qui répond aux conditions techniques modernes requises. Pour sécuriser une station de travail, Autopilot vous permet d’utiliser des appareils Windows 10 Microsoft OEM optimisés. Ces appareils sont fournis par le fabricant dans un état correct connu. Au lieu de réimager l’image d’un appareil potentiellement non sécurisé, Autopilot peut faire passer un appareil Windows à l’état « prêt à l’emploi ». Il applique des paramètres et des stratégies, installe des applications et modifie même l’édition de Windows 10. Par exemple, Autopilot peut changer l’installation de Windows d’un appareil de Windows 10 Professionnel vers Windows 10 Entreprise pour qu’il puisse utiliser les fonctionnalités avancées.
 
 ![Niveaux de station de travail sécurisée](./media/concept-azure-managed-workstation/supplychain.png)
 
 ## <a name="device-roles-and-profiles"></a>Rôles et profils des appareils
 
-Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aider à créer des solutions plus sécurisées pour les utilisateurs, les développeurs et le personnel informatique. Ces profils équilibrent facilité d’utilisation et risques pour les utilisateurs courants qui peuvent profiter d’une station de travail sécurisée ou améliorée. Les configurations de paramètres fournies ici sont basées sur les normes du secteur. Ce guide explique comment renforcer Windows 10 et réduire les risques associés aux appareils ou utilisateurs compromis. Il fait appel aux stratégies et à la technologie pour gérer les risques et les fonctionnalités de sécurité.
+Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aider à créer des solutions plus sécurisées pour les utilisateurs, les développeurs et le personnel informatique. Ces profils équilibrent facilité d’utilisation et risques pour les utilisateurs courants qui peuvent profiter d’une station de travail sécurisée ou améliorée. Les configurations de paramètres fournies ici sont basées sur les normes du secteur. Ce guide explique comment renforcer Windows 10 et réduire les risques associés aux appareils ou utilisateurs compromis. Pour tirer parti de la technologie matérielle moderne et de l’appareil de racine de confiance, nous allons utiliser l’[Attestation d’intégrité de l’appareil](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), qui est activée à partir du profil **Haute sécurité**. Cette fonctionnalité permet de s’assurer que les attaquants ne peuvent pas être persistants lors du démarrage anticipé d’un appareil. Il fait appel aux stratégies et à la technologie pour gérer les risques et les fonctionnalités de sécurité.
 ![Niveaux de station de travail sécurisée](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **Faible sécurité** : une station de travail standard gérée constitue un bon point de départ pour la plupart des utilisations à domicile et dans les petites entreprises. Ces appareils sont inscrits dans Azure AD et gérés avec Intune. Ce profil permet aux utilisateurs d’exécuter toutes les applications et de naviguer sur tous les sites web. Une solution anti-programme malveillant comme [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) doit être activée.
+* **Sécurité de base** – Une station de travail standard gérée constitue un bon point de départ pour la plupart des utilisations à domicile et dans les petites entreprises. Ces appareils sont inscrits dans Azure AD et gérés avec Intune. Ce profil permet aux utilisateurs d’exécuter toutes les applications et de naviguer sur tous les sites web. Une solution anti-programme malveillant comme [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) doit être activée.
 
 * **Sécurité renforcée** :cette solution protégée d’entrée de gamme convient aux particuliers, aux utilisateurs des petites entreprises et aux développeurs généraux.
 
@@ -99,7 +113,7 @@ Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aide
 
 * **Spécialisée** : les pirates ciblent les développeurs et les administrateurs informatiques, car ces derniers peuvent modifier les systèmes présentant un intérêt pour eux. La station de travail spécialisée s’appuie sur les stratégies de la station de travail haute sécurité et y ajoute la gestion des applications locales et la limitation des sites web accessibles. Elle restreint également les fonctionnalités de productivité à haut risque, comme ActiveX, Java, les plug-ins de navigateur et autres contrôles Windows. Déployez ce profil avec le script DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline.
 
-* **Sécurisée** : un pirate qui compromet un compte d’administrateur peut causer des dégâts significatifs pour l’entreprise par vol de données, altération de données ou interruption de service. Dans cet état de sécurité renforcé, la station de travail active tous les contrôles et stratégies de sécurité qui limitent le contrôle direct de la gestion locale des applications. Une station de travail sécurisée ne possède aucun outil de productivité. Par conséquent, l’appareil est plus difficile à compromettre. Elle bloque le vecteur le plus courant d’attaques par hameçonnage : la messagerie et les médias sociaux.  La station de travail sécurisée peut être déployée à l’aide du script Station de travail sécurisée - Windows 10 (1809) SecurityBaseline.
+* **Sécurisée** : un pirate qui compromet un compte d’administrateur peut causer des dégâts significatifs pour l’entreprise par vol de données, altération de données ou interruption de service. Dans cet état de sécurité renforcé, la station de travail active tous les contrôles et stratégies de sécurité qui limitent le contrôle direct de la gestion locale des applications. Une station de travail sécurisée ne possède aucun outil de productivité. Par conséquent, l’appareil est plus difficile à compromettre. Elle bloque le vecteur le plus courant d’attaques par hameçonnage : la messagerie et les médias sociaux. La station de travail sécurisée peut être déployée à l’aide du script Station de travail sécurisée - Windows 10 (1809) SecurityBaseline.
 
    ![Station de travail sécurisée](./media/concept-azure-managed-workstation/secure-workstation.png)
 
@@ -107,8 +121,8 @@ Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aide
 
 * **Isolé** : ce scénario personnalisé hors connexion représente l’extrémité du spectre. Aucun script d’installation n’est fourni dans ce cas. Vous devrez peut-être gérer une fonction critique pour l’entreprise qui requiert un système d’exploitation hérité non pris en charge ou non corrigé. Par exemple, une ligne de production de valeur élevée ou un système vital. Étant donné que la sécurité est essentielle et que les services cloud ne sont pas disponibles, vous pouvez gérer et mettre à jour ces ordinateurs manuellement ou à l’aide d’une architecture de forêt Active Directory isolée telle que l’environnement d’administration de sécurité renforcée (Enhanced Security Admin Environment, ESAE). Dans ce cas, envisagez de supprimer tous les accès à l’exception des contrôles d’intégrité de base d’Intune et d’ATP.
 
-  * [Communications réseau requises pour Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-  * [Communications réseau requises pour ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Communications réseau requises pour Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
+   * [Communications réseau requises pour ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

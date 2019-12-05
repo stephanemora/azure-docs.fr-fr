@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498163"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228995"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -221,7 +221,7 @@ Si vous prévoyez d’utiliser des **groupes de sécurité réseau** pour contr�
 
 1. Identifiez la région Azure que vous projetez d’utiliser pour HDInsight.
 
-2. Identifiez les adresses IP que HDInsight requiert. Pour plus d’informations, consultez [Adresses IP de gestion HDInsight](hdinsight-management-ip-addresses.md).
+2. Identifiez les étiquettes de service demandées par HDInsight pour votre région. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md).
 
 3. Créez ou modifiez les groupes de sécurité réseau pour le sous-réseau dans lequel vous prévoyez d’installer HDInsight.
 
@@ -233,7 +233,7 @@ Pour plus d’informations sur les groupes de sécurité réseau, consultez [Pr�
 
 Pour plus d’informations sur le contrôle du trafic sortant à partir de clusters HDInsight, consultez [Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
 
-#### <a name="forced-tunneling-to-on-premise"></a>Tunneling forcé sur site
+#### <a name="forced-tunneling-to-on-premises"></a>Tunneling forcé en local
 
 Le tunneling forcé est une configuration d’itinéraire défini par l’utilisateur où tout le trafic en provenance d’un sous-réseau est acheminé de force vers un réseau ou un emplacement spécifique, tel que votre réseau local. HDInsight ne prend __pas__ en charge le tunneling forcé vers les réseaux locaux. 
 

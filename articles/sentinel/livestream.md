@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510986"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546867"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Utiliser le flux temps réel de chasse dans Azure Sentinel pour détecter les menaces
 
 > [!IMPORTANT]
-> Le flux temps réel de chasse dans Azure Sentinel est actuellement disponible en préversion publique.
+> Le flux temps réel de chasse dans Azure Sentinel est actuellement disponible en préversion publique et progressivement déployé sur les locataires.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -63,7 +63,7 @@ Vous pouvez créer une session de flux temps réel à partir d’une requête de
     1. Sélectionnez l’onglet **Flux temps réel**.
     2. Sélectionnez **Accéder au stream en direct**.
     
-4. Dans le panneau **Flux temps réel** :
+4. Dans le volet **Flux temps réel** :
     
     - Si vous avez démarré une session de flux temps réel à partir d’une requête existante, examinez la requête et apportez-y les modifications souhaitées éventuelles.
     - Si vous avez démarré une session de flux temps réel à partir de zéro, créez votre requête. 
@@ -96,7 +96,7 @@ Vous pouvez créer une session de flux temps réel à partir d’une requête de
 
 ![Notification du portail Azure pour la session de flux temps réel](./media/livestream/notification.png)
 
-Sélectionnez la notification pour ouvrir le panneau **Flux temps réel**.
+Sélectionnez la notification pour ouvrir le volet **Flux temps réel**.
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>Élever une session de flux temps réel au niveau d’alerte
 

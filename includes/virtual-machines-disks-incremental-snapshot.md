@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7e9e36f75d0b0638fadbf92e713a924e816807d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012392"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566251"
 ---
 Les instantanés incrémentiels (préversion) sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés peut améliorer leur rentabilité car il n'est plus nécessaire de stocker l'intégralité du disque avec chaque instantané, sauf si vous y tenez. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
@@ -25,7 +25,7 @@ Si vous ne vous êtes pas encore inscrit pour bénéficier de la préversion et 
 
 ## <a name="restrictions"></a>Restrictions
 
-- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Centre-Ouest et Europe Nord.
+- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Centre, Canada Centre, USA Centre-Ouest et Europe Nord.
 - Il est actuellement impossible de créer des instantanés incrémentiels après avoir modifié la taille d'un disque.
 - Les instantanés incrémentiels ne peuvent actuellement pas être transférés d'un abonnement à un autre.
 - À un moment donné, vous ne pouvez actuellement générer que des URI SAS comprenant jusqu'à cinq instantanés d'une famille d'instantanés particulière.
@@ -78,11 +78,13 @@ $incrementalSnapshots
 
 ## <a name="cli"></a>Interface de ligne de commande
 
-Vous pouvez créer un instantané incrémentiel avec Azure CLI (dans ce cas, il vous faut la dernière version d’Azure CLI). La commande suivante vous permet de l’installer ou de mettre à jour votre installation existante avec la dernière version :
+Vous pouvez créer un instantané incrémentiel avec Azure CLI (dans ce cas, il vous faut la dernière version d’Azure CLI). 
 
+Sur Windows, la commande suivante vous permet de l’installer ou de mettre à jour votre installation existante avec la dernière version :
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
+Sur Linux, l’installation de l’interface de ligne de commande varie en fonction de la version du système d’exploitation.  Consultez [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) pour votre version Linux spécifique.
 
 Pour créer un instantané incrémentiel, utilisez [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) avec le paramètre `--incremental`.
 
@@ -154,4 +156,8 @@ Vous pouvez également utiliser des modèles Azure Resource Manager pour créer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne vous êtes pas encore inscrit pour bénéficier de la préversion et que vous souhaitez commencer à utiliser des instantanés incrémentiels, envoyez-nous un e-mail à l’adresse AzureDisks@microsoft.com pour accéder à la préversion publique.
+1. Si vous ne vous êtes pas encore inscrit pour bénéficier de la préversion et que vous souhaitez commencer à utiliser des instantanés incrémentiels, envoyez-nous un e-mail à l’adresse AzureDisks@microsoft.com pour accéder à la préversion publique. 
+
+2. Explorez les exemples suivants pour la copie entre régions des instantanés incrémentiels à l’aide de la fonctionnalité différentielle   
+
+    - [Utilisation des kits SDK Azure .NET](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: b6b2366a10f38c1938e5ecc09f77271db04dcbc4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5f3b1890901eac510086a64cc2ccd341d0b23e00
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810509"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420825"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Démarrage rapide : Importer un fichier BACPAC dans Azure SQL Database
 
@@ -24,36 +24,42 @@ Vous pouvez importer une base de données SQL Server dans Azure SQL Database à 
 
 > [!NOTE]
 > Le niveau de compatibilité de la base de données importée est basé sur celui de la base de données source.
+
 > [!IMPORTANT]
 > Après avoir importé votre base de données, vous pouvez choisir de l’utiliser à son niveau de compatibilité actuel (niveau 100 pour la base de données AdventureWorks2008R2) ou à un niveau supérieur. Pour plus d’informations sur les implications et les options du fonctionnement d’une base de données à un niveau de compatibilité spécifique, consultez [Niveau de compatibilité ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Consultez également [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) pour plus d’informations sur des paramètres supplémentaires au niveau de la base de données relatifs aux niveaux de compatibilité.
 
-## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Importer à partir d’un fichier BACPAC sur le portail Azure
+## <a name="using-azure-portal"></a>En passant par le portail Azure
+
+Regardez cette vidéo pour savoir comment importer à partir d’un fichier BACPAC sur le portail Azure ou poursuivez la lecture ci-dessous :
+
+> [!VIDEO hhttps://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
 Le [Portail Microsoft Azure](https://portal.azure.com) prend *uniquement* en charge la création d’une base de données unique dans Azure SQL Database et *uniquement* à partir d’un fichier BACPAC stocké dans le stockage Blob Azure.
 
 La migration d’une base de données vers une [instance managée](sql-database-managed-instance.md) provenant d’un fichier BACPAC à l’aide d’Azure PowerShell n’est pas prise en charge pour le moment. Veuillez plutôt utiliser SQL Server Management Studio ou SQLPackage.
 
 > [!NOTE]
-> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du portail Microsoft Azure ou de PowerShell doivent stocker le fichier BACPAC et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement entre bases de données de même taille, et peut nécessiter jusqu’à 3 fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines demandes peuvent échouer avec l’erreur `There is not enough space on the disk`. Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Pour éviter ce problème, nous vous conseillons d’utiliser [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) pour importer/exporter des bases de données supérieures à 150 Go.
- 
+> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du portail Microsoft Azure ou de PowerShell doivent stocker le fichier BACPAC et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement entre bases de données de même taille, et peut nécessiter jusqu’à 3 fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines demandes peuvent échouer avec l’erreur `There is not enough space on the disk`. Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Pour éviter ce problème, nous vous conseillons d’utiliser SqlPackage pour importer/exporter des bases de données de plus de 150 Go.
+
 1. Pour importer à partir d’un fichier BACPAC dans une base de données unique à l’aide du Portail Microsoft Azure, ouvrez la page appropriée du serveur de base de données, puis, dans la barre d’outils, sélectionnez **Importer la base de données**.  
 
    ![Importation1 de base de données](./media/sql-database-import/import1.png)
 
-2. Sélectionnez le compte de stockage et le conteneur pour le fichier BACPAC, puis sélectionnez le fichier BACPAC à partir duquel importer.
-3. Spécifiez la taille de la nouvelle base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination. Pour obtenir la liste des valeurs possibles pour Azure SQL Database, consultez [Créer une base de données](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Sélectionnez le compte de stockage et le conteneur pour le fichier BACPAC, puis sélectionnez le fichier BACPAC à partir duquel importer.
+
+1. Spécifiez la taille de la nouvelle base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination. Pour obtenir la liste des valeurs possibles pour Azure SQL Database, consultez [Créer une base de données](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
    ![Importation2 de base de données](./media/sql-database-import/import2.png)
 
-4. Cliquez sur **OK**.
+1. Cliquez sur **OK**.
 
-5. Pour superviser la progression d’une importation, ouvrez la page du serveur de la base de données et, sous **Paramètres**, sélectionnez **Historique d’importation/exportation**. Une fois achevée, l’importation présente l’état **Terminé**.
+1. Pour superviser la progression d’une importation, ouvrez la page du serveur de la base de données et, sous **Paramètres**, sélectionnez **Historique d’importation/exportation**. Une fois achevée, l’importation présente l’état **Terminé**.
 
    ![Statut d’importation de la base de données](./media/sql-database-import/import-status.png)
 
-6. Pour vérifier que la base de données est active sur le serveur de base de données, sélectionnez **Bases de données SQL** et assurez-vous que la nouvelle base de données est **En ligne**.
+1. Pour vérifier que la base de données est active sur le serveur de base de données, sélectionnez **Bases de données SQL** et assurez-vous que la nouvelle base de données est **En ligne**.
 
-## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>Importer à partir d’un fichier BACPAC à l’aide de SqlPackage
+## <a name="using-sqlpackage"></a>Utilisation de SqlPackage
 
 Pour importer une base de données SQL Server à l’aide de l’utilitaire de ligne de commande [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), consultez les [paramètres et propriétés d’importation](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage a les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et [SQL Server Data Tools pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Vous pouvez aussi télécharger la dernière version de [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) sur le Centre de téléchargement Microsoft.
 
@@ -62,63 +68,76 @@ Pour bénéficier d’une mise à l’échelle et de performances optimales, nou
 La commande SqlPackage ci-dessous importe la base de données **AdventureWorks2008R2** du stockage local vers un serveur Azure SQL Database appelé **mynewserver20170403**. Elle crée une base de données appelée **myMigratedDatabase** avec un niveau de service **Premium** et un objectif de service **P6**. Changez ces valeurs en fonction de votre environnement.
 
 ```cmd
-SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
 > Pour vous connecter à un serveur SQL Database qui gère une base de données unique derrière un pare-feu d’entreprise, le port de ce dernier doit être 1433 ouvert. Pour vous connecter à une instance gérée, vous devez avoir une [connexion point à site](sql-database-managed-instance-configure-p2s.md) ou une connexion Express Route.
->
 
 Cet exemple montre comment importer une base de données à l’aide de SqlPackage avec l’authentification universelle Active Directory.
 
 ```cmd
-SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
+sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importer dans une base de données unique à partir d’un fichier BACPAC à l’aide de PowerShell
+## <a name="using-powershell"></a>Utiliser PowerShell
 
 > [!NOTE]
 > [Une instance managée](sql-database-managed-instance.md) ne prend actuellement pas en charge la migration d’une base de données vers une base de données d’instance à partir d’un fichier BACPAC à l’aide d’Azure PowerShell. Pour importer dans une instance managée, utilisez SQL Server Management Studio ou SQLPackage.
 
 > [!NOTE]
-> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du portail ou de Powershell doivent stocker le fichier bacpac et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement parmi les bases de données de même taille, et peut prendre jusqu’à trois fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines requêtes peuvent échouer avec l’erreur « Espace insuffisant sur le disque ». Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Lors de l’importation/exportation des bases de données supérieures à 150 Go, utilisez [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) pour éviter ce problème.
+> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du portail ou de Powershell doivent stocker le fichier bacpac et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement parmi les bases de données de même taille, et peut prendre jusqu’à trois fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines requêtes peuvent échouer avec l’erreur « Espace insuffisant sur le disque ». Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Pour importer/exporter des bases de données de plus de 150 Go, utilisez SqlPackage pour éviter ce problème.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Utilisez la cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) pour soumettre une demande d’importation de base de données au service Azure SQL Database. Selon la taille de la base de données, l’importation peut prendre un certain temps avant d’aboutir.
 
- ```powershell
- $importRequest = New-AzSqlDatabaseImport 
-    -ResourceGroupName "<your_resource_group>" `
-    -ServerName "<your_server>" `
-    -DatabaseName "<your_database>" `
-    -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
-    -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
-    -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
-    -Edition "Standard" `
-    -ServiceObjectiveName "P6" `
-    -AdministratorLogin "<your_server_admin_account_user_id>" `
-    -AdministratorLoginPassword $(ConvertTo-SecureString -String "<your_server_admin_account_password>" -AsPlainText -Force)
+```powershell
+$importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
+    -ServerName "<serverName>" -DatabaseName "<databaseName>" `
+    -DatabaseMaxSizeBytes "<databaseSizeInBytes>" -StorageKeyType "StorageAccessKey" `
+    -StorageKey $(Get-AzStorageAccountKey `
+        -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>").Value[0] `
+        -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
+        -Edition "Standard" -ServiceObjectiveName "P6" `
+        -AdministratorLogin "<userId>" `
+        -AdministratorLoginPassword $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
+```
 
- ```
-
- Vous pouvez utiliser la cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) pour vérifier la progression de l’importation. Quand vous exécutez l’applet de commande de suite après la demande, l’état généralement retourné est **État : En cours**. L’importation est terminée dès que vous voyez **État : Réussite**.
+Vous pouvez utiliser la cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) pour vérifier la progression de l’importation. L’exécution de l’applet de commande de suite après la demande retourne généralement `Status: InProgress`. L’importation est terminée dès que vous voyez `Status: Succeeded`.
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+
 [Console]::Write("Importing")
-while ($importStatus.Status -eq "InProgress")
-{
+while ($importStatus.Status -eq "InProgress") {
     $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }
+
 [Console]::WriteLine("")
 $importStatus
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+
+Utilisez la commande [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) pour soumettre une demande d’importation de base de données au service Azure SQL Database. Selon la taille de la base de données, l’importation peut prendre un certain temps avant d’aboutir.
+
+```azure-cli
+# get the storage account key
+az storage account keys list --resource-group "<resourceGroupName>" --account-name "<storageAccountName>"
+
+az sql db import --resource-group "<resourceGroupName>" --server "<serverName>" --name "<databaseName>" `
+    --storage-key-type "StorageAccessKey" --storage-key "<storageAccountKey>" `
+    --storage-uri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
+    -u "<userId>" -p $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
+```
+
+* * *
 
 > [!TIP]
 > Pour un autre exemple de script, consultez [Importation d’une base de données à partir d’un fichier BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).

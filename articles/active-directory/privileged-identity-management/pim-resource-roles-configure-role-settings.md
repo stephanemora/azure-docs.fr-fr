@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182710"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management
 
@@ -48,11 +48,22 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
     ![Page Détails des paramètres de rôle répertoriant plusieurs paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Sélectionnez **Modifier** pour ouvrir le volet Paramètres de rôle.
+1. Sélectionnez **Modifier** pour ouvrir le volet **Paramètres de rôle**. Le premier onglet vous permet de mettre à jour la configuration de l’activation de rôles dans Privileged Identity Management.
 
-    ![Modifier la page des paramètres de rôle avec des options permettant de mettre à jour les paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Page Modifier les paramètres de rôle avec l’onglet Activation ouvert](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    Dans le volet Paramètres de rôle de chaque rôle, vous pouvez configurer plusieurs paramètres.
+1. Sélectionnez l’onglet **Affectation** ou le bouton **Suivant : Affectation** au bas de la page pour ouvrir l’onglet du paramètre d’affectation. Ces paramètres gèrent les affectations de rôles effectuées dans l’interface Privileged Identity Management.
+
+    ![Onglet Attribution de rôle dans la page des paramètres de rôle](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Utilisez l’onglet **Notification** ou le bouton **Suivant : Activation** au bas de la page pour accéder à l’onglet du paramètre de notification pour ce rôle. Ces paramètres gèrent tous les e-mails de notification relatifs à ce rôle.
+
+    > [!NOTE]
+    > L’interface utilisateur des notifications est actuellement déployée dans les régions et les abonnements Azure. Si vous ne pouvez pas configurer ces notifications précises, revenez vérifier dans un ou deux jours.
+
+    ![Onglet Notifications de rôle dans la page des paramètres de rôle](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Sélectionnez le bouton **Mettre à jour** quand vous voulez pour mettre à jour les paramètres de rôle.
 
 ## <a name="assignment-duration"></a>Durée de l’attribution
 

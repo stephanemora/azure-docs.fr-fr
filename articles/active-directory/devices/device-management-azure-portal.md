@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200231"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420608"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -32,9 +32,8 @@ Cet article :
 Le portail Azure AD centralise les opérations de gestion des identités de vos appareils. Pour y accéder, utilisez un [lien direct](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou suivez les étapes manuelles ci-dessous :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Sur la barre de navigation gauche, cliquez sur **Active Directory**.
 
-   ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/01.png)
+2. Recherchez et sélectionnez **Azure Active Directory** ou sélectionnez-le dans la page **Accueil**.
 
 3. Dans la section **Gérer**, cliquez sur **Appareils**.
 

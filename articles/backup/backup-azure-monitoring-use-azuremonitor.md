@@ -1,21 +1,15 @@
 ---
-title: 'Sauvegarde Azure : surveiller la sauvegarde Azure avec Azure Monitor'
+title: surveiller la sauvegarde Azure avec Azure Monitor
 description: Supervisez les charges de travail de Sauvegarde Azure et créez des alertes personnalisées avec Azure Monitor.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Analytique des journaux d'activité ; alertes ; paramètres de diagnostic ; groupes d’actions
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074239"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554877"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -41,9 +35,9 @@ Des ressources Azure Resource Manager comme le coffre Recovery Services, enregis
 
 Dans la section Supervision, sélectionnez **Paramètres de diagnostic** et spécifiez la cible pour les données de diagnostic du coffre Recovery Services.
 
-![Paramètre de diagnostic du coffre Recovery Services, ciblant Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
+![Paramètre de diagnostic du coffre Recovery Services, ciblant Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-Vous pouvez cibler un espace de travail Log Analytics depuis un autre abonnement. Pour superviser des coffres sur plusieurs abonnements à un même emplacement, sélectionnez le même espace de travail Log Analytics pour plusieurs coffres Recovery Services. Pour canaliser toutes les informations relatives à Sauvegarde Azure vers l’espace de travail log Analytics, sélectionnez **AzureBackupReport** comme journal.
+Vous pouvez cibler un espace de travail Log Analytics depuis un autre abonnement. Pour superviser des coffres sur plusieurs abonnements à un même emplacement, sélectionnez le même espace de travail Log Analytics pour plusieurs coffres Recovery Services. Pour canaliser toutes les informations relatives à Sauvegarde Azure vers l’espace de travail Log Analytics, choisissez **Spécifique de la ressource** dans le bouton bascule qui s’affiche, puis sélectionnez les événements suivants : **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Pour plus d’informations sur la configuration des paramètres de diagnostic LA, reportez-vous à [cet article](backup-azure-diagnostic-events.md).
 
 > [!IMPORTANT]
 > Une fois la configuration terminée, vous devez attendre 24 heures pour que l’envoi (push) de données initial se termine. Après cet envoi (push) de données initial, tous les événements sont envoyés comme décrit plus loin dans cet article, dans la section [Fréquence](#diagnostic-data-update-frequency).
@@ -118,90 +112,65 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
 - Tous les travaux de sauvegarde réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Completed"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     ````
 
 - Tous les travaux de sauvegarde ayant échoué
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Failed"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Failed"
     ````
 
 - Tous les travaux de sauvegarde de machines virtuelles Azure réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 - Tous les travaux de sauvegarde de journal SQL réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 - Tous les travaux de l’agent Sauvegarde Azure réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Fréquence de mise à jour des données de diagnostic

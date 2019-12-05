@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0bf95b499a7366dad1e7b78fa4298aa6a42bb5fe
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316802"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464114"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -30,9 +30,9 @@ L’utilisation de RBAC vous permet d’utiliser et de créer des rôles au sein
 
 Il existe trois rôles Azure Sentinel intégrés spécifiques.  
 **Tous les rôles intégrés Azure Sentinel accordent un accès en lecture aux données de votre espace de travail Azure Sentinel.**
-- **Lecteur Azure Sentinel** : un utilisateur à qui ce rôle a été attribué dispose de droits d’affichage sur Azure Sentinel. L’utilisateur peut afficher des incidents et des données, mais il ne peut pas apporter de changements.
-- **Répondeur Azure Sentinel** : un utilisateur à qui ce rôle a été attribué peut lire et effectuer des actions sur des incidents tels que des modifications d’affectation et de gravité.
-- **Contributeur Azure Sentinel** : un utilisateur à qui ce rôle a été attribué peut lire les incidents, effectuer des actions dessus, ainsi que créer et supprimer des règles d’analytique.
+- **Lecteur Azure Sentinel** : Pour plus d’informations, consultez [Rôles intégrés](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- **Répondeur Azure Sentinel** : Pour plus d’informations, consultez [Rôles intégrés](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- **Contributeur Azure Sentinel** : Pour plus d’informations, consultez [Rôles intégrés](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 Outre les rôles RBAC dédiés à Azure Sentinel, il existe des rôles RBAC Azure et Log Analytics qui peuvent accorder un ensemble plus large d’autorisations qui incluent l’accès à votre espace de travail Azure Sentinel et à d’autres ressources :
 
@@ -79,4 +79,4 @@ Vous pouvez utiliser le contrôle d’accès en fonction du rôle avancé Log A
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à utiliser des rôles pour les utilisateurs Azure Sentinel et découvert ce que chaque rôle permet aux utilisateurs de faire.
 
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog Azure Sentinel](https://aka.ms/azuresentinelblog) : accédez à des billets de blog sur la sécurité et la conformité Azure.

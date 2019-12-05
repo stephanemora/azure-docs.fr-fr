@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193709"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229028"
 ---
-# <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Serveurs principaux et pools principaux dans Azure Front Door Service
+# <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Backends et pools de backends dans Azure Front Door Service
 Cet article décrit des concepts sur la façon de mapper votre déploiement d’application en utilisant Azure Front Door Service. Il explique également les différents termes utilisés pour la configuration de Front Door relatifs aux serveurs principaux d’applications.
 
 ## <a name="backends"></a>Serveurs principaux
-Un serveur principal correspond à l’instance de déploiement d’une application dans une zone géographique, ou « région ». Le service Front Door prend en charge les serveurs principaux Azure et non Azure. Sa région n’est donc pas limitée aux régions Azure. En outre, elle peut être votre centre de données local ou une instance d’application dans un autre cloud.
+Un serveur principal correspond à l’instance de déploiement d’une application dans une zone géographique, ou « région ». Le service Front Door prend en charge les serveurs principaux Azure et non Azure. Sa région n’est donc pas limitée aux régions Azure. De plus, elle peut être votre centre de données local ou une instance d’application dans un autre cloud.
 
 Les serveurs principaux du service Front Door font référence au nom d’hôte ou à l’adresse IP publique de votre application, qui peut traiter les demandes des clients. Attention, il ne faut pas confondre les serveurs principaux avec votre niveau de base de données, de stockage, etc. Les serveurs principaux doivent être considérés comme le point de terminaison public de votre application principale. Lorsque vous ajoutez un serveur principal dans un pool principal Front Door, vous devez également ajouter les éléments suivants :
 
@@ -49,7 +49,7 @@ La plupart des serveurs principaux d’application (comme Azure Web Apps, Azure 
 
 Si votre serveur principal requiert une correspondance entre l’en-tête de l’hôte et le nom de l’hôte du serveur principal, veuillez vous assurer que l’en-tête de l’hôte principal inclut le serveur principal du nom de l’hôte.
 
-#### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configuration du champ En-tête de l’hôte de serveur principal pour le serveur principal
+#### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configuration du champ En-tête de l’hôte backend pour le backend
 
 Pour configurer le champ **En-tête de l’hôte de serveur principal** pour un serveur principal dans la section Pool principal :
 

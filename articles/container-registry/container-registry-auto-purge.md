@@ -1,27 +1,22 @@
 ---
-title: Supprimer automatiquement des ressources d’images dans Azure Container Registry
+title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: danlep
-ms.openlocfilehash: 4fb9eb8a3ef937ce5ed222c7814a8f191e3874f2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 08/14/2019
+ms.openlocfilehash: 65169927f7a1cffa88a2d909217e636417f695cc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803599"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456486"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 
 Lorsque vous utilisez un registre de conteneurs Azure dans le cadre d’un workflow de développement, le registre peut rapidement se remplir d’images ou d’autres artefacts qui ne sont pas nécessaires après une brève période. Vous souhaiterez peut-être supprimer toutes les étiquettes antérieures à une certaine durée ou correspondant à un filtre de nom spécifié. Pour supprimer rapidement plusieurs artefacts, cet article présente la commande `acr purge` que vous pouvez exécuter en tant que tâche ACR à la demande ou [planifiée](container-registry-tasks-scheduled.md). 
 
-La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.1`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub. Dans une tâche ACR, exécutez la commande avec [l’alias](container-registry-tasks-reference-yaml.md#aliases) `acr purge`.
+La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.1`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
 
-Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.76 ou une version ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
+Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.69 ou ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
 
 > [!IMPORTANT]
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
@@ -63,8 +58,8 @@ Dans cet exemple et dans les suivants, le registre dans lequel la commande `acr 
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  filter 'hello-world:.*' --untagged --ago 1d"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -78,8 +73,8 @@ L’exemple suivant utilise la commande [az acr task create][az-acr-task-create]
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  --filter 'hello-world:.*' --ago 7d"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -98,8 +93,8 @@ Par exemple, la tâche à la demande suivante définit un délai d’expiration 
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
-  --filter 'hello-world:.*' --ago 1d --untagged"
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -120,7 +115,8 @@ Dans l’exemple suivant, le filtre de chaque référentiel sélectionne toutes 
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry \$Registry \
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
@@ -160,7 +156,8 @@ Une fois que vous avez vérifié le test, créez une tâche planifiée pour auto
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="acr purge --registry $Registry \
+PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
+  --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged"
 

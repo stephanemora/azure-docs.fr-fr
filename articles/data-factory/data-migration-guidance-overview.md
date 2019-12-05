@@ -1,5 +1,5 @@
 ---
-title: Utilisez Azure Data Factory pour migrer des données de votre lac de données et de votre entrepôt de données vers Azure
+title: Migrer des données à partir d'un lac de données et d'un entrepôt de données vers Azure
 description: Utilisez Azure Data Factory pour migrer des données de votre lac de données et de votre entrepôt de données vers Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 0be9cbc9c5af2e0778654ef70c5350b48f10c35d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 056e98c18dbe2dd1adaa9386145ef18e36f8aac2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675755"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217568"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Utilisez Azure Data Factory pour migrer des données de votre lac de données ou de votre entrepôt de données vers Azure
 

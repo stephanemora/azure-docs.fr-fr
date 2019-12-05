@@ -1,5 +1,5 @@
 ---
-title: Choisir le protocole de fédération approprié pour votre application mutualisée
+title: Choisir le protocole de fédération approprié pour une application multilocataire
 description: Conseils pour les éditeurs de logiciels indépendants sur l’intégration avec Azure Active Directory
 services: active-directory
 author: barbaraselden
@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232292"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Choisir le protocole de fédération approprié pour votre application mutualisée
 

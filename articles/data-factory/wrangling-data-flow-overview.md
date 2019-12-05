@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665648"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531390"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Que sont les flux de données de wrangling ?
 
@@ -37,6 +37,30 @@ Les intégrateurs de données citoyen consacrent plus de 60 % de leur temps à l
 ### <a name="data-validation"></a>Validation des données
 
 Analysez visuellement vos données sans code pour supprimer les valeurs hors norme et les anomalies, et les rendre aptes à une analyse rapide.
+
+## <a name="supported-sources"></a>Sources prises en charge
+
+| Connecteur | Format de données | Type d'authentification |
+| -- | -- | --|
+| [Stockage Blob Azure](connector-azure-blob-storage.md) | CSV | Clé du compte |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Principal de service |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Clé de compte, Principal de service |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | Authentification SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Authentification SQL |
+
+## <a name="the-mashup-editor"></a>Editeur de mashup
+
+Quand vous créez un flux de wrangling data, tous les jeux de données sources deviennent des requêtes de jeu de données et sont placés dans le dossier **ADFResource**. Par défaut, la requête utilisateur pointe vers la première requête de jeu de données. Toutes les transformations doivent être effectuées sur la requête utilisateur, car les modifications apportées aux requêtes de jeu de données ne sont pas prises en charge et ne sont pas rendues persistantes. Le renommage, l’ajout et la suppression de requêtes ne sont pas pris en charge.
+
+![Wrangling](media/wrangling-data-flow/editor.png)
+
+Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos flux de données de wrangling, le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+Pour plus d’informations sur les transformations prises en charge, consultez [Fonctions de flux de wrangling data](wrangling-data-flow-functions.md).
+
+Le flux de wrangling data prend uniquement en charge l’écriture dans un récepteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

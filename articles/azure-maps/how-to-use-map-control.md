@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ff183261f67ff76f56fc034d8102e3aa3a4838a8
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833819"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480517"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -110,7 +110,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
 
     Vous trouverez une liste d’exemples montrant comment intégrer AAD (Azure Active Directory) à Azure Maps [ici](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-    Pour plus d’informations, voir le document [Authentification avec Azure Maps](azure-maps-authentication.md).
+    Pour plus d’informations, consultez le document [Authentification avec Azure Maps](azure-maps-authentication.md) ainsi que les [exemples d’authentification d’Azure AD auprès d’Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
 6. Si vous le souhaitez, vous pouvez ajouter les éléments de balises META suivants à l’en-tête de votre page :
 
@@ -234,4 +234,4 @@ Pour ajouter des données à votre carte :
 Pour obtenir une liste d’exemples montrant comment intégrer AAD (Azure Active Directory) à Azure Maps, consultez :
 
 > [!div class="nextstepaction"]
-> [Exemples d’authentification AAD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Exemples d’authentification Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

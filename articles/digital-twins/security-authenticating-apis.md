@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 6af6a4501ad58fc8e371b895da601d177d872f41
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013940"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456895"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Se connecter et s'authentifier à l'aide d'API
 
-Azure Digital Twins utilise Azure Active Directory (Azure AD) pour authentifier les utilisateurs et protéger les applications. Azure AD prend en charge l’authentification pour différentes architectures modernes. Toutes sont basées sur les protocoles standard OAuth 2.0 ou OpenID Connect. En outre, les développeurs peuvent utiliser Azure AD pour créer des applications à client unique et métier (LOB). Les développeurs peuvent également utiliser Azure AD pour développer des applications multilocataires.
+Azure Digital Twins utilise Azure Active Directory (Azure AD) pour authentifier les utilisateurs et protéger les applications. Azure AD prend en charge l’authentification pour différentes architectures modernes. Toutes sont basées sur les protocoles standard OAuth 2.0 ou OpenID Connect. En outre, les développeurs peuvent utiliser Azure AD pour créer des applications à client unique et métier (LOB). Les développeurs peuvent également utiliser Azure AD pour développer des [applications multilocataires](how-to-multitenant-applications.md).
 
 Pour une vue d’ensemble d’Azure AD, consultez la [page des notions de base](https://docs.microsoft.com/azure/active-directory/fundamentals/) et accédez à des guides pas à pas, à des concepts et à des guides de démarrage rapide.
 

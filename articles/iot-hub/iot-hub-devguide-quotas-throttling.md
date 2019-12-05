@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331357"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228265"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -106,7 +106,7 @@ IoT Hub impose d’autres limites opérationnelles :
 | Méthode directe<sup>1</sup> | La taille maximale de charge utile de la méthode directe est de 128 Ko. |
 | Configuration automatique des appareils<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
 | Déploiement automatique IoT Edge<sup>1</sup> | 20 modules par déploiement. 100 déploiements par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
-| Jumeaux<sup>1</sup> | La taille maximale par section de jumeaux (balises, propriétés souhaitées, propriétés signalées) est de 8 Ko. |
+| Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
 
 <sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md).
 
