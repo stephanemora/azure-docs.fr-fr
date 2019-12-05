@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: bd099b9d76e17eda36be1650ef5081e5aaa7e53a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "67303547"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672448"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Démarrage rapide : Développer sur Azure Kubernetes Service (AKS) avec Draft
 
@@ -26,7 +26,7 @@ Cet article vous montre comment utiliser le package Draft et exécuter une appli
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installé et configuré. Docker fournit des packages qui le configurent sur un système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
-* [Helm installé](https://github.com/helm/helm/blob/master/docs/install.md).
+* [Helm installé](https://github.com/helm/helm#install).
 * [Draft installé][draft-documentation].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service

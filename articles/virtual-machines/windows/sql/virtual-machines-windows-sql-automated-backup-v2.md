@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 452dfcc04d9fc9048493222ad2a82a5bcc8b78f4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 009a480add9d808115f24a69a400118fec7cb293
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162871"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790581"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -173,7 +173,7 @@ Si elle n’est pas installée ou n’a pas pu être configurée, vous pouvez l�
 $region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region 
+    -Version "2.0" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> Vérifier les paramètres actuels
@@ -290,7 +290,7 @@ $logbackupfrequency = "30"
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region
+    -Version "2.0" -Location $region
 
 # Creates/use a storage account to store the backups
 

@@ -2,19 +2,16 @@
 title: Planification de tâches et de workflows récurrents dans Azure Logic Apps
 description: Vue d'ensemble de la planification de tâches, processus et workflows automatisés récurrents avec Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350706"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792747"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 

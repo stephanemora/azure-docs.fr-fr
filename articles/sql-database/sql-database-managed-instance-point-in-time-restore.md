@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: ad96d0a04b03e070a7108832370749377d723826
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821763"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707662"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps
 
@@ -230,7 +230,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 Connectez-vous directement à l’instance gérée et démarrez SQL Server Management Studio. Vous pouvez alors exécuter la requête Transact-SQL (T-SQL) suivante. La requête remplacera le nom de la base de données restaurée par celui de la base de données déposée que vous envisagez de remplacer.
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 Utilisez l’une des méthodes suivantes pour vous connecter à votre base de données d’instance gérée :

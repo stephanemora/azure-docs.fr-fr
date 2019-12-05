@@ -1,21 +1,19 @@
 ---
-title: Décoder des messages X12 - Azure Logic Apps | Microsoft Docs
+title: Décoder des messages X12
 description: Valider l’EDI et générer les acquittements avec le décodeur de messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701442"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792374"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Décoder des messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 

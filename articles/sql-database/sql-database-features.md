@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 8f078bdfa1c6c106bb12116f30dc69abce42baa0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092145"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790472"
 ---
 # <a name="azure-sql-database-features"></a>Fonctionnalités d’Azure SQL Database
 
@@ -35,7 +35,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | **Fonctionnalité SQL** | **Single databases and elastic pools** | **Instances gérées et pools d’instances** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) |
-| [Groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Une disponibilité à 99,99-99,995 %](sql-database-high-availability.md) est garantie pour chaque base de données. La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | Une [disponibilité à 99,99 %](sql-database-high-availability.md) est garantie pour chaque base de données. [L’utilisateur ne peut pas la gérer](sql-database-managed-instance-transact-sql-information.md#always-on-availability). La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md). Utilisez des [groupes de basculement automatique](sql-database-auto-failover-group.md) pour configurer une instance gérée Always On secondaire dans une autre région. Il n’est pas possible d’utiliser d’autres instances SQL Server et bases de données uniques en tant qu’instances secondaires pour une instance gérée. |
+| [Groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Une disponibilité à 99,99-99,995 %](sql-database-high-availability.md) est garantie pour chaque base de données. La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | Une [disponibilité à 99,99 %](sql-database-high-availability.md) est garantie pour chaque base de données. [L’utilisateur ne peut pas la gérer](sql-database-managed-instance-transact-sql-information.md#availability). La reprise d’activité après sinistre est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md). Utilisez des [groupes de basculement automatique](sql-database-auto-failover-group.md) pour configurer une instance gérée Always On secondaire dans une autre région. Il n’est pas possible d’utiliser d’autres instances SQL Server et bases de données uniques en tant qu’instances secondaires pour une instance gérée. |
 | [Attacher une base de données](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Non | Non |
 | [Audit](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Oui](sql-database-auditing.md)| [Oui](sql-database-managed-instance-auditing.md), à quelques [différences](sql-database-managed-instance-transact-sql-information.md#auditing) près |
 | [Authentification Azure Active Directory (AAD)](sql-database-aad-authentication.md) | Oui. Utilisateurs AAD uniquement. | Oui. Inclut les connexions AAD au niveau du serveur. |

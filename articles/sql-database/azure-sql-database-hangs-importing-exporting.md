@@ -9,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e1638c9779ca50507a1ce30dd3bbc9c18248964a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808276"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807066"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Le service Import/Export d’Azure SQL Database prend beaucoup de temps pour importer ou exporter une base de données
 
@@ -22,7 +22,7 @@ Parfois, lorsque vous utilisez le service Import/Export d’Azure SQL Database
 
 ## <a name="azure-sql-database-importexport-service"></a>Service Import/Export d’Azure SQL Database
 
-Le service Import/Export d’Azure SQL Database est un service web basé sur REST qui s’exécute dans chaque centre de données Azure. Ce service est appelé lorsque vous utilisez l’option [Importer la base de données](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) ou [Exporter](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) pour déplacer votre base de données SQL dans le portail Microsoft Azure. Grâce à lui, vous pouvez placer des requêtes en file d’attente ou effectuer des calculs. Cela permet d’effectuer des importations et des exportations entre Azure SQL Database et Azure Blob Storage.
+Le service Import/Export d’Azure SQL Database est un service web basé sur REST qui s’exécute dans chaque centre de données Azure. Ce service est appelé lorsque vous utilisez l’option [Importer la base de données](sql-database-import.md#using-azure-portal) ou [Exporter](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) pour déplacer votre base de données SQL dans le portail Microsoft Azure. Grâce à lui, vous pouvez placer des requêtes en file d’attente ou effectuer des calculs. Cela permet d’effectuer des importations et des exportations entre Azure SQL Database et Azure Blob Storage.
 
 Les opérations d’importation et d’exportation ne sont pas une sauvegarde de base de données physique traditionnelle, mais une sauvegarde logique de la base de données qui utilise un format BACPAC spécial. Ce format BACPAC logique vous permet d’éviter d’avoir à utiliser un format physique qui peut varier entre les versions de Microsoft SQL Server et Azure SQL Database. Ainsi, vous pouvez l’utiliser pour restaurer en toute sécurité la base de données vers une base de données SQL Server et vers une base de données SQL.
 

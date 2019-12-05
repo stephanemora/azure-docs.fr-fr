@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2be8f7f2e8859301285e4b87cfb5da88e3317e3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 82db94dd201676b769f1ea151b23fa1b149f609c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483360"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807100"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -221,7 +221,7 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
     + Modification de [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) pour qu’il retourne le nom et la version de l’inscription si le jeu de données est inscrit.
     + Correction d’un bogue qui fait que ScriptRunConfig avec le jeu de données en tant qu’argument ne peut pas être utilisé à plusieurs reprises pour soumettre une exécution expérimentale.
     + Les jeux de données récupérés lors d’une exécution feront l’objet d’un suivi et peuvent être visualisés dans la page des détails d’exécution ou en appelant [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) une fois l’exécution terminée.
-    + La conversion des données intermédiaires en jeu de données tabulaire est autorisée dans le pipeline Azure Machine Learning, ainsi que leur utilisation dans [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
+    + La conversion des données intermédiaires en jeu de données tabulaire est autorisée dans le pipeline Azure Machine Learning, ainsi que leur utilisation dans [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
     + Ajout de la prise en charge du déploiement et du packaging des modèles pris en charge (ONNX, scikit-learn et TensorFlow) sans instance InferenceConfig.
     + Ajout de l’indicateur de remplacement pour le déploiement de service (ACI et AKS) dans le SDK et l’interface CLI. S’il est fourni, l’indicateur remplace le service existant si le service portant le nom existe déjà. Si le service n’existe pas, un nouveau service est créé.
     +  Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et Tensorflow. L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
@@ -238,7 +238,7 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
     + Divers correctifs de bogues 
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + azureml-dataprep n’est plus nécessaire pour soumettre une exécution de pipeline Azure Machine Learning à partir du fichier `yaml` du pipeline.
-  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
+  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
     + Ajout d’azureml-defaults à la génération automatique conda env pour résoudre l’échec du déploiement du modèle
     + La formation à distance AutoML comprend désormais les valeurs azureml-defaults pour permettre la réutilisation de l’environnement de formation pour l’inférence.
   + **azureml-train-core**
@@ -350,7 +350,7 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
     + Amélioration des performances pour la création de pipelines volumineux.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
     + Ajout de la prise en charge de TensorFlow 2.0 dans l’estimateur [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow).
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + L’exécution parente n’est plus en échec en cas d’échec de l’itération du programme d’installation, car l’orchestration s’en charge déjà.
     + Ajout de la prise en charge de local-docker et local-conda pour les expériences AutoML
     + Ajout de la prise en charge de local-docker et local-conda pour les expériences AutoML.
@@ -374,12 +374,12 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
     + Ajout d’environnements organisés. Ces environnements ont été préconfigurés avec des bibliothèques pour des tâches de Machine Learning courantes, et ont été précompilés et mis en cache en tant qu’images Docker afin d’accélérer l’exécution. Celles-ci s’affichent par défaut dans la liste d’environnements de [l’espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29), avec le préfixe « AzureML ».
   
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Ajout de la prise en charge de la conversion ONNX pour ADB et HDI
 
 + **Fonctionnalités préliminaires**  
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + BERT et BiLSTM pris en charge en tant que caractériseur de texte (préversion uniquement)
     + Personnalisation de caractérisation prise en charge pour les paramètres d’objet de colonne et de transformateur (préversion uniquement)
     + Explications brutes prises en charge lorsque l’utilisateur active l’explication du modèle pendant l’apprentissage (préversion uniquement)
@@ -391,7 +391,7 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
 + **Résolutions de bogue et améliorations**
   + **azureml-automl-core**
     + Introduction de FeaturizationConfig dans AutoMLConfig et AutoMLBaseSettings
-    + Introduction de FeaturizationConfig dans [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig) et AutoMLBaseSettings
+    + Introduction de FeaturizationConfig dans [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) et AutoMLBaseSettings
       + Remplacement de l’objectif de la colonne pour caractérisation avec une colonne et un type de caractéristique donnés
       + Remplacement des paramètres du transformateur
     + Ajout d’un message de dépréciation pour explain_model() et retrieve_model_explanations()
@@ -436,9 +436,9 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Ajout de [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) pour prendre en charge l’exécution de script R via le pipeline AML.
     + Correction de l’analyse des paramètres de métadonnées dans [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) qui générait le message d’erreur « assignment for parameter SubscriptionId is not specified » (L’affectation du paramètre SubscriptionId n’est pas spécifiée).
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Prise en charge de training_data, validation_data, label_column_name, weight_column_name en tant que format d’entrée de données.
-    + Ajout d’un message de dépréciation pour [explain_model()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) et [retrieve_model_explanations()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#retrieve-model-explanation-child-run-).
+    + Ajout d’un message de dépréciation pour [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) et [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-).
 
   
 ## <a name="2019-09-16"></a>2019-09-16

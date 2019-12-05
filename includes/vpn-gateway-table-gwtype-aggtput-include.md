@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075459"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828760"
 ---
 |**Génération<br>de passerelle<br>VPN** |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> connexions SSTP** | **P2S<br> connexions IKEv2/OpenVPN** | **Agrégat<br>Référence de débit** | **BGP** | **Redondant interzone** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -27,12 +27,12 @@ ms.locfileid: "74075459"
 |        |            |            |           |                |           |           |     |
 |**Génération2**|**VpnGw2**  | Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Pris en charge | Non |
 |**Génération2**|**VpnGw3**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Pris en charge | Non |
-|**Génération2**|**VpnGw4**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 5 Gbit/s    | Pris en charge | Non |
-|**Génération2**|**VpnGw5**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 10 Gbits/s   | Pris en charge | Non |
+|**Génération2**|**VpnGw4**  | Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Pris en charge | Non |
+|**Génération2**|**VpnGw5**  | Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Pris en charge | Non |
 |**Génération2**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Pris en charge | OUI |
 |**Génération2**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Pris en charge | OUI |
-|**Génération2**|**VpnGw4AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 5 Gbit/s    | Pris en charge | OUI |
-|**Génération2**|**VpnGw5AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 10 Gbits/s   | Pris en charge | OUI |
+|**Génération2**|**VpnGw4AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Pris en charge | OUI |
+|**Génération2**|**VpnGw5AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Pris en charge | OUI |
 
 (*) Utilisez le [WAN virtuel](../articles/virtual-wan/virtual-wan-about.md) si vous avez besoin de plus de 30 tunnels VPN S2S.
 

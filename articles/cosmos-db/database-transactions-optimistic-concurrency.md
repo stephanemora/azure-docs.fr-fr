@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755170"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806522"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
 
@@ -47,15 +47,15 @@ Les procédures stockées, déclencheurs, fonctions définies par l’utilisateu
 
 La possibilité d’exécuter JavaScript directement dans le moteur de base de données offre une exécution performante et transactionnelle des opérations de base de données sur les éléments d’un conteneur. De plus, comme le moteur de base de données Azure Cosmos prend en charge en mode natif JSON et JavaScript, il n’existe aucun risque d’incohérence en matière d’impédance entre les systèmes de type d’une application et la base de données.
 
-## <a name="optimistic-concurrency-control"></a>Contrôle d'accès concurrentiel optimiste 
+## <a name="optimistic-concurrency-control"></a>Contrôle d'accès concurrentiel optimiste
 
 Le contrôle d’accès concurrentiel optimiste vous permet d’empêcher les suppressions et mises à jour perdues. Les opérations simultanées en conflit sont soumises au verrouillage pessimiste standard du moteur de base de données hébergé par la partition logique qui détient l’élément. Quand deux opérations simultanées tentent de mettre à jour la dernière version d’un élément dans une partition logique, l’une d’elles réussit et l’autre échoue. Toutefois, si l’une ou les deux opérations qui tentent de mettre à jour simultanément le même élément ont déjà lu une ancienne valeur de l’élément, la base de données ne sait pas si la valeur précédemment lue par l’une des opérations en conflit (ou les deux) était effectivement la valeur la plus récente de l’élément. Heureusement, cette situation peut être détectée avec le **contrôle d’accès concurrentiel optimiste** avant de laisser les deux opérations entrer dans la limite de transaction à l’intérieur du moteur de base de données. Le contrôle d’accès concurrentiel optimiste protège vos données contre tout remplacement involontaire de modifications apportées par d’autres utilisateurs. Il empêche également d’autres personnes d’écraser accidentellement vos propres modifications.
 
 Les mises à jour simultanées d’un élément sont soumises au contrôle d’accès concurrentiel optimiste par la couche de protocole de communication d’Azure Cosmos DB. La base de données Azure Cosmos garantit que la version côté client de l’élément que vous mettez à jour (ou supprimez) est identique à la version de l’élément dans le conteneur Azure Cosmos. Cela garantit que vos écritures sont protégées contre tout remplacement involontaire par les écritures d’autres utilisateurs, et inversement. Dans un environnement multi-utilisateur, le contrôle d’accès concurrentiel optimiste vous empêche de supprimer ou de mettre à jour accidentellement la version incorrecte d’un élément. Par conséquent, les éléments sont protégés contre les problèmes notoires de perte de mise à jour ou de suppression.
 
-Chaque élément stocké dans un conteneur Azure Cosmos dispose d’une propriété `_etag` définie par le système. La valeur de `_etag` est automatiquement générée et mise à jour par le serveur chaque fois que l’élément est mis à jour. La propriété `_etag` peut être utilisée avec l’en-tête de requête `if-match` fourni par le client pour permettre au serveur de déterminer si un élément peut être mis à jour de manière conditionnelle. Si la valeur de l’en-tête `if-match` correspond à la valeur de `_etag` au niveau du serveur, l’élément est alors mis à jour. Si la valeur de l’en-tête de requête `if-match` n’est plus actuelle, le serveur rejette l’opération avec un message de réponse de type « HTTP 412 Échec de la condition préalable ». Le client peut alors réextraire l’élément pour acquérir sa version actuelle sur le serveur ou remplacer la version de l’élément sur le serveur par sa propre valeur `_etag` pour l’élément. De plus, la propriété `_etag` peut être utilisée avec l’en-tête `if-none-match` pour déterminer si la nouvelle extraction d’une ressource est nécessaire. 
+Chaque élément stocké dans un conteneur Azure Cosmos dispose d’une propriété `_etag` définie par le système. La valeur de `_etag` est automatiquement générée et mise à jour par le serveur chaque fois que l’élément est mis à jour. La propriété `_etag` peut être utilisée avec l’en-tête de requête `if-match` fourni par le client pour permettre au serveur de déterminer si un élément peut être mis à jour de manière conditionnelle. Si la valeur de l’en-tête `if-match` correspond à la valeur de `_etag` au niveau du serveur, l’élément est alors mis à jour. Si la valeur de l’en-tête de requête `if-match` n’est plus actuelle, le serveur rejette l’opération avec un message de réponse de type « HTTP 412 Échec de la condition préalable ». Le client peut alors réextraire l’élément pour acquérir sa version actuelle sur le serveur ou remplacer la version de l’élément sur le serveur par sa propre valeur `_etag` pour l’élément. De plus, la propriété `_etag` peut être utilisée avec l’en-tête `if-none-match` pour déterminer si la nouvelle extraction d’une ressource est nécessaire.
 
-La valeur `_etag` de l’élément change chaque fois que l’élément est mis à jour. Pour les opérations de remplacement d’élément, `if-match` doit être exprimé explicitement dans le cadre des options de requête. Pour obtenir un exemple, consultez l’exemple de code dans [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). Les valeurs `_etag` sont implicitement vérifiées pour tous les éléments écrits affectés par la procédure stockée. Si un conflit est détecté, la procédure stockée restaure la transaction et lève une exception. Avec cette méthode, l’ensemble ou aucune des écritures dans la procédure stockée sont appliquées de façon atomique. Il s’agit d’un signal à l’application pour réappliquer les mises à jour et réessayer la demande du client d’origine.
+La valeur `_etag` de l’élément change chaque fois que l’élément est mis à jour. Pour les opérations de remplacement d’élément, `if-match` doit être exprimé explicitement dans le cadre des options de requête. Pour obtenir un exemple, consultez l’exemple de code dans [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). Les valeurs `_etag` sont implicitement vérifiées pour tous les éléments écrits affectés par la procédure stockée. Si un conflit est détecté, la procédure stockée restaure la transaction et lève une exception. Avec cette méthode, l’ensemble ou aucune des écritures dans la procédure stockée sont appliquées de façon atomique. Il s’agit d’un signal à l’application pour réappliquer les mises à jour et réessayer la demande du client d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

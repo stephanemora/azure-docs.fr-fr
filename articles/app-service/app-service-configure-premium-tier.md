@@ -1,26 +1,17 @@
 ---
-title: Configurer le niveau PremiumV2 - Azure App Service | Microsoft Docs
+title: Configurer le niveau PremiumV2
 description: Découvrez comment améliorer les performances de vos applications web, mobiles et API dans Azure App Service en les passant au nouveau niveau tarifaire PremiumV2.
 keywords: app service, azure app service, mise à l'échelle, évolutif, plan app service, coût d'app service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa1e522e395f869f73c0b250623665a9b175384e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067227"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672209"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurer le niveau PremiumV2 pour Azure App Service
 

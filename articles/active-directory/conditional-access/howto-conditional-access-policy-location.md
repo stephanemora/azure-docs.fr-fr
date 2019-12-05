@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26299ca12071b521fc825a0b1ab1425f24af67e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150879"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803595"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
@@ -25,7 +25,7 @@ Avec la condition d’emplacement dans l’accès conditionnel, vous pouvez cont
 ## <a name="define-locations"></a>Définir des emplacements
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Choisissez **Nouvel emplacement**.
 1. Donnez un nom à votre emplacement.
 1. Choisissez **Plages d’adresses IP** si vous connaissez les plages d’adresses IPv4 accessibles de l’extérieur qui composent cet emplacement ou ces **pays/régions**.
@@ -38,7 +38,7 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**

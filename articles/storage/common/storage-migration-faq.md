@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090817"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666424"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -237,7 +237,7 @@ Si vous utilisez des machines virtuelles, vous devez effectuer des étapes suppl
 
 **Comment passer d'un compte de stockage classique vers un compte de stockage Azure Resource Manager ?**
 
-Vous pouvez utiliser l'applet de commande **Move-AzStorageAccount**. Cette applet de commande comporte plusieurs étapes (Validate, Prepare, Commit). Vous pouvez valider le déplacement avant de l'effectuer.
+Vous pouvez utiliser l'applet de commande **Move-AzureStorageAccount**. Cette applet de commande comporte plusieurs étapes (Validate, Prepare, Commit). Vous pouvez valider le déplacement avant de l'effectuer.
 
 Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 

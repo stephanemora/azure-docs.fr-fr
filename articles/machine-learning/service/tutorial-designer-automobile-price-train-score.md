@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228341"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702070"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Didacticiel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Si vous avez un espace de travail Azure Machine Learning édition Entreprise, [p
 
 1. Sélectionnez **Concepteur**.
 
-    ![Capture d’écran de l’espace de travail visuel montrant comment accéder au concepteur](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Capture d’écran de l’espace de travail visuel montrant comment accéder au concepteur](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Sélectionnez **Modules prédéfinis faciles à utiliser**.
 

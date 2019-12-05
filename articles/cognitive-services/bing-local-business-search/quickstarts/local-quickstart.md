@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: 439f775fb6124c847631467caabe3f48cfa6b645
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326706"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665676"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Démarrage rapide : Envoyer une requête à l'API Recherche d'entreprises locales Bing en C#
 
@@ -34,7 +34,7 @@ Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.micr
 
 Le code suivant crée une `WebRequest`, définit l’en-tête de la clé d’accès et ajoute une chaîne de requête pour « restaurant in Bellevue ».  Ensuite, il envoie la requête et affecte la réponse à une chaîne devant contenir le texte JSON.
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -60,7 +60,7 @@ L’API Recherche d’entreprises locales Bing retourne des résultats localisé
 3. Remplacez la valeur accessKey par une clé d’accès valide pour votre abonnement.
 4. Exécutez le programme.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

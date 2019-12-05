@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 11/12/2019
+ms.date: 12/04/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b54783f29de731613a5f3c9c5d9d3b805b2d0115
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961966"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819523"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -51,7 +51,7 @@ Le tableau ci-après présente les options prises en charge pour deux versions d
 | Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | OUI | OUI |
 | Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | OUI | Non |
 | Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | OUI | Non |
-| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |OUI | OUI |
+| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |OUI | Non |
 | Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | OUI | OUI |
 | Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. | OUI | OUI |
 

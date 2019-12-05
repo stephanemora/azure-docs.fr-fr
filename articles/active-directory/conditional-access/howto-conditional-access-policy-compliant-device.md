@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37db9b9679e904aed33de404e91c9f461d3388d7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150866"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803697"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accès conditionnel : Exiger un appareil conforme
 
@@ -34,7 +34,7 @@ Ces informations de conformité de la stratégie sont transmises à Azure AD, o�
 Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour exiger que les appareils qui accèdent aux ressources soient marqués comme conformes aux stratégies de conformité Intune de votre organisation.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**

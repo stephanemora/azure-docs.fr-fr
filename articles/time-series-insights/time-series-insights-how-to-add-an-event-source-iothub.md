@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e564bb6be22b3cee07fca2acd8a4d3ef91698111
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fa3bcb0ba16c976706c70bbc76daeb8b418a74ea
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006895"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764032"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement IoT Hub à votre environnement Time Series Insights
 
@@ -42,7 +42,7 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 
 1. Sous **Paramètres**, sélectionnez **Points de terminaison intégrés**, puis sélectionnez le point de terminaison **Événements**.
 
-   [![Sur la page Points de terminaison intégrés, sélectionnez le bouton Événements](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png#lightbox)
+   [![Sur la page Points de terminaison intégrés, sélectionnez le bouton Événements](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
 1. Sous **Groupes de consommateurs**, entrez un nom unique pour le groupe de consommateurs. Utilisez le même nom dans votre environnement Time Series Insights lors de la création d’une source d’événement.
 
@@ -56,7 +56,7 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 
 1. Sous **Topologie de l’environnement**, sélectionnez **Sources d’événements**, puis sélectionnez **Ajouter**.
 
-   [![Sélectionnez Sources d’événements, puis le bouton Ajouter](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png#lightbox)
+   [![Sélectionnez Sources d’événements, puis le bouton Ajouter](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
 1. Dans le volet **Nouvelle source d’événements**, pour **Nom de source d’événement**, entrez un nom unique pour cet environnement Time Series Insights. Par exemple, entrez **event-stream**.
 
@@ -66,11 +66,11 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 
    * Si vous avez déjà un IoT Hub dans l’un de vos abonnements, sélectionnez **Utiliser IoT Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
    
-     [![Sélectionnez les options dans le volet Nouvelle source d’événement](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png#lightbox)
+     [![Sélectionnez les options dans le volet Nouvelle source d’événement](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
     * Le tableau suivant décrit les propriétés requises pour l’option **Utiliser IoT Hub à partir des abonnements disponibles** :
 
-       [![Volet Nouvelle source d’événement : Propriétés à définir dans l’option Utiliser IoT Hub à partir des abonnements disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png#lightbox)
+       [![Volet Nouvelle source d’événement : Propriétés à définir dans l’option Utiliser IoT Hub à partir des abonnements disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
        | Propriété | Description |
        | --- | --- |

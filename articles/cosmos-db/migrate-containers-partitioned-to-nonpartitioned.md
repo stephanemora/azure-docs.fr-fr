@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844407"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706071"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrer des conteneurs non partitionnés vers des conteneurs partitionnés
 
@@ -91,7 +91,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Pour obtenir un exemple complet, consultez le référentiel GitHub [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples).
+Pour obtenir un exemple complet, consultez le référentiel GitHub [.Net samples][1].
                       
 ## <a name="migrate-the-documents"></a>Migrer les documents
 
@@ -110,7 +110,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Pour obtenir l’exemple complet sur la manière de repartitionner les documents, consultez le référentiel GitHub [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples). 
+Pour obtenir l’exemple complet sur la manière de repartitionner les documents, consultez le référentiel GitHub [.Net samples][1]. 
 
 ## <a name="compatibility-with-sdks"></a>Compatibilité avec les SDK
 
@@ -124,3 +124,5 @@ Si un conteneur migré est utilisé par la version V3/dernière version du SDK e
 * [Unités de requête dans Azure Cosmos DB](request-units.md)
 * [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md)
 * [Utiliser un compte Azure Cosmos](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

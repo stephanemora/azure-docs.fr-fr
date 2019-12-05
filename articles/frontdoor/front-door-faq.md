@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184654"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790533"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Questions fréquentes (FAQ) sur Azure Front Door Service
 
@@ -180,6 +180,8 @@ Voici les suites de chiffrement actuellement prises en charge par Azure Front Do
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Azure Front Door Service prend-il également en charge le nouveau chiffrement du trafic vers le back-end ?
 

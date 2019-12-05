@@ -1,22 +1,18 @@
 ---
-title: Se connecter à Azure Event Hubs - Azure Logic Apps
+title: Se connecter à Azure Event Hubs
 description: Gérer et surveiller les événements à l’aide d’Azure Event Hubs et d’Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051083"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789938"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Surveillez, recevez et envoyez des événements avec Azure Event Hubs et Azure Logic Apps
 

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 8b5d87d62f1db5e7d472af4cc2153d8841be6241
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1dd0f90a9844bb3afbd15e1f8c804d3a7c6b7fff
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826554"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687678"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 
@@ -89,7 +89,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Nombre maximal d’ouvriers simultanés par pool (demandes) | 200 | 400 | 800 | 1 600 | 2 400 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 |
-| Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
 

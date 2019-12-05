@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 2810dfc4cb41dcf11eb59ce3c87e6f7d6b2d5f65
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083498"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769521"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Réinitialiser les peerings d’un circuit ExpressRoute
 
@@ -20,7 +20,7 @@ Cet article décrit comment désactiver et activer des peerings d’un circuit E
 
 Il existe quelques scénarios où il peut s’avérer utile de réinitialiser vos peerings ExpressRoute.
 * Testez votre conception et votre implémentation de récupération d’urgence. Par exemple, vous avez deux circuits ExpressRoute. Vous pouvez désactiver les peerings d’un circuit et forcer votre trafic réseau à basculer sur l’autre circuit.
-* Activez le protocole Bidirectional Forwarding Detection (BFD) sur le peering privé Azure ou le peering Microsoft de votre circuit ExpressRoute. Ce protocole est activé par défaut sur le peering privé Azure si le circuit ExpressRoute a été créé après le 1er août 2018 et sur le peering Microsoft si le circuit ExpressRoute a été créé après le 1er octobre 2019. Si votre circuit a été créé avant, BFD n’a pas été activé. Vous pouvez activer BFD en désactivant le peering, puis en le réactivant. 
+* Activez le protocole Bidirectional Forwarding Detection (BFD) sur le peering privé Azure de votre circuit ExpressRoute. Si votre circuit ExpressRoute a été créé après le 1er août 2018, BFD est activé par défaut. Si votre circuit a été créé avant, BFD n’a pas été activé. Vous pouvez activer BFD en désactivant le peering, puis en le réactivant. Il faut noter que BFD est pris en charge uniquement sur le peering privé Azure.
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 

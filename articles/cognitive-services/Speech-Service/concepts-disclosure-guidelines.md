@@ -3,19 +3,19 @@ title: Guide de conception de la divulgation
 titleSuffix: Azure Cognitive Services
 description: Introduction au guide de conception de la divulgation et évaluation du niveau de divulgation.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837373"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776383"
 ---
 # <a name="disclosure-design-guidelines"></a>Guide de conception de la divulgation
 Apprenez à nouer et à entretenir une relation de confiance avec vos clients en étant transparent sur la nature synthétique de votre expérience vocale.

@@ -3,12 +3,12 @@ title: Informations de référence pour les développeurs C# sur Azure Functions
 description: Découvrez comment développer sur Azure Functions à l’aide de C#.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 20bbf31bc92e49106a94e7a85d3b1541aaa2a34b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230599"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665574"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -366,7 +366,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) définit la liaison d’entrée ou de sortie de [l’objet blob de stockage](functions-bindings-storage-blob.md), et [TextWriter](/dotnet/api/system.io.textwriter) est un type de liaison de sortie pris en charge.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) définit la liaison d’entrée ou de sortie de [l’objet blob de stockage](functions-bindings-storage-blob.md), et [TextWriter](/dotnet/api/system.io.textwriter) est un type de liaison de sortie pris en charge.
 
 ### <a name="multiple-attribute-example"></a>Exemple d’attributs multiples
 

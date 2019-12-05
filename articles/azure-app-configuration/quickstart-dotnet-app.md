@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185057"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707435"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application .NET Framework avec Azure App Configuration
 
@@ -112,7 +112,7 @@ Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé avec une application console .NET Framework. La valeur `AppSettings` de `ConfiguratoinManager` ne change pas après le démarrage de l’application. Toutefois, la bibliothèque du fournisseur de configuration .NET Standard App Configuration peut également être utilisée dans une application .NET Framework. Pour savoir comment permettre à votre application .NET Framework d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé avec une application console .NET Framework. La valeur `AppSettings` de `ConfigurationManager` ne change pas après le démarrage de l’application. Toutefois, la bibliothèque du fournisseur de configuration .NET Standard App Configuration peut également être utilisée dans une application .NET Framework. Pour savoir comment permettre à votre application .NET Framework d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Activer la configuration dynamique](./enable-dynamic-configuration-dotnet.md)

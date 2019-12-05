@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/12/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888544"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769844"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS 
 
@@ -257,9 +257,6 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
     * Sélectionnez la version de NFS (**NFSv3** ou **NFSv4.1**) du volume.  
       Consultez les [Considérations](azure-netapp-files-create-volumes.md#considerations) et les [Bonnes pratiques](azure-netapp-files-create-volumes.md#best-practice) relatives aux versions NFS. 
       
-> [!IMPORTANT] 
-> L’accès à la fonctionnalité NFSv4.1 nécessite la mise en liste verte.  Pour demander une mise en liste verte, envoyez une demande à <anffeedback@microsoft.com>. 
-
   ![Spécifiez le protocole NFS pour le démarrage rapide](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Cliquez sur **Revoir + créer**.

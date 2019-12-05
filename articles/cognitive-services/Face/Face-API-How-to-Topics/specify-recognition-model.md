@@ -3,19 +3,19 @@ title: Guide pratique pour spécifier un modèle de reconnaissance - API Visage
 titleSuffix: Azure Cognitive Services
 description: Cet article vous montrera comment choisir le modèle de reconnaissance à utiliser avec votre application API Visage Azure.
 services: cognitive-services
-author: longl
+author: longli0
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 23c54a69f709ec97d895ed5965841e43ebdc560c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306560"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771017"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 

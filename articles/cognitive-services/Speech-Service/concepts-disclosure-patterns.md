@@ -3,19 +3,19 @@ title: Modèles de conception de divulgation
 titleSuffix: Azure Cognitive Services
 description: Modèles de conception et bonnes pratiques pour la divulgation.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559003"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776620"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.

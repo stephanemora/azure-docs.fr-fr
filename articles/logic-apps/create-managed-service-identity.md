@@ -1,20 +1,17 @@
 ---
-title: S’authentifier avec des identités managées - Azure Logic Apps
+title: Authentifier avec des identités gérées
 description: Accéder aux ressources d’autres locataires Azure Active Directory informations d’identification ou secrets en utilisant une identité managée
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200628"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792677"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -186,11 +183,11 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
    | Propriété | Obligatoire | Exemple de valeur | Description |
    |----------|----------|---------------|-------------|
-   | **Méthode** | Oui | `PUT`| Méthode HTTP utilisée par l’opération de capture instantanée d’objet blob |
-   | **URI** | Oui | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID de ressource d’un fichier de Stockage Blob Azure dans l’environnement global (public) Azure qui utilise cette syntaxe |
-   | **En-têtes** | Oui, pour Stockage Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Valeurs d’en-tête `x-ms-blob-type` et `x-ms-version` requises pour les opérations de Stockage Azure. <p><p>**Important** : Dans le déclencheur HTTP sortant et les demandes d’action pour Stockage Azure, l’en-tête requiert la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter. <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [En-têtes de demande – Capture instantanée d’objet blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Contrôle de version pour les services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Méthode** | OUI | `PUT`| Méthode HTTP utilisée par l’opération de capture instantanée d’objet blob |
+   | **URI** | OUI | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID de ressource d’un fichier de Stockage Blob Azure dans l’environnement global (public) Azure qui utilise cette syntaxe |
+   | **En-têtes** | Oui, pour Stockage Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Valeurs d’en-tête `x-ms-blob-type` et `x-ms-version` requises pour les opérations de Stockage Azure. <p><p>**Important !** Dans le déclencheur HTTP sortant et les demandes d’action pour Stockage Azure, l’en-tête requiert la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter. <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [En-têtes de demande – Capture instantanée d’objet blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Contrôle de version pour les services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Requêtes** | Oui, pour cette opération | `comp` = `snapshot` | Nom et valeur du paramètre de requête pour l’opération de capture instantanée d’objet blob. |
-   | **Authentification** | Oui | `Managed Identity` | Type d’authentification à utiliser pour l’authentification de l’accès à l’objet blob Azure |
+   | **Authentification** | OUI | `Managed Identity` | Type d’authentification à utiliser pour l’authentification de l’accès à l’objet blob Azure |
    |||||
 
    Voici l’exemple d’action HTTP qui affiche toutes ces valeurs de propriété :

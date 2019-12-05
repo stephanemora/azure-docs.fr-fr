@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489069"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790552"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire en bloc des machines virtuelles SQL dans Azure avec le fournisseur de ressources de machines virtuelles SQL
 
@@ -222,7 +222,7 @@ Les erreurs sont consignées dans le fichier journal nommé `VMsNotRegisteredDue
 
 Lorsque vous inscrivez des machines virtuelles SQL Server auprès du fournisseur de ressources à l’aide du script fourni, prenez en compte les éléments suivants :
 
-- L’inscription auprès du fournisseur de ressources requiert un agent invité en cours d’exécution sur la machine virtuelle SQL Server. Les images de Windows Server 2008 ne disposent pas d’un agent invité. Par conséquent, ces machines virtuelles échouent et doivent être inscrites manuellement à l’aide du [mode d’administration NoAgent](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- L’inscription auprès du fournisseur de ressources requiert un agent invité en cours d’exécution sur la machine virtuelle SQL Server. Les images de Windows Server 2008 ne disposent pas d’un agent invité. Par conséquent, ces machines virtuelles échouent et doivent être inscrites manuellement à l’aide du [mode d’administration NoAgent](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - Une logique de nouvelle tentative est intégrée pour surmonter les erreurs transparentes. Si la machine virtuelle est correctement inscrite, il s’agit d’une opération rapide. Toutefois, si l’inscription échoue, chaque machine virtuelle sera retentée.  Par conséquent, vous devez prévoir un temps considérable pour terminer le processus d’inscription, bien que l’exigence de temps réel dépende du type et du nombre d’erreurs. 
 
 ## <a name="full-script"></a>Script complet

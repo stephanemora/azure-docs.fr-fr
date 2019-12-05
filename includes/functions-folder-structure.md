@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: aad66a91f7de8380ac7e87f0ce8e35ed43cac4a6
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4460d19de1859a8a3c51d91d418b948b5d3532a6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594526"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666716"
 ---
 Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier de projet racine qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte. La structure de dossiers est présentée dans la représentation suivante :
 
 ```
 FunctionApp
  | - host.json
- | - Myfirstfunction
+ | - MyFirstFunction
  | | - function.json
  | | - ...  
- | - mysecondfunction
+ | - MySecondFunction
  | | - function.json
  | | - ...  
  | - SharedCode
@@ -40,6 +40,3 @@ Le fichier [host.json](../articles/azure-functions/functions-host-json.md) conti
 * [Script F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
-
-
-

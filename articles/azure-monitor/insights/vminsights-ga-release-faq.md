@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/07/2019
-ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 88634777897341f4bd4d8c12b5f9d3b6d9982758
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553803"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671530"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
 
@@ -40,8 +40,9 @@ La méthode actuelle d’activation d’Azure Monitor pour machines virtuelles u
 
 Une fois que nous aurons modifié notre interface utilisateur pour utiliser les données dans InsightsMetrics, nous mettrons à jour notre documentation et nous communiquerons cette annonce via différents canaux, notamment par l’affichage d’une bannière dans le portail Azure. Pour le moment, vous pouvez choisir de désactiver ces [compteurs de performances](vminsights-enable-overview.md#performance-counters-enabled) dans votre espace de travail si vous n’en avez plus besoin. 
 
-[!NOTE]
+>[!NOTE]
 >Si vous utilisez des règles d’alerte qui font référence à ces compteurs dans la table Perf, vous devez les mettre à jour pour qu’elles référencent les nouvelles données dans la table `InsightsMetrics`.  Consultez notre documentation pour obtenir et réutiliser des exemples de requêtes sur des journaux qui font référence à cette table.
+>
 
 Si vous préférez garder les compteurs de performances activés, vous serez facturé pour les données ingérées et conservées dans la table Perf, sur la base des [tarifs de Log Analytics[(https://azure.microsoft.com/pricing/details/monitor/).
 

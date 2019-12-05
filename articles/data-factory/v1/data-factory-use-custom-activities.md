@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8826dd51766ee0d1059ab73046e7e078f27a8e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990652"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703319"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -722,7 +722,7 @@ Quelques techniques de base peuvent être utilisées pour résoudre les défaill
 Si vous mettez à jour le code de l’activité personnalisée, créez et téléchargez le fichier .zip qui contient les nouveaux fichiers binaires pour le stockage d’objets blob.
 
 ## <a name="appdomain-isolation"></a>Isolation du domaine d’application
-Consultez [Cross AppDomain Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) (Exemple d’isolation entre domaines d’application) pour savoir comment créer une activité personnalisée qui n’est pas limitée aux versions d’assembly utilisées par le lanceur d’Azure Data Factory (par exemple, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, et ainsi de suite).
+Consultez [Cross AppDomain Sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) (Exemple d’isolation entre domaines d’application) pour savoir comment créer une activité personnalisée qui n’est pas limitée aux versions d’assembly utilisées par le lanceur d’Azure Data Factory (par exemple, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, et ainsi de suite).
 
 ## <a name="access-extended-properties"></a>Accéder aux propriétés étendues
 Vous pouvez déclarer des propriétés étendues dans l’activité JSON, comme dans l’exemple suivant :

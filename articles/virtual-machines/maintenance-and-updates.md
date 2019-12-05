@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534945"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807083"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Maintenance des machines virtuelles dans Azure
 
@@ -29,7 +29,7 @@ Les mises à jour affectent rarement les machines virtuelles hébergées. Lorsqu
 
 Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez  [Gérer la disponibilité des machines virtuelles pour Windows](./windows/manage-availability.md) ou l’article correspondant pour [Linux](./linux/manage-availability.md).
 
-Dans une machine virtuelle, vous pouvez recevoir une notification concernant une maintenance à venir [à l’aide de Scheduled Events pour Windows](/windows/scheduled-events.md) ou pour [Linux](/linux/scheduled-events.md).
+Dans une machine virtuelle, vous pouvez recevoir une notification concernant une maintenance à venir [à l’aide de Scheduled Events pour Windows](./windows/scheduled-events.md) ou pour [Linux](./linux/scheduled-events.md).
 
 
 
@@ -43,7 +43,7 @@ La maintenance avec préservation de la mémoire fonctionne avec plus de 90 % de
 
 Ces opérations de maintenance qui ne nécessitent pas de redémarrage sont appliquées à un domaine d’erreur à la fois. Elles sont interrompues si elles reçoivent des signaux d’avertissement relatifs à l’intégrité. 
 
-Ces types de mise à jour peuvent affecter certaines applications. Lorsque la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. Afin de préparer la maintenance de la machine virtuelle et de réduire l’impact sur la maintenance d’Azure, essayez d’[utiliser Scheduled Events pour Windows](/windows/scheduled-events.md) ou [Linux](/linux/scheduled-events.md) sur de telles applications. 
+Ces types de mise à jour peuvent affecter certaines applications. Lorsque la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. Afin de préparer la maintenance de la machine virtuelle et de réduire l’impact sur la maintenance d’Azure, essayez d’[utiliser Scheduled Events pour Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) sur de telles applications. 
 
 La préversion publique fournit également une fonctionnalité, appelée contrôle de maintenance, qui permet de gérer la maintenance qui ne nécessite pas de redémarrage. Vous devez utiliser [Azure Dedicated Hosts](./linux/dedicated-hosts.md) ou une [machine virtuelle isolée](../security/fundamentals/isolation-choices.md). Le contrôle de maintenance vous donne la possibilité d’ignorer les mises à jour de plateforme et d’appliquer les mises à jour à l’heure de votre choix dans une fenêtre de 35 jours consécutifs. Pour plus d’informations, consultez [Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI](maintenance-control-cli.md).
 

@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: reference
 ms.date: 10/24/2019
-ms.openlocfilehash: 182e5fdd081126500c04f44776c9e9b8fad61843
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b4a6f448807dd82b2c81cc207070d30a823151c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149773"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707019"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Il fournit également des informations sur les conditions spéciales à prendre en compte lors du déplacement d’une ressource.
@@ -1268,9 +1268,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | OUI | OUI |
-> | account / extension | OUI | OUI |
-> | account / project | OUI | OUI |
+> | account | Non | Non |
+> | account / extension | Non | Non |
+> | account / project | Non | Non |
 
 > [!IMPORTANT]
 > Pour modifier l’abonnement pour Azure DevOps, consultez [Modifier l’abonnement Azure utilisé pour la facturation](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).

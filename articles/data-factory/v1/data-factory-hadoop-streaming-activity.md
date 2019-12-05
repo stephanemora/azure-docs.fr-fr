@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667500"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703364"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -227,5 +227,5 @@ Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) 
 * [Activité pig](data-factory-pig-activity.md)
 * [Activité MapReduce](data-factory-map-reduce.md)
 * [Appeler des programmes Spark](data-factory-spark.md)
-* [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

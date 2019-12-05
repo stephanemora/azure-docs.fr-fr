@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548318"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793347"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -48,14 +48,12 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>Étendue de l’API pour la bibliothèque de client Data Lake Storage pour le kit de développement logiciel (SDK), PowerShell et CLI
-
-### <a name="filesystem-support-in-sdks"></a>Prise en charge des systèmes de fichiers dans les SDK
+## <a name="filesystem-support-in-sdks"></a>Prise en charge des systèmes de fichiers dans les SDK
 
 - .NET, Java et Python sont en préversion publique. D’autres SDK ne sont actuellement pas pris en charge.
 - Les opérations d’extraction et de définition de listes de contrôle d’accès ne sont pas récursives.
 
-### <a name="filesystem-support-in-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans PowerShell et Azure CLI
+## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans PowerShell et Azure CLI
 
 Les opérations d’extraction et de définition de listes de contrôle d’accès ne sont pas récursives.
 
@@ -77,7 +75,6 @@ Le tableau suivant liste tous les autres outils et fonctionnalités qui ne sont 
 | **Journalisation de diagnostic** |Les journaux de diagnostic sont pris en charge (préversion).<br><br>L’activation des journaux dans le Portail Azure n’est pas prise en charge actuellement. Voici un exemple d’activation des journaux à l’aide de PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Veillez à spécifier `Blob` comme valeur du paramètre `-ServiceType`, comme indiqué dans cet exemple. <br><br>Actuellement, l’Explorateur Stockage Azure ne peut pas être utilisé pour l’affichage des journaux de diagnostic. Pour afficher les journaux, utilisez AzCopy ou des SDK.
 | **Stockage non modifiable** |Pas encore pris en charge <br><br>Le stockage non modifiable vous donne la possibilité de stocker des données dans un état [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
 | **Couches de niveau objet** |Les niveaux froid et archive sont pris en charge. Le niveau archive est en préversion. Tous les autres niveaux d’accès ne sont pas encore pris en charge. <br><br> Il existe actuellement des bogues affectant le niveau d’accès de l’archive.  Inscrivez-vous à la préversion du niveau d’accès de l’archive [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Prise en charge de PowerShell et de l’interface CLI** | Fonctionnalité limitée <br><br>Les opérations Blob sont prises en charge. L’utilisation de répertoires et la définition de listes de contrôle d’accès (ACL) ne sont pas encore prises en charge. |
 | **Sites web statiques** |Pas encore pris en charge <br><br>Plus spécifiquement, la possibilité de délivrer des fichiers à des [sites web statiques](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Applications tierces** | Prise en charge limitée <br><br>Les applications tierces qui utilisent l’API REST continueront à fonctionner si vous les utilisez avec Data Lake Storage Gen2. <br>Les applications qui appellent des API Blob ont de grandes chances de fonctionner.|
 |**Suppression réversible** |Pas encore pris en charge|

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528002"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707564"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 
@@ -58,7 +58,7 @@ Si vous créez un groupe de sécurité réseau et l’appliquez à ***AzureBasti
 * **Journalisation (des diagnostics, par exemple) :** accès sortant sur le port 443 vers AzureCloud. Les étiquettes régionales incluses dans cette étiquette de service ne sont pas encore prises en charge.
 * **Machine virtuelle cible :** accès sortant sur les ports 3389 et 22 vers VirtualNetwork
 
-Un exemple de règle NSG est disponible pour référence dans ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Un exemple de règle NSG est disponible pour référence dans ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

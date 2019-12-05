@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286615"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707964"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -97,7 +97,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Espagnol|   `es`    |Neural disponible|  Neuronale|
 |Suédois|   `sv`    |Neural disponible   |Neuronale|
 |Tahitien|  `ty`    |Statistique uniquement|  Statistique|
-|Tamoul| `ta`    |Statistique uniquement|  Statistique|
+|Tamoul| `ta`    |Neural disponible | Neuronale|
 |Télougou|    `te`    |Neural uniquement|   Neuronale|
 |Thaï|  `th`    |Neural disponible|  Neuronale|
 |Tonga|    `to`    |Statistique uniquement|  Statistique|

@@ -1,22 +1,18 @@
 ---
-title: Se connecter à Dropbox - Azure Logic Apps
+title: Se connecter à Dropbox
 description: Charger et gérer des fichiers avec les API REST de Dropbox et Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 4e0689454ec074348fcbc775373a48d6825cfac4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050974"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789814"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Charger et gérer les fichiers de Dropbox à l'aide d'Azure Logic Apps
 

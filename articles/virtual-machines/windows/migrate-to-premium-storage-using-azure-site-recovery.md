@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 1dc119f0f5949b37603bbc1100a4d89d4f420fd6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033456"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819066"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -79,7 +79,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup and Site Recovery (OMS)** . Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**.
    >[!NOTE]
-   >Sauvegarde et Site Recovery faisaient précédemment partie intégrante de la ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+   >Sauvegarde et Site Recovery faisaient précédemment partie intégrante de la [suite OMS](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Spécifiez une région sur laquelle répliquer les machines virtuelles. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Sélectionner vos objectifs en matière de protection 

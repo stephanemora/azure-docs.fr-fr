@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452948"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766359"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 (préversion)
 
@@ -56,7 +56,7 @@ Les appareils joints à Azure AD que vous utiliserez doivent exécuter Windows 1
 Les organisations peuvent choisir d’utiliser une ou plusieurs des méthodes suivantes pour activer l’utilisation de clés de sécurité pour la connexion Windows sur la base des exigences de l’organisation.
 
 - [Activer avec Intune](#enable-with-intune)
-   - [Déploiement Intune ciblé](#targeted-intune-deployment)
+- [Déploiement Intune ciblé](#targeted-intune-deployment)
 - [Activer avec un package d’approvisionnement](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Activer avec Intune
@@ -67,7 +67,7 @@ Les organisations peuvent choisir d’utiliser une ou plusieurs des méthodes su
 
 La configuration de clés de sécurité pour la connexion ne dépend pas de la configuration de Windows Hello Entreprise.
 
-#### <a name="targeted-intune-deployment"></a>Déploiement Intune ciblé
+### <a name="targeted-intune-deployment"></a>Déploiement Intune ciblé
 
 Pour cibler des groupes d’appareils spécifiques pour activer le fournisseur d’informations d’identification, utilisez les paramètres personnalisés suivants via Intune.
 

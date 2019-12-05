@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703148"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -112,7 +112,7 @@ Dans la définition JSON de l’activité HDInsight :
    Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ## <a name="sample-on-github"></a>Exemple sur GitHub
-Vous pouvez télécharger un exemple d’utilisation de l’activité MapReduce HDInsight à l’emplacement suivant : [Exemples Data Factory sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+Vous pouvez télécharger un exemple d’utilisation de l’activité MapReduce HDInsight à l’emplacement suivant : [Exemples Data Factory sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Exécution du programme de nombre de mots
 Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots sur votre cluster Azure HDInsight.   
@@ -250,5 +250,5 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 * [Activité pig](data-factory-pig-activity.md)
 * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Appeler des programmes Spark](data-factory-spark.md)
-* [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

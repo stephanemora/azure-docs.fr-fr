@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534921"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807406"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
@@ -80,7 +80,7 @@ Il est conseillé d’utiliser la maintenance de libre-service dans les cas suiv
 
 **R :** Les machines virtuelles déployées dans un groupe à haute disponibilité ou dans des groupes de machines virtuelles identiques incluent la notion de domaines de mise à jour (UD). Lors de la réalisation de la maintenance, Azure respecte la contrainte de domaine de mise à jour et ne redémarre pas les machines virtuelles à partir de différents domaines de mise à jour (dans le même groupe à haute disponibilité).  Azure attend également au moins 30 minutes avant de passer au groupe de machines virtuelles suivant. 
 
-Pour plus d’informations sur la haute disponibilité, consultez [Disponibilité des machines virtuelles dans Azure](/linux/availability.md).
+Pour plus d’informations sur la haute disponibilité, consultez [Disponibilité des machines virtuelles dans Azure](./linux/availability.md).
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 
@@ -92,7 +92,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Disponibilit�
 
 **Q : Est-il possible de savoir exactement quand ma machine virtuelle sera impactée ?**
 
-**R :** Pendant la définition de la planification, nous définissons une fenêtre de temps de plusieurs jours. Toutefois, le séquencement exact des serveurs (et des machines virtuelles) au sein de cette fenêtre est inconnu. Les clients qui souhaitent connaître l’heure exacte pour leurs machines virtuelles peuvent utiliser des [événements planifiés](/linux/scheduled-events.md), faire une requête à partir de la machine virtuelle et recevoir une notification 15 minutes avant le redémarrage d’une machine virtuelle.
+**R :** Pendant la définition de la planification, nous définissons une fenêtre de temps de plusieurs jours. Toutefois, le séquencement exact des serveurs (et des machines virtuelles) au sein de cette fenêtre est inconnu. Les clients qui souhaitent connaître l’heure exacte pour leurs machines virtuelles peuvent utiliser des [événements planifiés](./linux/scheduled-events.md), faire une requête à partir de la machine virtuelle et recevoir une notification 15 minutes avant le redémarrage d’une machine virtuelle.
 
 **Q : Combien de temps vous faut-il pour redémarrer ma machine virtuelle ?**
 

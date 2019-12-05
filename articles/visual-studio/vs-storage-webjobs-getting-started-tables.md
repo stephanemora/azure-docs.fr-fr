@@ -13,14 +13,15 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 042f2659d3691e8c51e092bf69473187b8615ee6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299958"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707613"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Prise en main d’Azure Storage (projets de tâche web Azure)
+
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -31,42 +32,48 @@ Le service de stockage de tables Azure vous permet de stocker de grandes quantit
 Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions appelées manuellement, c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Ajout d’une entité à une table
+
 Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector\<T>** où **IAsyncCollector\<T>** , où **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
 
 L’exemple de code suivant ajoute des entités **Person** à une table nommée *Ingress*.
 
-        [NoAutomaticTrigger]
-        public static void IngressDemo(
-            [Table("Ingress")] ICollector<Person> tableBinding)
-        {
-            for (int i = 0; i < 100000; i++)
-            {
-                tableBinding.Add(
-                    new Person() {
-                        PartitionKey = "Test",
-                        RowKey = i.ToString(),
-                        Name = "Name" }
-                    );
-            }
-        }
+```csharp
+[NoAutomaticTrigger]
+public static void IngressDemo(
+    [Table("Ingress")] ICollector<Person> tableBinding)
+{
+    for (int i = 0; i < 100000; i++)
+    {
+        tableBinding.Add(
+            new Person() {
+                PartitionKey = "Test",
+                RowKey = i.ToString(),
+                Name = "Name" }
+            );
+    }
+}
+```
 
 En général, le type que vous utilisez avec **ICollector** est dérivé de **TableEntity** ou implémente **ITableEntity**, mais pas nécessairement. Les deux classes **Person** suivantes fonctionnent avec le code indiqué dans la méthode **Ingress** précédente.
 
-        public class Person : TableEntity
-        {
-            public string Name { get; set; }
-        }
+```csharp
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
 
-        public class Person
-        {
-            public string PartitionKey { get; set; }
-            public string RowKey { get; set; }
-            public string Name { get; set; }
-        }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+```
 
 Si vous souhaitez utiliser directement l’API Azure Storage, vous pouvez ajouter un paramètre **CloudStorageAccount** à la signature de méthode.
 
 ## <a name="real-time-monitoring"></a>Surveillance en temps réel
+
 Étant donné que les fonctions d’entrée de données traitent souvent des volumes importants de données, le tableau de bord du Kit de développement logiciel (SDK) WebJobs fournit des données d’analyse en temps réel. La section **Journal d’appels** vous signale si la fonction est toujours en cours d’exécution.
 
 ![Fonction d’entrée en cours d’exécution](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
@@ -80,71 +87,80 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 ![Arrêt de la fonction d’entrée](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Lecture de plusieurs entrées à partir d’une table
+
 Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable\<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
 L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
 
-        public static void ReadTable(
-            [Table("Ingress")] IQueryable<Person> tableBinding,
-            TextWriter logger)
-        {
-            var query = from p in tableBinding select p;
-            foreach (Person person in query)
-            {
-                logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
-                    person.PartitionKey, person.RowKey, person.Name);
-            }
-        }
+```csharp
+public static void ReadTable(
+    [Table("Ingress")] IQueryable<Person> tableBinding,
+    TextWriter logger)
+{
+    var query = from p in tableBinding select p;
+    foreach (Person person in query)
+    {
+        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
+            person.PartitionKey, person.RowKey, person.Name);
+    }
+}
+```
 
 ### <a name="how-to-read-a-single-entity-from-a-table"></a>Lecture d’une entité unique à partir d’une table
+
 Il existe un constructeur d’attribut **Table** présentant deux paramètres supplémentaires, qui vous permettent de spécifier la clé de partition et la clé de ligne lorsque vous souhaitez effectuer une liaison avec une entité de table unique.
 
-L’exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :  
+L’exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
 
-        public static void ReadTableEntity(
-            [QueueTrigger("inputqueue")] Person personInQueue,
-            [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
-            TextWriter logger)
-        {
-            if (personInTable == null)
-            {
-                logger.WriteLine("Person not found: PK:{0}, RK:{1}",
-                        personInQueue.PartitionKey, personInQueue.RowKey);
-            }
-            else
-            {
-                logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
-                        personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
-            }
-        }
-
+```csharp
+public static void ReadTableEntity(
+    [QueueTrigger("inputqueue")] Person personInQueue,
+    [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
+    TextWriter logger)
+{
+    if (personInTable == null)
+    {
+        logger.WriteLine("Person not found: PK:{0}, RK:{1}",
+                personInQueue.PartitionKey, personInQueue.RowKey);
+    }
+    else
+    {
+        logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
+                personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
+    }
+}
+```
 
 La classe **Person** figurant dans cet exemple n’est pas obligée d’implémenter **ITableEntity**.
 
 ## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Utilisation directe de l’API de stockage .NET pour travailler avec une table
+
 Vous pouvez également utiliser l’attribut **Table** avec un objet **CloudTable**, afin de garantir une utilisation plus souple des tables.
 
 L’exemple de code suivant utilise un objet **CloudTable** pour ajouter une entité unique à la table *Ingress* .
 
-        public static void UseStorageAPI(
-            [Table("Ingress")] CloudTable tableBinding,
-            TextWriter logger)
+```csharp
+public static void UseStorageAPI(
+    [Table("Ingress")] CloudTable tableBinding,
+    TextWriter logger)
+{
+    var person = new Person()
         {
-            var person = new Person()
-                {
-                    PartitionKey = "Test",
-                    RowKey = "100",
-                    Name = "Name"
-                };
-            TableOperation insertOperation = TableOperation.Insert(person);
-            tableBinding.Execute(insertOperation);
-        }
+            PartitionKey = "Test",
+            RowKey = "100",
+            Name = "Name"
+        };
+    TableOperation insertOperation = TableOperation.Insert(person);
+    tableBinding.Execute(insertOperation);
+}
+```
 
 Pour en savoir plus sur l’utilisation de l’objet **CloudTable** , consultez la section [Prise en main d’Azure Table Storage à l’aide de .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 ## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente
+
 Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, consultez la section [Prise en main d’Azure Queue Storage et des services connectés Visual Studio (projets WebJobs)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 
+Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).

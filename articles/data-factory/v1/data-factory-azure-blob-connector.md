@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9aeef3a2f6a43346a7637c3e2497979632b04762
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ef9774e63995e00e2a193f3d97b3bbe181f07c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683282"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703890"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -48,7 +48,7 @@ Vous pouvez copier les données des magasins de données suivants **dans le stoc
 > [!IMPORTANT]
 > L’activité de copie prend en charge l’échange de données avec des comptes de stockage Azure à usage général et le Stockage Blob à chaud/froid. L’activité prend en charge la **lecture à partir d’objets blob de blocs, d’annexe ou de page**, mais l’**écriture vers des objets blob de blocs** uniquement. Le stockage Azure Premium n’est pas pris en charge en tant que récepteur, car il repose sur des objets blob de pages.
 >
-> L’activité de copie ne supprime pas les données de la source une fois celles-ci copiées vers la destination. Si vous devez supprimer les données une fois la copie effectuée, créez une [activité personnalisée](data-factory-use-custom-activities.md) pour supprimer les données, et utilisez l’activité dans le pipeline. Pour obtenir un exemple, consultez [Exemple de suppression d’objet blob ou de dossier sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
+> L’activité de copie ne supprime pas les données de la source une fois celles-ci copiées vers la destination. Si vous devez supprimer les données une fois la copie effectuée, créez une [activité personnalisée](data-factory-use-custom-activities.md) pour supprimer les données, et utilisez l’activité dans le pipeline. Pour obtenir un exemple, consultez [Exemple de suppression d’objet blob ou de dossier sur GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
 ## <a name="get-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis un stockage blob Azure à l’aide de différents outils/API.

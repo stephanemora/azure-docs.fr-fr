@@ -3,12 +3,12 @@ title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149188"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689147"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Sorties dans un modèle Azure Resource Manager
 
@@ -101,4 +101,3 @@ Les exemples suivants illustrent des scénarios d’utilisation de sorties.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les propriétés disponibles pour les sorties, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
-* Pour obtenir des recommandations sur la création de sorties, consultez [Bonnes pratiques - Sorties](template-best-practices.md#outputs).

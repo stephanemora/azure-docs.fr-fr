@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e33fce7b3fc19d6dfa83f95b6a9bcb43588945d1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 03fdd67adf5df440cafe4e7411064437b8ef89ac
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228073"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671558"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Qu’est-ce que Liaison privée Azure ? (Préversion)
 Azure Private Link vous permet d’accéder aux services PaaS Azure (par exemple Stockage Azure, Azure Cosmos DB et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [Point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre [service Liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer en privé à vos clients. L’expérience de configuration et de consommation à l’aide du service Liaison privée Azure est cohérente entre les services PaaS Azure, appartenant au client et de partenaires partagés.
@@ -38,11 +38,11 @@ Le service Liaison privée Azure offre les avantages suivants :
 ## <a name="availability"></a>Disponibilité 
  Le tableau suivant liste les services Liaison privée et les régions où ils sont disponibles. 
 
-|Scénario  |Services pris en charge   |Régions disponibles | Statut   |
-|---------|---------|---------|---------|
-|Liaison privée pour les services appartenant au client|Services Liaison privée derrière Standard Load Balancer | Toutes les régions publiques  |  PRÉVERSION  |
-|Liaison privée pour les services PaaS Azure   | Stockage Azure        |  Toutes les régions publiques      | PRÉVERSION         |
-|  | Azure Data Lake Storage Gen2        |  Toutes les régions publiques      | PRÉVERSION         |
+|Scénario  |Services pris en charge  |Régions disponibles | Statut  |
+|:---------|:-------------------|:-----------------|:--------|
+|Liaison privée pour les services appartenant au client|Services Liaison privée derrière Standard Load Balancer | Toutes les régions publiques  | PRÉVERSION  |
+|Liaison privée pour les services PaaS Azure   | Stockage Azure        |  Toutes les régions publiques      | PRÉVERSION <br/> [Plus d’informations](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  Toutes les régions publiques      | PRÉVERSION <br/> [Plus d’informations](/azure/storage/common/storage-private-endpoints)  |
 |  |  Azure SQL Database         | Toutes les régions publiques      |   PRÉVERSION      |
 ||Azure SQL Data Warehouse| Toutes les régions publiques |PRÉVERSION|
 ||Azure Cosmos DB| USA Centre-Ouest, USA Ouest, USA Centre Nord |PRÉVERSION|

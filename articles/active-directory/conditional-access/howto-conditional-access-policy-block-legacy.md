@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b992973beb7cb132075e47e104733d812dc06ca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a5b4627080879c9e7d2635b950bb7f31b7d23581
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151087"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803629"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -27,15 +27,12 @@ En raison des risques accrus associés aux protocoles d’authentification héri
 Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes qui doivent conserver la possibilité d’utiliser l’authentification héritée. 
-   1. Sélectionnez **Terminé**.
-1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
-   1. Si vous devez exclure des applications spécifiques de votre stratégie, vous pouvez les choisir dans l'onglet **Exclure** sous **Sélectionner les applications cloud exclues**, puis choisir **Sélectionner**.
    1. Sélectionnez **Terminé**.
 1. Sous **Conditions** > **Applications clientes (préversion)** , réglez **Configurer** sur **Oui**.
    1. Cochez uniquement les cases **Applications mobiles et clients de bureau** > **Autres clients**.

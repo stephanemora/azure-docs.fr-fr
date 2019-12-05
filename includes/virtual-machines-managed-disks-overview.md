@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796287"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828967"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -37,7 +37,7 @@ Les disques managés prennent en charge les [zones de disponibilité](../article
 
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
-Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB).  Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
+Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 

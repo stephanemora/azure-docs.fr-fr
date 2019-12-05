@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/13/2018
-ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d313fed6a61ac98e596e6f8caca8f0e46a8c9600
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820697"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689073"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -139,7 +139,7 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Compteurs de performance pour applications exécutés dans Azure Web Apps
 
-Les applications ASP.NET et ASP.NET Core déployées sur les applications web d’Azure s’exécutent dans un environnement de bac à sable spécial. Cet environnement ne permet pas l’accès direct aux compteurs de performance du système. Cependant, un sous-ensemble limité de compteurs sont exposés en tant que variables d’environnement comme décrit [ici](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Le Kit de développement logiciel (SDK) Application Insights pour ASP.NET et ASP.NET Core collecte les compteurs de performance des applications web Azure à partir de ces variables d’environnement spéciales. Seul un sous-ensemble de compteurs est disponible dans cet environnement. Sa liste complète se trouve [ici](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs).
+Les applications ASP.NET et ASP.NET Core déployées sur les applications web d’Azure s’exécutent dans un environnement de bac à sable spécial. Cet environnement ne permet pas l’accès direct aux compteurs de performance du système. Cependant, un sous-ensemble limité de compteurs sont exposés en tant que variables d’environnement comme décrit [ici](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Le Kit de développement logiciel (SDK) Application Insights pour ASP.NET et ASP.NET Core collecte les compteurs de performance des applications web Azure à partir de ces variables d’environnement spéciales. Seul un sous-ensemble de compteurs est disponible dans cet environnement. Sa liste complète se trouve [ici](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs).
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.NET Core
 

@@ -1,21 +1,19 @@
 ---
-title: Encoder des messages X12 - Azure Logic Apps | Microsoft Docs
+title: Encoder des messages X12
 description: Valider des documents EDI et convertir des messages encodés en XML avec l’encodeur de messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705702"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792350"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Encoder des messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8aa6a8bfb690b00ee21980f4aa64d950abec2f3c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d30195cb9aceac0e785f01ce8c2ce78d7a9d4da7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152258"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805771"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Didacticiel : Configurer RingCentral pour le provisionnement automatique d’utilisateurs
 
@@ -94,7 +94,7 @@ Avant de configurer RingCentral pour le provisionnement automatique d’utilisat
 Cette section vous guide tout au long des étapes de configuration du service de provisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans RingCentral en fonction des attributions d’utilisateurs et/ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour RingCentral, en suivant les instructions fournies dans le [tutoriel sur l’authentification unique pour RingCentral](https://docs.microsoft.comazure/active-directory/saas-apps/ringcentral-tutorial). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
+> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour RingCentral, en suivant les instructions fournies dans le [tutoriel sur l’authentification unique pour RingCentral](ringcentral-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
 
 > [!NOTE]
 > Pour en savoir plus sur le point de terminaison SCIM de RingCentral, reportez-vous aux [informations de référence sur l’API RingCentral](https://developers.ringcentral.com/api-reference).

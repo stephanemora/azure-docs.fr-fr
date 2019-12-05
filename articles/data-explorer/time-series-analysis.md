@@ -3,16 +3,16 @@ title: Analyser les données de série chronologique avec Azure Data Explorer
 description: Découvrez comment analyser des données de série chronologique dans le cloud avec Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3873b25394f91ce1c1601c348de2098198ba7fdd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604054"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765481"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -25,6 +25,8 @@ Dans le cadre de cette section, nous allons créer un vaste ensemble de séries 
 La première étape de l’analyse d’une série chronologique consiste à partitionner et à transformer la table de données de télémétrie d’origine en un ensemble de séries chronologiques. La table contient généralement une colonne de type timestamp, des dimensions contextuelles et des métriques facultatives. Les dimensions sont utilisées pour partitionner les données. L’objectif est de créer des milliers de séries chronologiques par partition à intervalles réguliers.
 
 La table d’entrée *demo_make_series1* contient 600 000 enregistrements de trafic de service web arbitraire. Utilisez la commande ci-dessous pour échantillonner 10 enregistrements :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03MTo0vTi3KTC02VKhRKAFyFQwNADOyzKUbAAAA) **\]**
 
 ```kusto
 demo_make_series1 | take 10 
@@ -47,6 +49,8 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Inde |
 
 À défaut de métriques, nous pouvons uniquement créer un ensemble de séries temporelles représentant le comptage du trafic proprement dit, partitionné par système d’exploitation à l’aide de la requête suivante :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPwQrCMBAE0Hu/Yo4NVLBn6Td4ULyWtV1tMJtIsoEq/XhbC4J48jgw+5h1rBDrW0UDDakjR7HsWUIrdOM2cbScakxIWYSiffJSL49W+KAkd2N2hVsMGv8yaPw2furFhCVu1gifpelC9loa9Hyh7LTZInh8FFiPSP7K5fufap1UoR4Mzg/s04njjEb2PUfofNYNFPUFtJiguAEBAAA=) **\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -80,6 +84,8 @@ Le filtrage est une pratique courante dans le traitement de signal, utile pour l
     - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
 - Étendre (`Extend`) l’ensemble de séries chronologiques en ajoutant une nouvelle série de moyennes mobiles de 5 compartiments (nommée *ma_num*) à la requête :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=) **\]**
+
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
 let max_t = toscalar(demo_make_series1 | summarize max(TimeStamp));
@@ -98,6 +104,8 @@ Azure Data Explorer prend en charge l’analyse de régression linéaire segment
 - Utilisez [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) pour détecter des changements de tendances par rapport à une ligne de base, qui sont utiles dans les scénarios de surveillance.
 
 Exemple de fonctions `series_fit_line()` et `series_fit_2lines()` dans une requête de série chronologique :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuKqUUitKEnNS1GACMSnZZbEG+Vk5qUWa1Rq6iCLggSBYkAdRUD1qUUKIIHkjMSiEoXyzJIMjYrk/JzS3DzbCk0AUIIJ02EAAAA=) **\]**
 
 ```kusto
 demo_series2
@@ -120,6 +128,8 @@ De nombreuses métriques suivent un modèle saisonnier (périodique). Le trafic 
 
 L’exemple suivant applique une détection de saisonnalité au trafic d’un mois d’un service web (compartiments de 2 heures) :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuaqUShKzUtJLVIoycxNTc5ILCoBAHrjE80fAAAA) **\]**
+
 ```kusto
 demo_series3
 | render timechart 
@@ -132,6 +142,8 @@ demo_series3
 
 > [!NOTE]
 > L’inexistence de périodes distinctes constitue une anomalie.
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12OwQ6CMBBE737FHKmpVtAr39IguwkYyzZ0IZj48TZSLx533szOEAfxieeR0/XwRpzlwb2iilkSShapl5mTQYvd5QvxxJqd1bQEi8vZor6RawaLxsA5FewcOjBKBOP0PXUMXL7lyrCeeIvdRPjrzIw35Qyoe6W2GY4qJMv9yb91xtX0AS7N323BAAAA) **\]**
 
 ```kusto
 demo_series3
@@ -151,6 +163,8 @@ La fonction détecte les saisonnalités quotidienne et hebdomadaire. La saisonna
 ### <a name="element-wise-functions"></a>Fonctions par élément
 
 Des opérations arithmétiques et logiques peuvent être appliquées à une série chronologique. À l’aide de [series_subtract()](/azure/kusto/query/series-subtractfunction), vous pouvez calculer une série chronologique résiduelle, qui est la différence entre une métrique brute d’origine et une métrique lissée, puis rechercher des anomalies dans le signal résiduel :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WQQU/DMAyF7/sVT5waqWjrgRPqb+AAgmPltR6LSNLJcdhA+/G4izRAnLhEerbfl2cHVkSfBkUPnfNIgaSZOM5DpDceMovn3OGMXGIk8Z+8jDdPPvKjUjw4d78KC4NO/2LQ6Tfjz/jqjEXeVolUYj/OJWnjMPGOStB+gznhSoFPEEqv3Fz2aWukFt3eYfuBh/zMYlA+KafJmsOCrPRh56Ux2UL4wKRN1+LOtVApXF/37RTOfioUfvpz2arQqBVS2Q7rtc6wa4wlkPLVCLXIqE7DHvcsXOOh73Hz4tM0HzO6zQ1gDOx8UOvZrtayst0Y7z4babkkYQxMyQbGPYnCiGIxTS/fXGpfwk+n7uQBAAA=) **\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -173,6 +187,8 @@ demo_make_series1
 
 L’exemple ci-dessous montre comment ces fonctions peuvent être appliquées à grande échelle à des milliers de séries chronologiques en quelques secondes à des fins de détection d’anomalies. Pour voir quelques exemples d’enregistrements de télémétrie d’une métrique de nombre de lectures d’un service de base de données sur quatre jours, exécutez la requête suivante :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKEnMTlUwAQArfAiiGgAAAA==) **\]**
+
 ```kusto
 demo_many_series1
 | take 4 
@@ -188,6 +204,8 @@ demo_many_series1
 
 Et statistiques simples :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVcgrzbVNzi/NK9HQ1FHIzcyLL7EFkhohnr6uwSGOvgEg0cQKkGhiBZIoAEq2dK9VAAAA) **\]**
+
 ```kusto
 demo_many_series1
 | summarize num=count(), min_t=min(TIMESTAMP), max_t=max(TIMESTAMP) 
@@ -199,6 +217,8 @@ demo_many_series1
 |   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 La création d’une série chronologique en compartiments de 1 heure de la métrique de lecture (total de quatre jours * 24 heures = 96 points), entraîne une fluctuation du modèle normal :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPMQvCMBSE9/6KGxOoYGfpIOjgUBDtXh7twwabFF6ittIfb2rBQSfHg+8+7joOsMZVATlC72vqSFTDtq8subHyLIZ9hgn+Zi2JefKMq/JQ7M/ltjhqvQGSbrbQ8JeFhm/LTyGZInbl1RIhTI3P6X5ROwp0ikmjd/hYYByE3IXV+1G6TEqRtTqahF3DgmAs1y1JwMOEVo0Rzdf6BbBH5FAHAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -214,6 +234,8 @@ Le comportement décrit ci-dessus est trompeur, car la série chronologique norm
 
 Combien de séries chronologiques pouvons-nous créer ?
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVUiqVPDJT9ZR8C/QUXBxAkol55fmlQAAWEsFxjQAAAA=) **\]**
+
 ```kusto
 demo_many_series1
 | summarize by Loc, Op, DB
@@ -222,10 +244,12 @@ demo_many_series1
 
 |   |   |
 | --- | --- |
-|   | Nombre |
+|   | Count |
 |   | 18339 |
 
 Nous allons à présent créer un ensemble de 18339 séries chronologiques de la métrique du nombre de lectures. Nous ajoutons la clause `by` à l’instruction make-series, appliquons une régression linéaire, et sélectionnons les deux premières séries chronologiques en termes de tendance décroissante la plus significative :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPsU7DQBBE+3zFdLmTTGHSgFAKUCiQiIKIe2u5rJ0T9l3YWwcH5eO5JBIFVJSzmnmz07Gi96FWzKExOepIzIb7WPcUDnVi8ZxKHJGGvifxX3yym+pp+biu7pcv1t4Bk+5EofFfFBp/U/4EJsdse+eri4QwbdKc9q1ZkNJrVhYx4IcCHyAUWjbnRcXlpQLl1uLtgOfoCqx2BRYPGcyjctjASPoYSLhA6uKObR5waasbr3XnA5tzrc0RjTtcn0hnKyg55KtkDAvU9+y2JIpPr1ujXjueT9cse+8YlVDTeIfVoNQymiiZ5ENSCi4vM3FQxAblzWx2a6f2G2UcBRyWAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -240,6 +264,8 @@ demo_many_series1
 ![Deux premières séries chronologiques](media/time-series-analysis/time-series-top-2.png)
 
 Afficher les instances :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPvW4CMRCEe55iSlsyBWkjChApIoESAb21udsQg38O26AD8fDx3SEUJVXKWc18s2M5wxmvM6bIIVVkKYqaXdCO/EUnjobTBDekk3MUzZU7u9i+rl4229nqXcpnYGQ7CrX/olD7m/InMLoV24HHg0RkqtOUzjuxoEzroiSCx4MC4xHJ71j0i9TwksLkS+LjgmWoFN4ahcW8gLnN7GuImI4niqyQbGhYlgFDm/40WVvjWfS1skRyaPDUkXorKFXl2MSw5yr/pN9Z31SyxuhbAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  

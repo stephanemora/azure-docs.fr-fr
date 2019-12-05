@@ -7,23 +7,26 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 2afe3da8b4d4bee31b17320ad976e795e91d410a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71997278"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667276"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Créer des stratégies de base de données et de table pour Azure Data Explorer à l’aide de Python
+
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Dans cet article, vous créez des stratégies de base de données et de table pour Azure Data Explorer à l’aide de Python.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
 * [Un cluster et une base de données de test](create-cluster-database-python.md)
-
 * [Une table de test](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>Installer les bibliothèques de données

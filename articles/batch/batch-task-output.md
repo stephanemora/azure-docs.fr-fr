@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094426"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707542"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -50,17 +50,17 @@ Pour plus d’informations sur la conservation de la sortie des tâches avec l�
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Utiliser la bibliothèque Conventions de nommage des fichiers Batch pour .NET
 
-Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
+Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
 
 C’est à vous qu’il appartient d’appliquer ou non les conventions standard de nommage des fichiers pour vos fichiers de données de sortie. Vous pouvez aussi nommer le conteneur et l’objet blob de destination comme vous le souhaitez. Si vous utilisez cette norme pour nommer les fichiers de sortie, vos fichiers de sortie sont visibles dans le [portail Azure][portal].
 
-Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
+Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
 
 Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque File Conventions pour .NET, consultez [Conserver les données des travaux et des tâches dans Stockage Azure avec la bibliothèque File Conventions Batch pour .NET](batch-task-output-file-conventions.md).
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implémenter les conventions standard de nommage des fichiers Batch
 
-Si vous utilisez un autre langage que .NET, vous pouvez implémenter les [conventions standard de nommage des fichiers](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) dans votre propre application.
+Si vous utilisez un autre langage que .NET, vous pouvez implémenter les [conventions standard de nommage des fichiers](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) dans votre propre application.
 
 Vous pouvez souhaiter implémenter les conventions standard de nommage des fichiers par vous-même si vous voulez un schéma de nommage qui a fait ses preuves ou si vous voulez afficher la sortie des tâches dans le portail Azure.
 

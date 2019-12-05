@@ -1,20 +1,17 @@
 ---
-title: Installer une passerelle de données locale - Azure Logic Apps
+title: Installer la passerelle de données locale
 description: Télécharger et installer la passerelle de données locale pour pouvoir accéder aux données locales avec Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326375"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792099"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 

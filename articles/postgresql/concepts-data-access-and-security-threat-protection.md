@@ -1,17 +1,17 @@
 ---
-title: Concepts Advanced Threat Protection – Azure Database pour PostgreSQL - Serveur unique
+title: Advanced Threat Protection - Azure Database pour PostgreSQL - Serveur unique
 description: Découvrez comment utiliser Advanced Threat Protection pour détecter les activités de base de données anormales pouvant indiquer des menaces sur la sécurité de la base de données.
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 61c0e666458018d4e03d5560e417d28d0efadb27
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950075"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768739"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection dans Azure Database pour PostgreSQL - Serveur unique
 

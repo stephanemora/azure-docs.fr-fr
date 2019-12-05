@@ -1,22 +1,19 @@
 ---
-title: Sécurisation de messages B2B à l’aide de certificats - Azure Logic Apps | Microsoft Docs
+title: Sécuriser les messages B2B à l’aide de certificats
 description: Ajouter des certificats pour sécuriser les messages B2B dans Azure Logic Apps avec le pack Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997835"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790693"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Sécuriser les messages B2B à l’aide de certificats
 

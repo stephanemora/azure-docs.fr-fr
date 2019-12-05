@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827239"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703654"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Résoudre les problèmes de jonction à un domaine avec un domaine managé Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Si la machine virtuelle ne peut pas trouver le domaine managé Azure AD DS, il 
 
 1. Vérifiez que la machine virtuelle est connectée au même réseau virtuel, ou à un réseau virtuel appairé, qui est activé pour Azure AD DS. Si ce n’est pas le cas, la machine virtuelle ne peut pas trouver le domaine et s’y connecter pour le rejoindre.
     * Si la machine virtuelle n’est pas connectée au même réseau virtuel, vérifiez que l’appairage de réseau virtuel ou la connexion VPN est *Active* (Actif) ou *Connected* (Connecté) pour permettre au trafic de circuler correctement.
-1. Effectuez un test Ping du domaine en utilisant le nom du domaine managé Azure AD DS (par exemple, `ping contoso.com`).
+1. Effectuez un test Ping du domaine en utilisant le nom du domaine managé Azure AD DS (par exemple, `ping aadds.contoso.com`).
     * Si la réponse au test Ping échoue, essayez d’effectuer un test Ping des adresses IP du domaine affiché dans la page de présentation du portail pour votre domaine managé Azure AD DS, par exemple `ping 10.0.0.4`.
     * Si le test Ping de l’adresse IP aboutit contrairement à celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vérifiez que vous avez configuré les serveurs DNS du domaine managé Azure AD DS pour le réseau virtuel.
 1. Essayez de vider le cache de résolution DNS sur la machine virtuelle, par exemple `ipconfig /flushdns`.

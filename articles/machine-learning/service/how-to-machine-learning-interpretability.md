@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 5f1008e8fcbbf7b82a694fd151a9dea9ca7f001e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14118098e5d476dc07b21462180673b942a6224d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511054"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672550"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-service"></a>Interprétabilité des modèles dans le service Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,4 +114,4 @@ Le package `explain` est conçu pour fonctionner avec les cibles de calcul local
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [guide pratique](how-to-machine-learning-interpretability-aml.md) pour bénéficier de l’interprétabilité des modèles entraînés à la fois localement et sur des ressources de calcul distantes Azure Machine Learning. Pour obtenir des scénarios supplémentaires, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
+Consultez le [guide pratique](how-to-machine-learning-interpretability-aml.md) pour bénéficier de l’interprétabilité des modèles entraînés à la fois localement et sur des ressources de calcul distantes Azure Machine Learning. Pour obtenir des scénarios supplémentaires, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

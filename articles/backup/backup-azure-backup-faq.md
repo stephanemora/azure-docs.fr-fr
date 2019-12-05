@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173224"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668073"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -176,7 +176,7 @@ L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en
 
 Vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 
-- En savoir plus sur la [sauvegarde et la rétention](./backup-overview.md#backup-and-retention).
+- En savoir plus sur la [sauvegarde et la rétention](./backup-support-matrix.md).
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Combien de fois puis-je récupérer des données sauvegardées dans Azure ?
 

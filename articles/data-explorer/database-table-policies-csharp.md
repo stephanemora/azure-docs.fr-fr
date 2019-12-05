@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 8a5ea692bfdec7f676a80cc670f686af66152e6f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17312840b0081056ad04723f2b2c241c47902021
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606604"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667306"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>Créer des stratégies de base de données et de table pour Azure Data Explorer en utilisant le langage C#
 
@@ -26,19 +26,14 @@ L’Explorateur de données Azure est un service d’exploration de données rap
 ## <a name="prerequisites"></a>Prérequis
 
 * Visual Studio 2019. Si vous n’avez pas Visual Studio 2019, vous pouvez télécharger et utiliser la version *gratuite* [Visual Studio Community 2019](https://www.visualstudio.com/downloads/). Veillez à sélectionner **Développement Azure** lors de la configuration de Visual Studio.
-
 * Un abonnement Azure. Si nécessaire, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
 * [Un cluster et une base de données de test](create-cluster-database-csharp.md).
-
 * [Une table de test](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
 ## <a name="install-c-nuget"></a>Installer le package NuGet C#
 
 * Installez le [package NuGet Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-
 * Installez le [package NuGet Microsoft.Azure.Kusto.Data.NETStandard](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/). (Facultatif, pour modifier les stratégies de la table.)
-
 * Installez le [package NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pour l’authentification.
 
 ## <a name="authentication"></a>Authentication

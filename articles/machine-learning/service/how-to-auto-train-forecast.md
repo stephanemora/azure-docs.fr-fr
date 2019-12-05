@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cd1f516b3d3840262d9221db772f2c186650462e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580700"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807389"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "73580700"
 Dans cet article, vous allez apprendre à entraîner un modèle de régression de prévisions de série chronologique à l’aide du Machine Learning dans Azure Machine Learning. La configuration d’un modèle de prévision est semblable à celle d’un modèle de régression standard utilisant le machine learning automatisé, mais il existe certaines options de configuration et étapes de prétraitement pour l’utilisation des données de série chronologique. Les exemples suivants vous montrent comment :
 
 * Préparer les données pour la modélisation de série chronologique
-* Configurer les paramètres de série chronologique spécifiques dans un objet [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)
+* Configurer les paramètres de série chronologique spécifiques dans un objet [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)
 * Exécuter des prédictions avec les données de série chronologique
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -122,7 +122,7 @@ L’objet `AutoMLConfig` définit les paramètres et les données nécessaires p
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle.||
 |`enable_dnn`|Activez Prévision des DNN.||
 
-Pour plus d’informations, consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Pour plus d’informations, consultez la [documentation de référence](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour 2 périodes futures avec le paramètre `target_lags`.
 

@@ -3,19 +3,19 @@ title: Se connecter à l’API Recherche d’actualités Bing avec les Services 
 titleSuffix: Azure Cognitive Services
 description: La Recherche d’actualités Bing permet à des applications et services d’exploiter toute la puissance d’un moteur de recherche sans publicité à l’échelle du web.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: ghogen
-ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2afe9a66d9f0ebecaef9626ef6caf9fc30f20841
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111502"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771068"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Didacticiel : Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio et C#
 
@@ -268,4 +268,4 @@ Dès que le groupe de ressources n’est plus nécessaire, vous pouvez le suppri
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’API Recherche d’actualités Bing, voir [Présentation de la Recherche d’actualités Bing](index.yml).
+Pour plus d’informations sur l’API Recherche d’actualités Bing, voir [Présentation de la Recherche d’actualités Bing](search-the-web.md).

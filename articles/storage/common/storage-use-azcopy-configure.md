@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595125"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786841"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -54,7 +54,7 @@ Utilisez la commande suivante pour exécuter un test d’évaluation des perform
 |    |     |
 |--------|-----------|
 | **Syntaxe** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Exemple** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
+| **Exemple** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 Cette commande exécute un test d’évaluation des performances en chargeant les données de test dans une destination spécifiée. Les données de test sont générées en mémoire, chargées dans la destination, puis supprimées de la destination une fois le test terminé. Vous pouvez spécifier le nombre de fichiers à générer et leur taille souhaitée à l’aide de paramètres de commande facultatifs.
 
@@ -65,7 +65,7 @@ Pour afficher une aide détaillée sur cette commande, tapez `azcopy bench -h` e
 Vous pouvez utiliser l’indicateur `cap-mbps` pour plafonner le débit de données. Par exemple, la commande suivante applique au débit un plafond de `10` mégabits (Mb) par seconde.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
 Le débit peut diminuer pendant le transfert de petits fichiers. Vous pouvez augmenter le débit en définissant la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément.  

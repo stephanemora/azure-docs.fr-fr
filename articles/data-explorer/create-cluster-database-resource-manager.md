@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643828"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667858"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Créer un cluster et une base de données Azure Data Explorer avec un modèle Azure Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "73643828"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modèle ARM](create-cluster-database-resource-manager.md)
+> * [Modèle Azure Resource Manager](create-cluster-database-resource-manager.md)
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. 
 
@@ -155,26 +155,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources. 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>Nettoyer des ressources à l’aide du portail Azure
-
-Supprimez les ressources dans le portail Azure en suivant les étapes décrites dans [Nettoyer les ressources](create-cluster-database-portal.md#clean-up-resources).
-
-### <a name="clean-up-resources-using-powershell"></a>Supprimer des ressources à l’aide de PowerShell
-
-Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host).
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
