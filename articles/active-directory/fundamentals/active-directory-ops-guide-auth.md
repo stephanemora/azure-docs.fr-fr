@@ -11,19 +11,19 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534853"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803731"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
 Cette section du [Guide de référence des opérations Azure AD](active-directory-ops-guide-intro.md) décrit les vérifications et les actions à entreprendre pour sécuriser et gérer les informations d’identification, définir l’expérience d’authentification, déléguer l’affectation, mesurer l’utilisation et définir des stratégies d’accès basées sur l’attitude de l’entreprise en matière de sécurité.
 
 > [!NOTE]
-> Ces recommandations sont valables à la date de publication, mais elles peuvent évoluer au fil du temps. Les organisations doivent évaluer en continu leurs pratiques en matière d’identités, au fil de l’évolution des produits et des services Microsoft.
+> Ces recommandations sont valables à la date de publication, mais elles peuvent évoluer au fil du temps. Les organisations doivent évaluer en permanence leurs pratiques de gestion des identités à mesure que les produits et services Microsoft évoluent.
 
 ## <a name="key-operational-processes"></a>Processus opérationnels clés
 
@@ -363,7 +363,7 @@ Avoir accès à l’activité de connexion, aux audits et aux événements à ri
 - [Obtenir des données à l’aide de l’API Génération de rapports Azure AD avec des certificats](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph pour Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Informations de référence de l’API Activité de gestion Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [Utilisation du pack de contenu Power BI Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [Utilisation du pack de contenu Power BI Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Résumé
 

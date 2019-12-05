@@ -21,6 +21,8 @@
   items:
     - name: Déployer FarmBeats
       href: prepare-for-deployment.md
+    - name: Gestion des utilisateurs
+      href: manage-users.md
     - name: Gérer des fermes
       href: manage-farms.md
     - name: Obtenir des données de capteur

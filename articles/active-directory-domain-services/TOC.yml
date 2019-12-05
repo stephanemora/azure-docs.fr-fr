@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configurer des stratégies de mot de passe et de verrouillage de compte
           href: password-policy.md
-        - name: Activer les événements d’audit de sécurité (préversion)
+        - name: Activer les événements d’audit de sécurité
           href: security-audit-events.md
     - name: Joindre des machines virtuelles à un domaine
       items:

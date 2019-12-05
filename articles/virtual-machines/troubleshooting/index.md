@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bdb459a69557269a20d36f05acc2da502064efb9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059167"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851347"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Résolution des problèmes liés aux machines virtuelles Azure
 
 ## <a name="tools-for-troubleshooting"></a>Outils de résolution des problèmes
 
-- [Console série](serial-console-windows.md)
+- [Console série](serial-console-overview.md)
 - [Diagnostics de démarrage](boot-diagnostics.md)
 - [Machine virtuelle Windows : Attacher le disque du système d’exploitation à une autre machine virtuelle pour la résolution de problèmes](troubleshoot-recovery-disks-portal-windows.md)
 - [Machine virtuelle Linux : Attacher le disque du système d’exploitation à une autre machine virtuelle pour la résolution de problèmes](troubleshoot-recovery-disks-portal-linux.md)
@@ -46,7 +46,7 @@ ms.locfileid: "71059167"
 
 **Erreurs de démarrage de machine virtuelle**
 
-* [Erreurs de démarrage BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [Erreurs de démarrage BitLocker](troubleshoot-bitlocker-boot-error.md)
 * [Windows indique « Vérification du système de fichiers » pendant le démarrage](troubleshoot-check-disk-boot-error.md)
 * [Erreurs liées à un écran bleu](troubleshoot-common-blue-screen-error.md)
 * [Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows](troubleshoot-vm-boot-configure-update.md)

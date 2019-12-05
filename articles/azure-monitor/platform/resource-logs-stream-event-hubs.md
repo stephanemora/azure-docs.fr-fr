@@ -1,6 +1,6 @@
 ---
 title: Diffuser en continu les journaux Azure Monitor vers un Event Hub
-description: Découvrez comment diffuser en continu les journaux de ressources Azure vers un hub d’événements.
+description: Découvrez comment envoyer en streaming des journaux de ressources à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 1d7a533658b6c72caae9649d7e5a9c4fad117245
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262992"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304948"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>Diffuser en continu les journaux d’activité de ressources Azure vers Azure Event Hubs
 Les [journaux de ressources](resource-logs-overview.md) dans Azure fournissent des informations complètes et fréquentes sur le fonctionnement interne d’une ressource Azure. Cet article décrit la diffusion en continu des journaux d’activité de ressources à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d'autres solutions d'analytique des journaux d'activité.
