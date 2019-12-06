@@ -60,9 +60,6 @@
         - name: Regrouper et extraire les données associées avec des entités composites
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: Obtenir des noms avec des entités simples
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: Améliorer l’application
       items:
         - name: Corriger des prédictions incertaines
