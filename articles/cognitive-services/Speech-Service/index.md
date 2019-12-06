@@ -1,19 +1,19 @@
 ---
 layout: HubPage
-ms.date: 10-19-2019
+ms.date: 11-21-2019
 ms.topic: hub-page
-title: Documentation sur le service de reconnaissance vocale
-description: Bien démarrer avec le service Speech.
-ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+title: Documentation du service Speech
+description: Bien démarrer avec le service Speech. Reconnaissez la voix, synthétisez la voix, obtenez des traductions en temps réel, transcrivez des conversations ou intégrez la voix dans vos expériences de bot.
+ms.openlocfilehash: 2ec258501b89d9ff801974b38f6717bf7af2eafc
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406191"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840797"
 ---
-<div id="main" class="v2">    
+<div id="main" class="v2">
     <div class="container">
-        <h1>Documentation sur le service de reconnaissance vocale</h1>
+        <h1>Documentation du service Speech</h1>
         <ul class="pivots">
             <li>
                 <a href="#start">Prise en main</a>
@@ -58,7 +58,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                          
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/sr-blob">
                                     <div class="cardSize">
@@ -127,8 +127,8 @@ ms.locfileid: "74406191"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Découvrez plus en détail le service Speech et son utilisation dans vos applications, outils et produits.</p>
+                                                    <h3>Lire les documents</h3>
+                                                    <p>Découvrez comment ajouter la reconnaissance vocale à vos applications, outils et produits. Inclut des concepts, des tutoriels, des informations de référence sur les API et des notes de publication.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                                
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/tts-pricing">
                                     <div class="cardSize">
@@ -246,14 +246,14 @@ ms.locfileid: "74406191"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Découvrez plus en détail le service Speech et son utilisation dans vos applications, outils et produits.</p>
+                                                    <h3>Lire les documents</h3>
+                                                    <p>Découvrez comment ajouter la synthèse vocale à vos applications, outils et produits. Inclut des concepts, des tutoriels, des informations de référence sur les API et des notes de publication.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                               
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -315,7 +315,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -427,14 +427,14 @@ ms.locfileid: "74406191"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Découvrez plus en détail le service Speech et son utilisation dans vos applications, outils et produits.</p>
+                                                    <h3>Lire les documents</h3>
+                                                    <p>Découvrez comment ajouter la traduction vocale à vos applications, outils et produits. Inclut des concepts, des tutoriels, des informations de référence sur les API et des notes de publication.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>              
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -534,7 +534,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -597,6 +597,68 @@ ms.locfileid: "74406191"
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#support">Support</a>
+                        <ul id="support" class="cardsC">
+                            <li>
+                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Problèmes GitHub</h3>
+                                                    <p>Parcourez les problèmes ouverts et/ou créez des problèmes pour le SDK Speech sur GitHub.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stack Overflow</h3>
+                                                    <p>Posez des questions et recevez de l’aide de la communauté du service Speech sur Stack Overflow.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://cognitive.uservoice.com/forums/912208-speech-service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Forum UserVoice</h3>
+                                                    <p>Partagez vos idées, suggérez des améliorations ou demandez de nouvelles fonctionnalités pour le service Speech.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                                                    
                         </ul>
                     </li>
                 </ul>
@@ -663,7 +725,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/custom-sr-languages">
                                     <div class="cardSize">
@@ -702,7 +764,7 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -805,9 +867,100 @@ ms.locfileid: "74406191"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                         
+                            </li>
                         </ul>
                     </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#scenarios">Scénarios</a>
+                <ul id="scenarios">
+                    <li>
+                        <a href="#use-cases">Cas d’usage</a>
+                        <ul id="use-cases" class="cardsC">
+                            <li>
+                                <a href="call-center-transcription.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Transcription de centre d’appel</h3>
+                                                    <p>Un scénario courant pour la reconnaissance vocale est la transcription de grands volumes de données de téléphonie pouvant provenir de sources comme un système de réponse vocale interactive (RVI). </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="scenario-availability.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disponibilité des scénarios et fonctionnalités</h3>
+                                                    <p>Découvrez la disponibilité des fonctionnalités et des scénarios par plateforme et langage de programmation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#deploy-architecture">Déploiement</a>
+                        <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="speech-container-howto.md?tabs=stt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Déployer le service Speech sur des conteneurs</h3>
+                                                    <p>Utilisez Docker pour déployer le service Speech sur une instance de conteneur.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regions.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Régions prises en charge</h3>
+                                                    <p>Découvrez à quels endroits le service Speech est pris en charge.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                                    
+                        </ul>
+                    </li>                    
                 </ul>
             </li>
         </ul>

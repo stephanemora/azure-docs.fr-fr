@@ -113,6 +113,8 @@
           href: batch-user-accounts.md
         - name: Soumettre un grand nombre de tâches
           href: large-number-tasks.md
+        - name: Rechercher les erreurs de travail et de tâche
+          href: batch-job-task-error-checking.md
     - name: Créer des fichiers de ressources
       href: resource-files.md
     - name: Conserver les résultats des tâches et des travaux

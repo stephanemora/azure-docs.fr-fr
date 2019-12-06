@@ -203,6 +203,10 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Créer des espaces de noms avec des rubriques, des abonnements et des règles'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Sécuriser
+      items:
+        - name: Configurer les clés gérées par le client pour le chiffrement au repos (préversion)
+          href: configure-customer-managed-key.md
     - name: Résolution des problèmes
       items:
         - name: Guide de résolution des problèmes

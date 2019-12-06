@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. Obtenir des sentiments à partir des énoncés utilisateur
           href: tutorial-publish-settings.md
-    - name: Créer une application
+    - name: Créer et utiliser des entités
       items:
-        - name: Obtenir des données correctement mises en forme avec des expressions régulières
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Obtenir des correspondances de texte exactes avec des listes
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Obtenir des données connexes avec des rôles d’entité
+        - name: Entité d’expression régulière
+          href: tutorial-regex-entity.md
+        - name: Lister les entités
+          href: tutorial-list-entity.md
+        - name: Rôles d’entité
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: Regrouper et extraire les données associées avec des entités composites

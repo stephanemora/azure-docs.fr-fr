@@ -300,11 +300,14 @@
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Exécuter des prédictions par lots
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
+          displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
         - name: Prédictions par lots avec le concepteur
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
+        - name: Déboguer et résoudre les problèmes liés aux prédictions par lot
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-batch-predictions.md
     - name: Surveiller des modèles
       items:
         - name: Collecter et évaluer des données de modèle
