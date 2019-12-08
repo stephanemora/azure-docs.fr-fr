@@ -43,8 +43,6 @@
       items:
         - name: Fonctionnement de l’authentification multifacteur (MFA)
           href: concept-mfa-howitworks.md
-        - name: "Activer la\_MFA"
-          href: concept-mfa-get-started.md
         - name: Mettre vos utilisateurs sous licence
           href: concept-mfa-licensing.md
         - name: Gérer un fournisseur d’authentification

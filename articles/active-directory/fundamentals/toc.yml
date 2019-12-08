@@ -17,6 +17,14 @@
   items:
     - name: Identity Secure Score
       href: identity-secure-score.md
+    - name: Sécurité
+      items:
+        - name: "Activer la\_MFA"
+          href: concept-fundamentals-mfa-get-started.md
+        - name: Paramètres de sécurité par défaut
+          href: concept-fundamentals-security-defaults.md
+        - name: Bloquer l’authentification héritée
+          href: concept-fundamentals-block-legacy-authentication.md
     - name: Gestion des groupes et des accès
       href: active-directory-manage-groups.md
     - name: Gestion des licences par groupe

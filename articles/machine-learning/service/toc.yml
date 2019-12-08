@@ -152,7 +152,7 @@
     - name: Utilisation des données
       items:
         - name: Obtenir des données à partir d’une banque de données
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: Ajouter et inscrire des jeux de données
           displayName: 'data, dataset'

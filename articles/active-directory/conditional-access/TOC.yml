@@ -17,8 +17,6 @@
   items:
     - name: Stratégies d’accès conditionnel courantes
       href: concept-conditional-access-policy-common.md
-    - name: Paramètres de sécurité par défaut
-      href: concept-conditional-access-security-defaults.md
     - name: Composants des stratégies d’accès conditionnel
       href: concept-conditional-access-policies.md
     - name: Conditions
