@@ -20,7 +20,7 @@ Windows Virtual Desktop est un service de virtualisation de bureau et d’applic
 
 Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur Azure :
 
-* Configurer un déploiement Windows 10 multisession qui délivre une version complète de Windows 10 avec scalabilité
+* Configurer un déploiement Windows 10 multisession qui délivre une version complète de Windows 10 avec extensibilité
 * Virtualiser Office 365 ProPlus et l’optimiser pour une exécution dans des scénarios virtuels multiutilisateurs
 * Fournir des bureaux virtuels Windows 7 avec Mises à jour de sécurité étendues gratuites
 * Tirer parti de vos applications et bureaux Windows Server et Services Bureau à distance existants sur n’importe quel ordinateur
@@ -29,7 +29,7 @@ Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur 
 
 ## <a name="introductory-video"></a>Vidéo d’introduction
 
-Découvrez Windows Virtual Desktop, pourquoi cette solution est unique et les nouveautés de cette vidéo :
+Découvrez Windows Virtual Desktop, pourquoi cette solution est unique et les nouveautés dans cette vidéo:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
@@ -37,7 +37,7 @@ Pour obtenir d’autres vidéos sur Windows Virtual Desktop, consultez [notre s�
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 
-Avec Windows Virtual Desktop, vous pouvez configurer un environnement scalable et flexible :
+Avec Windows Virtual Desktop, vous pouvez configurer un environnement extensible et flexible :
 
 * Créez un environnement de virtualisation de bureaux complet dans votre abonnement Azure sans avoir à exécuter de serveurs de passerelle supplémentaires.
 * Publiez autant de pools hôtes que nécessaire pour prendre en charge vos diverses charges de travail.
@@ -64,11 +64,11 @@ Il existe quelques conditions à remplir avant de configurer Windows Virtual Des
 
 Nous prévoyons d’ajouter la prise en charge des systèmes d’exploitation suivants. Par conséquent, vérifiez que vous disposez des [licences appropriées](https://azure.microsoft.com/pricing/details/virtual-desktop/) pour vos utilisateurs, en fonction du poste de travail et des applications que vous envisagez de déployer :
 
-|OS|Licence obligatoire|
+|Système d''exploitation|Licence obligatoire|
 |---|---|
 |Windows 10 Entreprise multisession ou Windows 10 Entreprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Entreprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Licence d’Accès Client (CAL) Services Bureau à distance avec Software Assurance|
+|Windows Server 2012 R2, 2016, 2019|Licence d’Accès Client (CAL) des services Bureau à distance avec Software Assurance|
 
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
 
@@ -81,7 +81,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
 * être [standard jointes à un domaine](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
-* Exécuter l'une des [images de système d'exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
+* exécuter l’une des images de [système d’exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
 
 >[!NOTE]
 >Si vous avez besoin d’un abonnement Azure, vous pouvez demander un [essai gratuit d’un mois](https://azure.microsoft.com/free/). Si vous utilisez l’essai gratuit d’Azure, vous devez utiliser Azure AD Domain Services pour synchroniser votre annuaire Windows Server Active Directory avec Azure Active Directory.
@@ -98,7 +98,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 >[!NOTE]
 >Il est essentiel d’ouvrir ces URL pour un déploiement Windows Virtual Desktop fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent uniquement aux sites et aux ressources Windows Virtual Desktop, et n’incluent pas les URL d’autres services comme Azure AD.
 
-Windows Virtual Desktop comprend les bureaux et applications Windows que fournissez aux utilisateurs ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis. Cela peut entraîner le transfert des données vers les États-Unis.
+Windows Virtual Desktop comprend les bureaux et applications Windows que vous fournissez aux utilisateurs  ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis. Cela peut entraîner le transfert des données vers les États-Unis.
 
 Pour bénéficier de performances optimales, vérifiez que votre réseau remplit les conditions suivantes :
 
@@ -130,14 +130,14 @@ Les options d’automatisation et de déploiement qui sont disponibles dépenden
 
 |Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|Mises à jour de l’agent Windows Virtual Desktop|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multisession, version 1903|OUI|OUI|OUI|OUI|Automatique|
-|Windows 10 multisession, version 1809|OUI|OUI|Non|Non|Automatique|
-|Windows 10 Entreprise, version 1903|OUI|OUI|OUI|OUI|Automatique|
-|Windows 10 Entreprise, version 1809|OUI|OUI|Non|Non|Automatique|
-|Windows 7 Entreprise|OUI|OUI|Non|Non|Manuel|
-|Windows Server 2019|OUI|OUI|Non|Non|Automatique|
-|Windows Server 2016|OUI|OUI|OUI|OUI|Automatique|
-|Windows Server 2012 R2|OUI|OUI|Non|Non|Automatique|
+|Windows 10 multisession, version 1903|Oui|Oui|Oui|Oui|Automatique|
+|Windows 10 multisession, version 1809|Oui|Oui|Non|Non|Automatique|
+|Windows 10 Entreprise, version 1903|Oui|Oui|Oui|Oui|Automatique|
+|Windows 10 Entreprise, version 1809|Oui|Oui|Non|Non|Automatique|
+|Windows 7 Entreprise|Oui|Oui|Non|Non|Manuel|
+|Windows Server 2019|Oui|Oui|Non|Non|Automatique|
+|Windows Server 2016|Oui|Oui|Oui|Oui|Automatique|
+|Windows Server 2012 R2|Oui|Oui|Non|Non|Automatique|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

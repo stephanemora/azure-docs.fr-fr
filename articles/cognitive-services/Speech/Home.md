@@ -36,10 +36,10 @@ L’API de reconnaissance vocale Microsoft *transcrit* les flux audio en texte q
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
-| Convertir un long énoncé (> 15 s) | Non | OUI |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | OUI |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | OUI |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
+| Convertir un long énoncé (> 15 s) | Non | Oui |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | Oui |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | Oui |
 
 Quelle que soit l’approche choisie par les développeurs (API REST ou bibliothèques clientes), le service Microsoft Speech prend en charge les éléments suivants :
 
@@ -61,4 +61,4 @@ Les API *Synthèse vocale* utilisent REST pour convertir un texte structuré en 
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-- Bien démarrer avec le service de synthèse vocale Microsoft : [Informations de référence sur l’API Synthèse vocale](api-reference-rest/bingvoiceoutput.md). Pour obtenir la liste complète des langues et des voix prises en charge par la synthèse vocale, consultez [Paramètres régionaux et polices de voix pris en charge](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Prise en main du service de synthèse vocale Microsoft : [Informations de référence sur l’API Synthèse vocale](api-reference-rest/bingvoiceoutput.md). Pour obtenir la liste complète des langues et des voix prises en charge par la synthèse vocale, consultez [Paramètres régionaux et polices de voix pris en charge](api-reference-rest/bingvoiceoutput.md#SupLocales).

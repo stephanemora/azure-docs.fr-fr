@@ -22,7 +22,7 @@ ms.locfileid: "74307290"
 
 Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux dans Azure Machine Learning.  Vous allez effectuer l’apprentissage et le déploiement d’un modèle **caret** pour prédire la probabilité de décès au cours d’un accident automobile. À l’issue de ce tutoriel, vous aurez acquis une connaissance pratique du SDK R permettant le Scale up pour passer au développement d’expériences et de flux de travail plus complexes.
 
-Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
+Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Connecter votre espace de travail
@@ -49,7 +49,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ### <a name="create-a-workspace"></a>Créer un espace de travail
 
-Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le kit de développement logiciel (SDK). Si vous avez déjà un espace de travail Azure Machine Learning, [passez à la section suivante](#config). Dans le cas contraire, créez-en un maintenant.
+Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources de ressources à un objet facile à consommer dans le kit de développement logiciel (SDK). Si vous avez déjà un espace de travail Azure Machine Learning, [passez à la section suivante](#config). Dans le cas contraire, créez-en un maintenant.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
