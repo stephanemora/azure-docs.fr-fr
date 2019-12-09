@@ -1686,6 +1686,10 @@
           href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
         - name: SAP SuccessFactors dans Active Directory
           href: sap-successfactors-inbound-provisioning-tutorial.md
+        - name: SAP SuccessFactors dans Azure AD
+          href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
+        - name: Écriture différée de SAP SuccessFactors
+          href: sap-successfactors-writeback-tutorial.md
         - name: ServiceNow
           href: servicenow-provisioning-tutorial.md
         - name: Slack
