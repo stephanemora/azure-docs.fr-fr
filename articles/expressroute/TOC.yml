@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Emplacements par fournisseur
           href: expressroute-locations.md
-    - name: Passerelle de réseau virtuel et FastPath
+    - name: À propos des passerelles de réseau virtuel
       href: expressroute-about-virtual-network-gateways.md
     - name: Prérequis
       href: expressroute-prerequisites.md
@@ -40,6 +40,8 @@
       href: expressroute-qos.md
     - name: À propos de la migration des circuits d’un déploiement classique vers Resource Manager
       href: expressroute-move.md
+    - name: À propos d’ExpressRoute FastPath
+      href: about-fastpath.md
     - name: À propose de ExpressRoute Direct
       href: expressroute-erdirect-about.md
     - name: À propos d’ExpressRoute Global Reach

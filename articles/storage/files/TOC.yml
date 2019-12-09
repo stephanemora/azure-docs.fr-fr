@@ -151,6 +151,8 @@
               href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: 'Configurer, optimiser et dépanner'
               href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Transférer des données avec la bibliothèque de déplacement de données
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Développement
       items:
         - name: Configuration des chaînes de connexion

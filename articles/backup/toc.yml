@@ -244,6 +244,8 @@
           href: sap-hana-db-manage.md
     - name: Windows Server
       items:
+        - name: À propos de l’agent MARS
+          href: backup-azure-about-mars.md
         - name: Sauvegarder les fichiers et dossiers de Windows Server
           href: backup-configure-vault.md
         - name: Sauvegarder l’état du système Windows Server

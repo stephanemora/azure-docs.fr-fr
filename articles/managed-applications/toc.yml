@@ -51,6 +51,10 @@
       href: concepts-custom-role-definition.md
     - name: Intégration des ressources
       href: concepts-custom-providers-resourceonboarding.md
+    - name: Azure Policy pour les associations de fournisseurs personnalisées
+      href: concepts-custom-providers-built-in-policy.md
+    - name: Azure Policy pour les associations d’applications managées
+      href: concepts-managed-applications-built-in-policy.md
 - name: Guides pratiques
   items:
     - name: Fournisseurs personnalisés

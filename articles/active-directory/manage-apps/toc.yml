@@ -385,6 +385,10 @@
           href: functions-for-customizing-application-data.md
         - name: Choix d’une méthode de provisionnement
           href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Provisionnement HR cloud
+      items:
+        - name: Informations de référence sur l’attribut SuccessFactors
+          href: sap-successfactors-attribute-reference.md
     - name: Agent de provisionnement Azure AD Connect
       items:
         - name: Historique des versions de l’agent de provisionnement

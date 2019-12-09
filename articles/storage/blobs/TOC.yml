@@ -91,7 +91,7 @@
           items:
             - name: 1 - Rendre votre application hautement disponible
               href: storage-create-geo-redundant-storage.md
-            - name: 2 - Simuler un échec avec le stockage RA-GRS
+            - name: 2 - Simuler une défaillance lors de la lecture de données à partir de la région primaire
               href: storage-simulate-failure-ragrs-account-app.md
         - name: Chiffrer et déchiffrer des objets Blob à l’aide d’Azure Key Vault
           href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -151,7 +151,7 @@
               href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Reprise d’activité après sinistre et basculement
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
+            - name: Concevoir des applications hautement disponibles
               href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Niveaux d’accès et de performances
           items:
@@ -406,6 +406,8 @@
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montage d’un stockage d’objets Blob en tant que système de fichiers sur Linux
               href: storage-how-to-mount-container-linux.md
+            - name: Transférer des données avec la bibliothèque de déplacement de données
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: FAQ sur la migration du stockage
               href: ../common/storage-migration-faq.md
         - name: Développer avec des objets blob

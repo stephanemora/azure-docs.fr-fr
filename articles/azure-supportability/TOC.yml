@@ -14,7 +14,7 @@
               href: per-vm-quota-requests.md
             - name: Augmentation de la limite totale régionale des processeurs virtuels
               href: regional-quota-requests.md
-            - name: Augmentation de la limite de quota basse priorité
+            - name: Augmentation de la limite de quota Spot
               href: low-priority-quota.md
         - name: Modèle de déploiement classique
           href: classic-deployment-model-quota-increase-requests.md

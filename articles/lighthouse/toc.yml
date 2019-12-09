@@ -44,9 +44,6 @@
     - name: Voir et gérer les clients
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: Voir et gérer les fournisseurs de services
-      displayName: 'customer, update'
-      href: ./how-to/view-manage-service-providers.md
     - name: Intégration d’Azure Policy
       items:
         - name: Déployer une stratégie à grande échelle
@@ -55,6 +52,14 @@
         - name: Déployer une stratégie pouvant être corrigée
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Actions des clients
+      items:
+        - name: Voir et gérer les fournisseurs de services
+          displayName: 'customer, update'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Voir l’activité des fournisseurs de services
+          displayName: 'monitor, log'
+          href: ./how-to/view-service-provider-activity.md
 - name: Informations de référence
   items:
     - name: D’Azure CLI

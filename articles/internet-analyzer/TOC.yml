@@ -22,6 +22,8 @@
   items:
     - name: Questions fréquentes (FAQ) sur Internet Analyzer
       href: internet-analyzer-faq.md
+    - name: Résolution des problèmes liés à Internet Analyzer
+      href: troubleshoot.md
     - name: Informations de référence sur l’interface CLI d’Internet Analyzer
       href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Feuille de route Azure
