@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Correspondance des recommandations de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark avec Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544542"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707420"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -40,6 +40,12 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Vérifier qu’aucun rôle de propriétaire d’abonnement personnalisé n’est créé
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de superviser les rôles de propriétaire d’abonnement personnalisé qui sont éventuellement à supprimer.
+
+- Les rôles de propriétaire d’abonnement personnalisé ne doivent pas exister
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Vérifier que le niveau tarifaire standard est sélectionné
 
@@ -243,11 +249,35 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Vérifier que le paramètre de serveur « log_checkpoints » a la valeur « ON » pour le serveur de base de données PostgreSQL
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de bases de données PostgreSQL journalisent les points de contrôle.
+
+- Les points de contrôle de journal doivent être activés pour les serveurs de bases de données PostgreSQL
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ACTIVÉ » pour le serveur de base de données PostgreSQL
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de base de données PostgreSQL appliquent les connexions SSL.
 
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données PostgreSQL
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Vérifier que le paramètre de serveur « log_connections » a la valeur « ON » pour le serveur de base de données PostgreSQL
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de bases de données PostgreSQL journalisent les connexions.
+
+- Les connexions de journal doivent être activées pour les serveurs de bases de données PostgreSQL
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Vérifier que le paramètre de serveur « log_disconnections » a la valeur « ON » pour le serveur de base de données PostgreSQL
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de bases de données PostgreSQL journalisent les déconnexions.
+
+- Les déconnexions doivent être journalisées pour les serveurs de bases de données PostgreSQL.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Vérifier que le paramètre de serveur « log_duration » a la valeur « ON » pour le serveur de base de données PostgreSQL
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de bases de données PostgreSQL journalisent la durée des instructions exécutées.
+
+- La durée de journal doit être activée pour les serveurs de bases de données PostgreSQL
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Vérifier que le paramètre de serveur « connection_throttling » est défini sur « Activé » pour le serveur de base de données PostgreSQL
 
@@ -350,6 +380,71 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les applications web sont accessibles uniquement via des connexions sécurisées.
 
 - L'application web ne doit pas être accessible via HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Vérifier que l’application web utilise la dernière version du chiffrement TLS
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version de TLS.
+
+- La dernière version de TLS doit être utilisée dans votre application API
+- La dernière version de TLS doit être utilisée dans votre application de fonction
+- La dernière version de TLS doit être utilisée dans votre application web
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Vérifier que « Certificats clients (certificats clients entrants) » est activé pour l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que seuls les clients ayant des certificats valides peuvent accéder à une application web.
+
+- Vérifier que « Certificats clients (certificats clients entrants) » est activé pour l’application API
+- Vérifier que « Certificats clients (certificats clients entrants) » est activé pour l’application de fonction
+- Vérifier que « Certificats clients (certificats clients entrants) » est activé pour l’application web
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Vérifier que l’inscription auprès d’Azure Active Directory est activée pour App Service
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent une identité managée.
+
+- Vérifier que l’inscription auprès d’Azure Active Directory est activée pour l’application API
+- Vérifier que l’inscription auprès d’Azure Active Directory est activée pour l’application de fonction
+- Vérifier que l’inscription auprès d’Azure Active Directory est activée pour l’application web
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version du .Net Framework.
+
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application web
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Vérifier que la version de PHP est la plus récente, si elle est utilisée pour exécuter l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version de PHP.
+
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Vérifier que la version de Python est la plus récente, si elle est utilisée pour exécuter l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version de Python.
+
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application web
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Vérifier que la version de Java est la plus récente, si elle est utilisée pour exécuter l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version de Java.
+
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
+
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que les applications web utilisent la dernière version de HTTP.
+
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application API
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application de fonction
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

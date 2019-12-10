@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59708be1de53ab231ccb6dc89bd56c795734fccc
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b40f8e070606a4c21def592fb6104e42e25f9f6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176820"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707931"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -61,7 +61,7 @@ Un *principal de sécurité* est un objet qui représente un utilisateur, un gro
 
 ### <a name="role-definition"></a>Définition de rôle
 
-Une *définition de rôle* est une collection d’autorisations. On l’appelle parfois simplement *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
+Une *définition de rôle* est une collection d’autorisations. Elle est généralement simplement appelée *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
 
 ![Définition de rôle pour une attribution de rôle](./media/overview/rbac-role-definition.png)
 

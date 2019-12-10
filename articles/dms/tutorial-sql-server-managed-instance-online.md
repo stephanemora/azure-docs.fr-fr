@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/04/2019
+ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646964"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806794"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Didacticiel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -204,13 +204,18 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
     | | |
     |--------|---------|
-    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local contenant les fichiers de sauvegarde de la base de données complète et du journal des transactions qu'Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
-    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l'identité de l'utilisateur afin de charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l'opération de restauration. |
-    |**Mot de passe** | Mot de passe pour l’utilisateur. |
+    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local ou partage de fichiers Azure contenant les fichiers de sauvegarde complète de base de données et les fichiers de sauvegarde du journal des transactions qu’Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
+    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l'identité de l'utilisateur afin de charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l'opération de restauration. Si vous choisissez le partage de fichiers Azure, utilisez le nom de compte de stockage commençant par AZURE\ en tant que nom d’utilisateur. |
+    |**Mot de passe** | Mot de passe pour l’utilisateur. Si vous choisissez le partage de fichiers Azure, utilisez une clé de compte de stockage en tant que mot de passe. |
     |**Subscription of the Azure Storage Account** (Abonnement du compte Stockage Azure) | Sélectionnez l’abonnement qui contient le compte Stockage Azure. |
     |**Compte Stockage Azure** | Sélectionnez le compte Stockage Azure sur lequel Azure Database Migration Service peut charger les fichiers de sauvegarde à partir du partage réseau SMB et qu’il peut utiliser pour la migration de base de données.  Nous vous recommandons de sélectionner le compte de stockage se trouvant dans la même région qu’Azure Database Migration Service pour bénéficier de performances de chargement de fichiers optimales. |
 
     ![Configurer les paramètres de migration](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
+
+
+> [!NOTE]
+  > Si Azure Database Migration Service indique l’erreur « Erreur système 53 » ou « Erreur système 57 », cela peut signifier qu’Azure Database Migration Service ne peut pas accéder au partage de fichiers Azure. Si vous êtes confronté à l’une de ces erreurs, octroyez au compte l’accès au stockage depuis le réseau virtuel à l’aide des instructions situées [ici](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+
 
 2. Sélectionnez **Enregistrer**.
 

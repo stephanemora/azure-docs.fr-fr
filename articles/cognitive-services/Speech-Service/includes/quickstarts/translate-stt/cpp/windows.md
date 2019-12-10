@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la parole en texte, C++ (Windows) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Traduire la voix en texte, C++ (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d23e6a75486439d38d94294aaeebd84f9394144c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: efbd38d130a3ad88389d524946ed21cb66d06b7c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504682"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816879"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -113,7 +113,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et les transcrit en texte (en l’occurrence, vers l’allemand). Les services Speech renvoient ensuite le texte à l’application pour que celle-ci l’affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et transcrit en texte (dans ce cas, en allemand). Le service Speech renvoie ensuite le texte à l’application pour que celle-ci l’affiche.
 
 ````
 Say something...

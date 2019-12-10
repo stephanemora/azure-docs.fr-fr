@@ -1,5 +1,5 @@
 ---
-title: Tutoriel consacré au déploiement d'une fonction Azure sur un appareil - Azure IoT Edge | Microsoft Docs
+title: 'Didacticiel : Déployer des fonctions Azure en tant que modules - Azure IoT Edge'
 description: Dans ce tutoriel, vous allez développer une fonction Azure en tant que module IoT Edge avant de la déployer sur un appareil Edge.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1db64c2cc68dc9c47d4f2cf5f63eb0667907d737
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8edd6028e73690829129168d912b312247d8b880
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456720"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664112"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge
 

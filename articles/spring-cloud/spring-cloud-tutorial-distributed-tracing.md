@@ -1,17 +1,17 @@
 ---
-title: 'Didacticiel : Utiliser le suivi distribué avec Azure Spring Cloud | Microsoft Docs'
-description: Découvrir comment utiliser le suivi distribué de Spring Cloud par le biais d’Azure Application Insights
+title: Tutoriel - Utiliser le traçage distribué avec Azure Spring Cloud
+description: Ce tutoriel montre comment utiliser le traçage distribué de Spring Cloud via Azure Application Insights
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607551"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708770"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Didacticiel : Utilisation du suivi distribué avec Azure Spring Cloud
 

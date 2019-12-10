@@ -10,8 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: gwallace
-abstract:
-  description: 'Les groupes identique de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles identiques, disposant d’une charge équilibrée et d’une mise à l’échelle automatique. Découvrez comment créer, configurer, gérer et mettre automatiquement à l’échelle des groupes identiques de machines virtuelles avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
+  description: Les groupes de machines virtuelles identiques Azure vous permettent de créer et de gérer un groupe de machines virtuelles avec charge équilibrée et mise à l’échelle automatique.
 sections:
   - title: Démarrages rapides
     items:

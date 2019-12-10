@@ -1,22 +1,18 @@
 ---
-title: Créer des workflows automatisés basés sur l’approbation – Azure Logic Apps
+title: Générer des workflows automatisés basés sur l’approbation
 description: 'Tutoriel : Créer un workflow automatisé basé sur l’approbation qui traite les abonnements aux listes de diffusion à l’aide d’Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025575"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784661"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Didacticiel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
 

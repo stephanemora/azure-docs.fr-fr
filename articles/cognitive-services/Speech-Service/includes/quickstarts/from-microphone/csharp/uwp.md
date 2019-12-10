@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un micro, C# (UWP) - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone, C# (UWP) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d1da9a9ef32aed1975595bb15909b9531ab2400
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505618"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818705"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=uwp)
+> * Vérifier d’avoir accès à un microphone pour la capture audio
 
 Si vous l’avez déjà fait, c’est parfait. Poursuivons.
 
@@ -86,7 +87,7 @@ Vous êtes maintenant prêt à générer et à tester votre application.
 
    ![Demande d’autorisation d’accès au microphone](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Sélectionnez **Speech recognition with microphone input** (Reconnaissance vocale avec entrée par micro) et prononcez une phrase ou quelques mots en anglais dans le micro de votre appareil. Votre production orale est transmise aux services vocaux, et transcrite en texte qui apparaît dans la fenêtre.
+1. Sélectionnez **Speech recognition with microphone input** (Reconnaissance vocale avec entrée par micro) et prononcez une phrase ou quelques mots en anglais dans le micro de votre appareil. Votre production orale est transmise au service Speech, et transcrite en texte qui apparaît dans la fenêtre.
 
    ![Interface utilisateur de la reconnaissance vocale](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 

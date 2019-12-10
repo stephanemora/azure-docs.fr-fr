@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone, C++ (macOS) - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C++ (macOS) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur macOS avec le SDK Speech
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9b19cd1ff8340a22afb6713289bc3d7be42857ea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 885e853528eb0b20079e6a7739450687ed001b8e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505642"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818659"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=macos)
+> * Veiller à avoir accès à un microphone pour la capture audio
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -32,9 +33,12 @@ Avant de commencer, effectuez les étapes suivantes :
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
 
-1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement aux services Voix.
+1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+
+> [!NOTE]
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ## <a name="build-the-app"></a>Générer l’application
 

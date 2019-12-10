@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072339"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707198"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -183,16 +183,16 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | Propriété  | Type | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True si la requête HTTP a échoué avec le code d’état de réponse dans la plage 2xx ou 3xx |
-| time | date-time | Timestamp de réception de la requête HTTP par la passerelle |
+| time | date-time | Horodatage du début du traitement de la requête par la passerelle |
 | operationName | string | Valeur constante « Microsoft.ApiManagement/GatewayLogs » |
 | category | string | Valeur constante « GatewayLogs » |
-| durationMS | integer | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée |
+| durationMS | integer | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée. Elle comprend clienTime, cacheTime et backendTime. |
 | callerIpAddress | string | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
 | correlationId | string | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | string | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
 | httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
 | resourceId | string | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
-| properties | objet | Propriétés de la requête actuelle |
+| properties | object | Propriétés de la requête actuelle |
 | method | string | Méthode HTTP de la requête entrante |
 | url | string | URL de la requête entrante |
 | clientProtocol | string | Version du protocole HTTP de la requête entrante |
@@ -213,7 +213,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | userId | string | Identificateur d’entité d’utilisateur pour la requête actuelle | 
 | apimSubscriptionId | string | Identificateur d’entité d’abonnement pour la requête actuelle | 
 | backendId | string | Identificateur d’entité de serveur principal pour la requête actuelle | 
-| lastError | objet | Dernière erreur de traitement de requête | 
+| lastError | object | Dernière erreur de traitement de requête | 
 | elapsed | integer | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
 | source | string | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
 | scope | string | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 

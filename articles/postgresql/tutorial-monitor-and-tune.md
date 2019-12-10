@@ -1,17 +1,17 @@
 ---
-title: Tutoriel sur la supervision et l’optimisation dans Azure Database pour PostgreSQL (serveur unique)
+title: 'Didacticiel : Superviser et optimiser - Azure Database pour PostgreSQL - Serveur unique'
 description: Ce tutoriel porte sur la supervision et l’optimisation dans Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073079"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774735"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Didacticiel : Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 

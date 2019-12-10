@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître de la parole stockée dans Stockage Blob, C# – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, C# – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 77ab519ae966ab6b3dfc9fd309ce9a5740a5ce0f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505890"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829139"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Charger un fichier source dans un objet blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Créer un échantillon de projet vide](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Ouvrez votre projet dans Visual Studio.
 
@@ -69,14 +69,14 @@ Poursuivez et placez leurs déclarations après `TranscribeAsync`.
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
 Insérez ce code dans `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
-## <a name="generate-a-transcription-request"></a>Générer une requête de transcription
-Nous allons ensuite générer la requête de transcription. Ajoutez ce code à `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
+## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
+Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=59-70)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine.
+## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine
 Étant donné que le service traite la transcription de manière asynchrone, nous devons interroger l’état régulièrement. Nous allons le vérifier toutes les 5 secondes.
 
 Nous pouvons vérifier l’état en récupérant le contenu à partir de l’URL que nous avons obtenue en envoyant la requête. Lorsque nous obtenons le contenu, nous le désérialisons dans l’une de nos classes d’assistance pour faciliter l’interaction avec celui-ci.
@@ -96,11 +96,11 @@ Une fois que les résultats sont chargés, nous pouvons les imprimer sur la cons
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 
-Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service Speech.
+Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
 1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
 2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
-3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichér sur la console.
+3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la parole en plusieurs langues, C# (.NET Core Windows) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Traduire la voix en plusieurs langues, C# (.NET Core Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 947c0dd8a15efa8ac296aa598d883951816e759d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ea3c0bd1ab12004b51c3c9b56eb8a8370da6f36
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504754"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817067"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -117,7 +117,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles aux services Speech, qui traduisent et transcrivent les paroles en texte (dans ce cas, vers le français et l’allemand). Les services Speech renvoient ensuite le texte à l’application pour que celle-ci l’affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et transcrit en texte (dans ce cas, en français et en allemand). Le service Speech renvoie ensuite le texte à l’application pour que celle-ci l’affiche.
 
 ````
 Say something...

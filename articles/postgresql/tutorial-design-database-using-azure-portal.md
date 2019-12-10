@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir une base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure'
+title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL - Serveur unique - Portail Azure'
 description: Ce tutoriel montre comment concevoir votre première base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443095"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770099"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Didacticiel : Concevoir une base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure
 
@@ -50,8 +50,8 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    Abonnement|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
-    Groupe de ressources|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
+    Subscription|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Resource group|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Nom du serveur |*mydemoserver*|Un nom unique qui identifie votre serveur Azure Database pour PostgreSQL. Le nom de domaine *postgres.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
     Source de données | *Aucun* | Sélectionnez *Aucun* pour créer un serveur en partant de zéro. (Vous sélectionneriez *Sauvegarde* si vous créiez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour PostgreSQL existant).
     Nom d’utilisateur administrateur |*myadmin*| Votre propre compte de connexion en tant que compte à utiliser lorsque vous vous connectez au serveur. Le nom de connexion de l’administrateur ne doit pas être **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Il ne peut pas commencer par **pg_** .

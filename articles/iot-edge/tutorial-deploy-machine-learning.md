@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer Azure Machine Learning sur un appareil - Azure IoT Edge'
+title: Tutoriel - Déployer Azure Machine Learning sur un appareil à l’aide d’Azure IoT Edge
 description: Dans ce tutoriel, vous allez créer un modèle Azure Machine Learning, puis le déployer en tant que module sur un appareil de périphérie.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f1bd4ce5b701652318679f3277bc7c9109fa529
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457640"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701919"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
@@ -165,4 +165,3 @@ Dans ce didacticiel, vous avez déployé un module IoT Edge optimisé par Azure 
 
 > [!div class="nextstepaction"]
 > [Classer des images avec le service Vision personnalisée](tutorial-deploy-custom-vision.md)
-

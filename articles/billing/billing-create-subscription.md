@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226368"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665608"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Créer un abonnement Azure supplémentaire
 
@@ -36,7 +36,7 @@ Pour créer des abonnements, vous avez besoin des autorisations suivantes :
 |---------|---------|
 |Contrat Entreprise (EA) |  Rôle Propriétaire du compte sur l’inscription au Contrat Entreprise. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md).    |
 |Contrat client Microsoft (MCA) |  Rôle Propriétaire ou Contributeur sur la section Factures, le profil de facturation ou le compte de facturation. Ou rôle Créateur de l’abonnement Azure dans la section Factures.  Pour plus d’informations, consultez [Rôles et tâches liés à la facturation des abonnements](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contrat Partenaire Microsoft (MPA) |   Rôle Administrateur général ou Agent d’administration dans l’organisation partenaire. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|Contrat Partenaire Microsoft (MPA) |   Rôle Administrateur général ou Agent d’administration dans l’organisation partenaire CSP. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).  L’utilisateur doit se connecter au locataire partenaire pour créer des abonnements Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Créer un abonnement dans le Portail Azure
 

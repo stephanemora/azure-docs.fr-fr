@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280669"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689332"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemples de scénarios utilisateur pour l’API Analyse de texte
 
@@ -29,7 +29,7 @@ Retirez des insights des résultats d’une enquête portant sur les clients et 
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analyser les appels de clients entrants enregistrés
 
-Retirez des insights des appels de services clients à l’aide de la synthèse vocale, de l’analyse des sentiments et de l’extraction de phrases clés. Affichez les résultats dans un tableau de bord Power BI ou un portail pour mieux comprendre les clients, dégager des tendances du service client et stimuler l’engagement des clients. Envoyez les demandes API sous forme de lot en vue de la création d’un rapport ou en temps réel en vue d’une intervention. Consultez cet [exemple de code](https://github.com/rlagh2/callcenteranalytics).
+Retirez des insights des appels de services clients à l’aide de la synthèse vocale, de l’analyse des sentiments et de l’extraction de phrases clés. Affichez les résultats dans un tableau de bord Power BI ou un portail pour mieux comprendre les clients, dégager des tendances du service client et stimuler l’engagement des clients. Envoyez les demandes API sous forme de lot en vue de la création d’un rapport ou en temps réel en vue d’une intervention. Consultez l’exemple de code [sur GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Image montrant comment automatiser la récupération d’insights à partir des appels de service client à l’aide de l’analyse des sentiments](media/use-cases/azure-inbound.svg)
 

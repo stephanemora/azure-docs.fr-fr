@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467183"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707176"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 
@@ -220,6 +220,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 Enfin, accordez les autorisations de groupe AD à votre coffre de clés à l’aide de la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) ou de l’applet de commande Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0). Pour obtenir des exemples, consultez la section qui explique comment [permettre à une application, à un groupe Azure AD ou à un utilisateur d’accéder à votre coffre de clés](#give-the-principal-access-to-your-key-vault), ci-dessus.
 
+L’application nécessite également l’affectation d’au moins un rôle IAM (gestion des identités et des accès) au coffre de clés. Sinon, elle ne pourra pas se connecter en raison de droits insuffisants pour accéder à l’abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

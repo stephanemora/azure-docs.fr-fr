@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale depuis un micro, C++ (Windows) - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C++ (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur Windows Desktop à l’aide du SDK Speech
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 1a08a5413ae41ef8c17e817a01be9e9efcb7ff99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74bc77fbb9436983c26c572b521d96795f14cfcd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505714"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818687"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, assurez-vous de :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Créer un échantillon de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
+> * Vérifier d’avoir accès à un microphone pour la capture audio
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -40,13 +41,16 @@ Avant de commencer, assurez-vous de :
 
 1. Dans la barre de menus, choisissez **Fichier** > **Enregistrer tout**.
 
+> [!NOTE]
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+
 ## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 
 1. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution** pour générer l’application. Le code doit maintenant se compiler sans erreurs.
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles aux services Speech, qui les transcrivent en texte et les renvoient à l’application pour qu’elle les affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les transcrit en texte et les renvoie à l’application pour qu’elle les affiche.
 
    ![Sortie de la console après une reconnaissance réussie](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 

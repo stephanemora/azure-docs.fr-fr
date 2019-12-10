@@ -1,5 +1,5 @@
 ---
-title: Utiliser le langage Go pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+title: Se connecter avec Go – Azure Database pour PostgreSQL – Serveur unique
 description: Ce démarrage rapide fournit un exemple de langage de programmation Go, que vous pouvez utiliser pour vous connecter et interroger des données à partir d’Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 645d34961fb735542729091719dd55c42436db95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b44759ce4e65e55a3d143fd178764e8ae6e16e89
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244478"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767923"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser la langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant du code écrit dans le langage [Go](https://golang.org/) (golang). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de Go, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.

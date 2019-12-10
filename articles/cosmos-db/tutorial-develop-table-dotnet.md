@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142597"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764471"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Bien démarrer avec l’API Table d’Azure Cosmos DB et le stockage Table Azure à l’aide du SDK .NET
 
@@ -23,7 +23,7 @@ ms.locfileid: "70142597"
 
 Vous pouvez utiliser l’API Table d’Azure Cosmos DB ou le stockage Table Azure pour stocker des données NoSQL structurées dans le cloud, en fournissant un magasin de clés/attributs avec une conception sans schéma. Comme l’API Table d’Azure Cosmos DB et le stockage Table Azure présentent une conception sans schéma, il est facile d’adapter vos données en fonction des besoins de votre application. Vous pouvez utiliser l’API Table d’Azure Cosmos DB et le stockage Table Azure pour stocker des jeux de données flexibles, comme des données utilisateur pour des applications web, des carnets d’adresses, des informations sur les appareils ou d’autres types de métadonnées requis par votre service. 
 
-Ce tutoriel décrit un exemple qui montre comment utiliser la [bibliothèque Microsoft Azure Cosmos DB Table pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) dans des scénarios utilisant l’API Table d’Azure Cosmos DB et le stockage Table Azure. Vous devez utiliser la connexion propre au service Azure. Ces scénarios sont explorés à l’aide d’exemples en C# qui montrent comment créer des tables, ajouter ou mettre à jour des données, interroger des données et supprimer des tables.
+Ce tutoriel décrit un exemple qui vous montre comment utiliser la [bibliothèque Microsoft Azure Cosmos DB Table pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) dans des scénarios basés sur l’API Table d’Azure Cosmos DB et le Stockage Table Azure. Vous devez utiliser la connexion propre au service Azure. Ces scénarios sont explorés à l’aide d’exemples en C# qui montrent comment créer des tables, ajouter ou mettre à jour des données, interroger des données et supprimer des tables.
 
 ## <a name="prerequisites"></a>Prérequis
 

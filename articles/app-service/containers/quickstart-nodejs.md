@@ -1,18 +1,17 @@
 ---
-title: Créer une application web Node.js - Azure App Service
-description: Guide pratique pour déployer une application Node.js sur Azure App Service
-author: msangapu
+title: 'Démarrage rapide : Créer une application Linux Node.js'
+description: Découvrez comment bien démarrer avec les applications Linux sur Azure App Service en déployant votre première application Node.js sur un conteneur Linux dans App Service.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439210"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688966"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Créer une application Node.js dans Azure
 
@@ -91,7 +90,7 @@ npm start
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-## <a name="deploy-to-azure"></a>Déployer sur Azure
+## <a name="deploy-to-azure"></a>Déployer dans Azure
 
 Dans cette section, vous déployez votre application Node.js à l’aide de VS Code et de l’extension Azure App Service. Ce démarrage rapide utilise le modèle de déploiement le plus basique dans lequel votre application est compressée et déployée sur une application Web Azure sur Linux.
 

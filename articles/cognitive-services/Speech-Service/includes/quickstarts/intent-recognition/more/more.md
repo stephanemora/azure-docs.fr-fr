@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, intentions et entités - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 6afe412c45dd4325224ccbbe2752806f9ab73620
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 522107d1dc7f0a640c4122799002764968923fd6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021086"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815880"
 ---
 ## <a name="additional-language-and-platform-support"></a>Prise en charge de langues et de plateformes supplémentaires
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Répertorier les voix de la synthèse vocale, Python - Service Speech'
+title: 'Démarrage rapide : Lister les voix de la synthèse vocale, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Python. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b20a8aabbd41c09efb6818cac2999a8c84b669fc
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559345"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816428"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Python
 
 Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Python. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région. Pour obtenir la liste des régions prises en charge, consultez [Régions](regions.md).
 
-Ce guide de démarrage rapide exige un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource des services Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide demande un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource du service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Ce démarrage rapide nécessite :
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Une clé d’abonnement Azure pour les services Speech
+* Une clé d’abonnement Azure pour le service Speech
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
@@ -59,9 +59,9 @@ class GetVoices(object):
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-Ce point de terminaison nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement des services Speech avec un jeton accès à l’aide du point de terminaison `issueToken`.
+Ce point de terminaison nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement du service Speech pour obtenir un jeton accès à l’aide du point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement des services Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement au service Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez le code suivant dans la classe `GetVoices` :
 
@@ -80,9 +80,9 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez générer la requête et enregistrer la liste des voix retourné. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [Régions des services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez générer la requête et enregistrer la liste des voix retourné. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [Régions du service Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ensuite, ajoutez les en-têtes nécessaires pour la requête. Enfin, vous envoyez une requête au service. Si la requête réussit et qu’un code d’état 200 est retourné, la réponse est écrite dans un fichier.
+Ajoutez ensuite les en-têtes nécessaires pour la requête. Enfin, vous envoyez une requête au service. Si la requête réussit et qu’un code d’état 200 est retourné, la réponse est écrite dans un fichier.
 
 Copiez le code suivant dans la classe `GetVoices` :
 

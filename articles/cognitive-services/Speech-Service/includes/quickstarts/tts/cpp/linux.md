@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, C++ (Linux) - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix, C++ (Linux) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer la synthèse vocale en C++ sur Linux avec le SDK Speech
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: ba0e04d4dadd9d3a4bea41aeb0a66b37f454f030
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505274"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818379"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -32,7 +32,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement aux services Voix.
+1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
@@ -87,7 +87,7 @@ Avant de commencer, effectuez les étapes suivantes :
    ./helloworld
    ```
 
-1. Dans la fenêtre de la console, une invite s’affiche, vous demandant de taper du texte. Tapez quelques mots ou une phrase. Le texte que vous avez tapé est transmis aux services Speech et est synthétisé en paroles, qui sont lues sur votre haut-parleur.
+1. Dans la fenêtre de la console, une invite s’affiche, vous demandant de taper du texte. Tapez quelques mots ou une phrase. Le texte que vous avez tapé est transmis au service Speech et synthétisé en paroles, qui sont lues sur votre haut-parleur.
 
    ```text
    Type some text that you want to speak...

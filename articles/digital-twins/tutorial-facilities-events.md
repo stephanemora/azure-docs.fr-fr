@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383258"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790350"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
@@ -116,11 +116,11 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
     [![Créer une ressource Logic Apps](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
-1. Ouvrez votre ressource Logic Apps lorsqu’elle est déployée, puis ouvrez le volet **Concepteur d’application logique**. 
+1. Ouvrez votre ressource Logic Apps durant son déploiement, puis ouvrez le volet **Concepteur d’application logique**. 
 
-1. Sélectionnez le déclencheur **When an Event Grid ressource event occurs** (Quand un événement de ressource Event Grid se produit). Connectez-vous à votre locataire avec votre compte Azure lorsque vous y êtes invité. Sélectionnez **Autoriser l’accès** pour votre ressource Event Grid si vous y êtes invité. Sélectionnez **Continuer**.
+1. Sélectionnez le déclencheur **When an Event Grid ressource event occurs** (Quand un événement de ressource Event Grid se produit). Développez l’option **Azure Event Grid**, puis connectez-vous à votre locataire à l’aide de votre compte Azure quand vous y êtes invité. Sélectionnez **Autoriser l’accès** pour votre ressource Event Grid si vous y êtes invité. Sélectionnez **Continuer**.
 
-1. Dans la fenêtre **When a resource event occurs (Preview)** (Quand un événement de ressource se produit (préversion)) : 
+1. Dans la fenêtre **Quand un événement de ressource se produit** : 
    
    a. Sélectionnez l’**Abonnement** que vous avez utilisé pour créer la rubrique de grille d’événements.
 

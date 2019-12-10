@@ -1,23 +1,16 @@
 ---
-title: Ruby (Rails) avec Postgres sur Linux - Azure App Service | Microsoft Docs
-description: Découvrez comment faire fonctionner une application Ruby dans Azure en établissant une connexion à une base de données PostgreSQL dans Azure. Rails est utilisé dans le tutoriel.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Didacticiel : Application Linux Ruby avec Postgres'
+description: Découvrez comment faire fonctionner une application Linux Ruby dans Azure App Service en établissant une connexion à une base de données PostgreSQL dans Azure. Rails est utilisé dans le tutoriel.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6af9da060f7742fe2a9b9656199edd5feb67bec1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544686"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687409"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
@@ -125,7 +118,7 @@ Dans cette étape, vous allez créer une base de données Postgres dans [Azure D
 
 Créez un serveur PostgreSQL avec la commande [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
 
-Exécutez la commande suivante dans Cloud Shell et substituez un nom de serveur unique à l’espace réservé *\<postgres-server-name>*. Le nom du serveur doit être unique parmi tous les serveurs dans Azure. 
+Exécutez la commande suivante dans Cloud Shell et substituez un nom de serveur unique à l’espace réservé *\<postgres-server-name>* . Le nom du serveur doit être unique parmi tous les serveurs dans Azure. 
 
 ```azurecli-interactive
 az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
@@ -155,7 +148,7 @@ Lorsque le serveur de base de données Azure pour PostgreSQL est créé, l’int
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Dans Cloud Shell, créez une règle de pare-feu pour votre serveur Postgres afin d’autoriser les connexions client à l’aide de la commande [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. Substituez un nom de serveur unique à l’espace réservé *\<postgres-server-name>*.
+Dans Cloud Shell, créez une règle de pare-feu pour votre serveur Postgres afin d’autoriser les connexions client à l’aide de la commande [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. Substituez un nom de serveur unique à l’espace réservé *\<postgres-server-name>* .
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -167,13 +160,13 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Se connecter au serveur de production Postgres localement
 
-Dans Cloud Shell, connectez-vous au serveur Postgres dans Azure. Utilisez la valeur spécifiée précédemment pour les espaces réservés _&lt;postgres-server-name>_.
+Dans Cloud Shell, connectez-vous au serveur Postgres dans Azure. Utilisez la valeur spécifiée précédemment pour les espaces réservés _&lt;postgres-server-name>_ .
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Quand une invite de mot de passe apparaît, utilisez _My5up3r$tr0ngPa$w0rd!_, que vous avez spécifié au cours de la création du serveur de base de données.
+Quand une invite de mot de passe apparaît, utilisez _My5up3r$tr0ngPa$w0rd!_ , que vous avez spécifié au cours de la création du serveur de base de données.
 
 ### <a name="create-a-production-database"></a>Création d’une base de données de production
 
@@ -302,7 +295,7 @@ Dans cette étape, vous allez déployer l’application Rails connectée à Post
 
 Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell.
 
-La commande Cloud Shell suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;postgres-server-name>_.
+La commande Cloud Shell suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;postgres-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"

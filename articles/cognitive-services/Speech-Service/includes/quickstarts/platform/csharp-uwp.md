@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Kit de développement logiciel (SDK) Speech pour la configuration de la plateforme Windows universelle C# (UWP) - Speech Services'
+title: 'Démarrage rapide : Configuration de la plateforme du kit SDK Speech pour la plateforme Windows universelle (UWP) pour C# – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de C# sous la plateforme Windows universelle (UWP) avec le kit de développement logiciel (SDK) Speech Services.
+description: Utilisez ce guide pour configurer votre plateforme pour C# sous la plateforme Windows universelle (UWP) avec le kit SDK du service Speech.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b318af37f30179a7026df135cf864727976762
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea6218066ce381bbfa7ae8c6a02991b351163084
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504450"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815055"
 ---
 Ce guide explique comment installer le [kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour la plateforme Windows universelle (UWP) C#.
 

@@ -1,18 +1,18 @@
 ---
-title: 'Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
+title: 'Didacticiel : Concevoir un serveur - Portail Azure - Azure Database pour MySQL'
 description: Ce tutoriel explique comment créer et gérer un serveur Azure Database pour MySQL à l’aide du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ee33af4992745aeaeb99551cc173c39e224a298b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515818"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771154"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
 Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
@@ -47,13 +47,13 @@ Un serveur de base de données Azure pour MySQL est créé avec un ensemble déf
     **Paramètre** | **Valeur suggérée** | **Description du champ** 
     ---|---|---
     Nom du serveur | Nom de serveur unique | Choisissez un nom unique qui identifie votre serveur de base de données Azure pour MySQL. Par exemple, mydemoserver. Le nom de domaine *.mysql.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
-    Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
-    Groupe de ressources | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant.
+    Subscription | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Resource group | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant.
     Sélectionner une source | *Vide* | Sélectionnez *Vide* pour créer un nouveau serveur à partir de zéro. (Vous sélectionnez *Sauvegarde* si vous créez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour MySQL existant).
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (comme !, $, #, %, etc.).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
-    Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
+    Location | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
     Niveau tarifaire | **Usage général**, **Gen 5**, **2 vCores**, **5 Go**, **7 jours**, **Géoredondant** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire**. Ensuite, sélectionnez l’onglet **Usage général**. *Gen 5*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de conservation des sauvegardes**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
     

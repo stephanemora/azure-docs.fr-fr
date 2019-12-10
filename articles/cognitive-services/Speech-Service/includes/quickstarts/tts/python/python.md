@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthèse vocale, Python - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer la synthèse vocale en Python avec le SDK Speech
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/14/2019
 ms.author: yulili
-ms.openlocfilehash: 36e48a5d513daa951c1e92017ba9a2322b009703
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505450"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818171"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -69,7 +69,7 @@ Vous pouvez également télécharger ce tutoriel de démarrage rapide en tant qu
    ![Créer un fichier](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiez, collez et enregistrez le [code Python](#sample-code) sur le fichier qui vient d’être créé.
-1. Insérez les informations de votre abonnement aux services Speech.
+1. Insérez les informations de votre abonnement au service Speech.
 1. S’il est sélectionné, un interpréteur Python s’affiche sur le côté gauche de la barre d’état, en bas de la fenêtre.
    Sinon, affichez la liste des interpréteurs Python disponibles. Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **Python : Sélectionner l’interpréteur**. Choisissez un interpréteur approprié.
 1. Vous pouvez installer le package Python du kit SDK Speech à partir de Visual Studio Code. Procédez ainsi s’il n'est pas encore installé pour l’interpréteur Python que vous avez sélectionné.

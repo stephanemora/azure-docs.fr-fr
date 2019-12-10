@@ -1,25 +1,18 @@
 ---
-title: Créer une application web HTML statique - Azure App Service | Microsoft Docs
-description: Découvrez comment exécuter des applications web dans Azure App Service en déployant un exemple d’application HTML statique.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Démarrage rapide : Créer une application web HTML statique'
+description: Déployez votre premier programme Hello World HTML dans Azure App Service en quelques minutes. Vous effectuez le déploiement avec Git, qui figure parmi les nombreuses façons de déployer vers App Service.
+author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c2aca1996d1ec764dcdca30c7657ee360b9c355
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471489"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671486"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Créer une application web HTML statique dans Azure
 

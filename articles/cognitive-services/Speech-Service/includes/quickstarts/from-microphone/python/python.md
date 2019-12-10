@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole à partir d’un micro, Python – Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour créer une application console de reconnaissance vocale qui utilise le kit SDK Speech pour Python. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7fe11876a7ba20981f784bc41ce8094178591371
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a417c2a269ce66c291eda3c4c76f8d48f0ebad95
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505770"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818626"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Créer une application LUIS et obtenir une clé de point de terminaison](../../../../quickstarts/create-luis.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md)
+> * Veiller à avoir accès à un microphone pour la capture audio
 
 ## <a name="support-and-updates"></a>Mises à jour et support technique
 
@@ -49,6 +49,9 @@ Vous pouvez également télécharger ce tutoriel de démarrage rapide en tant qu
 
 ### <a name="sample-code"></a>Exemple de code
 
+> [!NOTE]
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installer et utiliser le SDK Speech avec Visual Studio Code
@@ -69,7 +72,7 @@ Vous pouvez également télécharger ce tutoriel de démarrage rapide en tant qu
    ![Créer un fichier](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiez, collez et enregistrez le [code Python](#sample-code) sur le fichier qui vient d’être créé.
-1. Insérez les informations de votre abonnement aux services Speech.
+1. Insérez les informations de votre abonnement au service Speech.
 1. S’il est sélectionné, un interpréteur Python s’affiche sur le côté gauche de la barre d’état, en bas de la fenêtre.
    Sinon, affichez la liste des interpréteurs Python disponibles. Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **Python : Sélectionner l’interpréteur**. Choisissez un interpréteur approprié.
 1. Vous pouvez installer le package Python du kit SDK Speech à partir de Visual Studio Code. Procédez ainsi s’il n'est pas encore installé pour l’interpréteur Python que vous avez sélectionné.

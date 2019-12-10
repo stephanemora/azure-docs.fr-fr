@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthétiser la voix en un fichier audio, C# (.NET) - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix en un fichier audio, C# (.NET) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505098"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817906"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -30,7 +30,7 @@ Avant de commencer, procédez aux étapes suivantes :
 
 La première étape consiste à vérifier que votre projet est ouvert dans Visual Studio.
 
-1. Lancez Visual Studio 2019.
+1. Lancez Visual Studio 2019.
 2. Chargez votre projet et ouvrez `Program.cs`.
 
 ## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
@@ -91,7 +91,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>Synthétiser le texte avec SpeakTextAsync
 
-À partir de l’objet `SpeechSynthesizer`, vous devez appeler la méthode `SpeakTextAsync()`. Cette méthode envoie votre texte au service Speech qui le convertit en audio. `SpeechSynthesizer` utilise la voix par défaut si `config.VoiceName` n’est pas spécifié de manière explicite.
+À partir de l’objet `SpeechSynthesizer`, vous devez appeler la méthode `SpeakTextAsync()`. Cette méthode envoie votre texte au service Speech qui le convertit en contenu audio. `SpeechSynthesizer` utilise la voix par défaut si `config.VoiceName` n’est pas spécifié de manière explicite.
 
 À l’intérieur de l’instruction using, ajoutez le code suivant :
 ````C#

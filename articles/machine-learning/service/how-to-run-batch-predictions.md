@@ -44,9 +44,9 @@ Dans cette procédure, vous allez apprendre à effectuer les tâches suivantes 
 
 Les actions suivantes permettent de configurer les ressources dont vous avez besoin pour exécuter un pipeline d’inférence par lots :
 
-- Créez un magasin de données qui pointe vers un conteneur d’objets blob où se trouvent les images sur lesquelles exécuter l’inférence.
-- Configurez les références de données comme des entrées et des sorties pour l’étape de pipeline d’inférence par lots.
-- Configurez un cluster de calcul pour exécuter l’étape d’inférence par lots.
+- Créez un magasin de données qui pointe vers un conteneur d’objets blob où se trouvent les images sur lesquelles exécuter l’inférence
+- Configurez les références de données comme des entrées et des sorties pour l’étape de pipeline d’inférence par lots
+- Configurez un cluster de calcul pour exécuter l’étape d’inférence par lots
 
 ### <a name="create-a-datastore-with-sample-images"></a>Créer un magasin de données avec des exemples d’images
 
@@ -80,10 +80,10 @@ def_data_store = ws.get_default_datastore()
 
 Vous devez maintenant configurer les entrées et les sorties de données, notamment :
 
-- Répertoire qui contient les images d’entrée.
-- Le répertoire dans lequel le modèle pré-entraîné est stocké.
+- Répertoire qui contient les images d’entrée
+- Le répertoire dans lequel le modèle pré-entraîné est stocké
 - Le répertoire qui contient les étiquettes.
-- Le répertoire de sortie.
+- Le répertoire de sortie
 
 `Dataset` est une classe permettant d’explorer, de transformer et de gérer les données dans Azure Machine Learning. Cette classe a deux types : `TabularDataset` et `FileDataset`. Dans cet exemple, vous utiliserez `FileDataset` comme entrée pour l’étape de pipeline d’inférence par lots. 
 
@@ -190,7 +190,7 @@ Le script *doit contenir* deux fonctions :
 - `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global.
 -  `run(mini_batch)`: cette fonction s’exécute pour chaque instance de `mini_batch`.
     -  `mini_batch`: l’inférence par lots va appeler la méthode d’exécution et passer soit une liste, soit un dataframe Pandas en tant qu’argument de la méthode. Chaque entrée de min_batch sera un FilePath (chemin de fichier) si l’entrée est un FileDataset (jeu de données de fichiers), ou un dataframe Pandas si l’entrée est un TabularDataset (jeu de données tabulaire).
-    -  `response` : la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de son inférence dans le mini-lot d’entrée. L’utilisateur doit s’assurer qu’un nombre suffisant de données est inclus dans le résultat de l’inférence pour mapper l’entrée à l’inférence. La sortie de l’inférence sera écrite dans le fichier de sortie et pas nécessairement dans l’ordre. L’utilisateur doit utiliser une clé de la sortie pour la mapper à l’entrée.
+    -  `response`: la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de son inférence dans le mini-lot d’entrée. L’utilisateur doit s’assurer qu’un nombre suffisant de données est inclus dans le résultat de l’inférence pour mapper l’entrée à l’inférence. La sortie de l’inférence sera écrite dans le fichier de sortie et pas nécessairement dans l’ordre. L’utilisateur doit utiliser une clé de la sortie pour la mapper à l’entrée.
 
 ```python
 # Snippets from a sample script.
@@ -263,7 +263,7 @@ batch_env.spark.precache_packages = False
 
 `ParallelRunConfig` est la configuration principale de la nouvelle instance `ParallelRunStep` d’inférence par lots dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, y compris les suivants :
 - `entry_script`: script utilisateur utilisé comme un chemin de fichier local qui sera exécuté en parallèle sur plusieurs nœuds. Si `source_directly` est présent, utilisez un chemin relatif. Dans le cas contraire, utilisez un chemin accessible sur la machine.
-- `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (Facultatif : la valeur par défaut est `1`).
+- `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (facultatif ; la valeur par défaut est `1`).
     - Pour `FileDataset`, il s’agit du nombre de fichiers avec une valeur minimale de `1`. Vous pouvez combiner plusieurs fichiers dans un mini-lot.
     - Pour `TabularDataset`, il s’agit de la taille des données. Par exemple, il peut s’agir des valeurs `1024`, `1024KB`, `10MB` ou `1GB`. `1MB` est la valeur recommandée. Notez que le mini-lot de `TabularDataset` ne franchira jamais les limites du fichier. Par exemple, si vous avez des fichiers .csv de différentes tailles, le plus petit fichier aura une taille de 100 Ko et le plus grand une taille de 10 Mo. Si vous définissez `mini_batch_size = 1MB`, les fichiers dont la taille est inférieure à 1 Mo seront traités ensemble comme un mini-lot. Les fichiers dont la taille est supérieure à 1 Mo seront répartis dans plusieurs mini-lots.
 - `error_threshold`: nombre d’échecs d’enregistrement pour `TabularDataset` et d’échecs de fichiers pour `FileDataset` qui doivent être ignorés pendant le traitement. Si le nombre d’erreurs présentes dans la totalité de l’entrée dépasse cette valeur, le travail est interrompu. Le seuil d’erreurs concerne la totalité de l’entrée et non chacun des mini-lots envoyés à la méthode `run()`. La plage est la suivante : `[-1, int.max]`. La partie `-1` indique qu’il faut ignorer tous les échecs au cours du traitement.
@@ -301,7 +301,7 @@ Créez l’étape du pipeline à l’aide du script, de la configuration de l’
 - `inputs`: un ou plusieurs jeux de données Azure Machine Learning à un seul type.
 - `output`: objet `PipelineData` qui correspond au répertoire de sortie.
 - `arguments`: liste d’arguments passés au script utilisateur (facultatif).
-- `allow_reuse`: indique si l’étape doit réutiliser les résultats précédents lorsqu’elle est exécutée avec les mêmes paramètres ou entrées. Si ce paramètre a la valeur `False`, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline (Facultatif : la valeur par défaut est `True`).
+- `allow_reuse`: indique si l’étape doit réutiliser les résultats précédents lorsqu’elle est exécutée avec les mêmes paramètres ou entrées. Si ce paramètre a la valeur `False`, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline (facultatif ; la valeur par défaut est `True`).
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep

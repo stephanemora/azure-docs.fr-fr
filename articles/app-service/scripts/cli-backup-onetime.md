@@ -1,25 +1,20 @@
 ---
-title: Exemple de script Azure CLI - Sauvegarder une application | Microsoft Docs
-description: Exemple de script Azure CLI - Sauvegarder une application
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interface CLI : Sauvegarder une application'
+description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment sauvegarder une application.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07ca1a167a2c7bf2f2946772b97cca4d2c1bd9c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ed9975d33259678defd34582e00294def7ce3467
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098508"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686833"
 ---
 # <a name="back-up-an-app-using-cli"></a>Sauvegarder une application à l’aide de l’interface CLI
 

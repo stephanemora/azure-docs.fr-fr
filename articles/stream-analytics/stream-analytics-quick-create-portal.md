@@ -1,5 +1,5 @@
 ---
-title: Créer un travail Stream Analytics à l’aide du portail Azure | Microsoft Docs
+title: Démarrage rapide – Créer un travail Stream Analytics avec le portail Azure
 description: Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics, configurer des entrées et des sorties, et définir une requête.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707368"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 
@@ -37,8 +37,8 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
-   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
-   |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
+   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
    |Région  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre hub IoT. Utilisez l’emplacement le plus proche de vos utilisateurs. |
    |Nom du hub IoT  | MyASAIoTHub  |   Sélectionnez un nom pour votre hub IoT.   |
 
@@ -89,8 +89,8 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Nom du travail   |  MyASAJob   |   Saisissez un nom pour identifier votre travail Stream Analytics. Le nom d’un travail Stream Analytics peut contenir uniquement des caractères alphanumériques, des traits d’union et des traits de soulignement, et doit avoir entre 3 et 63 caractères. |
-   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour ce travail. |
-   |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez le même groupe de ressources que pour votre hub IoT. |
+   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour ce travail. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Sélectionnez le même groupe de ressources que pour votre hub IoT. |
    |Location  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre travail Stream Analytics. Utilisez l’emplacement le plus proche de vos utilisateurs pour bénéficier de meilleures performances et réduire les coûts de transfert de données. |
    |Unités de diffusion en continu  | 1  |   Les unités de streaming sont les ressources de calcul requises pour exécuter un travail. Par défaut, cette valeur est définie sur 1. Pour en savoir plus sur la mise à l’échelle des unités de streaming, consultez l’article [Understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) (Présentation et réglage des unités de streaming).   |
    |Environnement d’hébergement  |  Cloud  |   Les travaux Stream Analytics peuvent être déployés dans le cloud ou sur des appareils Edge. L’option Cloud vous permet de déployer votre travail dans le cloud Azure, et l’option Edge sur un appareil IoT Edge. |
@@ -114,7 +114,7 @@ Dans cette section, vous allez configurer une entrée d’appareil IoT Hub pour 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias d’entrée  |  IoTHubInput   |  Saisissez un nom pour identifier l’entrée du travail.   |
-   |Abonnement   |  \<Votre abonnement\> |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
+   |Subscription   |  \<Votre abonnement\> |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
    |IoT Hub  |  MyASAIoTHub |  Entrez le nom du hub IoT que vous avez créé dans la section précédente. |
 
 4. Conservez les valeurs par défaut pour les autres options et sélectionnez **Enregistrer** pour enregistrer les paramètres.  
@@ -132,7 +132,7 @@ Dans cette section, vous allez configurer une entrée d’appareil IoT Hub pour 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias de sortie |   BlobOutput   |   Saisissez un nom pour identifier la sortie du travail. |
-   |Abonnement  |  \<Votre abonnement\>  |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
+   |Subscription  |  \<Votre abonnement\>  |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
    |Compte de stockage |  asaquickstartstorage |   Sélectionnez ou saisissez le nom du compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.       |
    |Conteneur |   conteneur1  |  Sélectionnez un conteneur existant que vous avez créé dans votre compte de stockage.   |
 
@@ -193,4 +193,3 @@ Pour savoir comment configurer d’autres sources d’entrée et effectuer une d
 
 > [!div class="nextstepaction"]
 > [Détection des fraudes en temps réel à l’aide d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

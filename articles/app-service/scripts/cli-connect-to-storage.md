@@ -1,27 +1,20 @@
 ---
-title: Exemple de script Azure CLI - Connecter une application à un compte de stockage | Microsoft Docs
-description: Exemple de script Azure CLI - Connecter une application à un compte de stockage
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interface CLI : Connecter une application à un compte de stockage'
+description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment connecter une application à un compte de stockage.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 57a1e9ad6bf377fa5148a4d5c716be00db786c84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8fcdae21e1f9b8508649c52480fa4a007a3325b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136849"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688453"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Connecter une application App Service à un compte de stockage à l’aide de l’interface CLI
 

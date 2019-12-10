@@ -1,27 +1,20 @@
 ---
-title: Créer une application web Java sur Windows – Azure App Service
-description: Dans ce démarrage rapide, vous déployez votre premier programme Java Hello World dans Azure App Service sur Windows en quelques minutes.
+title: 'Démarrage rapide : Créer une application Java sur Windows'
+description: Déployez votre premier programme Hello World Java dans Azure App Service sur Windows en quelques minutes. Le plug-in Maven pour App Service facilite le déploiement d’applications Java.
 keywords: azure, app service, application web, windows, java, maven, démarrage rapide
-services: app-service\web
-documentationcenter: ''
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d119ffdcb952405f17e0df152c817df9a8a63110
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833642"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672155"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Démarrage rapide : Créer une application Java dans Azure App Service sur Windows
 

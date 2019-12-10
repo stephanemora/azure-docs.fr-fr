@@ -1,17 +1,17 @@
 ---
-title: Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud | Microsoft Docs
-description: Découvrez comment lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud.
+title: Tutoriel - Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
+description: Dans ce tutoriel, découvrez comment lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7e796c6f8b2ae17ba267a19da1d909087163d99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607131"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708829"
 ---
 # <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Didacticiel : Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
 

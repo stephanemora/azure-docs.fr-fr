@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Personnaliser l’assistant vocal pour Java (Windows, Linux) - Service Speech'
+title: 'Démarrage rapide : Personnaliser l’assistant vocal pour Java (Windows, Linux) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech de Cognitive Services dans une application console Java. Vous allez découvrir comment connecter votre application cliente à un bot Bot Framework précédemment créé et configuré pour utiliser le canal Speech Direct Line et activer une expérience de l’assistant vocal.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111711"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815857"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Démarrage rapide : Créer un assistant vocal avec le SDK Speech Java (préversion)
 
@@ -30,7 +30,7 @@ Ce démarrage rapide nécessite :
 - Système d’exploitation : Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits), ou macOS 10.13 ou ultérieur.
 - [IDE Eclipse Java](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- Clé d’abonnement Azure pour les services Speech. [Obtenez-en une gratuitement](get-started.md) ou créez-la dans le [portail Azure](https://portal.azure.com).
+- Clé d’abonnement Azure pour le service Speech. [Obtenez-en une gratuitement](get-started.md) ou créez-la dans le [portail Azure](https://portal.azure.com).
 - Un bot préconfiguré créé avec Bot Framework version 4.2 ou ultérieure. Le bot doit s’abonner au nouveau canal Direct Line Speech pour recevoir des entrées vocales.
 
   > [!NOTE]
@@ -477,7 +477,7 @@ Des exemples supplémentaires, qui montrent notamment comment lire une entrée o
 ## <a name="see-also"></a>Voir aussi
 
 - [À propos des assistants vocaux](voice-assistants.md)
-- [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+- [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
 - [Mots clés personnalisés](speech-devices-sdk-create-kws.md)
 - [Connecter Direct Line Speech à votre bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explorer des exemples Java sur GitHub](https://aka.ms/csspeech/samples)

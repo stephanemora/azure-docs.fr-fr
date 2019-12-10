@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850340"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796025"
 ---
 ### <a name="regions"></a>Quelles régions sont disponibles ?
 
@@ -55,3 +55,7 @@ Une session ne doit être lancée qu’à partir du portail Azure. Connectez-vou
 
 Azure Bastion prend actuellement en charge la disposition de clavier en-US-QWERTY dans la machine virtuelle.  La prise en charge d’autres paramètres régionaux pour la disposition de clavier est en cours de développement.
 
+### <a name="udr"></a>Le routage défini par l’utilisateur (UDR) est-il pris en charge sur un sous-réseau Azure Bastion ?
+
+Non. Le routage UDR n’est pas pris en charge sur un sous-réseau Azure Bastion.
+Pour les scénarios qui incluent Azure Bastion et Pare-feu Azure/Appliance virtuelle réseau (NVA) dans le même réseau virtuel, vous n’avez pas besoin de forcer le trafic d’un sous-réseau Azure Bastion vers le Pare-feu Azure, car la communication entre Azure Bastion et vos machines virtuelles est privée. Pour plus d’informations, consultez [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).

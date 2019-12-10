@@ -1,17 +1,17 @@
 ---
-title: Guide pratique pour lier une instance Azure Database pour MySQL à votre application Azure Spring Cloud | Microsoft Docs
-description: Cet article vous montre comment lier une instance Azure Database pour MySQL à votre application Azure Spring Cloud
+title: Tutoriel - Guide pratique pour lier une instance d’Azure Database pour MySQL à votre application Azure Spring Cloud
+description: Ce tutoriel vous montre comment lier une instance d’Azure Database pour MySQL à votre application Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151120"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708821"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Didacticiel : Lier une instance Azure Database pour MySQL à votre application Azure Spring Cloud 
 
@@ -65,4 +65,3 @@ Dans ce tutoriel, vous avez appris à lier votre application Azure Spring Cloud 
 
 > [!div class="nextstepaction"]
 > [Activer la découverte et l’inscription de services à l’aide du registre de service Spring Cloud](spring-cloud-service-registration.md)
-

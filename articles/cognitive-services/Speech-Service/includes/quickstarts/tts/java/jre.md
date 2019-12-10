@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthèse vocale, Java (Windows, Linux, macOS) - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix, Java (Windows, Linux, macOS) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer une application Java simple qui capture et synthétise de la voix à partir de texte et la lit avec le haut-parleur par défaut.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 0ee22c7a34ac332fac930ead6b7d62f6e7aad5d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d7ca86092b973d369d37cbeac1bc9f8cfcf9b462
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505386"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818212"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)

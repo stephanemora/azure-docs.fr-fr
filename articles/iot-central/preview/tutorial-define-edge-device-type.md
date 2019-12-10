@@ -1,5 +1,5 @@
 ---
-title: Définir un nouveau type d’appareil Azure IoT Edge dans Azure IoT Central | Microsoft Docs
+title: Tutoriel - Définir un nouveau type d’appareil Azure IoT Edge dans Azure IoT Central
 description: Ce tutoriel vous montre comment créer un nouveau type d’appareil Azure IoT Edge dans votre application Azure IoT Central en votre qualité de créateur. Vous définissez la télémétrie, l’état, les propriétés et les commandes pour votre type d’appareil.
 author: rangv
 ms.author: rangv
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 97bfd2b1e8b571f44c0b782459567f5677dd36a7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406481"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702789"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Didacticiel : Définir un nouveau type d’appareil Azure IoT Edge dans votre application Azure IoT Central (fonctionnalités en préversion)
 
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous allez aussi créer un modèle d’appareil Environment Ga
 
 * Envoie des données de télémétrie, comme la température.
 * Répond aux propriétés accessibles en écriture durant sa mise à jour dans le cloud, par exemple l’intervalle d’envoi de la télémétrie.
-* Répond aux commandes, telles que la réinitialisation de la température.
+* Répond aux commandes telles que la réinitialisation de la température
 * Permet l’établissement de relations avec d’autres modèles de capacité d’appareil.
 
 

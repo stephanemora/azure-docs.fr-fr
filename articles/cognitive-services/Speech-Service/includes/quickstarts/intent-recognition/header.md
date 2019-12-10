@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, intentions et entités - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: df4604560e05899461b11ec0788f72b27241f1b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a87ed9355a5939393fd5e20f395cc96f35e7f150
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125473"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815866"
 ---
 Dans ce démarrage rapide, vous utiliserez le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour une reconnaissance vocale interactive à partir de données audio capturées depuis un micro. Après avoir satisfait certaines conditions préalables, la reconnaissance vocale à partir d’un micro se fait en seulement quatre étapes :
 > [!div class="checklist"]

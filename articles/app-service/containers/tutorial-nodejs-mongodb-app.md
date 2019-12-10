@@ -1,26 +1,17 @@
 ---
-title: Node.js (MEAN.js) avec MongoDB sur Linux - Azure App Service | Microsoft Docs
-description: Apprenez comment faire fonctionner une application Node.js dans Azure App Service sur Linux, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB. MEAN.js est utilisé dans le tutoriel.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Didacticiel : Application Linux Node.js avec MongoDB'
+description: Découvrez comment faire fonctionner une application Linux Node.js dans Azure App Service en établissant une connexion à une base de données MongoDB dans Azure (Cosmos DB). MEAN.js est utilisé dans le tutoriel.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ca73c7e610b8bd818355f30b9d08bceffeddfc73
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024958"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688888"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Générer une application Node.js et MongoDB dans Azure App Service sur Linux
 

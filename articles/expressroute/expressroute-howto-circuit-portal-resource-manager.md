@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423567"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813158"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Didacticiel : Création et modification d’un circuit ExpressRoute
 
@@ -45,9 +45,12 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 > [!IMPORTANT]
 > Votre circuit ExpressRoute est facturé à partir de l’émission d'une clé de service. Effectuez cette opération seulement quand le fournisseur de connectivité prêt à approvisionner le circuit.
 
-1. Vous pouvez créer un circuit ExpressRoute en sélectionnant l'option permettant de créer une ressource. Cliquez sur **Créer une ressource** > **Mise en réseau** > **Expressroute**, comme illustré dans l’image suivante :
+Vous pouvez créer un circuit ExpressRoute en sélectionnant l'option permettant de créer une ressource. 
 
-   ![Création d’un circuit ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. Sélectionnez **Réseaux** > **ExpressRoute**, comme illustré dans l’image suivante :
+
+   ![Création d’un circuit ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. Après avoir cliqué sur **ExpressRoute**, vous voyez s’afficher la page **Créer un circuit ExpressRoute**. Lorsque vous entrez les valeurs dans cette page, veillez à spécifier le niveau de référence (SKU) approprié (Standard ou Premium) et le modèle de facturation des données (Illimitées ou Limitées).
 
    ![Configurer le niveau de référence (SKU) et la limitation des données](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -146,7 +149,7 @@ Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
 Pour modifier un circuit ExpressRoute, cliquez sur **Configuration**.
 
-![Modifier le circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Modifier le circuit](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 

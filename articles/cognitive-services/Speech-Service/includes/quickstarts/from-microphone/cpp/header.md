@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole provenant d’un micro, C++ – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone, C++ – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ead0c811027955549aa48d885ecad8b977b54eb2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbc4e907978c93502bbc3986f1bb0fd88851d952
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505650"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818679"
 ---
 Si vous préférez vous y mettre tout de suite, affichez ou téléchargez tous les <a href="https://aka.ms/speech/github-cpp">Exemples C++ du Kit de développement logiciel (SDK) Speech</a> sur GitHub. Sinon, commençons.

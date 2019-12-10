@@ -1,26 +1,19 @@
 ---
-title: Exemple de script Azure PowerShell - Mettre manuellement à l’échelle une application | Microsoft Docs
-description: Exemple de script Azure PowerShell - Mettre manuellement à l’échelle une application
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell : Mettre manuellement à l’échelle une application web'
+description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment mettre à l’échelle une application manuellement.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d740dbfb1b5d16d84872ef183a52454549be617e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ee88ef3d125ccc1ec9675437ea99ac11fe65dff
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098214"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684221"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Mettre à l’échelle une application web manuellement à l’aide de PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: Accéder au stockage d’objets BLOB à l’aide d’un coffre de clés - Azure Databricks
+title: Tutoriel - Accéder au Stockage Blob à l’aide du coffre de clés et d’Azure Databricks
 description: Ce tutoriel explique comment accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant des secrets stockés dans un coffre de clés.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539070"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706139"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Didacticiel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
 

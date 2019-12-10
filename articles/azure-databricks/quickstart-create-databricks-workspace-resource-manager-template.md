@@ -1,6 +1,6 @@
 ---
-title: Créer un espace de travail Azure Databricks avec Azure Resource Manager
-description: Ce démarrage rapide montre comment utiliser le modèle Resource Manager pour créer un espace de travail Azure Databricks et un cluster Apache Spark, puis exécuter un travail Spark.
+title: Démarrage rapide – Créer un espace de travail Azure Databricks avec Azure Resource Manager
+description: Ce guide de démarrage rapide montre comment utiliser le modèle Azure Resource Manager pour créer un espace de travail Azure Databricks et un cluster Apache Spark, puis exécuter une tâche Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129353"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706182"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Démarrage rapide : Exécuter un travail Spark sur Azure Databricks à l'aide d'un modèle Azure Resource Manager
 

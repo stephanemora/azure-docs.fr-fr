@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172326"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703650"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
@@ -105,7 +105,7 @@ Pour installer les outils d’administration Active Directory sur une machine vi
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.
-1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle actuelle dans le pool de serveurs, par exemple *myvm.contoso.com*, puis sélectionnez **Suivant**.
+1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle actuelle dans le pool de serveurs, par exemple *myvm.aadds.contoso.com*, puis sélectionnez **Suivant**.
 1. Sur la page **Rôles de serveurs**, cliquez sur **Suivant**.
 1. Dans la page **Fonctionnalités**, développez le nœud **Outils d’administration de serveur distant**, puis développez le nœud **Outils d’administration de rôles**.
 
@@ -125,7 +125,7 @@ Une fois les outils d’administration installés, voyons comment les utiliser p
     ![Liste des outils d’administration installés sur le serveur](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Sélectionnez **Centre d’administration Active Directory**.
-1. Pour explorer le domaine managé Azure AD DS, choisissez le nom de domaine dans le volet gauche, par exemple *contoso.com*. Deux conteneurs nommés *Ordinateurs AADDC* et *Utilisateurs AADDC* se trouvent en haut de la liste.
+1. Pour explorer le domaine managé Azure AD DS, choisissez le nom de domaine dans le volet gauche, par exemple *aadds.contoso.com*. Deux conteneurs nommés *Ordinateurs AADDC* et *Utilisateurs AADDC* se trouvent en haut de la liste.
 
     ![Lister les conteneurs disponibles faisant partie du domaine managé Azure AD DS](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

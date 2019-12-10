@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole à partir d’un micro, C# (Unity) – Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C# (Unity) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505554"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818879"
 ---
 > [!NOTE]
 > Le SDK Speech pour Unity prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), Android (x86, ARM32/64) et iOS (simulateur x64, ARM32 et ARM64).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Créez un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=unity). Si vous l’avez déjà fait, parfait. Poursuivons.
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=unity)
+> * Vérifier d’avoir accès à un microphone pour la capture audio
+
+Si vous l’avez déjà fait, c’est parfait. Poursuivons.
 
 ## <a name="create-a-unity-project"></a>Créer un projet Unity
 
@@ -86,7 +89,7 @@ Pour ajouter l’exemple de code de script au projet Unity, procédez comme suit
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Recherchez la chaîne `YourSubscriptionKey` et remplacez-la par votre clé d’abonnement aux services Speech.
+1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
 1. Recherchez la chaîne `YourServiceRegion` et remplacez-la par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
 
@@ -117,7 +120,7 @@ Vous êtes maintenant prêt à exécuter l’application dans l’éditeur Unity
 
 1. Accédez à la [vue **Game**](https://docs.unity3d.com/Manual/GameView.html) et attendez que l’objet **Text** affiche **Click button to recognize speech**. (Il affiche **New Text** si l’application n’a pas démarré ou n’est pas prête à répondre.)
 
-1. Cliquez sur le bouton et prononcez une phrase en anglais dans le microphone de votre ordinateur. Vos paroles sont transmises aux services Speech et transcrites en texte, qui apparaît dans la vue **Game**.
+1. Cliquez sur le bouton et prononcez une phrase en anglais dans le microphone de votre ordinateur. Vos paroles sont transmises au service Speech et transcrites en texte, qui apparaît dans la vue **Game**.
 
    [![Vue Game dans l’éditeur Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 

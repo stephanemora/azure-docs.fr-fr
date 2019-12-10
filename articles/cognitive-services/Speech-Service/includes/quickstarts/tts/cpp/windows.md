@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, C++ (Windows) - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix, C++ (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la synthèse vocale en C++ sur Windows Desktop avec le SDK Speech
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c0666dccbb7f110e122c4632995299a414bf690a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35c8eb640e3c8c9e33486d5126f83dd40b5b96e0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505410"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818127"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -46,7 +46,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Tapez une phrase ou quelques mots en anglais. L’application transmet votre texte aux services Speech, qui envoient une synthèse vocale à l’application pour qu’elle la lise sur votre haut-parleur.
+1. Tapez une phrase ou quelques mots en anglais. L’application transmet votre texte au service Speech, qui envoie une synthèse vocale à l’application pour qu’elle la lise sur votre haut-parleur.
 
    ![Sortie de la console après une synthèse vocale réussie](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 

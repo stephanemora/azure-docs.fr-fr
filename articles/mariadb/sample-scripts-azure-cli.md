@@ -1,5 +1,5 @@
 ---
-title: Exemples Azure CLI pour Azure Database for MariaDB
+title: Exemples Azure CLI - Azure Database for MariaDB
 description: Cet article liste les exemples de code de commande Azure CLI disponibles pour l’interaction avec Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/27/2018
-ms.openlocfilehash: 8b38c5b94a3019b0c4ccaaa5c0cb86f74380469e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: affb7efc4c93561472bc006cb13ac93ab19aeec0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545054"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771723"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Exemples Azure CLI pour Azure Database for MariaDB 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour Azure Database for MariaDB.
@@ -28,6 +28,6 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pou
 | [Modifier les configurations de serveur](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui modifie les configurations d’un serveur Azure Database for MariaDB. |
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui restaure un serveur Azure Database for MariaDB à un point antérieur dans le temps. |
-|**Manipuler les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité de serveur pour un serveur Azure Database for MariaDB. |
+|**Manipuler les journaux d’activité du serveur**||
+| [Activer et télécharger les journaux d’activité du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité de serveur pour un serveur Azure Database for MariaDB. |
 |||

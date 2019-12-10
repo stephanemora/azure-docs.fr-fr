@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la voix en plusieurs langues, Java (Windows, Linux) - Service Speech'
+title: 'Démarrage rapide : Traduire la voix en plusieurs langues, Java (Windows, Linux) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a5228faa7d02bbaa8cfde55c5dcdf76e9417d3d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 556974ceff1e41f1956a358d48cec72a6029b184
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504978"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817220"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -136,7 +136,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
 Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles aux services Speech, qui traduisent et transcrivent les paroles en texte (dans ce cas, vers le français et l’allemand). Les services Speech renvoient ensuite le texte à l’application pour que celle-ci l’affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et transcrit en texte (dans ce cas, en français et en allemand). Le service Speech renvoie ensuite le texte à l’application pour que celle-ci l’affiche.
 
 ````
 Say something...

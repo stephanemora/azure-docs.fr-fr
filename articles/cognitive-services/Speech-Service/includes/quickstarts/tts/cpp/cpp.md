@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthétiser la parole, C++ – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Synthétiser la voix, C++ – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dada2dbbaa8c8ad7d612d2b45bc3f7fffaa604e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afbebdb77c59c8e525c5e92af1179541727035ab
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505266"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818108"
 ---
 **Choisir votre environnement cible**
 

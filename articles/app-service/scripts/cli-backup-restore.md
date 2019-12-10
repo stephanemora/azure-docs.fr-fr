@@ -1,25 +1,20 @@
 ---
-title: Exemple de script Azure CLI - Restaurer une application web à partir d’une sauvegarde | Microsoft Docs
-description: Exemple de script Azure CLI - Restaurer une application web à partir d’une sauvegarde
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interface CLI : Restauration d’une application à partir d’une sauvegarde'
+description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment restaurer une application à partir d’une sauvegarde.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0ff8527fc7a811ffc77c7807899bf6ee1dac9924
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3c73831d2c094fba62aaea611a0a2b43de89fb12
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098433"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688498"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurer une application web à partir d’une sauvegarde à l’aide de l’interface CLI
 

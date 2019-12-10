@@ -1,5 +1,5 @@
 ---
-title: Créer une tâche cloud Azure Stream Analytics dans Visual Studio Code
+title: Démarrage rapide – Créer une tâche cloud Azure Stream Analytics dans Visual Studio Code
 description: Ce démarrage rapide vous explique comment créer une tâche Stream Analytics, configurer des entrées et des sorties, et définir une requête avec Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1deb042ecffe8a46c70374a0ee15344a31043be8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707408"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche cloud Azure Stream Analytics dans Visual Studio Code (préversion)
 

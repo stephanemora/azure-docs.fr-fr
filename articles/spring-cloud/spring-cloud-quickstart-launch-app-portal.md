@@ -1,17 +1,17 @@
 ---
-title: 'Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure'
-description: Déployez un exemple d’application dans Azure Spring Cloud en utilisant le portail Azure.
+title: Démarrage rapide – Lancer une application Azure Spring Cloud en utilisant le portail Azure
+description: Dans ce guide de démarrage rapide, déployez un exemple d’application dans Azure Spring Cloud en utilisant le portail Azure.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560063"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708842"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure
 
@@ -72,7 +72,11 @@ Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiem
 
 1. Accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Serveur de configuration**.
 
-1. Dans la section **Référentiel par défaut**, définissez **URI** sur « https\://github.com/Azure-Samples/piggymetrics », définissez **LABEL** (ÉTIQUETTE) sur « config », puis sélectionnez **Appliquer** pour enregistrer vos modifications.
+1. Dans la section **Référentiel par défaut**, définissez **URI** sur « https\://github.com/Azure-Samples/piggymetrics ».
+
+1. Définissez **LABEL** (ÉTIQUETTE) sur « config ».
+
+1. Sélectionnez **Appliquer** pour enregistrer vos modifications.
 
     ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 

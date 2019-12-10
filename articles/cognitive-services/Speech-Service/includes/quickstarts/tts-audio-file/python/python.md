@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthétiser la voix en un fichier audio, Python - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Synthétiser la voix en un fichier audio, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505394"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818034"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement Azure pour les services Speech. [Vous pouvez en obtenir une gratuitement](~/articles/cognitive-services/Speech-Service/get-started.md).
+* Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 ou ultérieur](https://www.python.org/downloads/).
 * Le package Python du kit SDK Speech est disponible pour les systèmes d’exploitation suivants :
     * Windows : x64 et x86.
@@ -127,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Créer un fichier](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiez, collez et enregistrez le [code Python](#sample-code) sur le fichier qui vient d’être créé.
-1. Insérez les informations de votre abonnement aux services Speech.
+1. Insérez les informations de votre abonnement au service Speech.
 1. S’il est sélectionné, un interpréteur Python s’affiche sur le côté gauche de la barre d’état, en bas de la fenêtre.
    Sinon, affichez la liste des interpréteurs Python disponibles. Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **Python : Sélectionner l’interpréteur**. Choisissez un interpréteur approprié.
 1. Vous pouvez installer le package Python du kit SDK Speech à partir de Visual Studio Code. Procédez ainsi s’il n'est pas encore installé pour l’interpréteur Python que vous avez sélectionné.

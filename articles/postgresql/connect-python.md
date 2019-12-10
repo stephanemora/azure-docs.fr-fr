@@ -1,5 +1,5 @@
 ---
-title: Utiliser Python pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+title: Se connecter avec Python – Azure Database pour PostgreSQL – Serveur unique
 description: Ce démarrage rapide fournit des exemples de code Python que vous pouvez utiliser pour vous connecter et interroger des données à partir de Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 441ff1ebeffde36d1940520404050f6cc29ea53e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f01ac67b25cbcc098973a3beb0a2b7b311827a37
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066301"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766393"
 ---
 # <a name="use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Utiliser Python afin de se connecter à Azure Database pour PostgreSQL et d’interroger les données – Serveur unique
 Ce démarrage rapide vous explique comment utiliser Azure Database pour PostgreSQL à l’aide de Python sur macOS, Ubuntu Linux ou Windows. Le démarrage rapide détaille la connexion à la base de données et l’utilisation d’instructions SQL pour interroger, mettre à jour, insérer ou supprimer des données. Cet article suppose que vous connaissez Python, mais que vous ne connaissez pas Azure Database pour PostgreSQL.

@@ -1,5 +1,5 @@
 ---
-title: 'Script Azure CLI : Mettre à l’échelle un serveur Azure Database pour MySQL'
+title: Script CLI - Mettre à l’échelle un serveur - Azure Database pour MySQL
 description: Cet exemple de script CLI met à l’échelle un serveur Azure Database pour MySQL vers un nouveau niveau de performance après l’analyse des métriques.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/07/2019
-ms.openlocfilehash: f54b3f6fa8bb37f57479d6a9e7bc05340e411a48
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 12/02/2019
+ms.openlocfilehash: 54082daeeee2d5cc894aee49e2c3456e377637f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882937"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771309"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide de la CLI Azure
 Cet exemple de script CLI met à l’échelle le calcul et le stockage d’un serveur Azure Database pour MySQL après interrogation des métriques. Le calcul peut effectuer une opération d’augmentation ou de réduction d'échelle. Le stockage peut uniquement effectuer une opération d’augmentation d'échelle.

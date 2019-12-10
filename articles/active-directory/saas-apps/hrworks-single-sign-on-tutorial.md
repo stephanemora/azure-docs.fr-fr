@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 790df60f973e6f86bd4424173909159fdd81ee0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a36266c14531f935779266829402392dc4a03411
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100852"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Didacticiel : Intégration d’Azure Active Directory à HRworks Single Sign-On | Microsoft Docs
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec HRworks Single Sign-O
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique HRworks Single Sign-On](mailto:support@hrworks.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe de support HRworks Single Sign-On](https://www.hrworks.de/dienstleistungen/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 

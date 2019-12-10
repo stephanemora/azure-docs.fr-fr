@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Configuration de la plateforme du Kit de développement logiciel (SDK) Speech pour C# .NET Core - Service Speech'
+title: 'Démarrage rapide : Configuration de la plateforme du kit SDK Speech pour C# sous .NET Core – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de C# sous .NET Core sur Windows ou macOS avec le kit de développement logiciel (SDK) Speech Services.
+description: Utilisez ce guide pour configurer votre plateforme pour C# sous .NET Core sur Windows ou macOS avec le kit SDK du service Speech.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ff18fb372d5feb96369d5d51d386520665302c78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6bcbf56fd3248098e012d0c56700432ab7594440
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504410"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816362"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour C# .NET Core.
 

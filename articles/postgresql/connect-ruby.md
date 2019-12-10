@@ -1,5 +1,5 @@
 ---
-title: Utiliser Ruby pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+title: Se connecter avec Ruby – Azure Database pour PostgreSQL – Serveur unique
 description: Ce démarrage rapide fournit un exemple de code Ruby que vous pouvez utiliser pour vous connecter et interroger des données à partir d’Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 242f5724e81f9b8ac6177e5c9d3844b3fab9a7f2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5dd4cfe9bee0db6f14f736c79fe91770641008fb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067275"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766903"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser Ruby pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [Ruby](https://www.ruby-lang.org). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Ruby, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.

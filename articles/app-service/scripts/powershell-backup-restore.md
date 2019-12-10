@@ -1,25 +1,19 @@
 ---
-title: 'Exemple de script Azure PowerShell : Restaurer une application web à partir d’une sauvegarde | Microsoft Docs'
-description: 'Exemple de script Azure PowerShell : Restaurer une application web à partir d’une sauvegarde'
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell : Restaurer une sauvegarde d’application'
+description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment restaurer une application à partir d’une sauvegarde.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 85cbcb4b01161e0004d38f08ae8c30fd398727ff
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 026c275ce4bc85ff3f964bfbb175cc01ff611df0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087893"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685765"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurer une application web à partir d'une sauvegarde à l'aide d'Azure PowerShell
 

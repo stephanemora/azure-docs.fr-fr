@@ -1,24 +1,18 @@
 ---
-title: Créer un équilibreur de charge interne avec App Service Environment - Azure
-description: Informations détaillées sur la création et l’utilisation d’un environnement Azure App Service isolé d’Internet
-services: app-service
-documentationcenter: na
+title: Créer un environnement ASE ILB avec ARM
+description: Découvrez comment créer un environnement ASE (App Service Environment) avec un équilibreur de charge interne (ILB) à l’aide des modèles Azure Resource Manager. Isolez complètement vos applications d’Internet.
 author: ccompy
-manager: stefsch
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470569"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687212"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 

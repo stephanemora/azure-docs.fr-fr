@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthétiser la parole, C# (Windows) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Synthétiser la voix, C# (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour créer une application console de synthèse vocale en utilisant .NET Framework pour Windows et le SDK Speech. Quand vous avez terminé, vous pouvez faire la synthèse vocale à partir d’un texte et entendre ces paroles sur votre haut-parleur en temps réel.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: af101862e824d6527c08c232812913565536bb4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505154"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818321"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -32,7 +32,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. Recherchez la chaîne `YourSubscriptionKey` et remplacez-la par votre clé d’abonnement aux services Speech.
+1. Recherchez la chaîne `YourSubscriptionKey` et remplacez-la par votre clé d’abonnement au service Speech.
 
 1. Recherchez la chaîne `YourServiceRegion`, puis remplacez-la par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement. Par exemple, si vous utilisez l’abonnement d’essai gratuit, la région est `westus`.
 
@@ -44,7 +44,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou sélectionnez **F5**) pour démarrer l’application **helloworld**.
 
-1. Entrez une phrase ou quelques mots en anglais. L’application transmet votre texte aux services Speech, qui envoient une synthèse vocale à l’application pour qu’elle la lise sur votre haut-parleur.
+1. Entrez une phrase ou quelques mots en anglais. L’application transmet votre texte au service Speech, qui envoie une synthèse vocale à l’application pour qu’elle la lise sur votre haut-parleur.
 
    ![Interface utilisateur de la synthèse vocale](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 

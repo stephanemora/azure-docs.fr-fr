@@ -1,19 +1,19 @@
 ---
-title: 'Démarrage rapide : Lancer votre application Spring Cloud à partir du code source'
-description: Découvrez comment lancer votre application Azure Spring Cloud directement à partir de votre code source.
+title: Démarrage rapide – Lancer votre application Spring Cloud à partir du code source
+description: Dans ce guide de démarrage rapide, vous découvrirez comment lancer votre application Azure Spring Cloud directement à partir de votre code source.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721276"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708886"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Lancer votre application Spring Cloud à partir du code source
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Démarrage rapide : Lancer votre application Spring Cloud à partir du code source
 
 Azure Spring Cloud vous permet d’exécuter facilement sur Azure une application de microservices basée sur Spring Cloud.
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 ## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres de préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à être utilisés en production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Avant de commencer, vérifiez que votre abonnement Azure a les dépendances requises :
 

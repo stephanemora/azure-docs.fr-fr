@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646145"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708669"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Intégration et déploiement continus pour Azure SQL Data Warehouse
 
@@ -25,12 +25,8 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 - Parcourez le [tutoriel sur l’intégration du contrôle de code source](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Créez un [agent autohébergé](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) avec les bits de préversion SSDT (16.3 préversion 2 ou ultérieure) installés pour SQL Data Warehouse (préversion)
-
 - Configurer Azure DevOps et s’y connecter
 
-  > [!NOTE]
-  > SSDT est actuellement en préversion et vous devez exploiter un agent autohébergé. Les agents hébergés par Microsoft seront mis à jour dans les prochains mois.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Intégration continue avec la build Visual Studio
 
@@ -49,13 +45,13 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 À ce stade, vous disposez d’un environnement simple dans lequel tout enregistrement dans la branche principale de votre référentiel de contrôle de code source doit déclencher automatiquement une build Visual Studio réussie de votre projet de base de données. Vérifiez que l’automatisation fonctionne de bout en bout en apportant une modification dans votre projet de base de données locale et en enregistrant cette modification dans votre branche principale.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Déploiement continu avec la tâche de déploiement Azure SQL Database
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Déploiement continu avec la tâche de déploiement Azure SQL Data Warehouse (ou Database)
 
-1. Ajoutez une nouvelle tâche à l’aide de la [tâche de déploiement Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) et renseignez les champs obligatoires pour vous connecter à votre entrepôt de données cible. Pendant l’exécution de cette tâche, le DACPAC généré à partir du processus de génération précédent est déployé dans l’entrepôt de données cible.
+1. Ajoutez une nouvelle tâche à l’aide de la [tâche de déploiement Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) et renseignez les champs obligatoires pour vous connecter à votre entrepôt de données cible. Pendant l’exécution de cette tâche, le DACPAC généré à partir du processus de génération précédent est déployé dans l’entrepôt de données cible. Vous pouvez également utiliser la [tâche de déploiement Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
 
       ![Tâche de déploiement](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tâche de déploiement")
 
-2. Quand vous utilisez un agent autohébergé, veillez à définir votre variable d’environnement pour utiliser le fichier SqlPackage.exe correct pour SQL Data Warehouse. Le chemin doit être similaire à celui-ci :
+2. Si vous utilisez un agent autohébergé, veillez à définir votre variable d’environnement pour utiliser le bon fichier SqlPackage.exe pour SQL Data Warehouse. Le chemin doit être similaire à celui-ci :
 
       ![Variable d’environnement](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variable d’environnement")
 

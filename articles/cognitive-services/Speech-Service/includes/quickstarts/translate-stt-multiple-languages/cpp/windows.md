@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la voix en plusieurs langues, C++ (Windows) - Speech Services'
+title: 'Démarrage rapide : Traduire la voix en plusieurs langues, C++ (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 9de9db768fcadaa132195169b50ad48487a4a343
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78e8d479f9d36924f77744a36de9451a013a6e42
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504706"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817136"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Créer un échantillon de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -116,7 +116,7 @@ Avant de commencer, procédez aux étapes suivantes :
 
 1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles aux services Speech, qui traduisent et transcrivent les paroles en texte (dans ce cas, vers le français et l’allemand). Les services Speech renvoient ensuite le texte à l’application pour que celle-ci l’affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et transcrit en texte (dans ce cas, en français et en allemand). Le service Speech renvoie ensuite le texte à l’application pour que celle-ci l’affiche.
 
 ````
 Say something...

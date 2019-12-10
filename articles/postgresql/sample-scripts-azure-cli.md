@@ -1,5 +1,5 @@
 ---
-title: Exemples Azure CLI pour Azure Database pour PostgreSQL (serveur unique)
+title: Exemples Azure CLI - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article répertorie plusieurs exemples de code Azure CLI disponibles pour l’interaction avec Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
-ms.openlocfilehash: 9b8ff3334c8e31397f68e890c15bec3e2515a1a2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073125"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774718"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Exemples Azure CLI pour Azure Database pour PostgreSQL (serveur unique)
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour PostgreSQL.

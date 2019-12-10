@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419635"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766597"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -127,7 +127,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
    ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Sélectionnez le compte de stockage que vous avez configuré à l’étape 2 [Activer le journal de flux NSG](#enable-nsg-flow-log).
-4. Sous **Service Blob**, sélectionnez **Objets blob**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
+4. Sous **Service Blob**, sélectionnez **Conteneurs**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
 5. Dans le conteneur, parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json, comme illustré dans l’image suivante : Les fichiers journaux sont écrits dans une arborescence des dossiers qui respecte la convention de nommage suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={jour}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.json
 
    ![Journal de flux](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

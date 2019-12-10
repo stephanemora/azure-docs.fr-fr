@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208605"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703690"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -72,7 +72,7 @@ Quand vous créez une instance Azure AD DS, vous spécifiez un nom DNS. Voici qu
 >
 > Vous pouvez utiliser le nom DNS racine pour votre domaine managé Azure AD DS, mais vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services de votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
-> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
+> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aadds.contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
 >
 > Pour plus d’informations, consultez [Sélectionner un préfixe de nommage pour le domaine][naming-prefix].
 
@@ -117,7 +117,7 @@ Dans la page **Résumé** de l’Assistant, examinez les paramètres de configur
     ![Notification dans le portail Azure du déploiement en cours](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. La page se charge avec les mises à jour du processus de déploiement, y compris la création de ressources dans votre annuaire.
-1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *contoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
+1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *aadds.contoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
 
     ![État des services de domaine pendant l’état Provisionnement](./media/tutorial-create-instance/provisioning-in-progress.png)
 

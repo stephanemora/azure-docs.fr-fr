@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthèse vocale, C# (UWP) - Service Speech'
+title: 'Démarrage rapide : Synthétiser la voix, C# (UWP) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous créez une application Universal Windows Platform (UWP) C# en utilisant le kit SDK Speech de Cognitive Services. Vous synthétisez de la voix à partir de texte en temps réel sur les haut-parleurs de votre appareil. L’application est créée avec le package NuGet du SDK Speech et Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505130"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818138"
 ---
 > [!NOTE]
 > La plateforme Windows universelle vous permet de développer des applications qui s’exécutent sur n’importe quel appareil prenant en charge Windows 10, notamment des PC, Xbox, Surface Hub et d’autres appareils.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -61,7 +61,7 @@ Vous êtes maintenant prêt à générer et à tester votre application.
 
    ![Exemple d’application de synthèse vocale UWP en C# - Démarrage rapide](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Entrez du texte dans la zone de texte, puis cliquez sur **Speak**. Votre texte est transmis aux services Speech et est synthétisé en paroles, qui sont lues sur votre haut-parleur.
+1. Entrez du texte dans la zone de texte, puis cliquez sur **Speak**. Votre texte est transmis au service Speech et synthétisé en paroles, qui sont lues sur votre haut-parleur.
 
     ![Interface utilisateur de la synthèse vocale](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 

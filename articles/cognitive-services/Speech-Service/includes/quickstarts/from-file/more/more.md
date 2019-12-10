@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un fichier audio - Speech Services'
+title: 'Démarrage rapide : Reconnaître la voix à partir d’un fichier audio – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0623607949f11fb5eaff9ee4f8a657d4dc0ecb5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 47bc889fb836064922aded42d3ee6856864d7223
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021087"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819303"
 ---
 ## <a name="additional-language-and-platform-support"></a>Prise en charge de langues et de plateformes supplémentaires
 

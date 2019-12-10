@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI'
+title: 'Didacticiel : Concevoir une base de données Azure Database for MariaDB - Azure CLI'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database for MariaDB avec Azure CLI, depuis la ligne de commande.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/10/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 548f4f10758b2d69bf4fda00f8bf52d33d20306c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999160"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776779"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
 
 Azure Database for MariaDB est un service de base de données relationnelle dans le cloud Microsoft qui repose sur le moteur de base de données MariaDB Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 

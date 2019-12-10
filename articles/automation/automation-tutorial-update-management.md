@@ -6,15 +6,15 @@ author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278780"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806556"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -127,6 +127,10 @@ Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle*
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
 Ensuite, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
+
+>[!NOTE]
+>Quand vous planifiez un déploiement de mises à jour, cela entraîne la création d’une ressource de [planification](shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les machines cibles. Si vous supprimez la ressource de planification du portail Azure, ou si vous utilisez PowerShell après la création du déploiement, le déploiement de mises à jour planifié est interrompu. De plus, une erreur est générée quand vous essayez de le reconfigurer à partir du portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
+>
 
 Pour planifier un nouveau déploiement de mises à jour pour la machine virtuelle, accédez à **Gestion des mises à jour**, puis cliquez sur **Planifier le déploiement de la mise à jour**.
 

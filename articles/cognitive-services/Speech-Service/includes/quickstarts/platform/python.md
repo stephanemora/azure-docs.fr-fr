@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Kit de développement logiciel (SDK) Speech pour la configuration de la plateforme Python – Service de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Python avec le Kit de développement logiciel (SDK) Speech Services.
+description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Python avec le kit SDK du service Speech.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: d4a81c6dd2b44efd432345627e78bb69fff1688d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504330"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816473"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Python.
 

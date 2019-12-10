@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthèse vocale, C# (.NET Core) – Speech Service'
+title: 'Démarrage rapide : Synthétiser la voix, C# (.NET Core) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la synthèse vocale en C# sous .NET Core sur Windows à l’aide du SDK Speech
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 670d32a93df9e2a0363163079b50c7306f81975e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504882"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818287"
 ---
 > [!NOTE]
 > .NET Core est une plateforme .NET à vocation multiplateforme, open source, qui implémente la spécification [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -50,7 +50,7 @@ Avant de commencer, effectuez les étapes suivantes :
 
     ![Capture d’écran de l’application Visual Studio, avec l’option Démarrer le débogage en surbrillance](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Démarrer l’application en mode débogage")
 
-1. Une fenêtre de console s’affiche, vous invitant à taper du texte. Tapez quelques mots ou une phrase. Le texte que vous avez tapé est transmis aux services Speech et est synthétisé en paroles, qui sont lues sur votre haut-parleur.
+1. Une fenêtre de console s’affiche, vous invitant à taper du texte. Tapez quelques mots ou une phrase. Le texte que vous avez tapé est transmis au service Speech et synthétisé en paroles, qui sont lues sur votre haut-parleur.
 
     ![Capture d’écran de la sortie de la console après une synthèse réussie](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Sortie de la console après une synthèse réussie")
 

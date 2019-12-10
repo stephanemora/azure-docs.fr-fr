@@ -1,19 +1,19 @@
 ---
-title: Démarrage rapide - Créer un serveur Azure Database pour MySQL à l’aide d’une simple commande Azure CLI - az mysql up (préversion)
+title: 'Démarrage rapide : Créer une base de données Azure Database pour MySQL en utilisant az mysql up'
 description: Guide de démarrage rapide pour créer un serveur Azure Database pour MySQL à l’aide de la commande up dans Azure CLI (interface de ligne de commande).
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137910"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765681"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide d’une simple commande Azure CLI - az mysql up (préversion)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un fichier audio, C++ (Windows) - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix d’un fichier audio, C++ (Windows) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur Windows Desktop à l’aide du SDK Speech
 services: cognitive-services
@@ -10,21 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 09e0b6fbfcb8541a0756a855d4548e456a7b5c90
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 005d3c36525546443f96ec2134a2c8f9ad44b4dd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506378"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819429"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -83,6 +85,9 @@ Avant de commencer, procédez aux étapes suivantes :
 1. Remplacez la chaîne `whatstheweatherlike.wav` par le nom de votre fichier.
 
 1. Dans la barre de menus, choisissez **Fichier** > **Enregistrer tout**.
+
+> [!NOTE]
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 

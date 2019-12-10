@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole à partir d’un fichier audio, C# (.NET) – Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix d’un fichier audio, C# (.NET) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: fdb747212914769b8551d9cd12f1fbc8a01245dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506346"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819409"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, procédez aux étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=dotnet)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="open-your-project-in-visual-studio"></a>Ouvrez votre projet dans Visual Studio.
 
@@ -65,7 +67,8 @@ namespace helloworld
 Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une configuration qui utilise votre clé d’abonnement et la région de votre abonnement. Insérez ce code dans la méthode `RecognizeSpeechAsync()`.
 
 > [!NOTE]
-> Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la [classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -103,7 +106,7 @@ var result = await recognizer.RecognizeOnceAsync();
 
 ## <a name="display-the-recognition-results-or-errors"></a>Afficher les résultats de la reconnaissance (ou les erreurs)
 
-Lorsque le résultat de la reconnaissance est retourné par le service Speech, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et imprimer le résultat dans la console.
+Lorsque le résultat de la reconnaissance est retourné par le service de reconnaissance vocale, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et imprimer le résultat dans la console.
 
 À l’intérieur de l’instruction using, sous `RecognizeOnceAsync()`, ajoutez ce code :
 ````C#
@@ -192,9 +195,9 @@ namespace helloworld
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 
-Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service Speech.
+Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
-1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
+1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
 2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
 3. **Démarrer la reconnaissance** : votre fichier audio est envoyé au service Speech, transcrit sous forme de texte et affiché dans la console.
 

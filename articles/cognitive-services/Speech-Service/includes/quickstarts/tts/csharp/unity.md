@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Synthétiser la parole, C# (Unity) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Synthétiser la voix, C# (Unity) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour créer une application de conversion de texte par synthèse vocale avec Unity et le SDK Speech pour Unity. Lorsque vous avez terminé, vous pouvez synthétiser de la voix à partir de texte en temps réel sur les haut-parleurs de votre appareil.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504898"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818110"
 ---
 > [!NOTE]
 > Unity prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), Android (x86, ARM32/64) et iOS (simulateur x64, ARM32 et ARM64).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -64,7 +64,7 @@ Quand vous avez terminé, l’interface utilisateur doit ressembler à cette cap
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement Speech Services.
+1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
 1. Recherchez et remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement. Par exemple, la région est `westus` si vous utilisez l’évaluation gratuite.
 
@@ -83,7 +83,7 @@ Quand vous avez terminé, l’interface utilisateur doit ressembler à cette cap
 ## <a name="run-the-application-in-the-unity-editor"></a>Exécuter l’application dans l’éditeur Unity
 
 * Sélectionnez le bouton **Play** (Lire) dans la barre d’outils de l’éditeur Unity sous la barre de menus.
-* Une fois que l’application est lancée, entrez du texte dans le champ d’entrée et sélectionnez le bouton. Votre texte est transmis au service Speech et est synthétisé en paroles, qui sont lues sur votre haut-parleur.
+* Une fois que l’application est lancée, entrez du texte dans le champ d’entrée et sélectionnez le bouton. Votre texte est transmis au service Speech et synthétisé en paroles, qui sont lues sur votre haut-parleur.
 
   [![Capture d’écran du guide de démarrage rapide en cours d’exécution dans la fenêtre Game (Jeu) Unity](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 

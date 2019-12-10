@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Exécuter le SDK Speech Devices sur Android'
+title: 'Démarrage rapide : Exécuter le kit SDK Speech Devices sur Android – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Prérequis et instructions pour bien démarrer avec le SDK Android Speech Devices.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111691"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815342"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Android
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Android pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](conversation-transcription-service.md).
 
-Ce guide nécessite un compte [Azure Cognitive Services](get-started.md) avec une ressource Speech Services. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
+Ce guide nécessite un compte [Azure Cognitive Services](get-started.md) avec une ressource de service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 Le code source de l’exemple d’application est fourni avec le Kit de développement logiciel (SDK) Speech Devices. Il est également [disponible sur GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,11 +36,11 @@ Avant de commencer à utiliser le SDK Speech Devices, vous devez :
   > [!NOTE]
   > Le fichier Android-Sample-Release.zip inclut l’exemple d’application Android et ce guide de démarrage rapide part du principe que l’application est extraite vers C:\SDSDK\Android-Sample-Release
 
-- Pour obtenir une [clé d’abonnement Azure pour Speech Services](get-started.md)
+- Pour obtenir une [clé d’abonnement Azure pour le service Speech](get-started.md)
 
 - Si vous envisagez d’utiliser la transcription de conversation, vous devez utiliser un [microphone circulaire](get-speech-devices-sdk.md) et cette fonctionnalité n’est actuellement disponible que pour les langues « en-US » et « zh-CN » dans les régions « centralus » et « eastasia ». Vous devez disposer d’une clé Speech dans une de ces régions pour utiliser la transcription de conversation.
 
-- Si vous envisagez d’utiliser Speech Services pour identifier les intentions (ou les actions) à partir des énoncés utilisateur, vous aurez besoin d’un abonnement [LUIS (Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Pour plus d’informations sur LUIS et la reconnaissance des intentions, consultez [Reconnaître les intentions vocales avec LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Si vous envisagez d’utiliser le service Speech pour identifier les intentions (ou les actions) à partir des énoncés utilisateur, vous aurez besoin d’un abonnement [LUIS (Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Pour plus d’informations sur LUIS et la reconnaissance des intentions, consultez [Reconnaître les intentions vocales avec LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
   Vous pouvez [créer un modèle LUIS simple](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utiliser l’exemple de modèle LUIS, LUIS-example.json. L’exemple de modèle LUIS est accessible à partir du [site de téléchargement du Kit de développement logiciel (SDK) Speech Devices](https://aka.ms/sdsdk-luis). Pour charger le fichier JSON de votre modèle dans le [portail LUIS](https://www.luis.ai/home), sélectionnez **Importer une nouvelle application**, puis sélectionnez le fichier JSON.
 

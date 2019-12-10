@@ -1,25 +1,20 @@
 ---
-title: Exemple de script Azure CLI - Créer une sauvegarde planifiée pour une application | Microsoft Docs
-description: Exemple de script Azure CLI - Créer une sauvegarde planifiée pour une application
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interface CLI : Créer une sauvegarde planifiée'
+description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment créer une sauvegarde planifiée pour une application.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c16a5c3cb51ab8ca571eb99acbe6a3034cb8ee21
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e301b5503cee939846bdcfd1d0c4e755f3debe21
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088124"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686772"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Créer une sauvegarde planifiée pour une application App Service à l’aide de l’interface CLI
 

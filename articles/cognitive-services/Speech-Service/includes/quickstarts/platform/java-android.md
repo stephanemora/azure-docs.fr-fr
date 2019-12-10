@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Configuration de la plateforme du Kit de développement logiciel (SDK) de reconnaissance vocale pour Java (Android) - Service Speech'
+title: 'Démarrage rapide : Configuration de la plateforme du kit SDK Speech pour Java (Android) – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Java (Android) avec le Kit de développement logiciel (SDK) Speech Services.
+description: Utilisez ce guide pour configurer votre plateforme pour Java (Android) avec le kit SDK du service Speech.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: b0b3084cf8a1ad4de972ad90d2ed508d54ba2b29
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3d7f265993a03c637577678cd9b3012776598c7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504370"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816330"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Java sur Android. La configuration est basée sur le package Maven du SDK Speech et sur Android Studio 3.3.
 

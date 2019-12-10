@@ -1,14 +1,14 @@
 ---
 title: Exemples de requêtes avancées
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment en utilisant des colonnes, en listant les étiquettes utilisées et en mettant en correspondance des ressources avec des expressions régulières.
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.topic: sample
-ms.openlocfilehash: b0491390aac83650ca6590f0ecfc44f28ceaf08e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 25a5e05bd9d383ae411ce7147b09555c0e6b4437
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279347"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816483"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph avancées
 
@@ -374,7 +374,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="a-namejoin-findstoragetag-find-storage-accounts-with-a-specific-tag-on-the-resource-group"></a><a name="join-findstoragetag" />Rechercher les comptes de stockage avec une étiquette spécifique sur le groupe de ressources
 
-La requête suivante utilise un `join` **inner** pour connecter des comptes de stockage avec les groupes de ressources dont l’étiquette a le nom et la valeur spécifiés.
+La requête suivante utilise un `join` **interne** pour connecter des comptes de stockage à des groupes de ressources ayant un nom et une valeur d’étiquette spécifiques qui respectent la casse.
 
 ```kusto
 Resources
@@ -382,7 +382,7 @@ Resources
 | join kind=inner (
     ResourceContainers
     | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
-    | where tags['key1'] == 'value1'
+    | where tags['Key1'] =~ 'Value1'
     | project subscriptionId, resourceGroup)
 on subscriptionId, resourceGroup
 | project-away subscriptionId1, resourceGroup1
@@ -391,22 +391,60 @@ on subscriptionId, resourceGroup
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['Key1'] =~ 'Value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
 # <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['Key1'] =~ 'Value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
-- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'key1'%5D%20%3D%3D%20'value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.com</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
-- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'key1'%5D%20%3D%3D%20'value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.us</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
-- Portail Azure Chine : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'key1'%5D%20%3D%3D%20'value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.cn</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'Key1'%5D%20%3D~%20'Value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.com</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'Key1'%5D%20%3D~%20'Value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.us</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+- Portail Azure Chine : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.storage%2Fstorageaccounts'%20%7C%20join%20kind%3Dinner%20(%20ResourceContainers%20%7C%20where%20type%20%3D~%20'microsoft.resources%2Fsubscriptions%2Fresourcegroups'%20%7C%20where%20tags%5B'Key1'%5D%20%3D~%20'Value1'%20%7C%20project%20subscriptionId%2C%20resourceGroup)%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.cn</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+
+---
+
+S’il est nécessaire de rechercher un nom et une valeur d’étiquette qui ne respectent pas la casse, utilisez `mvexpand` avec le paramètre **bagexpansion**. Dans la mesure où cette requête utilise plus de quota que la requête précédente, utilisez `mvexpand` uniquement en cas de nécessité.
+
+```kusto
+Resources
+| where type =~ 'microsoft.storage/storageaccounts'
+| join kind=inner (
+    ResourceContainers
+    | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+    | mvexpand bagexpansion=array tags
+    | where isnotempty(tags)
+    | where tags[0] =~ 'key1' and tags[1] =~ 'value1'
+    | project subscriptionId, resourceGroup)
+on subscriptionId, resourceGroup
+| project-away subscriptionId1, resourceGroup1
+```
+
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | mvexpand bagexpansion=array tags | where isnotempty(tags) | where tags[0] =~ 'key1' and tags[1] =~ 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+```
+
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | mvexpand bagexpansion=array tags | where isnotempty(tags) | where tags[0] =~ 'key1' and tags[1] =~ 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
+```
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
+
+- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%20%7C%20join%20kind%3Dinner%20%28%20ResourceContainers%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%20%7C%20mvexpand%20bagexpansion%3Darray%20tags%20%7C%20where%20isnotempty%28tags%29%20%7C%20where%20tags%5B0%5D%20%3D~%20%27key1%27%20and%20tags%5B1%5D%20%3D~%20%27value1%27%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.com</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%20%7C%20join%20kind%3Dinner%20%28%20ResourceContainers%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%20%7C%20mvexpand%20bagexpansion%3Darray%20tags%20%7C%20where%20isnotempty%28tags%29%20%7C%20where%20tags%5B0%5D%20%3D~%20%27key1%27%20and%20tags%5B1%5D%20%3D~%20%27value1%27%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.us</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
+- Portail Azure Chine : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%20%7C%20join%20kind%3Dinner%20%28%20ResourceContainers%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%20%7C%20mvexpand%20bagexpansion%3Darray%20tags%20%7C%20where%20isnotempty%28tags%29%20%7C%20where%20tags%5B0%5D%20%3D~%20%27key1%27%20and%20tags%5B1%5D%20%3D~%20%27value1%27%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%20on%20subscriptionId%2C%20resourceGroup%20%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">portal.azure.cn</a> ![Icône Ouvrir le lien dans une nouvelle fenêtre](../../media/new-window.png)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la parole en parole, Python – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Traduire la voix en voix, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: e09d3fd2e880a01522b59d60a80f448192c0b689
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db6cbce03805b904dbac80eb8d2c6fcd38ede6ee
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505226"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817459"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -101,7 +101,7 @@ Avant de commencer, effectuez les étapes suivantes :
    python quickstart.py
    ```
 
-1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et les transcrit en texte (en l’occurrence, vers l’allemand). Le service Speech renvoie ensuite l’audio synthétisé et le texte à l’application pour que celle-ci l’affiche.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles au service Speech, qui les traduit et transcrit en texte (dans ce cas, en allemand). Le service Speech renvoie ensuite l’audio synthétisé et le texte à l’application pour que celle-ci l’affiche.
 
    ```
    Say something...

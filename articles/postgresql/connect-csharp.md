@@ -1,5 +1,5 @@
 ---
-title: Utiliser C# pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+title: Se connecter avec C# – Azure Database pour PostgreSQL – Serveur unique
 description: Ce démarrage rapide fournit un exemple de code C# (.NET) que vous pouvez utiliser pour vous connecter et interroger des données à partir d’ Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 546626b1bf655ce6755e0a34ae8d8a85bcf6990f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4ac462873d34faa5ffa9d1e1bd873734be88e442
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067321"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767974"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser .NET (C#) pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application C#. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec C#, mais que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.

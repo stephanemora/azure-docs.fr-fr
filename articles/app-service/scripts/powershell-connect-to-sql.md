@@ -1,26 +1,17 @@
 ---
-title: Exemple de script Azure PowerShell - Connecter une application à une base de données SQL | Microsoft Docs
-description: Exemple de script Azure PowerShell - Connecter une application App Service à une base de données SQL
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell : Connexion à la base de données SQL'
+description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment connecter une application à une instance SQL Database.
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 799fb67b20c45653ec741a92ec7a75aff2f8c509
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bb5fc8bcc99a4439276f53325c029635143c86c5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087828"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685397"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>Connecter une application App Service à une base de données SQL
 

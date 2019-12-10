@@ -1,24 +1,15 @@
 ---
-title: Générer une application ASP.NET à l’aide d’un conteneur Windows (préversion) - Azure App Service | Microsoft Docs
-description: Découvrez comment déployer un conteneur Windows personnalisé dans Azure App Service et déployer des logiciels personnalisés dans le conteneur.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
+title: 'Didacticiel : Application héritée avec conteneur (préversion)'
+description: Découvrez comment migrer un conteneur Windows personnalisé vers Azure App Service, et comment déployer des logiciels personnalisés dans le conteneur.
+ms.topic: tutorial
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787341"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671974"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 

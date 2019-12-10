@@ -27,9 +27,9 @@ Un état visuel décrit le contenu d’une image : une salle vide ou une salle 
 
 Ce didacticiel vous explique comment :
 > [!div class="checklist"]
-> * Configurer l’exemple d’application pour utiliser vos propres ressources Custom Vision et IoT Hub.
-> * Utiliser l’application pour effectuer l’apprentissage de votre projet Custom Vision.
-> * Utiliser l’application pour noter les nouvelles images en temps réel et envoyer les résultats à Azure.
+> * Configurer l’exemple d’application pour utiliser vos propres ressources Custom Vision et IoT Hub
+> * Utiliser l’application pour effectuer l’apprentissage de votre projet Custom Vision
+> * Utiliser l’application pour noter les nouvelles images en temps réel et envoyer les résultats à Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 L’application Alertes visuelles IoT s’exécute en boucle continue, en alternant entre quatre états différents :
 
-* **Pas de modèle** : État de non fonctionnement. L’application se met en veille continuellement pendant une seconde et vérifie la caméra.
+* **Aucun modèle** : État de non-fonctionnement. L’application se met en veille continuellement pendant une seconde et vérifie la caméra.
 * **Capture des images d’apprentissage** : Dans cet état, l’application capture une image et la charge en tant qu’image d’apprentissage dans le projet Custom Vision cible. L’application se met ensuite en veille pendant 500 ms et répète l’opération jusqu’à ce que le nombre cible défini d’images soit capturé. Elle déclenche ensuite l’apprentissage du modèle Custom Vision.
 * **En attente du modèle entraîné** : Dans cet état, l’application appelle l’API Custom Vision chaque seconde pour vérifier si le projet cible contient une itération formée. Lorsqu’elle en trouve une, elle télécharge le modèle ONNX correspondant dans un fichier local et passe à l’état **Scoring**.
 * **Scoring** : Dans cet état, l’application utilise Windows ML pour évaluer une image unique de la caméra par rapport au modèle ONNX local. La classification de l’image qui en résulte est affichée à l’écran et envoyée sous forme de message à IoT Hub. L’application se met ensuite en veille pendant une seconde avant de faire le scoring d’une nouvelle image.
@@ -69,7 +69,7 @@ Les fichiers suivants gèrent la fonctionnalité principale de l’application.
 Procédez comme suit pour exécuter l’application Alertes visuelles IoT sur votre ordinateur ou votre appareil IoT.
 
 1. Clonez ou téléchargez [l’exemple IoTVisualAlerts](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts) sur GitHub.
-1. Ouvrez la solution _IoTVisualAlerts.sln_ dans Visual Studio
+1. Ouvrez la solution _IoTVisualAlerts.sln_ dans Visual Studio.
 1. Intégrez votre projet Custom Vision :
     1. Dans le script _CustomVision\CustomVisionServiceWrapper.cs_, mettez à jour la variable `ApiKey` à l’aide de votre clé d’apprentissage.
     1. Ensuite, mettez à jour la variable `Endpoint` avec l’URL de point de terminaison associée à votre clé.
@@ -78,9 +78,9 @@ Procédez comme suit pour exécuter l’application Alertes visuelles IoT sur vo
     1. Dans le script _IoTHub\IotHubWrapper.cs_, mettez à jour la variable `s_connectionString` avec la chaîne de connexion appropriée pour votre appareil. 
     1. Dans le portail Azure, chargez votre instance IoT Hub, cliquez sur **Appareils IoT** sous **Explorateurs**, sélectionnez votre appareil cible (ou créez-en un si nécessaire) et recherchez la chaîne de connexion sous **Chaîne de connexion principale**. La chaîne contient le nom de votre IoT Hub, l’ID de l’appareil et la clé d’accès partagé ; son format est le suivant : `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
-Si vous exécutez l’application sur votre ordinateur, sélectionnez **Ordinateur local** pour l’appareil cible dans Visual Studio, puis sélectionnez **x64** ou **x86** pour la plateforme cible. Puis, appuyez sur F5 pour exécuter le programme. L’application doit démarrer et afficher le flux en direct à partir de la caméra et un message d’état.
+Si vous exécutez l’application sur votre ordinateur, sélectionnez **Ordinateur local** pour l’appareil cible dans Visual Studio, puis sélectionnez **x64** ou **x86** pour la plateforme cible. Ensuite, appuyez sur F5 pour exécuter le programme. L’application doit démarrer et afficher le flux en direct à partir de la caméra et un message d’état.
 
 Si vous effectuez le déploiement sur un appareil IoT avec un processeur ARM, vous devez sélectionner **ARM** comme plateforme cible et **Ordinateur distant** comme appareil cible. Indiquez l’adresse IP de votre appareil lorsque vous y êtes invité (elle doit se trouver sur le même réseau que votre ordinateur). Vous pouvez récupérer l’adresse IP à partir de l’application Windows IoT par défaut une fois que vous avez démarré l’appareil et que vous l’avez connecté au réseau. Appuyez sur F5 pour exécuter le programme.
 
@@ -107,7 +107,7 @@ Pour répéter ce processus avec votre propre scénario :
 1. Connectez-vous au [portail Custom Vision](http://customvision.ai).
 1. Recherchez votre projet cible, qui doit maintenant contenir toutes les images d’apprentissage chargées par l’application.
 1. Pour chaque état visuel que vous souhaitez identifier, sélectionnez les images appropriées et appliquez manuellement l’étiquette.
-    * Par exemple, si votre objectif est de faire la distinction entre une salle vide et une salle où des personnes se trouvent, nous vous recommandons d’étiqueter cinq images ou plus avec des personnes en tant que nouvelle classe **Personnes** et d’étiqueter au moins cinq images où il n’y a pas de personnes avec l’étiquette **Négatif**. Cela permet au modèle de faire la différence entre les deux états.
+    * Par exemple, si votre objectif est de faire la distinction entre une salle vide et une salle où des personnes se trouvent, nous vous recommandons d’étiqueter cinq images ou plus avec des personnes en tant que nouvelle classe **People** (Personnes) et d’étiqueter au moins cinq images où il n’y a pas de personnes avec l’étiquette **Negative** (Négatif). Cela permet au modèle de faire la différence entre les deux états.
     * Autre exemple : si votre objectif est d’estimer le taux de remplissage d’une étagère, vous pouvez utiliser des étiquettes comme **EmptyShelf** (Étagère vide), **PartiallyFullShelf** (Étagère partiellement remplie) et **FullShelf** (Étagère remplie).
 1. Lorsque vous avez terminé, sélectionnez le bouton **Former**.
 1. Une fois l’apprentissage terminé, l’application détecte qu’une itération formée est disponible. Elle démarrera le processus d’exportation du modèle entraîné vers ONNX et de son téléchargement sur l’appareil.
@@ -116,7 +116,7 @@ Pour répéter ce processus avec votre propre scénario :
 
 Une fois que l’application a téléchargé le modèle entraîné, elle passe sur l’état **Scoring** et démarre le scoring des images de la caméra dans une boucle continue.
 
-Pour chaque image capturée, l’application affiche l’étiquette supérieure à l’écran. Si elle ne reconnaît pas l’état visuel, elle affiche **Aucune correspondance**. L’application envoie également ces messages à IoT Hub, et si une classe est détectée, le message inclut l’étiquette, le niveau de confiance et une propriété appelée `detectedClassAlert`, qui peut être utilisée par les clients IoT Hub qui souhaitent effectuer un routage rapide des messages en fonction des propriétés.
+Pour chaque image capturée, l’application affiche l’étiquette supérieure à l’écran. Si elle ne reconnaît pas l’état visuel, elle affiche **No Matches** (Aucune correspondance). L’application envoie également ces messages à IoT Hub, et si une classe est détectée, le message inclut l’étiquette, le niveau de confiance et une propriété appelée `detectedClassAlert`, qui peut être utilisée par les clients IoT Hub qui souhaitent effectuer un routage rapide des messages en fonction des propriétés.
 
 En outre, l’exemple utilise une [bibliothèque Sense HAT](https://github.com/emmellsoft/RPi.SenseHat) pour détecter s’il s’exécute sur un appareil Raspberry Pi avec une unité Sense HAT, afin de pouvoir l’utiliser comme affichage de sortie en définissant tous les voyants d’affichage sur Rouge lorsqu’il détecte une classe et sur Blanc lorsqu’il ne détecte rien.
 
@@ -130,7 +130,7 @@ Si vous exécutez l’application sur un appareil et que vous devez récupérer 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Supprimez votre projet Custom Vision si vous ne voulez plus le conserver. Sur le [site web Custom Vision](https://customvision.ai), accédez à **Projets** et sélectionnez la corbeille sous votre nouveau projet.
+Supprimez votre projet Custom Vision si vous ne voulez plus le conserver. Sur le [site web Custom Vision](https://customvision.ai), accédez à **Projects** (Projets) et sélectionnez la corbeille sous votre nouveau projet.
 
 ![Capture d’écran d’un panneau étiqueté My New Project (Nouveau projet) avec une icône de corbeille](./media/csharp-tutorial/delete_project.png)
 
@@ -142,5 +142,5 @@ Dans ce tutoriel, vous avez configuré et exécuté une application qui détecte
 > [Exemple IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * Ajoutez une méthode IoT Hub pour basculer l’application directement vers l’état **En attente du modèle entraîné**. De cette façon, vous pouvez effectuer l’apprentissage du modèle avec des images qui ne sont pas capturées par l’appareil lui-même, puis envoyer (push) le nouveau modèle vers l’appareil sur commande.
-* Suivez le tutoriel [Visualiser les données de capteur en temps réel](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) pour créer un tableau de bord Power BI afin de visualiser les alertes IoT Hub envoyées par l’exemple.
+* Suivez le tutoriel [Visualiser des données de capteur en temps réel](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) pour créer un tableau de bord Power BI afin de visualiser les alertes IoT Hub envoyées par l’exemple.
 * Suivez le tutoriel [Surveillance à distance IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) pour créer une application logique qui répond aux alertes IoT Hub lorsque des états visuels sont détectés.

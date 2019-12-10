@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 23f0b459b67088518375fbb4fd0b106da3aaf57c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682067"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815843"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Démarrage rapide : Obtention d’une clé de point de terminaison LUIS
 
@@ -27,7 +27,7 @@ Veillez à disposer des éléments suivants avant de commencer ce tutoriel :
 
 ## <a name="luis-and-speech"></a>LUIS et Speech
 
-LUIS s’intègre aux services Voix pour reconnaître les intentions à partir de la voix. Vous n’avez besoin que de LUIS. Aucun abonnement aux services Voix n’est nécessaire.
+LUIS s’intègre au service Speech pour reconnaître les intentions à partir de la reconnaissance vocale. Vous n’avez besoin que de LUIS, aucun abonnement au service Speech n’est nécessaire.
 
 LUIS utilise trois types de clés :
 
@@ -39,7 +39,7 @@ LUIS utilise trois types de clés :
 
 Pour ce tutoriel, vous avez besoin du type de clé du point de terminaison. Ce tutoriel utilise l’exemple d’application domotique LUIS Home Automation, que vous pouvez créer en suivant le guide de démarrage rapide [Utiliser une application domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre application LUIS, vous pouvez aussi l’utiliser.
 
-Lors de la création d’une application LUIS, une clé de démarrage est générée automatiquement par LUIS pour que vous puissiez tester l’application à l’aide de requêtes de texte. Cette clé n’active pas l’intégration des services Speech et ne fonctionne pas avec ce tutoriel. Créez une ressource LUIS dans le tableau de bord Azure et affectez-la à l’application LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel.
+Lors de la création d’une application LUIS, une clé de démarrage est générée automatiquement par LUIS pour que vous puissiez tester l’application à l’aide de requêtes de texte. Cette clé n’active pas l’intégration du service Speech et ne fonctionne pas avec ce tutoriel. Créez une ressource LUIS dans le tableau de bord Azure et affectez-la à l’application LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel.
 
 Après avoir créé la ressource LUIS dans le tableau de bord Azure, connectez-vous au [portail LUIS](https://www.luis.ai/home), choisissez votre application dans la page **My apps** (Mes applications) et basculez vers la page **Manage** (Gérer) de l’application. Enfin, sélectionnez **Keys and Endpoints** (Clés et points de terminaison) dans la barre latérale.
 

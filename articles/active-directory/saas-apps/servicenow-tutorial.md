@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65526fe501b190f9bf76c58ab1c14b5ec35fe49d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706918"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ServiceNow
 
@@ -97,7 +97,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. La procédure est expliquée plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . 
 
    ![Capture d’écran de la section Certificat de signature SAML, avec mise en évidence de l’option Télécharger](common/certificatebase64.png)
 
@@ -182,27 +182,27 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     a. Dans le volet gauche, recherchez la section **System Definition** (Définition du système) dans la zone de recherche, puis sélectionnez **Plugins** (Plug-ins).
 
-    ![Capture d’écran de la section System Definition (Définition du système), avec System Definition et Plugins (Plug-ins) mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_03.png "Activer le plug-in")
+    ![Capture d’écran de la section System Definition avec System Definition et Plugins mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_03.png "Activer le plug-in")
 
     b. Recherchez **Integration - Multiple Provider Single Sign-On Installer** (Intégration - Programme d’installation de l’authentification unique à plusieurs fournisseurs).
 
-     ![Capture d’écran de la page System Plugins (Plug-ins système), avec Integration - Multiple Provider Single Sign-On Installer (Intégration - Programme d’installation de l’authentification unique à plusieurs fournisseurs) mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_04.png "Activer le plug-in")
+     ![Capture d’écran de la page System Plugins avec Integration - Multiple Provider Single Sign-On Installer mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_04.png "Activer le plug-in")
 
     c. Sélectionnez le plug-in. Cliquez avec le bouton droit et sélectionnez **Activate/Upgrade** (Activer/Mettre à niveau).
 
-     ![Capture d’écran du menu contextuel du plug-in, avec Activate/Upgrade (Activer/Mettre à niveau) mis en évidence](./media/servicenow-tutorial/tutorial_activate.png "Activer le plug-in")
+     ![Capture d’écran du menu contextuel du plug-in, avec Activate/Upgrade mis en évidence](./media/servicenow-tutorial/tutorial_activate.png "Activer le plug-in")
 
     d. Sélectionnez **Activer**.
 
-     ![Capture d’écran de la boîte de dialogue Activate plugin (Activer le plug-in), avec Activate (Activer) mis en évidence](./media/servicenow-tutorial/tutorial_activate1.png "Activer le plug-in")
+     ![Capture d’écran de la boîte de dialogue Activate Plugin, avec Activate mis en évidence](./media/servicenow-tutorial/tutorial_activate1.png "Activer le plug-in")
 
 3. Dans le volet gauche, recherchez la section **Multi-Provider SSO** (Authentification unique multifournisseur) dans la barre de recherche, puis sélectionnez **Properties** (Propriétés).
 
-    ![Capture d’écran de la section Multi-Provider SSO (Authentification unique multifournisseur), avec Multi-Provider SSO et Properties (Propriétés) mises en surbrillance](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurer l’URL de l’application")
+    ![Capture d’écran de la section Multi-Provider SSO, avec Multi-Provider SSO et Properties mis en surbrillance](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurer l’URL de l’application")
 
 4. Dans la boîte de dialogue **Multiple Provider SSO Properties** (Propriétés de l’authentification unique multifournisseur), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Multiple Provider SSO Properties (Propriétés de l’authentification unique multifournisseur)](./media/servicenow-tutorial/ic7694981.png "Configurer l’URL de l’application")
+    ![Capture d’écran de la boîte de dialogue Multiple Provider SSO Properties](./media/servicenow-tutorial/ic7694981.png "Configurer l’URL de l’application")
 
     * Pour **Enable multiple provider SSO** (Activer l’authentification unique multifournisseur), sélectionnez **Yes** (Oui).
   
@@ -232,7 +232,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
          1. Dans le volet gauche, recherchez la section **Multi-Provider SSO** (Authentification unique multifournisseur) dans la barre de recherche, puis sélectionnez **Identity Providers** (Fournisseurs d’identité).
 
-            ![Capture d’écran de la section Multi-Provider SSO (Authentification unique multifournisseur), avec Identity Providers (Fournisseurs d’identité) mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurer l’authentification unique")
+            ![Capture d’écran de la section Multi-Provider SSO, avec Identity Providers mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurer l’authentification unique")
 
          1. Sélectionnez le fournisseur d’identité généré automatiquement.
 
@@ -240,7 +240,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
          1.  Dans la section **Fournisseur d’identité**, procédez comme suit :
 
-             ![Capture d’écran de la section Identity Provider (Fournisseur d’identité)](./media/servicenow-tutorial/automatic_config.png "Configurer l’authentification unique")
+             ![Capture d’écran de la section Identity Provider](./media/servicenow-tutorial/automatic_config.png "Configurer l’authentification unique")
 
                * Pour **Name** (Nom), indiquez le nom de votre configuration (par exemple, **Microsoft Azure Federated Single Sign-On**).
 
@@ -257,7 +257,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
          1. Faites défiler la page jusqu’à la section **X.509 Certificate**  (Certificat X.509), puis sélectionnez **Edit** (Modifier).
 
-             ![Capture d’écran de la section X.509 Certificate (Certificat X.509), avec Edit (Modifier) mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configurer l’authentification unique")
+             ![Capture d’écran de la section X.509 Certificate, avec Edit mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configurer l’authentification unique")
 
          1. Sélectionnez le certificat, puis l’icône de flèche droite pour ajouter le certificat.
 
@@ -267,11 +267,11 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
           1. Dans le coin supérieur droit de la page, sélectionnez **Test Connection** (Tester la connexion).
 
-             ![Capture d’écran de la page, avec Test Connection (Tester la connexion) mis en évidence](./media/servicenow-tutorial/tutorial_activate2.png "Activer le plug-in")
+             ![Capture d’écran de la page, avec Test Connection mis en évidence](./media/servicenow-tutorial/tutorial_activate2.png "Activer le plug-in")
 
           1. Quand vous êtes invité à fournir vos informations d’identification, entrez-les. La page ci-après apparaît. L’erreur **SSO Logout Test Results** (Résultats des tests de déconnexion SSO) est attendue. Ignorez l’erreur et sélectionnez **Activate** (Activer).
 
-             ![Capture d’écran de la page Test Results (Résultats des tests)](./media/servicenow-tutorial/servicenowactivate.png "Configurer l’authentification unique")
+             ![Capture d’écran de la page Test Results](./media/servicenow-tutorial/servicenowactivate.png "Configurer l’authentification unique")
   
 6. Pour configurer **ServiceNow** automatiquement, effectuez les étapes suivantes :
 
@@ -279,19 +279,19 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     1. Dans le volet gauche, sélectionnez **Fournisseurs d’identité**.
 
-        ![Capture d’écran de Multi-Provider SSO (Authentification unique multifournisseur), avec Identity Providers (Fournisseurs d’identité) mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurer l’authentification unique")
+        ![Capture d’écran de Multi-Provider SSO, avec Identity Providers mis en évidence](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configurer l’authentification unique")
 
     1. Dans la boîte de dialogue **Identity Providers** (Fournisseurs d’identité), sélectionnez **New** (Nouveau).
 
-        ![Capture d’écran de la boîte de dialogue Identity Providers (Fournisseurs d’identité), avec New (Nouveau) mis en évidence](./media/servicenow-tutorial/ic7694977.png "Configurer l’authentification unique")
+        ![Capture d’écran de la boîte de dialogue Identity Providers, avec New mis en évidence](./media/servicenow-tutorial/ic7694977.png "Configurer l’authentification unique")
 
     1. Dans la boîte de dialogue **Identity Providers** (Fournisseurs d’identité), sélectionnez **SAML**.
 
-        ![Capture d’écran de la boîte de dialogue Identity Providers (Fournisseurs d’identité), avec SAML mis en évidence](./media/servicenow-tutorial/ic7694978.png "Configurer l’authentification unique")
+        ![Capture d’écran de la boîte de dialogue Identity Providers, avec SAML mis en évidence](./media/servicenow-tutorial/ic7694978.png "Configurer l’authentification unique")
 
     1. Dans **Import Identity Provider Metadata** (Importer les métadonnées du fournisseur d’identité), effectuez les étapes suivantes :
 
-        ![Capture d’écran d’Import Identity Provider Metadata (Importer les métadonnées du fournisseur d’identité), avec URL et Import (Importer) mis en évidence](./media/servicenow-tutorial/idp.png "Configurer l’authentification unique")
+        ![Capture d’écran d’Import Identity Provider Metadata, avec URL et Import mis en évidence](./media/servicenow-tutorial/idp.png "Configurer l’authentification unique")
 
         1. Entrez l’**URL des métadonnées de fédération d’application** que vous avez copiée à partir du portail Azure.
 
@@ -299,7 +299,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     1. L’URL des métadonnées IdP est alors lue et tous les champs sont renseignés.
 
-        ![Capture d’écran d’Identity Provider (Fournisseur d’identité)](./media/servicenow-tutorial/ic7694982.png "Configurer l’authentification unique")
+        ![Capture d’écran d’Identity Provider](./media/servicenow-tutorial/ic7694982.png "Configurer l’authentification unique")
 
         * Pour **Name** (Nom), indiquez le nom de votre configuration (par exemple, **Microsoft Azure Federated Single Sign-On**).
 
@@ -323,7 +323,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
         * Quand vous êtes invité à fournir vos informations d’identification, entrez-les. La page ci-après apparaît. L’erreur **SSO Logout Test Results** (Résultats des tests de déconnexion SSO) est attendue. Ignorez l’erreur et sélectionnez **Activate** (Activer).
 
-          ![Capture d’écran de la page Test Results (Résultats des tests)](./media/servicenow-tutorial/servicenowactivate.png "Configurer l’authentification unique")
+          ![Capture d’écran de la page Test Results](./media/servicenow-tutorial/servicenowactivate.png "Configurer l’authentification unique")
 
 ### <a name="create-servicenow-test-user"></a>Créer un utilisateur de test ServiceNow
 
@@ -338,11 +338,11 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 2. Dans le volet gauche, sélectionnez **Single Sign-On** (Authentification unique).
 
-    ![Capture d’écran de l’application ServiceNow Express, avec Single Sign-On (Authentification unique) mis en évidence ](./media/servicenow-tutorial/ic7694980ex.png "Configurer l’URL de l’application")
+    ![Capture d’écran de l’application ServiceNow Express, avec Single Sign-On mis en évidence ](./media/servicenow-tutorial/ic7694980ex.png "Configurer l’URL de l’application")
 
 3. Dans la boîte de dialogue **Authentification unique**, sélectionnez l’icône de configuration en haut à droite et définissez les propriétés suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Single Sign-On (Authentification unique)](./media/servicenow-tutorial/ic7694981ex.png "Configurer l’URL de l’application")
+    ![Capture d’écran de la boîte de dialogue Single Sign-On](./media/servicenow-tutorial/ic7694981ex.png "Configurer l’URL de l’application")
 
     a. Activez **Enable multiple provider SSO** (Activer l’authentification unique à plusieurs fournisseurs) à droite.
 
@@ -352,11 +352,11 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 4. Dans la boîte de dialogue **Single Sign-On** (Authentification unique), cliquez sur **Add New Certificate** (Ajouter un nouveau certificat).
 
-    ![Capture d’écran de la boîte de dialogue Single Sign-On (Authentification unique), avec Add New Certificate (Ajouter un nouveau certificat) mis en évidence](./media/servicenow-tutorial/ic7694973ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Single Sign-On, avec Add New Certificate mis en évidence](./media/servicenow-tutorial/ic7694973ex.png "Configurer l’authentification unique")
 
 5. Dans la boîte de dialogue **X.509 Certificates** (Certificats X.509), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue X.509 Certificates (Certificats X.509)](./media/servicenow-tutorial/ic7694975.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue X.509 Certificates](./media/servicenow-tutorial/ic7694975.png "Configurer l’authentification unique")
 
     a. Pour **Name** (Nom), attribuez un nom à votre configuration (par exemple : **TestSAML2.0**).
 
@@ -372,11 +372,11 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 6. Dans la boîte de dialogue **Single Sign-On** (Authentification unique), cliquez sur **Add New IdP** (Ajouter un nouveau fournisseur d’identité).
 
-    ![Capture d’écran de la boîte de dialogue Single Sign-On (Authentification unique), avec Add New IdP (Ajouter un nouveau fournisseur d’identité) mis en évidence](./media/servicenow-tutorial/ic7694976ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Single Sign-On, avec Add New IdP mis en évidence](./media/servicenow-tutorial/ic7694976ex.png "Configurer l’authentification unique")
 
 7. Dans la boîte de dialogue **Add New Identity Provider** (Ajouter un nouveau fournisseur d’identité), sous **Configure Identity Provider** (Configurer un fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider (Ajouter un nouveau fournisseur d’identité)](./media/servicenow-tutorial/ic7694982ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider](./media/servicenow-tutorial/ic7694982ex.png "Configurer l’authentification unique")
 
     a. Pour **Name** (Nom), attribuez un nom à votre configuration (par exemple : **SAML 2.0**).
 
@@ -390,7 +390,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 8. Sélectionnez **Advanced Settings** (Paramètres avancés). Sous **Additional Identity Provider Properties** (Autres propriétés du fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider (Ajouter un nouveau fournisseur d’identité), avec Advanced Settings (Paramètres avancés) mis en évidence](./media/servicenow-tutorial/ic7694983ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec Advanced Settings mis en évidence](./media/servicenow-tutorial/ic7694983ex.png "Configurer l’authentification unique")
 
     a. Pour **Protocol Binding for the IDP’s SingleLogoutRequest** (Liaison de protocole pour la demande de déconnexion unique du fournisseur d’identité), entrez **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -402,7 +402,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 9. Sous **Additional Service Provider Properties** (Autres propriétés du fournisseur d’identité), procédez comme suit :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider (Ajouter un nouveau fournisseur d’identité), avec plusieurs propriétés mises en évidence](./media/servicenow-tutorial/ic7694984ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec différentes propriétés mises en évidence](./media/servicenow-tutorial/ic7694984ex.png "Configurer l’authentification unique")
 
     a. Pour **ServiceNow Homepage** (Page d’accueil ServiceNow), entrez l’URL de la page d’accueil de votre instance ServiceNow.
 

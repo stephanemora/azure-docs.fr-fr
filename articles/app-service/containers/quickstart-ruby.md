@@ -1,26 +1,17 @@
 ---
-title: Créer une application web Ruby sur Linux - Azure App Service | Microsoft Docs
-description: Apprenez à créer une application Ruby on Rails avec App Service sur Linux.
+title: 'Démarrage rapide : Créer une application Linux Ruby'
+description: Découvrez comment bien démarrer avec les applications Linux sur Azure App Service en déployant votre première application Ruby sur un conteneur Linux dans App Service.
 keywords: azure app service, linux, oss, ruby, rails
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cfcea4c4450ea806b36d1d46c17c6676f7d92893
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071065"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689023"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Créer une application Ruby on Rails dans App Service sur Linux
 

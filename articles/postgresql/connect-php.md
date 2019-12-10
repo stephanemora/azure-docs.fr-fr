@@ -1,5 +1,5 @@
 ---
-title: Utiliser PHP pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+title: Se connecter avec PHP – Azure Database pour PostgreSQL – Serveur unique
 description: Ce démarrage rapide fournit un exemple de code PHP que vous pouvez utiliser pour vous connecter et interroger des données à partir d’Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067338"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766376"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser PHP pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [PHP](https://secure.php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via PHP, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 ## <a name="install-php"></a>Installer PHP
 Installez PHP sur votre serveur, ou créez une [application web](../app-service/overview.md) Azure incluant PHP.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Téléchargez [la version non thread-safe de PHP 7.1.4 (x64)](https://windows.php.net/download#php-7.1)
 - Installez PHP et consultez le [manuel sur PHP](https://secure.php.net/manual/install.windows.php) pour poursuivre la configuration
 - Le code utilise la classe **pgsql** (ext/php_pgsql.dll) qui est incluse dans l’installation de PHP. 

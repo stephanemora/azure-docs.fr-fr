@@ -1,6 +1,6 @@
 ---
-title: Provisionner des appareils sur des hubs à charge équilibrée à l’aide du service Azure IoT Hub Device Provisioning
-description: Tutoriel - Provisionnement automatique d’appareils du service Device Provisioning sur des hubs IoT à charge équilibrée dans le portail Azure
+title: Tutoriel - Provisionner des appareils sur des hubs à charge équilibrée à l’aide du service Azure IoT Hub Device Provisioning
+description: Ce tutoriel montre comment le service Device Provisioning permet le provisionnement automatique d’appareils sur des hubs IoT à charge équilibrée dans le portail Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf1246862a455cfa71f3e170478736e5e07ee6f7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229451"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701952"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Didacticiel : Approvisionner des appareils sur des hubs IoT à charge équilibrée
 

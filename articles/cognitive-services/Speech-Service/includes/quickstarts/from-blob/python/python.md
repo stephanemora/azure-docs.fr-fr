@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, C# - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, C# – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506154"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828930"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -73,14 +73,14 @@ Nous allons ajouter du code qui servira de squelette à notre projet
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
 Insérez ce code dans `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
-## <a name="generate-a-transcription-request"></a>Générer une requête de transcription
-Nous allons ensuite générer la requête de transcription. Ajoutez ce code à `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
+## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
+Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine.
+## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine
 Étant donné que le service traite la transcription de manière asynchrone, nous devons interroger l’état régulièrement. Nous allons le vérifier toutes les 5 secondes.
 
 Nous allons énumérer toutes les transcriptions traitées par cette ressource du service Speech, puis rechercher celle que nous avons créée.

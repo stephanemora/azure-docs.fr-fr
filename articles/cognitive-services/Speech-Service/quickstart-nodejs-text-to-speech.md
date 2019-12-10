@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Convertir du texte par synthèse vocale, Node.js - Service Speech'
+title: 'Démarrage rapide : Convertir du texte par synthèse vocale, Node.js – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte par synthèse vocale à l’aide de Node.js et de l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que langage de balisage de synthèse vocale (SSML). Cela vous permet de choisir la voix et la langue de la réponse de la reconnaissance vocale.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 72be99ec666bb9e04ffca6e14ab4fcafa889ae68
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfd9f53c54ac8ed374f11da188f2fade715cdfa
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553945"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812828"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de Node.js
 
 Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte par synthèse vocale à l’aide de Node.js et de l’API REST Synthèse vocale. Le corps de la requête figurant dans ce guide est structuré en tant que [Langage de balisage de synthèse vocale (SSML)](speech-synthesis-markup.md), ce qui vous permet de choisir la voix et la langue de la réponse.
 
-Ce guide de démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Speech Services. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide demande un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource du service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Ce démarrage rapide nécessite :
 
 * [Node 8.12.x ou version ultérieure](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Clé d’abonnement Azure pour les services Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
+* Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Créer un projet et requérir des dépendances
 
@@ -52,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction échange votre clé d’abonnement Speech Services contre un jeton d’accès utilisant le point de terminaison `issueToken`.
+L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction échange votre clé d’abonnement du service Speech contre un jeton d’accès utilisant le point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement Speech Services se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement du service Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez ce code dans votre projet :
 
@@ -79,7 +79,7 @@ Dans la section suivante, nous allons créer la fonction pour appeler l’API de
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez générer la requête de l’API de reconnaissance vocale et enregistrer la réponse de la reconnaissance vocale. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [Régions Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez générer la requête de l’API de reconnaissance vocale et enregistrer la réponse de la reconnaissance vocale. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [Régions du service Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Ensuite, vous devez ajouter les en-têtes nécessaires pour la requête. Veillez à mettre à jour `User-Agent` avec le nom de votre ressource (située dans le portail Azure), puis définissez `X-Microsoft-OutputFormat` sur la sortie audio de votre choix. Pour obtenir la liste complète des formats de sortie, consultez [Sorties audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

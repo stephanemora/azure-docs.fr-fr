@@ -1,5 +1,5 @@
 ---
-title: Exemples de CLI Azure pour Azure Database pour MySQL
+title: Exemples Azure CLI - Azure Database pour MySQL
 description: Cet article répertorie les exemples de code de commande de la CLI Azure disponibles pour l’interaction avec Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: c5ecaf5ba893cce38327d38236d593e06b31abb9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350936"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769759"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemples de CLI Azure pour Azure Database pour MySQL 
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour MySQL.
@@ -28,6 +28,6 @@ Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure 
 | [Modifier les configurations de serveur](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui modifie les configurations d’un seul serveur Azure Database pour MySQL. |
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui restaure un seul serveur Azure Database pour MySQL à un point antérieur dans le temps. |
-|**Manipuler les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui active et télécharge les journaux d’activité du serveur pour un seul serveur Azure Database pour MySQL. |
+|**Manipuler les journaux d’activité du serveur**||
+| [Activer et télécharger les journaux d’activité du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui active et télécharge les journaux d’activité du serveur pour un seul serveur Azure Database pour MySQL. |
 |||

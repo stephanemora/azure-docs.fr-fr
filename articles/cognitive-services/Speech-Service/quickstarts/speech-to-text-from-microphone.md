@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un micro - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide démarrage rapide, vous utilisez le kit SDK Speech pour effectuer une reconnaissance vocale interactive à partir de données audio capturées depuis un micro.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/07/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e375e570539c6a5f3965549a04248d6c1e1df3d3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 14299ae452f0265a9c02ddf90236c8b328a43773
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961232"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819026"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Démarrage rapide : Reconnaître la voix provenant d’un micro
 

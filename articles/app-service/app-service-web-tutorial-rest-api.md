@@ -1,28 +1,19 @@
 ---
-title: 'Didacticiel : Héberger une API RESTful avec CORS - Azure App Service'
-description: Découvrir comment Azure App Service vous aide à héberger vos API RESTful avec prise en charge de CORS.
-services: app-service\api
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
+title: 'Didacticiel : Héberger des API RESTful avec CORS'
+description: Découvrir comment Azure App Service vous aide à héberger vos API RESTful avec prise en charge de CORS. App Service peut héberger des applications web front-end et des API back-end.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255185"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671122"
 ---
-# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Didacticiel : Héberger une API RESTful avec CORS dans Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. De plus, App Service intègre la prise en charge du [partage des ressources cross-origin (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) pour les API RESTful. Ce didacticiel montre comment déployer une application ASP.NET Core API sur App Service avec prise en charge CORS. Vous configurez l’application à l’aide d’outils en ligne de commande, et vous la déployez à l’aide de Git. 
 

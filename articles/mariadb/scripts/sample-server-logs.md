@@ -1,19 +1,19 @@
 ---
-title: 'Script Azure CLI : Télécharger des journaux d’activité de serveur dans Azure Database for MariaDB'
-description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux d’activité de serveur sur un serveur Azure Database for MariaDB.
+title: Script CLI - Télécharger les journaux de requêtes lentes - Azure Database for MariaDB
+description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux de requêtes lentes d’un serveur Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171342"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777346"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Activer et télécharger les journaux d’activité des requêtes lentes sur un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux d’activité des requêtes lentes sur un serveur Azure Database for MariaDB.

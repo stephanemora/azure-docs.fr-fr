@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, C# - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, C# – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 599f59df1a18dfe77d66c497c52a05d7d2e3b6d6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c7e63008e6c54d517c0d4c0e1661a9836f9f38c3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280434"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815923"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,6 +46,7 @@ Nous allons ajouter du code qui servira de squelette à notre projet. Notez que 
 Avant de pouvoir initialiser un objet `IntentRecognizer`, vous devez créer une configuration qui utilise votre clé et votre région de point de terminaison LUIS. Insérez ce code dans la méthode `RecognizeIntentAsync()`.
 
 Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 > [!NOTE]
 > Il est important d’utiliser la clé de point de terminaison LUIS, et non les clés de démarrage ou de création, car seule la clé de point de terminaison est valide pour la reconnaissance de conversion de sortie orale en intention. Consultez [Créer une application LUIS et obtenir une clé de point de terminaison](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) pour obtenir des instructions sur la façon d’obtenir la clé appropriée.

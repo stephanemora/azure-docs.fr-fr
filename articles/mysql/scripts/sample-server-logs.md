@@ -1,5 +1,5 @@
 ---
-title: 'Script Azure CLI : Télécharger des journaux d’activité de serveurs dans Azure Database pour MySQL'
+title: Script CLI - Télécharger les journaux de requêtes lentes - Azure Database pour MySQL
 description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux d’activité de serveur pour un seul serveur Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: 7cb28d22dbd1fb7fcefbc16d01f55f4785a5932d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: a574d7c36ce1d701504ea1d202eeafca542ad946
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544496"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771253"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Activer et télécharger les journaux d’activité de requête serveur lents d’un serveur Azure Database pour MySQL à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux d’activité de serveur lents d’un seul serveur Azure Database pour MySQL.
@@ -44,5 +44,5 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez-en plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
+- Découvrez-en plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure).
 - Essayez d’autres scripts : [Exemples de CLI Azure pour Azure Database pour MySQL](../sample-scripts-azure-cli.md)

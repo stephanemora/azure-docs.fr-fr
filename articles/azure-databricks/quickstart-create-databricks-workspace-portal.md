@@ -1,6 +1,6 @@
 ---
-title: Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure
-description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark et exécuter une tâche Spark.
+title: Démarrage rapide – Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
+description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark, puis exécuter une tâche Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 004557ab3eb73f3f793b0514913260a414645d40
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 23d04062d5db7c944b7734f5e8339342548062fa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129374"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706197"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
 

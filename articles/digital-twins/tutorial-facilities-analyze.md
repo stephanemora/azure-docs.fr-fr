@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790321"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Didacticiel : Visualiser et analyser des événements à partir d’Azure Digital Twins à l’aide de Time Series Insights
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
     > [!TIP]
     > Vérifiez que vous créez une stratégie SAS pour votre instance de hub d’événements plutôt que pour votre espace de noms.
 
-1. Ouvrez la stratégie **ManageSend** que vous avez créée, copiez les valeurs de **Chaîne de connexion--clé primaire** et **Chaîne de connexion--clé secondaire** dans un fichier temporaire. Vous en aurez besoin pour créer un point de terminaison du hub d’événements à la section suivante.
+1. Ouvrez la stratégie **ManageSend** que vous avez créée, puis copiez les valeurs de **Chaîne de connexion--clé primaire** et **Chaîne de connexion--clé secondaire** dans un fichier temporaire. Vous en aurez besoin pour créer un point de terminaison du hub d’événements à la section suivante.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Créer un point de terminaison pour le hub d’événements
 
@@ -145,7 +145,7 @@ Vous pouvez utiliser le service [Event Hubs](../event-hubs/event-hubs-about.md) 
 
     [![Sélections pour la création d’une instance Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. Dans **Source d’événement**, entrez un **Nom**, sélectionnez **Event Hub** en tant que le **Type de source** et assurez-vous que les autres valeurs sont sélectionnées correctement. Sélectionnez **ManageSend** pour le **Nom de la stratégie d’accès du hub d’évènements**, puis sélectionnez le groupe de consommateurs que vous avez créé à la section précédente pour le **Groupe de consommateurs du hub d’événements**. Sélectionnez **Revoir + créer**.
+1. Sous l’onglet **Source de l’événement**, entrez un **Nom**, sélectionnez **Event Hub** en tant que **Type de source**, puis vérifiez que les autres valeurs sont sélectionnées correctement pour référencer le hub d’événements que vous avez créé. Sélectionnez **ManageSend** pour le **Nom de la stratégie d’accès du hub d’évènements**, puis sélectionnez le groupe de consommateurs que vous avez créé à la section précédente pour le **Groupe de consommateurs du hub d’événements**. Sélectionnez **Revoir + créer**.
 
     [![Sélections pour la création d’une source d’événement](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

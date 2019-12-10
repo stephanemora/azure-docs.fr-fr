@@ -2,15 +2,15 @@
 title: Créer des modèles liés
 description: Découvrez comment créer des modèles Azure Resource Manager liés pour la création de machine virtuelle
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325425"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815284"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -45,6 +45,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
@@ -55,42 +56,46 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
 * **Modèle lié** : créez le compte de stockage.
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
-2. Collez l’URL suivante dans **Nom de fichier** :
+1. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
-4. Il existe cinq ressources définies par le modèle :
+
+1. Sélectionnez **Ouvrir** pour ouvrir le fichier.
+1. Il existe six ressources définies par le modèle :
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      Il est utile de comprendre certaines notions de base du schéma de modèle avant de personnaliser le modèle.
-5. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom **azuredeploy.json**.
-6. Sélectionnez **Fichier**>**Enregistrer sous** pour créer une autre copie du fichier avec le nom **linkedTemplate.json**.
+1. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom **azuredeploy.json**.
+1. Sélectionnez **Fichier**>**Enregistrer sous** pour créer une autre copie du fichier avec le nom **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Créer le modèle lié
 
 Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé comme un modèle autonome pour créer un compte de stockage. Dans ce tutoriel, le modèle lié prend deux paramètres et passe une valeur au modèle principal. Cette valeur de « retour » est définie dans l’élément `outputs`.
 
 1. Ouvrez le fichier **linkedTemplate.json** dans Visual Studio Code s’il n’est pas ouvert.
-2. Effectuez les modifications suivantes :
+1. Effectuez les modifications suivantes :
 
     * Supprimez tous les paramètres autres que **location**.
     * Ajoutez un paramètre appelé **storageAccountName**.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        Le nom et l’emplacement du compte de stockage sont passés du modèle principal au modèle lié en tant que paramètres.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      Le nom et l’emplacement du compte de stockage sont passés du modèle principal au modèle lié en tant que paramètres.
 
     * Supprimez l’élément **variables** et toutes les définitions de variable.
     * Supprimez toutes les ressources autres que le compte de stockage. Vous supprimez quatre ressources au total.
@@ -110,6 +115,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
             }
         }
         ```
+
        **storageUri** est requis par la définition de ressource de machine virtuelle dans le modèle principal.  Vous passez la valeur au modèle principal en tant que valeur de sortie.
 
         Lorsque vous avez terminé, le modèle doit ressembler à ce qui suit :
@@ -138,7 +144,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
           }
         }
         ```
-3. Enregistrez les modifications.
+
+1. Enregistrez les modifications.
 
 ## <a name="upload-the-linked-template"></a>Charger le modèle lié
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. Sélectionnez le bouton vert **Essayer** pour ouvrir le volet Azure Cloud Shell.
@@ -226,22 +234,7 @@ Dans la pratique, vous générez un jeton SAS quand vous déployez le modèle pr
 Le modèle principal se nomme azuredeploy.json.
 
 1. Ouvrez **azuredeploy.json** dans Visual Studio Code s’il n’est pas ouvert.
-2. Supprimez la définition de la ressource de compte de stockage du modèle :
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. Ajoutez l’extrait de code json suivant à l’endroit où se trouvait la définition du compte de stockage :
+1. Remplacez la définition de ressource de compte de stockage par l’extrait JSON suivant :
 
     ```json
     {
@@ -251,7 +244,7 @@ Le modèle principal se nomme azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ Le modèle principal se nomme azuredeploy.json.
     * Vous pouvez uniquement utiliser le mode de déploiement [Incremental](./deployment-modes.md) lors de l’appel de modèles liés.
     * `templateLink/uri` contient l’URI du modèle lié. Mettez à jour la valeur avec l’URI que vous obtenez quand vous chargez le modèle lié (celui avec un jeton SAS).
     * Pour passer des valeurs du modèle principal au modèle lié, utilisez `parameters`.
-4. Vérifiez que vous avez mis à jour la valeur de l’élément `uri` avec la valeur obtenue quand vous chargez le modèle lié (celui avec un jeton SAS). Dans la pratique, vous souhaitez fournir l’URI avec un paramètre.
-5. Enregistrer le modèle modifié
+1. Vérifiez que vous avez mis à jour la valeur de l’élément `uri` avec la valeur obtenue quand vous chargez le modèle lié (celui avec un jeton SAS). Dans la pratique, vous souhaitez fournir l’URI avec un paramètre.
+1. Enregistrer le modèle modifié
 
 ## <a name="configure-dependency"></a>Configurer la dépendance
 
@@ -290,6 +283,7 @@ Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager av
             }
     }
     ```
+
     Cette valeur est requise par le modèle principal.
 
 1. Ouvrez azuredeploy.json dans Visual Studio Code s’il n’est pas ouvert.

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 334a5c3c76f1ebaf4c8c36020110ef9c0bcc8d69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208692"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703679"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services avec des options de configuration avancées
 
@@ -73,7 +73,7 @@ Quand vous créez une instance Azure AD DS, vous spécifiez un nom DNS. Voici qu
 >
 > Vous pouvez utiliser le nom DNS racine pour votre domaine managé Azure AD DS, mais vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services de votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
-> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
+> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aadds.contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
 >
 > Pour plus d’informations, consultez [Sélectionner un préfixe de nommage pour le domaine][naming-prefix].
 
@@ -94,7 +94,7 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 
     Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 
-1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé Azure AD DS est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, y compris les comptes d’utilisateur créés dans un environnement AD DS local. Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
+1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé Azure AD DS est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
 
     Pour ce tutoriel, choisissez de créer une forêt d’*utilisateurs*.
 
@@ -167,7 +167,7 @@ Dans la page **Résumé** de l’Assistant, examinez les paramètres de configur
 
     ![Notification dans le portail Azure du déploiement en cours](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *contoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
+1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *aadds.contoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
 
     ![État des services de domaine pendant l’état Provisionnement](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

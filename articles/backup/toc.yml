@@ -56,6 +56,8 @@
           href: backup-support-matrix-mars-agent.md
         - name: Tableau de prise en charge de sauvegarde SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Références SKU Machines virtuelles prises en charge pour Azure Policy
+          href: backup-azure-policy-supported-skus.md
     - name: Sécurité
       items:
         - name: Contrôle d’accès en fonction du rôle
@@ -174,6 +176,10 @@
               href: backup-azure-vms-encryption.md
             - name: Restaurer les clés et le secret pour des machines virtuelles chiffrées
               href: backup-azure-restore-key-secret.md
+    - name: Azure Policy intégré pour Sauvegarde Azure
+      items:
+        - name: Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
+          href: backup-azure-auto-enable-backup.md
     - name: Événements de diagnostic pour les coffres Recovery Services
       items:
         - name: Utilisation des paramètres de diagnostic pour les coffres Recovery Services

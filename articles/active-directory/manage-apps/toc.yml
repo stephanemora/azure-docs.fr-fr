@@ -389,6 +389,8 @@
       items:
         - name: Informations de référence sur l’attribut SuccessFactors
           href: sap-successfactors-attribute-reference.md
+        - name: Informations de référence sur l’attribut Workday
+          href: workday-attribute-reference.md
     - name: Agent de provisionnement Azure AD Connect
       items:
         - name: Historique des versions de l’agent de provisionnement

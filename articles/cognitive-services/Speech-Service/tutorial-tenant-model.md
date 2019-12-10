@@ -1,5 +1,5 @@
 ---
-title: Créer un modèle de locataire (préversion) - Service Speech
+title: Créer un modèle de locataire (préversion) – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Générez automatiquement un service Tenant Model (Custom Speech avec données Office 365) qui tire parti de vos données Office 365 pour fournir une reconnaissance vocale sécurisée, conforme et optimale pour les termes propres à votre organisation.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578216"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816384"
 ---
 # <a name="create-a-tenant-model-preview"></a>Créer un modèle de locataire (préversion)
 
@@ -75,24 +75,24 @@ Une fois que votre administrateur a activé le modèle de locataire pour votre o
 
 3. À ce stade, vous verrez un message vous indiquant si vous êtes qualifié pour créer un modèle de locataire.
    > [!NOTE]
-   > Les clients Office 365 Enterprise en Amérique du Nord sont éligibles à la création d’un modèle de locataire (anglais). Si vous êtes un client Customer Lockbox (CLB) ou Customer Key (CK) ou Office 365 Government, cette fonctionnalité n’est pas disponible. Pour déterminer si vous êtes un client Customer Lockbox ou Customer Key, suivez les instructions ci-dessous :
+   > Les clients Office 365 Enterprise en Amérique du Nord sont éligibles à la création d’un modèle de locataire (anglais). Si vous êtes un client Customer Lockbox (CLB) ou Customer Key (CK) ou Office 365 Secteur Public, cette fonctionnalité n’est pas disponible. Pour déterminer si vous êtes un client Customer Lockbox ou Customer Key, suivez les instructions ci-dessous :
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
+   > * [Office 365 Secteur Public](https://www.microsoft.com/microsoft-365/government)
 
-4. Puis sélectionnez **Activer**. Vous recevrez un e-mail contenant des instructions lorsque votre modèle de locataire est prêt.
+4. Ensuite, sélectionnez **Activer**. Vous recevrez un e-mail contenant des instructions lorsque votre modèle de locataire est prêt.
 
 ## <a name="deploy-your-model"></a>Déployer votre modèle
 
 Lorsque votre modèle de locataire est prêt, procédez comme suit pour déployer votre modèle :
 
-1. Cliquez sur le bouton **View Model** dans l’e-mail de confirmation que vous avez reçu ou connectez-vous à [Speech Studio](https://speech.microsoft.com/).
+1. Cliquez sur le bouton **View Model** (Afficher le modèle) dans l’e-mail de confirmation que vous avez reçu ou connectez-vous à [Speech Studio](https://speech.microsoft.com/).
 2. Dans le coin supérieur droit, recherchez et cliquez sur l’icône d’engrenage (paramètres), puis sélectionnez **Tenant Model settings** (Paramètres du modèle de locataire).
 
    ![Menu Paramètres](media/tenant-language-model/tenant-language-settings.png)
 
-3. Cliquez sur **Déployer**.
-4. Lorsque votre modèle est déployé, l’état passe à **Déployé**.
+3. Cliquez sur **Deploy** (Déployer).
+4. Lorsque votre modèle est déployé, l’état passe à **Deployed** (Déployé).
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>Utiliser votre modèle avec le Kit de développement logiciel (SDK) Speech
 

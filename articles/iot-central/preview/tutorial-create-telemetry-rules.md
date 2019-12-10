@@ -1,6 +1,6 @@
 ---
-title: Créer et gérer des règles dans votre application Azure IoT Central | Microsoft Docs
-description: Les règles d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
+title: Tutoriel - Créer et gérer des règles dans votre application Azure IoT Central
+description: Ce tutoriel vous montre comment les règles Azure IoT Central vous permettent de superviser vos appareils quasiment en temps réel et d’appeler automatiquement des actions, par exemple l’envoi d’un e-mail, quand la règle se déclenche.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6327ee8a1b0d52c933844670d9b8098c2c3c4f09
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958144"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702537"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Didacticiel : Créer une règle et configurer des notifications dans votre application Azure IoT Central (fonctionnalités en préversion)
 

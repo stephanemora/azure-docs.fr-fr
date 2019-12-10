@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole à partir d’un fichier audio, C++ (macOS) – Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix d’un fichier audio, C++ (macOS) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur macOS avec le SDK Speech
 services: cognitive-services
@@ -10,21 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: a3a651286fec9328c6d1835f68a4651212b5bd8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5cd7173d2df6f08b79d544a3a371039c24d5882a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506370"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819221"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=macos)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -74,12 +76,14 @@ Avant de commencer, effectuez les étapes suivantes :
 
    ````
 
-1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement aux services Voix.
+1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
 1. Remplacez la chaîne `whatstheweatherlike.wav` par le nom de votre fichier.
 
+> [!NOTE]
+> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ## <a name="build-the-app"></a>Générer l’application
 
@@ -106,7 +110,7 @@ Avant de commencer, effectuez les étapes suivantes :
    ./helloworld
    ```
 
-1. Votre fichier audio est transmis aux services Speech et le premier énoncé du fichier est transcrit en texte, qui apparaît dans la même fenêtre.
+1. Votre fichier audio est transmis au service Speech et le premier énoncé du fichier est transcrit en texte, qui apparaît dans la même fenêtre.
 
    ```text
    Recognizing first result...

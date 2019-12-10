@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, Java - Service Speech'
+title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, Java – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5fa12621d689287db0d91885fc0a35edb772294
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506058"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828890"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
@@ -59,14 +59,14 @@ Placez leurs déclarations avant `Main`.
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
 Insérez ce code dans `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
-## <a name="generate-a-transcription-request"></a>Générer une requête de transcription
-Nous allons ensuite générer la requête de transcription. Ajoutez ce code à `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
+Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine.
+## <a name="wait-for-the-transcription-to-complete"></a>Attendez que la transcription se termine
 Étant donné que le service traite la transcription de manière asynchrone, nous devons interroger l’état régulièrement. Nous allons le vérifier toutes les 5 secondes.
 
 Nous pouvons vérifier l’état en récupérant le contenu à partir de l’URL que nous avons obtenue en envoyant la requête. Lorsque nous obtenons le contenu, nous le désérialisons dans l’une de nos classes d’assistance pour faciliter l’interaction avec celui-ci.

@@ -1,27 +1,19 @@
 ---
-title: Exemple de script Azure CLI - Créer une application et déployer du code dans un emplacement de préproduction | Microsoft Docs
-description: Exemple de script Azure CLI - Créer une application App Service et déployer du code dans un emplacement de préproduction
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interface CLI : Déployer à un emplacement de préproduction'
+description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment déployer du code à un emplacement de préproduction.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 069dbcb5784414e63d093b7e38c399f358f830fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1997d421a51e833e09b8d3062ba42bc0a2cf406b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136719"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686198"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Créer une application App Service et déployer du code dans un environnement intermédiaire à l’aide d’Azure CLI
 

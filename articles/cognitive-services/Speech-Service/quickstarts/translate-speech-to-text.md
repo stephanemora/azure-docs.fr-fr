@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduire la parole en texte – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Traduire la voix en texte – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous utilisez le kit SDK Speech pour traduire interactivement la parole d’une langue en parole dans une autre langue.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26ae21a5ede095b9224798aca773accbd5afa752
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 619e70e75a3d6af6f087c4c8fb2ad586e32bfe98
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681913"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817037"
 ---
 # <a name="quickstart-translate-speech-to-text"></a>Démarrage rapide : Traduire la voix en texte
 

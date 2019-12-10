@@ -1,18 +1,18 @@
 ---
-title: Se connecter à Azure Database pour MySQL à partir de PHP
+title: Se connecter à l’aide de PHP – Azure Database pour MySQL
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code PHP, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608764"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770711"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser PHP pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL en utilisant une application [PHP](https://secure.php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de PHP et que vous ne savez pas utiliser Azure Database pour MySQL.
@@ -33,7 +33,7 @@ Installez PHP sur votre serveur, ou créez une [application web](../app-service
 - Téléchargez [la version non thread-safe de PHP 7.1.4 (x64)](https://secure.php.net/downloads.php).
 - Installez PHP et consultez le [manuel PHP](https://secure.php.net/manual/install.unix.php) pour poursuivre la configuration.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Téléchargez [la version non thread-safe de PHP 7.1.4 (x64)](https://windows.php.net/download#php-7.1).
 - Installez PHP et consultez le [manuel PHP](https://secure.php.net/manual/install.windows.php) pour poursuivre la configuration.
 

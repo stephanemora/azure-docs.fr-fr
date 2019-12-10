@@ -70,7 +70,7 @@ Nous vous recommandons d’utiliser RStudio pour exécuter ce tutoriel. Dans RSt
 > Si vous savez utiliser RMarkdown, n’hésitez pas à utiliser le code de ce fichier.  Vous pouvez aussi copier/coller les extraits de code à partir de ce fichier ou à partir de cet article dans un script R ou la ligne de commande.
 
 
-## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 La configuration de votre travail de développement dans ce tutoriel inclut les actions suivantes :
 
 * Installer les packages nécessaires
@@ -100,7 +100,7 @@ Instanciez un objet espace de travail à partir de votre espace de travail exist
 ws <- load_workspace_from_config()
 ```
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-an-experiment"></a>Créer une expérience
 Une expérience Azure ML effectue le suivi d’un regroupement d’exécutions, en général à partir du même script d’apprentissage. Créez une expérience pour faire le suivi des exécutions afin d’effectuer l’apprentissage du modèle caret sur les données relatives aux accidents.
 
 ```R

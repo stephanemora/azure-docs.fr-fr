@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720167"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791032"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Présentation de l’intelligence artificielle dans la Recherche cognitive Azure
 
@@ -116,6 +116,8 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 | Indexeur |  Un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données pour le décodage du document. Pour les enrichissements par IA, l’indexeur appelle un ensemble de compétences. Il contient les mappages de champs associant la sortie de l’enrichissement aux champs cibles de l’index. La définition de l’indexeur contient toutes les instructions et références pour les opérations du pipeline, et le pipeline est appelé lors de l’exécution de l’indexeur. Avec une configuration supplémentaire, vous pouvez réutiliser le traitement existant et exécuter seulement les étapes et compétences qui sont modifiées. | Consultez [Indexeurs](search-indexer-overview.md) et [Indexation incrémentielle (préversion)](cognitive-search-incremental-indexing-conceptual.md). |
 | source de données  | Un objet utilisé par un indexeur pour se connecter à une source de données externes des types pris en charge sur Azure. | Consulter [Vue d’ensemble des indexeurs](search-indexer-overview.md) |
 | Index | Index de recherche persistant de la Recherche cognitive Azure, créé à partir d’un schéma d’index qui définit la structure et l’utilisation des champs. | Consulter [Créer un index de base](search-what-is-an-index.md) | 
+| Magasin de connaissances | Compte de stockage dans lequel les documents enrichis peuvent être mis en forme et projetés en plus de l’index de recherche | Consultez [Présentation de la base de connaissances](knowledge-store-concept-intro.md). | 
+| Cache d’indexeur | Les sorties de compétence d’un compte de stockage sont mises en cache par l’indexeur. Le cache permet à l’indexeur de réduire au maximum le coût du retraitement d’un grand nombre de documents lorsqu’un ensemble de compétences est modifié. | Consultez [Indexation incrémentielle](cognitive-search-incremental-indexing-conceptual.md). | 
 
 <a name="where-do-i-start"></a>
 

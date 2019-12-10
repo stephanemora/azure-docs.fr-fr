@@ -1,6 +1,6 @@
 ---
-title: Utiliser Java pour créer une base de données de documents - Azure Cosmos DB
-description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API SQL d’Azure Cosmos DB, et pour l’interroger.
+title: Démarrage rapide – Utiliser Java pour créer une base de données de documents à l’aide d’Azure Cosmos DB
+description: Ce guide de démarrage rapide présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API SQL d’Azure Cosmos DB et pour l’interroger.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d5a32780f8598c0843958b99f02cd18aa33bea2e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582845"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708167"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB
 

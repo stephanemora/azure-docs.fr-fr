@@ -1,6 +1,6 @@
 ---
-title: Ajouter un appareil simulé à Azure IoT Central | Microsoft Docs
-description: Créez un modèle d’appareil et ajoutez un appareil simulé à votre application IoT Central.
+title: Démarrage rapide – Ajouter un appareil simulé à Azure IoT Central
+description: Ce guide de démarrage rapide montre comment créer un modèle d’appareil et ajouter un appareil simulé à votre application IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8b6720af6328242a1fe297e60c9d413d0b83f3d2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896297"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706708"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central (fonctionnalités d’évaluation)
 
@@ -160,7 +160,7 @@ Une fois que vous avez créé un appareil simulé, le générateur peut utiliser
 
 1. Choisissez **Modèles d’appareil** dans le volet gauche, puis sélectionnez le modèle **Capteur environnemental**.
 
-1. Sélectionnez l’une des vues que vous souhaitez modifier, ou créez une nouvelle vue. Cliquez sur **Configurer l'appareil de préversion**, puis **Sélectionner à partir d’un d’appareil en cours d’exécution**. Vous pouvez choisir entre n’avoir aucun appareil de préversion, en utilisant un appareil réel que vous pouvez configurer à des fins de test, et choisir un appareil existant que vous avez ajouté dans IoT Central.
+1. Sélectionnez l’une des vues que vous souhaitez modifier, ou créez une nouvelle vue. Cliquez sur **Configurer l’appareil de préversion**, puis **Sélectionner à partir d’un d’appareil en cours d’exécution**. Vous pouvez choisir entre n’avoir aucun appareil de préversion, utiliser un appareil réel que vous pouvez configurer à des fins de test et choisir un appareil existant que vous avez ajouté dans IoT Central.
 
 1. Choisissez votre appareil simulé dans la liste. Sélectionnez ensuite **Appliquer**. Vous pouvez maintenant voir le même appareil simulé dans votre expérience de génération de vues de modèle d’appareil. Cette vue est utile pour les graphiques et autres visualisations.
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790289"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790317"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Choisissez entre les trois services de messagerie Azure - Event Grid, Event Hubs et Service Bus
 
@@ -44,7 +44,7 @@ Un message est constitué de données brutes générées par un service et desti
 
 ## <a name="comparison-of-services"></a>Comparaison des services
 
-| de diffusion en continu | Objectif | Type | Quand utiliser |
+| Service | Objectif | Type | Quand utiliser |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programmation réactive | Distribution d’événements (discrets) | Réagir aux changements d’état |
 | Event Hubs | Pipeline de Big Data | Streaming d’événements (série) | Données de télémétrie et streaming de données distribuées |
@@ -98,7 +98,7 @@ Dans d’autres cas, vous les liez pour former un pipeline d’événements et d
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants : 
-
+- [Options de messagerie asynchrone dans Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Événements, points de données et messages - Sélection du service de messagerie Azure adapté à vos données](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Files d’attente de stockage et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).

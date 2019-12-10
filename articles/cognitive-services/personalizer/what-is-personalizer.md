@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467190"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707945"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
-Azure Personalizer est un service informatique d’API qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement collectif en temps réel.
+Azure Personalizer est un service d’API cloud qui permet à votre application de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement collectif en temps réel.
 
 * Fournissez des informations sur vos utilisateurs et sur le contenu, et recevez l’action classée en premier à montrer à vos utilisateurs. 
 * Il n’est pas nécessaire de nettoyer et d’étiqueter les données avant d’utiliser Personalizer.
@@ -60,8 +60,8 @@ Personalizer n’est pas un service permettant de conserver et de gérer les inf
 
 Le service Personalizer a deux API :
 
-* Envoyer des informations (_caractéristiques_) sur vos utilisateurs et le contenu (_actions_) à personnaliser. Personalizer répond avec l’action classée en premier.
-* Envoyer des commentaires à Personalizer sur la manière dont le classement a fonctionné en tant que [score de récompense](concept-rewards.md). 
+* *Rank* : Utilisez l’API Rank pour déterminer l’_action_ à afficher dans le _contexte_ actuel. Les actions sont envoyées sous la forme d’un tableau d’objets JSON, avec un ID et des informations (_fonctionnalités_) à propos de chacun ; le contexte est envoyé sous la forme d’un autre objet JSON. L’API retourne l’ID d’action (actionId) que votre application doit afficher à l’utilisateur.
+* *Récompense* : Une fois que votre utilisateur a interagi avec votre application, vous mesurez la réussite de la personnalisation entre 0 et 1 et l’envoyez en tant que [score de récompense](concept-rewards.md). 
 
 ![Séquence de base des événements pour la personnalisation](media/what-is-personalizer/personalization-intro.png)
 

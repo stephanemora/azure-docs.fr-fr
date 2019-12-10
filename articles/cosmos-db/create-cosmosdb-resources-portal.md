@@ -1,6 +1,6 @@
 ---
-title: Créez une base de données Azure Cosmos à partir du portail Azure.
-description: Créez une base de données, un conteneur et des éléments Azure Cosmos à l’aide du portail Azure.
+title: Démarrage rapide – Créer une base de données Azure Cosmos à partir du Portail Azure
+description: Ce guide de démarrage rapide montre comment créer une base de données, un conteneur et des éléments Azure Cosmos à l’aide du Portail Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0f7102081d5ccd29507917068893b484902a4fb3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220731"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708179"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Démarrage rapide : Créer un compte, une base de données, un conteneur et des éléments Azure Cosmos à partir du portail Azure
 

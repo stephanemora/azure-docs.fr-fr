@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Kit de développement logiciel (SDK) Speech pour configuration de la plateforme Java (Windows, Linux, macOS) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Configuration de la plateforme du kit SDK Speech pour Java (Windows, Linux, macOS) – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Java (Windows, Linux, macOS) avec Speech Services SDK.
+description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Java (Windows, Linux, macOS) avec le kit SDK du service Speech.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 2814327bdc434dbdae5644bd40b09d0506b21df9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504338"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816301"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour le Java Runtime Environment (JRE) Java 8 64 bits.
 

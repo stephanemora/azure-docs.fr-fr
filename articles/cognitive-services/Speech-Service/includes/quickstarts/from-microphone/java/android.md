@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaître la parole provenant d’un micro, Java (Android) – Service de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, Java (Android) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en Java sur Android à l’aide du SDK Speech
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505778"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818994"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes suivantes :
+Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Vérifier d’avoir accès à un microphone pour la capture audio
 
 ## <a name="create-a-user-interface"></a>Créer une interface utilisateur
 
@@ -71,7 +72,7 @@ Le texte et la représentation graphique de votre interface utilisateur doivent 
 
    ![Capture d’écran de la fenêtre de sélection de la cible de déploiement](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Appuyez sur le bouton dans l’application pour commencer une session de reconnaissance vocale. Les 15 secondes suivantes de paroles prononcées en anglais sont envoyées aux services Speech et transcrites. Le résultat s’affiche dans l’application Android ainsi que dans la fenêtre logcat d’Android Studio.
+Appuyez sur le bouton dans l’application pour commencer une session de reconnaissance vocale. Les 15 secondes suivantes de paroles prononcées en anglais sont envoyées au service Speech et transcrites. Le résultat s’affiche dans l’application Android ainsi que dans la fenêtre logcat d’Android Studio.
 
 ![Capture d’écran de l’application Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

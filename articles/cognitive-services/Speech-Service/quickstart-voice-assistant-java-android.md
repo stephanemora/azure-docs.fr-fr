@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Assistant vocal personnalisé, Java (Android) - Service de reconnaissance vocale'
+title: 'Démarrage rapide : Personnaliser l’assistant vocal, Java (Android) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir comment créer une application d’assistant vocal dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111795"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816200"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Créer un assistant vocal dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech
 
@@ -30,7 +30,7 @@ Cette application est basée sur le package Maven 3 du SDK Speech et sur Android
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Clé d’abonnement Azure pour les services Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
+- Clé d’abonnement Azure pour le service Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
 - Un bot existant configuré avec le [canal Direct Line Speech ](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Android Studio](https://developer.android.com/studio/) v3.3 ou version ultérieure
 
@@ -260,7 +260,7 @@ Le texte et la représentation graphique de votre interface utilisateur doivent 
 
     * Remplacez `YourSpeechSubscriptionKey` par votre clé d’abonnement.
 
-    * Remplacez `YourServiceRegion` par la [région](regions.md) associée à votre abonnement. Seul un sous-ensemble de régions Speech Services sont actuellement prises en charge avec Direct Line Speech. Pour plus d’informations, consultez la page sur les [régions](regions.md#voice-assistants).
+    * Remplacez `YourServiceRegion` par la [région](regions.md) associée à votre abonnement. Seule une partie des régions du service Speech est actuellement prise en charge avec Direct Line Speech. Pour plus d’informations, consultez la page sur les [régions](regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
@@ -285,7 +285,7 @@ Une fois que l’application et son activité ont été lancées, cliquez sur le
 
 ## <a name="see-also"></a>Voir aussi
 - [À propos des assistants vocaux](voice-assistants.md)
-- [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+- [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
 - [Mots clés personnalisés](speech-devices-sdk-create-kws.md)
 - [Connecter Direct Line Speech à votre bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explorer des exemples Java sur GitHub](https://aka.ms/csspeech/samples)
