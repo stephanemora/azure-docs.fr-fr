@@ -409,7 +409,7 @@
         - name: Notifications de maintenance
           items:
             - name: Vue d'ensemble
-              href: maintenance-notifications.md
+              href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Portail
