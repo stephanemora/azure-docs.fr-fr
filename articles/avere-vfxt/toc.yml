@@ -1,6 +1,6 @@
 - name: Documentation Avere vFXT
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "En quoi consiste Avere vFXT pour Azure\_?"
       href: avere-vfxt-overview.md
@@ -36,8 +36,10 @@
       href: avere-vfxt-open-ticket.md
     - name: Projets de démonstration
       href: avere-vfxt-demo-links.md
-    - name: FAQ Avere vFXT pour Azure
+    - name: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
       href: avere-vfxt-faq.md
+    - name: Guide de récupération d’urgence
+      href: disaster-recovery.md
     - name: Documentation complémentaire
       items:
         - name: Documentation supplémentaire
