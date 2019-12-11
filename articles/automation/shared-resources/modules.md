@@ -3,17 +3,17 @@ title: Gérer les modules dans Azure Automation
 description: Cet article explique comment gérer les modules dans Azure Automation.
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231590"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786467"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -32,6 +32,14 @@ Vous pouvez utiliser [New-AzureRmAutomationModule](/powershell/module/azurerm.au
 
 ```azurepowershell-interactive
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+```
+
+Vous pouvez également utiliser la même cmdlet pour importer directement un module à partir de PowerShell Gallery. Veillez à obtenir **ModuleName** et **ModuleVersion** à partir de [PowerShell Gallery](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -69,6 +77,10 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 ## <a name="internal-cmdlets"></a>Applets de commande internes
 
 La liste ci-dessous recense les applets de commande du module interne `Orchestrator.AssetManagement.Cmdlets` qui est importé dans chaque compte Automation. Ces applets de commande sont accessibles dans vos runbooks et les configurations DSC et vous permettent d’interagir avec les ressources de votre compte Automation. Par ailleurs, les applets de commande internes vous permettent de récupérer des secrets à partir des valeurs de **Variable** chiffrées, des **informations d’identification** et des champs **Connexion** chiffrés. Les applets de commande Azure PowerShell ne peuvent pas récupérer ces secrets. Ces applets de commande ne vous obligent pas à vous connecter implicitement à Azure quand vous les utilisez, par exemple à utiliser un compte d’identification pour vous authentifier auprès d’Azure.
+
+>[!NOTE]
+>Ces cmdlets internes ne sont pas disponibles sur un Runbook Worker hybride. Elles sont accessibles uniquement à partir de runbooks s’exécutant dans Azure. Utilisez les modules [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) ou [Az](../az-modules.md) correspondants pour les runbooks exécutés directement sur l’ordinateur ou sur des ressources de votre environnement. 
+>
 
 |Nom|Description|
 |---|---|

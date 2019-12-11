@@ -1,22 +1,22 @@
 ---
-title: Créer et gérer des règles de pare-feu MariaDB dans Azure Database for MariaDB
+title: Gérer les règles de pare-feu - Portail Azure - Azure Database for MariaDB
 description: Découvrez comment créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 70e6611cc3006424bcd1bc3a0f0838ad40c09634
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746245"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766019"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP.
 
-Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l’aide du portail Azure](howto-manage-vnet-portal.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 

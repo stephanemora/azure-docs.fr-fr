@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a48c1352e4628d8e1776a9479aceac7c294a2ea1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 577ecad169c30da77a69e17b247195088949ec66
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023064"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74700997"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données issues de requêtes envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données issues des réponses reçues depuis un compte de stockage.
 
@@ -28,6 +28,8 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 | Nombre maximal de sorties pour les comptes de stockage à usage général v2 et Blob (toutes les régions) | 50 Gbit/s |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS<sup>2</sup> |
+| Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
+| Nombre maximal de règles d’adresse IP par compte de stockage | 200 |
 
 <sup>1</sup>Les comptes Azure Standard Storage prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/). Pour plus d’informations, consultez [Annonce de comptes de stockage plus grands et à plus grande échelle](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 

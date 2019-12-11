@@ -1,18 +1,18 @@
 ---
-title: Configurer et accéder aux journaux d’activité de serveur pour PostgreSQL - Serveur unique à l’aide de l’interface de ligne de commande Azure
-description: Cet article décrit comment configurer les journaux d’activité du serveur dans Azure Database pour PostgreSQL - Serveur unique à l’aide de la ligne de commande Azure CLI et comment y accéder.
+title: Gérer les journaux - Azure CLI - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit comment configurer et accéder aux journaux du serveur (fichiers .log) dans Azure Database pour PostgreSQL - Serveur unique à l’aide d’Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023628"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763570"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux d’activité des transactions n’est pas pris en charge. 

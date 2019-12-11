@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838213"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812731"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Déployer Azure Data Explorer dans votre réseau virtuel (Préversion)
 
@@ -63,6 +63,9 @@ Nombre total d’adresses IP :
 
 [Les points de terminaison de service Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) vous permettent de sécuriser vos ressources multi-abonnés Azure sur votre réseau virtuel.
 Le déploiement du cluster Azure Data Explorer dans votre sous-réseau vous permet de configurer des connexions de données avec [Event Hub](/azure/event-hubs/event-hubs-about) ou [Event Grid](/azure/event-grid/overview) tout en limitant les ressources sous-jacentes pour le sous-réseau Azure Data Explorer.
+
+> [!NOTE]
+> Quand vous utilisez une configuration EventGrid avec [Stockage](/azure/storage/common/storage-introduction) et [Event Hub], le compte de stockage utilisé dans l’abonnement peut être verrouillé avec des points de terminaison de service sur le sous-réseau d’Azure Data Explorer tout en autorisant les services de plateforme Azure approuvés dans la [configuration du pare-feu](/azure/storage/common/storage-network-security), alors que le hub d’événements ne peut pas activer le point de terminaison de service car il ne prend pas en charge les [services de plateforme Azure](/azure/event-hubs/event-hubs-service-endpoints) approuvés.
 
 ## <a name="dependencies-for-vnet-deployment"></a>Dépendances pour le déploiement de réseau virtuel
 
@@ -233,7 +236,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

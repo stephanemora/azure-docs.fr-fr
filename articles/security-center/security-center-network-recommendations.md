@@ -13,15 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201721"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766784"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
+# <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
+
+Cet article explique la page **Mise en réseau** de la section de sécurité des ressources d’Azure Security Center et certaines des recommandations qui y figurent.
+
+Pour obtenir la liste complète des recommandations relatives à la mise en réseau, consultez [Recommandations relatives à la mise en réseau](recommendations-network.md).
 
 Cet article traite des suggestions relatives à la sécurité réseau qui s’appliquent à vos ressources Azure. Les suggestions relatives à la mise en réseau se concentrent autour des pare-feux nouvelle génération, des groupes de sécurité réseau, des règles de trafic entrant trop permissives concernant l’accès juste-à-temps aux machines virtuelles, et bien plus encore. Pour obtenir la liste des suggestions relatives à la mise en réseau et des actions de correction, consultez [Gestion des suggestions de sécurité dans Azure Security Center.](security-center-recommendations.md)
 
@@ -131,31 +135,8 @@ Dans cet affichage topologique, le premier niveau affiche les réseaux virtuels.
 
 Le troisième niveau affiche les machines virtuelles, ce qui est similaire à ce qui est décrit précédemment. Vous pouvez cliquer sur une ressource pour en savoir plus ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
-## <a name="network-recommendations"></a>Recommandations pour le réseau
-
-|Nom de la recommandation|Description|severity|Degré de sécurisation|Type de ressource|
-|----|----|----|----|----|----|
-|Les groupes de sécurité réseau situés au niveau du sous-réseau doivent être activés|Activez des groupes de sécurité réseau pour contrôler l'accès réseau des ressources déployées sur vos sous-réseaux.|Élevé / Moyen|30|Subnet|
-|Les machines virtuelles doivent être associées à un groupe de sécurité réseau|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|Élevé / Moyen|30|Machine virtuelle|
-|L'accès doit être limité pour les groupes de sécurité réseau permissifs avec machines virtuelles connectées à Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l'accès des règles d'autorisation existantes.|Élevé|20|Machine virtuelle|
-|Les règles relatives aux applications web doivent être renforcées sur les groupes de sécurité réseau IaaS|Renforcez le groupe de sécurité réseau (NSG) des machines virtuelles qui exécutent des applications web lorsque les règles NSG sont trop permissives en ce qui concerne les ports des applications web.|Élevé|20|Machine virtuelle|
-|L'accès à App Services doit être limité|Limitez l'accès à App Services en modifiant la configuration du réseau pour empêcher le trafic entrant provenant de plages trop larges.|Élevé|10|App Service|
-|Les ports de gestion doivent être fermés sur vos machines virtuelles|Renforcez le groupe de sécurité réseau de vos machines virtuelles de manière à limiter l'accès aux ports de gestion.|Élevé|10|Machine virtuelle|
-DDoS Protection Standard doit être activé|Protégez les réseaux virtuels contenant des applications avec adresses IP publiques en activant la norme de service de protection DDoS. La protection DDoS permet de limiter les risques d'attaques volumétriques et les attaques par protocole réseau.|Élevé|10|Réseau virtuel|
-|Le transfert IP doit être désactivé sur votre machine virtuelle|Désactivez le transfert IP. Lorsque le transfert IP est activé sur la carte réseau d’une machine virtuelle, cette dernière peut recevoir du trafic adressé à d’autres destinations. Le transfert IP n’est que rarement nécessaire (par exemple, lors de l’utilisation de la machine virtuelle en tant qu’appliance virtuelle réseau). Par conséquent, un examen par l’équipe de sécurité réseau est requis.|Moyenne|10|Machine virtuelle|
-|L'application web ne doit pas être accessible via HTTPS|Activez l'accès « HTTPS uniquement » pour les applications web. L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau.|Moyenne|20|Application web|
-|Le contrôle d'accès réseau juste-à-temps doit être appliqué sur les machines virtuelles|Appliquez un contrôle d'accès de machine virtuelle Juste-à-temps (JAT) pour bloquer définitivement l'accès aux ports sélectionnés, et permettez aux utilisateurs autorisés de les ouvrir, via JAT, pour une durée limitée.|Élevé|20|Machine virtuelle|
-|Les applications Function App ne doivent être accessibles que via HTTPS|Activez l'accès « HTTPS uniquement » pour les applications Function App. L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau.|Moyenne|20|Conteneur de fonctions|
-|La sécurisation du transfert vers des comptes de stockage doit être activée|Activez le transfert sécurisé vers des comptes de stockage. L’option de sécurisation du transfert oblige votre compte de stockage à accepter uniquement des requêtes provenant de connexions sécurisées (HTTPS). L'utilisation de HTTPS garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|Élevé|20|Compte de stockage|
-
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
 * [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protection de votre service SQL Azure dans Azure Security Center](security-center-sql-service-recommendations.md)
-
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
-
-* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-* [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.

@@ -1,6 +1,6 @@
 ---
 title: Application à page unique (acquérir un jeton pour appeler une API) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application à page unique (acquérir un jeton pour appeler une API)
+description: Découvrir comment créer une application monopage (acquérir un jeton pour appeler une API)
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
@@ -15,37 +15,37 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49a6093194ef76a895f2a54f8a78a55da73e7e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a0f1140d00671a706ce8839a73023dfad64d4663
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135706"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764761"
 ---
-# <a name="single-page-application---acquire-a-token-to-call-an-api"></a>Application à page unique - acquérir un jeton pour appeler une API
+# <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Application monopage : Acquérir un jeton pour appeler une API
 
-Le modèle pour l’acquisition des jetons des API avec MSAL.js consiste à tenter d’abord une demande de jeton en mode silencieux à l’aide de la méthode `acquireTokenSilent`. Lorsque cette méthode est appelée, la bibliothèque vérifie d’abord le cache dans le stockage de navigateur pour voir si un jeton valide existe et le retourne. Lorsqu’il n’y a aucun jeton valide dans le cache, elle envoie une demande de jeton en mode silencieux à Azure Active Directory (Azure AD) à partir d’un iframe masqué. Cette méthode permet également à la bibliothèque de renouveler les jetons. Pour plus d’informations sur la session d’authentification unique et les valeurs de durée de vie des jetons dans Azure AD, consultez [Durée de vie des jetons](active-directory-configurable-token-lifetimes.md).
+Le modèle d’acquisition des jetons d’API avec MSAL.js consiste à tenter d’abord une demande de jeton en mode silencieux à l’aide de la méthode `acquireTokenSilent`. Lorsque cette méthode est appelée, la bibliothèque vérifie d’abord le cache dans le stockage du navigateur pour voir s’il existe un jeton valide, et le retourne. Lorsqu’il n’y a aucun jeton valide dans le cache, elle envoie une demande de jeton en mode silencieux à Azure Active Directory (Azure AD) à partir d’un iframe masqué. Cette méthode permet également à la bibliothèque de renouveler les jetons. Pour plus d’informations sur la session d’authentification unique et les valeurs de durée de vie des jetons dans Azure AD, consultez [Durée de vie des jetons](active-directory-configurable-token-lifetimes.md).
 
-Les demandes de jeton en mode silencieux à Azure AD peuvent échouer pour certaines raisons, par exemple le fait que la session Active Directory Azure a expiré ou que le mot de passe a été modifié. Dans ce cas, vous pouvez appeler une des méthodes interactives (qui invitent l’utilisateur) pour acquérir des jetons.
+Les demandes de jeton en mode silencieux à Azure AD peuvent échouer pour certaines raisons, par exemple une session Active Directory Azure expirée ou un changement de mot de passe. Dans ce cas, vous pouvez appeler une des méthodes interactives (qui invitent l’utilisateur) pour acquérir des jetons :
 
-* [Acquérir le jeton avec une fenêtre indépendante ](#acquire-token-with-a-pop-up-window) à l’aide de `acquireTokenPopup`
-* [Acquérir le jeton avec redirection](#acquire-token-with-redirect) à l’aide de `acquireTokenRedirect`
+* [Fenêtre contextuelle](#acquire-a-token-with-a-pop-up-window), au moyen de `acquireTokenPopup`
+* [Redirection](#acquire-a-token-with-a-redirect), au moyen de `acquireTokenRedirect`
 
-**Choix entre une expérience avec fenêtre indépendante ou avec redirection**
+## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Choisir entre une expérience avec fenêtre contextuelle ou redirection
 
- Vous ne pouvez pas utiliser la combinaison de ces méthodes de fenêtre indépendante et de redirection dans votre application. Le choix entre la fenêtre indépendante et la redirection dépend du flux d'application.
+ Vous ne pouvez pas utiliser conjointement les méthodes de fenêtre contextuelle et de redirection dans votre application. Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
 
-* Si vous ne souhaitez pas que l’utilisateur quitte la page principale de votre application lors de l’authentification, il est recommandé d’utiliser la méthode avec fenêtre indépendante. La redirection de l’authentification se produisant dans une fenêtre indépendante, l’état de l’application principale est conservé.
+* Si vous ne souhaitez pas que les utilisateurs quittent la page principale de votre application lors de l’authentification, nous vous recommandons d’utiliser la méthode avec fenêtre contextuelle. La redirection de l’authentification se produisant dans une fenêtre contextuelle, l’état de l’application principale est conservé.
 
-* Dans certains cas, vous pouvez être amené à utiliser les méthodes avec redirection. Si les utilisateurs de votre application ont des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres indépendantes, vous pouvez utiliser les méthodes avec redirection. Il est également recommandé d’utiliser les méthodes avec redirection avec Internet Explorer, dans la mesure où il existe certains [problèmes connus avec Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) lors de la gestion des fenêtres indépendantes.
+* Si les utilisateurs sont soumis à des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres contextuelles, vous pouvez utiliser la méthode avec redirection. Utilisez la méthode avec redirection dans le navigateur Internet Explorer, car il existe des [problèmes connus avec l’utilisation de fenêtres contextuelles dans Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
-Vous pouvez définir les étendues d’API que vous souhaitez que le jeton d’accès inclue lors de la création de la demande de jeton d’accès. Notez que toutes les étendues demandées peuvent ne pas être accordées dans le jeton d’accès et varient en fonction du consentement de l’utilisateur.
+Vous pouvez définir les étendues d’API qui doivent être incluses dans le jeton d’accès lors de la création de la requête de jeton d’accès. Notez que les étendues demandées sont susceptibles de ne pas être toutes accordées dans le jeton d’accès. Cela dépend du consentement de l’utilisateur.
 
-## <a name="acquire-token-with-a-pop-up-window"></a>Acquérir le jeton avec une fenêtre indépendante
+## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquérir un jeton avec une fenêtre contextuelle
 
 ### <a name="javascript"></a>JavaScript
 
-Le modèle ci-dessus avec les méthodes pour une expérience avec fenêtre indépendante :
+Le code suivant combine le modèle décrit précédemment aux méthodes offrant une expérience de fenêtre contextuelle :
 
 ```javascript
 const accessTokenRequest = {
@@ -54,10 +54,10 @@ const accessTokenRequest = {
 
 userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // Acquire token silent success
-    // call API with token
+    // Call API with token
     let accessToken = accessTokenResponse.accessToken;
 }).catch(function (error) {
-    //Acquire token silent failure, send an interactive request.
+    //Acquire token silent failure, and send an interactive request
     if (error.errorMessage.indexOf("interaction_required") !== -1) {
         userAgentApplication.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
             // Acquire token interactive success
@@ -72,9 +72,9 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 ### <a name="angular"></a>Angular
 
-Le wrapper MSAL Angular permet d’ajouter l’intercepteur HTTP qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP aux API.
+Le wrapper MSAL Angular fournit l’intercepteur HTTP, qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP destinées aux API.
 
-Vous pouvez spécifier les étendues des API dans l’option de configuration `protectedResourceMap` que demande MsalInterceptor lors de l’acquisition de jetons en mode automatique.
+Vous pouvez spécifier les étendues des API dans l’option de configuration `protectedResourceMap`. `MsalInterceptor` demande ces étendues lors de l’acquisition automatique de jetons.
 
 ```javascript
 //In app.module.ts
@@ -93,7 +93,7 @@ providers: [ ProductService, {
    ],
 ```
 
-Pour la réussite et d’échec de l’acquisition de jetons en mode silencieux, MSAL Angular fournit des rappels auxquels vous pouvez vous abonner. Il est également important de se souvenir d’annuler l’abonnement.
+Pour la réussite et l’échec de l’acquisition de jetons en mode silencieux, MSAL Angular fournit des rappels auxquels vous pouvez vous abonner. Il est également important de se souvenir d’annuler l’abonnement.
 
 ```javascript
 // In app.component.ts
@@ -110,17 +110,17 @@ ngOnDestroy() {
  }
 ```
 
-Sinon, vous pouvez également explicitement acquérir des jetons à l’aide des méthodes d’acquisition de jeton comme décrit dans la bibliothèque MSAL.js principale.
+Sinon, vous pouvez explicitement acquérir des jetons à l’aide des méthodes d’acquisition de jeton, comme décrit dans la bibliothèque MSAL.js principale.
 
-## <a name="acquire-token-with-redirect"></a>Acquérir le jeton avec redirection
+## <a name="acquire-a-token-with-a-redirect"></a>Acquérir un jeton avec une redirection
 
 ### <a name="javascript"></a>JavaScript
 
-Le modèle est tel que décrit ci-dessus, mais il est présenté avec une méthode de redirection permettant d’acquérir le jeton de manière interactive. Vous devez inscrire le rappel de redirection comme indiqué ci-dessus.
+Le modèle suivant est tel qu’il a été décrit précédemment, mais il est présenté avec une méthode de redirection qui permet d’acquérir les jetons de manière interactive. Vous devez inscrire le rappel de redirection, comme indiqué plus haut.
 
 ```javascript
 function authCallback(error, response) {
-    //handle redirect response
+    // Handle redirect response
 }
 
 userAgentApplication.handleRedirectCallback(authCallback);
@@ -131,10 +131,10 @@ const accessTokenRequest: AuthenticationParameters = {
 
 userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // Acquire token silent success
-    // call API with token
+    // Call API with token
     let accessToken = accessTokenResponse.accessToken;
 }).catch(function (error) {
-    //Acquire token silent failure, send an interactive request.
+    //Acquire token silent failure, and send an interactive request
     console.log(error);
     if (error.errorMessage.indexOf("interaction_required") !== -1) {
         userAgentApplication.acquireTokenRedirect(accessTokenRequest);
@@ -142,15 +142,14 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-## <a name="request-for-optional-claims"></a>Demande de revendications facultatives
-Vous pouvez demander des revendications facultatives dans votre application pour spécifier les revendications supplémentaires à inclure dans les jetons de votre application. Pour demander des revendications facultatives dans id_token, vous pouvez envoyer un objet de revendications converti en chaînes au champ claimsRequest de la classe AuthenticationParameters.ts.
-
+## <a name="request-optional-claims"></a>Demande de revendications facultatives
 Vous pouvez utiliser des revendications facultatives aux fins suivantes :
 
 - Inclure des revendications supplémentaires dans les jetons pour votre application.
 - Modifier le comportement de certaines revendications retournées par Azure AD dans les jetons.
-- Ajouter et accéder à des revendications personnalisées pour votre application.
+- Ajouter et accéder à des revendications personnalisées pour votre application. 
 
+Pour demander des revendications facultatives dans `IdToken`, vous pouvez envoyer un objet revendications stringifié au champ `claimsRequest` de la classe `AuthenticationParameters.ts`.
 
 ### <a name="javascript"></a>JavaScript
 ```javascript
@@ -170,12 +169,12 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
-Pour en savoir plus sur les revendications facultatives, consultez [Revendications facultatives](active-directory-optional-claims.md)
+Pour en savoir plus, consultez [Revendications facultatives](active-directory-optional-claims.md).
 
 
 ### <a name="angular"></a>Angular
 
-Identique à ce qui est décrit ci-dessus.
+Ce code est identique à celui qui est décrit plus haut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

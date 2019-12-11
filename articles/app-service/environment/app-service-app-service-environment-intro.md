@@ -1,25 +1,18 @@
 ---
-title: Présentation d’App Service Environment v1 - Azure
-description: Découvrez la fonctionnalité App Service Environment v1, qui fournit des unités d’échelle sécurisées, dédiées et appartenant à un réseau virtuel pour exécuter toutes vos applications.
-services: app-service
-documentationcenter: ''
+title: Présentation d’ASE v1
+description: Découvrez les fonctionnalités d’App Service Environment v1. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 32450d0c5fbb5599b286921b9653ae68faf40ecf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070151"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687357"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Présentation d’App Service Environment v1
 

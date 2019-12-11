@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184667"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672263"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de flux de données de mappage
 
@@ -104,7 +104,13 @@ Si vous placez un commentaire en haut de votre expression, il apparaît dans la 
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Notez que pour inclure des littéraux de chaîne dans votre sortie de timestamp, vous devez envelopper votre conversion dans un toString()
+Notez que pour inclure des littéraux de chaîne dans votre sortie de timestamp, vous devez envelopper votre conversion dans un ```toString()```.
+
+Voici comment convertir des secondes issues d’Epoch en date ou en horodatage :
+
+```toTimestamp(1574127407*1000l)```
+
+Notez le caractère « l » à la fin de l’expression ci-dessus. Il signifie que la conversion s’effectuera sous la forme d’une syntaxe en ligne.
 
 ## <a name="handling-column-names-with-special-characters"></a>Gestion des noms de colonne avec des caractères spéciaux
 

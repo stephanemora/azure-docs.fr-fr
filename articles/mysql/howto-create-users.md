@@ -1,17 +1,17 @@
 ---
-title: Créer des utilisateurs dans un serveur Azure Database pour MySQL
+title: Créer des utilisateurs - Azure Database pour MySQL
 description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4cd2305ed3d7f88f6c3825d8f7cdb5d81f9a0f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: e76e63030cc8e10c857d361cca69e1d35ba8c2c1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460182"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770473"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Créer des utilisateurs dans un serveur Azure Database pour MySQL 
 Cet article décrit comment vous pouvez créer des utilisateurs dans un serveur Azure Database pour MySQL.

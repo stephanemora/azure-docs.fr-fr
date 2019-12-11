@@ -1,22 +1,18 @@
 ---
-title: Se connecter à des flux RSS à partir d’Azure Logic Apps | Microsoft Docs
+title: Se connecter à des flux RSS à partir d’Azure Logic Apps
 description: Automatiser des tâches et des flux de travail qui surveillent et gèrent les flux RSS à l’aide d’Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050854"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789339"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gérer des flux RSS à l’aide d’Azure Logic Apps
 

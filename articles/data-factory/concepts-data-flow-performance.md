@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681551"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671585"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -120,6 +120,14 @@ Par exemple, si vous avez une liste de fichiers de données de juillet 2019 que
 ```DateFiles/*_201907*.txt```
 
 Si vous utilisez des caractères génériques, votre pipeline ne contiendra qu’une seule activité de flux de données. Cette opération sera plus performante qu’une recherche sur le magasin d’objets blob qui effectue ensuite une itération sur tous les fichiers correspondants à l’aide d’une instruction ForEach avec une activité d’exécution de flux de données à l’intérieur.
+
+### <a name="optimizing-for-cosmosdb"></a>Optimisation pour CosmosDB
+
+La définition des propriétés de débit et de lot sur les récepteurs CosmosDB prend effet uniquement pendant l’exécution de ce flux de données à partir d’une activité de flux de données de pipeline. Les paramètres de la collection d’origine sont honorés par CosmosDB après l’exécution de votre flux de données.
+
+* Taille du lot : Calculez la taille de ligne approximative de vos données et vérifiez que le produit rowSize * taille du lot est inférieur à deux millions. Le cas échéant, augmentez la taille du lot pour obtenir un meilleur débit.
+* Débit : Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
+*   Budget du débit d’écriture : Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

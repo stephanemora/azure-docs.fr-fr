@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du scénario d’application monopage JavaScript - Plateforme d’identité Microsoft
-description: Découvrez comment créer une application monopage (vue d’ensemble du scénario) qui intègre la plateforme d’identité Microsoft.
+description: Découvrez comment créer une application monopage (vue d’ensemble du scénario) à l’aide de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c4e671473ff6c6fecdc13fe61dbde1d3fb3809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 77f59e8c628d7ba37aaf258541664e40e1d4a2dc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852515"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764676"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
@@ -39,19 +39,21 @@ Vous pouvez créer votre première application en suivant le démarrage rapide s
 
 ## <a name="overview"></a>Vue d'ensemble
 
-De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client et écrites avec JavaScript ou une infrastructure de type SPA comme Angular, Vue.js et React.js. Ces applications s’exécutent dans un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web côté serveur traditionnelles. La plateforme d’identité Microsoft permet aux applications monopages de connecter des utilisateurs et d’obtenir des jetons pour accéder aux services principaux ou aux API web à l’aide du [flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux implicite permet à l’application d’obtenir des jetons d’ID pour représenter l’utilisateur authentifié, mais également des jetons d’accès qui sont nécessaires pour appeler des API protégées.
+De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework SPA, comme Angular, Vue.js et React.js. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur. 
+
+La plateforme d’identités Microsoft permet aux applications monopages de connecter des utilisateurs et d’obtenir des jetons pour accéder aux services principaux ou aux API web à l’aide du [Flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux implicite permet à l’application d’obtenir des jetons d’ID pour représenter l’utilisateur authentifié, mais également des jetons d’accès qui sont nécessaires pour appeler des API protégées.
 
 ![Applications monopages](./media/scenarios/spa-app.svg)
 
-Ce flux d’authentification n’inclut pas de scénarios d’application utilisant des infrastructures JavaScript multiplateformes, telles qu’Electron, React-Native, etc. puisqu’elles requièrent davantage de fonctionnalités pour l’interaction avec les plateformes natives.
+Ce flux d’authentification n’inclut pas de scénarios d’application utilisant des frameworks JavaScript multiplateformes, tels qu’Electron et React-Native. Ils exigent davantage de fonctionnalités pour l’interaction avec les plateformes natives.
 
 ## <a name="specifics"></a>Spécificités
 
-Les aspects suivants doivent être pris en compte pour mettre en œuvre ce scénario pour votre application :
+Afin d’activer ce scénario pour votre application, vous avez besoin des éléments suivants :
 
-* L’inscription d’application avec Azure AD implique l’activation du flux implicite et la définition d’un URI de redirection vers lequel les jetons sont renvoyés.
-* La configuration de l’application avec les propriétés de l’application inscrite, comme l’ID d’application.
-* L’utilisation de la bibliothèque MSAL pour que le flux d’authentification se connecte et obtienne les jetons.
+* Inscription de l’application auprès d’Azure Active Directory (Azure AD). Cette inscription implique l’activation du flux implicite et la définition d’un URI de redirection vers lequel les jetons sont retournés.
+* Configuration de l’application avec les propriétés de l’application inscrite, comme l’ID d’application.
+* Utilisation de la bibliothèque MSAL (Microsoft Authentication Library) pour effectuer le flux d’authentification afin de se connecter et d’acquérir des jetons.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

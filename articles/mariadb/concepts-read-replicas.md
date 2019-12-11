@@ -1,17 +1,17 @@
 ---
-title: Réplicas en lecture dans Azure Database for MariaDB
+title: Réplicas en lecture - Azure Database for MariaDB
 description: 'Découvrez les réplicas en lecture dans Azure Database for MariaDB : choix des régions, création de réplicas, connexion à des réplicas, supervision de la réplication et arrêt de la réplication.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158414"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790428"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -45,7 +45,9 @@ Vous pouvez disposer d’un serveur maître dans toute [région Azure Database f
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
 Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles prises en charge sont les suivantes :
 
-Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2.
+Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest.
+
+\* USA Ouest 2 est momentanément indisponible en tant qu’emplacement de réplica inter-régions.
 
 
 ### <a name="paired-regions"></a>Régions jumelées

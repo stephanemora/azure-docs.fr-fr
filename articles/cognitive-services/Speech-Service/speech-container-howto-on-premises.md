@@ -1,5 +1,5 @@
 ---
-title: Utiliser le conteneur Speech Service avec Kubernetes et Helm
+title: Utiliser les conteneurs du service Speech avec Kubernetes et Helm
 titleSuffix: Azure Cognitive Services
 description: À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383650"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816498"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Speech Service avec Kubernetes et Helm
+# <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Utiliser les conteneurs du service Speech avec Kubernetes et Helm
 
-L’une des options permettant de gérer vos conteneurs vocaux en local consiste à utiliser Kubernetes et Helm. À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration. Pour plus d'informations sur l'exécution de conteneurs Docker sans orchestration Kubernetes, consultez [Installer et exécuter des conteneurs Speech Service](speech-container-howto.md).
+L’une des options permettant de gérer vos conteneurs vocaux en local consiste à utiliser Kubernetes et Helm. À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration. Pour plus d’informations sur l’exécution des conteneurs Docker sans orchestration Kubernetes, consultez [Installer et exécuter des conteneurs Speech](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ L’utilisation locale des conteneurs Speech est soumise aux prérequis suivants
 
 ## <a name="the-recommended-host-computer-configuration"></a>La configuration d’ordinateur hôte recommandée
 
-Reportez-vous aux détails de [l’ordinateur hôte du conteneur du service Speech][speech-container-host-computer] comme référence. Ce *graphique Helm* calcule automatiquement les besoins en ressources processeur et mémoire en fonction du nombre de décodages (demandes simultanées) que l’utilisateur spécifie. En outre, il s’ajuste en fonction selon que les optimisations pour l’entrée audio/textuelles sont configurées sur `enabled` ou non. Par défaut, le graphique Helm considère deux demandes simultanées et l’optimisation désactivée.
+Reportez-vous aux informations concernant l’[ordinateur hôte du conteneur du service Speech][speech-container-host-computer] comme référence. Ce *graphique Helm* calcule automatiquement les besoins en ressources processeur et mémoire en fonction du nombre de décodages (demandes simultanées) que l’utilisateur spécifie. En outre, il s’ajuste en fonction selon que les optimisations pour l’entrée audio/textuelles sont configurées sur `enabled` ou non. Par défaut, le graphique Helm considère deux demandes simultanées et l’optimisation désactivée.
 
 | Service | Processeur/conteneur | Mémoire/conteneur |
 |--|--|--|
@@ -142,7 +142,7 @@ Le *graphique Helm* contient la configuration de la ou des images docker à extr
 
 > Un [graphique Helm][helm-charts] est une collection de fichiers qui décrivent un ensemble de ressources Kubernetes. Un graphique unique peut être utilisé pour déployer quelque chose de simple comme un pod mis en cache, ou quelque chose de complexe, comme une pile d’application web complète avec des serveurs HTTP, des bases de données, des caches et ainsi de suite.
 
-Les *graphiques Helm* fournis extraient les images docker du service Speech, à la fois les services de synthèse et de reconnaissance vocale, à partir du registre de conteneurs `mcr.microsoft.com`.
+Les *graphiques Helm* fournis tirent (pull) les images Docker du service Speech (à la fois les services de synthèse et de reconnaissance vocale) à partir du registre de conteneurs `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installer le graphique Helm sur le cluster Kubernetes
 

@@ -222,6 +222,8 @@
       items:
         - name: Créer un coffre Recovery Services
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Mettre à jour les configurations de coffre Recovery Services
+          href: use-restapi-update-vault-properties.md
         - name: Créer et mettre à jour la stratégie de sauvegarde
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Sauvegarder des machines virtuelles Azure

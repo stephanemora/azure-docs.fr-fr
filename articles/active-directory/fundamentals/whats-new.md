@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6c6e680de6253f5e822ba282df2e2397093d003
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 793b9d1b33c244354841402babbd9177ce7ed19b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270993"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687711"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -551,13 +551,13 @@ Pour plus d’informations sur la configuration d’Azure Monitor, consultez [Jo
 
 Le 25 septembre 2019, nous allons désactiver l’ancienne expérience d’informations de sécurité non améliorée pour l’inscription et la gestion des informations de sécurité utilisateur. Seule la [nouvelle version améliorée](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271) sera disponible. Cela signifie que vos utilisateurs ne seront plus en mesure d’utiliser l’ancienne expérience.
 
-Pour plus d’informations sur l’expérience d’informations de sécurité améliorée, consultez notre [documentation administrateur](https://aka.ms/securityinfodocs)  et notre [documentation utilisateur](https://aka.ms/securityinfoguide).
+Pour en savoir plus sur l’expérience d’informations de sécurité renforcée, consultez notre [documentation administrateur](https://aka.ms/securityinfodocs) et notre [documentation utilisateur](https://aka.ms/securityinfoguide).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Pour activer cette nouvelle expérience, vous devez :
 
 1. Connectez-vous au portail Azure en tant qu’Administrateur général ou Administrateur d’utilisateurs.
 
-2. Accédez à  **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres des fonctionnalités préliminaires du volet d’accès**.
+2. Accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres pour les fonctionnalités en préversion du volet d’accès**.
 
 3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré**, sélectionnez **Sélectionné**, puis choisissez un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
 

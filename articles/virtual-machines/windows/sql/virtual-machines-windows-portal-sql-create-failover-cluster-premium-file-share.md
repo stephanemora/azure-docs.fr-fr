@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 10a3c2bf421c7182dca00dfcbf7c3f559141a745
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084080"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792191"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -45,9 +45,7 @@ Vous devez également avoir une compréhension générale de ces technologies :
 - [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le mode de gestion [léger](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode [léger](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, décochez la case en regard de la machine virtuelle appropriée.
->
-> L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL Server une fois l’agent réinstallé en mode de gestion [léger](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider).
+> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, **décochez la case en regard de la machine virtuelle appropriée**. L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL une fois l’agent réinstallé en mode de gestion léger.
 
 Les partages de fichiers Premium fournissent une capacité d’IOPS et de débit qui répond aux besoins de nombreuses charges de travail. Pour les charges de travail gourmandes en E/S, envisagez d’utiliser une [instance de cluster de basculement SQL Server avec des espaces de stockage direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) basée sur des disques Premium managés ou des disques Ultra.  
 
@@ -61,11 +59,11 @@ Pour plus d’informations sur les performances des partages de fichiers Premium
 
 Sur les machines virtuelles Azure, vous pouvez acquérir une licence SQL Server à l’aide des images de machines virtuelles avec paiement à l’utilisation (PAYG) ou BYOL (apportez votre propre licence). Le type d’image que vous choisissez affecte la façon dont vous êtes facturé.
 
-Avec la licence de paiement à l'utilisation, une instance de cluster de basculement (FCI) de SQL Server sur des machines virtuelles Azure entraîne des frais pour tous les nœuds de FCI, y compris les nœuds passifs. Pour plus d’informations, consultez [Tarification des machines virtuelles SQL Server Entreprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
+Avec la licence de paiement à l’utilisation, une instance de cluster de basculement (FCI) de SQL Server sur des machines virtuelles Azure entraîne des frais pour tous les nœuds de FCI, y compris les nœuds passifs. Pour plus d’informations, consultez [Tarification des machines virtuelles SQL Server Entreprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
-Si vous avez avec un Contrat Entreprise et la Software Assurance, vous pouvez utiliser un nœud FCI passif gratuit pour chaque nœud actif. Pour tirer parti de cet avantage dans Azure, utilisez des images de machines virtuelles BYOL, puis utilisez la même licence sur les nœuds actifs et passifs de l’instance de cluster de basculement. Pour plus d’informations, consultez [Accord Entreprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
+Si vous disposez d’un Contrat Entreprise et de la Software Assurance, vous pouvez utiliser un nœud FCI passif gratuit pour chaque nœud actif. Pour tirer parti de cet avantage dans Azure, utilisez des images de machines virtuelles BYOL, puis utilisez la même licence sur les nœuds actifs et passifs de l’instance de cluster de basculement. Pour plus d’informations, consultez [Accord Entreprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Pour comparer les licences de paiement à l'utilisation et BYOL pour SQL Server sur des machines virtuelles Azure, consultez [Bien démarrer avec des machines virtuelles SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+Pour comparer les licences de paiement à l’utilisation et BYOL pour SQL Server sur des machines virtuelles Azure, consultez [Bien démarrer avec des machines virtuelles SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
 Pour plus d’informations sur les licences SQL Server, consultez [Tarification](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -92,7 +90,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
 
 ## <a name="step-1-create-the-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre abonnement.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnement.
 
 1. [Créez un groupe à haute disponibilité Azure](../tutorial-availability-sets.md).
 
@@ -103,10 +101,10 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
    1. Dans le portail Azure, sélectionnez **Créer une ressource** pour ouvrir la Place de marché Azure. Recherchez **Groupe à haute disponibilité**.
    1. Sélectionnez **Groupe à haute disponibilité**.
    1. Sélectionnez **Create** (Créer).
-   1. Sous **Créer un groupe à haute disponibilité**, indiquez les valeurs suivantes :
+   1. Sous **Créer un groupe à haute disponibilité**, indiquez les valeurs suivantes :
       - **Nom** : Nom du groupe à haute disponibilité.
       - **Abonnement**: Votre abonnement Azure.
-      - **Groupe de ressources** : Si vous souhaitez utiliser un groupe existant, cliquez sur **Sélectionner** et sélectionnez le groupe dans la liste. Sinon, sélectionnez **Créer** et entrez un nom pour le groupe.
+      - **Groupe de ressources** : Si vous souhaitez utiliser un groupe existant, cliquez sur **Sélectionner un groupe existant** et sélectionnez le groupe dans la liste. Sinon, sélectionnez **Créer** et entrez un nom pour le groupe.
       - **Emplacement** : Définissez l’emplacement où vous souhaitez créer vos machines virtuelles.
       - **Domaines d’erreur** : Utilisez la valeur par défaut (**3**).
       - **Domaines de mise à jour** : Utilisez la valeur par défaut (**5**).
@@ -126,7 +124,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
       >[!IMPORTANT]
       >Vous ne pouvez pas définir ou modifier le groupe à haute disponibilité après avoir créé une machine virtuelle.
 
-   Choisissez une image dans Azure Marketplace. Vous pouvez utiliser une image Place de marché Azure qui inclut Windows Server et SQL Server, ou uniquement Windows Server. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+   Choisissez une image dans la Place de marché Azure. Vous pouvez utiliser une image Place de marché Azure qui inclut Windows Server et SQL Server, ou uniquement Windows Server. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
    Les images SQL Server officielles dans la galerie Azure incluent une instance SQL Server installée, le logiciel d’installation SQL Server et la clé requise.
 
@@ -146,7 +144,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
    1. Sélectionnez l’instance par défaut.
    1. Supprimer toutes les fonctionnalités sous **Services Moteur de base de données**. Ne supprimez pas les **Fonctionnalités partagées**. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
-        ![Sélectionner les caractéristiques](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Sélectionner les fonctionnalités](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Sélectionnez **Suivant**, puis **Supprimer**.
 
@@ -218,7 +216,7 @@ L’étape suivante consiste à configurer le cluster de basculement. Au cours d
 
 Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
-Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
+Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
 1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
 1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
@@ -259,7 +257,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-Le script PowerShell suivant crée un cluster de basculement pour Windows Server 2019. Pour plus d’informations, consultez [Cluster de basculement : Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Mettez à jour le script avec les noms des nœuds (les noms des machines virtuelles) et une adresse IP disponible à partir du réseau virtuel Azure.
+Le script PowerShell suivant crée un cluster de basculement pour Windows Server 2019. Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Mettez à jour le script avec les noms des nœuds (les noms des machines virtuelles) et une adresse IP disponible à partir du réseau virtuel Azure.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -268,7 +266,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ### <a name="create-a-cloud-witness"></a>Créer un témoin cloud
 
-Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Azure Storage Blob. Il n’est donc pas nécessaire de disposer d’une machine virtuelle distincte qui héberge un partage de fichiers témoin.
+Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Storage Blob Azure. Il n’est donc pas nécessaire de disposer d’une machine virtuelle distincte qui héberge un partage de fichiers témoin.
 
 1. [Créez un témoin cloud pour le cluster de basculement](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -318,15 +316,15 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 Sur les machines virtuelles Azure, les clusters utilisent un équilibrage de charge pour conserver une adresse IP qui doit se trouver sur un nœud de cluster à la fois. Dans cette solution, l’équilibrage de charge contient l’adresse IP de l’instance de cluster de basculement SQL Server.
 
-Pour plus d'informations, consultez [Créer et configurez un équilibrage de charge Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+Pour plus d’informations, consultez [Créer et configurer un équilibrage de charge Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
 ### <a name="create-the-load-balancer-in-the-azure-portal"></a>Créer l’équilibrage de charge dans le portail Azure
 
 Pour créer l’équilibrage de charge :
 
-1. Dans le portail Azure, accédez au groupe de ressources contenant les machines virtuelles.
+1. Dans le Portail Azure, accédez au groupe de ressources contenant les machines virtuelles.
 
-1. Sélectionnez **Ajouter**. Recherchez **Équilibrage de charge** dans la Place de marché Azure. Sélectionnez **Équilibrage de charge**.
+1. Sélectionnez **Ajouter**. Recherchez **Équilibreur de charge** dans la Place de marché Azure. Sélectionnez **Équilibreur de charge**.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -387,7 +385,7 @@ Pour créer l’équilibrage de charge :
    - **Adresse IP du serveur frontal** : L’adresse IP de la ressource réseau de cluster FCI SQL Server.
    - **Port** : Le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : Utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
-   - **Pool principal** : Le nom du pool back-end que vous avez configuré précédemment.
+   - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
    - **Sonde d’intégrité** : La sonde d’intégrité que vous avez configurée précédemment.
    - **Persistance de session** : Aucune.
    - **Délai d’inactivité (minutes)**  : 4.
@@ -412,7 +410,7 @@ Pour définir le paramètre de port de sonde de cluster, mettez à jour les vari
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-La liste ci-dessous décrit les valeurs que vous devez mettre à jour :
+La liste ci-dessous décrit les valeurs que vous devez mettre à jour :
 
    - `<Cluster Network Name>`: Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.
 
@@ -454,11 +452,11 @@ Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur 
 
 ## <a name="limitations"></a>Limites
 
-La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et un [équilibreur de charge standard](../../../load-balancer/load-balancer-standard-overview.md).
+La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et un [équilibreur de charge standard](../../../load-balancer/load-balancer-standard-overview.md).
 
-Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge sur Windows Server 2016 ou versions antérieures, car :
+Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge sur Windows Server 2016 ou versions antérieures, car :
 
-- La ressource MSDTC en cluster n’est pas configurable pour utiliser le stockage partagé. Sur Windows Server 2016, si vous créez une ressource MSDTC, celle-ci n’affiche pas le stockage partagé qui est disponible pour l’utilisation, et cela même si le stockage est disponible. Ce problème a été résolu dans Windows Server 2019.
+- La ressource MSDTC en cluster n’est pas configurable pour utiliser le stockage partagé. Sur Windows Server 2016, si vous créez une ressource MSDTC, celle-ci n’affiche pas le stockage partagé qui est disponible pour l’utilisation, et cela même si le stockage est disponible. Ce problème a été résolu dans Windows Server 2019.
 - L’équilibreur de charge de base ne gère pas les ports RPC.
 
 ## <a name="see-also"></a>Voir aussi

@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227880"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806879"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Utilisation de points de terminaison privés pour Stockage Azure (préversion)
 
@@ -31,6 +31,8 @@ L’utilisation de points de terminaison privés pour votre compte de stockage v
 Un point de terminaison privé est une interface réseau spéciale pour un service Azure dans votre [réseau virtuel](../../virtual-network/virtual-networks-overview.md). Lorsque vous créez un point de terminaison privé pour votre compte de stockage, il offre une connectivité sécurisée entre les clients sur votre réseau virtuel et votre stockage. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service de stockage utilise une liaison privée.
 
 Les applications du réseau virtuel peuvent se connecter en toute transparence au service de stockage sur le point de terminaison privé, **à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utiliseraient dans tous les cas**. Les points de terminaison privés peuvent être utilisés avec tous les protocoles pris en charge par le compte de stockage, notamment REST et SMB.
+
+Vous pouvez créer des points de terminaison privés dans des sous-réseaux qui utilisent des [points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md). Les clients d’un sous-réseau peuvent donc se connecter à un compte de stockage à l’aide d’un point de terminaison privé, tout en utilisant des points de terminaison de service pour accéder à d’autres.
 
 Quand vous créez un point de terminaison privé pour un service de stockage dans votre réseau virtuel, une demande de consentement est envoyée pour approbation au propriétaire du compte de stockage. Si l’utilisateur qui demande la création du point de terminaison privé est également propriétaire du compte de stockage, cette demande de consentement est automatiquement approuvée.
 
@@ -70,7 +72,7 @@ Nous créons une [zone DNS privée](../../dns/private-dns-overview.md) attachée
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
 
-L’enregistrement de la ressource CNAME DNS pour un compte de stockage avec un point de terminaison privé est mis à jour vers un alias dans un sous-domaine avec le préfixe « *privatelink* ». Par défaut, nous créons aussi une [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel qui correspond au sous-domaine portant le préfixe « *privatelink* » et contient les enregistrements de ressource DNS A pour les points de terminaison privés.
+Quand vous créez un point de terminaison privé, l’enregistrement de la ressource CNAME DNS pour le compte de stockage est mis à jour avec un alias dans un sous-domaine avec le préfixe « *privatelink* ». Par défaut, nous créons également une [zone DNS privée](../../dns/private-dns-overview.md) correspondant au sous-domaine « *privatelink* », avec les enregistrements de ressource DNS A pour les points de terminaison privés.
 
 Lorsque vous résolvez l’URL du point de terminaison de stockage à l’extérieur du réseau virtuel avec le point de terminaison privé, elle correspond au point de terminaison public du service de stockage. En cas de résolution à partir du réseau virtuel hébergeant le point de terminaison privé, l’URL du point de terminaison de stockage correspond à l’adresse IP du point de terminaison privé.
 
@@ -93,7 +95,7 @@ Les enregistrements de ressources DNS pour StorageAccountA, lorsqu’ils sont r�
 
 Cette approche permet d’accéder au compte de stockage **avec la même chaîne de connexion** pour les clients sur le réseau virtuel hébergeant les points de terminaison privés, ainsi que des clients en dehors du réseau virtuel.
 
-Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison du compte de stockage vers l’adresse IP du point de terminaison privé. Pour ce faire, vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « *StorageAccountA.privatelink.blob.core.windows.net* » avec l’adresse IP du point de terminaison privé. 
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison du compte de stockage vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « *StorageAccountA.privatelink.blob.core.windows.net* » avec l’adresse IP du point de terminaison privé.
 
 > [!TIP]
 > Lorsque vous utilisez un serveur DNS personnalisé ou local, vous devez configurer votre serveur DNS pour résoudre le nom du compte de stockage dans le sous-domaine « privatelink » vers l’adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine « privatelink » à la zone DNS privée du réseau virtuel ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.
@@ -113,8 +115,8 @@ Les noms des zones DNS recommandés pour les points de terminaison privés pour 
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
-- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuration DNS pour les points de terminaison privés](/private-link/private-endpoint-overview#dns-configuration)
+- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuration DNS pour les points de terminaison privés](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Tarifs
 
@@ -125,9 +127,6 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 ### <a name="copy-blob-support"></a>Prise en charge de la copie Blob
 
 Pendant la préversion, nous ne prenons pas en charge les commandes [Copier Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) émises sur les comptes de stockage accessibles via des points de terminaison privés lorsque le compte de stockage source est protégé par un pare-feu.
-
-### <a name="subnets-with-service-endpoints"></a>Sous-réseaux avec points de terminaison de service
-Actuellement, vous ne pouvez pas créer un point de terminaison privé dans un sous-réseau qui a des points de terminaison de service. Pour contourner ce problème, vous pouvez créer des sous-réseaux distincts dans le même réseau virtuel pour les points de terminaison de service et les points de terminaison privés.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Contraintes d’accès au stockage pour les clients dans des réseaux virtuels avec des points de terminaison privés
 

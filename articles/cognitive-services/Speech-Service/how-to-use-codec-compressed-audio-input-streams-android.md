@@ -1,7 +1,7 @@
 ---
 title: Streaming du contenu audio compressé par codec avec le SDK Speech sur Android
 titleSuffix: Azure Cognitive Services
-description: Apprenez à diffuser en continu du contenu audio compressé vers les services Speech d'Azure à l'aide du SDK Speech sous Android.
+description: Découvrez comment diffuser en streaming du contenu audio compressé sur le service Speech avec le SDK Speech sur Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109906"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805839"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Activation Utiliser une entrée audio compressée par codec avec le SDK Speech sur Android
 
-L’API **Compressed Audio Input Stream** du SDK Speech permet de diffuser en streaming du contenu audio compressé vers Speech Service à l’aide de PullStream ou PushStream.
+L’API **Compressed Audio Input Stream** du SDK Speech permet de diffuser en streaming du contenu audio compressé vers le service Speech à l’aide de PullStream ou PushStream.
 
 > [!IMPORTANT]
 > La diffusion en continu de contenu audio d'entrée compressé est actuellement prise en charge pour [C++, C# et Java sous Linux (Ubuntu 16.04, Ubuntu 18.04 et Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Elle est également prise en charge pour Java sous Android et [Objective-C sous iOS](how-to-use-codec-compressed-audio-input-streams-ios.md).
@@ -133,7 +133,7 @@ Une fois l'objet partagé (libgstreamer_android.so) créé, le développeur doit
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exemple de code utilisant une entrée audio compressé par codec
 
-Pour diffuser en streaming dans un format audio compressé pour Speech Services, créer un élément `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux.
+Pour diffuser en continu des données dans un format audio compressé vers le service Speech, créez un élément `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux.
 
 Supposons que vous disposez d’une classe de flux d’entrée appelée `myPullStream` et que vous utilisez OPUS/OGG. Voici à quoi peut ressembler votre code :
 

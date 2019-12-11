@@ -3,12 +3,12 @@ title: Activer l’identité managée dans le groupe de conteneurs
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure dans Azure Container Instances
 ms.topic: article
 ms.date: 10/22/2018
-ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ccf754fac0d884c8a2af9db01578f97b73d54ac4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533679"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776521"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -31,7 +31,7 @@ Adaptez les exemples pour activer et utiliser des identités dans Azure Containe
 Utilisez une identité managée dans un conteneur en cours d’exécution pour vous authentifier sur n’importe quel [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans avoir à gérer les informations d’identification dans le code de votre conteneur. Pour les services qui ne prennent pas en charge l’authentification AD, vous pouvez stocker des codes secrets dans le coffre de clés Azure Key Vault et utiliser l’identité managée pour y accéder à Key Vault et récupérer les informations d’identification. Pour en savoir plus sur l’utilisation des identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale. Actuellement, les identités managées sont uniquement prises en charge sur les instances de conteneur Linux.
+> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale. Actuellement, les identités managées sur Azure Container Instances sont uniquement prises en charge avec des conteneurs Linux, mais pas encore avec des conteneurs Windows.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Activer une identité managée

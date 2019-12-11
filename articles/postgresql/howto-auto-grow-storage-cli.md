@@ -1,17 +1,17 @@
 ---
-title: Activer la croissance automatique d’un stockage Azure Database pour PostgreSQL - Serveur unique avec Azure CLI
-description: Cet article explique comment vous pouvez activer la croissance automatique du stockage avec Azure CLI dans Azure Database pour PostgreSQL - Serveur unique.
+title: Augmenter automatiquement le stockage - Azure CLI - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment configurer la croissance automatique du stockage avec Azure CLI dans Azure Database pour PostgreSQL - Serveur unique.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 8/7/2019
-ms.openlocfilehash: 272b26050288e63181c8d0c71dc2c1851f09f3c9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b0dc2fbb168d9325439ee18a227f71a3b88ef9c8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390841"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767940"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Activer la croissance automatique d’un stockage Azure Database pour PostgreSQL - Serveur unique avec Azure CLI
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour PostgreSQL sans affecter la charge de travail.

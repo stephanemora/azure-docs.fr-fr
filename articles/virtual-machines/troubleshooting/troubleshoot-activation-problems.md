@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058145"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819103"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -26,7 +26,7 @@ Si vous rencontrez des problèmes lors de l’activation de machines virtuelles 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Présentation des points de terminaison Azure KMS pour l’activation des produits Windows des machines virtuelles Azure
 
-Azure utilise différents points de terminaison différents pour l’activation de KMS en fonction de la région cloud dans laquelle se trouve la machine virtuelle. Lorsque vous utilisez ce guide de dépannage, utilisez le point de terminaison KMS approprié qui s’applique à votre région.
+Azure utilise différents points de terminaison différents pour l’activation de KMS (Key Management Services) en fonction de la région cloud dans laquelle se trouve la machine virtuelle. Lorsque vous utilisez ce guide de dépannage, utilisez le point de terminaison KMS approprié qui s’applique à votre région.
 
 * Régions de cloud public Azure : kms.core.windows.net:1688
 * Régions de cloud national 21Vianet Azure en Chine : kms.core.chinacloudapi.cn:1688

@@ -5,22 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 51344ff7381b6392870b1fd0e331eed38a33915d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: 65e85548420116bdfcab87fe9f81a20e66226beb
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103518"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803795"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight
 
 Découvrez des scénarios de base sur l'utilisation des journaux Azure Monitor pour surveiller les clusters Azure HDInsight :
 
 * [Analyser les métriques du cluster HDInsight](#analyze-hdinsight-cluster-metrics)
-* [Rechercher des messages de journal spécifiques](#search-for-specific-log-messages)
 * [Créer des alertes d’événement](#create-alerts-for-tracking-events)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -34,90 +33,95 @@ Vous devez avoir configuré un cluster HDInsight pour utiliser les journaux Azur
 Découvrez comment rechercher des métriques spécifiques pour votre cluster HDInsight.
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
-1. Sélectionnez la vignette **Recherche dans les journaux**.
-1. Saisissez la requête suivante dans la zone de recherche afin de rechercher toutes les mesures disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **EXÉCUTER**.
+1. Sous **Général**, sélectionnez **Journaux**.
+1. Tapez la requête suivante dans la zone de recherche afin de rechercher toutes les métriques disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **Exécuter**. Passez en revue les résultats.
 
-        search *
+    ```kusto
+    search *
+    ```
 
-    ![Apache Ambari - Rechercher toutes les mesures](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Rechercher toutes les mesures")
+    ![Analytiques Apache Ambari - Rechercher toutes les métriques](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Rechercher toutes les métriques")
 
-    Le résultat doit être semblable à ceci :
+1. Dans le menu de gauche, sélectionnez l’onglet **Filtrer**.
 
-    ![Log Analytics - Rechercher toutes les mesures](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Rechercher toutes les mesures")
+1. Sous **Type**, sélectionnez **Pulsation**. Sélectionnez ensuite **Appliquer et exécuter**.
 
-1. Dans le volet de gauche, sous **Type**, sélectionnez une mesure à approfondir, puis cliquez sur **Appliquer**. La capture d’écran qui suit présente le type `metrics_resourcemanager_queue_root_default_CL` sélectionné.
+    ![Log Analytics - Rechercher des métriques spécifiques](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Rechercher des métriques spécifiques")
 
-    > [!NOTE]  
-    > Vous devrez peut-être cliquer sur le bouton **[+]Plus** pour trouver la mesure que vous recherchez. En outre, comme le bouton **Appliquer** figure au bas de la liste, vous devez faire défiler la page vers le bas pour l’afficher.
+1. Notez que la requête dans la zone de texte devient :
 
-    Notez que la requête dans la zone de texte apparaît dans la zone en surbrillance dans la capture d’écran suivante :
+    ```kusto
+    search *
+    | where Type == "Heartbeat"
+    ```
 
-    ![rechercher mesures spécifiques log analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Rechercher des mesures spécifiques")
+1. Vous pouvez afficher plus de détails en utilisant les options disponibles dans le volet gauche. Par exemple :
 
-1. Pour approfondir cette mesure spécifique. Par exemple, vous pouvez affiner les résultats en fonction de la moyenne des ressources utilisées dans un intervalle de 10 minutes, en les classant par nom de cluster à l’aide de la requête suivante :
+    - Pour voir les journaux d’un nœud spécifique :
 
-        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
+        ![Rechercher des erreurs spécifiques - Sortie 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Rechercher des erreurs spécifiques - Sortie 1")
 
-1. Au lieu d’affiner les résultats en fonction de la moyenne des ressources utilisées, vous pouvez utiliser la requête suivante pour affiner les résultats en fonction du moment où les ressources maximales ont été utilisées (ainsi qu’aux 90e et 95e centiles) dans une fenêtre de 10 minutes :
+    - Pour voir les journaux à certains moments :
 
-        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
+        ![Rechercher des erreurs spécifiques - Sortie 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Rechercher des erreurs spécifiques - Sortie 2")
 
-## <a name="search-for-specific-log-messages"></a>Rechercher des messages de journal spécifiques
+1. Sélectionnez **Appliquer et exécuter**, et examinez les résultats. Notez également que la requête a été mise à jour :
 
-Découvrez comment rechercher des messages d’erreur pendant une fenêtre de temps spécifique. Ces étapes ne sont qu’un exemple d’une méthode permettant d’afficher le message d’erreur qui vous intéresse. Vous pouvez utiliser n’importe quelle propriété disponible pour rechercher les erreurs que vous voulez trouver.
+    ```kusto
+    search *
+    | where Type == "Heartbeat"
+    | where (Computer == "zk2-myhado") and (TimeGenerated == "2019-12-02T23:15:02.69Z" or TimeGenerated == "2019-12-02T23:15:08.07Z" or TimeGenerated == "2019-12-02T21:09:34.787Z")
+    ```
 
-1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
-2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Saisissez la requête suivante afin de rechercher tous les messages d'erreur dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **EXÉCUTER**.
+### <a name="additional-sample-queries"></a>Autres exemples de requêtes
 
-         search "Error"
+Exemple de requête basée sur la moyenne des ressources utilisées dans un intervalle de 10 minutes, catégorisées par nom de cluster :
 
-    Vous devez voir un résultat semblable à ce qui suit :
+```kusto
+search in (metrics_resourcemanager_queue_root_default_CL) * 
+| summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
+```
 
-    ![Portail Azure - Rechercher les erreurs du journal](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Recherche toutes les erreurs de sortie")
+Au lieu d’affiner les résultats en fonction de la moyenne des ressources utilisées, vous pouvez utiliser la requête suivante pour affiner les résultats en fonction du moment où les ressources maximales ont été utilisées (ainsi qu’aux 90e et 95e centiles) dans une fenêtre de 10 minutes :
 
-4. Dans le volet de gauche, sous la catégorie **Type**, sélectionnez un type d’erreur à approfondir, puis cliquez sur **Appliquer**.  Notez que les résultats sont affinés pour n’afficher que l’erreur du type que vous avez sélectionné.
-
-5. Vous pouvez approfondir cette liste d’erreurs spécifiques en utilisant les options disponibles dans le volet gauche. Par exemple :
-
-    - Pour afficher les messages d’erreur d’un nœud de travail spécifique :
-
-        ![Rechercher un résultat d’erreur spécifique - 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Rechercher un résultat d’erreur spécifique - 1")
-
-    - Pour afficher une erreur qui s’est produite à une heure donnée :
-
-        ![Rechercher un résultat d’erreur spécifique - 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Rechercher un résultat d’erreur spécifique - 2")
-
-6. Pour afficher l’erreur spécifique. Vous pouvez cliquer sur **[+]Afficher plus** pour examiner le message d’erreur.
-
-    ![Rechercher un résultat d’erreur spécifique - 3](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Rechercher un résultat d’erreur spécifique - 3")
+```kusto
+search in (metrics_resourcemanager_queue_root_default_CL) * 
+| summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
+```
 
 ## <a name="create-alerts-for-tracking-events"></a>Créer des alertes pour des événements de suivi
 
 La première étape pour créer une alerte consiste à définir une requête qui déclenche l’alerte. Vous pouvez utiliser la requête de votre choix pour créer une alerte.
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
-2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Exécutez la requête suivante là où vous souhaitez créer une alerte, puis sélectionnez **EXÉCUTER**.
+1. Sous **Général**, sélectionnez **Journaux**.
+1. Exécutez la requête suivante là où vous souhaitez créer une alerte, puis sélectionnez **Exécuter**.
 
-        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+    ```kusto
+    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+    ```
 
     La requête fournit la liste des applications en échec exécutées sur des clusters HDInsight.
 
-4. Sélectionnez **Nouvelle règle d'alerte** en haut de la page.
+1. Sélectionnez **Nouvelle règle d’alerte** en haut de la page.
 
-    ![Saisir une requête pour créer une alerte - 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Saisir une requête pour créer une alerte - 1")
+    ![Entrer une requête pour créer une alerte 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Entrer une requête pour créer une alerte 1")
 
-5. Dans la fenêtre **Créer une règle**, saisissez la requête et d’autres détails pour créer une alerte, puis sélectionnez **Créer une règle d'alerte**.
+1. Dans la fenêtre **Créer une règle**, saisissez la requête et d’autres détails pour créer une alerte, puis sélectionnez **Créer une règle d'alerte**.
 
-    ![Saisir une requête pour créer une alerte - 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Saisir une requête pour créer une alerte - 2")
+    ![Entrer une requête pour créer une alerte 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Entrer une requête pour créer une alerte 2")
 
-Pour modifier ou supprimer une alerte existante :
+### <a name="edit-or-delete-an-existing-alert"></a>Modifier ou supprimer une alerte existante
 
 1. Ouvrez l’espace de travail Log Analytics à partir du portail Azure.
-2. Dans le menu de gauche, sélectionnez **Alerte**.
-3. Sélectionnez l’alerte à modifier ou à supprimer.
-4. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
+
+1. Dans le menu de gauche, sous **Supervision**, sélectionnez **Alertes**.
+
+1. Vers le haut, sélectionnez **Gérer les règles d’alerte**.
+
+1. Sélectionnez l’alerte à modifier ou à supprimer.
+
+1. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
 
     ![HDInsight, journaux Azure Monitor, alerte, supprimer, modifier](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
@@ -125,5 +129,5 @@ Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de m
 
 ## <a name="see-also"></a>Voir aussi
 
+* [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 * [Créer des vues personnalisées à l'aide du Concepteur de vues d'Azure Monitor](../azure-monitor/platform/view-designer.md)
-* [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/platform/alerts-metric.md)

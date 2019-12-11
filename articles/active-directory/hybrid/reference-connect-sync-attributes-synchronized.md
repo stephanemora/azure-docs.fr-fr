@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847189"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766087"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -430,7 +430,7 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
 | msExchSafeSenderHash| ms-Exch-SafeSendersHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - Messagerie vocale en ligne : Utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Conservation pour litige : Permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Conservation pour litige : Permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
 | proxyAddresses| proxyAddresses |X |X |X |Seule l’adresse x500 d’Exchange Online est insérée. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange sur site des utilisateurs. Nécessite Azure AD Connect 1.1.552.0 ou version ultérieure. |
 

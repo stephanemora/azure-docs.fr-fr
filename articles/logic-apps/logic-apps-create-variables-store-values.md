@@ -1,21 +1,17 @@
 ---
-title: Créer et gérer des variables pour stocker des valeurs - Azure Logic Apps
+title: Créer et gérer des variables pour stocker des valeurs
 description: Comment stocker et gérer des valeurs en utilisant des variables dans Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180792"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793172"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Stocker et gérer des valeurs en utilisant des variables dans Azure Logic Apps
 

@@ -4,102 +4,107 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170657"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707120"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
-Les sources de données et connecteurs affichés dans Obtenir des données ou l’Assistant Importation dans Visual Studio concernent à la fois Azure Analysis Services et SQL Server Analysis Services. Cependant, toutes les sources de données et tous les connecteurs indiqués ne sont pas pris en charge dans Azure Analysis Services. Les types de sources de données auxquelles vous pouvez vous connecter dépendent de nombreux facteurs tels que le niveau de compatibilité du modèle, les connecteurs de données disponibles, le type d’authentification, les fournisseurs et la prise en charge de la passerelle de données locale. 
+Les sources de données et connecteurs figurant dans Obtenir des données ou l’Assistant Importation de table de Visual Studio avec les projets Analysis Services s’affichent à la fois pour Azure Analysis Services et SQL Server Analysis Services. Cependant, toutes les sources de données et tous les connecteurs affichés ne sont pas pris en charge dans Azure Analysis Services. Les types de sources de données auxquelles vous pouvez vous connecter dépendent de nombreux facteurs, comme le niveau de compatibilité du modèle, les connecteurs de données disponibles, le type d’authentification et la prise en charge de la passerelle de données locale. Les tableaux suivants décrivent les sources de données prises en charge pour Azure Analysis Services.
 
 ## <a name="azure-data-sources"></a>Sources de données Azure
 
-|Source de données  |En mémoire  |DirectQuery  |
-|---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   OUI      |    OUI      |
-|Azure SQL Data Warehouse     |   OUI      |   OUI       |
-|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   OUI       |    Non      |
-|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   OUI       |    Non      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  OUI        |  Non        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   OUI       |    Non      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     OUI     |   Non       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   OUI       |   Non       |
+|Source de données  |En mémoire  |DirectQuery  |Notes |
+|---------|---------|---------|---------|
+|Azure SQL Database      |   OUI      |    OUI      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
+|Azure SQL Data Warehouse      |   OUI      |   OUI       |<sup>[2](#azprovider)</sup>|
+|un stockage Azure Blob      |   OUI       |    Non      | <sup>[1](#tab1400a)</sup> |
+|Stockage de table Azure     |   OUI       |    Non      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  OUI        |  Non        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   OUI       |    Non      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   OUI       |    Non      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     OUI     |   Non       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   OUI       |   Non       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
-<a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Comme l'instance gérée s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n'est pas activée, une passerelle de données locale est requise.    
-<a name="databricks">3</a> - Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
-<a name="gen2">4</a> – Le connecteur ADLS Gen2 n’est pas pris en charge pour le moment. Toutefois, le connecteur Stockage Blob peut être utilisé avec une source de données ADLS Gen2.
-
-
-**Fournisseur**   
-Les modèles en mémoire et DirectQuery qui se connectent aux sources de données Azure utilisent le fournisseur de données .NET Framework pour SQL Server.
+**Remarques :**    
+<a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.  
+<a name="azprovider">2</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, les modèles en mémoire et DirectQuery nécessitent MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé), SQL Server Native Client 11.0 ou le Fournisseur de données .NET Framework pour SQL Server.    
+<a name="azsqlmanaged">3</a> – Azure SQL Database Managed Instance est pris en charge. Comme l'instance gérée s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n’est pas activée, une [passerelle de données locale](analysis-services-gateway.md) est nécessaire.    
+<a name="databricks">4</a> – Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
+<a name="gen2">5</a> – Le connecteur ADLS Gen2 n’est pas pris en charge actuellement. Cependant, le connecteur Stockage Blob Azure peut être utilisé avec une source de données ADLS Gen2.   
 
 ## <a name="other-data-sources"></a>Autres sources de données
 
-La connexion aux sources de données locales à partir d’un serveur Azure Analysis Services requiert une passerelle locale. Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis.
-
-### <a name="in-memory-and-directquery"></a>En mémoire et DirectQuery
-
-|Source de données | Fournisseur en mémoire | Fournisseur DirectQuery |
-|  --- | --- | --- |
-| SQL Server |Microsoft OLE DB Driver pour SQL Server MSOLEDBSQL (recommandé), SQL Server Native Client 11.0, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
-| SQL Server Data Warehouse |Microsoft OLE DB Driver pour SQL Server MSOLEDBSQL (recommandé), SQL Server Native Client 11.0, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
-| Oracle | Fournisseur OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
-| Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET |
+|Source de données | En mémoire | DirectQuery |Notes   |
+|  --- | --- | --- | --- |
+|Base de données Access     |  OUI | Non |  |
+|Active Directory     |  OUI | Non | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  OUI | Non |  |
+|Système de plateforme d’analyse     |  OUI | Non |  |
+|Fichier CSV  |OUI | Non |  |
+|Dynamics 365     |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Classeur Excel     |  OUI | Non |  |
+|Microsoft Exchange      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Dossier      |OUI | Non | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |OUI | Non |  |
+|Document JSON      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Lignes issues d’un fichier binaire      | OUI | Non | <sup>[6](#tab1400b)</sup> |
+|MySQL Database     | OUI | Non |  |
+|Flux OData      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Requête ODBC     | OUI | Non |  |
+|OLE DB     |   OUI | Non |  |
+|Oracle  | OUI  |OUI  | <sup>[9](#oracle)</sup> |
+|Base de données PostgreSQL   | OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Objets Salesforce|  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Rapports Salesforce |OUI | Non | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  OUI | Non |  |
+|SAP Business Warehouse    |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Liste SharePoint      |   OUI | Non | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|SQL Server |OUI   | OUI  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
+|SQL Server Data Warehouse |OUI   | OUI  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
+|Base de données Sybase     |  OUI | Non |  |
+|Teradata | OUI  | OUI  | <sup>[10](#teradata)</sup> |
+|Fichier TXT  |OUI | Non |  |
+|Table XML    |  OUI | Non | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-### <a name="in-memory-only"></a>En mémoire uniquement
+**Remarques :**    
+<a name="tab1400b">6</a> – Modèles tabulaires 1400 ou supérieurs uniquement.  
+<a name="sqlim">7</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, spécifiez MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé), SQL Server Native Client 11.0 ou le Fournisseur de données .NET Framework pour SQL Server.  
+<a name="instgw">8</a> – Si vous spécifiez MSOLEDBSQL comme fournisseur de données, il peut être nécessaire de télécharger et installer [Microsoft OLE DB Driver pour SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) sur le même ordinateur que la passerelle de données locale.  
+<a name="oracle">9</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Oracle Data Provider for .NET.  
+<a name="teradata">10</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Teradata Data Provider for .NET.   
+<a name="filesSP">11</a> – Les fichiers contenus dans SharePoint en local ne sont pas pris en charge.
 
-|Source de données  |  
-|---------|
-|Base de données Access     |  
-|Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Analysis Services     |  
-|Système de plateforme d’analyse     |  
-|Fichier CSV  |
-|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
-|Classeur Excel     |  
-|Exchange<sup>[1](#tab1400b)</sup>     |  
-|Dossier<sup>[1](#tab1400b)</sup>     |
-|IBM Informix<sup>[1](#tab1400b)</sup> (Bêta) |
-|Document JSON<sup>[1](#tab1400b)</sup>     |  
-|Lignes issues d’un fichier binaire<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
-|Flux OData<sup>[1](#tab1400b)</sup>     |  
-|Requête ODBC     | 
-|OLE DB     |   
-|Base de données PostgreSQL<sup>[1](#tab1400b)</sup>    | 
-|Objets Salesforce<sup>[1](#tab1400b)</sup> |  
-|Rapports Salesforce<sup>[1](#tab1400b)</sup> |
-|SAP HANA<sup>[1](#tab1400b)</sup>    |  
-|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Liste SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
-|Base de données Sybase     |  
-|Fichier TXT  |
-|Table XML<sup>[1](#tab1400b)</sup>    |  
-||
- 
-<a name="tab1400b">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="filesSP">2</a> - Les fichiers contenus dans SharePoint en local ne sont pas pris en charge.
+La connexion aux sources de données locales à partir d’un serveur Azure Analysis Services nécessite une [passerelle locale](analysis-services-gateway.md). Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis. 
 
-## <a name="specifying-a-different-provider"></a>Spécifier un autre fournisseur
+## <a name="understanding-providers"></a>Présentation des fournisseurs
 
-Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que MSOLEDBSQL, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'** .
+Quand vous créez des projets de modèle tabulaire 1400 et supérieurs dans Visual Studio, par défaut, vous ne spécifiez pas de fournisseur de données au moment d’établir une connexion à une source de données à l’aide de **Obtenir des données**. Les modèles tabulaires 1400 et supérieurs utilisent des connecteurs [Power Query](/power-query/power-query-what-is-power-query.md) pour gérer les connexions, les requêtes de données et les mashups entre la source de données et Analysis Services. Ils sont parfois appelés connexions de source de données *structurée* dans le sens où les paramètres des propriétés de connexion sont définis automatiquement. Vous pouvez néanmoins activer les sources de données héritées. Dans ce cas, vous pouvez utiliser l’**Assistant Importation de table** pour vous connecter à certaines sources de données traditionnellement prises en charge dans les modèles tabulaires 1200 et inférieurs en tant que sources de données *héritées* ou *fournisseur*. Quand il est spécifié en tant que source de données fournisseur, vous pouvez spécifier un fournisseur de données particulier et d’autres propriétés de connexion avancées. Par exemple, vous pouvez vous connecter à une instance SQL Server Data Warehouse locale ou même à une base de données Azure SQL Database en guise de source de données héritée. Vous pouvez alors sélectionner fournisseur de données MSOLEDBSQL OLE DB Driver pour SQL Server. Dans ce cas, la sélection d’un fournisseur de données OLE DB peut offrir de meilleures performances que le connecteur Power Query. 
 
-Lorsque vous migrez un modèle tabulaire SQL Server Analysis Services local vers Azure Analysis Services, il peut être nécessaire de modifier le fournisseur.
+Quand l’Assistant Importation de table de Visual Studio est utilisé, un fournisseur de données est nécessaire pour se connecter à une source de données. Un fournisseur de données par défaut est alors sélectionné automatiquement. Vous pouvez changer de fournisseur de données si nécessaire. Le type de fournisseur choisi peut dépendre des performances, que le modèle utilise le stockage en mémoire ou DirectQuery, et de la plateforme Analysis Services sur laquelle vous déployez votre modèle.
 
-**Pour spécifier un fournisseur**
+### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>Spécifier des sources de données fournisseur dans les projets de modèle tabulaire 1400 et supérieur
 
-1. Dans Visual Studio > **Explorateur de modèles tabulaires** > **Sources de données**, cliquez avec le bouton droit sur une connexion de source de données, puis sur **Modifier la source de données**.
-2. Dans **Modifier la connexion**, cliquez sur **Avancé** pour ouvrir la fenêtre de propriétés avancées.
-3. Dans **Définir les propriétés avancées** > **Fournisseurs**, sélectionnez le fournisseur approprié.
+Pour activer des sources de données fournisseur, dans Visual Studio, cliquez sur **Outils** > **Options** > **Analysis Services Tabular** > **Importation des données**, sélectionnez **Activer les sources de données héritées**.
+
+![Activer les sources de données héritées](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
+
+Une fois les sources de données héritées activées, dans **Explorateur de modèles tabulaires**, cliquez avec le bouton droit sur **Sources de données** > **Importer depuis une source de données (hérité)** .
+
+![Sources de données héritées dans l’Explorateur de modèles tabulaires](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+
+À l’instar des projets de modèle tabulaire 1200, utilisez l’**Assistant Importation de table** pour vous connecter à une source de données. Dans la page de connexion, cliquez sur **Avancé**. Spécifiez le fournisseur de données et les autres paramètres de connexion dans **Définir les propriétés avancées**.
+
+![Sources de données héritées, propriétés avancées](media/analysis-services-datasource/aas-import-legacy-advanced.png)
+
 
 ## <a name="impersonation"></a>Emprunt d’identité
 Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio ou SSMS.

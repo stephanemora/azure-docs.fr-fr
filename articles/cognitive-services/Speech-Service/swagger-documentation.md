@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 232435a424d2461bce4598356a986473cb1d3644
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dd9ac9654f916653af974e816485630423466ae5
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552574"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815423"
 ---
 # <a name="swagger-documentation"></a>Documentation Swagger
 
-Les services Speech offre une spécification Swagger pour interagir avec quelques API REST utilisées pour importer des données, créer des modèles, tester la précision des modèles, créer des points de terminaison personnalisés, mettre en file d’attente des transcriptions par lots et gérer des abonnements. La plupart des opérations disponibles par le biais du portail Custom Speech peuvent être effectuées par programmation à l’aide de ces API.
+Le service Speech offre une spécification Swagger pour interagir avec quelques API REST utilisées pour importer des données, créer des modèles, tester le niveau de justesse des modèles, créer des points de terminaison personnalisés, mettre en file d’attente des transcriptions par lots et gérer des abonnements. La plupart des opérations disponibles par le biais du portail Custom Speech peuvent être effectuées par programmation à l’aide de ces API.
 
 > [!NOTE]
 > Les opérations de reconnaissance vocale et de synthèse vocale sont prises en charge et disponibles en tant qu’API REST, à leur tour décrites dans la spécification Swagger.
@@ -28,15 +28,15 @@ Les services Speech offre une spécification Swagger pour interagir avec quelque
 
 La [spécification Swagger](https://cris.ai/swagger/ui/index) comporte des options qui vous permettent de tester rapidement divers parcours. En revanche, il est parfois souhaitable de générer du code pour tous les parcours, en créant une bibliothèque unique d’appels sur laquelle vous pouvez baser les futures solutions. Intéressons-nous au processus permettant de générer une bibliothèque Python.
 
-Vous avez besoin de définir Swagger sur la même région que celle de votre abonnement aux services Speech. Vous pouvez vérifier votre région dans le portail Azure sous votre ressource Services Speech. Pour obtenir la liste complète des régions prises en charge, consultez [Régions](regions.md).
+Vous avez besoin de définir Swagger sur la même région que celle de votre abonnement au service Speech. Vous pouvez vérifier votre région dans le portail Azure, sous votre ressource Speech. Pour obtenir la liste complète des régions prises en charge, consultez [Régions](regions.md).
 
 1. Accédez à https://editor.swagger.io
 2. Cliquez sur **Fichier**, puis sur **Importer**
-3. Entrez l’URL de Swagger, en incluant la région de votre abonnement aux services Speech `https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Entrez l’URL de Swagger, en y incluant la région de votre abonnement au service Speech : `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Cliquez sur **Générer un client** et sélectionnez Python
 5. Obtenez la bibliothèque de client
 
-Vous pouvez utiliser la bibliothèque Python que vous avez générée avec les [exemples de services Speech sur GitHub](https://aka.ms/csspeech/samples).
+Vous pouvez utiliser la bibliothèque Python que vous avez générée avec les [exemples du service Speech sur GitHub](https://aka.ms/csspeech/samples).
 
 ## <a name="reference-docs"></a>Documents de référence
 
@@ -46,5 +46,5 @@ Vous pouvez utiliser la bibliothèque Python que vous avez générée avec les [
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exemples de services Speech sur GitHub](https://aka.ms/csspeech/samples)
-* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+* [Exemples Speech sur GitHub](https://aka.ms/csspeech/samples)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)

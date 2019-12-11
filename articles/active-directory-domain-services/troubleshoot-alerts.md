@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3286d3e786fc5b0e7a772f5b0e3caa3acf38671e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257943"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703957"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes courantes et résolutions dans Azure Active Directory Domain Services
 
@@ -133,7 +133,7 @@ Azure AD DS crée des ressources spécifiques (telles que des adresses IP publiq
 
 Cette alerte est générée quand l’une de ces ressources requises est supprimée. Si la ressource a été supprimée il y a moins de quatre heures, il y a une chance que la plateforme Azure puisse recréer automatiquement la ressource supprimée. Les étapes suivantes décrivent comment vérifier l’état d’intégrité et l’horodatage pour la suppression des ressources :
 
-1. Dans le portail Azure, recherchez et sélectionnez **Services de domaine**. Choisissez votre domaine managé Azure AD DS, par exemple *contoso.com*.
+1. Dans le portail Azure, recherchez et sélectionnez **Services de domaine**. Choisissez votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
 1. Dans le volet de navigation gauche, sélectionnez **Intégrité**.
 1. Dans la page d’intégrité, sélectionnez l’alerte avec l’ID *AADDS109*.
 1. L’alerte a un horodatage correspondant au moment où elle a été initialement détectée. Si cet horodatage est inférieur à quatre heures, la plateforme Azure peut être en mesure de recréer automatiquement la ressource et de résoudre l’alerte par elle-même.

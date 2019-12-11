@@ -1,6 +1,6 @@
 ---
-title: Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et d'Azure PowerShell | Microsoft Docs
-description: Apprenez à gérer la façon dont les utilisateurs, les groupes et les applications accèdent aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell. Apprenez notamment à lister, à accorder et à supprimer des accès.
+title: Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
+description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et d’Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,271 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c92cf6ae8777a343432d9d54dd7fcbedbb6b210c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 9c16ec978a0689059c60903182337936960c7a4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384011"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707850"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell
+# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
 
-Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Cet article décrit comment gérer l’accès pour les utilisateurs, groupes et applications à l’aide de RBAC et d’Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article explique comment attribuer des rôles à l’aide d’Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour gérer les accès, il vous faudra l’un des éléments suivants :
+Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
-* [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
-
-## <a name="list-roles"></a>Répertorier les rôles
-
-### <a name="list-all-available-roles"></a>Répertorier tous les rôles disponibles
-
-Pour répertorier les rôles RBAC pouvant être affectés et inspecter les opérations auxquelles ils accordent l’accès, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
-
-```azurepowershell
-Get-AzRoleDefinition | FT Name, Description
-```
-
-```Example
-AcrImageSigner                                    acr image signer
-AcrQuarantineReader                               acr quarantine data reader
-AcrQuarantineWriter                               acr quarantine data writer
-API Management Service Contributor                Can manage service and the APIs
-API Management Service Operator Role              Can manage service but not the APIs
-API Management Service Reader Role                Read-only access to service and APIs
-Application Insights Component Contributor        Can manage Application Insights components
-Application Insights Snapshot Debugger            Gives user permission to use Application Insights Snapshot Debugge...
-Automation Job Operator                           Create and Manage Jobs using Automation Runbooks.
-Automation Operator                               Automation Operators are able to start, stop, suspend, and resume ...
-...
-```
-
-### <a name="list-a-specific-role"></a>Répertorier un rôle
-
-Pour répertorier un rôle, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
-
-```azurepowershell
-Get-AzRoleDefinition <role_name>
-```
-
-```Example
-PS C:\> Get-AzRoleDefinition "Contributor"
-
-Name             : Contributor
-Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
-IsCustom         : False
-Description      : Lets you manage everything except access to resources.
-Actions          : {*}
-NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-                   Microsoft.Authorization/elevateAccess/Action}
-DataActions      : {}
-NotDataActions   : {}
-AssignableScopes : {/}
-```
-
-## <a name="list-a-role-definition"></a>Lister les définitions de rôle
-
-### <a name="list-a-role-definition-in-json-format"></a>Lister les définitions de rôle au format JSON
-
-Pour lister des définitions de rôle au format JSON, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
-
-```azurepowershell
-Get-AzRoleDefinition <role_name> | ConvertTo-Json
-```
-
-```Example
-PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
-
-{
-  "Name": "Contributor",
-  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-  "IsCustom": false,
-  "Description": "Lets you manage everything except access to resources.",
-  "Actions": [
-    "*"
-  ],
-  "NotActions": [
-    "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action",
-    "Microsoft.Blueprint/blueprintAssignments/write",
-    "Microsoft.Blueprint/blueprintAssignments/delete"
-  ],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/"
-  ]
-}
-```
-
-### <a name="list-actions-of-a-role"></a>Répertorier les actions d'un rôle
-
-Pour répertorier les actions d’un rôle, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
-
-```azurepowershell
-Get-AzRoleDefinition <role_name> | FL Actions, NotActions
-```
-
-```Example
-PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
-
-Actions    : {*}
-NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-             Microsoft.Authorization/elevateAccess/Action,
-             Microsoft.Blueprint/blueprintAssignments/write...}
-```
-
-```azurepowershell
-(Get-AzRoleDefinition <role_name>).Actions
-```
-
-```Example
-PS C:\> (Get-AzRoleDefinition "Virtual Machine Contributor").Actions
-
-Microsoft.Authorization/*/read
-Microsoft.Compute/availabilitySets/*
-Microsoft.Compute/locations/*
-Microsoft.Compute/virtualMachines/*
-Microsoft.Compute/virtualMachineScaleSets/*
-Microsoft.DevTestLab/schedules/*
-Microsoft.Insights/alertRules/*
-Microsoft.Network/applicationGateways/backendAddressPools/join/action
-Microsoft.Network/loadBalancers/backendAddressPools/join/action
-...
-```
-
-## <a name="list-access"></a>Répertorier les accès
-
-Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès.
-
-### <a name="list-all-role-assignments-in-a-subscription"></a>Répertorier toutes les attributions de rôles dans un abonnement
-
-Le moyen le plus simple d’obtenir une liste de toutes les attributions de rôle de l’abonnement actuel (y compris les attributions de rôle héritées de la racine et des groupes de gestion) consiste à utiliser [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) sans aucun paramètre.
-
-```azurepowershell
-Get-AzRoleAssignment
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment
-
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
-DisplayName        : Alain
-SignInName         : alain@example.com
-RoleDefinitionName : Storage Blob Data Reader
-RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
-ObjectId           : 44444444-4444-4444-4444-444444444444
-ObjectType         : User
-CanDelegate        : False
-
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-DisplayName        : Marketing
-SignInName         :
-RoleDefinitionName : Contributor
-RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-ObjectId           : 22222222-2222-2222-2222-222222222222
-ObjectType         : Group
-CanDelegate        : False
-
-...
-```
-
-### <a name="list-role-assignments-for-a-user"></a>Répertorier les attributions de rôles pour un utilisateur
-
-Pour répertorier tous les rôles qui sont attribués à un utilisateur, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
-
-```azurepowershell
-Get-AzRoleAssignment -SignInName <email_or_userprincipalname>
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
-
-DisplayName        : Isabella Simonsen
-RoleDefinitionName : BizTalk Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-```
-
-Pour répertorier tous les rôles attribués à un utilisateur et les rôles attribués aux groupes auxquels appartient l’utilisateur, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
-
-```azurepowershell
-Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGroups
-```
-
-```Example
-Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
-```
-
-### <a name="list-role-assignments-at-a-resource-group-scope"></a>Lister les attributions de rôle dans l’étendue d’un groupe de ressources
-
-Pour lister toutes les attributions de rôle dans l’étendue d’un groupe de ressources, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
-
-```azurepowershell
-Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales | FL DisplayName, RoleDefinitionName, Scope
-
-DisplayName        : Alain Charon
-RoleDefinitionName : Backup Operator
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-
-DisplayName        : Isabella Simonsen
-RoleDefinitionName : BizTalk Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-
-DisplayName        : Alain Charon
-RoleDefinitionName : Virtual Machine Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-```
-
-### <a name="list-role-assignments-at-a-subscription-scope"></a>Lister les attributions de rôle dans l’étendue d’un abonnement
-
-Pour lister toutes les attributions de rôle dans l’étendue d’un abonnement, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Pour obtenir l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure ou utiliser [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
-
-```azurepowershell
-Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
-```
-
-### <a name="list-role-assignments-at-a-management-group-scope"></a>Lister les attributions de rôle dans l’étendue d’un groupe d’administration
-
-Pour lister toutes les attributions de rôle dans l’étendue d’un groupe d’administration, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Pour obtenir l’ID du groupe d’administration, accédez au panneau **Groupes d’administration** dans le portail Azure ou utilisez [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
-
-```azurepowershell
-Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
-```
-
-### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Répertorier les attributions de rôles pour l’administrateur de service classique et les coadministrateurs
-
-Pour lister les attributions de rôle des administrateurs et des coadministrateurs d’abonnements classiques, utilisez [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
-
-```azurepowershell
-Get-AzRoleAssignment -IncludeClassicAdministrators
-```
+- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
+- [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Récupérer des ID d’objet
 
-Pour répertorier, ajouter ou supprimer des attributions de rôles, vous devrez peut-être spécifier l’ID unique d’un objet. L’ID a le format : `11111111-1111-1111-1111-111111111111`. Vous pouvez récupérer l’ID à l’aide du Portail Azure ou d’Azure PowerShell.
+Pour ajouter ou supprimer des attributions de rôles, vous devrez peut-être spécifier l’ID unique d’un objet. L’ID a le format : `11111111-1111-1111-1111-111111111111`. Vous pouvez récupérer l’ID à l’aide du Portail Azure ou d’Azure PowerShell.
 
 ### <a name="user"></a>Utilisateur
 
@@ -304,13 +65,13 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 (Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
-## <a name="grant-access"></a>Accorder l'accès
+## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
+Dans le contrôle d’accès en fonction du rôle (RBAC), vous ajoutez une attribution de rôle pour accorder l’accès.
 
-### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Créer une attribution de rôle pour un utilisateur à une étendue de groupe de ressources
+### <a name="user-at-a-resource-group-scope"></a>Utilisateur dans l’étendue d’un groupe de ressources
 
-Pour accorder l’accès à un utilisateur dans l’étendue d’un groupe de ressources, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Pour ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe de ressources, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -332,7 +93,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Créer une affectation de rôle à l’aide de l’ID unique de rôle
+### <a name="using-the-unique-role-id"></a>Utilisation de l’ID de rôle unique
 
 Un nom de rôle peut changer dans certaines circonstances, par exemple :
 
@@ -345,7 +106,7 @@ Un nom de rôle peut changer dans certaines circonstances, par exemple :
 
 Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez des scripts ou une automatisation pour créer vos attributions de rôles, il est recommandé d’utiliser l’ID de rôle unique au lieu du nom de rôle. Par conséquent, si un rôle est renommé, vos scripts sont plus susceptibles de fonctionner.
 
-Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au lieu du nom de rôle, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Pour ajouter une attribution de rôle à l’aide de l’ID de rôle unique au lieu du nom de rôle, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
@@ -367,9 +128,9 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Créer une attribution de rôle pour un groupe à une étendue de ressources
+### <a name="group-at-a-resource-scope"></a>Groupe dans l’étendue d’une ressource
 
-Pour accorder l’accès à un groupe dans l’étendue d’une ressource, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
+Pour ajouter une attribution de rôle pour un groupe dans l’étendue d’une ressource, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -398,9 +159,9 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Créer une attribution de rôle pour une application à une étendue d’abonnement
+### <a name="application-at-a-subscription-scope"></a>Application dans l’étendue d’un abonnement
 
-Pour accorder l’accès à une application dans l’étendue d’un abonnement, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet de l’application, consultez [Récupérer des ID d’objet](#get-object-ids).
+Pour ajouter une attribution de rôle pour une application dans l’étendue d’un abonnement, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour plus d’informations sur la récupération de l’ID d’objet de l’application, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
@@ -420,9 +181,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Créer une attribution de rôle pour un utilisateur dans l’étendue d’un groupe d’administration
+### <a name="user-at-a-management-group-scope"></a>Utilisateur dans l’étendue d’un groupe d’administration
 
-Pour accorder l’accès à un utilisateur dans l’étendue d’un groupe d’administration, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour obtenir l’ID du groupe d’administration, accédez au panneau **Groupes d’administration** dans le portail Azure ou utilisez [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Pour ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe d’administration, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Pour obtenir l’ID du groupe d’administration, accédez au panneau **Groupes d’administration** dans le portail Azure ou utilisez [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -442,7 +203,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Suppression d'accès
+## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
 Pour supprimer l’accès dans RBAC, supprimez une attribution de rôle en utilisant [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -468,6 +229,7 @@ Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](role-assignments-list-powershell.md)
 - [Tutoriel : Permettre à un groupe d'accéder aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

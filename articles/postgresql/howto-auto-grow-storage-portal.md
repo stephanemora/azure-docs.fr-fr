@@ -1,17 +1,17 @@
 ---
-title: Augmenter automatiquement le stockage à l’aide du portail Azure dans Azure Database pour PostgreSQL - Serveur unique
-description: Cet article explique comment vous pouvez activer la croissance automatique du stockage avec le portail Azure dans Azure Database pour PostgreSQL - Serveur unique
+title: Augmenter automatiquement le stockage - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment configurer la croissance automatique du stockage avec le portail Azure dans Azure Database pour PostgreSQL - Serveur unique
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: 1d028093b030e1f2cf00ceae9297563c36c314c5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5e4f9d68d02edf456394d4ce10b7b6af5f8643d9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142873"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769232"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Augmenter automatiquement le stockage à l’aide du portail Azure dans Azure Database pour PostgreSQL - Serveur unique
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour PostgreSQL sans affecter la charge de travail.

@@ -2,13 +2,13 @@
 title: Déploiement conditionnel avec des modèles
 description: Décrit comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: e3d78f875e39628194ac30310314e59e2ef19fdb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: ec2337686f92bb631ae4b08ce125eb576cd8bd69
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147171"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806471"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Déploiement conditionnel dans des modèles Azure Resource Manager
 
@@ -78,6 +78,8 @@ Pour le modèle complet, voir [Serveur logique SQL Azure](https://github.com/Azu
 Si vous utilisez une fonction de [référence](resource-group-template-functions-resource.md#reference) ou de [liste](resource-group-template-functions-resource.md#list) avec une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si la fonction fait référence à une ressource qui n’existe pas.
 
 Utilisez la fonction [if](resource-group-template-functions-logical.md#if) pour vous assurer que la fonction est évaluée uniquement pour les conditions lorsque la ressource est déployée. Consultez la [fonction if](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise « if » et « reference » avec une ressource déployée de manière conditionnelle.
+
+Vous définissez une [ressource comme étant dépendante](resource-group-define-dependencies.md) d’une ressource conditionnelle exactement comme vous le feriez pour une autre ressource. Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
 ## <a name="condition-with-complete-mode"></a>Condition avec le mode complet
 

@@ -1,17 +1,17 @@
 ---
-title: Configurer et consulter les journaux d’audit pour Azure Database for MariaDB dans le Portail Azure
+title: Accéder aux journaux d’audit - Portail Azure - Azure Database for MariaDB
 description: Cet article décrit comment configurer et consulter les journaux d’audit dans Azure Database for MariaDB à partir du Portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 8fadcc8cb418063662df45d4134bef0578ffccda
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 12/02/2019
+ms.openlocfilehash: e3c87143652895c57b464cba229a0e68049ffeb2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444814"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767515"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit sur le Portail Azure
 
@@ -40,7 +40,7 @@ Activez et configurez l’enregistrement d’audit.
 1. Mettez à jour le paramètre **audit_log_enabled** sur ON.
     ![Activer les journaux d’audit](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Sélectionnez les [types d’événements](concepts-audit-logs.md#configure-audit-logging) à journaliser en mettant à jour le paramètre **audit_log_events**.
+1. Sélectionnez les [types d’événements](concepts-audit-logs.md#configure-audit-logging) à enregistrer en mettant à jour le paramètre **audit_log_events**.
     ![Événements du journal d’audit](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Ajoutez des utilisateurs MariaDB à exclure de la journalisation en mettant à jour le paramètre **audit_log_exclude_users**. Spécifiez les utilisateurs en fournissant leur nom d’utilisateur MariaDB.
@@ -55,11 +55,11 @@ Activez et configurez l’enregistrement d’audit.
 
 1. Cliquez sur « + Ajouter un paramètre de diagnostic » ![Ajouter un paramètre de diagnostic](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
-1. Saisissez un nom de paramètre de diagnostic.
+1. Entrez un nom de paramètre de diagnostic.
 
 1. Spécifiez les récepteurs de données auxquels envoyer les journaux d’audit (compte de stockage, hub d’événements et/ou espace de travail Log Analytics).
 
-1. Sélectionnez « MySqlAuditLogs » comme type de journal.
+1. Sélectionnez « MySqlAuditLogs » comme type de journal.
 ![Configurer un paramètre de diagnostic](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
 1. Une fois que vous avez configuré les récepteurs de données auxquels envoyer les journaux d’audit, vous pouvez cliquer sur **Enregistrer**.

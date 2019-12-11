@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240659"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815787"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connecter des données de journaux Office 365
 
@@ -42,12 +42,12 @@ Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic
 
 1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** puis cliquez sur la vignette **Office 365**.
 
-2. Si vous ne l’avez pas déjà fait, sous **connexion**, utilisez le bouton **Activer** pour activer la solution Office 365. Si elle a déjà été activée, elle est identifiée dans l’écran de connexion comme étant déjà activée.
+2. Si vous ne l’avez pas encore activé, vous pouvez le faire en accédant au panneau **Connecteurs de données**, puis en sélectionnant le connecteur **Office 365**. Ici, vous pouvez cliquer sur **Ouvrir la page du connecteur**, puis sous la section de configuration intitulée **Activer la solution Office 365 sur votre espace de travail**, utilisez le bouton **Installer la solution** pour l’activer. Si elle a déjà été activée, elle est identifiée dans l’écran de connexion comme étant déjà activée.
 1. Office 365 vous permet de diffuser des données dans Azure Sentinel à partir de plusieurs locataires. Pour chaque locataire auquel vous souhaitez vous connecter, ajoutez le locataire sous **Connect tenants to Azure Sentinel** (Connecter des locataires à Azure Sentinel). 
 1. Un écran Active Directory s’ouvre. Vous êtes invité à vous authentifier avec un utilisateur administrateur général sur chaque locataire que vous souhaitez connecter à Azure Sentinel, et à fournir des autorisations sur Azure Sentinel pour lire ses journaux. 
-5. Sous les journaux d’activité Office 365, cliquez sur **Sélectionner** pour choisir les types de journaux que vous souhaitez diffuser en continu dans Azure Sentinel. Azure Sentinel prend actuellement en charge Exchange et SharePoint.
+5. Dans la liste des locataires, vous pouvez voir l’ID d’annuaire Azure AD (ID de locataire) et deux cases à cocher pour les journaux Exchange et SharePoint. Vous pouvez sélectionner un seul ou tous les services listés que vous voulez ingérer dans Sentinel. Actuellement, Azure Sentinel prend en charge les journaux Exchange et SharePoint dans les services Office 365 existants.
 
-4. Cliquez sur **Appliquer les modifications**.
+4. Une fois que vous avez sélectionné les services (Exchange, SharePoint, etc.), vous pouvez cliquer sur Enregistrer dans le cadre d’ajout de locataire se trouvant sur la page. 
 
 3. Pour utiliser le schéma pertinent dans Log Analytics pour les journaux d’activité Office 365, recherchez **OfficeActivity**.
 

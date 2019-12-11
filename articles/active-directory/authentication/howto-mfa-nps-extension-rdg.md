@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec402cf2c741d88d230e5734485bf9eb0dd1b03
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c0eafc12f9207ca93651363316c06eeadb7c8436
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381809"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813185"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -233,7 +233,7 @@ Pour vérifier qu’il y a suffisamment de temps pour valider les informations d
 
 ### <a name="verify-connection-request-policies"></a>Vérifiez les stratégies de demande de connexion
 
-Par défaut, lorsque vous configurez la passerelle des services Bureau à distance pour utiliser un Store de stratégies central pour les stratégies d’autorisation de connexion, la passerelle des services Bureau à distance est configurée pour transmettre les demandes CAP au serveur NPS. Le serveur NPS avec l’extension Azure MFA installé, traite la demande d’accès RADIUS. Les étapes suivantes vous montrent comment vérifier la stratégie de demande de connexion par défaut.
+Par défaut, lorsque vous configurez la passerelle des services Bureau à distance pour utiliser un Store de stratégies central pour les stratégies d’autorisation de connexion, la passerelle des services Bureau à distance est configurée pour transmettre les demandes CAP au serveur NPS. Le serveur NPS avec l’extension Azure MFA installé, traite la demande d’accès RADIUS. Les étapes suivantes vous montrent comment vérifier la stratégie de demande de connexion par défaut.  
 
 1. Sur la passerelle des services Bureau à distance, dans la console NPS (Local), développez **Stratégies**, puis sélectionnez **Stratégies de demande de connexion**.
 1. Double-cliquez sur **STRATÉGIE D’AUTORISATION DE PASSERELLE TS**.
@@ -243,6 +243,9 @@ Par défaut, lorsque vous configurez la passerelle des services Bureau à distan
    ![Configurer les paramètres d’authentification en spécifiant le groupe de serveurs](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Cliquez sur **Annuler**.
+
+>[!NOTE]
+> Pour plus d’informations sur la création d’une stratégie de demande de connexion, consultez l’article [Configurer des stratégies de demande de connexion](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) dans la documentation. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurer le serveur NPS sur le serveur où est installée l’extension NPS
 

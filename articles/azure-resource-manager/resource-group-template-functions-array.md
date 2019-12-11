@@ -3,12 +3,12 @@ title: Fonctions des modèles - tableaux et objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d530027c05195caf8b93a61f4e002ce835d021c5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6722736cad5ad76544be336a2cba85c5ad768781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149677"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786213"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 
@@ -34,11 +34,8 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des tablea
 
 Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consultez [split](resource-group-template-functions-string.md#split).
 
-<a id="array" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="array"></a>array
+
 `array(convertToArray)`
 
 Convertit la valeur en tableau.
@@ -114,9 +111,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
-<a id="coalesce" />
-
 ## <a name="coalesce"></a>coalesce
+
 `coalesce(arg1, arg2, arg3, ...)`
 
 Retourne la première valeur non null à partir des paramètres. Les chaînes vides, les tableaux vides et les objets vides ne sont pas null.
@@ -202,9 +198,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
-<a id="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat(arg1, arg2, arg3, ...)`
 
 Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée. 
@@ -216,9 +211,10 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 | arg1 |OUI |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
 | arguments supplémentaires |Non |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
 
-Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
+Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Toutefois, vous ne pouvez pas fournir à la fois des tableaux et des chaînes pour les paramètres. Les tableaux sont concaténés uniquement avec d’autres tableaux.
 
 ### <a name="return-value"></a>Valeur de retour
+
 Chaîne ou tableau de valeurs concaténées.
 
 ### <a name="example"></a>Exemples
@@ -316,9 +312,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-<a id="contains" />
-
 ## <a name="contains"></a>contains
+
 `contains(container, itemToFind)`
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne. La comparaison de chaînes est sensible à la casse. Cependant, quand vous testez si un objet contient une clé, la comparaison n’est pas sensible à la casse.
@@ -410,9 +405,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-<a id="createarray" />
-
 ## <a name="createarray"></a>createarray
+
 `createArray (arg1, arg2, arg3, ...)`
 
 Crée un tableau à partir des paramètres.
@@ -489,8 +483,6 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
-
-<a id="empty" />
 
 ## <a name="empty"></a>empty
 
@@ -569,9 +561,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-<a id="first" />
-
 ## <a name="first"></a>first
+
 `first(arg1)`
 
 Retourne le premier élément du tableau ou le premier caractère de la chaîne.
@@ -634,9 +625,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-<a id="intersection" />
-
 ## <a name="intersection"></a>intersection
+
 `intersection(arg1, arg2, arg3, ...)`
 
 Retourne un tableau ou un objet unique avec les éléments communs à partir des paramètres.
@@ -714,6 +704,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="json"></a>json
+
 `json(arg1)`
 
 Renvoie un objet JSON.
@@ -723,7 +714,6 @@ Renvoie un objet JSON.
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |string |La valeur à convertir au format JSON. |
-
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -786,9 +776,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
-<a id="last" />
-
 ## <a name="last"></a>last
+
 `last (arg1)`
 
 Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
@@ -851,9 +840,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-<a id="length" />
-
 ## <a name="length"></a>length
+
 `length(arg1)`
 
 Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîne ou les propriétés au niveau de la racine d’un objet.
@@ -951,9 +939,8 @@ Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d�
 
 Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
-<a id="max" />
-
 ## <a name="max"></a>max
+
 `max(arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
@@ -1015,9 +1002,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
-<a id="min" />
-
 ## <a name="min"></a>min
+
 `min(arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
@@ -1079,9 +1065,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
-<a id="range" />
-
 ## <a name="range"></a>range
+
 `range(startingInteger, numberOfElements)`
 
 Crée un tableau d’entiers à partir d’un entier de départ et contenant un nombre d’éléments.
@@ -1143,9 +1128,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
-<a id="skip" />
-
 ## <a name="skip"></a>skip
+
 `skip(originalValue, numberToSkip)`
 
 Retourne un tableau avec tous les éléments après le nombre spécifié dans le tableau, ou retourne une chaîne avec tous les caractères après le nombre spécifié dans la chaîne.
@@ -1224,9 +1208,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-<a id="take" />
-
 ## <a name="take"></a>take
+
 `take(originalValue, numberToTake)`
 
 Retourne un tableau avec le nombre spécifié d’éléments à partir du début du tableau, ou une chaîne avec le nombre spécifié de caractères à partir du début de la chaîne.
@@ -1305,9 +1288,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-<a id="union" />
-
 ## <a name="union"></a>union
+
 `union(arg1, arg2, arg3, ...)`
 
 Retourne un tableau ou un objet unique avec tous les éléments communs à partir des paramètres. Les valeurs ou les clés en double sont uniquement incluses une seule fois.
@@ -1385,6 +1367,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104398"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777558"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Superviser les performances des clusters dans Azure HDInsight
 
@@ -31,9 +31,9 @@ Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge,
 | --- | --- |
 | Rouge | Au moins un composant maître de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
 | Orange | Au moins un composant secondaire de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
-| Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de 3 minutes. |
+| Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de trois minutes. |
 | Vert | L’état de fonctionnement est normal. |
-
+ 
 Le tableau de bord comporte également des colonnes indiquant le nombre de cœurs et la quantité de RAM de chaque hôte, ainsi que l’utilisation du disque et la charge moyenne.
 
 ![Apache Ambari - Vue d’ensemble de l’onglet hôtes](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -72,11 +72,11 @@ Dans l’interface utilisateur Resource Manager, sélectionnez **Scheduler** (Pl
 
 ## <a name="storage-throttling"></a>Limitation du stockage
 
-Un goulot d’étranglement des performances d’un cluster peut survenir au niveau du stockage. Ce type de goulot d’étranglement est généralement dû au *blocage* des opérations d’entrée/sortie (E/S), qui se produit lorsque vos tâches en cours d’exécution envoient plus d’E/S que le service de stockage ne peut en traiter. Ce blocage crée une file d’attente des requêtes d’E/S en attente de traitement, le temps que les E/S actuelles soient traitées. Les blocages découlent d’une *limitation du stockage*, qui ne constitue pas une limite physique, mais plutôt une limite imposée par le service de stockage en vertu d’un contrat de niveau de service (SLA). Cette limite évite tout risque qu’un client ou locataire monopolise le service. Le SLA limite le nombre d’E/S par seconde (IOPS) pour le stockage Azure. Pour plus d’informations, consultez l’article [Objectifs de performance et d’extensibilité du Stockage Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+Un goulot d’étranglement des performances d’un cluster peut survenir au niveau du stockage. Ce type de goulot d’étranglement est généralement dû au *blocage* des opérations d’entrée et de sortie (E/S), qui se produit si vos tâches en cours d’exécution envoient plus d’E/S que le service de stockage ne peut en traiter. Ce blocage crée une file d’attente des requêtes d’E/S en attente de traitement, le temps que les E/S actuelles soient traitées. Les blocages découlent d’une *limitation du stockage*, qui n’est pas une limite physique, mais plutôt une limite imposée par le service de stockage en vertu d’un contrat de niveau de service (SLA). Cette limite évite tout risque qu’un client ou locataire monopolise le service. Le SLA limite le nombre d’E/S par seconde (IOPS) pour le stockage Azure. Pour plus d’informations, consultez l’article [Objectifs de performance et d’extensibilité du Stockage Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
-Si vous utilisez le service Stockage Azure et que vous souhaitez en savoir plus sur la surveillance des problèmes liés au stockage, notamment la limitation, consultez l’article [Surveiller, diagnostiquer et résoudre les problèmes liés à Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Si vous utilisez le service Stockage Azure et que vous souhaitez en savoir plus sur la supervision des problèmes liés au stockage, notamment la limitation, consultez l’article [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Si la banque de stockage de votre cluster est Azure Data Lake Storage (ADLS), votre problème de limitation découle probablement des limites de bande passante. Dans ce cas, vous pouvez identifier la limitation en consultant les erreurs de limitation consignées dans les journaux d’activité des tâches. Pour ADLS, consultez la section sur la limitation relative au service approprié dans les articles suivants :
+Si le magasin de stockage de votre cluster est Azure Data Lake Storage (ADLS), le problème de limitation découle probablement des limites de bande passante. Dans ce cas, vous pouvez identifier la limitation en consultant les erreurs de limitation consignées dans les journaux d’activité des tâches. Pour ADLS, consultez la section sur la limitation relative au service approprié dans les articles suivants :
 
 * [Recommandations en matière d’optimisation des performances pour Apache Hive sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)

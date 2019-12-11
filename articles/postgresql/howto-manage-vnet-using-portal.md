@@ -1,17 +1,17 @@
 ---
-title: Création et gestion des points de terminaison de service de réseau virtuel et des règles dans Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
+title: Utiliser des règles de réseau virtuel - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Création et gestion des points de terminaison de service de réseau virtuel et des règles Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 35120f835d4baf3cda8bd1e742071a2fa01ae1cc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3146554cf9fa49e50f6ae24d3c0984bbc081760
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610355"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770252"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Création et gestion des points de terminaison de service et des règles de réseau virtuel dans Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour PostgreSQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour PostgreSQL.

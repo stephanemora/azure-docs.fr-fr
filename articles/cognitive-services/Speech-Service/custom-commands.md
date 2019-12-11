@@ -1,5 +1,5 @@
 ---
-title: Commandes personnalisées (préversion) - Speech Services
+title: Commandes personnalisées (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités et des restrictions relatives à Commandes personnalisées (préversion), une solution permettant de créer des assistants vocaux.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579703"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806301"
 ---
 # <a name="custom-commands-preview"></a>Commandes personnalisées (préversion)
 
@@ -49,7 +49,7 @@ Un exemple de code pour la création d’un assistant vocal avec la solution Com
 
 ## <a name="customization"></a>Personnalisation
 
-Les assistants vocaux créés à l’aide d’Azure Speech Services peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
+Les assistants vocaux créés à l’aide du service Speech peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Les options de personnalisation varient selon la langue/paramètres régionaux (voir [Langues prises en charge](supported-languages.md)).
@@ -60,5 +60,5 @@ Les assistants vocaux créés à l’aide d’Azure Speech Services peuvent util
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
 * [Obtenir le kit SDK Speech](speech-sdk.md)

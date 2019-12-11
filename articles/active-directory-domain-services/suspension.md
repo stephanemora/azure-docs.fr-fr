@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693312"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704275"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Comprendre les états d’intégrité et résoudre les domaines suspendus dans Azure Active Directory Domain Services
 
@@ -96,7 +96,7 @@ Vous voyez une [alerte][resolve-alerts] dans la page d’intégrité Azure AD DS
 Pour restaurer l’intégrité d’un domaine managé Azure AD DS qui est dans l’état *Suspendu*, procédez comme suit :
 
 1. Dans le portail Azure, recherchez et sélectionnez **Services de domaine**.
-1. Choisissez votre domaine managé Azure AD DS dans la liste, par exemple *contoso.com*, puis sélectionnez **Intégrité**.
+1. Choisissez votre domaine managé Azure AD DS dans la liste, par exemple *aadds.contoso.com*, puis sélectionnez **Intégrité**.
 1. Sélectionnez l’alerte, par exemple *AADDS503* ou *AADDS504*, selon la cause de la suspension.
 1. Choisissez le lien de résolution fourni dans l’alerte et suivez les étapes indiquées.
 

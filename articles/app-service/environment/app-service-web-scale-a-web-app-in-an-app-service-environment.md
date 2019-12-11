@@ -1,27 +1,20 @@
 ---
-title: Comment mettre à l’échelle une application dans un environnement App Service Environment - Azure
-description: Mise à l'échelle d'une application dans un environnement App Service
-services: app-service
-documentationcenter: ''
+title: Mettre à l’échelle une application dans ASE v1
+description: Mise à l'échelle d'une application dans un environnement App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069730"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688676"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>Mise à l'échelle des applications dans un environnement App Service
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Mise à l’échelle d’applications dans un environnement App Service v1
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
 
 * Plan de tarification

@@ -1,17 +1,17 @@
 ---
-title: Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
+title: Tarifs du calcul réservé - Azure Database pour PostgreSQL - Serveur unique
 description: Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 634ab645ea49c29bb5624afd82e549dfbc8d0fdf
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123878"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769895"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
 

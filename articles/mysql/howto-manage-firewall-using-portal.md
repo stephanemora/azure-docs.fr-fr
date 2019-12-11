@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des règles de pare-feu MySQL dans Azure Database pour MySQL
+title: Gérer les règles de pare-feu - Portail Azure - Azure Database pour MySQL
 description: Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 823226da671671eaf6380d48a35c20298ec6bf9d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 12/02/2019
+ms.openlocfilehash: b02bae528146a3f0c214b7fbb1d234c1a24b174f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933668"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774238"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour MySQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifiée. 

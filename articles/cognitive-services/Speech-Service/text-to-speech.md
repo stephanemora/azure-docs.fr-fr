@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075705"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815484"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
-Le service de synthèse vocale des services de reconnaissance vocale Azure permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour en obtenir la liste complète, consultez les [langues prises en charge](language-support.md#text-to-speech).
+La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour en obtenir la liste complète, consultez les [langues prises en charge](language-support.md#text-to-speech).
 
 La technologie de synthèse vocale permet aux créateurs de contenu d’interagir avec leurs utilisateurs de différentes façons. La synthèse vocale peut améliorer l’accessibilité en proposant aux utilisateurs une option permettant d’interagir avec le contenu de façon audible. Que l’utilisateur souffre d’une déficience visuelle, de difficultés d’apprentissage, ou qu’il ait besoin d’informations de navigation tout en conduisant, la synthèse vocale peut améliorer une expérience existante. La synthèse vocale constitue également un module complémentaire précieux pour les bots et assistants vocaux.
 
@@ -125,5 +125,5 @@ Un exemple de code pour la synthèse vocale est disponible sur GitHub. Ces exemp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir un abonnement gratuit aux services Speech](get-started.md)
+- [Obtenir un abonnement gratuit au service Speech](get-started.md)
 - [Créer des polices de la voix personnalisées](how-to-customize-voice-font.md)

@@ -1,21 +1,17 @@
 ---
-title: Créer une première application serverless dans Visual Studio - Azure Logic Apps
+title: Créer une première application serverless dans Visual Studio
 description: Créez, déployez et gérez une application serverless avec Azure Logic Apps et Azure Functions dans Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680126"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792969"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Créer votre première application serverless (sans serveur) avec Azure Logic Apps et Azure Functions dans Visual Studio
 

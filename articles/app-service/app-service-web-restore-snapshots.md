@@ -1,26 +1,19 @@
 ---
-title: Restaurer à partir d'une sauvegarde - Azure App Service
-description: Découvrez comment restaurer votre application à partir d’un instantané.
-services: app-service
-documentationcenter: ''
+title: Restaurer une application à partir d’un instantané
+description: Découvrez comment restaurer votre application à partir d’un instantané. Récupérez après une perte de données inattendue dans le niveau Premium grâce aux clichés instantanés automatiques.
 author: ahmedelnably
-manager: cfowler
-editor: ''
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5b48e05d6bd9a310b4527300126464c4b755c8d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639749"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671134"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauration d’une application dans Azure à partir d’un instantané
 Cet article explique comment restaurer une application dans [Azure App Service](../app-service/overview.md) à partir d’un instantané. Vous pouvez utiliser l’un des instantanés de votre application pour restaurer cette dernière à un état antérieur. Il n’est pas nécessaire d’activer la sauvegarde d’instantanés : la plateforme enregistre automatiquement un instantané de toutes les applications dans le cadre de la récupération de données.

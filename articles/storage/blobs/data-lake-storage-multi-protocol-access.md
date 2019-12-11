@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033979"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769810"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accès multi-protocole pour Azure Data Lake Storage
 
@@ -48,10 +48,13 @@ Les éléments qui apparaissent dans ce tableau changeront au fil du temps, car 
 |Fonctionnalité Stockage Blob | Niveau de support |
 |---|---|
 |[Niveau d’accès froid](storage-blob-storage-tiers.md)|Mise à la disposition générale|
-|SDK d’objets Blob |Mise à la disposition générale|
 |API REST de blobs|Mise à la disposition générale|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Mise à la disposition générale|
-|[INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Mise à la disposition générale|
+|SDK d’objets Blob |Mise à la disposition générale|
+|[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Mise à la disposition générale|
+|[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Mise à la disposition générale|
+|Les SDK des objets blob avec la sémantique du système de fichiers ([.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|PRÉVERSION|
+|[PowerShell avec la sémantique du système de fichiers](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|PRÉVERSION|
+|[CLI avec la sémantique du système de fichiers](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|PRÉVERSION|
 |[Journaux de diagnostic](../common/storage-analytics-logging.md)| PRÉVERSION|
 |[Stratégies de gestion du cycle de vie](storage-lifecycle-management-concepts.md)| PRÉVERSION|
 |[Notifications via Azure Event Grid](data-lake-storage-events.md)|PRÉVERSION|

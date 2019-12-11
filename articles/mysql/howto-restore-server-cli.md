@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL
+title: Sauvegarde et restauration - Azure CLI - Azure Database pour MySQL
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: b265b77e08dda582153efa51c036f4f7a9de8d41
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: b2458c42a77ffee6985165252b0ebab836fce457
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965203"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774135"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -123,6 +123,6 @@ Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez q
 Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [sauvegardes](concepts-backup.md) du service
-- En savoir plus sur les [réplicas](concepts-read-replicas.md)
-- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md)
+- En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
+- En savoir plus sur les [réplicas](concepts-read-replicas.md).
+- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

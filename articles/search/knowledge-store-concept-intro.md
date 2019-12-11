@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720098"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790025"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Présentation des bases de connaissances dans la Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
+> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
 
 La base de connaissances est une fonctionnalité de la Recherche cognitive Azure. Elle permet de conserver la sortie d’un [pipeline d’enrichissement de l’IA](cognitive-search-concept-intro.md) pour une analyse future ou tout autre traitement en aval. Un *document enrichi* est la sortie d’un pipeline, créée à partir d’un contenu qui a été extrait, structuré et analysé à l’aide de processus IA. Dans un pipeline IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents enrichis sont conservés. 
 
@@ -61,7 +61,9 @@ Une `knowledgeStore` se compose d’une connexion et de projections.
 
 + La connexion cible un compte de stockage dans la même région que la Recherche cognitive Azure. 
 
-+ Les projections sont des paires tables-objets. Les `Tables` définissent l’expression physique des documents enrichis dans le stockage Table Azure. Les `Objects` définissent les objets physiques dans le stockage Blob Azure.
++ Les projections peuvent être tabulaires, des objets JSON ou des fichiers. Les `Tables` définissent l’expression physique des documents enrichis dans le stockage Table Azure. Les objets (`Objects`) définissent les objets JSON physiques dans le Stockage Blob Azure. Les fichiers (`Files`) sont des binaires, par exemple des images, qui ont été extraits du document qui sera rendu persistant.
+
++ Les projections sont une collection d’objets de projection, chacun pouvant contenir des `tables`, des objets (`objects`) et des fichiers (`files`). Les enrichissements projetés dans une même projection sont liés, même quand ils sont projetés vers des types (tables, objets ou fichiers). Les projections vers des objets de projection ne sont pas liées et sont indépendantes. La même forme peut être projetée vers plusieurs objets de projection.
 
 ```json
 {
@@ -109,7 +111,10 @@ Une `knowledgeStore` se compose d’une connexion et de projections.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ Une `knowledgeStore` se compose d’une connexion et de projections.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+Cet exemple ne contient aucune image. Pour obtenir un exemple d’utilisation des projections de fichiers, consultez [Utilisation de projections](knowledge-store-projection-overview.md).
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Sources de données d’une base de connaissances
 
 Si une base de connaissances est la sortie d’un pipeline d’enrichissement de l’IA, quelles sont les entrées ? Les données d’origine que vous souhaitez extraire, enrichir et finalement enregistrer dans une base de connaissances peuvent provenir de n’importe quelle source de données Azure prise en charge par les indexeurs de recherche : 

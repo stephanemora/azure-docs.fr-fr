@@ -1,23 +1,23 @@
 ---
-title: Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l’interface de ligne de commande Azure
+title: Gérer les règles de pare-feu - Azure CLI - Azure Database for MariaDB
 description: Cet article explique comment créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 6690c0862b83af70f3beda4190547d6fbb80a601
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038618"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764250"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour avoir une vue d’ensemble des pare-feu Azure Database for MariaDB, consultez [Règles de pare-feu Azure Database for MariaDB](./concepts-firewall-rules.md).
 
-Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l’aide d’Azure CLI](howto-manage-vnet-cli.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -44,7 +44,7 @@ Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azur
 
 2. Utilisez un navigateur web pour ouvrir la page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), puis entrez le code.
 
-3. À l’invite, connectez-vous à l’aide de vos informations d’identification Azure.
+3. À l'invite, connectez-vous à l'aide de vos informations d'identification Azure.
 
 4. Une fois votre connexion autorisée, une liste des abonnements s’affiche dans la console. Copiez l’ID de l’abonnement souhaité pour définir l’abonnement actif à utiliser. Utilisez la commande [az account set](/cli/azure/account#az-account-set).
    ```azurecli-interactive

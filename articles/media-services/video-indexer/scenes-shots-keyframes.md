@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860226"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806702"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -38,9 +38,71 @@ Video Indexer détermine quand une capture change dans la vidéo selon des signa
 
 Sélectionne les images représentant au mieux la capture. Les images clés sont des images représentatives sélectionnées à partir de la vidéo complète, en fonction des propriétés esthétiques (par exemple, contraste et stabilité). Video Indexer récupère une liste d’ID d’images clés faisant partie des métadonnées de la capture, en fonction des clients pouvant extraire la miniature de l’image clé. 
 
-Les images clés sont associées à des captures dans la sortie JSON. 
+### <a name="extracting-keyframes"></a>Extraction d’images clés
+
+Pour extraire des images clés haute résolution pour votre vidéo, vous devez d’abord charger et indexer la vidéo.
+
+![Images clés](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>Avec le site web Video Indexer
+
+Pour extraire des images clés à l’aide du site web Video Indexer, chargez et indexez votre vidéo. Une fois la tâche d’indexation terminée, cliquez sur le bouton **Télécharger** et sélectionnez **Artefacts (ZIP)** . Cela permet de télécharger le dossier d’artefacts sur votre ordinateur. 
+
+![Images clés](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail*, vous trouverez toutes les images clés qui ont été extraites de votre vidéo. 
+
+#### <a name="with-the-video-indexer-api"></a>Avec l’API Video Indexer
+
+Pour récupérer des images clés à l’aide de l’API Video Indexer, chargez et indexez votre vidéo à l’aide de l’appel [Charger la vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?). Une fois la tâche d’indexation terminée, appelez [Obtenir l’index vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Vous obtiendrez ainsi toutes les informations que Video Indexer a extraites de votre contenu dans un fichier JSON.  
+
+Vous obtiendrez une liste d’ID d’images clés dans les métadonnées de chaque plan. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+Vous devrez ensuite exécuter chacun de ces ID d’images clés sur l’appel [Obtenir des miniatures](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?). Chacune des images clés sera alors téléchargée sur votre ordinateur. 
 
 ## <a name="editorial-shot-type-detection"></a>Détection du type de plan éditorial
+
+Les images clés sont associées à des captures dans la sortie JSON. 
 
 Le type de plan associé à un plan individuel dans les insights JSON représente son type éditorial. Vous pouvez trouver ces caractéristiques de type de plan utiles lors de la modification de vidéos dans des clips ou bandes-annonces, ou lors de la recherche d’un style spécifique d’image clé à des fins artistiques. Les différents types sont déterminés en fonction de l’analyse de la première image clé de chaque plan. Les plans sont identifiés par l’échelle, la taille et l’emplacement des visages apparaissant dans leur première image clé. 
 
@@ -63,6 +125,7 @@ Caractéristiques supplémentaires :
 
 * Deux plans : montre les visages de taille moyenne de deux personnes.
 * Plusieurs visages : plus de deux personnes.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

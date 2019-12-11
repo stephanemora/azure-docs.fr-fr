@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481213"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816626"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
-Les services Speech vous permettent de [convertir du texte en voix de synthèse](#convert-text-to-speech) et d’[obtenir une liste de voix prises en charge](#get-a-list-of-voices) pour une région à partir d’un ensemble d’API REST. Chaque point de terminaison disponible est associé à une région. Une clé d’abonnement pour le point de terminaison ou la région que vous prévoyez d’utiliser est nécessaire.
+Le service Speech vous permet de [convertir du texte en voix de synthèse](#convert-text-to-speech) et d’[obtenir une liste de voix prises en charge](#get-a-list-of-voices) pour une région à partir d’un ensemble d’API REST. Chaque point de terminaison disponible est associé à une région. Une clé d’abonnement pour le point de terminaison ou la région que vous prévoyez d’utiliser est nécessaire.
 
 L’API REST de synthèse vocale prend en charge les voix de synthèse vocale neuronales et standard qui, à leur tour, prennent chacune en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
 

@@ -1,21 +1,20 @@
 ---
-title: Se connecter à un serveur IBM MQ - Azure Logic Apps
+title: Se connecter à un serveur IBM MQ
 description: Envoyer et récupérer des messages avec un serveur Azure ou un serveur IBM MQ local et Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: valrobb
 ms.author: valthom
-ms.reviewer: chrishou, LADocs
+ms.reviewer: chrishou, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: a2894799946d069916b27a4f5bcc7bd3244705b2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273128"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789574"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Se connecter à un serveur IBM MQ depuis Azure Logic Apps
 

@@ -1,20 +1,19 @@
 ---
-title: Modèle de tarification et de facturation - Azure Logic Apps
+title: Tarifs et modèles de facturation
 description: Vue d’ensemble du fonctionnement du modèle de facturation et de tarification pour Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-ms.suite: logic-apps
+ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045110"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793427"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 

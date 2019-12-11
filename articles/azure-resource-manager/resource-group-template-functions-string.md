@@ -3,12 +3,12 @@ title: Fonctions de modèle – Chaîne
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 37bf03f2934980d143edeec327a0c424216fd8a1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149614"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784508"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -253,10 +253,13 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |chaîne ou tableau |La première valeur pour la concaténation. |
-| arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
+| arg1 |OUI |chaîne ou tableau |Première chaîne ou premier tableau pour la concaténation. |
+| arguments supplémentaires |Non |chaîne ou tableau |Chaînes ou tableaux supplémentaires en ordre séquentiel pour la concaténation. |
+
+Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Toutefois, vous ne pouvez pas fournir à la fois des tableaux et des chaînes pour les paramètres. Les chaînes sont concaténées uniquement avec d’autres chaînes.
 
 ### <a name="return-value"></a>Valeur de retour
+
 Chaîne ou tableau de valeurs concaténées.
 
 ### <a name="examples"></a>Exemples

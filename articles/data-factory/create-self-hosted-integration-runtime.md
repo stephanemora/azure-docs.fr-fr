@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559312"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672292"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -105,6 +105,7 @@ Vous trouverez ci-dessous les détails relatifs aux paramètres et propriétés 
 | Propriété                                                    | Description                                                  | Obligatoire |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Inscrire un nœud de runtime d'intégration auto-hébergé avec la clé d’authentification spécifiée. | Non       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Inscrire un nœud de runtime d’intégration auto-hébergé avec la clé d’authentification et le nom de nœud spécifiés. | Non       |
 | **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Activer l’accès à distance sur le nœud actuel pour configurer un cluster haute disponibilité. Il est également possible d'activer la définition des informations d’identification directement sur le runtime d’intégration auto-hébergé, sans passer par Azure Data Factory. Pour ce faire, utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’une machine distante du même réseau. | Non       |
 | **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Activer l’accès à distance au nœud actif lorsque le nœud s’exécute dans le conteneur. | Non       |
 | **DisableRemoteAccess**                                         | Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. La cmdlet PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même lorsque l’accès à distance est désactivé. Ce comportement se vérifie tant que la cmdlet est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé. | Non       |
@@ -119,7 +120,7 @@ Vous trouverez ci-dessous les détails relatifs aux paramètres et propriétés 
 | **TurnOnAutoUpdate**                                            | Activer la mise à jour automatique du runtime d'intégration auto-hébergé.        | Non       |
 | **TurnOffAutoUpdate**                                           | Désactiver la mise à jour automatique du runtime d'intégration auto-hébergé.       | Non       |
 | **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez le mot de passe vide (« ») pour les comptes système et comptes virtuels. | Non       |
-| **Loglevel** `<logLevel>`                                       | Définissez le niveau du journal ETW (Event Tracing for Windows) sur **Désactivé**, **Erreur**, **Détaillé** ou **Tous**. Cette propriété est principalement utilisée par les ingénieurs du Support Microsoft lorsqu’ils déboguent votre installation. | Non       |
+
 
 ## <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 

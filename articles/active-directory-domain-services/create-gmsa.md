@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: a943d2a8453cb727e9d01e35b12ca90d939ee5e8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9dc7e6341f77fc17ae26f34ea029b3eb5414dcbc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546313"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705319"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Créer un compte de service administré de groupe (gMSA) dans Azure AD Domain Services
 
@@ -65,7 +65,7 @@ Tout d’abord, créez une unité d’organisation personnalisée à l’aide de
 > [!TIP]
 > Pour effectuer ces étapes afin de créer un gMSA, [utilisez votre machine virtuelle de gestion][tutorial-create-management-vm]. Cette machine virtuelle de gestion doit déjà disposer des applets de commande AD PowerShell nécessaires et de la connexion au domaine géré.
 
-L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé Azure AD DS nommé *contoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
+L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé Azure AD DS nommé *aadds.contoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
@@ -75,20 +75,20 @@ Créez maintenant un compte de service administré de groupe (gMSA) à l’aide 
 
 * **-Name** est défini sur *WebFarmSvc*
 * Le paramètre **-Path** spécifie l’unité d’organisation personnalisée pour le compte de service administré de groupe (gMSA) créé à l’étape précédente.
-* Les entrées DNS et les noms du principal de service sont définis pour *WebFarmSvc.contoso.com*
+* Les entrées DNS et les noms de principal de service sont définis pour *WebFarmSvc.aadds.contoso.com*
 * Les principaux dans *CONTOSO-SERVER$* sont autorisés à récupérer le mot de passe pour utiliser l’identité.
 
 Spécifiez vos propres noms et noms de domaine.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.contoso.com `
+    -DNSHostName WebFarmSvc.aadds.contoso.com `
     -Path "OU=MYNEWOU,DC=contoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
-        http/WebFarmSvc.contoso.com/contoso, `
-        http/WebFarmSvc/contoso.com, `
+    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
+        http/WebFarmSvc.aadds.contoso.com/contoso, `
+        http/WebFarmSvc/aadds.contoso.com, `
         http/WebFarmSvc/contoso `
     -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```

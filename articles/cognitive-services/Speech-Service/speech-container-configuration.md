@@ -1,7 +1,7 @@
 ---
 title: Configurer des conteneurs Speech
 titleSuffix: Azure Cognitive Services
-description: Speech Services fournit pour chaque conteneur une infrastructure de configuration commune qui vous permettre de configurer et de gérer facilement les paramètres de stockage, de journalisation, de télémétrie et de sécurité de vos conteneurs.
+description: Le service Speech fournit pour chaque conteneur un framework de configuration commun qui vous permet de configurer et de gérer facilement les paramètres de stockage, de journalisation, de télémétrie et de sécurité de vos conteneurs.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075752"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816572"
 ---
-# <a name="configure-speech-service-containers"></a>Configurer des conteneurs Speech Services
+# <a name="configure-speech-service-containers"></a>Configurer des conteneurs Speech
 
 Les conteneurs Speech permettent aux clients de créer une architecture d’application Speech optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie. Les quatre conteneurs Speech que nous prenons en charge sont la **reconnaissance vocale**, la **reconnaissance vocale personnalisée**, la **synthèse vocale** et la **synthèse vocale personnalisée**.
 

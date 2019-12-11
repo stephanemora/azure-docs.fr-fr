@@ -1,25 +1,16 @@
 ---
-title: Configurer les noms DNS pour les applications qui utilisent Traffic Manager - Azure App Service
-description: Utilisation d’un nom de domaine personnalisé pour une application web dans Azure App Service intégrant Traffic Manager pour équilibrer la charge.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: Configurer des noms DNS avec Traffic Manager
+description: Découvrez comment configurer un domaine personnalisé pour une application Azure App Service qui s’intègre à Traffic Manager pour l’équilibrage de charge.
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9139b83f1f2920da47b4a0d440f622626d41c938
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074027"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689272"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

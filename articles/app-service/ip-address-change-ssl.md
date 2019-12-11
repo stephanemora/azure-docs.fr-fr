@@ -1,22 +1,15 @@
 ---
-title: Se préparer à un changement d’adresse IP SSL - Azure App Service
+title: Se préparer à un changement d’adresse IP SSL
 description: Si votre adresse IP SSL va être modifiée, découvrez les choses à faire pour que votre application continue de fonctionner après la modification.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6c8c86ff6212acc31e961d6ae62836ca2b7b7380
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61268897"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672407"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Comment se préparer à un changement d’adresse IP SSL
 

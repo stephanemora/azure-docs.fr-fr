@@ -1,21 +1,18 @@
 ---
-title: Retarder l’action suivante dans des workflows - Azure Logic Apps
+title: Retarder l’action suivante dans des workflows
 description: Retarder l'action suivante dans des workflows d’application logique à l'aide des actions Retarder ou Retarder jusqu'à dans Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
-tags: connectors
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+tags: connectors
+ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297597"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787334"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Retarder l'exécution de l’action suivante dans Azure Logic Apps
 
@@ -55,7 +52,7 @@ Voici quelques exemples illustrant l'utilisation de ces actions :
 
    | Propriété | Nom JSON | Obligatoire | Type | Description |
    |----------|-----------|----------|------|-------------|
-   | Nombre | count | OUI | Entier | Le nombre d’unités à retarder |
+   | Count | count | OUI | Integer | Le nombre d’unités à retarder |
    | Unité | unité | OUI | Chaîne | Unité de temps, par exemple : `Second`, `Minute`, `Hour`, `Day`, `Week` ou `Month` |
    ||||||
 

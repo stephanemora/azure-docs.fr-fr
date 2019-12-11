@@ -1,26 +1,19 @@
 ---
-title: Bonnes pratiques et résolution des problèmes pour Node.js - Azure App Service
-description: Découvrez les bonnes pratiques et les procédures de résolution des problèmes pour les applications Node sur Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
+title: Bonnes pratiques et résolution des problèmes liés à Node.js
+description: Découvrez les bonnes pratiques et les procédures de résolution des problèmes pour les applications Node.js s’exécutant dans Azure App Service.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024242"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672046"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 

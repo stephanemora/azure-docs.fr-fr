@@ -1,17 +1,17 @@
 ---
-title: Architecture de connectivité dans Azure Database pour PostgreSQL
-description: Décrit l’architecture de connectivité pour votre serveur Azure Database pour PostgreSQL.
+title: Architecture de connectivité - Azure Database pour PostgreSQL - Serveur unique
+description: Décrit l’architecture de connectivité de votre serveur Azure Database pour PostgreSQL - Serveur unique
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbb3c3b3b91bf5111efcf6f2a53cfb40b48f3fe7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500085"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768875"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.

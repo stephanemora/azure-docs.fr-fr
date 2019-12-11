@@ -1,5 +1,5 @@
 ---
-title: À propos du kit SDK Speech – Speech Service
+title: À propos du SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel (SDK) Speech fournit à vos applications un accès natif aux fonctions du service Speech, ce qui facilite le développement de logiciels. Cet article fournit des détails supplémentaires sur le kit SDK pour Windows, Linux et Android.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f6446a2dbe3f111c9c617e78a0bdd98f6cea9153
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468777"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819118"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
-Le SDK Speech permet à vos applications d’accéder aux fonctions des services de reconnaissance vocale, facilitant le développement de tels logiciels. Actuellement, les SDK permettent d’accéder aux options de **reconnaissance vocale**, **synthèse vocale**, **traduction vocale**, **reconnaissance de l’intention** et **canal Direct Line Speech de Bot Framework**. Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](https://aka.ms/csspeech) de la documentation.
+Le SDK Speech permet à vos applications d’accéder aux fonctions du service Speech, facilitant le développement de logiciels de reconnaissance vocale. Actuellement, les SDK permettent d’accéder aux options de **reconnaissance vocale**, **synthèse vocale**, **traduction vocale**, **reconnaissance de l’intention** et **canal Direct Line Speech de Bot Framework**. Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](https://aka.ms/csspeech) de la documentation.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

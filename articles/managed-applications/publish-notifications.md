@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: a00e5be4493b8c8116e2925e88a3ce4bf8cfb722
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8cf9fc0b3d9c13ebc5309be6d27c7be0f2e60878
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085197"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805686"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applications managées Azure avec notifications
 
@@ -132,6 +132,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -152,6 +155,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -178,6 +184,7 @@ eventType | Type d’événement ayant déclenché la notification. (Par exemple
 applicationId | Identificateur de ressource complet de l’application managée pour laquelle la notification a été déclenchée. 
 eventTime | Horodatage de l’événement ayant déclenché la notification. (Date et heure au format UTC ISO 8601.)
 provisioningState | État de provisionnement de l’instance d’application managée. (Par exemple, « Succeeded », « Failed », « Deleting », « Deleted »)
+billingDetails | Détails de facturation de l’instance d’application managée. Contient le resourceUsageId qui peut être utilisé pour interroger la Place de marché afin d’obtenir des détails sur l’utilisation.
 error | *Spécifié uniquement lorsque provisioningState est égal à Failed*. Contient le code d’erreur, le message et les détails relatifs au problème à l’origine de l’échec.
 applicationDefinitionId | *Spécifié uniquement pour les applications managées du catalogue de services*. Représente l’identificateur de ressource complet de la définition d’application pour laquelle l’instance d’application managée a été provisionnée.
 Plan | *Spécifié uniquement pour les applications managées de la Place de marché*. Représente l’éditeur, l’offre, la référence (SKU) et la version de l’instance de l’application managée.

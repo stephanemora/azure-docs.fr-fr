@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 8fada1d944a3d6bb6c0f85b3fd456581b2b0bdc6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720011"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688023"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autoriser les utilisateurs à accéder à Apache Ambari Views
 
@@ -28,7 +28,7 @@ Si ce n’est déjà fait, suivez [ces instructions](./domain-joined/apache-doma
 
 ## <a name="access-the-ambari-management-page"></a>Accéder à la page de gestion Ambari
 
-Pour ouvrir la **page de gestion Ambari** sur [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md), accédez à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
+Pour ouvrir la **page de gestion Ambari** dans l’[interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md), accédez à `https://CLUSTERNAME.azurehdinsight.net`. Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
 
 ![Gestion du tableau de bord Apache ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -230,7 +230,7 @@ Pour gérer les rôles, accédez à la **page de gestion Ambari**, puis sélecti
 
 Pour afficher la liste des autorisations accordées à chaque rôle, cliquez sur le point d’interrogation bleu près de l’en-tête du tableau **Rôles**, sur la page Rôles.
 
-![Autorisation de lien du Menu Rôles Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Autorisation de lien du Menu Rôles Apache Ambari")
+![Autorisations - Liens du menu Rôles Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Autorisations - Liens du menu Rôles Apache Ambari")
 
 Cette page présente deux affichages différents qui permettent de gérer les rôles des utilisateurs et des groupes : le mode Bloc et le mode Liste.
 
@@ -248,7 +248,7 @@ Le mode Liste propose des fonctionnalités de modification rapide dans deux cat�
 
     ![Vue de liste de rôles Apache Ambari – Utilisateurs](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-*  La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+* La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Vue de liste de rôles Apache Ambari – Groupes](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

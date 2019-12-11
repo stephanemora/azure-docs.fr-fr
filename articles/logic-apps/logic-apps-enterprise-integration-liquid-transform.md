@@ -1,20 +1,19 @@
 ---
-title: Convertir des données JSON avec des transformations Liquid - Azure Logic Apps | Microsoft Docs
+title: Convertir des données JSON à l’aide de transformations Liquid
 description: Créer des transformations ou des mappages pour des transformations JSON avancées à l’aide de Logic Apps et du modèle Liquid
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900655"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792507"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
@@ -153,5 +152,5 @@ Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
-* [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
+* [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "En savoir plus sur les mappages d’intégration d’entreprise")  
 

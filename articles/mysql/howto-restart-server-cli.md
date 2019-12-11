@@ -1,17 +1,17 @@
 ---
-title: Redémarrer un serveur Azure Database pour MySQL à l’aide d’Azure CLI
+title: Redémarrer un serveur - Azure CLI - Azure Database pour MySQL
 description: Cet article explique comment redémarrer un serveur Azure Database pour MySQL à l’aide d’Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: d00aa35437f93c010ce48f3036b4a684910702c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 146c531805ff22544797c44c8df32b0e5d1e83b0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160430"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774192"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Redémarrer un serveur Azure Database pour MySQL à l’aide d’Azure CLI
 Cette rubrique explique comment redémarrer un serveur Azure Database pour MySQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
@@ -32,7 +32,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 ## <a name="restart-the-server"></a>Redémarrez le serveur
 
-Redémarrez le serveur en utilisant la commande suivante :
+Redémarrez le serveur en utilisant la commande suivante :
 
 ```azurecli-interactive
 az mysql server restart --name mydemoserver --resource-group myresourcegroup

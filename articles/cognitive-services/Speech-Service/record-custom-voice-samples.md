@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559198"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816679"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -39,7 +39,7 @@ Ingénieur du son  |Surveille les aspects techniques de l’enregistrement et co
 Directeur            |Prépare le script et dirige l’enregistrement de la voix professionnelle.
 Éditeur              |Finalise les fichiers audio et prépare leur transfert vers le portail de la voix professionnelle.
 
-Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que vous recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
+Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
 
 ## <a name="choose-your-voice-talent"></a>Choisir votre voix professionnelle
 

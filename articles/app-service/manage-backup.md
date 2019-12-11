@@ -1,24 +1,16 @@
 ---
-title: Sauvegarde d’application - Azure App Service
-description: Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: Sauvegarder une application
+description: Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service. Exécutez des sauvegardes manuelles ou planifiées. Personnalisez les sauvegardes en incluant la base de données attachée.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886068"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671658"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez configurer les sauvegardes pour qu’elles soient conservées pendant une durée indéfinie. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.

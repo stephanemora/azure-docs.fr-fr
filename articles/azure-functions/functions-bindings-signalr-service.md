@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 4c7d5d4d8777fee445585b43b58ceb261176b7f4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1de59ebb5ef0d7f5522a388aa9a2f5818495a9f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786331"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Liaisons de service SignalR pour Azure Functions
 
@@ -24,8 +24,9 @@ Les liaisons de service SignalR sont fournies dans le package NuGet [Microsoft.A
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
+Pour plus d’informations sur la configuration et l’utilisation de SignalR Service et Azure Functions ensemble, reportez-vous à [Développement et configuration Azure Functions avec Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
 
-### <a name="java-annotations"></a>Annotations Java
+### <a name="annotations-library-java-only"></a>Bibliothèque d’annotations (Java uniquement)
 
 Pour utiliser les annotations SignalR Service dans les fonctions Java, vous devez ajouter une dépendance à l’artefact *azure-fonctions-java-bibliothèque-signalr* (version 1.0 ou version ultérieure) à votre fichier pom.xml.
 
@@ -37,26 +38,13 @@ Pour utiliser les annotations SignalR Service dans les fonctions Java, vous deve
 </dependency>
 ```
 
-> [!NOTE]
-> Pour utiliser les liaisons de SignalR Service en Java, assurez-vous que vous utilisez la version 2.4.419 ou une version ultérieure d’Azure Functions Core Tools (version de l’hôte 2.0.12332).
-
-## <a name="using-signalr-service-with-azure-functions"></a>Utilisation de SignalR Service avec Azure Functions
-
-Pour plus d’informations sur la configuration et l’utilisation de SignalR Service et Azure Functions ensemble, reportez-vous à [Développement et configuration Azure Functions avec Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
-
-## <a name="signalr-connection-info-input-binding"></a>Liaison d’entrée d’informations de connexion SignalR
+## <a name="input"></a>Entrée
 
 Avant qu’un client puisse se connecter au service SignalR Azure, il doit récupérer l’URL du point de terminaison du service et un jeton d’accès valide. La liaison d’entrée *SignalRConnectionInfo* génère l’URL du point de terminaison du service SignalR et un jeton valide qui sont utilisés pour se connecter au service. Le jeton étant limité dans le temps et pouvant être utilisé pour authentifier un utilisateur spécifique sur une connexion, vous ne devez pas mettre le jeton en cache ou le partager entre plusieurs clients. Un déclencheur HTTP utilisant cette liaison peut être utilisé par les clients pour récupérer les informations de connexion.
 
-Consultez l’exemple propre à un langage particulier :
-
-* [C# 2.x](#2x-c-input-examples)
-* [JavaScript 2.x](#2x-javascript-input-examples)
-* [Java 2.x](#2x-java-input-examples)
-
 Pour plus d’informations sur la façon dont cette liaison est utilisée pour créer une fonction « negotiate » qui peut être utilisée par un client SignalR, consultez l’[article sur le développement et la configuration d’Azure Functions](../azure-signalr/signalr-concept-serverless-development-config.md) dans la documentation sur les concepts de SignalR Service.
 
-### <a name="2x-c-input-examples"></a>Exemples d’entrée C# 2.x
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui acquiert des informations de connexion SignalR à l’aide de la liaison d’entrée et les renvoie via HTTP.
 
@@ -70,26 +58,37 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-#### <a name="authenticated-tokens"></a>Jetons authentifiés
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
-Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service](../app-service/overview-authentication-authorization.md).
+L’exemple suivant montre une liaison d’entrée d’informations de connexion SignalR dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison pour retourner les informations de connexion.
 
-L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement. Vous pouvez définir la propriété `UserId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Voici le code de script C# :
 
 ```cs
-[FunctionName("negotiate")]
-public static SignalRConnectionInfo Negotiate(
-    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
-    [SignalRConnectionInfo
-        (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
-        SignalRConnectionInfo connectionInfo)
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
 {
-    // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
     return connectionInfo;
 }
 ```
 
-### <a name="2x-javascript-input-examples"></a>Exemples d’entrée JavaScript 2.x
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison d’entrée d’informations de connexion SignalR dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison pour retourner les informations de connexion.
 
@@ -115,11 +114,114 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-#### <a name="authenticated-tokens"></a>Jetons authentifiés
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L’exemple suivant montre une liaison d’entrée d’informations de connexion SignalR dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison pour retourner les informations de connexion.
+
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Voici le code Python :
+
+```python
+def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+    return func.HttpResponse(
+        connectionInfoJson,
+        status_code=200,
+        headers={
+            'Content-type': 'application/json'
+        }
+    )
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’exemple suivant montre une [fonction Java](functions-reference-java.md) qui acquiert des informations de connexion SignalR à l’aide de la liaison d’entrée et les renvoie via HTTP.
+
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(
+            name = "connectionInfo",
+            hubName = "chat") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
+```
+
+---
+
+### <a name="authenticated-tokens"></a>Jetons authentifiés
 
 Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service](../app-service/overview-authentication-authorization.md).
 
-L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement. Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
+L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Vous pouvez définir la propriété `UserId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+
+```cs
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
+    [SignalRConnectionInfo
+        (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
+        SignalRConnectionInfo connectionInfo)
+{
+    // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
+    return connectionInfo;
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+
+Exemple de fichier function.json :
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Voici le code de script C# :
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
+{
+    // connectionInfo contains an access key token with a name identifier
+    // claim set to the authenticated user
+    return connectionInfo;
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
 
 Exemple de fichier function.json :
 
@@ -144,29 +246,41 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-### <a name="2x-java-input-examples"></a>Exemples d’entrée Java 2.x
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-L’exemple suivant montre une [fonction Java](functions-reference-java.md) qui acquiert des informations de connexion SignalR à l’aide de la liaison d’entrée et les renvoie via HTTP.
+Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
 
-```java
-@FunctionName("negotiate")
-public SignalRConnectionInfo negotiate(
-        @HttpTrigger(
-            name = "req",
-            methods = { HttpMethod.POST },
-            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
-        @SignalRConnectionInfoInput(
-            name = "connectionInfo",
-            hubName = "chat") SignalRConnectionInfo connectionInfo) {
-    return connectionInfo;
+Exemple de fichier function.json :
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
 }
 ```
 
-#### <a name="authenticated-tokens"></a>Jetons authentifiés
+Voici le code Python :
 
-Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service](../app-service/overview-authentication-authorization.md).
+```python
+def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+    # connectionInfo contains an access key token with a name identifier
+    # claim set to the authenticated user
+    return func.HttpResponse(
+        connectionInfoJson,
+        status_code=200,
+        headers={
+            'Content-type': 'application/json'
+        }
+    )
+```
 
-L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement. Vous pouvez définir la propriété `UserId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](./functions-bindings-expressions-patterns.md) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
 
 ```java
 @FunctionName("negotiate")
@@ -183,23 +297,19 @@ public SignalRConnectionInfo negotiate(
 }
 ```
 
-## <a name="signalr-output-binding"></a>Liaison de sortie SignalR
+---
+
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie *SignalR* pour envoyer un ou plusieurs messages à l’aide du service SignalR Azure. Vous pouvez diffuser un message à tous les clients connectés, ou vous pouvez le diffuser uniquement aux clients connectés qui ont été authentifiés comme un utilisateur donné.
 
 Vous pouvez également l’utiliser pour gérer les groupes auxquels appartient un utilisateur.
 
-Consultez l’exemple propre à un langage particulier :
+### <a name="broadcast-to-all-clients"></a>Diffuser à tous les clients
 
-* [C# 2.x](#2x-c-send-message-output-examples)
-* [JavaScript 2.x](#2x-javascript-send-message-output-examples)
-* [Java 2.x](#2x-java-send-message-output-examples)
+L’exemple suivant montre une fonction qui envoie un message à l’aide de la liaison de sortie à tous les clients connectés. La *cible* correspond au nom de la méthode à appeler sur chaque client. *Arguments* est un tableau de zéro objet ou plus à transmettre à la méthode du client.
 
-### <a name="2x-c-send-message-output-examples"></a>Exemples de messages de sortie C# 2.x
-
-#### <a name="broadcast-to-all-clients"></a>Diffuser à tous les clients
-
-L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui envoie un message à l’aide de la liaison de sortie à tous les clients connectés. `Target` correspond au nom de la méthode à appeler sur chaque client. La propriété `Arguments` est un tableau de zéro ou plusieurs objets à transmettre à la méthode du client.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -216,9 +326,120 @@ public static Task SendMessage(
 }
 ```
 
-#### <a name="send-to-a-user"></a>Envoyer à un utilisateur
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant la propriété `UserId` du message SignalR.
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code de script C# :
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage 
+        {
+            Target = "newMessage", 
+            Arguments = new [] { message } 
+        });
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code JavaScript :
+
+```javascript
+module.exports = async function (context, req) {
+    context.bindings.signalRMessages = [{
+        "target": "newMessage",
+        "arguments": [ req.body ]
+    }];
+};
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "out_message",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code Python :
+
+```python
+def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+    message = req.get_json()
+    out_message.set(json.dumps({
+        'target': 'newMessage',
+        'arguments': [ message ]
+    }))
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+---
+
+### <a name="send-to-a-user"></a>Envoyer à un utilisateur
+
+Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant l’*ID d’utilisateur* du message SignalR.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -237,9 +458,123 @@ public static Task SendMessage(
 }
 ```
 
-#### <a name="send-to-a-group"></a>Envoyer à un groupe
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été ajoutées à un groupe en définissant la propriété `GroupName` du message SignalR.
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code de script C# :
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage 
+        {
+            // the message will only be sent to this user ID
+            UserId = "userId1",
+            Target = "newMessage", 
+            Arguments = new [] { message } 
+        });
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code JavaScript :
+
+```javascript
+module.exports = async function (context, req) {
+    context.bindings.signalRMessages = [{
+        // message will only be sent to this user ID
+        "userId": "userId1",
+        "target": "newMessage",
+        "arguments": [ req.body ]
+    }];
+};
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "out_message",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code Python :
+
+```python
+def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+    message = req.get_json()
+    out_message.set(json.dumps({
+        #message will only be sent to this user ID
+        'userId': 'userId1',
+        'target': 'newMessage',
+        'arguments': [ message ]
+    }))
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.userId = "userId1";
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+---
+
+### <a name="send-to-a-group"></a>Envoyer à un groupe
+
+Vous ne pouvez envoyer un message qu’aux connexions qui ont été ajoutées à un groupe en définissant le *nom de groupe* du message SignalR.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -258,9 +593,123 @@ public static Task SendMessage(
 }
 ```
 
-### <a name="2x-c-group-management-output-examples"></a>Exemples de sortie de gestion de groupe C# 2.x
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
-SignalR Service permet aux utilisateurs d’être ajoutés à des groupes. Des messages peuvent ensuite être envoyés au groupe. Vous pouvez utiliser la classe `SignalRGroupAction` avec la sortie de liaison `SignalR` pour gérer l’appartenance au groupe d’un utilisateur.
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code de script C# :
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage 
+        {
+            // the message will be sent to the group with this name
+            GroupName = "myGroup",
+            Target = "newMessage", 
+            Arguments = new [] { message } 
+        });
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code JavaScript :
+
+```javascript
+module.exports = async function (context, req) {
+    context.bindings.signalRMessages = [{
+        // message will only be sent to this group
+        "groupName": "myGroup",
+        "target": "newMessage",
+        "arguments": [ req.body ]
+    }];
+};
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Voici les données de liaison dans le fichier *function.json* :
+
+Exemple de fichier function.json :
+
+```json
+{
+  "type": "signalR",
+  "name": "out_message",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Voici le code Python :
+
+```python
+def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+    message = req.get_json()
+    out_message.set(json.dumps({
+        #message will only be sent to this group
+        'groupName': 'myGroup',
+        'target': 'newMessage',
+        'arguments': [ message ]
+    }))
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.groupName = "myGroup";
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+---
+
+### <a name="group-management"></a>Gestion des groupes
+
+SignalR Service permet aux utilisateurs d’être ajoutés à des groupes. Des messages peuvent ensuite être envoyés au groupe. Vous pouvez utiliser la sortie de liaison `SignalR` pour gérer l’appartenance au groupe d’un utilisateur.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 #### <a name="add-user-to-a-group"></a>Ajouter un utilisateur à un groupe
 
@@ -311,107 +760,102 @@ public static Task RemoveFromGroup(
 > [!NOTE]
 > Pour obtenir la liaison correcte de `ClaimsPrincipal`, vous devez avoir configuré les paramètres d’authentification dans Azure Functions.
 
-### <a name="2x-javascript-send-message-output-examples"></a>Exemples de messages de sortie JavaScript 2.x
-
-#### <a name="broadcast-to-all-clients"></a>Diffuser à tous les clients
-
-L’exemple suivant montre une liaison de sortie SignalR dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison pour envoyer un message avec le service SignalR Azure. Définissez la liaison de sortie sur un tableau d’un ou plusieurs messages SignalR. Un message SignalR se compose d’une propriété `target` qui spécifie le nom de la méthode à appeler sur chaque client, et d’une propriété `arguments` qui correspond à un tableau d’objets à transmettre à la méthode du client en tant qu’arguments.
-
-Voici les données de liaison dans le fichier *function.json* :
-
-Exemple de fichier function.json :
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Voici le code JavaScript :
-
-```javascript
-module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
-        "target": "newMessage",
-        "arguments": [ req.body ]
-    }];
-};
-```
-
-#### <a name="send-to-a-user"></a>Envoyer à un utilisateur
-
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant la propriété `userId` du message SignalR.
-
-Le fichier *function.json* ne change pas. Voici le code JavaScript :
-
-```javascript
-module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
-        // message will only be sent to this user ID
-        "userId": "userId1",
-        "target": "newMessage",
-        "arguments": [ req.body ]
-    }];
-};
-```
-
-#### <a name="send-to-a-group"></a>Envoyer à un groupe
-
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été ajoutées à un groupe en définissant la propriété `groupName` du message SignalR.
-
-Le fichier *function.json* ne change pas. Voici le code JavaScript :
-
-```javascript
-module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
-        // message will only be sent to this group
-        "groupName": "myGroup",
-        "target": "newMessage",
-        "arguments": [ req.body ]
-    }];
-};
-```
-
-### <a name="2x-javascript-group-management-output-examples"></a>Exemples de sortie de gestion de groupe JavaScript 2.x
-
-SignalR Service permet aux utilisateurs d’être ajoutés à des groupes. Des messages peuvent ensuite être envoyés au groupe. Vous pouvez utiliser la sortie de liaison `SignalR` pour gérer l’appartenance au groupe d’un utilisateur.
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 #### <a name="add-user-to-a-group"></a>Ajouter un utilisateur à un groupe
 
 L’exemple suivant ajoute un utilisateur à un groupe.
 
-*function.json*
+Exemple de fichier *function.json*
 
 ```json
 {
-  "disabled": false,
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    },
-    {
-      "type": "signalR",
-      "name": "signalRGroupActions",
-      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-      "hubName": "chat",
-      "direction": "out"
-    }
-  ]
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
+}
+```
+
+*Run.csx*
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    HttpRequest req,
+    ClaimsPrincipal claimsPrincipal,
+    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userIdClaim.Value,
+            GroupName = "myGroup",
+            Action = GroupAction.Add
+        });
+}
+```
+
+#### <a name="remove-user-from-a-group"></a>Supprimer un utilisateur d’un groupe
+
+L’exemple suivant supprime un utilisateur d’un groupe.
+
+Exemple de fichier *function.json*
+
+```json
+{
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
+}
+```
+
+*Run.csx*
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    HttpRequest req,
+    ClaimsPrincipal claimsPrincipal,
+    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userIdClaim.Value,
+            GroupName = "myGroup",
+            Action = GroupAction.Remove
+        });
+}
+```
+
+> [!NOTE]
+> Pour obtenir la liaison correcte de `ClaimsPrincipal`, vous devez avoir configuré les paramètres d’authentification dans Azure Functions.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="add-user-to-a-group"></a>Ajouter un utilisateur à un groupe
+
+L’exemple suivant ajoute un utilisateur à un groupe.
+
+Exemple de fichier *function.json*
+
+```json
+{
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
 }
 ```
 
@@ -431,34 +875,15 @@ module.exports = async function (context, req) {
 
 L’exemple suivant supprime un utilisateur d’un groupe.
 
-*function.json*
+Exemple de fichier *function.json*
 
 ```json
 {
-  "disabled": false,
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    },
-    {
-      "type": "signalR",
-      "name": "signalRGroupActions",
-      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-      "hubName": "chat",
-      "direction": "out"
-    }
-  ]
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
 }
 ```
 
@@ -474,73 +899,63 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-java-send-message-output-examples"></a>Exemples de messages de sortie Java 2.x
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-#### <a name="broadcast-to-all-clients"></a>Diffuser à tous les clients
+#### <a name="add-user-to-a-group"></a>Ajouter un utilisateur à un groupe
 
-L’exemple suivant montre une [fonction Java](functions-reference-java.md) qui envoie un message à l’aide de la liaison de sortie à tous les clients connectés. `target` correspond au nom de la méthode à appeler sur chaque client. La propriété `arguments` est un tableau de zéro ou plusieurs objets à transmettre à la méthode du client.
+L’exemple suivant ajoute un utilisateur à un groupe.
 
-```java
-@FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
-public SignalRMessage sendMessage(
-        @HttpTrigger(
-            name = "req",
-            methods = { HttpMethod.POST },
-            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+Exemple de fichier *function.json*
 
-    SignalRMessage message = new SignalRMessage();
-    message.target = "newMessage";
-    message.arguments.add(req.getBody());
-    return message;
+```json
+{
+    "type": "signalR",
+    "name": "action",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
 }
 ```
 
-#### <a name="send-to-a-user"></a>Envoyer à un utilisateur
+*\_\_init.py__*
 
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été authentifiées comme un utilisateur en définissant la propriété `userId` du message SignalR.
+```python
+def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
+    action.set(json.dumps({
+        'userId': 'userId1',
+        'groupName': 'myGroup',
+        'action': 'add'
+    }))
+```
 
-```java
-@FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
-public SignalRMessage sendMessage(
-        @HttpTrigger(
-            name = "req",
-            methods = { HttpMethod.POST },
-            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+#### <a name="remove-user-from-a-group"></a>Supprimer un utilisateur d’un groupe
 
-    SignalRMessage message = new SignalRMessage();
-    message.userId = "userId1";
-    message.target = "newMessage";
-    message.arguments.add(req.getBody());
-    return message;
+L’exemple suivant supprime un utilisateur d’un groupe.
+
+Exemple de fichier *function.json*
+
+```json
+{
+    "type": "signalR",
+    "name": "action",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
 }
 ```
 
-#### <a name="send-to-a-group"></a>Envoyer à un groupe
+*\_\_init.py__*
 
-Vous ne pouvez envoyer un message qu’aux connexions qui ont été ajoutées à un groupe en définissant la propriété `groupName` du message SignalR.
-
-```java
-@FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
-public SignalRMessage sendMessage(
-        @HttpTrigger(
-            name = "req",
-            methods = { HttpMethod.POST },
-            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
-
-    SignalRMessage message = new SignalRMessage();
-    message.groupName = "myGroup";
-    message.target = "newMessage";
-    message.arguments.add(req.getBody());
-    return message;
-}
+```python
+def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
+    action.set(json.dumps({
+        'userId': 'userId1',
+        'groupName': 'myGroup',
+        'action': 'remove'
+    }))
 ```
 
-### <a name="2x-java-group-management-output-examples"></a>Exemples de sortie de gestion de groupe Java 2.x
-
-SignalR Service permet aux utilisateurs d’être ajoutés à des groupes. Des messages peuvent ensuite être envoyés au groupe. Vous pouvez utiliser la classe `SignalRGroupAction` avec la sortie de liaison `SignalROutput` pour gérer l’appartenance au groupe d’un utilisateur.
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 #### <a name="add-user-to-a-group"></a>Ajouter un utilisateur à un groupe
 
@@ -585,6 +1000,8 @@ public SignalRGroupAction removeFromGroup(
     return action;
 }
 ```
+
+---
 
 ## <a name="configuration"></a>Configuration
 

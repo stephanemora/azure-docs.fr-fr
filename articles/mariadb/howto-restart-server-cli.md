@@ -1,17 +1,17 @@
 ---
-title: Redémarrer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
+title: Redémarrer un serveur - Azure CLI - Azure Database for MariaDB
 description: Cet article explique comment redémarrer un serveur Azure Database for MariaDB à l’aide d’Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: a6e0509d941d9bfdfe6db7a8b93ee49c5bece1a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 9c3b86cb278d25b6200753f2f418c5aa82ca86ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171445"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771051"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Redémarrer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 Cette rubrique explique comment redémarrer un serveur Azure Database for MariaDB. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
@@ -32,7 +32,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 ## <a name="restart-the-server"></a>Redémarrez le serveur
 
-Redémarrez le serveur en utilisant la commande suivante :
+Redémarrez le serveur en utilisant la commande suivante :
 
 ```azurecli-interactive
 az mariadb server restart --name mydemoserver --resource-group myresourcegroup

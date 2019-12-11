@@ -1,7 +1,7 @@
 ---
-title: Exécuter Azure Container Instances - Reconnaissance vocale
+title: Exécuter Azure Container Instances - Service Speech
 titleSuffix: Azure Cognitive Services
-description: Déployez le conteneur Speech Service sur Azure Container Instance, et testez-le dans un navigateur web.
+description: Déployez le conteneur du service Speech dans Azure Container Instance, et testez-le dans un navigateur web.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 690a45ad7f009a65686e27eba5095a5a2870039c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559723"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806267"
 ---
-# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Déployer le conteneur Speech Service sur Azure Container Instances
+# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Déployer le conteneur du service Speech dans Azure Container Instances
 
-Découvrez comment déployer le conteneur [Speech Service](speech-container-howto.md) de Cognitive Services sur Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Cette procédure illustre la création d’une ressource Azure Speech Service. Puis nous nous aborderons l’extraction de l’image de conteneur associée. Enfin, nous mettrons en avant la possibilité d’exercer l’orchestration des deux à partir d’un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
+Découvrez comment déployer le conteneur [Service Speech](speech-container-howto.md) Cognitive Services dans Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Cette procédure montre la création d’une ressource du service Speech Azure. Puis nous aborderons l’extraction de l’image de conteneur associée. Enfin, nous mettrons en avant la possibilité d’exercer l’orchestration des deux à partir d’un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
@@ -29,9 +29,9 @@ Vous devez d'abord compléter et envoyer le [formulaire de demande de conteneurs
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
-[!INCLUDE [Create a Cognitive Services Speech Service resource](includes/create-speech-resource.md)]
+[!INCLUDE [Create a Cognitive Services Speech service resource](includes/create-speech-resource.md)]
 
-[!INCLUDE [Create an Speech Service container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
+[!INCLUDE [Create a Speech service container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

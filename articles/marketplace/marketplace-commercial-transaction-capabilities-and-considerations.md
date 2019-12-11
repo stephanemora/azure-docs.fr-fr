@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823022"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791356"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -66,7 +66,7 @@ Selon l’option Transaction choisie, les frais de licence logicielle de l’éd
 
 * Paiement à l’utilisation : les frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique aux offres Machines virtuelles et Applications Azure uniquement.
 
-* • Tarification des abonnements : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux offres Applications SaaS et Applications Azure – Applications managées.
+* Tarifs des abonnements : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux offres Applications SaaS et Applications Azure – Applications managées.
 
 * Essai logiciel gratuit : aucuns frais ne sont facturés pour les licences logicielles pendant une période de 30 ou 90 jours.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898240"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705411"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine géré par les services de domaine Azure Active Directory
 
@@ -28,8 +28,8 @@ Cet article explique comment afficher l’état d’intégrité d’Azure AD DS 
 
 L’état d’intégrité d’un domaine managé Azure AD DS peut être vérifié à l’aide du portail Azure. Vous pouvez consulter les informations relatives à l’heure de la dernière sauvegarde et synchronisation avec Azure AD, ainsi que toutes les alertes qui indiquent un problème avec l’intégrité du domaine managé. Pour afficher l’état d’intégrité d’un domaine managé Azure AD DS, procédez comme suit :
 
-1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
-1. Sélectionnez votre domaine managé Azure AD DS, par exemple *contoso.com*.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
+1. Sélectionnez votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
 1. Sur le côté gauche de la fenêtre de ressources Azure AD DS, sélectionnez **Intégrité**. L’exemple de capture d’écran suivant montre un domaine managé Azure AD DS intègre et l’état de la dernière sauvegarde et synchronisation d’Azure AD :
 
     ![Vue d’ensemble de la page d’intégrité dans le portail Azure présentant l’état d’Azure Active Directory Domain Services](./media/check-health/health-page.png)

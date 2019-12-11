@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172472"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806437"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -79,7 +79,7 @@ Le tableau suivant explique les différents types de cohérence de capture insta
 --- | --- | --- | ---
 **Cohérence des applications** | Les sauvegardes cohérentes dans les applications capturent le contenu et les opérations d’E/S en attente de la mémoire. Les instantanés de cohérence d’application utilisent l’enregistreur VSS (ou un pré/post-script pour Linux) pour vérifier la cohérence des données d’application avant une sauvegarde. | Lors de la récupération d’une machine virtuelle avec un instantané de cohérence d’application, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications démarrent dans un état cohérent. | Windows : Tous les enregistreurs VSS ont réussi<br/><br/> Linux : Les pré/post-scripts sont configurés et ont réussi
 **Cohérence du système de fichiers** | Les sauvegardes cohérentes de système de fichiers assurent la cohérence en prenant une capture instantanée de tous les fichiers au même moment.<br/><br/> | Lorsque vous récupérez une machine virtuelle avec un instantané cohérent du système de fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes. | Windows : Certains enregistreurs VSS ont échoué <br/><br/> Linux : Par défaut (si les pré/post-scripts ne sont pas configurés ou ont échoué)
-**Cohérence en cas d’incident** | Des instantanés de cohérence des incidents sont pris généralement si une machine virtuelle Azure s’arrête au moment de la sauvegarde. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées.<br/><br/> Un point de récupération cohérent en cas d’incident ne garantit pas la cohérence des données pour le système d’exploitation ou l’application. | Bien qu’il n’y ait aucune garantie, la machine virtuelle démarre comme d’habitude, puis démarre une vérification de disque pour résoudre les erreurs d’endommagement. Toutes les données en mémoire ou opérations d’écriture qui n’ont pas été transférées sur disque avant l’incident sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, une application de base de données peut utiliser son journal des transactions pour la vérification. Si le journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données effectue alors une restauration des transactions jusqu’à ce que les données soient cohérentes. | La machine virtuelle est arrêtée
+**Cohérence en cas d’incident** | Des instantanés de cohérence des incidents sont pris généralement si une machine virtuelle Azure s’arrête au moment de la sauvegarde. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées. | Le mécanisme commence par le processus de démarrage de la machine virtuelle suivi d’une vérification du disque afin de corriger les erreurs dues à une altération. Toutes les données en mémoire ou opérations d’écriture qui n’ont pas été transférées sur disque avant l’incident sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, une application de base de données peut utiliser son journal des transactions pour la vérification. Si le journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données effectue alors une restauration des transactions jusqu’à ce que les données soient cohérentes. | La machine virtuelle est à l’état d’arrêt (stoppée/désallouée).
 
 ## <a name="backup-and-restore-considerations"></a>Considérations relatives à la sauvegarde et à la restauration
 
@@ -134,16 +134,6 @@ Disque de données 1 | 4095 Go | 30 Go
 Disque de données 2 | 4095 Go | 0 Go
 
 La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0 Go= 47 Go. Cette taille d’instance protégée (47 Go) devient la base de la facture mensuelle. La taille de l’instance protégée utilisée pour la facturation augmente proportionnellement à la quantité de données dans la machine virtuelle.
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Préversion publique : Sauvegarde de machine virtuelle avec des tailles de disque jusqu’à 30 To
-
-Sauvegarde Azure prend désormais en charge une préversion publique de [disques Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) plus volumineux et plus puissants d’une taille allant jusqu’à 30 To. Cette préversion fournit une prise en charge au niveau de la production pour les machines virtuelles managées.
-
-Les sauvegardes de vos machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle doivent fonctionner de manière fluide sans impact sur vos sauvegardes existantes. Aucune action de l’utilisateur n’est requise pour que les sauvegardes s’exécutent sur les disques volumineux, si la machine virtuelle est déjà configurée avec Sauvegarde Azure.
-
-Toutes les machines virtuelles Azure avec des disques volumineux pour lesquels une sauvegarde est configurée doivent être sauvegardées avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Journalisation du Kit de développement logiciel (SDK) Speech – Service Speech
+title: Journalisation du SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez-en plus sur l’activation de la journalisation dans le SDK Speech (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075798"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805788"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 

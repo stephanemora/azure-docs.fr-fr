@@ -1,17 +1,17 @@
 ---
-title: Gérer Azure Database pour MySQL - Portail Azure
+title: Gérer un serveur - Portail Azure - Azure Database pour MySQL
 description: Découvrez comment gérer un serveur Azure Database pour MySQL à partir du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 286209673e5743d08ddaa2fed2f507f84d622ea6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/02/2019
+ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534049"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770507"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gérer un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cet article vous explique comment gérer vos serveurs Azure Database pour MySQL. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation du mot de passe administrateur et l’affichage des informations relatives au serveur.
@@ -24,13 +24,13 @@ Consultez le [guide de démarrage rapide](quickstart-create-mysql-server-databas
 
 ## <a name="scale-compute-and-storage"></a>Mettre à l’échelle le calcul et le stockage
 
-Une fois le serveur créé, vous pouvez mettre à l’échelle entre les niveaux Usage général et Mémoire optimisée en fonction de vos besoins. Vous pouvez également mettre à l'échelle le calcul et la mémoire en augmentant ou en diminuant les vCores. Le stockage peut être scaled-up ou monté en puissance (en revanche, il ne peut pas être scaled-down ou descendu en puissance).
+Une fois le serveur créé, vous pouvez mettre à l’échelle entre les niveaux Usage général et Mémoire optimisée en fonction de vos besoins. Vous pouvez également mettre à l’échelle le calcul et la mémoire en augmentant ou en diminuant le nombre de vCores. Le stockage peut être monté en puissance (mais pas descendu en puissance).
 
 ### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Mettre à l’échelle entre les niveaux Usage général et Mémoire optimisée
 
 Vous pouvez passer du niveau Usage général au niveau Mémoire optimisée et inversement. Le passage au niveau De base ou son remplacement par un autre niveau de service n’est pas pris en charge après la création du serveur. 
 
-1. Dans le portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
+1. Dans le Portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
 
 2. Sélectionnez **Usage général** ou **Mémoire optimisée**, selon le niveau souhaité. 
 
@@ -44,7 +44,7 @@ Vous pouvez passer du niveau Usage général au niveau Mémoire optimisée et in
 
 ### <a name="scale-vcores-up-or-down"></a>Scale-up ou scale-down des vCores
 
-1. Dans le portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
+1. Dans le Portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
 
 2. Modifiez le paramètre **vCore** en déplaçant le curseur vers la valeur souhaitée.
 
@@ -58,7 +58,7 @@ Vous pouvez passer du niveau Usage général au niveau Mémoire optimisée et in
 
 ### <a name="scale-storage-up"></a>Scale-up du stockage
 
-1. Dans le portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
+1. Dans le Portail Azure, sélectionnez votre serveur. Sélectionnez **Niveau tarifaire**, dans la section **Paramètres**.
 
 2. Modifiez le paramètre **Stockage** en déplaçant le curseur vers la valeur souhaitée.
 
@@ -71,9 +71,9 @@ Vous pouvez passer du niveau Usage général au niveau Mémoire optimisée et in
 
 
 ## <a name="update-admin-password"></a>Mettre à jour le mot de passe administrateur
-Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du portail Azure.
+Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du Portail Azure.
 
-1. Dans le portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Réinitialiser le mot de passe**.
+1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Réinitialiser le mot de passe**.
 
    ![Vue d’ensemble](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
@@ -88,7 +88,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 
 Vous pouvez supprimer votre serveur si vous n’en avez plus besoin. 
 
-1. Dans le portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
+1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
 
     ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 

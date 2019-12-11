@@ -1,23 +1,20 @@
 ---
-title: Distribuer du contenu issu du Stockage Azure sur Linux - App Service
-description: Guide pratique pour configurer et distribuer du contenu issu du Stockage Azure dans Azure App Service sur Linux.
-author: msangapu
-manager: jeconnoc
-ms.service: app-service
-ms.workload: web
+title: Attacher un conteneur Stockage Azure personnalisé sur Linux
+description: Découvrez comment attacher un partage réseau personnalisé à votre conteneur Linux dans Azure App Service. Partagez des fichiers entre plusieurs applications, gérez le contenu statique à distance, accédez localement, etc.
+author: msangapu-msft
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018274"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671785"
 ---
-# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
+# <a name="attach-azure-storage-containers-to-linux-containers"></a>Attacher des conteneurs Stockage Azure à des conteneurs Linux
 
-Ce guide montre comment distribuer du contenu statique dans App Service sur Linux avec le [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
+Ce guide vous montre comment attacher des partages réseau à App Service sur Linux en utilisant [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
 
 ## <a name="prerequisites"></a>Prérequis
 

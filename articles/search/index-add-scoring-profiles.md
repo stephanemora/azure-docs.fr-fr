@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113607"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666305"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113607"
  Pour vous donner une idée de l'apparence d'un profil de score, l'exemple suivant présente un simple profil « géographique ». Celui-ci privilégie les éléments dont le champ **hotelName** contient le terme recherché. Il utilise également la fonction `distance` pour favoriser les éléments qui se situent dans un rayon de dix kilomètres par rapport à l'emplacement actuel. Si quelqu'un effectue une recherche sur le terme « inn » dans un rayon de 10 km par rapport à la position actuelle, les documents d'hôtels dont le nom contient cette chaîne de caractères apparaissent en tête des résultats de la recherche.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  Cet exemple montre le schéma d'un index comprenant deux profils de calcul de score (`boostGenre`, `newAndHighlyRated`). Toute requête sur cet index qui comprend un profil comme paramètre de requête utilise le profil pour évaluer le jeu de résultats.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -234,14 +234,14 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
 |Attribut|Description|  
 |---------------|-----------------|  
-|`Name`|Requis. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l'expression « azureSearch » (avec respect de la casse).|  
-|`Text`|Contient la propriété Weights|  
-|`Weights`|facultatif. Paire nom-valeur spécifiant un nom de champ et une pondération relative. La pondération relative doit être un entier positif ou un nombre à virgule flottante. La valeur maximale est int32.MaxValue.<br /><br /> Vous pouvez spécifier le nom du champ sans pondération correspondante. Les pondérations permettent d'indiquer l'importance d'un champ par rapport à d'autres.|  
-|`Functions`|facultatif. Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.|  
-|`Type`|Obligatoire pour les fonctions de calcul de score. Indique le type de fonction à utiliser. Les valeurs autorisées sont magnitude, freshness, distance et tag. Vous pouvez inclure plusieurs fonctions dans chaque profil de calcul de score. Le nom de fonction doit être en lettres minuscules.|  
-|`Boost`|Obligatoire pour les fonctions de calcul de score. Nombre positif utilisé comme multiplicateur pour le score brut. Il ne peut pas être égal à 1.|  
-|`Fieldname`|Obligatoire pour les fonctions de calcul de score. Vous pouvez appliquer une fonction de calcul de score uniquement à des champs faisant partie de la collection de champs de l'index, et qui sont filtrables. De plus, chaque type de fonction fait l'objet de restrictions supplémentaires (la valeur freshness est utilisée avec des champs datetime, la valeur amplitude avec des champs integer ou double, et la valeur distance avec des champs location). Vous pouvez spécifier un seul champ par définition de fonction. Par exemple, pour utiliser une valeur magnitude deux fois dans le même profil, vous devez inclure deux définitions de magnitude, une pour chaque champ.|  
-|`Interpolation`|Obligatoire pour les fonctions de calcul de score. Définit la pente pour laquelle la valorisation du score augmente, du début à la fin de la plage. Les valeurs autorisées sont Linear (par défaut), Constant, Quadratic et Logarithmic. Consultez la rubrique [Définition d’interpolations](#bkmk_interpolation) pour plus d’informations.|  
+|`name`|Requis. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l'expression « azureSearch » (avec respect de la casse).|  
+|`text`|Contient la propriété weights.|  
+|`weights`|facultatif. Contient des paires nom-valeur spécifiant chacune un nom de champ et une pondération relative. La pondération relative doit être un entier positif ou un nombre à virgule flottante.<br /><br /> Les pondérations permettent d’indiquer l’importance d’un champ pouvant faire l’objet d’une recherche par rapport à d’autres.|  
+|`functions`|facultatif. Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.|  
+|`type`|Obligatoire pour les fonctions de calcul de score. Indique le type de fonction à utiliser. Les valeurs autorisées sont magnitude, freshness, distance et tag. Vous pouvez inclure plusieurs fonctions dans chaque profil de calcul de score. Le nom de fonction doit être en lettres minuscules.|  
+|`boost`|Obligatoire pour les fonctions de calcul de score. Nombre positif utilisé comme multiplicateur pour le score brut. Il ne peut pas être égal à 1.|  
+|`fieldname`|Obligatoire pour les fonctions de calcul de score. Vous pouvez appliquer une fonction de calcul de score uniquement à des champs faisant partie de la collection de champs de l'index, et qui sont filtrables. De plus, chaque type de fonction fait l'objet de restrictions supplémentaires (la valeur freshness est utilisée avec des champs datetime, la valeur amplitude avec des champs integer ou double, et la valeur distance avec des champs location). Vous pouvez spécifier un seul champ par définition de fonction. Par exemple, pour utiliser une valeur magnitude deux fois dans le même profil, vous devez inclure deux définitions de magnitude, une pour chaque champ.|  
+|`interpolation`|Obligatoire pour les fonctions de calcul de score. Définit la pente pour laquelle la valorisation du score augmente, du début à la fin de la plage. Les valeurs autorisées sont Linear (par défaut), Constant, Quadratic et Logarithmic. Consultez la rubrique [Définition d’interpolations](#bkmk_interpolation) pour plus d’informations.|  
 |`magnitude`|La fonction de calcul de score magnitude est utilisée pour modifier des classements en fonction de la plage de valeurs pour un champ numérique. Voici quelques exemples d’utilisation courants :<br /><br /> -   **Évaluations :** modifiez le calcul de score sur la base de la valeur figurant dans le champ « Évaluation ». Lorsque deux éléments sont pertinents, l’élément associé à l’évaluation la plus élevée s’affiche en premier.<br />-   **Marge :** lorsque deux documents sont pertinents, un détaillant peut souhaiter privilégier le document présentant les marges les plus élevées.<br />-   **Nombres de clics :** pour les applications qui suivent les actions de clic sur des produits ou des pages, vous pouvez utiliser la fonction magnitude pour favoriser les éléments qui drainent le plus de trafic.<br />-   **Nombres de téléchargements :** pour les applications qui suivent les téléchargements, la fonction magnitude permet de favoriser les éléments les plus téléchargés.|  
 |`magnitude` &#124; `boostingRangeStart`|Définit la valeur de début de la plage sur la base de laquelle les scores de magnitude sont calculés. La valeur doit être un entier ou un nombre à virgule flottante. Pour des évaluations de 1 à 4, il s'agit de 1. Pour des marges de plus de 50 %, il s'agit de 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Définit la valeur de fin de la plage sur laquelle les scores de magnitude sont calculés. La valeur doit être un entier ou un nombre à virgule flottante. Pour les évaluations de 1 à 4, il s'agit de 4.|  
@@ -261,10 +261,10 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
 |||  
 |-|-|  
-|`Linear`|pour les éléments qui s’inscrivent dans la plage de max à min, la valorisation appliquée décroît de manière constante. L'interpolation de type Linear est l'interpolation par défaut pour un profil de calcul de score.|  
-|`Constant`|Pour les éléments qui s'inscrivent dans la plage du début à la fin, une valorisation constante est appliquée aux résultats du classement.|  
-|`Quadratic`|Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Quadratic décroît initialement plus lentement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus rapidement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.|  
-|`Logarithmic`|Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Logarithmic décroît initialement plus rapidement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus lentement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.|  
+|`linear`|pour les éléments qui s’inscrivent dans la plage de max à min, la valorisation appliquée décroît de manière constante. L'interpolation de type Linear est l'interpolation par défaut pour un profil de calcul de score.|  
+|`constant`|Pour les éléments qui s'inscrivent dans la plage du début à la fin, une valorisation constante est appliquée aux résultats du classement.|  
+|`quadratic`|Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Quadratic décroît initialement plus lentement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus rapidement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.|  
+|`logarithmic`|Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Logarithmic décroît initialement plus rapidement, puis, lorsqu’elle approche de la plage de fin, beaucoup plus lentement. Cette option d'interpolation n'est pas autorisée dans les fonctions de calcul de score de balises.|  
 
  ![Lignes constantes, linéaires, quadratiques, log10 sur le graphique](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 

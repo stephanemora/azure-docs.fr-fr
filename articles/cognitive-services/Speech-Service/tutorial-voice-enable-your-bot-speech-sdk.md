@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech'
+title: 'Didacticiel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer un bot d’écho à l’aide de Microsoft Bot Framework, le déployer dans Azure, puis l’inscrire auprès du canal Bot Framework Direct Line Speech. Ensuite, vous allez configurer un exemple d’application cliente pour Windows qui vous permet de parler à votre bot et d’entendre ses réponses vocales.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: c95bc7b58f3883fee54aaa8095cb187eaefdb3e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836957"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815208"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Didacticiel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
-Vous pouvez désormais utiliser la puissance des services Speech pour activer les fonctions vocales dans un bot conversationnel en toute simplicité.
+Vous pouvez désormais utiliser la puissance du service Speech pour activer les fonctions vocales dans un bot conversationnel en toute simplicité.
 
 Dans ce tutoriel, vous allez créer un bot d’écho à l’aide de Microsoft Bot Framework, le déployer dans Azure, puis l’inscrire auprès du canal Bot Framework Direct Line Speech. Ensuite, vous allez configurer un exemple d’application cliente pour Windows qui vous permet de parler à votre bot et d’entendre ses réponses vocales.
 
@@ -39,7 +39,7 @@ Ce tutoriel est destiné aux développeurs qui débutent avec Azure, les bots Bo
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "Flux du canal Speech")
 
 > [!NOTE]
-> Les étapes de ce tutoriel ne nécessitent pas l’utilisation d’un service payant. Pour suivre ce tutoriel, en tant que nouvel utilisateur Azure, vous pouvez utiliser les crédits de votre essai gratuit Azure, ainsi que le niveau de service gratuit des services Speech.
+> Les étapes de ce tutoriel ne nécessitent pas l’utilisation d’un service payant. Pour suivre ce tutoriel, en tant que nouvel utilisateur Azure, vous pouvez utiliser les crédits de votre essai gratuit Azure, ainsi que le niveau de service gratuit du service Speech.
 
 Voici ce qui est couvert par ce tutoriel :
 > [!div class="checklist"]
@@ -63,7 +63,7 @@ Voici ce dont vous aurez besoin pour suivre ce tutoriel :
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-L’application cliente que vous allez créer dans ce tutoriel utilise un petit nombre de services Azure. Pour réduire la durée d’aller-retour des réponses envoyées par votre bot, vous devez placer ces services dans la même région Azure. Dans cette section, vous allez créer un groupe de ressources dans la région **USA Ouest**. Ce groupe de ressources sera utilisé lors de la création de ressources pour Bot Framework, le canal Direct Line Speech et les services Speech.
+L’application cliente que vous allez créer dans ce tutoriel utilise un petit nombre de services Azure. Pour réduire la durée d’aller-retour des réponses envoyées par votre bot, vous devez placer ces services dans la même région Azure. Dans cette section, vous allez créer un groupe de ressources dans la région **USA Ouest**. Ce groupe de ressources sera utilisé lors de la création de ressources pour Bot Framework, le canal Direct Line Speech et le service Speech.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**. Cliquez sur **Ajouter** pour ajouter un nouveau groupe de ressources.
@@ -89,7 +89,7 @@ Pour plus d’informations sur les régions, consultez [Régions Azure](https://
 
 Maintenant que vous disposez d’un groupe de ressources dans la région **USA Ouest**, l’étape suivante consiste à créer des ressources pour chaque service que vous allez utiliser dans ce tutoriel.
 
-### <a name="create-a-speech-services-resource"></a>Créer une ressource pour les services Speech
+### <a name="create-a-speech-service-resource"></a>Créer une ressource de service Speech
 
 Pour créer une ressource Speech, suivez ces instructions :
 
@@ -426,7 +426,7 @@ Si vous ne souhaitez pas continuer à utiliser le bot d’écho déployé dans c
 * Effectuer un déploiement dans une [région Azure qui prend en charge les voix de synthèse vocale neurales haute qualité](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Tarifs associés au canal Direct Line Speech :
   * [Tarification de Service Bot](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Services Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Création et déploiement de votre propre bot avec fonctions vocales :
   * Créez un [bot Bot Framework](https://dev.botframework.com/). Inscrivez le bot auprès du [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) et [personnalisez-le avec les fonctions vocales](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0).
   * Explorez les [solutions Bot Framework](https://microsoft.github.io/botframework-solutions/index) existantes : Créer un [assistant virtuel](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) et [l’étendre à Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

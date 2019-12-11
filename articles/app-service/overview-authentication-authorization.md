@@ -1,26 +1,17 @@
 ---
-title: Authentification et autorisation - Azure App Service | Microsoft Docs
-description: Référence et présentation conceptuelles de la fonctionnalité d’authentification/autorisation pour Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Authentification et autorisation
+description: Renseignez-vous sur la prise en charge de l’authentification et de l’autorisation intégrées dans Azure App Service et découvrez en quoi elle peut vous aider à protéger votre application contre tout accès non autorisé.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808756"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672239"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -32,8 +23,10 @@ Azure App Service offre une prise en charge intégrée de l’authentification e
 
 Pour mettre en place un système sécurisé d’authentification et d’autorisation, il faut avoir une connaissance approfondie de la sécurité, notamment de la fédération, du chiffrement, de la gestion des [jetons web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), des [types d’autorisation](https://oauth.net/2/grant-types/), etc. App Service propose ces utilitaires pour vous permettre de consacrer davantage de temps et d’énergie à offrir de la valeur ajoutée à votre client.
 
-> [!NOTE]
-> Il n’est pas obligatoire d’utiliser App Service pour l’authentification et l’autorisation. Plusieurs infrastructures web sont fournies avec des fonctionnalités de sécurité ; vous pouvez les utiliser si vous le souhaitez. Si vous avez besoin de plus de flexibilité que n’en offre App Service, vous pouvez également écrire vos propres utilitaires.  
+> [!IMPORTANT]
+> Vous n’êtes pas obligé d’utiliser App Service pour l’authentification et l’autorisation. Plusieurs infrastructures web sont fournies avec des fonctionnalités de sécurité ; vous pouvez les utiliser si vous le souhaitez. Si vous avez besoin de plus de flexibilité que n’en offre App Service, vous pouvez également écrire vos propres utilitaires.  
+>
+> Cependant, si vous ne choisissez pas App Service pour l’authentification à distance, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que le mécanisme d’authentification de votre application risque de s’interrompre après la mise à jour des navigateurs clients. La documentation ASP.NET Core contient des informations sur la façon de résoudre ce problème dans votre application, dans la section [HTTP : Impact des changements apportés à SameSite sur l’authentification](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Vous y trouverez des conseils utiles sur la façon de tester les principaux navigateurs par rapport à ce changement cassant, que vous utilisiez ou non ASP.NET Core.
 >
 
 Pour plus d’informations sur les applications mobiles natives en particulier, consultez la page [Authentification et autorisation des utilisateurs pour les applications mobiles avec Azure App Service](../app-service-mobile/app-service-mobile-auth.md).

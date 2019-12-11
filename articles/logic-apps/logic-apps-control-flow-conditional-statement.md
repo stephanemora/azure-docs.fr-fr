@@ -1,20 +1,17 @@
 ---
-title: Ajouter des instructions conditionnelles aux workflows – Azure Logic Apps | Microsoft Docs
+title: Ajouter des instructions conditionnelles à des workflows
 description: Comment créer des conditions qui contrôlent des actions dans le workflow dans Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684758"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793253"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Créer des instructions conditionnelles qui contrôlent des actions de workflow dans Azure Logic Apps
 

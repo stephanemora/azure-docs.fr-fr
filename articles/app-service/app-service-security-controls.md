@@ -1,20 +1,16 @@
 ---
-title: Contrôles de sécurité pour Azure App Service
-description: Check-list des contrôles de sécurité pour l’évaluation d’Azure App Service
-services: app-service
-documentationcenter: ''
+title: Contrôles de sécurité
+description: Trouvez une check-list de contrôles de sécurité pour évaluer Azure App Service pour votre organisation.
 author: msmbaldwin
-manager: rkarlin
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a1889def8d177c312618f12b3fa0480cc4b849b3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046864"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671448"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Contrôles de sécurité pour Azure App Service
 

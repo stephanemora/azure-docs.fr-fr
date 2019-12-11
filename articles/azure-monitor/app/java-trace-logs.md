@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819344"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784593"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
@@ -22,27 +22,41 @@ Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez fair
 
 ## <a name="using-the-application-insights-java-agent"></a>Utilisation de l’agent Java Application Insights
 
-Vous pouvez configurer l’agent Java application Insights pour qu’il capture automatiquement vos journaux, en activant la fonctionnalité dans le fichier `AI-Agent.xml` :
+Par défaut, l’agent Java Application Insights capture automatiquement la journalisation effectuée au niveau `WARN` et au-dessus.
+
+Vous pouvez changer le seuil de journalisation capturé à l’aide du fichier `AI-Agent.xml` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-Vous pouvez également suivre les instructions ci-dessous.
+Vous pouvez désactiver la capture de la journalisation par l’agent Java à l’aide du fichier `AI-Agent.xml` :
 
-## <a name="install-the-java-sdk"></a>Installer le Kit de développement logiciel (SDK) Java
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Sinon (par opposition à l’utilisation de l’agent Java), vous pouvez suivre les instructions ci-dessous.
+
+### <a name="install-the-java-sdk"></a>Installer le Kit de développement logiciel (SDK) Java
 
 Suivez les instructions pour installer le [kit de développement logiciel (SDK) Application Insights pour Java][java], si ce n’est pas déjà fait.
 
-## <a name="add-logging-libraries-to-your-project"></a>Ajouter des bibliothèques de journalisation à votre projet
+### <a name="add-logging-libraries-to-your-project"></a>Ajouter des bibliothèques de journalisation à votre projet
 *Choisissez la méthode adaptée à votre projet.*
 
 #### <a name="if-youre-using-maven"></a>Si vous utilisez Maven...
@@ -123,7 +137,7 @@ Suivez les instructions pour installer manuellement le kit de développement log
 | Log4J v1.2 |[Jar de l’appender Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Ajouter l’appender à votre infrastructure de journalisation
+### <a name="add-the-appender-to-your-logging-framework"></a>Ajouter l’appender à votre infrastructure de journalisation
 Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier de configuration Log4J ou Logback : 
 
 *Logback*

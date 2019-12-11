@@ -1,20 +1,17 @@
 ---
-title: Se connecter à des réseaux virtuels Azure avec un environnement de service d’intégration (ISE) - Azure Logic Apps
+title: Se connecter à des réseaux virtuels Azure avec un environnement de service d’intégration (ISE)
 description: Créez un environnement de service d’intégration (ISE) pouvant accéder aux réseaux virtuels Azure à partir d’Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: d38874e7cb3fc61e32bd4ecd1fee528c4e5053e8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6e301cf8e24ba740b56c63d7f95b50617ba25383
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547164"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792711"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 

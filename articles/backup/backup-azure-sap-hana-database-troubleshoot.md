@@ -3,12 +3,12 @@ title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: b4c39c631963a358dcdc9d1eafe954a85a9499ad
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554861"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665336"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -20,61 +20,61 @@ Reportez-vous aux sections [conditions préalables](tutorial-backup-sap-hana-db.
 
 ## <a name="common-user-errors"></a>Erreurs utilisateur courantes
 
-###  <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection 
+### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-| Message d’erreur      | Échec de la connexion au système HANA                             |
+| Message d’erreur      | <span style="font-weight:normal">Échec de la connexion au système HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | L’instance SAP HANA est peut-être inactive.<br/>Les autorisations requises pour que Sauvegarde Azure interagisse avec la base de données HANA ne sont pas définies. |
-| Action recommandée | Vérifiez que la base de données SAP HANA est active. Si la base de données est opérationnelle, vérifiez que toutes les autorisations requises sont définies. Si une autorisation est absente, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) pour l’ajouter. |
+| **Causes possibles**    | L’instance SAP HANA est peut-être inactive.<br/>Les autorisations requises pour que Sauvegarde Azure interagisse avec la base de données HANA ne sont pas définies. |
+| **Action recommandée** | Vérifiez que la base de données SAP HANA est active. Si la base de données est opérationnelle, vérifiez que toutes les autorisations requises sont définies. Si une autorisation est absente, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) pour l’ajouter. |
 
-###  <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid 
+### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
 
-| Message d’erreur      | L’instance SAP HANA spécifiée n’est pas valide ou est introuvable |
+| Message d’erreur      | <span style="font-weight:normal">L’instance SAP HANA spécifiée n’est pas valide ou est introuvable</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | Il est impossible de sauvegarder plusieurs instances SAP HANA sur une seule machine virtuelle Azure. |
-| Action recommandée | Exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA que vous voulez sauvegarder. Si le problème persiste, contactez le support technique Microsoft. |
+| **Causes possibles**    | Il est impossible de sauvegarder plusieurs instances SAP HANA sur une seule machine virtuelle Azure. |
+| **Action recommandée** | Exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) sur l’instance SAP HANA que vous voulez sauvegarder. Si le problème persiste, contactez le support technique Microsoft. |
 
-###  <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation 
+### <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation
 
-| Message d’erreur      | L’opération SAP HANA spécifiée n’est pas prise en charge             |
+| Message d’erreur      | <span style="font-weight:normal">L’opération SAP HANA spécifiée n’est pas prise en charge</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | Sauvegarde Azure pour SAP HANA ne prend pas en charge la sauvegarde incrémentielle et les actions effectuées sur des clients natifs SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
-| Action recommandée | Pour plus d’informations, consultez [cette page](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Causes possibles**    | Sauvegarde Azure pour SAP HANA ne prend pas en charge la sauvegarde incrémentielle et les actions effectuées sur des clients natifs SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
+| **Action recommandée** | Pour plus d’informations, consultez [cette page](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-###  <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType 
+### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
-| Message d’erreur      | Cette base de données SAP HANA ne prend pas en charge le type de sauvegarde demandé |
+| Message d’erreur      | <span style="font-weight:normal">Cette base de données SAP HANA ne prend pas en charge le type de sauvegarde demandé</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | Sauvegarde Azure ne prend pas en charge la sauvegarde incrémentielle et les sauvegardes utilisant des instantanés |
-| Action recommandée | Pour plus d’informations, consultez [cette page](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Causes possibles**    | Sauvegarde Azure ne prend pas en charge la sauvegarde incrémentielle et les sauvegardes utilisant des instantanés |
+| **Action recommandée** | Pour plus d’informations, consultez [cette page](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-###  <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure 
+### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
-| Message d’erreur      | La séquence de journaux de transactions consécutifs de sauvegarde est rompue                                   |
+| Message d’erreur      | <span style="font-weight:normal">La séquence de journaux de transactions consécutifs de sauvegarde est rompue</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | La destination de sauvegarde des journaux a peut-être été modifiée depuis l’opération backint sur le système de fichiers ou le fichier exécutable backint a été modifié |
-| Action recommandée | Déclenchez une sauvegarde complète pour résoudre le problème                   |
+| **Causes possibles**    | La destination de sauvegarde des journaux a peut-être été modifiée depuis l’opération backint sur le système de fichiers ou le fichier exécutable backint a été modifié |
+| **Action recommandée** | Déclenchez une sauvegarde complète pour résoudre le problème                   |
 
-###  <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
 
-| Message d’erreur      | Les systèmes source et cible pour la restauration ne sont pas compatibles   |
+| Message d’erreur      | <span style="font-weight:normal">Les systèmes source et cible pour la restauration ne sont pas compatibles</span>    |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | Le système cible pour la restauration n’est pas compatible avec le système source |
-| Action recommandée | Reportez-vous à la note SAP [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour connaître les types de restauration actuellement pris en charge |
+| **Causes possibles**    | Le système cible pour la restauration n’est pas compatible avec le système source |
+| **Action recommandée** | Reportez-vous à la note SAP [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour connaître les types de restauration actuellement pris en charge |
 
-###  <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected 
+### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
-| Message d’erreur      | Mise à niveau de SDC vers MDC détectée                                  |
+| Message d’erreur      | <span style="font-weight:normal">Mise à niveau de SDC vers MDC détectée</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | L’instance SAP HANA a été mise à niveau de SDC vers MDC. Les sauvegardes échoueront après la mise à jour. |
-| Action recommandée | Suivez la procédure décrite dans la [section Mise à niveau de SAP HANA 1.0 vers 2.0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) pour résoudre le problème |
+| **Causes possibles**    | L’instance SAP HANA a été mise à niveau de SDC vers MDC. Les sauvegardes échoueront après la mise à jour. |
+| **Action recommandée** | Suivez la procédure décrite dans la [section Mise à niveau de SAP HANA 1.0 vers 2.0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) pour résoudre le problème |
 
-###  <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration 
+### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| Message d’erreur      | Configuration backint non valide détectée.                       |
+| Message d’erreur      | <span style="font-weight:normal">Configuration backint non valide détectée</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| Causes possibles    | Les paramètres de sauvegarde ne sont pas spécifiés correctement pour Sauvegarde Azure |
-| Action recommandée | Vérifiez que les paramètres suivants (backint) sont définis :<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si les paramètres basés sur backint sont présents au niveau de l’HÔTE, supprimez-les. Si les paramètres ne sont pas présents au niveau de l’HÔTE, mais ont été modifiés manuellement au niveau de la base de données, rétablissez les valeurs appropriées comme décrit précédemment. Sinon, sur le Portail Microsoft Azure, exécutez [Arrêter la protection et conserver les données de sauvegarde](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database), puis sélectionnez **Reprendre la sauvegarde**. |
+| **Causes possibles**    | Les paramètres de sauvegarde ne sont pas spécifiés correctement pour Sauvegarde Azure |
+| **Action recommandée** | Vérifiez que les paramètres suivants (backint) sont définis :<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si les paramètres basés sur backint sont présents au niveau de l’HÔTE, supprimez-les. Si les paramètres ne sont pas présents au niveau de l’HÔTE, mais ont été modifiés manuellement au niveau de la base de données, rétablissez les valeurs appropriées comme décrit précédemment. Sinon, sur le Portail Microsoft Azure, exécutez [Arrêter la protection et conserver les données de sauvegarde](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database), puis sélectionnez **Reprendre la sauvegarde**. |
 
 ## <a name="restore-checks"></a>Restaurer les vérifications
 

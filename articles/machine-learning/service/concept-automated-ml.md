@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le Machine Learning (ML) automatisé / automl
+title: Qu’est-ce que le Machine Learning (ML) automatisé / AutoML
 titleSuffix: Azure Machine Learning
 description: Découvrez comment Azure Machine Learning peut choisir automatiquement un algorithme pour vous et générer un modèle à partir de celui-ci pour vous permettre de gagner du temps en utilisant les paramètres et les critères que vous fournissez de façon à sélectionner le meilleur algorithme pour votre modèle.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d8628bd62df650d76b0666b650af88038dbbda1f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133070"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807117"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -98,10 +98,60 @@ Un prétraitement avancé et une personnalisation supplémentaires sont égaleme
 
 + Azure Machine Learning Studio : En sélectionnant l’option permettant de **voir les paramètres de caractérisation** dans la section **Exécuter la configuration** [en effectuant ces étapes](how-to-create-portal-experiments.md).
 
-+ Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": auto' / 'off' / FeaturizationConfig` pour la [`AutoMLConfig`classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": auto' / 'off' / FeaturizationConfig` pour la [`AutoMLConfig`classe](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
+## <a name="prevent-over-fitting"></a>Empêcher le surajustement
+
+Le surajustement en Machine Learning se produit quand un modèle ajuste trop bien les données d’entraînement, et est par conséquent dans l’incapacité de prédire avec précision des données de test invisibles. En d’autres termes, le modèle a simplement mémorisé du bruit et des patterns spécifiques dans les données d’entraînement, mais il n’est pas suffisamment flexible pour faire des prédictions sur des données réelles. Dans les cas les plus flagrants, un modèle surajusté suppose que les combinaisons de valeurs de caractéristiques vues lors de l’entraînement produiront toujours exactement la même sortie pour la cible. 
+
+La meilleure façon d’empêcher le surajustement consiste à respecter les bonnes pratiques du Machine Learning, notamment :
+
+* Utilisation de données d’entraînement supplémentaires et élimination du biais statistique
+* Prévention des fuites de cibles
+* Utilisation de moins de caractéristiques
+* **Régularisation et optimisation des hyperparamètres**
+* **Limitations de la complexité des modèles**
+* **Validation croisée**
+
+Dans le contexte du ML automatisé, les trois premiers éléments ci-dessus sont des **bonnes pratiques que vous implémentez**. Les trois derniers éléments en gras sont **des bonnes pratiques implémentées par le ML automatisé** par défaut afin d’offrir une protection contre le surajustement. Dans les paramètres autres que le ML automatisé, il convient de respecter ces six bonnes pratiques pour éviter le surajustement des modèles.
+
+### <a name="best-practices-you-implement"></a>Bonnes pratiques que vous implémentez
+
+L’utilisation de **davantage** de données est le meilleur moyen (et le plus simple) d’empêcher le surajustement. En plus, cela permet généralement d’augmenter la justesse. Plus vous utilisez de données, plus il devient difficile pour le modèle de mémoriser des patterns exacts, et plus il est contraint de trouver des solutions plus flexibles pour prendre en charge davantage de conditions. Il est également important de reconnaître le **biais statistique** afin de garantir que vos données d’entraînement n’incluent pas de patterns isolés qui n’existeront pas dans les données de prédictions dynamiques. Ce scénario peut être difficile à résoudre, car il se peut qu’il n’y ait pas de surajustement entre vos jeux de test et d’entraînement, mais qu’il y en ait un par comparaison aux données de test dynamiques.
+
+La fuite de cible est un problème similaire, où il est possible que le surajustement soit visible non pas entre les jeux d’entraînement et de test, mais au moment de la prédiction. La fuite de cible se produit quand votre modèle « triche » lors de l’entraînement en ayant accès à des données auxquelles il ne devrait normalement pas avoir accès au moment de la prédiction. Par exemple, si votre problème consiste à prédire, le lundi, quel sera le prix d’un produit le vendredi, mais que l’une de vos caractéristiques inclut accidentellement des données du jeudi, il s’agit de données auxquelles le modèle n’aura pas accès au moment de la prédiction, car il ne peut pas voir dans le futur. La fuite de cible est une erreur facile à manquer, mais elle est souvent caractérisée par une justesse anormalement élevée pour votre problème. Si vous tentez de prédire des cours boursiers et que vous avez entraîné un modèle à 95 % de justesse, il est très probable qu’il existe des fuites de cible quelque part dans vos caractéristiques.
+
+La suppression de caractéristiques peut également aider en cas de surajustement, en empêchant que le modèle ait un trop grand nombre de champs à utiliser pour mémoriser des patterns spécifiques, ce qui le rend plus flexible. Cela peut être difficile à mesurer quantitativement, mais si vous pouvez supprimer des caractéristiques et conserver la même justesse, vous avez probablement rendu le modèle plus flexible et vous avez réduit le risque de surajustement.
+
+### <a name="best-practices-automated-ml-implements"></a>Bonnes pratiques implémentées par le ML automatisé
+
+La régularisation est le processus qui consiste à minimiser une fonction de coût pour pénaliser les modèles complexes et surajustés. Il existe différents types de fonctions de régularisation, mais en général elles pénalisent toutes la complexité, la variance et la taille de coefficient du modèle. Le ML automatisé utilise L1 (Lasso), L2 (Ridge) et ElasticNet (L1 et L2 simultanément) dans différentes combinaisons avec des paramètres d’hyperparamètres de modèle différents qui contrôlent le surajustement. En termes simples, le ML automatisé peut varier le degré de régulation d’un modèle et choisir le résultat le plus juste.
+
+Le ML automatisé implémente également des limitations de complexité de modèle explicites afin d’empêcher le surajustement. Dans la plupart des cas, cela concerne spécifiquement les algorithmes de forêt ou d’arbres de décision, où la profondeur maximale d’une arborescence donnée est limitée et le nombre total d’arbres utilisés dans les techniques de forêt ou d’ensemble est limité.
+
+La validation croisée est le processus qui consiste à prendre de nombreux sous-ensembles de vos données d’entraînement complètes et à entraîner un modèle sur chaque sous-ensemble. L’idée est qu’un modèle pourrait être « chanceux » et avoir une grande justesse avec un sous-ensemble, mais avec l’utilisation de nombreux sous-ensembles le modèle ne présentera pas cette justesse élevée à chaque fois. Avec la validation croisée, vous fournissez un jeu de données d’exclusion de validation, vous spécifiez vos plis de validation croisée (le nombre de sous-ensembles), et le ML automatisé entraîne votre modèle et ajuste les hyperparamètres afin de minimiser les erreurs sur votre jeu de validation. Il est possible qu’un pli de validation croisée présente un surajustement, mais l’utilisation de nombreux plis réduit la probabilité que votre modèle final soit surajusté. L’inconvénient est que la validation croisée entraîne des temps d’entraînement plus longs, et par conséquent un coût plus élevé, car au lieu d’entraîner un modèle une seule fois, vous l’entraînez une fois pour tous les *n* sous-ensembles de validation croisée.
+
+> [!NOTE]
+> La validation croisée n’est pas activée par défaut ; vous devez la configurer dans les paramètres de ML automatisé. Cependant, une fois que la validation croisée est configurée et qu’un jeu de données de validation a été fourni, le processus est automatisé.
+
+### <a name="identifying-over-fitting"></a>Identification d’un surajustement
+
+Considérez les modèles entraînés suivants et leurs précisions d’entraînement et de test correspondantes.
+
+| Modèle | Précision d’entraînement | Précision de test |
+|-------|----------------|---------------|
+| A | 99,9 % | 95 % |
+| b | 87 % | 87 % |
+| C | 99,9 % | 45 % |
+
+Si l’on considère le modèle **A**, il existe une idée fausse selon laquelle si la précision de test sur des données invisibles est inférieure à la précision d’entraînement, le modèle est surajusté. Toutefois, la précision de test doit toujours être inférieure à la précision d’entraînement, et la distinction entre l’ajustement correct et le surajustement correspond en fait à la *différence* de précision. 
+
+Si l’on compare les modèles **A** et **B**, le modèle **A** est meilleur, car il a une plus grande précision de test, et bien que la précision de test soit légèrement inférieure (95 %), il ne s’agit pas d’une différence significative qui traduit un surajustement. Vous ne choisiriez pas le modèle **B** simplement parce que les précisions d’entraînement et de test sont plus proches.
+
+Le modèle **C** représente un cas clair de surajustement ; la précision d’entraînement est très élevée, mais la précision de test l’est beaucoup moins. Cette distinction est quelque peu subjective, mais provient de la connaissance de votre problème et de vos données, ainsi que des amplitudes d’erreur acceptables. 
 
 ## <a name="time-series-forecasting"></a>Prévision de série chronologique
+
 L’établissement de prévisions fait partie intégrante de toute entreprise, qu’il s’agisse du chiffre d’affaires, de l’inventaire, des ventes ou de la demande des clients. Vous pouvez utiliser le Machine Learning automatisé pour combiner des techniques et approches, et obtenir une prévision de série chronologique recommandée de haute qualité.
 
 Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Contrairement aux méthodes de série chronologique classiques, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Le Machine Learning automatisé effectue l’apprentissage d’un modèle unique, mais souvent ramifié en interne, pour tous les éléments du jeu de données et les horizons de prédiction. Plus de données sont ainsi disponibles pour estimer les paramètres du modèle et la généralisation en séries invisibles devient possible.

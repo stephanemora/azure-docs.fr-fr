@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839357"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707249"
 ---
 # <a name="onboarding-and-installing"></a>Intégration et installation
 
@@ -53,7 +53,8 @@ Conditions préalables pour commencer à utiliser Microsoft Security Code Analys
 
 1. Une fois l’extension partagée avec votre organisation Azure DevOps, accédez à la page de votre organisation Azure DevOps. `https://dev.azure.com/contoso` est un exemple d’URL pour une telle page.
 1. Sélectionnez l’icône de panier d’achat en haut à droite à côté de votre nom, puis **Gérer les extensions**.
-1. Sélectionnez l’extension Microsoft Security Code Analysis, puis ouvrez l’Assistant Interface utilisateur d’Azure DevOps pour démarrer l’installation.
+1. Sélectionnez **Partagé**.
+1. Sélectionnez l’extension Microsoft Security Code Analysis, puis **Installer**.
 1. Dans la liste déroulante, choisissez l’organisation Azure DevOps sur laquelle installer l’extension.
 1. Sélectionnez **Installer**. Une fois l’installation terminée, vous pouvez commencer à l’utiliser.
 

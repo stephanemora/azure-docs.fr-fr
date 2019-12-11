@@ -1,17 +1,17 @@
 ---
-title: Vue d’ensemble du point de terminaison de services de réseau virtuel dans Azure Database pour PostgreSQL - Serveur unique
-description: Découvrez comment les points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL - Serveur unique fonctionnent.
-author: bolzmj
-ms.author: mbolz
+title: Règles de pare-feu virtuel - Azure Database pour PostgreSQL - Serveur unique
+description: Découvrez comment utiliser les points de terminaison de service de réseau virtuel pour vous connecter à Azure Database pour PostgreSQL - Serveur unique.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609972"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768654"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL - Serveur unique
 

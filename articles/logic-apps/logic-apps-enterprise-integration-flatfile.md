@@ -1,25 +1,23 @@
 ---
-title: Encoder ou décoder des fichiers plats - Azure Logic Apps | Microsoft Docs
+title: Encoder ou décoder des fichiers plats
 description: Encoder ou décoder des fichiers plats pour l’intégration d’entreprise avec Azure Logic Apps et Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53d9935f68c21238cb4f90f78e543a7ab343ced2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467259"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792520"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Encoder ou décoder des fichiers plats avec Azure Logic Apps et Enterprise Integration Pack
 
-Par exemple, vous pouvez encoder le contenu XML avant de l’envoyer à un partenaire commercial dans un scénario B2B. Dans une application logique, vous pouvez utiliser le connecteur d’encodage de fichier plat pour effectuer cette opération. L’application logique que vous créez peut obtenir son contenu XML de diverses sources y compris à partir d’un déclencheur de requête HTTP, d’une autre application, voire d’un des nombreux [connecteurs](../connectors/apis-list.md). Pour plus d’informations sur les applications logiques, consultez la [documentation sur les applications logiques](logic-apps-overview.md "En savoir plus sur les applications logiques").  
+Par exemple, vous pouvez encoder le contenu XML avant de l’envoyer à un partenaire commercial dans un scénario B2B. Dans une application logique, vous pouvez utiliser le connecteur d’encodage de fichier plat pour effectuer cette opération. L’application logique que vous créez peut obtenir son contenu XML de diverses sources y compris à partir d’un déclencheur de requête HTTP, d’une autre application, voire d’un des nombreux [connecteurs](../connectors/apis-list.md). Pour plus d’informations sur les applications logiques, consultez la [documentation sur les applications logiques](logic-apps-overview.md "Apprenez-en davantage sur les applications logiques.").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Créer le connecteur d’encodage de fichier plat
 Suivez ces étapes pour ajouter un connecteur d’encodage de fichier plat à votre application logique.
@@ -80,5 +78,5 @@ Vous pouvez maintenant tester votre connecteur en envoyant une requête au point
 Vous pouvez maintenant tester votre connecteur en envoyant une demande au point de terminaison HTTP, en incluant le contenu XML à décoder dans le corps de la demande.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack").  
+* [Apprenez-en davantage sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 

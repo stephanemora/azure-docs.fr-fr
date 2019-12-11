@@ -1,17 +1,17 @@
 ---
-title: Configurer et consulter les journaux des requêtes lentes dans Azure Database pour MySQL à partir du portail Azure
+title: Accéder aux journaux des requêtes lentes - Portail Azure - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter les journaux des requêtes lentes dans Azure Database pour MySQL à partir du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 7eeeb729973e484e9acb26f3ac8cc42693f72eea
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841568"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770575"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes à partir du portail Azure
 
@@ -34,7 +34,7 @@ Configurer l’accès au journal des requêtes lentes de MySQL.
 
 5. Modifiez les paramètres que vous devez ajuster. Toutes les modifications que vous apportez dans cette session sont surlignées en violet. 
 
-   Après avoir modifié les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos modifications.
+   Après avoir changé les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos changements.
 
    ![Capture d’écran des options Paramètres du serveur](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
@@ -56,7 +56,7 @@ Une fois que la journalisation a commencé, vous pouvez afficher la liste des jo
 
 4. Si nécessaire, utilisez la zone de recherche pour trouver rapidement un journal spécifique en fonction d’une date et d’une heure. La recherche est effectuée sur le nom du journal.
 
-5. Pour téléchargez un fichier journal en particulier, sélectionnez l’icône de flèche bas en regard du fichier journal dans la ligne du tableau.
+5. Pour télécharger un fichier journal en particulier, sélectionnez l’icône de flèche bas en regard du fichier journal dans la ligne du tableau.
 
    ![Capture d’écran de la page Journaux du serveur, avec l’icône de flèche bas mise en évidence](./media/howto-configure-server-logs-in-portal/5-download.png)
 

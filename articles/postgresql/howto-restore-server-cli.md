@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL - Serveur unique
-description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL avec Azure CLI - Serveur unique à l’aide de l’interface de ligne de commande Azure.
+title: Sauvegarde et restauration - Azure CLI - Azure Database pour PostgreSQL - Serveur unique
+description: Découvrez comment définir des configurations de sauvegarde et restaurer un serveur dans Azure Database pour PostgreSQL - Serveur unique à l’aide d’Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: c1706f72f894baa7d07c49880a82dc96ef03d7cf
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965797"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775689"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL avec Azure CLI - Serveur unique à l’aide de l’interface de ligne de commande Azure
 

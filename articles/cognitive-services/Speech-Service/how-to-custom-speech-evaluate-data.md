@@ -1,5 +1,5 @@
 ---
-title: Évaluer la précision de Custom Speech – Service Speech
+title: Évaluer le niveau de justesse de Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Dans ce document, vous allez apprendre à quantifier la qualité de notre modèle de reconnaissance vocale ou de votre modèle personnalisé. Des données de transcription audio et étiquetées à la main sont nécessaires pour tester la précision ; il faut également fournir entre 30 minutes et 5 heures d’audio représentatif.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801547"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806094"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
 

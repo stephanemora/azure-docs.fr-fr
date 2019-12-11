@@ -1,5 +1,5 @@
 ---
-title: Migrer de Custom Speech Service vers le service Speech
+title: Migrer du service Custom Speech vers le service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Custom Speech fait désormais partie du service Speech. Basculez vers le service Speech pour profiter des dernières mises à jour qualité et des fonctionnalités.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9c93286329316d081f8fd99ebd360195931b7b09
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562770"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805924"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrer de Custom Speech Service vers le service Speech
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Effectuer une migration entre le service Custom Speech et le service Speech
 
-Utilisez cet article pour migrer vos applications du service Custom Speech vers le service Speech.
+Utilisez cet article pour effectuer la migration de vos applications entre le service Custom Speech et le service Speech.
 
-Le service Custom Speech fait désormais partie du service Speech. Passez aux services Speech pour bénéficier des dernières mises à jour qualité et mises à jour des fonctionnalités.
+Le service Custom Speech fait désormais partie du service Speech. Basculez vers le service Speech pour profiter des dernières mises à jour qualité et des fonctionnalités.
 
 ## <a name="migration-for-new-customers"></a>Migration pour les nouveaux clients
 
@@ -39,11 +39,11 @@ Le modèle tarifaire est plus simple, car il utilise un modèle basé sur un tar
 
 3. Suivez les guides de démarrage rapide et les exemples du SDK pour utiliser les API appropriées. Si vous utilisez les API REST, vous devez également utiliser les points de terminaison et les clés de ressources corrects.
 
-4. Mettez à jour l’application cliente de façon à utiliser les API et les services Speech.
+4. Mettez à jour l’application cliente pour utiliser les API et le service Speech.
 
 ## <a name="migration-for-existing-customers"></a>Migration pour les clients actuels
 
-Migrez vos clés de ressources existantes vers les services Speech sur le portail des services Speech. Procédez comme suit :
+Effectuez la migration de vos clés de ressources existantes vers le service Speech sur le portail du service Speech. Procédez comme suit :
 
 > [!NOTE]
 > Les ressources clés peuvent être migrées uniquement dans la même région.
@@ -56,10 +56,10 @@ Migrez vos clés de ressources existantes vers les services Speech sur le portai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Essayer gratuitement les services Speech](get-started.md).
+* [Essayer gratuitement le service Speech](get-started.md).
 * En savoir plus sur les concepts de [reconnaissance vocale](./speech-to-text.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est-ce que le service Speech Service](overview.md)
-* [Documentation du kit de développement logiciel (SDK) et des services Speech](speech-sdk.md#get-the-sdk)
+* [Qu’est-ce que le Service Speech](overview.md)
+* [Documentation sur le SDK Speech et sur le service Speech](speech-sdk.md#get-the-sdk)

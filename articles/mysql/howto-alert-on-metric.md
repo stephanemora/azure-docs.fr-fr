@@ -1,17 +1,17 @@
 ---
-title: Configurer des alertes de métriques pour Azure Database pour MySQL dans le portail Azure
+title: Configurer des alertes de métriques - Portail Azure - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter des alertes Métrique pour Azure Database pour MySQL à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 487ca76115b93020a762cfa2afb5fd5a3be40a66
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525771"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770660"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database pour MySQL 
 

@@ -2,18 +2,18 @@
 title: Utiliser le SDK .NET HBase - Azure HDInsight
 description: Utilisez le SDK .NET HBase pour créer et supprimer des tables et pour lire et écrire des données.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077167"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806658"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Cette nouvelle table a deux familles de colonnes : t2 et t1. Étant donné que les familles de colonnes sont stockées séparément dans des HFiles différents, il est judicieux d’avoir une famille de colonnes distincte pour les données fréquemment interrogées. Dans l’exemple [Insérer des données](#insert-data) suivant, les colonnes sont ajoutées à la famille de colonnes t1.
+Cette nouvelle table a deux familles de colonnes : t1 et t2. Étant donné que les familles de colonnes sont stockées séparément dans des HFiles différents, il est judicieux d’avoir une famille de colonnes distincte pour les données fréquemment interrogées. Dans l’exemple [Insérer des données](#insert-data) suivant, les colonnes sont ajoutées à la famille de colonnes t1.
 
 ## <a name="delete-a-table"></a>Suppression d’une table
 
@@ -112,7 +112,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implémente [Cloud BigTable](https://cloud.google.com/bigtable/), afin que le format de données ressemble à ce qui suit :
+HBase implémente [Cloud BigTable](https://cloud.google.com/bigtable/) afin que le format de données ressemble à l’image qui suit :
 
 ![Exemple de sortie de données Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 

@@ -1,21 +1,21 @@
 ---
-title: Accéder aux journaux d’activité du serveur dans Azure Database for MariaDB à l’aide d’Azure CLI
-description: Cet article décrit comment accéder aux journaux d’activité du serveur dans Azure Database pour MariaDB à l’aide de l’utilitaire de ligne de commande Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+title: Accéder aux journaux des requêtes lentes - Azure CLI - Azure Database for MariaDB
+description: Cet article décrit comment accéder aux journaux des requêtes lentes dans Azure Database for MariaDB à l’aide de l’utilitaire de ligne de commande Azure CLI.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023618"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767379"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
-Vous pouvez télécharger les journaux d’activité du serveur Azure Database for MariaDB à l’aide d’Azure CLI, l’utilitaire de ligne de commande Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurer et consulter les journaux des requêtes lentes à l’aide d’Azure CLI
+Vous pouvez télécharger les journaux des requêtes lentes Azure Database for MariaDB à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :

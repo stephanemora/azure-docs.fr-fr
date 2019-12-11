@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès aux ressources Azure pour les utilisateurs invités externes à l’aide du contrôle d’accès en fonction du rôle | Microsoft Docs
-description: Apprenez à gérer l'accès aux ressources Azure pour les utilisateurs externes à l'organisation à l'aide du contrôle d'accès en fonction du rôle (RBAC).
+title: Ajouter ou supprimer des attributions de rôles pour les utilisateurs invités externes à l’aide du RBAC Azure et du portail Azure
+description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs externes à une organisation à l’aide du contrôle d’accès en fonction du (RBAC) Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,26 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/12/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555559"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707886"
 ---
-# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gérer l’accès aux ressources Azure pour les utilisateurs invités externes à l’aide du contrôle d’accès en fonction du rôle
+# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles pour les utilisateurs invités externes à l’aide du RBAC Azure et du portail Azure
 
-La fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. Vous pouvez utiliser les fonctionnalités offertes dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder uniquement les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
+La fonctionnalité de [contrôle d’accès en fonction du rôle (RBAC) Azure ](overview.md) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs externes, des fournisseurs ou des travailleurs indépendants qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux étendues liées à la facturation. Vous pouvez utiliser les fonctionnalités offertes dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder uniquement les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
+
+- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
 
 ## <a name="when-would-you-invite-guest-users"></a>Quand voulez-vous convier des utilisateurs invités ?
 
@@ -61,9 +67,9 @@ Pour que l’utilisateur invité soit en mesure d’accéder à votre annuaire, 
 
 Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
 
-## <a name="grant-access-to-a-guest-user"></a>Accorder l’accès à un utilisateur invité
+## <a name="add-a-role-assignment-for-a-guest-user"></a>Ajouter une attribution de rôle pour un utilisateur invité
 
-Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour accorder l’accès à un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour accorder l’accès à un utilisateur invité à différentes étendues.
+Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour ajouter une attribution de rôle pour un utilisateur invité dans différentes étendues.
 
 1. Dans le portail Azure, cliquez sur **Tous les services**.
 
@@ -95,9 +101,9 @@ Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour 
 
     ![Attribution de rôle pour le contributeur de machine virtuelle](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Accorder l’accès à un utilisateur invité ne figurant pas encore dans votre annuaire
+## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>Ajouter une attribution de rôle pour un utilisateur invité ne figurant pas encore dans votre annuaire
 
-Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour accorder l’accès à un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée.
+Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée.
 
 Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez l’inviter directement à partir du volet Ajouter une attribution de rôle.
 
@@ -179,7 +185,7 @@ Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annua
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>Impossible pour l’utilisateur invité de parcourir les utilisateurs, les groupes ou les principaux du service pour attribuer des rôles
 
-Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Même si un utilisateur invité est [propriétaire](built-in-roles.md#owner) au niveau d’une étendue, s’il essaie de créer une attribution de rôle pour accorder l’accès à une autre personne, il ne peut pas parcourir la liste des utilisateurs, des groupes ou des principaux du service.
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Même si un utilisateur invité est [propriétaire](built-in-roles.md#owner) dans une étendue, s’il essaie d’ajouter une attribution de rôle pour accorder l’accès à une autre personne, il ne peut pas parcourir la liste des utilisateurs, des groupes ou des principaux du service.
 
 ![Impossible pour l’utilisateur invité de parcourir les principaux de sécurité pour attribuer des rôles](./media/role-assignments-external-users/directory-no-browse.png)
 

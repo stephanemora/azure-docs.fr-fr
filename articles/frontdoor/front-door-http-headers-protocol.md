@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736636"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790518"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Prise en charge du protocole d’en-têtes HTTP dans Azure Front Door Service
 Cet article décrit le protocole pris en charge par Front Door Service avec certaines parties du chemin d’appel (voir l’image). Les sections suivantes fournissent plus d’informations sur les en-têtes HTTP pris en charge par Front Door Service.
@@ -43,6 +43,7 @@ Front Door Service inclut les en-têtes d’une requête entrante, sauf s’ils 
 | X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> Le champ d’en-tête HTTP X-Forwarded-For (XFF) identifie souvent l’adresse IP d’origine d’un client qui se connecte à un serveur web par le biais d’un équilibreur de charge ou d’un proxy HTTP. S’il existe un en-tête XFF, Front Door y ajoute l’adresse IP de socket du client ou ajoute l’en-tête XFF avec l’adresse IP de socket du client. |
 | X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> Le champ d’en-tête HTTP X-Forwarded-Host est une méthode couramment utilisée pour identifier l’hôte d’origine demandé par le client dans l’en-tête de requête HTTP Host. En effet, le nom d’hôte de Front Door peut être différent pour le serveur back-end gérant la requête. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> Le champ d’en-tête HTTP X-Forwarded-Proto est souvent utilisé pour identifier le protocole d’origine d’une requête HTTP, car Front Door, conformément à la configuration, est susceptible de communiquer avec le back-end à l’aide de HTTPS. Cela est vrai même si la requête envoyé au proxy inverse est HTTP. |
+| X-FD-HealthProbe | Le champ d’en-tête X-FD-HealthProbe est utilisé pour identifier la sonde d’intégrité de Front Door. Si cet en-tête a la valeur 1, la requête est considérée comme intègre. Vous pouvez utiliser le champ d’en-tête X-Forwarded-Host pour définir un accès strict à partir d’un Front Door spécifique. |
 
 ## <a name="front-door-service-to-client"></a>De Front Door Service au client
 

@@ -1,6 +1,6 @@
 ---
 title: Solutions Oracle sur Microsoft Azure | Microsoft Docs
-description: 'Découvrez les options possibles pour déployer des applications et des solutions Oracle sur Microsoft Azure : exécution totale sur l’infrastructure Azure ou connectivité cross-cloud avec Oracle Cloud Infrastructure (OCI).'
+description: Découvrez les options possibles pour déployer des applications et des solutions Oracle sur Microsoft Azure, notamment l’exécution complète sur l’infrastructure Azure ou l’utilisation de la connectivité entre clouds avec OCI (Oracle Cloud Infrastructure).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891460"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806607"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
 
@@ -42,7 +42,7 @@ Exécutez des applications d’entreprise dans Azure sur les systèmes d’explo
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 et 7.6
+* Oracle Linux avec noyau UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 et 7.6 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Options de haute disponibilité et récupération d’urgence
 
@@ -60,14 +60,14 @@ Exécutez des applications d’entreprise dans Azure sur les systèmes d’explo
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Intégration d’Azure avec OCI (préversion)
 
-Exécutez des applications Oracle dans l’infrastructure Azure, connectées à des bases de données principales dans Oracle Cloud Infrastructure (OCI). Cette solution utilise les fonctionnalités suivantes : 
+Exécutez des applications Oracle dans l’infrastructure Azure, connectées à des bases de données back-end dans OCI (Oracle Cloud Infrastructure). Cette solution utilise les fonctionnalités suivantes : 
 
 * **Mise en réseau cross-cloud** : utilisez l’interconnexion directe disponible entre Azure ExpressRoute et Oracle FastConnect pour établir des connexions à bande passante élevée, privées et à faible latence entre l’application et la couche de base de données.
 * **Identité intégrée** : configurez l’identité fédérée entre Azure AD et Oracle IDCS pour créer une unique source d’identité unique pour les solutions. Activez l’authentification unique pour gérer les ressources entre OCI et Azure.
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Déployer des applications Oracle sur Azure
 
-Utilisez des modèles Terraform pour configurer une infrastructure Azure et installer des applications d’Oracle validées et prises en charge en vue d’une exécution dans la configuration cross-cloud :
+Utilisez des modèles Terraform pour configurer une infrastructure Azure et installer des applications Oracle validées et prises en charge en vue d’une exécution dans la configuration entre clouds :
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
@@ -91,3 +91,5 @@ Le déploiement d’applications Oracle dans Azure est basé sur un modèle « 
 * En savoir plus sur le déploiement [d’images de machine virtuelle Oracle](oracle-vm-solutions.md) dans l’infrastructure Azure.
 
 * En savoir plus sur [l’interconnexion d’Azure avec OCI](oracle-oci-overview.md).
+
+* Consultez la [session Oracle on Azure overview](https://myignite.techcommunity.microsoft.com/sessions/82915) de la conférence Ignite 2019. 

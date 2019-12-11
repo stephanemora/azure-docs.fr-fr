@@ -1,17 +1,17 @@
 ---
-title: Configurer et consulter les journaux de serveur dans Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure
-description: Cet article explique comment configurer et consulter les journaux de serveur dans Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure.
+title: Gérer les journaux - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment configurer et accéder aux journaux de serveur (fichiers .log) dans Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c77e708e14d34545754ca38095aedb63ff0172a1
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841522"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763689"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurer et consulter les journaux Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure
 
@@ -35,7 +35,7 @@ Configurer l’accès aux journaux d’activité des requêtes et journaux d’a
 
 5. Modifiez les paramètres que vous devez ajuster. Toutes les modifications que vous apportez dans cette session sont surlignées en violet.
 
-   Après avoir modifié les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos modifications. 
+   Après avoir changé les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos changements. 
 
    ![Capture d’écran des options Paramètres du serveur](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 

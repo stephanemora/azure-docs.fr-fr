@@ -1,44 +1,44 @@
 ---
-title: Comprendre les résultats de la vérification de l’agent Windows dans Azure Update Management
-description: Découvrez comment résoudre les problèmes rencontrés avec l’agent Update Management.
+title: Comprendre l’intégrité du Runbook Worker hybride Windows dans Azure Update Management
+description: Découvrez comment résoudre les problèmes liés au Runbook Worker hybride sur Windows qui prend en charge Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480775"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763655"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendre l’intégrité de Windows Runbook Worker hybride dans Update Management
 
-De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans la Update Management, vous pouvez vérifier l’intégrité d’un agent worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure du Portail Azure et les machines autres qu’Azure dans le [scénario hors connexion](#troubleshoot-offline).
+De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
 
 Voici les trois états de préparation possibles d’une machine :
 
-* **Prête** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a moins d’une heure.
-* **Déconnectée** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
-* **Non configurée** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
+* **Prêt** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
+* **Déconnecté** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
+* **Non configuré** - Le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
 
 > [!NOTE]
 > L’état actuel de la machine peut s’afficher avec un certain retard sur le portail Azure.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
-Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines autres qu’Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#troubleshoot-offline) pour résoudre les problèmes d’une machine autre qu’Azure.
+Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines non-Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#troubleshoot-offline) pour résoudre les problèmes d’une machine non-Azure.
 
 ![Mettre à jour la liste de gestion des machines virtuelles](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Pour vérifier l’intégrité d’un agent, la machine virtuelle doit être en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, un bouton **Démarrer la machine virtuelle** s’affiche.
+> Pour vérifier l’intégrité du Runbook Worker hybride, la machine virtuelle doit être en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, un bouton **Démarrer la machine virtuelle** s’affiche.
 
-Dans la page **Résoudre les problèmes de l’agent de mise à jour**, sélectionnez **Exécuter les vérifications** pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la commande [Run](../../virtual-machines/windows/run-command.md) pour exécuter un script sur la machine et vérifier les dépendances de l’agent. Quand l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
+Dans la page **Résoudre les problèmes de l’agent de mise à jour**, sélectionnez **Exécuter les vérifications** pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la [commande Run](../../virtual-machines/windows/run-command.md) pour exécuter un script sur la machine et vérifier les dépendances. Quand l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
 
 ![Page Résoudre les problèmes de l’agent de mise à jour](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Les résultats sont affichés dans la page quand ils sont prêts. Les sections d
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-La vérification du système d’exploitation vérifie si le Runbook Worker hybride exécute l’un de ces systèmes d’exploitation :
+Le contrôle du système d’exploitation permet de vérifier si le Runbook Worker hybride exécute l’un des systèmes d’exploitation suivants :
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour résoudre les autres problèmes de vos Runbooks Workers hybrides, consultez [Résolution des problèmes de Runbooks Workers hybrides](hybrid-runbook-worker.md).
-

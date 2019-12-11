@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278687"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806505"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -119,6 +119,10 @@ L’affichage sur le tableau de bord des données mises à jour provenant des or
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
 Pour installer les mises à jour, planifiez un déploiement qui s’aligne avec votre fenêtre de planification et de maintenance des versions. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
+
+>[!NOTE]
+>Lorsque vous planifiez un déploiement de mises à jour, une ressource de [planification](shared-resources/schedules.md) liée au runbook **patch-MicrosoftOMSComputers** qui gère ce déploiement sur les ordinateurs cibles est créée. Si vous supprimez la ressource de planification à partir du portail Azure ou à l’aide de PowerShell après la création du déploiement, le déploiement planifié est interrompu et présente une erreur lorsque vous tentez de le reconfigurer à partir du portail. Vous pouvez uniquement supprimer la ressource planifiée en supprimant la planification de déploiement correspondante.
+>
 
 Pour planifier un nouveau déploiement de mises à jour pour une ou plusieurs machines virtuelles, sous **Gestion des mises à jour**, sélectionnez **Planifier le déploiement de mises à jour**.
 

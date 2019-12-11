@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 08549935c7a0651709a08bef61624e4e436d4aad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084092"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792186"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -81,9 +81,7 @@ Vous devez également avoir une compréhension générale de ces technologies :
 - [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le mode de gestion [léger](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Désinstallez l’extension complète des machines virtuelles participant au cluster de basculement, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger.
->
-> L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL Server une fois l’agent réinstallé en mode de gestion léger.
+> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, **décochez la case en regard de la machine virtuelle appropriée**. L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités n’opèrent pas pour les machines virtuelles SQL une fois l’agent réinstallé en mode de gestion léger.
 
 ### <a name="what-to-have"></a>Éléments à mettre en place
 

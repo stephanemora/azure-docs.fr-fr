@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 076f98cb240014bcc88a395902203413e31fe0f1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641869"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776590"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fournir des commentaires sur des données à Azure Maps
 
-Azure Maps est généralement disponible depuis mai 2018. Il fournit des données cartographiques actualisées, des API REST faciles à utiliser, et des kits de développement logiciel (SDK) puissants pour aider nos entreprises clientes dans divers cas d’utilisation. Le monde réel change à chaque seconde et il est essentiel que nous puissions fournir une représentation numérique factuelle à nos clients. Nos clients qui prévoient d’ouvrir ou de fermer des installations doivent avoir la certitude que nos cartes sont rapidement actualisées, afin de pouvoir planifier efficacement la livraison, la maintenance ou le service clientèle dans des installations appropriées. Nous avons créé l’outil de commentaires sur les données d’Azure Maps pour permettre à nos clients de commenter les données directement. Les commentaires des clients sur les données sont directement transmis à nos fournisseurs de données et à leurs éditeurs de cartes, qui peuvent ainsi rapidement évaluer et intégrer ces commentaires dans nos produits de cartographie.  
+Azure Maps est généralement disponible depuis mai 2018. Il fournit des données cartographiques actualisées, des API REST faciles à utiliser, et des kits de développement logiciel (SDK) puissants pour aider nos entreprises clientes dans divers cas d’utilisation. Le monde réel change à chaque seconde et il est essentiel que nous puissions fournir une représentation numérique factuelle à nos clients. Nos clients qui prévoient d’ouvrir ou de fermer des installations doivent avoir la certitude que nos cartes sont rapidement actualisées, afin de pouvoir planifier efficacement la livraison, la maintenance ou le service clientèle dans des installations appropriées. Nous avons créé le site de commentaires sur les données d’Azure Maps pour permettre à nos clients de commenter les données directement. Les commentaires des clients sur les données sont directement transmis à nos fournisseurs de données et à leurs éditeurs de cartes, qui peuvent ainsi rapidement évaluer et intégrer ces commentaires dans nos produits de cartographie.  
 
-L’[outil de commentaires sur les données d’Azure Maps](https://feedback.azuremaps.com) offre aux clients un moyen simple de commenter des données cartographiques, en particulier en lien avec des points d’intérêt et des adresses résidentielles. Cet article vous guide dans la manière de formuler différents types de commentaires à l’aide de l’outil de commentaires d’Azure Maps.
+Le [site de commentaires sur les données d’Azure Maps](https://feedback.azuremaps.com) offre aux clients un moyen simple de commenter des données cartographiques, en particulier en lien avec des points d’intérêt et des adresses résidentielles. Cet article vous guide dans la manière de formuler différents types de commentaires à l’aide du site de commentaires d’Azure Maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Ajouter un emplacement commercial ou une adresse résidentielle 
 
-Il se peut que vous vous vouliez signaler l’absence d’un point d’intérêt ou d’une adresse résidentielle sur une carte. Il y a deux façon de procéder. Vous pouvez ouvrir l’outil de commentaires sur les données d’Azure Maps, rechercher les coordonnées du lieu manquant, puis cliquer sur « Ajouter un emplacement ».
+Il se peut que vous vous vouliez signaler l’absence d’un point d’intérêt ou d’une adresse résidentielle sur une carte. Il y a deux façon de procéder. Vous pouvez ouvrir le site de commentaires sur les données d’Azure Maps, rechercher les coordonnées du lieu manquant, puis cliquer sur « Ajouter un emplacement ».
 
   ![rechercher un emplacement manquant](./media/how-to-use-feedback-tool/search-poi.png)
 
@@ -38,7 +38,7 @@ Lorsque vous cliquez sur cette commande, vous êtes redirigé vers un formulaire
 
 ## <a name="fix-a-business-place-or-a-residential-address"></a>Corriger un emplacement commercial ou une adresse résidentielle 
 
-L’outil de commentaires vous permet également de rechercher et de localiser un emplacement commercial ou une adresse, puis de formuler un commentaire pour corriger l’adresse ou épingler l’emplacement s’ils ne sont pas corrects. Pour formuler un commentaire afin de corriger une adresse, utilisez la barre de recherche pour trouver l’emplacement commercial ou l’adresse résidentielle. Cliquez sur l’emplacement dans la liste des résultats, puis cliquez sur « Corriger cet emplacement ».
+Le site de commentaires vous permet également de rechercher et de localiser un emplacement commercial ou une adresse, puis de formuler un commentaire pour corriger l’adresse ou épingler l’emplacement s’ils ne sont pas corrects. Pour formuler un commentaire afin de corriger une adresse, utilisez la barre de recherche pour trouver l’emplacement commercial ou l’adresse résidentielle. Cliquez sur l’emplacement dans la liste des résultats, puis cliquez sur « Corriger cet emplacement ».
 
   ![rechercher un emplacement à corriger](./media/how-to-use-feedback-tool/fix-place.png)
 

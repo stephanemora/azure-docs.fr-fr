@@ -1,17 +1,17 @@
 ---
-title: Concepts de haute disponibilité dans Azure Database for MariaDB
+title: Haute disponibilité - Azure Database for MariaDB
 description: Cette rubrique fournit des informations de haute disponibilité lors de l’utilisation d’Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 797a94a561351ac7f5317f2f215b56f6944c023f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042144"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772524"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concepts de haute disponibilité dans Azure Database for MariaDB
 Le service Azure Database for MariaDB fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.

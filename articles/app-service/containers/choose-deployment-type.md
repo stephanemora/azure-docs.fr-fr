@@ -1,26 +1,18 @@
 ---
-title: Déployer une image personnalisée, plusieurs conteneurs ou une image intégrée - Azure App Service | Microsoft Docs
-description: Comment choisir entre le déploiement de conteneur Docker personnalisé, un groupe de plusieurs conteneurs, et une infrastructure d’application intégrée pour App Service sur Linux
+title: Options de déploiement pour les conteneurs Linux
+description: Choisissez entre un déploiement de conteneur Docker personnalisé, un multiconteneur et une infrastructure d’application intégrée pour App Service sur Linux.
 keywords: azure app service, application web, linux, oss
-services: app-service
-documentationCenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066786"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687511"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Image personnalisée, groupe de plusieurs conteneurs ou image de plateforme intégrée ?
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176936"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786943"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Un conteneur Azure Cosmos comprend un ensemble de propriétés définies par le 
 
 | Propriété définie par le système | Générée par le système ou configurable par l’utilisateur | Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Générée par le système | Identificateur unique du conteneur | OUI | Non | Non | Non | Non |
+|\_rid | Générée par le système | Identificateur unique du conteneur | OUI | Non | Non | Non | Non |
 |\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | OUI | Non | Non | Non | Non |
 |\_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | OUI | Non | Non | Non | Non |
 |\_self | Générée par le système | URI adressable du conteneur | OUI | Non | Non | Non | Non |

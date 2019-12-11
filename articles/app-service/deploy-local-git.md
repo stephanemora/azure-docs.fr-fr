@@ -1,25 +1,17 @@
 ---
-title: Déployer à partir du dépôt Git local - Azure App Service
-description: Découvrez comment activer le déploiement Git local vers Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Déployer à partir d’un dépôt Git local
+description: Découvrez comment activer le déploiement Git local vers Azure App Service L’une des façons les plus simples de déployer du code à partir de votre ordinateur local.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9714052de5cdfbdbf0789c7b4711469ee9202bac
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070637"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671776"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -31,7 +23,7 @@ Pour suivre les étapes décrites dans ce guide de procédures :
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- [Installer Git](https://www.git-scm.com/downloads).
+- [Installez Git](https://www.git-scm.com/downloads).
   
 - Obtenez un référentiel Git local comprenant le code que vous souhaitez déployer. Pour télécharger un exemple de référentiel, exécutez la commande suivante dans la fenêtre de terminal locale :
   
@@ -95,7 +87,7 @@ Utilisez l’URL renvoyée pour déployer votre application à l’étape suivan
 
 ## <a name="deploy-with-azure-pipelines-builds"></a>Déployer avec des builds Azure Pipelines
 
-Si votre compte dispose des autorisations nécessaires, vous pouvez configurer Azure Pipelines (préversion) afin d'activer le déploiement Git local pour votre application. 
+Si votre compte dispose des autorisations nécessaires, vous pouvez configurer Azure Pipelines (préversion) afin d’activer le déploiement Git local pour votre application. 
 
 - Votre compte Azure doit être autorisé à écrire dans Azure Active Directory et à créer un service. 
   
@@ -111,7 +103,7 @@ Pour activer le déploiement Git local pour votre application avec Azure Pipelin
    
    ![Sélectionner Git local, puis Continuer](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Dans la page **Fournisseur de générations**, sélectionnez **Azure pipelines (préversion)** , puis **Continuer**. 
+1. Dans la page **Fournisseur de générations**, sélectionnez **Azure Pipelines (préversion)** , puis **Continuer**. 
    
    ![Sélectionnez Azure Pipelines (préversion), puis Continuer.](media/app-service-deploy-local-git/pipeline-builds.png)
 
@@ -124,7 +116,7 @@ Pour activer le déploiement Git local pour votre application avec Azure Pipelin
    
 1. Dans la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Terminer**.
    
-1. Une fois le pipeline Azure prêt, copiez l’URL du référentiel Git à partir de la page **Centre de déploiement** pour l'utiliser à l'étape suivante. 
+1. Une fois le pipeline Azure prêt, copiez l’URL du référentiel Git à partir de la page **Centre de déploiement** pour l’utiliser à l’étape suivante. 
    
    ![Copier l’URL du référentiel Git](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -136,7 +128,7 @@ Pour activer le déploiement Git local pour votre application avec Azure Pipelin
    
 1. Effectuez une transmission de type push vers Azure avec `git push azure master`. 
    
-1. Dans la page **Git Credential Manager**, connectez-vous avec votre nom d'utilisateur visualstudio.com. Pour découvrir d’autres méthodes d’authentification, consultez [Vue d’ensemble de l’authentification Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
+1. Dans la page **Git Credential Manager**, connectez-vous avec votre nom d’utilisateur visualstudio.com Pour découvrir d’autres méthodes d’authentification, consultez [Vue d’ensemble de l’authentification Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
 1. Une fois le déploiement terminé, vous pouvez afficher la progression de la génération sur `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` et la progression du déploiement sur `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
    
@@ -146,16 +138,16 @@ Pour activer le déploiement Git local pour votre application avec Azure Pipelin
 
 ## <a name="troubleshoot-deployment"></a>Résoudre les problèmes de déploiement
 
-Les messages d'erreur suivants peuvent s'afficher lorsque vous utilisez Git pour publier une application App Service dans Azure :
+Les messages d’erreur suivants peuvent s’afficher lorsque vous utilisez Git pour publier une application App Service dans Azure :
 
-|Message|Cause :|Résolution :
+|Message|Cause|Résolution
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L’application n’est pas opérationnelle.|Démarrez l’application dans le portail Azure. Le déploiement Git n'est pas disponible lorsque l’application web est arrêtée.|
-|`Couldn't resolve host 'hostname'`|Les informations d’adresse du référentiel «Azure» distant ne sont pas correctes.|Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l’URL associée. Vérifiez que l'URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.|
+|`Couldn't resolve host 'hostname'`|Les informations d’adresse du référentiel « azure » distant ne sont pas correctes.|Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l’URL associée. Vérifiez que l’URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Vous n’avez pas spécifié de branche pendant `git push` ou vous n'avez pas défini la valeur `push.default` dans `.gitconfig`.|Réexécutez `git push`, en spécifiant la branche maîtresse : `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Vous avez tenté d’effectuer une transmission de type push sur une autre branche que la branche maîtresse du référentiel distant « azure ».|Réexécutez `git push`, en spécifiant la branche maîtresse : `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|Cette erreur peut se produire si vous essayez d’envoyer (push) un dépôt Git volumineux via HTTPS.|Modifiez la configuration Git sur l’ordinateur local pour agrandir le `postBuffer`. Par exemple : `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Vous avez déployé une application Node.js contenant un fichier _package.json_ spécifiant des modules obligatoires supplémentaires.|Examinez les messages d'erreur `npm ERR!` préalables à cette erreur pour plus de contexte sur l’échec. Voici les causes connues de cette erreur et les messages `npm ERR!` correspondants :<br /><br />**Fichier package.json incorrect**: `npm ERR! Couldn't read dependencies.`<br /><br />**Un module natif n’a pas de distribution binaire pour Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|Vous avez déployé une application Node.js contenant un fichier _package.json_ spécifiant des modules obligatoires supplémentaires.|Examinez les messages d'erreur `npm ERR!` préalables à cette erreur pour plus de contexte sur l’échec. Voici les causes connues de cette erreur et les messages `npm ERR!` correspondants :<br /><br />**Fichier package.json incorrect**: `npm ERR! Couldn't read dependencies.`<br /><br />**Un module natif n’a pas de distribution binaire pour Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

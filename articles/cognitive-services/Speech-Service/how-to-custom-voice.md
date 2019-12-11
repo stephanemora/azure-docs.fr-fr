@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e40ca55a9cd198e1b086362a2559ab2fc0ba95e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464520"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805958"
 ---
 # <a name="get-started-with-custom-voice"></a>Bien démarrer avec Custom Voice
 
@@ -23,13 +23,13 @@ ms.locfileid: "73464520"
 
 ## <a name="whats-in-custom-voice"></a>Qu’y a-t-il dans Custom Voice ?
 
-Avant de commencer avec Custom Speech, vous aurez besoin d’un compte Azure et d’un abonnement Speech Services. Une fois que vous aurez créé un compte, vous pourrez préparer vos données, entraîner et tester vos modèles, évaluer la qualité de la voix et en dernier lieu déployer votre modèle vocal personnalisé.
+Avant de commencer avec Custom Voice, vous aurez besoin d’un compte Azure et d’un abonnement au service Speech. Une fois que vous aurez créé un compte, vous pourrez préparer vos données, entraîner et tester vos modèles, évaluer la qualité de la voix et en dernier lieu déployer votre modèle vocal personnalisé.
 
 Le diagramme ci-dessous présente les étapes à suivre pour créer un modèle vocal personnalisé à partir du [portail Custom Voice](https://aka.ms/customvoice). Suivez les liens pour en savoir plus.
 
 ![Schéma de l’architecture Custom Voice](media/custom-voice/custom-voice-diagram.png)
 
-1.  [S’abonner et créer un projet](#set-up-your-azure-account) – Créez un compte Azure ainsi qu’un abonnement Speech Services. Cet abonnement unifié vous donne accès à la reconnaissance vocale, à la synthèse vocale, à la traduction vocale et au portail Custom Voice. Ensuite, servez-vous de votre abonnement Speech Services pour créer votre premier projet Custom Voice.
+1.  [S’abonner et créer un projet](#set-up-your-azure-account) – Créez un compte Azure ainsi qu’un abonnement au service Speech. Cet abonnement unifié vous donne accès à la reconnaissance vocale, à la synthèse vocale, à la traduction vocale et au portail Custom Voice. Ensuite, servez-vous de votre abonnement Speech Services pour créer votre premier projet Custom Voice.
 
 2.  [Charger des données](how-to-custom-voice-create-voice.md#upload-your-datasets) – Chargez des données (audio et texte) via le portail Custom Voice ou l’API Custom Voice. Sur le portail, vous pouvez examiner et évaluer les scores de prononciation et les rapports signal/bruit. Pour plus d’informations, consultez [Guide pratique pour préparer des données pour Custom Voice](how-to-custom-voice-prepare-data.md).
 
@@ -46,11 +46,11 @@ La fonctionnalité de personnalisation de la voix neurale est actuellement en ve
 
 ## <a name="set-up-your-azure-account"></a>Configurer votre compte Azure
 
-Vous avez besoin d’un abonnement Speech Services pour pouvoir créer un modèle personnalisé à partir du portail Custom Speech. Suivez ces instructions pour créer un abonnement standard Speech Services dans Azure. Si vous n’avez pas de compte Azure, vous pouvez vous inscrire pour en créer un.  
+Vous avez besoin d’un abonnement au service Speech pour pouvoir créer un modèle personnalisé à partir du portail Custom Speech. Suivez ces instructions pour créer un abonnement Speech standard dans Azure. Si vous n’avez pas de compte Azure, vous pouvez vous inscrire pour en créer un.  
 
-Une fois que vous avez créé un compte Azure et un abonnement Speech Services, vous devez vous connecter au portail Custom Voice et connecter votre abonnement.
+Une fois que vous avez créé un compte Azure et un abonnement Speech, vous devez vous connecter au portail Custom Voice et connecter votre abonnement.
 
-1. Obtenez votre clé d’abonnement Speech Services sur le portail Azure.
+1. Obtenez votre clé d’abonnement Speech sur le portail Azure.
 2. Connectez-vous au [portail Custom Voice](https://aka.ms/custom-voice).
 3. Sélectionnez votre abonnement et créez un projet Speech.
 4. Si vous voulez basculer vers un autre abonnement Speech, utilisez l’icône représentant une roue dentée dans le volet de navigation du haut.

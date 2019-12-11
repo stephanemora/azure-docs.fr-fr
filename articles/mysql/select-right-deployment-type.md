@@ -1,17 +1,17 @@
 ---
-title: Sélection du type de déploiement adapté à Azure Database pour MySQL
+title: Sélection du type de déploiement adapté - Azure Database pour MySQL
 description: Cet article décrit les facteurs à prendre en compte avant de déployer Azure Database pour MySQL comme infrastructure en tant que service (IaaS) ou plateforme en tant que service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/02/2019
+ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132440"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770456"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 

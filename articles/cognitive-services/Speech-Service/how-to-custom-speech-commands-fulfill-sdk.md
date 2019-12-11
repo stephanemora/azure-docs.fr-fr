@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110072"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806148"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Procédure : Effectuer des commandes sur le client avec le Kit de développement logiciel (SDK) Speech (préversion)
 
@@ -29,7 +29,7 @@ Dans cet article, vous allez :
 ## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Clé d’abonnement Azure pour Speech Services
+- Clé d’abonnement Azure pour le service Speech
   - [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
 - Application de commandes personnalisées créée précédemment
   - [Démarrage rapide : Créer une commande personnalisée avec des paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)

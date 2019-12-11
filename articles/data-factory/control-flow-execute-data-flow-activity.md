@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679943"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769573"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -79,7 +79,7 @@ Si vous utilisez Azure SQL Data Warehouse comme récepteur ou source, vous devez
 
 Si votre flux de données utilise des jeux de données paramétrables, définissez les valeurs de paramètre sous l’onglet **Paramètres**.
 
-![Exécuter des paramètres de flux de données](media/data-flow/params.png "Paramètres")
+![Exécuter des paramètres de flux de données](media/data-flow/params.png "parameters")
 
 ### <a name="parameterized-data-flows"></a>Flux de données paramétrables
 
@@ -98,6 +98,43 @@ Le pipeline de débogage s’exécute sur le cluster de débogage actif, et non 
 ## <a name="monitoring-the-data-flow-activity"></a>Supervision de l’activité de flux de données
 
 L’activité de flux de données offre une expérience de supervision spéciale dans laquelle vous pouvez voir des informations relatives au partitionnement, au temps de phase et à la traçabilité des données. Ouvrez le volet de supervision à l’aide de l’icône de lunettes sous **Actions**. Pour plus d’informations, consultez [Supervision des flux de données](concepts-data-flow-monitoring.md).
+
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Utiliser des résultats d’activité de flux de données dans une activité postérieure
+
+L’activité de flux de données génère des métriques sur le nombre de lignes écrites dans chaque récepteur et le nombre de lignes lues à partir de chaque source. Ces résultats sont retournés dans la section `output` du résultat de l’exécution d’activité. Les métriques retournées sont au format du fichier json ci-dessous.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+Par exemple, pour obtenir le nombre de lignes écrites dans un récepteur nommé « sink1 » dans une activité nommée « dataflowActivity », utilisez `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+
+Pour obtenir le nombre de lignes lues à partir d’une source nommée « source1 » qui a été utilisée dans ce récepteur, utilisez `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
+
+> [!NOTE]
+> Si un récepteur n’a aucune ligne écrite, il n’apparaît pas dans les métriques. Son existence peut être vérifiée à l’aide de la fonction `contains`. Par exemple, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` vérifie si des lignes ont été écrites dans sink1.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

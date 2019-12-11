@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186438"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707641"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -26,7 +26,7 @@ Cet article résume et explique les différences de syntaxe et de comportement e
 
 Certaines limitations PaaS ont été introduites dans Managed Instance et certains comportements ont changé par rapport à SQL Server. Les différences se répartissent en différentes catégories, à savoir : <a name="Differences"></a>
 
-- la [disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et les [sauvegardes](#backup) ;
+- la [disponibilité](#availability) incluant les différences dans les [groupes de disponibilité Always On](#always-on-availability-groups) et les [sauvegardes](#backup) ;
 - la [sécurité](#security) incluant les différences dans l’[audit](#auditing), les [certificats](#certificates), les [informations d’identification](#credential), les [fournisseurs de chiffrement](#cryptographic-providers), les [connexions et les utilisateurs](#logins-and-users) ainsi que la [clé de service et la clé principale du service](#service-key-and-service-master-key) ;
 - la [configuration](#configuration) incluant les différences dans l’[extension du pool de mémoires tampons](#buffer-pool-extension), le [classement](#collation), les [niveaux de compatibilité](#compatibility-levels), la [mise en miroir de bases de données](#database-mirroring), les [options de base de données](#database-options), le service [SQL Server Agent](#sql-server-agent) et les [options de Table](#tables) ;
 - les [fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), les [transactions distribuées](#distributed-transactions), les [événements étendus](#extended-events), les [bibliothèques externes](#external-libraries), le [flux de fichier et FileTable](#filestream-and-filetable), la [recherche sémantique de texte intégral](#full-text-semantic-search), les [serveurs liés](#linked-servers), [Polybase](#polybase), la [Réplication](#replication), la [RESTAURATION](#restore-statement), [Service Broker](#service-broker), les [procédures stockées, fonctions et déclencheurs](#stored-procedures-functions-and-triggers).
@@ -38,7 +38,7 @@ Cette page décrit également des [problèmes connus temporaires](#Issues) qui o
 
 ## <a name="availability"></a>Disponibilité
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Groupes de disponibilité Always On
 
 La [haute disponibilité](sql-database-high-availability.md) étant intégrée à Managed Instance, les utilisateurs ne peuvent pas la contrôler. Les instructions suivantes ne sont pas prises en charge :
 

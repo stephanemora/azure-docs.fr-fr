@@ -1,20 +1,19 @@
 ---
-title: Superviser les applications logiques avec Azure Monitor - Azure Logic Apps
+title: Superviser les applications logiques avec Azure Monitor
 description: Obtenez des insights et des données de débogage vous permettant de diagnostiquer et de résoudre les problèmes des exécutions de votre application logique avec les journaux Azure Monitor.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/29/2019
-ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 305b50c86a468354f049fcc57fcb79b537e8dfed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138788"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791902"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Obtenez des insights et des données de débogage pour des applications logiques à l’aide des journaux Azure Monitor
 

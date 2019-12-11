@@ -1,17 +1,17 @@
 ---
-title: Augmenter automatiquement le stockage dans Azure Database pour MySQL à l’aide du portail Azure
+title: Augmenter automatiquement le stockage - Portail Azure - Azure Database pour MySQL
 description: Cet article explique comment activer l’augmentation automatique du stockage pour Azure Database pour MySQL à l’aide du portail Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2019
-ms.openlocfilehash: 864bfaefba783d93e795e8780cc02dcf991e38f1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 12/02/2019
+ms.openlocfilehash: 7be3e7e1a0d2e48b37c319f67e3b382f825469df
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142021"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770609"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Augmenter automatiquement le stockage dans Azure Database pour MySQL à l’aide du portail Azure
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour MySQL sans affecter la charge de travail.

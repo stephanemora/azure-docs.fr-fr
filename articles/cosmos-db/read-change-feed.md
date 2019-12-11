@@ -1,17 +1,17 @@
 ---
 title: Accès au flux de modifications dans Azure Cosmos DB
 description: Cet article décrit les différentes options disponibles pour accéder au flux de modification et le lire dans Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 11/25/2019
+ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754881"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688131"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
 
@@ -31,7 +31,13 @@ La bibliothèque du processeur de flux de modification masque la complexité tou
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Utilisation du Kit de développement logiciel (SDK) de l'API SQL Azure Cosmos DB
 
-Le Kit de développement logiciel (SDK) vous offre un contrôle de niveau inférieur sur le flux de modification. Vous pouvez gérer le point de contrôle, accéder à une clé de partition logique spécifique, etc. Si vous disposez de plusieurs lecteurs, vous pouvez utiliser `ChangeFeedOptions` pour répartir la charge de lecture sur plusieurs threads ou clients. 
+Le Kit de développement logiciel (SDK) vous offre un contrôle de niveau inférieur sur le flux de modification. Vous pouvez gérer le point de contrôle, accéder à une clé de partition logique spécifique, etc. Si vous disposez de plusieurs lecteurs, vous pouvez utiliser `ChangeFeedOptions` pour répartir la charge de lecture sur plusieurs threads ou clients.
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Flux de modification dans les API pour Cassandra et MongoDB
+
+La fonctionnalité de flux de modification apparaît comme un flux de modification dans l’API MongoDB et sous la forme Interroger avec un prédicat dans l’API Cassandra. Pour en savoir plus sur les détails d’implémentation de l’API MongoDB, consultez les [flux de modification dans l’API Azure Cosmos DB pour MongoDB](mongodb-change-streams.md).
+
+Native Apache Cassandra propose la capture des changements de données (CDC), un mécanisme de marquage de tables spécifiques à des fins d’archivage, mais aussi de rejet des écritures dans ces tables une fois que la taille sur disque configurable du journal CDC est atteinte. La fonctionnalité de flux de modification dans l’API Azure Cosmos DB pour Cassandra améliore la capacité à interroger les modifications avec un prédicat par le biais du langage CQL. Pour en savoir plus sur les détails d’implémentation, consultez [Flux de modification dans l’API Azure Cosmos DB pour Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

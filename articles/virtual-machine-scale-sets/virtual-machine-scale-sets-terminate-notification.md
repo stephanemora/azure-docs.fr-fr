@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264683"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705921"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure (préversion)
 Les instances de groupe identique peuvent choisir de recevoir des notifications d’arrêt de l’instance et de configurer un délai d’attente prédéfini pour l’opération d’arrêt. La notification d’arrêt est envoyée par le biais d’Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), qui fournit des notifications et un report des opérations ayant un impact, telles que le redémarrage et le redéploiement. La solution en préversion ajoute un autre événement (Terminate) à la liste de Scheduled Events, et le délai associé à l’événement d’arrêt dépend de la limite de délai spécifiée par les utilisateurs dans leurs configurations de modèle de groupe identique.
@@ -67,7 +67,7 @@ Après avoir activé *scheduledEventsProfile* sur le modèle de groupe identique
 >Les notifications d’arrêt sur les instances de groupe identique peuvent uniquement être activées avec l’API version 2019-03-01 et ultérieures.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Quand vous créez un groupe identique, vous pouvez activer les notifications d’arrêt sur le groupe identique à l’aide de l’applet de commande [New-AzVmssVM](/powershell/module/az.compute/new-azvmss).
+Quand vous créez un groupe identique, vous pouvez activer les notifications d’arrêt sur le groupe identique à l’aide de l’applet de commande [New-AzVmss](/powershell/module/az.compute/new-azvmss).
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 L’exemple ci-dessus crée un groupe identique avec des notifications d’arrêt activées avec un délai d’attente par défaut de cinq minutes. Lors de la création d’un groupe identique, le paramètre *TerminateScheduledEvents* ne nécessite pas de valeur. Pour changer la valeur du délai d’attente, spécifiez le délai d’expiration souhaité par le biais du paramètre *TerminateScheduledEventNotBeforeTimeoutInMinutes*.
 
-Utilisez l’applet de commande [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) pour activer les notifications d’arrêt sur un groupe identique existant.
+Utilisez l’applet de commande [Update-AzVmss](/powershell/module/az.compute/update-azvmss) pour activer les notifications d’arrêt sur un groupe identique existant.
 
 ```azurepowershell-interactive
 Update-AzVmss `

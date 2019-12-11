@@ -1,25 +1,17 @@
 ---
-title: Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs
-description: 'Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application UWP (plateforme Windows universelle) à l’aide de divers fournisseurs d’identité, notamment : AAD, Google, Facebook, Twitter et Microsoft.'
-services: app-service\mobile
-documentationcenter: windows
-author: elamalani
-manager: panarasi
-editor: ''
+title: Ajouter une authentification à votre application UWP
+description: Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle (UWP) à l’aide de fournisseurs d’identité comme AAD, Google, Facebook, Twitter et Microsoft.
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: d5012ccc503e48785e23ff00564bbc9f6735eea8
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 23d3c897f227dd49253abfcc6d3a84d477341c13
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388549"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668382"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

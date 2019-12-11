@@ -1,28 +1,20 @@
 ---
-title: Architecture de sécurité en couche avec les environnements App Service - Azure
-description: Implémentation d’une architecture de sécurité en couche avec les environnements App Service.
-services: app-service
-documentationcenter: ''
+title: Sécurité en couche v1
+description: Découvrez comment implémenter une architecture de sécurité en couche dans votre environnement App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070140"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688802"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implémentation d’une architecture de sécurité en couche avec les environnements App Service
-## <a name="overview"></a>Vue d'ensemble
 Dans la mesure où les environnements App Service fournissent un environnement d’exécution isolé déployé dans un réseau virtuel, les développeurs peuvent créer une architecture de sécurité en couche offrant différents niveaux d’accès réseau pour chaque couche application physique.
 
 Un souhait commun est de masquer les API principales de l’accès Internet général, et d’autoriser uniquement les API à être appelées par les applications web en amont.  Les [groupes de sécurité réseau (NSG)][NetworkSecurityGroups] peuvent être utilisés sur des sous-réseaux contenant des environnements App Service pour restreindre l’accès public aux applications API.

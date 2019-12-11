@@ -1,22 +1,22 @@
 ---
-title: Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
+title: Optimiser une collection de statistiques de requête - Azure Database pour PostgreSQL – Serveur unique
 description: Cet article explique comment vous pouvez optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770167"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
 Cet article décrit la procédure d’optimisation d’une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.
 
-## <a name="use-pgstatsstatements"></a>Utiliser pg_stats_statements
+## <a name="use-pg_stats_statements"></a>Utiliser pg_stats_statements
 **Pg_stat_stat_stat_statements** est une extension PostgreSQL qui est activée par défaut dans Azure Database pour PostgreSQL. L’extension fournit un moyen de suivre les statistiques d’exécution pour toutes les instructions SQL exécutées par un serveur. Ce module se connecte à chaque exécution de requête et s’accompagne d’un coût de performance non négligeable. L’activation de **pg_stat_stat_stat_statements** force l’écriture du texte de la requête dans les fichiers sur disque.
 
 Si vous disposez de requêtes uniques avec un texte long ou si vous ne surveillez pas activement **pg_stat_statements**, désactivez **pg_stat_statements** pour de meilleures performances. Pour ce faire, définissez le paramètre sur `pg_stat_statements.track = NONE`.

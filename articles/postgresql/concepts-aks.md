@@ -1,17 +1,17 @@
 ---
-title: Connecter Azure Kubernetes Service (AKS) à Azure Database pour PostgreSQL - Serveur unique
-description: Découvrez comment connecter Azure Kubernetes Service à Azure Database pour PostgreSQL - Serveur unique
+title: Se connecter à Azure Kubernetes Service - Azure Database pour PostgreSQL - Serveur unique
+description: Découvrez comment connecter Azure Kubernetes Service (AKS) à Azure Database pour PostgreSQL - Serveur unique
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068938"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769878"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connexion entre Azure Kubernetes Service et Azure Database pour PostgreSQL - Serveur unique
 

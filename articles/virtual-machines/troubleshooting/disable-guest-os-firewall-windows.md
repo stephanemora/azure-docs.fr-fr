@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030600"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705551"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 
@@ -27,7 +27,7 @@ Cet article fournit une référence pour les situations dans lesquelles vous pen
 
 ## <a name="solution"></a>Solution
 
-Le processus qui est décrit dans cet article est destiné à être utilisé comme solution de contournement afin que vous puissiez vous concentrer sur la résolution du problème réel, c’est-à-dire comment correctement configurer les règles de pare-feu. L’une des meilleures pratiques de Microsoft est que le composant Pare-feu Windows soit activé. La façon dont vous configurez les règles de pare-feu \cf3 dépend du niveau d’accès à la machine virtuelle requis.
+Le processus qui est décrit dans cet article est destiné à être utilisé comme solution de contournement afin que vous puissiez vous concentrer sur la résolution du problème réel, c’est-à-dire comment correctement configurer les règles de pare-feu. L’une des bonnes pratiques de Microsoft est que le composant Pare-feu Windows soit activé. La façon dont vous configurez les règles de pare-feu dépend du niveau d’accès à la machine virtuelle requis.
 
 ### <a name="online-solutions"></a>Solutions en ligne 
 

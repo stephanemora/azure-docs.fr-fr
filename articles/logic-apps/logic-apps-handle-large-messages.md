@@ -1,25 +1,18 @@
 ---
-title: Gérer les messages volumineux - Azure Logic Apps | Microsoft Docs
+title: Gérer les messages volumineux
 description: Découvrez comment gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: article
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989923"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815084"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
@@ -46,6 +39,9 @@ Dans le cas contraire, vous obtenez une erreur d’exécution lorsque vous essay
 Les services qui communiquent avec Logic Apps peuvent avoir leurs propres limites de taille de message. Ces limites sont souvent inférieures à la limite de Logic Apps. Par exemple, en supposant qu’un connecteur prend en charge la segmentation, celui-ci peut considérer un message de 30 Mo comme volumineux, alors que Logic Apps ne le considérera pas comme tel. Pour respecter la limite de ce connecteur, Logic Apps fractionne tout message supérieur à 30 Mo en segments plus petits.
 
 Pour les connecteurs qui prennent en charge la segmentation, le protocole de segmentation sous-jacent n’est pas visible par les utilisateurs finaux. Toutefois, tous les connecteurs ne prennent pas en charge la segmentation. Ces connecteurs génèrent alors des erreurs d’exécution lorsque les messages entrants dépassent la taille maximale autorisée pour ces connecteurs.
+
+> [!NOTE]
+> Pour les actions qui utilisent la segmentation, vous ne pouvez pas passer le corps du déclencheur ou utiliser des expressions telles que `@triggerBody()?['Content']` dans ces actions. Au lieu de cela, pour le contenu de fichier texte ou JSON, vous pouvez essayer d’utiliser l’[action **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [créer une variable](../logic-apps/logic-apps-create-variables-store-values.md) pour gérer ce contenu. Si le corps du déclencheur contient d’autres types de contenu, tels que des fichiers multimédias, vous devez effectuer d’autres étapes pour gérer ce contenu.
 
 <a name="set-up-chunking"></a>
 
@@ -119,16 +115,16 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
    | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segmenté | String | Indique que le contenu est chargé sous forme de segments |
-   | **x-ms-content-length** | <*content-length*> | Entier | La taille, en octets, de l’intégralité du contenu avant segmentation |
+   | **x-ms-transfer-mode** | segmenté | Chaîne | Indique que le contenu est chargé sous forme de segments |
+   | **x-ms-content-length** | <*content-length*> | Integer | La taille, en octets, de l’intégralité du contenu avant segmentation |
    ||||
 
 2. Le point de terminaison répond avec le code d’état de réussite « 200 » et ces informations facultatives :
 
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Entier | Non | La taille de segment suggérée en octets |
-   | **Location** | String | OUI | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
+   | **x-ms-chunk-size** | Integer | Non | La taille de segment suggérée en octets |
+   | **Lieu** | Chaîne | OUI | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
    ||||
 
 3. Votre application logique crée et envoie des messages HTTP PATCH de suivi, chacun contenant les informations suivantes :
@@ -149,7 +145,7 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
    | **Plage** | Chaîne | OUI | La plage d’octets pour le contenu qui a été reçu par le point de terminaison, par exemple: « octets = 0-1023 » |   
-   | **x-ms-chunk-size** | Entier | Non | La taille de segment suggérée en octets |
+   | **x-ms-chunk-size** | Integer | Non | La taille de segment suggérée en octets |
    ||||
 
 Par exemple, cette définition d’action affiche une requête HTTP POST pour le chargement de contenu segmenté vers un point de terminaison. Dans la propriété `runTimeConfiguration` de l’action, la propriété `contentTransfer` définit `transferMode` sur `chunked` :

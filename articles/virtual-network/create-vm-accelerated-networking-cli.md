@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083669"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793323"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée à l’aide d’Azure CLI
 
@@ -61,6 +61,9 @@ La mise en réseau accélérée est prise en charge dans la plupart des instance
 Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Séries prises en charge : D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms et Ms/Mmsv2.
 
 Pour plus d’informations sur les instances de machine virtuelle, consultez la section [Tailles des machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Images personnalisées
+Si vous utilisez une image personnalisée et si votre image prend en charge l’accélération réseau, veillez à disposer des pilotes nécessaires pour utiliser les cartes réseau Mellanox ConnectX-3 et ConnectX-4 Lx dans Azure.
 
 ### <a name="regions"></a>Régions
 Disponible dans toutes les régions Azure publiques ainsi que dans les clouds Azure Government.

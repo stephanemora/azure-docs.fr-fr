@@ -1,20 +1,17 @@
 ---
-title: Accéder à des sources de données locales - Azure Logic Apps
+title: Accéder à des sources de données locales
 description: Se connecter à des sources de données locales à partir d’Azure Logic Apps en créant une ressource de passerelle de données locale Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068897"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815201"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -73,7 +70,7 @@ Après avoir installé la passerelle sur un ordinateur local, créez une ressour
 
 1. Dans la fenêtre de recherche du portail Azure, entrez « passerelles de données locales », puis choisissez **Passerelles de données locales**.
 
-   ![Cherchez « Passerelle de données locale »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Cherchez « Passerelle de données locale »](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. Sous **Passerelles de données locales**, sélectionnez **Ajouter**.
 
@@ -92,7 +89,7 @@ Après avoir installé la passerelle sur un ordinateur local, créez une ressour
 
    Voici un exemple illustrant une installation de passerelle qui se trouve dans la même région que votre ressource de passerelle et qui est liée au même compte Azure :
 
-   ![Fournir des détails pour créer une ressource de passerelle de données](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![Fournir des détails pour créer une ressource de passerelle de données](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -131,7 +128,7 @@ Pour mettre à jour les paramètres pour une connexion de passerelle, vous pouve
 
 1. Pour rechercher toutes les connexions d’API pour votre application logique uniquement, dans le menu de votre application logique, sous **Outils de développement**, sélectionnez **Connexions d’API**.
 
-   ![Accédez au menu de votre application logique, puis sélectionnez « Connexions d’API »](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![Accédez au menu de votre application logique, puis sélectionnez « Connexions d’API »](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. Sélectionnez la connexion de passerelle que vous souhaitez, puis sélectionnez **Modifier une connexion d’API**.
 
@@ -140,8 +137,8 @@ Pour mettre à jour les paramètres pour une connexion de passerelle, vous pouve
 
 Pour rechercher toutes les connexions d’API associées à votre abonnement Azure :
 
-* Dans le menu principal Azure, accédez à **Tous les services** > **Web** > **Connexions d’API**.
-* Ou, dans le menu Azure principal, accédez à **Toutes les ressources**. Réglez le filtre **Type** sur **Connexion d’API**.
+* Dans le menu du portail Azure, sélectionnez **Tous les services** > **Web** > **Connexions d’API**.
+* Ou, dans le menu du portail Azure, sélectionnez **Toutes les ressources**. Réglez le filtre **Type** sur **Connexion d’API**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -149,13 +146,13 @@ Pour rechercher toutes les connexions d’API associées à votre abonnement Azu
 
 Pour créer une autre ressource de passerelle, lier l’installation de votre passerelle à une autre ressource de passerelle ou supprimer la ressource de passerelle, vous pouvez effectivement supprimer celle-ci sans que cela affecte l’installation de la passerelle.
 
-1. Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Cherchez et sélectionnez votre ressource de passerelle.
+1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** ou recherchez et sélectionnez **Toutes les ressources** sur n’importe quelle page. Cherchez et sélectionnez votre ressource de passerelle.
 
 1. Le cas échéant, dans votre menu de ressource de passerelle, sélectionnez **Passerelle de données locale**. Dans la barre d’outils de ressources de la passerelle, sélectionnez **Supprimer**.
 
    Par exemple :
 
-   ![Supprimer une ressource de passerelle dans Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Supprimer une ressource de passerelle dans Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

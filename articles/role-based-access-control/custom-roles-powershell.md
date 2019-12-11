@@ -1,6 +1,6 @@
 ---
-title: Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell | Microsoft Docs
-description: Apprenez à créer des rôles personnalisés avec contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure à l’aide d’Azure PowerShell. Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
+title: Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell | Microsoft Docs
+description: Découvrez comment lister, créer, mettre à jour ou supprimer des rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure à l’aide d’Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158449"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703092"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell
 
-Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure PowerShell.
+Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide d’Azure PowerShell.
 
 Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md).
 

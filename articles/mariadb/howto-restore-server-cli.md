@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MariaDB
+title: Sauvegarde et restauration - Azure CLI - Azure Database for MariaDB
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965222"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765849"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MariaDB à l’aide d’Azure CLI.
 
@@ -127,6 +127,6 @@ Le nouveau serveur créé lors d’une restauration ne dispose pas des règles d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [sauvegardes](concepts-backup.md) du service
-- En savoir plus sur les [réplicas](concepts-read-replicas.md)
-- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md)
+- En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
+- En savoir plus sur les [réplicas](concepts-read-replicas.md).
+- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

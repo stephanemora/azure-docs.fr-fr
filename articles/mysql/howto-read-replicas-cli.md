@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des réplicas en lecture – Azure Database pour MySQL
+title: Gérer des réplicas en lecture - AZURE CLI, API REST - Azure Database pour MySQL
 description: Découvrez comment configurer et gérer des réplicas en lecture dans Azure Database pour MySQL à partir d’Azure CLI ou de l’API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/14/2019
-ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 56ba530c4f684bf89db9c5b87306592fbfeee7fa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970304"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774092"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide d’Azure CLI et de l’API REST
 

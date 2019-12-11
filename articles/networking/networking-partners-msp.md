@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824378"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766480"
 ---
 # <a name="about-azure-networking-msp-partners"></a>À propos des partenaires de mise en réseau de fournisseur de services gérés Azure
 
@@ -28,12 +28,13 @@ Les clients peuvent acheter des offres de services gérés par leur fournisseur 
 
 Utilisez les liens dans cette section pour plus d’informations sur les services gérés de cloud mis en réseau offerts par les partenaires de fournisseur de services gérés mis en réseau d’Azure. Si le partenaire de services cloud mis en réseau n’est pas répertorié dans la section ci-dessous, demandez au fournisseur de nous contacter. Celui-ci peut nous contacter par courrier électronique à ManagedVirtualWAN@microsoft.com. 
 
-| **Fournisseur de services gérés** | **Services de transformation réseau cloud** | **ExpressRoute managé** | **WAN virtuel managé** | **Services de sécurité réseau managés** |**Calcul de périphérie réseau managé** |
+| **Fournisseur de services gérés** | **Services de transformation réseau cloud** | **ExpressRoute managé** | **WAN virtuel managé** | **Services de sécurité réseau managés** |**Gérer le computing en périphérie multi-accès** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||OUI|
 |[ANS Group UK](https://www.ans.co.uk/)|OUI|OUI||||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|OUI |OUI |OUI | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|OUI|OUI|OUI|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|OUI||OUI|OUI||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|OUI|||||
 |[Dimension Data](https://www.dimensiondata.com/)|OUI|||||
 |[Equinix](https://www.equinix.com/)|OUI|OUI||||

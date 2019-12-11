@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173082"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665591"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -124,7 +124,7 @@ Vous pouvez ajouter des règles d’exclusion pour ignorer les fichiers et les d
 
     ![Sélectionner les éléments](./media/backup-azure-manage-mars/select-items-exclude.png)
 
-4. Par défaut, tous les **sous-dossiers** dans les dossiers sélectionnés sont exclus. Vous pouvez modifier cela en sélectionnant **Oui** ou **Non**. Vous pouvez modifier les types de fichiers à exclure, comme indiqué ci-dessous :
+4. Par défaut, tous les **sous-dossiers** dans les dossiers sélectionnés sont exclus. Vous pouvez modifier cela en sélectionnant **Oui** ou **Non**. Vous pouvez modifier et spécifier les types de fichiers à exclure, comme indiqué ci-dessous :
 
     ![Sélectionner les éléments](./media/backup-azure-manage-mars/subfolders-type.png)
 
@@ -163,8 +163,8 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Dans la page **Modifier ou arrêter une sauvegarde planifiée**, sélectionnez **Ne plus utiliser cette panification de sauvegarde, mais conserver les sauvegardes stockées jusqu’à la réactivation de la planification**. Ensuite, sélectionnez **Suivant**.  
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Dans **Suspendre la sauvegarde planifiée**, vérifiez les informations, cliquez sur **Terminer** ![Modifier ou arrêter une sauvegarde planifiée.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. dans **Modifier le processus de sauvegarde**, vérifiez que l’état de la sauvegarde de la planification est bien suspendu, puis cliquez sur **Fermer** pour terminer.
+1. Dans **Suspendre la sauvegarde planifiée**, vérifiez les informations, puis cliquez sur **Terminer** ![Modifier ou arrêter une sauvegarde planifiée.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. Dans **Modifier le processus de sauvegarde**, vérifiez que la suspension de la sauvegarde de la planification est à l’état de réussite, puis cliquez sur **Fermer** pour terminer.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrêter la protection et supprimer les données de sauvegarde
 
@@ -194,7 +194,7 @@ Une fois les éléments de sauvegarde locaux supprimés, effectuez les étapes s
 Si vous avez arrêté la protection tout en conservant les données et avez décidé de reprendre la protection, vous pouvez réactiver la planification de sauvegarde en modifiant la stratégie de sauvegarde.
 
 1. Dans **Actions** sélectionnez **Planifier la sauvegarde**.
-1. Sélectionnez **Réactiver la planification de sauvegarde. Vous pouvez également modifier les éléments de sauvegarde ou les heures**, puis cliquez sur **Suivant**.
+1. Sélectionnez **Réactiver la planification de sauvegarde. Vous pouvez également modifier les éléments de sauvegarde ou les heures**, puis cliquer sur **Suivant**.
     ![Supprimez l’infrastructure de sauvegarde.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. Dans **Sélectionner les éléments à sauvegarder**, cliquez sur **Suivant**.
     ![Supprimez l’infrastructure de sauvegarde.](./media/backup-azure-manage-mars/re-enable-next.png)

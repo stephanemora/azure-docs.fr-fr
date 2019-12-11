@@ -1,17 +1,17 @@
 ---
-title: Journaux dans Azure Database pour PostgreSQL - Serveur unique
-description: Concepts de la configuration de la journalisation, du stockage et de l’analyse dans Azure Database pour PostgreSQL - Serveur unique
+title: Journaux - Azure Database pour PostgreSQL - Serveur unique
+description: Décrit la configuration de la journalisation, le stockage et l’analyse dans Azure Database pour PostgreSQL - Serveur unique
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965942"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768212"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur unique
 Azure Database pour PostgreSQL vous permet de configurer et d’accéder aux journaux standard de Postgres. Les journaux d’activité peuvent servir à identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Les informations de journalisation que vous pouvez configurer et auxquelles vous pouvez accéder incluent les erreurs, les informations de requête, les enregistrements de nettoyage automatique, les connexions et les points de contrôle. (L’accès aux journaux d’activité des transactions n’est pas disponible).

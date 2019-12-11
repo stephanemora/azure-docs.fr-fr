@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217744"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702050"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -156,7 +156,7 @@ Vous pouvez modifier les types de données des colonnes lors d’une transformat
 
 ### <a name="import-schema"></a>Importer un schéma
 
-Les jeux de données, tels que Avro et CosmosDB, qui prennent en charge des structures de données complexes n’ont pas besoin de définitions de schéma pour exister dans le jeu de données. Par conséquent, vous pouvez cliquer sur le bouton « Importer un schéma » dans l’onglet Projection pour ces types de sources.
+Les jeux de données, tels que Avro et CosmosDB, qui prennent en charge des structures de données complexes n’ont pas besoin de définitions de schéma pour exister dans le jeu de données. Par conséquent, vous pouvez cliquer sur le bouton **Importer un schéma** sous l’onglet **Projection** de ces types de sources.
 
 ## <a name="cosmosdb-specific-settings"></a>Paramètres spécifiques à CosmosDB
 

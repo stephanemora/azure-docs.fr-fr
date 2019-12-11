@@ -1,17 +1,17 @@
 ---
-title: Créer des utilisateurs dans un serveur Azure Database for MariaDB
+title: Créer des utilisateurs - Azure Database for MariaDB
 description: Cet article explique comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ed373cfa0ac755d56e7bc2601c65e0e6482ff6d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: cbfcb097b4fda30bdeed940a5acb609b02f5d788
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038869"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764267"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Créer des utilisateurs dans Azure Database for MariaDB 
 Cet article explique comment vous pouvez créer des utilisateurs dans Azure Database for MariaDB.

@@ -1,25 +1,16 @@
 ---
-title: Achat d’un nom de domaine personnalisé dans Azure - App Service
-description: Découvrez comment acheter un nom de domaine personnalisé avec une application web dans Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: Acheter un nom de domaine personnalisé
+description: Découvrez comment acheter un domaine App Service et comment vous en servir de domaine personnalisé pour votre application Azure App Service.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470407"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672376"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 

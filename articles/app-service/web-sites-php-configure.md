@@ -1,25 +1,19 @@
 ---
-title: Configurer le runtime PHP - Azure App Service
+title: Configurer le runtime PHP
 description: Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Azure App Service.
-services: app-service
-documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408913"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688257"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurer PHP dans Azure App Service
 
@@ -55,7 +49,7 @@ Les versions PHP 7.0 et PHP 7.2 sont également disponibles, mais ne sont pas ac
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>D’Azure CLI 
 
 Pour utiliser l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) sur votre ordinateur.
 
@@ -79,7 +73,7 @@ Pour utiliser l’interface de ligne de commande Azure, vous devez [installer l�
 
 Quel que soit le runtime PHP intégré, vous pouvez changer toute option de configuration en procédant comme indiqué dans ces étapes. (Pour plus d’informations sur les directives de php.ini, consultez la page [Liste des directives de php.ini].)
 
-### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
 
 1. Ajoutez un fichier [.user.ini] à votre répertoire racine.
 1. Ajoutez des paramètres de configuration au fichier `.user.ini` en utilisant la même syntaxe que pour le fichier `php.ini`. Par exemple, si vous souhaitez activer le paramètre `display_errors` et régler le paramètre `upload_max_filesize` sur 10M, votre fichier `.user.ini` doit contenir le texte suivant :
@@ -95,7 +89,7 @@ Quel que soit le runtime PHP intégré, vous pouvez changer toute option de conf
 
 Au lieu d’un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()] dans des scripts pour définir les options de configuration qui ne sont pas des directives de niveau système.
 
-### <a name="changing-phpinisystem-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_SYSTEM
+### <a name="changing-php_ini_system-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_SYSTEM
 
 1. Ajoutez un paramètre d’application à votre application avec la clé `PHP_INI_SCAN_DIR` et valeur `d:\home\site\ini`
 1. Créez un fichier `settings.ini` à l’aide de la Console Kudu (http://&lt;nom-site&gt;.scm.azurewebsite.net) dans le répertoire `d:\home\site\ini`.

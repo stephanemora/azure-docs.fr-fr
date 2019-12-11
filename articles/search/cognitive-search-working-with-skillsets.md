@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113647"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790885"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concepts et composition des ensembles de compétences dans Recherche cognitive Azure
 
@@ -65,7 +65,7 @@ Chaque compétence demande un contexte. Un contexte détermine :
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext` s’utilise uniquement dans les [compétences de modélisation](cognitive-search-skill-shaper.md) et dans les [projections](knowledge-store-projection-overview.md). Il permet de construire des objets imbriqués à plusieurs niveaux. Avec `sourceContext`, vous pouvez construire un objet hiérarchique de type anonyme, ce qui nécessiterait plusieurs compétences si vous utilisiez uniquement le contexte. L’utilisation de `sourceContext` est expliquée dans la section suivante.
+`sourceContext` s’utilise uniquement dans les entrées de compétence et les [projections](knowledge-store-projection-overview.md). Il permet de construire des objets imbriqués à plusieurs niveaux. Vous devrez peut-être créer un objet pour le transmettre en tant qu’entrée à une compétence ou un projet dans la base de connaissances. Comme les nœuds d’enrichissement peuvent ne pas être un objet JSON valide dans l’arborescence d’enrichissement et que le référencement d’un nœud dans l’arborescence retourne uniquement cet état du nœud lors de sa création, l’utilisation des enrichissements comme des entrées de compétence ou des projections vous oblige à créer un objet JSON bien formé. Avec `sourceContext`, vous pouvez construire un objet hiérarchique de type anonyme, ce qui nécessiterait plusieurs compétences si vous utilisiez uniquement le contexte. L’utilisation de `sourceContext` est expliquée dans la section suivante. Examinez la sortie de compétence qui a généré un enrichissement afin de déterminer s’il s’agit d’un objet JSON valide et non d’un type primitif.
 
 ### <a name="projections"></a>Projections
 

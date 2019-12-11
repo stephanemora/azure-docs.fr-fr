@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821911"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767770"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique pour surveiller les requêtes et améliorer les performances de la charge de travail
 
@@ -92,7 +92,7 @@ Pour configurer des options de réglage automatique individuelles par le biais d
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Si vous affectez la valeur ON à l’option de réglage, les paramètres héritées par la base de données sont substitués et l’option de réglage est activée. Si vous affectez la valeur OFF, les paramètres héritées par la base de données sont également substitués et l’option de réglage est désactivée. L’option de réglage automatique pour laquelle DEFAULT est spécifié hérite de la configuration du paramètre de réglage automatique de niveau base de données.  
+Si vous affectez la valeur ON à l’option de réglage, les paramètres héritées par la base de données sont substitués et l’option de réglage est activée. Si vous affectez la valeur OFF, les paramètres héritées par la base de données sont également substitués et l’option de réglage est désactivée. L’option de réglage automatique pour laquelle DEFAULT est spécifié hérite de la configuration du réglage automatique à partir des paramètres au niveau du serveur.  
 
 > [!IMPORTANT]
 > Dans le cas de la [géoréplication active](sql-database-auto-failover-group.md), le paramétrage automatique doit être configuré sur la base de données primaire uniquement. Les actions de paramétrage appliquées automatiquement, comme la création ou la suppression d’index, sont automatiquement répliquées sur la base de données secondaire en lecture seule. Toute tentative d’activation du paramétrage automatique au moyen de T-SQL sur la base de données secondaire en lecture seule se solde par un échec, car une configuration de paramétrage différente sur la base de données secondaire en lecture seule n’est pas prise en charge.

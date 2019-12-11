@@ -1,5 +1,5 @@
 ---
-title: Entraîner un modèle pour Custom Speech – Service Speech
+title: Entraîner un modèle pour Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: L’entraînement d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft ou un modèle personnalisé. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7630659deeece7fbf8d0ca1fd00b539a8de83b0e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072495"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806026"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 

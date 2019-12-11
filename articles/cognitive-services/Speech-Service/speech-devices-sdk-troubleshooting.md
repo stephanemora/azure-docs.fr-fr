@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes du kit de développement logiciel (SDK) pour les dispositifs vocaux –Service Speech
+title: Résoudre les problèmes relatifs au SDK Speech Devices - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit SDK Speech Devices.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558908"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815565"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Résoudre les problèmes liés au SDK des dispositifs vocaux
 
@@ -23,7 +23,7 @@ Cet article fournit des informations pour vous aider à résoudre des problèmes
 
 ## <a name="certificate-failures"></a>Erreurs de certificat
 
-Si vous rencontrez des erreurs de certificat lorsque vous utilisez les services Speech, veillez à ce que la date et l’heure de votre appareil soient correctes :
+Si vous rencontrez des erreurs de certificat lorsque vous utilisez le service Speech, vérifiez que la date et l’heure de votre appareil sont correctes :
 
 1. Accédez à **Settings**. Sous **System** (Système), sélectionnez **Date & time** (Date et heure).
 

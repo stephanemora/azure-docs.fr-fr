@@ -1,5 +1,5 @@
 ---
-title: Assistants vocaux - Service de reconnaissance vocale
+title: Assistants vocaux - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités et des restrictions des assistants vocaux utilisant le kit de développement logiciel (SDK) Speech.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195934"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812912"
 ---
 # <a name="about-voice-assistants"></a>À propos des assistants vocaux
 
-Les assistants vocaux qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences.
+Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences.
 
 Le service d’assistant vocal permet une interaction rapide et fiable entre un appareil et une implémentation d’assistant qui utilise soit (1) le canal Direct Line Speech de Bot Framework, soit (2) le service intégré Custom Commands (préversion) pour réaliser la tâche.
 
@@ -29,7 +29,7 @@ Les applications se connectent au service de l’assistant vocal avec le kit de 
 
 ## <a name="choosing-an-assistant-solution"></a>Choix d’une solution d’Assistant
 
-La première étape de création d’un Assistant vocal est de décider de ce qu’il doit faire. Les services Speech Azure fournissent plusieurs solutions complémentaires pour la création des interactions de votre Assistant. Que vous vouliez la flexibilité et la polyvalence du canal [Direct Line Speech](direct-line-speech.md) de Bot Framework ou la simplicité des [commandes personnalisées (préversion)](custom-commands.md) pour des scénarios simples, sélectionner les bons outils vous aidera à démarrer.
+La première étape de création d’un Assistant vocal est de décider de ce qu’il doit faire. Le service Speech fournit plusieurs solutions complémentaires pour la création des interactions de votre Assistant. Que vous vouliez la flexibilité et la polyvalence du canal [Direct Line Speech](direct-line-speech.md) de Bot Framework ou la simplicité des [commandes personnalisées (préversion)](custom-commands.md) pour des scénarios simples, sélectionner les bons outils vous aidera à démarrer.
 
 | Si vous voulez... | Envisagez... | Par exemple... |
 |-------------------|------------------|----------------|
@@ -49,8 +49,8 @@ Que vous choisissiez [Direct Line Speech](direct-line-speech.md) ou [Commandes p
 | Category | Caractéristiques |
 |----------|----------|
 |[Mot clé personnalisé](speech-devices-sdk-create-kws.md) | Les utilisateurs peuvent engager des conversations avec les assistants au moyen de mots clés personnalisés, tels que « Bonjour Contoso ». Une application effectue cette action avec un moteur de mot clé personnalisé dans le SDK Speech, qui peut être configuré avec un mot déclencheur personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Les assistants vocaux peuvent utiliser la vérification des mots clés côté service pour améliorer la précision de l’activation des mots clés (par rapport à l’appareil seul).
-|[Reconnaissance vocale](speech-to-text.md) | Les assistants vocaux convertissent en temps réel le contenu audio en texte écrit à l’aide de [Reconnaissance vocale](speech-to-text.md) à partir des services de reconnaissance vocale Azure. Lors de sa transcription, ce texte est disponible pour l’implémentation de votre assistant et votre application cliente.
-|[Synthèse vocale](text-to-speech.md) | Les réponses textuelles de votre assistant seront synthétisées à l’aide de la [Synthèse vocale](text-to-speech.md) d’Azure Speech Services. Cette synthèse est ensuite disponible pour votre application cliente sous forme de flux audio. Microsoft offre la possibilité de créer votre propre voix TTS neuronale personnalisée et de haute qualité qui donne une voix à votre marque. Pour en savoir plus, [contactez-nous](mailto:mstts@microsoft.com).
+|[Reconnaissance vocale](speech-to-text.md) | Les assistants vocaux convertissent en temps réel le contenu audio en texte écrit à l’aide de la [Reconnaissance vocale](speech-to-text.md) du service Speech. Lors de sa transcription, ce texte est disponible pour l’implémentation de votre assistant et votre application cliente.
+|[Synthèse vocale](text-to-speech.md) | Les réponses textuelles de votre assistant seront synthétisées à l’aide de la [Synthèse vocale](text-to-speech.md) du service Speech. Cette synthèse est ensuite disponible pour votre application cliente sous forme de flux audio. Microsoft offre la possibilité de créer votre propre voix TTS neuronale personnalisée et de haute qualité qui donne une voix à votre marque. Pour en savoir plus, [contactez-nous](mailto:mstts@microsoft.com).
 
 ## <a name="getting-started-with-voice-assistants"></a>Prise en main des assistants vocaux
 
@@ -75,7 +75,7 @@ Un tutoriel sur l’[activation des fonctions vocales dans votre assistant à l�
 
 ## <a name="customization"></a>Personnalisation
 
-Les assistants vocaux créés à l’aide d’Azure Speech Services peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
+Les assistants vocaux créés à l’aide du service Speech peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Les options de personnalisation varient selon la langue/paramètres régionaux (voir [Langues prises en charge](supported-languages.md)).
@@ -87,7 +87,7 @@ Les assistants vocaux créés à l’aide d’Azure Speech Services peuvent util
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
 * [Obtenir le kit SDK Speech](speech-sdk.md)
 * [En savoir plus sur Custom Commands (préversion)](custom-commands.md)
 * [En savoir plus sur Direct Line Speech](direct-line-speech.md)

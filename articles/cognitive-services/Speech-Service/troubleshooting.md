@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes liés au kit de développement logiciel (SDK) Speech – Service Speech
+title: Résoudre les problèmes relatifs au SDK Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du Kit de développement logiciel (SDK) Speech.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558885"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815415"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
 

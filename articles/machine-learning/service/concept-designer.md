@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196170"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707735"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Le concepteur vous donne un canevas visuel permettant de générer, tester et d�
     + Publier un **pipeline d’inférence par lot** pour effectuer des prédictions sur de nouvelles données à l’aide d’un modèle préalablement formé.
 + [Déployer](#deploy) un **pipeline d’inférence en temps réel** vers un point de terminaison en temps réel pour effectuer des prédictions sur de nouvelles données en temps réel.
 
-![Diagramme de flux de travail pour la formation, l’inférence par lot et l’inférence en temps réel dans le concepteur](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Diagramme de flux de travail pour la formation, l’inférence par lot et l’inférence en temps réel dans le concepteur](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -80,7 +80,7 @@ Un module est un algorithme que vous appliquez à vos données. Le concepteur co
 
 Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
 
-![Propriétés du module](media/ui-concept-visual-interface/properties.png)
+![Propriétés du module](media/concept-designer/properties.png)
 
 Pour obtenir de l’aide relative à la navigation dans la bibliothèque d’algorithmes d’apprentissage automatique disponibles, consultez [Vue d’ensemble des informations de référence relatives aux algorithmes et aux modules](../algorithm-module-reference/module-reference.md)
 
@@ -107,7 +107,7 @@ Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployez un 
 
 Vous pouvez également publier un pipeline sur un **point de terminaison de pipeline**. Semblable à un point de terminaison en temps réel, un point de terminaison de pipeline vous permet d’envoyer de nouvelles exécutions de pipeline à partir d’applications externes à l’aide d’appels REST. Toutefois, vous ne pouvez pas envoyer ni recevoir de données en temps réel à l’aide d’un point de terminaison de pipeline.
 
-Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effectuer ou réeffectuer l’apprentissage de modèles, effectuer des inférences par lot, traiter de nouvelles données et bien plus encore. Vous pouvez publier plusieurs pipelines sur un point de terminaison de pipeline unique et spécifier la version de pipeline à exécuter.
+Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effectuer ou réeffectuer l’entraînement de modèles, [effectuer des inférences par lot](how-to-run-batch-predictions-designer.md), traiter de nouvelles données et bien plus encore. Vous pouvez publier plusieurs pipelines sur un point de terminaison de pipeline unique et spécifier la version de pipeline à exécuter.
 
 Un pipeline publié s’exécute sur les ressources de calcul que vous définissez dans le brouillon de pipeline pour chaque module.
 

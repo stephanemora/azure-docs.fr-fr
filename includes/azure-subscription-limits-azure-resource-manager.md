@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: a01455da36e8ab573773fec2a6da1f7903b8ea20
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224393"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796119"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Machines virtuelles par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |25 000<sup>1</sup> par région. |25 000 par région. |
 | Nombre total de cœurs de machine virtuelle par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région. | Contactez le support technique. |
+| Nombre total de cœurs de machine virtuelle Azure Spot par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région. | Contactez le support technique. |
 | Machine virtuelle par série, telle que Dv2, et F, cœurs par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région. | Contactez le support technique. |
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |Illimité. |Illimité. |
 | [Comptes de stockage](../articles/storage/common/storage-quickstart-create-account.md) par région et par abonnement |250 |250 |

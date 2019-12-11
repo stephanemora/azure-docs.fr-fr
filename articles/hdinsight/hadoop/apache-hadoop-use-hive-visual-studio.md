@@ -2,18 +2,18 @@
 title: Apache Hive et outils Data Lake pour Visual Studio – Azure HDInsight
 description: Découvrez comment utiliser les outils Data Lake pour Visual Studio pour exécuter des requêtes Apache Hive avec Apache Hadoop sur Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931879"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687799"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Apache Hive à l’aide des outils Data Lake pour Visual Studio
 
@@ -38,9 +38,9 @@ Vous pouvez créer et exécuter des requêtes Hive de deux façons :
 
 Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Interactive**.
 
-1. Ouvrez **Visual Studio**.
+1. Lancez **Visual Studio** et sélectionnez **Continuer sans code**.
 
-2. À partir de l’**Explorateur de serveurs**, accédez à **Azure** > **HDInsight**.
+2. À partir de l’**Explorateur de serveurs**, faites un clic droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...** , puis terminez le processus de connexion.
 
 3. Développez **HDInsight**, cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis sélectionnez **Écrire une requête Hive**.
 
@@ -99,7 +99,7 @@ Pour exécuter une requête Hive en créant une application Hive, procédez comm
         > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, telles qu’un travail MapReduce ou un service Azure.
         >
         > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
-    
+
     * `ROW FORMAT`: Indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
     * `STORED AS TEXTFILE LOCATION`: Indique à Hive que les données sont stockées dans le répertoire *example/data* sous forme de texte.
@@ -138,7 +138,7 @@ L’exemple suivant s’appuie sur la table `log4jLogs` créée lors de la proc�
         > Contrairement aux tables `EXTERNAL`, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
     * `STORED AS ORC`: Stocke les données dans un format *ORC* (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    
+
     * `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table `log4jLogs` qui contiennent `[ERROR]`, puis insère les données dans la table `errorLogs`.
 
 3. Modifiez **Interactive** en **Batch** le cas échéant, puis sélectionnez **Envoyer**.
@@ -149,14 +149,8 @@ L’exemple suivant s’appuie sur la table `log4jLogs` créée lors de la proc�
 
 Comme vous pouvez le voir, les outils HDInsight pour Visual Studio fournissent un moyen simple de travailler avec des requêtes Hive sur HDInsight.
 
-Pour obtenir des informations générales sur Hive dans HDInsight :
+* Pour des informations générales sur Hive dans HDInsight, consultez [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hdinsight-use-hive.md)
 
-* [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hdinsight-use-hive.md)
+* Pour des informations sur les autres façons de travailler avec Hadoop sur HDInsight, consultez [Utiliser MapReduce dans Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
-
-* [Utiliser MapReduce dans Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-
-Pour plus d’informations sur les outils de HDInsight pour Visual Studio :
-
-* [Utiliser les outils Data Lake pour Visual Studio afin de se connecter à Azure HDInsight et exécuter des requêtes Apache Hive](apache-hadoop-visual-studio-tools-get-started.md)
+* Pour plus d’informations sur les outils HDInsight pour Visual Studio, consultez [Utiliser les outils Data Lake pour Visual Studio afin de se connecter à Azure HDInsight et exécuter des requêtes Apache Hive](apache-hadoop-visual-studio-tools-get-started.md)

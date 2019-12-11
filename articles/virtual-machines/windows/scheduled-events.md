@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7889ee66ec80ee0b77b92efc5755e1a84a5cbf04
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f6e3e370201b49da149c09d87ed7cec63fef8ebf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073283"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792253"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
 
@@ -47,7 +47,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 - [Maintenance lancée par la plateforme](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
 - Matériel détérioré
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
-- [Éviction de machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans des groupes identiques
+- Évictions d’instances de [machine virtuelle Spot](spot-vms.md) et de [groupe identique Spot](../../virtual-machine-scale-sets/use-spot.md)
 
 ## <a name="the-basics"></a>Concepts de base  
 

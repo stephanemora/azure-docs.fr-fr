@@ -1,5 +1,5 @@
 ---
-title: Direct Line Speech - Speech Services
+title: Direct Line Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités et des restrictions des assistants vocaux utilisant Direct Line Speech avec le kit de développement logiciel (SDK) Speech.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506564"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806216"
 ---
 # <a name="about-direct-line-speech"></a>À propos de Direct Line Speech
 
@@ -50,7 +50,7 @@ Un exemple de code pour la création d’un assistant vocal est disponible sur G
 
 ## <a name="customization"></a>Personnalisation
 
-Les assistants vocaux créés à l’aide d’Azure Speech Services peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
+Les assistants vocaux créés à l’aide du service Speech peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Les options de personnalisation varient selon la langue/paramètres régionaux (voir [Langues prises en charge](supported-languages.md)).
@@ -64,7 +64,7 @@ Direct Line Speech et ses fonctionnalités pour les assistants vocaux sont un su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
-* [Obtenir le Kit SDK de reconnaissance vocale](speech-sdk.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+* [Obtenir le kit SDK Speech](speech-sdk.md)
 * [Créer et déployer un bot de base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtenir le modèle Virtual Assistant Solution and Enterprise](https://github.com/Microsoft/AI)

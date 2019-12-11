@@ -1,5 +1,5 @@
 ---
-title: Découvrez comment le gestionnaire de sécurité protège les appareils et les logiciels - Azure IoT Edge | Microsoft Docs
+title: Gestionnaire de sécurité Azure IoT Edger - Azure IoT Edge
 description: Gère le principe de sécurité d’appareil IoT Edge et l’intégrité des services de sécurité.
 services: iot-edge
 keywords: sécurité, élément sécurisé, enclave, TEE, IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457534"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666067"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 

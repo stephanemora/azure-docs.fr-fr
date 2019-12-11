@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325862"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815361"
 ---
-# <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs de service Speech (préversion)
+# <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
 Les conteneurs vous permettent d’exécuter certaines des API du service Speech dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Speech.
 
@@ -371,12 +371,10 @@ Cette commande :
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
-| Conteneur | Point de terminaison | Protocol |
+| Containers | URL de l’hôte du SDK | Protocol |
 |--|--|--|
-| Reconnaissance vocale | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Reconnaissance vocale personnalisée | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Synthèse vocale | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Synthèse vocale personnalisée | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Reconnaissance vocale et Reconnaissance vocale personnalisée | `ws://localhost:5000` | WS |
+| Synthèse vocale et synthèse vocale personnalisée | `http://localhost:5000` | HTTP |
 
 Pour plus d’informations sur l’utilisation des protocoles WSS et HTTPS, consultez [Sécurité des conteneurs](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

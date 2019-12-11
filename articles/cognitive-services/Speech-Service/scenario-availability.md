@@ -1,5 +1,5 @@
 ---
-title: Disponibilité de scénario – Service Speech
+title: Disponibilité de scénario - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Les fonctionnalités du SDK Speech comprennent de nombreux scénarios dans une vaste gamme de langages et d’environnements de programmation. Les scénarios ne sont pas tous disponibles dans tous les langages ou environnements de programmation. Vous trouverez ci-dessous la disponibilité de chaque scénario.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e8fc6e8c2f37dcd3edec24fb4d8ed81b32a84bd0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075759"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816580"
 ---
 # <a name="scenario-availability"></a>Disponibilité de scénario
 

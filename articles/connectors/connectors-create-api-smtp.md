@@ -1,22 +1,18 @@
 ---
-title: Se connecter à SMTP à partir d’Azure Logic Apps | Microsoft Docs
+title: Se connecter à SMTP à partir d’Azure Logic Apps
 description: Automatiser des tâches et des flux de travail qui envoient des e-mails via votre compte SMTP (Simple Mail Transfer Protocol) à l’aide d’Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050746"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789152"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envoyer un e-mail à partir de votre compte SMTP avec Azure Logic Apps
 

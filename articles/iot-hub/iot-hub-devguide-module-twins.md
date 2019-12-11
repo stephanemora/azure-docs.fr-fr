@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363464"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807423"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -186,7 +186,7 @@ Le backend de solution opère sur le jumeau de module en utilisant les opératio
     moduleId | ID du module |
     hubName | Nom de l’IoT Hub |
     operationTimestamp | Horodatage [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) de l’opération |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | « replaceTwin » ou « updateTwin » |
 
     Les propriétés système du message ont pour préfixe le symbole `$`.
@@ -266,7 +266,7 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
 
 ## <a name="module-twin-size"></a>Taille de jumeau de module
 
-IoT Hub impose une limite de taille de 8 Ko à chacune des valeurs totales respectives de `tags`, de `properties/desired` et de `properties/reported`, à l’exception des éléments en lecture seule.
+IoT Hub applique une limite de taille de 8 Ko à la valeur `tags`, et une limite de taille de 32 Ko aux valeurs `properties/desired` et `properties/reported`. Ces totaux sont exclusivement des éléments en lecture seule.
 
 La taille est calculée en comptant tous les caractères à l’exception des caractères de contrôle UNICODE (segments C0 et C1) et des espaces qui apparaissent en dehors d’une constante de chaîne.
 

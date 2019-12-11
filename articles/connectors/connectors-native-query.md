@@ -1,27 +1,21 @@
 ---
-title: Ajout de l’action de requête dans des applications logiques | Microsoft Docs
-description: Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Ajouter l’action de requête dans des applications logiques
+description: Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973764"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787130"
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
+
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
 
 * Créer une tâche pour tous les enregistrements à priorité élevée à partir d’une base de données.
@@ -30,6 +24,7 @@ L’action de requête vous permet d’utiliser des lots et des tableaux pour ob
 Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Utilisation de l’action de requête
+
 Une action est une opération effectuée par le flux de travail défini dans une application logique. 
 [En savoir plus sur les actions](../connectors/apis-list.md).  
 

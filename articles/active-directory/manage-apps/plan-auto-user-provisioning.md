@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473339"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786416"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -90,15 +90,15 @@ Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une base 
 
 1. Les utilisateurs/groupes sont créés dans une application ou un système RH local, tel que SAP. 
 
-1. L’agent Azure AD Connect effectue des synchronisations planifiées d’identités (utilisateurs et groupes) depuis l’annuaire Active Directory local vers Azure AD.
+1. L’**agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
 
-1. Le service de provisionnement Azure AD démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
+1. Le **service de provisionnement Azure AD** démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
 
-1. Le service de provisionnement Azure AD interroge le système source à la recherche d’utilisateurs et de groupes modifiés depuis le cycle initial, et envoie (push) les modifications apportées par l’exécution de [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. Le **service de provisionnement** Azure AD interroge le système source à la recherche d’utilisateurs et de groupes ayant changé depuis le cycle initial, puis envoie (push) les modifications apportées par [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Attribution automatique d’utilisateurs pour les entreprises sur cloud uniquement
 
-Dans cet exemple, la création d’utilisateurs a lieu dans Azure AD tandis que le service de provisionnement Azure AD gère l’attribution automatique d’utilisateurs vers les applications (SaaS) cibles :
+Dans cet exemple, la création d’utilisateurs a lieu dans Azure AD tandis que le service de provisionnement Azure AD gère le provisionnement automatique d’utilisateurs dans les applications (SaaS) cibles.
 
 ![Image 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -106,22 +106,23 @@ Dans cet exemple, la création d’utilisateurs a lieu dans Azure AD tandis que 
 
 1. Les utilisateurs/groupes sont créés dans Azure AD.
 
-1. Le service de provisionnement Azure AD démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
+1. Le **service de provisionnement Azure AD** démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
 
-1. Le service de provisionnement Azure AD interroge le système source à la recherche d’utilisateurs et de groupes mis à jour depuis le cycle initial, et effectue des [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. Le **service de provisionnement Azure AD** interroge le système source à la recherche d’utilisateurs et de groupes ayant été mis à jour depuis le cycle initial, puis effectue des [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Attribution automatique d’utilisateurs pour les applications RH dans le cloud 
 
-Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une application RH cloud, telle que Workday.
+Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une application RH cloud, comme Workday ou SuccessFactors. Le service d’approvisionnement Azure AD et l’agent d’approvisionnement Azure AD Connect configurent les données utilisateur du locataire de l’application RH cloud vers AD. Une fois que les comptes sont mis à jour dans AD, ils sont synchronisés avec Azure AD via Azure AD Connect, et les adresses e-mail et les attributs de nom d’utilisateur peuvent être mis à jour dans le locataire de l’application RH cloud.
 
 ![Image 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Comptes créés dans le système RH du cloud
-1. Les données circulent dans une instance AD locale via le service de provisionnement Azure AD et l’agent de provisionnement.
-1. Azure AD Connect synchronise les données avec Azure AD.
-1. L’attribut de nom d’utilisateur et d’e-mail peut être réécrit dans l’application RH du cloud.
-
-Pour plus d’informations sur l’architecture et le déploiement de la solution, consultez [Tutoriel : Configurer Workday pour l’attribution automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.  **L’équipe RH** effectue les transactions dans le locataire de l’application RH cloud.
+2.  **Le service d’approvisionnement Azure AD** exécute les cycles planifiés à partir du locataire de l’application RH cloud et identifie les modifications qui doivent être traitées pour la synchronisation avec AD.
+3.  **Le service d’approvisionnement Azure AD** appelle l’agent d’approvisionnement Azure AD Connect avec une charge utile de demandes contenant des opérations de création/de mise à jour/d’activation/de désactivation de compte AD.
+4.  **L’agent d’approvisionnement Azure AD Connect** utilise un compte de service pour gérer des données de compte AD.
+5.  **Azure AD Connect** exécute la synchronisation différentielle pour extraire les mises à jour dans AD.
+6.  Les mises à jour **AD** sont synchronisées avec Azure AD. 
+7.  **Le service d’approvisionnement Azure AD** met à jour l’attribut d’e-mail et le nom d’utilisateur à partir d’Azure AD vers le locataire de l’application RH cloud.
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 

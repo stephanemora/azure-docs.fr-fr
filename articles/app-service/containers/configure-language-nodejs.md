@@ -1,24 +1,15 @@
 ---
-title: Configurer les applications Node.js - Azure App Service | Microsoft Docs
-description: Découvrez comment configurer des applications Node.js dans Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: Configurer des applications Node.js
+description: Découvrez comment configurer un conteneur Node.js prédéfini pour votre application. Cet article présente les tâches de configuration les plus courantes.
+ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956163"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670269"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js Linux pour Azure App Service
 
@@ -249,7 +240,7 @@ if (req.secure) {
 Quand une application Node.js en fonctionnement se comporte différemment dans App Service ou comporte des erreurs, essayez ce qui suit :
 
 - [Accéder au flux de journaux](#access-diagnostic-logs).
-- Tester l’application localement en mode de production. App Service exécute vos applications Node.js en mode de production. Vous devez donc vous assurer que votre projet fonctionne comme prévu en mode de production au niveau local. Par exemple :
+- Testez l’application localement en mode de production. App Service exécute vos applications Node.js en mode de production et dès lors, vous devez vous assurer que votre projet fonctionne comme prévu en mode de production localement. Par exemple :
     - En fonction de votre *package.json*, différents packages peuvent être installés pour le mode de production (`dependencies` et `devDependencies`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différents selon le mode de production.
     - Certaines infrastructures web peuvent utiliser des scripts de démarrage personnalisés lors de l’exécution en mode de production.

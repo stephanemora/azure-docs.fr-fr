@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 05/15/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479144"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706376"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -55,7 +55,9 @@ Oui, à condition que la totalité des concentrateurs d’événements se trouve
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Quelle est la période de rétention maximale pour les événements ?
 
-Le niveau Standard des hubs d’événements prend actuellement en charge une période de rétention maximale de sept jours. Les concentrateurs d’événements ne sont pas destinés à servir de magasin de données permanent. Les périodes de rétention supérieures à 24 heures sont destinées aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d'événements sur les mêmes systèmes ; par exemple, pour tester ou vérifier un nouveau modèle d’apprentissage de machine sur des données existantes. Si vous avez besoin que la rétention des messages dure plus de sept jours, activez [Event Hubs Capture](event-hubs-capture-overview.md) dans votre hub d’événements pour en tirer (pull) les données et les importer dans le compte de stockage ou le compte Azure Data Lake Service de votre choix. L’activation de Capture est facturée en fonction des unités de débit achetées.
+Le niveau Standard des hubs d’événements prend actuellement en charge une période de rétention maximale de sept jours. Les hubs d’événements ne sont pas destinés à servir de magasins de données permanents. Les périodes de conservation de plus de 24 heures conviennent aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d’événements sur les mêmes systèmes, par exemple, pour entraîner ou tester un nouveau modèle Machine Learning sur des données existantes. Si vous avez besoin que la rétention des messages dure plus de sept jours, activez [Event Hubs Capture](event-hubs-capture-overview.md) dans votre hub d’événements pour en tirer (pull) les données et les importer dans le compte de stockage ou le compte Azure Data Lake Service de votre choix. L’activation de Capture est facturée en fonction des unités de débit achetées.
+
+Vous pouvez configurer la période de conservation pour les données capturées sur votre compte de stockage. La fonctionnalité de **gestion du cycle de vie** du Stockage Azure fournit une stratégie complète basée sur des règles pour les comptes de stockage Blob et v2 universel. Utilisez la stratégie pour effectuer la transition de vos données vers les niveaux d’accès appropriés ou pour faire en sorte qu’elles expirent à la fin de leur cycle de vie. Pour plus d’informations, consultez [Gérer le cycle de vie du Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Comment puis-je surveiller mes Event Hubs ?
 Event Hubs émet des métriques exhaustives qui fournissent l’état de vos ressources à [Azure Monitor](../azure-monitor/overview.md). Elles vous permettent également d’évaluer l’intégrité globale du service Event Hubs non seulement au niveau de l’espace de noms mais également au niveau de l’entité. En savoir plus sur la supervision proposée pour les [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
@@ -69,7 +71,7 @@ Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer
 
 Consultez le tableau suivant pour savoir quels ports de sortie vous devez ouvrir afin d’utiliser ces protocoles dans le but de communiquer avec Azure Event Hubs. 
 
-| Protocole | Ports | Détails | 
+| Protocol | Ports | Détails | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 et 5672 | Consultez le [Guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
@@ -83,7 +85,7 @@ Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, pro
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. La seule modification susceptible d’entraîner une conséquence serait une restauration de l’espace de noms sur un autre cluster.
+2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Elle est susceptible de changer dans un seul cas : si vous restaurez l’espace de noms sur un autre cluster.
 
 Si vous utilisez la redondance de zone pour votre espace de noms, vous devez suivre quelques étapes supplémentaires : 
 
@@ -107,7 +109,7 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Apache Kafka. Pour bénéficier de l’expérience PaaS Kafka, il est nécessaire de modifier la configuration. Il fournit une alternative à l’exécution de votre cluster Kafka. Event Hubs prend en charge Apache Kafka 1.0 et les versions clientes plus récentes, et fonctionne avec vos applications, outils et frameworks Kafka. Pour plus d’informations, consultez [Dépôt Event Hubs pour Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Quels changements de configuration doivent être effectués pour que mon application existante puisse communiquer avec les Event Hubs ?
-Pour vous connecter à un Event Hub compatible avec Kafka, vous devez mettre à jour les configurations du client Kafka. Cela est possible en créant un espace de noms de Hubs d’événements et en obtenant la [chaîne de connexion](event-hubs-get-connection-string.md). Modifiez le fichier bootstrap.servers pour qu’il pointe vers le FQDN Event Hubs et sur le port 9093. Mettez à jour le fichier sasl.jaas.config pour diriger le client Kafka vers votre point de terminaison Kafka Event Hubs (qui est la chaîne de connexion que vous avez obtenue), avec une authentification correcte comme indiqué ci-dessous :
+Pour vous connecter à un Event Hub compatible avec Kafka, vous devez mettre à jour les configurations du client Kafka. Cela s’effectue en créant un espace de noms Event Hubs et en obtenant la [chaîne de connexion](event-hubs-get-connection-string.md). Modifiez le fichier bootstrap.servers pour qu’il pointe vers le FQDN Event Hubs et sur le port 9093. Mettez à jour le fichier sasl.jaas.config pour diriger le client Kafka vers votre point de terminaison Event Hubs prenant en charge Kafka (ce point de terminaison est la chaîne de connexion que vous avez obtenue), avec une authentification correcte comme indiqué ci-dessous :
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
@@ -118,7 +120,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 Remarque : Si sasl.jaas.config n’est pas une configuration prise en charge dans votre framework, recherchez les configurations qui sont utilisées pour définir le nom d’utilisateur et le mot de passe SASL, et utilisez-les à la place. Définissez le nom d’utilisateur sur $ConnectionString et le mot de passe sur votre chaîne de connexion Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Quelle est la taille du message ou de l’événement pour les Event Hubs compatibles avec Kafka ?
-La taille maximale autorisée pour les Event Hubs compatibles avec Kafka est de 1 Mo.
+La taille de message maximale autorisée pour les Event Hubs compatibles avec Kafka est de 1 Mo.
 
 ## <a name="throughput-units"></a>Unités de débit
 
@@ -145,7 +147,7 @@ La fonctionnalité de majoration automatique vous permet de mettre à l’échel
 Vous pouvez commencer avec un faible nombre d’unités de débit, par exemple, 2 TU. Si vous prévoyez que votre trafic peut atteindre 15 unités de débit, activez la fonctionnalité de majoration automatique sur votre espace de noms et fixez la limite maximale à 15 unités de débit. Vous pouvez maintenant augmenter le nombre de TU automatiquement dès que votre trafic augmente.
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>L’activation de la fonctionnalité de majoration automatique est-elle payante ?
-**Aucun coût** n’est associé à l’activation de cette fonctionnalité. 
+L’activation de cette fonctionnalité n’engendre **acun coût**. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Comment les limites d’unités de débit sont-elles appliquées ?
 Si le débit d’entrée total ou le taux d’événements d’entrée total de tous les concentrateurs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les expéditeurs sont limités et reçoivent des erreurs indiquant que le quota d’entrée a été dépassé.
@@ -158,18 +160,18 @@ Sur une offre mutualisée, les unités de débit peuvent atteindre 40 TU (vous 
 ## <a name="dedicated-clusters"></a>Clusters dédiés
 
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Que sont les clusters Event Hubs Dedicated ?
-Les clusters Event Hubs Dedicated offrent des déploiements à locataire unique pour les clients les plus exigeants. Cette offre constitue un cluster basé sur la capacité qui n’est pas liée par des unités de débit. Cela signifie que vous pouvez utiliser le cluster pour ingérer et diffuser vos données en continu en fonction de l’utilisation de l’UC et de la mémoire du cluster. Pour plus d’informations, consultez [Clusters Event Hubs Dedicated](event-hubs-dedicated-overview.md).
+Les clusters Event Hubs Dedicated offrent des déploiements à locataire unique pour les clients les plus exigeants. Cette offre constitue un cluster basé sur la capacité qui n’est pas liée par des unités de débit. Cela signifie que vous pouvez utiliser le cluster pour ingérer et diffuser vos données en streaming en fonction de l’utilisation du processeur et de le mémoire du cluster. Pour plus d’informations, consultez [Clusters Event Hubs Dedicated](event-hubs-dedicated-overview.md).
 
 ### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Qu’est-ce qu’une seule unité de capacité me permet d’atteindre ?
-Pour un cluster dédié, la quantité que vous pouvez ingérer et diffuser dépend de divers facteurs tels que vos producteurs, les consommateurs, la vitesse à laquelle vous ingérez et transformez, et bien plus encore. 
+Pour un cluster dédié, la quantité de données qu’il est possible d’ingérer et de diffuser dépend de nombreux facteurs, parmi lesquels vos producteurs, les consommateurs, la vitesse d’ingestion et de transformation, etc. 
 
 Le tableau suivant présente les résultats de référence que nous avons obtenus au cours de nos tests :
 
 | Forme de la charge utile | Récepteurs | Bande passante en entrée| Messages en entrée | Bande passante en sortie | Messages en sortie | Nombre total d’unités de débit | Unités de débit par unité de capacité |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lots de 100x1 Ko | 2 | 400 Mo/s | 400 000 msg/s | 800 Mo/s | 800 000 msg/s | 400 unités de débit | 100 unités de débit | 
-| Lots de 10x10 Ko | 2 | 666 Mo/s | 66 600 msg/s | 1,33 Go/s | 133 000 msg/s | 666 unités de débit | 166 unités de débit |
-| Lots de 6x32 Ko | 1 | 1,05 Go/s | 34 000 msg/s | 1,05 Go/s | 34 000 msg/s | 1 000 unités de débit | 250 unités de débit |
+| Lots de 100x1 Ko | 2 | 400 Mo/s | 400 000 messages par seconde | 800 Mo/s | 800 000 messages par seconde | 400 unités de débit | 100 unités de débit | 
+| Lots de 10x10 Ko | 2 | 666 Mo/s | 66 600 messages par seconde | 1,33 Go/s | 133 000 messages par seconde | 666 unités de débit | 166 unités de débit |
+| Lots de 6x32 Ko | 1 | 1,05 Go/s | 34 000 messages par seconde | 1,05 Go/s | 34 000 messages par seconde | 1 000 unités de débit | 250 unités de débit |
 
 Lors des tests, les critères suivants ont été utilisés :
 
@@ -187,9 +189,9 @@ Vous créez un cluster dédié Event Hubs en soumettant une [requête de support
 ### <a name="how-many-partitions-do-i-need"></a>De combien de partitions ai-je besoin ?
 Le nombre de partitions est spécifié lors de la création du concentrateur d’événements. Il doit être compris entre 2 et 32. Le nombre de partitions n’est pas modifiable. Lorsque vous le définissez, tenez compte de la mise à l’échelle sur le long terme. Les partitions constituent un mécanisme d’organisation des données. Elles sont liées au degré de parallélisme en aval requis lors de la consommation des applications. Le choix du nombre de partitions dans un concentrateur d’événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d’avoir. Pour plus d’informations sur les partitions, consultez [Partitions](event-hubs-features.md#partitions).
 
-Vous pouvez choisir la valeur la plus élevée possible, à savoir 32, au moment de la création. N’oubliez pas que si vous avez plusieurs partitions, les événements sont envoyés à plusieurs partitions sans conserver l’ordre, sauf si vous configurez les expéditeurs pour qu’ils envoient uniquement à une partition unique à partir de la partition 32 en laissant les 31 partitions restantes. Dans le premier cas, vous devez lire les événements sur les 32 partitions. Dans le dernier cas, il n’y a pas de frais supplémentaires évidents par rapport à la configuration supplémentaire que vous devez effectuer sur l’hôte du processeur d’événements.
+Vous pouvez choisir la valeur la plus élevée possible, à savoir 32, au moment de la création. N’oubliez pas que si vous avez plusieurs partitions, les événements sont envoyés à plusieurs partitions sans conserver l’ordre, sauf si vous configurez les expéditeurs pour qu’ils envoient uniquement à une partition unique à partir de la partition 32 en laissant les 31 partitions restantes. Dans le premier cas, vous devrez lire les événements sur les 32 partitions. Dans le dernier cas, il n’y a pas de frais supplémentaires significatifs par rapport à la configuration supplémentaire que vous devez effectuer sur l’hôte du processeur d’événements.
 
-Event Hubs est conçu pour autoriser un lecteur de partition unique par groupe de consommateurs. Dans la plupart des cas, le paramètre par défaut de quatre partitions est suffisant. Si vous cherchez mettre à l’échelle le traitement des événements, vous souhaiterez peut-être ajouter des partitions supplémentaires. Il n’y a aucune limite de débit spécifique sur une partition, mais le débit cumulé dans votre espace de noms est limité par le nombre d’unités de débit. Lorsque vous augmentez le nombre d’unités de débit de votre espace de noms, vous souhaiterez peut-être avoir des partitions supplémentaires pour permettre aux lecteurs fonctionnant simultanément d’atteindre leur débit maximal.
+Event Hubs est conçu pour autoriser un lecteur de partition unique par groupe de consommateurs. Dans la plupart des cas, le paramètre par défaut de quatre partitions est suffisant. Si vous comptez mettre à l’échelle le traitement des événements, vous souhaiterez peut-être ajouter des partitions supplémentaires. Il n’y a aucune limite de débit spécifique sur une partition, mais le débit cumulé dans votre espace de noms est limité par le nombre d’unités de débit. Lorsque vous augmentez le nombre d’unités de débit de votre espace de noms, vous souhaiterez peut-être avoir des partitions supplémentaires pour permettre aux lecteurs fonctionnant simultanément d’atteindre leur débit maximal.
 
 Toutefois, si vous disposez d’un modèle dans lequel votre application a une affinité avec une partition particulière, l’augmentation du nombre de partitions pourrait n’offrir aucun avantage. Pour plus d’informations, consultez [Disponibilité et cohérence](event-hubs-availability-and-consistency.md).
 

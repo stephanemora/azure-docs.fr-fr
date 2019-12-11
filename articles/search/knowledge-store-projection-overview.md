@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326594"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790009"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilisation de projections dans une base de connaissances dans Recherche cognitive Azure
 
@@ -28,11 +28,11 @@ Les projections peuvent être tabulaires, avec des données stockées dans des l
 
 La base de connaissances prend en charge trois types de projections :
 
-+ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table.
++ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table. Seuls les objets JSON valides peuvent être projetés sous forme de tables, le document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés. Par ailleurs, lors de la projection de ces objets, il peut créer un objet JSON valide avec une compétence de modélisateur ou une mise en forme incluse.
 
-+ **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, les projections d’objet sont enregistrées comme des objets Blob.
++ **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, les projections d’objet sont enregistrées comme des objets Blob. Seuls les objets JSON valides peuvent être projetés sous forme d’objets, le document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés. Par ailleurs, lors de la projection de ces objets, il peut créer un objet JSON valide avec une compétence de modélisateur ou une mise en forme incluse.
 
-+ **Fichiers** : Lorsque vous devez enregistrer les images extraites des documents, les projections de fichiers vous permettent d’enregistrer les images normalisées.
++ **Fichiers** : Quand vous devez enregistrer les images extraites des documents, les projections de fichiers vous permettent d’enregistrer les images normalisées dans un stockage d’objets blob.
 
 Pour voir des projections définies dans le contexte, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
 
@@ -47,7 +47,7 @@ Cette indépendance implique que les mêmes données peuvent être mises en form
 
 ### <a name="relatedness"></a>Parenté
 
-Les groupes de projection vous permettent désormais de projeter vos documents dans différents types de projections tout en préservant les relations entre ceux-ci. Tout le contenu projeté dans un même groupe de projections conserve les relations entre les données dans les types de projections. À l’intérieur des tableaux, les relations sont basées sur une clé générée, et chaque nœud enfant conserve une référence au nœud parent. Parmi les types (tables, objets et fichiers), les relations sont préservées quand un seul nœud est projeté vers différents types. Par exemple, imaginez un scénario dans lequel vous avez un document contenant des images et du texte. Vous pouvez projeter le texte vers des tables ou des objets, et les images vers des fichiers dont l’URL figure une propriété dans ces tables ou objets.
+Les groupes de projection vous permettent désormais de projeter vos documents dans différents types de projections tout en préservant les relations entre ceux-ci. Tout le contenu projeté dans un même groupe de projections conserve les relations entre les données dans les types de projections. À l’intérieur des tableaux, les relations sont basées sur une clé générée, et chaque nœud enfant conserve une référence au nœud parent. Parmi les types (tables, objets et fichiers), les relations sont préservées quand un seul nœud est projeté vers différents types. Par exemple, imaginez un scénario dans lequel vous avez un document contenant des images et du texte. Vous pouvez projeter le texte vers des tables ou des objets, et les images vers des fichiers dont l’URL figure dans une colonne/propriété dans ces tables ou objets.
 
 ## <a name="input-shaping"></a>Mise en forme d’entrée
 

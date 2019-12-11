@@ -1,7 +1,7 @@
 ---
 title: Streaming du contenu audio compressé par codec avec le SDK Speech sur iOS
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment diffuser en continu du contenu audio compressé vers Azure Speech Services avec le kit de développement logiciel (SDK) Speech sur iOS.
+description: Découvrez comment diffuser en streaming du contenu audio compressé sur le service Speech avec le SDK Speech sur iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109584"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805856"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Activation Utiliser une entrée audio compressée par codec avec le SDK Speech sur iOS
 
-L’API **Compressed Audio Input Stream** du kit de développement logiciel (SDK) Speech permet de diffuser en continu du contenu audio compressé vers Speech Service à l’aide d'un flux pull ou push.
+L’API **Compressed Audio Input Stream** du SDK Speech permet de diffuser en streaming du contenu audio compressé sur le service Speech à l’aide d’un flux de tirage (pull) ou d’envoi (push).
 
 > [!IMPORTANT]
 > Le kit de développement logiciel (SDK) Speech version 1.7.0 ou ultérieure est requis pour la diffusion en continu de contenu audio compressé sur iOS. Il est également pris en charge pour [C++, C# et Java sur Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) et [Java sur Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
@@ -42,7 +42,7 @@ Ouvrez le projet dans Xcode et générez-le pour la cible **Appareil iOS génér
 
 L’étape de génération crée un bundle de framework doté d'une bibliothèque dynamique pour toutes les architectures requises portant le nom `GStreamerWrapper.framework`.
 
-Ce framework doit être inclus dans toutes les applications qui utilisent des flux audio compressés avec le kit de développement logiciel (SDK) Speech Services.
+Ce framework doit être inclus dans toutes les applications qui utilisent des flux audio compressés avec le SDK du service Speech.
 
 Pour ce faire, appliquez les paramètres suivants à votre projet Xcode :
 
@@ -54,7 +54,7 @@ Pour ce faire, appliquez les paramètres suivants à votre projet Xcode :
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exemple de code utilisant une entrée audio compressé par codec
 
-Pour diffuser en continu dans un format audio compressé pour Speech Services, créer un élément `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
+Pour diffuser en streaming des données dans un format audio compressé sur le service Speech, créez un élément `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
 
 L’extrait de code suivant montre comment créer un `SPXAudioConfiguration` à partir d’une instance de `SPXPushAudioInputStream`, en spécifiant MP3 comme format de compression du flux.
 

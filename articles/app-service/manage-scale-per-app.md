@@ -1,25 +1,18 @@
 ---
-title: Hébergement haute densité à l’aide de la mise à l’échelle par application - Azure App Service | Microsoft Docs
-description: Hébergement haute densité sur Azure App Service
+title: Mise à l’échelle par application pour un hébergement haute densité
+description: Mettez à l’échelle les applications indépendamment des plans App Service et optimisez les instances ayant fait l’objet d’un scale-out dans votre plan.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088100"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672346"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hébergement haute densité sur Azure App Service à l’aide de la mise à l’échelle par application
 

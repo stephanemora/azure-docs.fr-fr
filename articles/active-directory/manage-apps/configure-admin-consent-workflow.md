@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180073"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786433"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurer le workflow du consentement administrateur (préversion)
 
@@ -33,10 +33,10 @@ Pour approuver des demandes, un réviseur doit être un administrateur général
 
 Pour activer le workflow de consentement de l’administrateur et choisir les réviseurs :
 
-1. Connectez-vous au  [Portail Azure](https://portal.azure.com)  en tant qu’administrateur général.
-2. Cliquez sur  **All services**  (Tous les services) en haut du menu de navigation de gauche.  **Azure Active Directory Extension**  s’ouvre.
-3. Dans la zone de recherche de filtre, tapez **« Azure Active Directory »** , puis sélectionnez l’élément **Azure Active Directory** .
-4. Dans le menu de navigation, cliquez sur  **Applications d’entreprise**. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
+2. Cliquez sur **All services** (Tous les services) en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
+3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
+4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**. 
 5. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
 6. Sous **Demandes de consentement d’administrateur (préversion)** , définissez **Les utilisateurs peuvent demander le consentement d’administrateur pour les applications qu’ils ne peuvent pas accepter** sur **Oui**.
 
@@ -74,10 +74,10 @@ Une fois le workflow de consentement de l’administrateur activé, les utilisat
 
 Pour passer en revue les demandes de consentement de l’administrateur et prendre les mesures suivantes :
 
-1. Connectez-vous au  [Portail Azure](https://portal.azure.com)  en tant que réviseur inscrit du workflow de consentement administrateur.
-2. Sélectionnez **All services**  (Tous les services) en haut du menu de navigation de gauche.  **Azure Active Directory Extension**  s’ouvre.
-3. Dans la zone de recherche de filtre, tapez **« Azure Active Directory »** , puis sélectionnez l’élément  **Azure Active Directory** .
-4. Dans le menu de navigation, cliquez sur  **Applications d’entreprise**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que réviseur inscrit du workflow de consentement administrateur.
+2. Sélectionnez **Tous les services** en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
+3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
+4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
 5. Sous **Activité**, sélectionnez **Demandes de consentement d’administrateur (préversion)** .
 
    > [!NOTE]
@@ -120,12 +120,12 @@ Le tableau ci-dessous décrit les scénarios et les valeurs d’audit disponible
 
 |Scénario  |Audit Service  |Catégorie d’audit  |Activité d’audit  |Intervenant d’audit  |Limites du journal d’audit  |
 |---------|---------|---------|---------|---------|---------|
-|Activation par l’administrateur du workflow de demande de consentement        |Révisions d’accès           |UserManagement           |Créer un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable            |
-|Désactivation par l’administrateur du flux de travail de demande de consentement       |Révisions d’accès           |UserManagement           |Supprimer un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
-|Administrateur mettant à jour les configurations du workflow de consentement        |Révisions d’accès           |UserManagement           |Mettre à jour un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
-|L’utilisateur final crée une demande de consentement administrateur pour une application       |Révisions d’accès           |Stratégie         |Créer une requête           |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
-|Réviseurs acceptant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            |Actuellement, vous ne trouvez pas le contexte de l’utilisateur ou l’ID de l’application qui a reçu le consentement de l’administrateur.           |
-|Réviseurs refusant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            | Actuellement, vous ne trouvez pas le contexte utilisateur de l’acteur qui a refusé une requête de consentement d’administrateur          |
+|Activation par l’administrateur du workflow de demande de consentement        |Révisions d’accès           |UserManagement           |Créer un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable            |
+|Administrateur désactivant le workflow de demande de consentement       |Révisions d’accès           |UserManagement           |Supprimer un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
+|Administrateur mettant à jour les configurations du workflow de consentement        |Révisions d’accès           |UserManagement           |Mettre à jour un modèle de stratégie de gouvernance          |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
+|Utilisateur final créant une demande de consentement administrateur pour une application       |Révisions d’accès           |Stratégie         |Créer une demande           |Contexte de l’application            |Actuellement, le contexte utilisateur est introuvable           |
+|Réviseurs approuvant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            |Pour l’heure, vous ne pouvez pas trouver le contexte de l’utilisateur ou l’ID de l’application qui a reçu le consentement de l’administrateur.           |
+|Réviseurs refusant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            | Pour l’heure, vous ne pouvez pas trouver le contexte utilisateur de l’acteur qui a refusé une demande de consentement administrateur.          |
 
 ## <a name="faq"></a>Forum Aux Questions 
 

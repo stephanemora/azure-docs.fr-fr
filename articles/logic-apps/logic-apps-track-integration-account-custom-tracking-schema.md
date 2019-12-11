@@ -1,21 +1,19 @@
 ---
-title: Schémas de suivi personnalisés pour les messages B2B - Azure Logic Apps | Microsoft Docs
+title: Schémas de suivi personnalisés pour les messages B2B
 description: Créer des schémas de suivi personnalisés qui surveillent les messages B2B dans les comptes d’intégration pour Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 7d7c5ef9e9a86c8b061a56fe41c0c8bbfc5ddbb3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203038"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792802"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Créer des schémas de suivi personnalisé qui surveillent des flux de travail de bout en bout dans Azure Logic Apps
 
@@ -64,7 +62,7 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | runId | OUI | String | ID d’exécution d’application logique. |
 | operationName | OUI | String | Nom de l’opération (par exemple action ou déclencheur). |
 | repeatItemScopeName | OUI | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. |
-| repeatItemIndex | OUI | Entier | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
+| repeatItemIndex | OUI | Integer | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. |
 | trackingId | Non | String | ID de suivi permettant de corréler les messages. |
 | correlationId | Non | String | ID de corrélation permettant de corréler les messages. |
 | clientRequestId | Non | String | Le client peut remplir ce champ pour corréler les messages. |

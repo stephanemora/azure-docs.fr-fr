@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008571"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795788"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -137,7 +137,9 @@ Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renomm
 
 **Puis-je utiliser le partitionnement GPT sur un disque Azure ?**
 
-Le partitionnement GPT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
+Les images de génération 1 peuvent utiliser le partitionnement GPT sur les disques de données, mais pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
+
+Les [images de génération 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) peuvent utiliser le partitionnement GPT aussi bien sur les disques de système d’exploitation que sur les disques de données.
 
 **Quels types de disque prennent en charge les captures instantanées ?**
 

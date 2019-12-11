@@ -1,21 +1,19 @@
 ---
-title: Schémas de suivi AS2 pour les messages B2B - Azure Logic Apps | Microsoft Docs
+title: Schémas de suivi AS2 pour les messages B2B
 description: Créer des schémas de suivi AS2 qui surveillent les messages B2B dans les comptes d’intégration pour Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 515d7cfc985ee9929f70de2c862170ff79ae4d60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845781"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792808"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Créer des schémas pour le suivi des messages AS2 et des MDN dans les comptes d’intégration pour Azure Logic Apps
 

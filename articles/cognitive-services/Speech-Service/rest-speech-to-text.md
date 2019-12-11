@@ -1,5 +1,5 @@
 ---
-title: Informations de référence sur l’API de reconnaissance vocale (REST) – Service Speech
+title: Informations de référence sur l’API de reconnaissance vocale (REST) - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API REST de reconnaissance vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091211"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816637"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
-En guise d’alternative à [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
+En guise d’alternative au [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
 
 Avant d’utiliser l’API REST de reconnaissance vocale, tenez compte des points suivants :
 
@@ -52,12 +52,12 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 |En-tête| Description | Obligatoire/facultatif |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement Speech Services. | Cet en-tête ou `Authorization` est requis. |
+| `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement du service Speech. | Cet en-tête ou `Authorization` est requis. |
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Cet en-tête ou `Ocp-Apim-Subscription-Key` est requis. |
 | `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codecs=audio/pcm; samplerate=16000` et `audio/ogg; codecs=opus`. | Obligatoire |
 | `Transfer-Encoding` | Spécifie que les données audio sont envoyées en bloc plutôt que dans un seul fichier. Utilisez uniquement cet en-tête si vous envoyez les données audio en bloc. | Facultatif |
-| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Les services Speech accusent réception de la requête initiale et attendent des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
-| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Les services Speech fournissent les résultats au format JSON. Certains frameworks de demande fournissent une valeur par défaut incompatible. Il est recommandé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
+| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Le service Speech accuse réception de la requête initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
+| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Le service Speech fournit les résultats au format JSON. Certains frameworks de demande fournissent une valeur par défaut incompatible. Il est recommandé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
 
 ## <a name="audio-formats"></a>Formats audio
 
@@ -69,7 +69,7 @@ L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être da
 | OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
->Les formats ci-dessus sont pris en charge via l’API REST et WebSocket dans Speech Services. Pour l’instant, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne prend en charge que le format WAV avec le codec PCM.
+>Les formats ci-dessus sont pris en charge via l’API REST et le WebSocket du service Speech. Pour l’instant, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne prend en charge que le format WAV avec le codec PCM.
 
 ## <a name="sample-request"></a>Exemple de requête
 
@@ -99,7 +99,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 
 ## <a name="chunked-transfer"></a>Transfert en bloc
 
-Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de la reconnaissance. Il permet aux services Speech de commencer à traiter le fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires.
+Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de la reconnaissance. Il permet au service Speech de commencer à traiter le fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires.
 
 Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 

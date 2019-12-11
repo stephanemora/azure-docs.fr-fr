@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour ajouter un jeu de données de référence à un environnement – Azure Time Series Insights | Microsoft Docs
+title: Guide pratique pour ajouter des jeux de données de référence à un environnement – Azure Time Series Insights | Microsoft Docs
 description: Cet article décrit comment ajouter un jeu de données de référence pour augmenter le volume de données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 31ae271a4ad6aa1370828640884a54eb2669804d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d1bbfb43c6e2319706f5eeac15fa1d60791b62b9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012718"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807224"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -44,59 +44,73 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
 1. Développez le sélecteur d’environnement dans l’explorateur Time Series Insights. Choisissez l’environnement actif. Sur la page de l’explorateur, sélectionnez l’icône des données de référence en haut à droite.
 
-   [![Ajouter des données de référence](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
+   [![Ajouter des données de référence](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
 1. Cliquez sur le bouton **+ Ajouter un jeu de données** pour ajouter un nouveau jeu de données.
 
-   [![Ajouter un jeu de données](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
+   [![Ajouter un jeu de données](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
 
 1. Sur la page **Nouveau jeu de données de référence**, choisissez le format des données :
 
    - Choisissez **CSV** pour des données délimitées par des virgules. La première ligne est traitée comme une ligne d’en-tête.
    - Choisissez **Tableau JSON** pour des données au format JSON.
 
-   [![Choisissez le format des données.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
+   [![Choisissez le format des données.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
 1. Fournissez les données via l’une des deux méthodes suivantes :
 
    - Collez les données dans l’éditeur de texte. Ensuite, cliquez sur le bouton **Analyser les données de référence**.
    - Cliquez sur le bouton **Choisir un fichier** pour ajouter des données à partir d’un fichier texte local.
 
-   Par exemple, collez des données CSV : [![Données CSV collées](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
+   Par exemple, collez des données CSV : [![Données CSV collées](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Par exemple, collez les données d’un tableau JSON : [![Coller des données JSON](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
+   Par exemple, collez les données d’un tableau JSON : [![Coller des données JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    En cas d’erreur lors de l’analyse des valeurs de données, l’erreur s’affiche en rouge au bas de la page : `CSV parsing error, no rows extracted`.
 
 1. Une fois que les données ont été analysées correctement, une grille de données est affichée. Elle contient les colonnes et les lignes qui représentent les données.  Passez en revue la grille de données pour garantir son exactitude.
 
-   [![Ajouter des données de référence](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
+   [![Ajouter des données de référence](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
 1. Passez en revue chaque colonne pour voir le type de données pris par défaut et le modifier si nécessaire.  Sélectionnez le symbole de type de données dans l’en-tête de colonne : **#** pour double (données numériques), **T|F** pour booléen ou **Abc** pour une chaîne.
 
-   [![Choisissez les types de données dans les en-têtes de colonne.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
+   [![Choisissez les types de données dans les en-têtes de colonne.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Renommez les en-têtes de colonnes si nécessaire. Le nom de la colonne de clé est nécessaire pour joindre à la propriété correspondante dans votre source d’événements. Assurez-vous que les noms de colonne de clé de données de référence correspondent exactement au nom d’événement pour vos données entrantes, y compris la casse. Les noms des colonnes ne contenant pas de clés sont utilisés pour augmenter les données entrantes avec les valeurs de données de référence correspondantes.
+1. Renommez les en-têtes de colonnes si nécessaire. Le nom de la colonne de clé est nécessaire pour joindre à la propriété correspondante dans votre source d’événements. 
 
-1. Sélectionnez **Ajouter une ligne** ou **Ajouter une colonne** pour ajouter plusieurs valeurs de données de référence, si nécessaire.
+   > [!IMPORTANT]
+   > Assurez-vous que les noms de colonne de clé de données de référence correspondent exactement au nom d’événement pour vos données entrantes, y compris la casse. Les noms des colonnes ne contenant pas de clés sont utilisés pour augmenter les données entrantes avec les valeurs de données de référence correspondantes.
 
 1. Saisissez une valeur dans le champ **Filtrer les lignes...**  pour passer en revue des lignes spécifiques en fonction des besoins. Ce filtre est utile pour l’examen des données, mais il n’est pas appliqué lors du chargement des données.
 
 1. Nommez le jeu de données en renseignant le champ **Nom du jeu de données** au-dessus de la grille de données.
 
-    [![Nommez le jeu de données.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [![Nommez le jeu de données.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
 1. Indiquez la colonne de **clé primaire** du jeu de données en sélectionnant la liste déroulante au-dessus de la grille de données.
 
-    [![Sélectionnez la ou les colonnes clé.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
+    [![Sélectionnez la ou les colonnes clé.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    Si vous le souhaitez, cliquez sur le bouton **+** pour ajouter une colonne de clé secondaire, comme une clé primaire composite. Si vous devez annuler la sélection, choisissez la valeur vide de la liste déroulante pour supprimer la clé secondaire.
+    **(Facultatif)** Sélectionnez le bouton **+** pour ajouter une colonne de clé secondaire, comme une clé primaire composite. Si vous devez annuler la sélection, choisissez la valeur vide de la liste déroulante pour supprimer la clé secondaire.
 
 1. Pour télécharger les données, cliquez sur le bouton **Télécharger les lignes**.
 
-    [![Télécharger](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [![Chargez les lignes et confirmez les données.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
     La page confirme la fin du téléchargement et affiche le message **Jeu de données chargé**.
+
+    > [!WARNING]
+    > Les colonnes ou propriétés partagées entre les jeux de données de référence affichent une erreur de chargement **Nom de propriété dupliqué**. L’erreur n’empêche pas la réussite du chargement des jeux de données de référence. Elle peut être supprimé en combinant les lignes partageant le nom de propriété dupliqué.
+
+1. Sélectionnez **Ajouter une ligne**, **Importer des lignes en bloc** ou **Ajouter une colonne** pour ajouter plusieurs valeurs de données de référence, si nécessaire.
+
+    [![Ajouter une ligne, Importer des lignes en bloc ou Ajouter une colonne](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+
+   > [!IMPORTANT]
+   > Toute ligne qui partage une clé unique avec une autre ligne voit ses colonnes remplacées par la dernière ligne ajoutée qui partage cette clé unique.
+
+   > [!NOTE]
+   > Il **n’est pas** nécessaire que les lignes ajoutées soient  *rectangulaires* ; elles peuvent avoir moins de colonnes, plus de colonnes ou différentes colonnes par rapport aux autres entrées du jeu de données de référence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

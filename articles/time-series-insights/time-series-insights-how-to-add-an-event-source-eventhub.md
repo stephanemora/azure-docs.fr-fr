@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 421a4635a80c5a7a45fb14bf900c205a06789279
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012620"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764159"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
 
@@ -38,13 +38,15 @@ Les applications utilisent des groupes de consommateurs pour extraire des donné
 
 Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
-1. Dans le [Portail Azure](https://portal.azure.com), recherchez et ouvrez votre hub d’événements à partir de l’espace de noms Event Hub.
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez l’instance de votre hub d’événements à partir du volet **Vue d’ensemble** de l’espace de noms Event Hub. Sélectionnez **Entités > Event Hubs** ou recherchez votre instance sous **Nom**.
 
-    [![Ouvrez votre espace de noms Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
+    [![Ouvrez votre espace de noms Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. Sous **Entités**, sélectionnez **Groupes de consommateurs**, puis **Groupe de consommateurs**.
+1. Dans l’instance de votre hub d’événements, sélectionnez **Entités > Groupes de consommateurs**. Ensuite, sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
 
-   [![Event Hub - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png#lightbox)
+   [![Event Hub - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
+
+   Sinon, sélectionnez un groupe de consommateurs existant et passez à la section suivante.
 
 1. Sur la page **Groupes de consommateurs**, indiquez une valeur unique pour **Nom**.  Utilisez le même nom lorsque vous créez une source d’événement dans l’environnement Time Series Insights.
 
@@ -56,11 +58,11 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
 1. Recherchez votre environnement Time Series Insights existant. Dans le menu de gauche, sélectionnez **Toutes les ressources**, puis sélectionnez votre environnement Time Series Insights.
 
-1. Sous **Topologie de l’environnement**, sélectionnez **Sources d’événements**, puis sélectionnez **Ajouter**.
+1. Sélectionnez **Sources d’événements**, puis sélectionnez **Ajouter**.
 
-   [![Sous Sources d’événements, sélectionnez le bouton Ajouter](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+   [![Sous Sources d’événements, sélectionnez le bouton Ajouter](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Sous **Nom de la source de l’événement**, indiquez une valeur unique pour cet environnement Time Series Insights, comme **event-stream**.
+1. Sous **Nom de la source de l’événement**, indiquez une valeur unique pour cet environnement Time Series Insights, comme `Contoso-TSI-GA-Event-Hub-ES`.
 
 1. Pour **Source**, sélectionnez **Event Hub**.
 
@@ -68,11 +70,11 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
    * Si un Event Hub est déjà présent dans l’un de vos abonnements, sélectionnez **Utiliser un Event Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
 
-     [![Sélectionnez une option d’importation de source d’événement](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+     [![Sélectionnez une option d’importation de source d’événement](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
     *  Le tableau suivant décrit les propriétés requises pour l’option **Utiliser un Event Hub à partir des abonnements disponibles** :
 
-       [![Détails sur l’abonnement et Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
+       [![Détails sur l’abonnement et Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
        | Propriété | Description |
        | --- | --- |

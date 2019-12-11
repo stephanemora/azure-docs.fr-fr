@@ -1,25 +1,17 @@
 ---
-title: Déploiement continu - Azure App Service | Microsoft Docs
-description: Découvrez comment activer le déploiement continu vers Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Configurer le déploiement continu
+description: Découvrez comment activer CI/CD vers Azure App Service à partir de GitHub, BitBucket, Azure Repos ou d’autres dépôts. Sélectionnez le pipeline de build qui répond à vos besoins.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 98f82914af8216789a04d3cfd2972f83c16b3fa0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070660"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669981"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 

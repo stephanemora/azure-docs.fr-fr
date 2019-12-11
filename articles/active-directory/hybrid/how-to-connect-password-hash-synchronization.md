@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539020"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814934"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -123,15 +123,12 @@ Il est courant de forcer un utilisateur à modifier son mot de passe lors de sa 
   
 La fonctionnalité de mot de passe temporaire permet de s’assurer que le transfert de propriété des informations d’identification est effectué lors de la première utilisation, afin de réduire la durée pendant laquelle plusieurs personnes ont connaissance de ces informations d’identification.
 
-Pour prendre en charge les mots de passe temporaires dans Azure AD pour les utilisateurs synchronisés, vous pouvez activer la fonctionnalité *ForcePasswordResetOnLogonFeature* en exécutant la commande suivante sur votre serveur Azure AD Connect, en remplaçant <AAD Connector Name> par le nom du connecteur propre à votre environnement :
+Pour prendre en charge les mots de passe temporaires dans Azure AD pour les utilisateurs synchronisés, vous pouvez activer la fonctionnalité *ForcePasswordResetOnLogonFeature* en exécutant la commande suivante sur votre serveur Azure AD Connect :
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
-Vous pouvez utiliser la commande suivante pour déterminer le nom du connecteur :
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
-
-Inconvénient :  forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  AD Connect ne récupère pas l’indicateur « L’utilisateur doit changer le mot de passe à la prochaine ouverture de session » de lui-même. Il vient s’ajouter au changement du mot de passe détectée qui se produit pendant la synchronisation du hachage de mot de passe.
+> [!NOTE]
+> forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  AD Connect ne récupère pas l’indicateur le changement de mot de passe forcé de lui-même. Cela s’ajoute au changement de mot de passe détecté qui se produit pendant la synchronisation du hachage de mot de passe.
 
 > [!CAUTION]
 > Si vous n’activez pas la réinitialisation de mot de passe en libre-service (SSPR) dans Azure AD, les utilisateurs pourront se sentir perdus quand ils réinitialiseront leur mot de passe dans Azure AD puis tenteront de se connecter à Active Directory avec le nouveau mot de passe parce que ce nouveau mot de passe ne sera pas valide dans Active Directory. Vous devez utiliser cette fonctionnalité uniquement quand la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe sont activées sur le locataire.

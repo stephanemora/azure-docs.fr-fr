@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172341"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806369"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -21,7 +21,7 @@ Le nouveau modèle pour la restauration instantanée fournit les améliorations 
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention des instantanés par défaut peut être définie sur n’importe quelle valeur comprise entre 1 et 5 jours.
-* Prise en charge des disques d’une taille maximale de 4 To Le redimensionnement des disques n’est pas recommandé par la Sauvegarde Azure. Pour vous inscrire à une préversion publique limitée de support des disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, voir [Sauvegarde de machine virtuelle avec des tailles de disque jusqu’à 30 To](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+* Prend en charge des disques d’une taille maximale de 32 To. Le redimensionnement des disques n’est pas recommandé par la Sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques HDD Standard et SSD Premium.
 * Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
 * Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’aller *50 %* de l’espace de stockage alloué total disponible, qui est nécessaire **uniquement** pour la première sauvegarde. Le fait de n’utiliser que 50 % de l’espace disponible n’est plus une obligation une fois la première sauvegarde terminée.

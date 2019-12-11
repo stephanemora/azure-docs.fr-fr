@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: include
 ms.date: 12/07/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ca6c57b139b195b94dc7171336cfcc34d18b1872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177463"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828865"
 ---
 Les limites suivantes s’appliquent à la sauvegarde Azure.
 
@@ -24,4 +24,4 @@ Les limites suivantes s’appliquent à la sauvegarde Azure.
 | Coffres de sauvegarde dans un abonnement Azure. |500 coffres par région. |
 | Sauvegardes quotidiennes planifiées. |Windows Server/Client : Trois fois par jour.<br/> System Center DPM : Deux fois par jour. <br/> Machines virtuelles IaaS : Une fois par jour.  |
 | Disques de données attachés à une machine virtuelle Azure pour la sauvegarde. | 16 |
-| Disque de données unique attaché à une machine virtuelle Azure pour la sauvegarde.| 4 095 Go|
+| Disque de données unique attaché à une machine virtuelle Azure pour la sauvegarde.| 32 To|

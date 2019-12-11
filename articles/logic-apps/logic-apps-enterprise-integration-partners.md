@@ -1,20 +1,19 @@
 ---
-title: Ajouter des partenaires commerciaux pour les intégrations B2B - Azure Logic Apps
+title: Ajouter des partenaires commerciaux pour les intégrations B2B
 description: Créer dans votre compte d’intégration des partenaires commerciaux à utiliser avec Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 681f16132c1de2ec5f3b27f80633d32879b0746c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330257"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792445"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Ajouter des partenaires commerciaux à des comptes d’intégration pour Azure Logic Apps
 

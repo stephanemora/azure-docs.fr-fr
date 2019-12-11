@@ -1,5 +1,5 @@
 ---
-title: Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP | Microsoft Docs
+title: Groupes de placement de proximité Azure pour les applications SAP | Microsoft Docs
 description: Décrit des scénarios de déploiement SAP avec des groupes de placement de proximité Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719997"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805703"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
 Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. Cette sensibilité est due au fait que la plupart de la logique métier s’exécute dans la couche Application. Étant donné que la couche Application SAP exécute la logique métier, elle émet des requêtes à la base de données à une fréquence élevée (plusieurs milliers ou dizaines de milliers par seconde). Dans la plupart des cas, la nature de ces requêtes est simple. Elles peuvent souvent être exécutées sur la couche Base de données en 500 microsecondes ou moins.
@@ -65,7 +65,7 @@ La configuration idéale, telle qu’elle est décrite ici, ressemble à ceci :
 Dans ce cas, les systèmes SAP uniques sont regroupés dans un groupe de ressources, chacun avec un groupe de placement de proximité. Il n’existe aucune dépendance quant à l’utilisation de configurations de scale-out HANA ou de scale-up SGBD.
 
 ## <a name="proximity-placement-groups-and-hana-large-instances"></a>Groupes de placement de proximité et grandes instances HANA
-Si certains de vos systèmes SAP s’appuient sur de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour la couche Application, vous pouvez bénéficier d’améliorations importantes de la latence réseau entre l’unité de grandes instances HANA et les machines virtuelles Azure quand vous utilisez des unités de grandes instances HANA déployées dans des [tampons ou lignes de la révision 4](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). L’une des améliorations est que les unités de grandes instances HANA, une fois déployées, sont déployées avec un groupe de placement de proximité. Vous pouvez utiliser ce groupe de placement de proximité pour déployer vos machines virtuelles de couche Application. Ainsi, ces machines virtuelles seront déployées dans le même centre de données que celui qui héberge votre unité de grandes instances HANA.
+Si certains de vos systèmes SAP s’appuient sur de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour la couche Application, vous pouvez bénéficier d’améliorations importantes de la latence réseau entre l’unité de grandes instances HANA et les machines virtuelles Azure quand vous utilisez des unités de grandes instances HANA déployées dans des [tampons ou lignes de la révision 4](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). L’une des améliorations est que les unités de grandes instances HANA, une fois déployées, sont déployées avec un groupe de placement de proximité. Vous pouvez utiliser ce groupe de placements de proximité pour déployer vos machines virtuelles de couche Application. Ainsi, ces machines virtuelles seront déployées dans le même centre de données que celui qui héberge votre unité de grandes instances HANA.
 
 Pour déterminer si votre unité de grandes instances HANA est déployée dans un tampon ou une ligne de la révision 4, consultez l’article [Contrôle des grandes instances Azure HANA à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Dans la vue d’ensemble des attributs de votre unité de grandes instances HANA, vous pouvez également déterminer le nom du groupe de placement de proximité car il a été créé au moment du déploiement de votre unité de grandes instances HANA. Le nom affiché dans la vue d’ensemble des attributs est le nom du groupe de placement de proximité dans lequel vous devez déployer vos machines virtuelles de couche Application.
 
@@ -130,7 +130,7 @@ Un déploiement réussi de cette machine virtuelle hébergerait l’instance de 
 
 Supposez que vous déployez les machines virtuelles des services centraux de la même façon que les machines virtuelles SGBD, en référençant la ou les mêmes zones et les mêmes groupes de placement de proximité. À l’étape suivante, vous devez créer les groupes à haute disponibilité que vous voulez utiliser pour la couche Application de votre système SAP.
 
-Vous devez définir et créer le groupe de placement de proximité. La commande permettant de créer le groupe à haute disponibilité nécessite une référence supplémentaire à l’ID de groupe de placement de proximité (et non pas à son nom). Vous pouvez obtenir l’ID du groupe de placement de proximité à l’aide de cette commande :
+Vous devez définir et créer le groupe de placement de proximité. La commande permettant de créer le groupe à haute disponibilité nécessite une référence supplémentaire à l’ID de groupe de placements de proximité (et non pas à son nom). Vous pouvez obtenir l’ID du groupe de placement de proximité à l’aide de cette commande :
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"

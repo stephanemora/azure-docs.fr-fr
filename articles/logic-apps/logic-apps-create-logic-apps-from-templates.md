@@ -1,21 +1,19 @@
 ---
-title: Créer des workflows à partir de modèles - Azure Logic Apps | Microsoft Docs
+title: Créer des workflows à partir de modèles
 description: Générer des workflows plus rapidement à l’aide de modèles d’application logique dans Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459625"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793184"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
 
@@ -36,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
 ## <a name="create-logic-apps-from-templates"></a>Créer des applications logiques à partir de modèles
 
-1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com "portail Azure").
+1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com "Portail Azure").
 
 2. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Application logique**.
 
@@ -101,7 +99,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
 ## <a name="update-logic-apps-with-templates"></a>Mettre à jours des applications logiques avec des modèles
 
-1. Dans le [portail Azure](https://portal.azure.com "portail Azure"), recherchez et ouvrez votre application logique dans le Concepteur d’application logique.
+1. Dans le [portail Azure](https://portal.azure.com "Portail Azure"), recherchez et ouvrez votre application logique dans le concepteur d’application logique.
 
 2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple :
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110708"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814857"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -65,11 +65,32 @@ L’ancien et le nouveau jeux de données doivent être combinés dans un seul f
 
 Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente de la base de référence, puis redéployer leur nouveau modèle.
 
+**Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
+
+**R** : Il n’est pas possible de télécharger et d’exécuter des modèles localement.
+
+**Q : Mes requêtes sont-elles journalisées ?**
+
+**R** : Lorsque vous créez un déploiement, vous avez le choix de désactiver le traçage. Dans ce cas, les contenus audio et transcriptions ne sont pas journalisés. Autrement, les demandes sont généralement journalisées dans un stockage sécurisé dans Azure.
+
+**Q : Mes requêtes sont-elles limitées ?**
+
+**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Pour plus de détails, consultez nos pages sur la [Reconnaissance vocale](speech-to-text.md).
+
+**Q : Comment suis-je facturé pour l’audio à deux canaux ?**
+
+**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée du fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
+
+> [!IMPORTANT]
+> Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
+
+## <a name="increasing-concurrency"></a>Augmentation du niveau de concurrence
+
 **Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?**
 
 **R** : Vous pouvez augmenter l’échelle de votre modèle par incréments de 20 requêtes simultanées.
 
-S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text).
+À l’aide des informations nécessaires, créez une demande de support dans le [portail de support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Ne postez pas les informations sur les canaux publics (GitHub, StackOverflow...) qui sont mentionnés dans la [page de support](support.md).
 
 Pour augmenter la concurrence d’un ***modèle personnalisé***, nous avons besoin des informations suivantes :
 
@@ -97,25 +118,6 @@ or
   - parmi les services affichés, sélectionnez le service vocal pour lequel vous souhaitez augmenter la concurrence,
   - Affichez les `Properties` de ce service.
   - copiez le `Resource ID` complet.
-
-**Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
-
-**R** : Il n’est pas possible de télécharger et d’exécuter des modèles localement.
-
-**Q : Mes requêtes sont-elles journalisées ?**
-
-**R** : Lorsque vous créez un déploiement, vous avez le choix de désactiver le traçage. Dans ce cas, les contenus audio et transcriptions ne sont pas journalisés. Autrement, les demandes sont généralement journalisées dans un stockage sécurisé dans Azure.
-
-**Q : Mes requêtes sont-elles limitées ?**
-
-**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Pour plus de détails, consultez nos pages sur la [Reconnaissance vocale](speech-to-text.md).
-
-**Q : Comment suis-je facturé pour l’audio à deux canaux ?**
-
-**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée du fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
-
-> [!IMPORTANT]
-> Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
 
 ## <a name="importing-data"></a>Importation de données
 
@@ -189,9 +191,9 @@ or
 
 **Q : Quelles sont les améliorations apportées par le modèle de locataire aux expériences de reconnaissance vocale ?**
 
-**R :** Une fois le modèle de locataire activé, créé et publié, il permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service de reconnaissance vocale, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise.
+**R :** Une fois le modèle de locataire activé, créé et publié, celui-ci permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service Speech, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise.
 
-La création d’un modèle de locataire pour vos applications de service de reconnaissance vocale ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
+La création d’un modèle de locataire pour vos applications Speech ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

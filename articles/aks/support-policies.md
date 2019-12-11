@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240884"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707218"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -95,7 +95,7 @@ Microsoft et les clients partagent la responsabilité relative aux nœuds Worker
   * Démon Docker ou Moby
 
 > [!NOTE]
-> Sur un nœud Worker, si un composant de plan de contrôle n’est pas opérationnel, l’équipe AKS devra peut-être redémarrer des composants individuels ou l’intégralité du nœud Worker. Ces opérations de redémarrage sont automatisées et assurent une résolution automatique des problèmes courants. Ces redémarrages se produisent uniquement au niveau du _nœud_ et non du cluster, sauf s’il s’agit d’une maintenance ou d’une panne en urgence.
+> Sur un nœud Worker, si un composant de plan de contrôle n’est pas opérationnel, l’équipe AKS devra peut-être redémarrer des composants individuels ou l’intégralité du nœud Worker. Ces opérations de redémarrage sont automatisées et assurent une résolution automatique des problèmes courants. Ces redémarrages se produisent uniquement au niveau du _nœud_ et non du cluster, sauf dans le cas d’une opération de maintenance urgente ou d’une panne.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilités du client pour les nœuds Worker AKS
 

@@ -1,24 +1,18 @@
 ---
-title: Créer un environnement App Service externe - Azure
-description: Explique comment créer un environnement App Service dans le cadre d’un plan App Service ou de manière autonome.
-services: app-service
-documentationcenter: na
+title: Créer un environnement ASE externe
+description: Découvrez comment créer un environnement App Service contenant une application ou un environnement ASE (vide) autonome.
 author: ccompy
-manager: stefsch
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 19d58ed90de4bdbd3cd7606d15c115bb1633770a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5ec9a99f55c2c9a3cb487ad7d69610a512d5b8bd
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069687"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687242"
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe
 

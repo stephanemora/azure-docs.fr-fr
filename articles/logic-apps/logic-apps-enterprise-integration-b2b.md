@@ -1,21 +1,19 @@
 ---
-title: Créer des intégrations d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+title: Créer des intégrations d’entreprise B2B
 description: Recevoir des données B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39966b8171296a8608b9436485f7682d114c8410
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793103"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Recevoir des données B2B avec Azure Logic Apps et Enterprise Integration Pack
 

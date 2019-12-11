@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cc99b469701b3974a5b8a2f235ee3a9edb798368
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006898"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790196"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Créer un nouvel environnement de Time Series Insights dans le portail Azure
 
@@ -34,13 +34,13 @@ Procédez comme suit pour créer un environnement :
 
 1. Sélectionnez la catégorie **Internet des objets**, puis **Time Series Insights**.
 
-   [![Créer l’environnement Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [![Créer l’environnement Time Series Insights](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
 1. Sur la page **Time Series Insights**, sélectionnez **Créer**.
 
 1. Renseignez les paramètres requis. Le tableau suivant décrit chaque paramètre :
    
-   [![Créer le groupe de ressources Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![Créer le groupe de ressources Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Paramètre|Valeur suggérée|Description
    ---|---|---
@@ -55,13 +55,13 @@ Procédez comme suit pour créer un environnement :
 
 1. Sélectionnez le symbole de **Notifications** (en forme de cloche) pour surveiller le processus de déploiement.
 
-   [![Regarder les notifications](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [![Regarder les notifications](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-    Lorsque le déploiement réussit, vous pouvez sélectionner **Aller à la ressource** pour configurer d’autres propriétés, définir la sécurité avec les stratégies d’accès aux données, ajouter les sources d’événements et d’autres actions.
+1. Dans la **Vue d’ensemble** de la ressource, vérifiez les paramètres de configuration de votre déploiement.
 
-1. Dans la page **Vue d’ensemble** de la ressource, sélectionnez l’**icône en forme d’épingle** située en haut à droite pour accéder plus facilement à votre environnement Time Series Insights la prochaine fois.
+   [![Épingler Time Series Insights sur le tableau de bord](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-   [![Épingler Time Series Insights sur le tableau de bord](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+1. **(Facultatif)** Sélectionnez l’**icône en forme d’épingle** située en haut à droite pour accéder plus facilement à votre environnement Time Series Insights la prochaine fois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

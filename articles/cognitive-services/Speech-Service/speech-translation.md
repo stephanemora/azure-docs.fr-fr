@@ -1,7 +1,7 @@
 ---
 title: Traduction vocale avec le service Speech
 titleSuffix: Azure Cognitive Services
-description: Le service Speech vous permet d’ajouter une traduction de bout en bout, en temps réel et multilingue de la parole à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
+description: Le service Speech vous permet d’ajouter à vos applications, outils et appareils la traduction entière, en temps réel et en plusieurs langues d’un contenu oral. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468765"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815461"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 
-La traduction vocale d’Azure Speech Services permet de traduire en temps réel les flux audio multilingues de la parole en parole et de la parole en texte. Avec le SDK Speech, vos applications, outils et appareils ont accès à une transcription de la source et à une traduction en sortie pour l’audio fourni. Des résultats de transcription et de traduction intermédiaires sont retournés dès que de la parole est détectée, et les résultats finaux peuvent être convertis en synthèse vocale.
+La traduction vocale du service Speech permet de traduire en temps réel les flux audio multilingues de la parole en parole et de la parole en texte. Avec le SDK Speech, vos applications, outils et appareils ont accès à une transcription de la source et à une traduction en sortie pour l’audio fourni. Des résultats de transcription et de traduction intermédiaires sont retournés dès que de la parole est détectée, et les résultats finaux peuvent être convertis en synthèse vocale.
 
 Le moteur de traduction de Microsoft repose sur deux approches différentes : la traduction automatique statistique (SMT) et la traduction automatique neuronale (NMT). La SMT s’appuie sur une analyse statistique avancée pour estimer la meilleure traduction possible compte tenu du contexte fourni par quelques mots. Avec la NMT, le recours aux réseaux neuronaux vise à offrir une traduction plus précise et naturelle en traduisant les mots à partir du contexte complet des phrases.
 
@@ -55,9 +55,9 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 
 ## <a name="migration-guides"></a>Guides de migration
 
-Si vos applications, outils ou produits utilisent l’[API Traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), nous avons créé des guides pour vous aider à migrer vers Speech Services.
+Si vos applications, outils ou produits utilisent l’[API Traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), nous avons créé des guides pour vous aider à effectuer une migration vers le service Speech.
 
-* [Migrer de l’API Traduction de conversation Translator Speech vers Speech Services](how-to-migrate-from-translator-speech-api.md)
+* [Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documents de référence
 
@@ -69,5 +69,5 @@ Si vos applications, outils ou produits utilisent l’[API Traduction de convers
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
 * [Obtenir le kit SDK Speech](speech-sdk.md)

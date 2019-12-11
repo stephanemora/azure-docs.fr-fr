@@ -1,5 +1,5 @@
 ---
-title: Préparer des données de test pour Custom Speech – Service Speech
+title: Préparer des données de test pour Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Qu’il s’agisse de tester la précision de la reconnaissance vocale Microsoft ou d’entraîner vos propres modèles, vous avez besoin de données (sous forme de contenu audio et/ou de texte). Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464562"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816404"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -25,7 +25,7 @@ Qu’il s’agisse de tester la précision de la reconnaissance vocale Microsoft
 
 Ce tableau liste les types de données acceptés, les cas d’utilisation pour chacun d’eux ainsi que la quantité recommandée. Pour créer un modèle, vous n’avez pas besoin de chaque type de données. Les données nécessaires varient selon que vous créez un test ou entraînez un modèle.
 
-| Type de données | Utilisé pour les tests | Quantité | Utilisé pour l’entraînement | Quantité |
+| Type de données | Utilisé pour les tests | Quantité recommandée | Utilisé pour l’entraînement | Quantité recommandée |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | OUI<br>Utilisé pour l’inspection visuelle | 5 fichiers audio et plus | Non | n/a |
 | [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | OUI<br>Utilisé pour évaluer la précision | 0,5 – 5 heures de contenu audio | OUI | 1 – 1 000 heures de contenu audio |

@@ -1,7 +1,7 @@
 ---
 title: Notes de publication - Service Speech
 titleSuffix: Azure Cognitive Services
-description: Consultez un journal constamment mis à jour des futures versions, des améliorations, des correctifs de bogues et des problèmes connus pour le service Speech.
+description: Consultez un journal constamment mis à jour des futures versions, des améliorations, des correctifs de bogues et des problèmes connus concernant le service Speech.
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: f38e23f0648d802ba7b09391d6f6bbd0c093d989
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 74b34a1d65f6beb097a649658c508da6ff48f1ac
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888167"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816604"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -177,7 +177,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 
 **Résolution des bogues**
 
-- Mac/iOS : Correction d’un bogue qui entraînait une longue attente lorsqu’une connexion à Speech Service ne pouvait être établie.
+- Mac/iOS : Correction d’un bogue qui entraînait une longue attente lorsqu’une connexion au service Speech ne pouvait pas être établie.
 - Python : améliorer la gestion des erreurs pour les arguments dans les rappels Python.
 - JavaScript : Correction d’un rapport d’état incorrect pour une reconnaissance vocale terminée sur RequestSession.
 
@@ -193,7 +193,7 @@ Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit d
 
 **Nouvelles fonctionnalités**
 
-- Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela vous permet de diffuser en continu des données audio aux services Speech à partir d’un microphone qui n’est pas le microphone par défaut. Pour plus d’informations, consultez la documentation décrivant la [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
+- Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela vous permet de diffuser en streaming des données audio vers le service Speech à partir d’un microphone qui n’est pas le microphone par défaut. Pour plus d’informations, consultez la documentation décrivant la [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
 - Le SDK Speech prend désormais en charge Unity dans une version bêta. Envoyez des commentaires via la section problèmes dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples). Cette version prend en charge Unity sur Windows x86 et x64 (applications de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86). Des informations supplémentaires sont disponibles dans notre [Démarrage rapide Unity](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 - Le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée au kit SDK principal.
 

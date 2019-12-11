@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495982"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806964"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
-Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Les comptes de stockage v2 à usage général sont adaptés à la plupart des scénarios. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur.
+Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Les comptes de stockage v2 à usage général sont adaptés à la plupart des scénarios. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes v2 universels prennent en charge les niveaux d’accès de compte par défaut chaud ou froid et la hiérarchisation des niveau des objets BLOB entre chaud, froid ou archive.
 
 La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
 
@@ -40,39 +40,39 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
+Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources, le nom de votre compte de stockage et le niveau d’accès de compte souhaité.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
+Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources, le nom de votre compte de stockage et le niveau d’accès de compte souhaité.
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
 ---
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Spécifier un niveau d’accès pour les données blob
 
-Les comptes v2 à usage général prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès sont uniquement disponibles pour les objets blob de blocs dans le stockage d’objets blob. Lorsque vous mettez à niveau vers un compte de stockage v2 à usage général, vous pouvez spécifier un niveau d’accès pour vos données blob.
+Les comptes v2 universels prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès s’appliquent uniquement aux objets blob de blocs dans le stockage d’objets blob. Quand vous effectuez une mise à niveau vers un compte de stockage v2 universel, vous pouvez spécifier un niveau d’accès de compte par défaut chaud ou froid, qui indique le niveau par défaut sous lequel vos données BLOB sont chargées si le paramètre de niveau d’accès aux objets BLOB individuel n’est pas spécifié.
 
-Les niveaux d’accès vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
+Les niveaux d’accès aux objets BLOB vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
 
-Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, et un compte de stockage v1 à usage général est mis à niveau vers le niveau d’accès chaud. Si vous cherchez à déterminer le niveau d’accès à utiliser suite à la mise à niveau des données, examinez votre scénario. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
+Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, tandis qu’un compte de stockage v1 universel peut être mis à niveau vers le niveau de compte chaud ou froid. Si aucun niveau d’accès de compte n’est spécifié lors de la mise à niveau, il est mis à niveau vers le niveau chaud par défaut. Si vous cherchez à déterminer le niveau d’accès à utiliser pour votre mise à niveau, examinez votre scénario d’usage des données actuel. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
 
 * Vous disposez d’un compte de stockage v1 à usage général et envisagez de passer à un compte de stockage v2 à usage général, assorti du niveau d’accès de stockage adapté aux données blob.
-* Vous avez décidé d’utiliser un compte de stockage v2 à usage général ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
+* Vous avez décidé d’utiliser un compte de stockage v2 universel ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
 
 Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’exploitation des données stockées dans un compte de stockage v2 à usage général et d’accès à celles-ci pour les comparer avec vos frais actuels.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-La mise à niveau d’un compte de stockage v1 vers un compte v2 à usage général est gratuite. La modification du niveau d’accès de stockage peut toutefois entraîner des modifications de facturation. 
+La mise à niveau d’un compte de stockage v1 vers un compte v2 à usage général est gratuite. Vous pouvez spécifier le niveau de compte souhaité pendant le processus de mise à niveau. Si aucun niveau de compte n’est spécifié lors de la mise à niveau, le niveau de compte par défaut du compte mis à niveau est `Hot`. Toutefois, le changement de niveau d’accès de stockage après la mise à niveau peut avoir un impact sur votre facture. Il est donc recommandé de spécifier le nouveau niveau de compte lors de la mise à niveau.
 
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 

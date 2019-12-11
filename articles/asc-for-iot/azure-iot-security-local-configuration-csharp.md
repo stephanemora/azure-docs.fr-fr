@@ -1,6 +1,6 @@
 ---
-title: Compréhension d’Azure Security Center pour le fichier de configuration local de l’agent pour C# | Microsoft Docs
-description: Découvrez plus d’informations sur Azure Security Center pour le fichier de configuration local de l’agent pour C#.
+title: Compréhension du fichier de configuration local de l’agent de sécurité Azure Security Center pour IoT pour C# | Microsoft Docs
+description: Découvrez-en plus sur le service de sécurité Azure Security Center pour IoT et le fichier de configuration local de l’agent de sécurité pour C#.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600336"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664189"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compréhension du fichier de configuration local (agent C#)
 
@@ -125,7 +125,7 @@ Pour Windows :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
-- En savoir plus sur [l’architecture](architecture.md) d’Azure Security Center pour IoT
+- En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md) Azure Security Center pour IoT
 - Lire la [FAQ](resources-frequently-asked-questions.md) du service Azure Security Center pour IoT
 - Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md)

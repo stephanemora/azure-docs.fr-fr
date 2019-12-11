@@ -1,7 +1,7 @@
 ---
-title: Liste d’expressions – Service Speech
+title: Liste d’expressions - Service Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment fournir à Speech Services une liste d’expressions à l’aide de l’objet `PhraseListGrammar` pour améliorer les résultats de la reconnaissance vocale.
+description: Découvrez comment fournir au service Speech une liste d’expressions à l’aide de l’objet `PhraseListGrammar` pour améliorer les résultats de la reconnaissance vocale.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 61d3e4d2de6b8707ee7433815f8002e5d5e3e3d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464544"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805873"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listes d’expressions pour la reconnaissance vocale
 
-En fournissant à Speech Services une liste d’expressions, vous pouvez améliorer la précision de la reconnaissance vocale. Les listes d’expressions permettent d’identifier des expressions connues dans les données audio, comme le nom d’une personne ou un lieu spécifique.
+En fournissant au service Speech une liste d’expressions, vous pouvez améliorer le niveau de justesse de la reconnaissance vocale. Les listes d’expressions permettent d’identifier des expressions connues dans les données audio, comme le nom d’une personne ou un lieu spécifique.
 
 Par exemple, si vous disposez d’une commande « Move to » et que parmi les destinations susceptibles d’être prononcées figurent « Ward », vous pouvez ajouter l’entrée « Move to Ward ». Ainsi, quand le contenu audio est reconnu, l’ajout de cette expression augmente la probabilité que « Move to Ward » sera reconnu et non « Move toward ».
 
@@ -68,7 +68,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> Speech Services peut utiliser au maximum 1 024 listes d’expressions pour la reconnaissance vocale.
+> Le service Speech peut utiliser au maximum 1 024 listes d’expressions pour la reconnaissance vocale.
 
 Vous pouvez aussi effacer les expressions associées à `PhraseListGrammar` en appelant clear().
 
@@ -93,7 +93,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Les modifications apportées à un objet `PhraseListGrammar` prennent effet à la reconnaissance suivante ou après une reconnexion à Speech Services.
+> Les modifications apportées à un objet `PhraseListGrammar` prennent effet lors de la reconnaissance suivante ou après une reconnexion au service Speech.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

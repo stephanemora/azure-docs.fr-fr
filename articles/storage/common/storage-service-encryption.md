@@ -1,30 +1,36 @@
 ---
-title: Chiffrement du Stockage Azure pour les données au repos | Microsoft Docs
+title: Chiffrement du Stockage Azure pour les données au repos
 description: Le Stockage Azure protège vos données en les chiffrant automatiquement avant de les rendre persistantes dans le cloud. Vous pouvez vous reposer sur les clés managées par Microsoft pour le chiffrement de votre compte de stockage, ou vous pouvez gérer le chiffrement avec vos propres clés.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 10/02/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 63fa30b4cf4c5887e8fb44b357eb22e55fe230e7
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066310"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666135"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
-Le Stockage Azure chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Les données dans Stockage Azure sont chiffrées et déchiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Le chiffrement du Stockage Azure est similaire au chiffrement BitLocker sur Windows.
+Le Stockage Azure chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement de Stockage Azure protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité.
 
-Le chiffrement du Stockage Azure est activé pour tous les nouveaux comptes de stockage et ne peut pas être désactivé. Étant donné que vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement du Stockage Azure.
+## <a name="about-azure-storage-encryption"></a>À propos du chiffrement de Stockage Azure
+
+Les données dans Stockage Azure sont chiffrées et déchiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Le chiffrement du Stockage Azure est similaire au chiffrement BitLocker sur Windows.
+
+Le chiffrement de Stockage Azure est activé pour tous les nouveaux comptes de stockage, y compris les comptes de stockage classiques et Resource Manager. Le chiffrement de Stockage Azure ne peut pas être désactivé. Étant donné que vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement du Stockage Azure.
 
 Les comptes de stockage sont chiffrés quel que soit leur niveau de performances (standard ou premium) ou modèle de déploiement (Azure Resource Manager ou Classic). Toutes les options de redondance de Stockage Azure prennent en charge le chiffrement, et toutes les copies d’un compte de stockage sont chiffrées. Toutes les ressources de Stockage Azure sont chiffrées, y compris les objets blob, disques, fichiers, files d’attente et tables. Toutes les métadonnées d’objet sont également chiffrées.
 
 Le chiffrement n’affecte pas les performances de Stockage Azure. Le chiffrement de Stockage Azure n’implique aucun coût supplémentaire.
+
+Chaque objet blob de blocs, objet blob d’ajout ou objet blob de pages qui a été écrit dans le Stockage Azure après le 20 octobre 2017 est chiffré. Les objets blob créés avant cette date continuent à être chiffrés à l’aide d’un processus en arrière-plan. Pour forcer le chiffrement d’un objet blob qui a été créé avant le 20 octobre 2017, vous pouvez réécrire l’objet. Pour savoir comment vérifier l’état de chiffrement d’un objet blob, consultez [Vérifier l’état de chiffrement d’un objet blob](../blobs/storage-blob-encryption-status.md).
 
 Pour plus d’informations sur les modules cryptographiques de chiffrement de Stockage Azure, consultez [API de chiffrement : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
@@ -32,7 +38,7 @@ Pour plus d’informations sur les modules cryptographiques de chiffrement de St
 
 Vous pouvez vous reposer sur les clés managées par Microsoft pour le chiffrement de votre compte de stockage, ou vous pouvez gérer le chiffrement avec vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, deux options s’offrent à vous :
 
-- Vous pouvez spécifier une *clé managée par le client* à utiliser pour le chiffrement et le déchiffrement de toutes les données dans le compte de stockage. Une clé managée par le client est utilisée pour chiffrer toutes les données de tous les services de votre compte de stockage.
+- Vous pouvez spécifier une *clé gérée par le client* avec Azure Key Vault à utiliser pour le chiffrement et le déchiffrement de toutes les données dans le compte de stockage. Une clé managée par le client est utilisée pour chiffrer toutes les données de tous les services de votre compte de stockage.
 - Vous pouvez spécifier une *clé fournie par le client* sur les opérations de stockage Blob. Un client qui effectue une requête de lecture ou d’écriture sur le stockage Blob peut inclure une clé de chiffrement dans la requête afin de contrôler la précision avec laquelle les données blob sont chiffrées et déchiffrées.
 
 Le tableau suivant compare les options de gestion de clés pour le chiffrement de Stockage Azure.
@@ -54,9 +60,9 @@ Par défaut, votre compte de stockage utilise des clés de chiffrement managées
 
 ![Afficher le compte chiffré avec des clés managées par Microsoft](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-## <a name="customer-managed-keys"></a>Clés managées par le client
+## <a name="customer-managed-keys-with-azure-key-vault"></a>Clés gérées par le client avec Azure Key Vault
 
-Vous pouvez choisir de gérer le chiffrement de Stockage Azure au niveau du compte de stockage avec vos propres clés. Quand vous spécifiez une clé managée par le client au niveau du compte de stockage, cette clé est utilisée pour chiffrer et déchiffrer toutes les données dans le compte de stockage, y compris les données de blob, de file d’attente, de fichier et de table.  Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
+Vous pouvez gérer le chiffrement de Stockage Azure au niveau du compte de stockage avec vos propres clés. Quand vous spécifiez une clé managée par le client au niveau du compte de stockage, cette clé est utilisée pour chiffrer et déchiffrer toutes les données dans le compte de stockage, y compris les données de blob, de file d’attente, de fichier et de table. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
 Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Le compte de stockage et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-overview.md).
 
@@ -72,26 +78,52 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 4. Stockage Azure encapsule la clé de chiffrement du compte avec la clé du client dans Azure Key Vault.
 5. Pour les opérations de lecture/écriture, Stockage Azure envoie des requêtes à Azure Key Vault pour encapsuler et désencapsuler la clé de chiffrement du compte afin d’effectuer des opérations de chiffrement et de déchiffrement.
 
-Pour révoquer l’accès aux clés managées par le client sur le compte de stockage, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les données dans le compte de stockage, car la clé de chiffrement n’est pas accessible au Stockage Azure.
+### <a name="enable-customer-managed-keys-for-a-storage-account"></a>Activer des clés gérées par le client pour un compte de stockage
 
-Les clés managées par le client sont également disponibles pour les disques managés Azure en tant que préversion publique : elles fonctionnent un peu différemment pour ces derniers que pour le reste du stockage. Pour plus d’informations, consultez notre [article sur le sujet](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
+Quand vous activez le chiffrement avec des clés gérées par le client pour un compte de stockage, Stockage Azure wrappe la clé de chiffrement du compte avec la clé du client dans le coffre de clés associé. L’activation des clés gérées par le client n’impacte pas les performances et le compte est immédiatement chiffré avec la nouvelle clé.
 
-Pour savoir comment utiliser des clés managées par le client avec le Stockage Azure, consultez un de ces articles :
+Un nouveau compte de stockage est toujours chiffré à l’aide de clés managées par Microsoft. Il est impossible d’activer des clés gérées par le client au moment de la création du compte. Les clés gérées par le client sont stockées dans Azure Key Vault, et le coffre de clés doit être provisionné avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée au compte de stockage. L’identité managée est disponible uniquement après la création du compte de stockage.
 
-- [Configurer les clés managées par le client pour le chiffrement du Stockage Azure depuis le Portail Azure](storage-encryption-keys-portal.md)
-- [Configurer les clés managées par le client pour le chiffrement du Stockage Azure depuis PowerShell](storage-encryption-keys-powershell.md)
-- [Utiliser les clés managées par le client avec le chiffrement du Stockage Azure depuis Azure CLI](storage-encryption-keys-cli.md)
+Pour savoir comment utiliser des clés gérées par le client avec Azure Key Vault pour le chiffrement de Stockage Azure, consultez un de ces articles :
+
+- [Configurer les clés gérées par le client avec Key Vault pour le chiffrement de Stockage Azure depuis le portail Azure](storage-encryption-keys-portal.md)
+- [Configurer les clés gérées par le client avec Key Vault pour le chiffrement de Stockage Azure depuis PowerShell](storage-encryption-keys-powershell.md)
+- [Configurer les clés gérées par le client avec Key Vault pour le chiffrement de Stockage Azure depuis Azure CLI](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés managées par le client dans le portail Azure, une identité managée est affectée automatiquement à votre compte de stockage dans les coulisses. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le compte de stockage d’un annuaire Azure AD vers un autre, l’identité managée associée au compte de stockage n’est pas transférée vers le nouveau locataire ; les clés managées par le client risquent donc de ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+
+### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Stocker les clés gérées par le client dans Azure Key Vault
+
+Pour activer les clés gérées par le client sur un compte de stockage, vous devez utiliser un coffre de clés Azure pour stocker vos clés. Vous devez activer les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés.
+
+Le coffre de clés doit se trouver dans le même abonnement que le compte de stockage. Stockage Azure utilise des identités managées afin que les ressources Azure s’authentifient auprès du coffre de clés pour les opérations de chiffrement et de déchiffrement. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires.
+
+### <a name="rotate-customer-managed-keys"></a>Permuter des clés gérées par le client
+
+Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Une fois la clé permutée, vous devez mettre à jour le compte de stockage pour utiliser le nouvel URI de clé. Pour savoir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé dans le portail Azure, consultez la section intitulée **Mettre à jour la version de la clé** dans [Configurer les clés gérées par le client pour Stockage Azure à l’aide du portail Azure](storage-encryption-keys-portal.md).
+
+La permutation de la clé ne déclenche pas le rechiffrement des données dans le compte de stockage. Aucune autre action n’est requise de la part de l’utilisateur.
+
+### <a name="revoke-access-to-customer-managed-keys"></a>Révoquer l’accès aux clés gérées par le client
+
+Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Interface de ligne de commande Azure Key Vault](/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les données dans le compte de stockage, car la clé de chiffrement n’est pas accessible au Stockage Azure.
+
+### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Clés gérées par le client pour des disques managés Azure (préversion)
+
+Les clés gérées par le client sont également disponibles pour la gestion du chiffrement des disques managés Azure (préversion). Les clés gérées par le client se comportent différemment pour les disques managés que pour les ressources de stockage Azure. Pour plus d’informations, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/windows/disk-encryption.md) pour Windows ou [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/linux/disk-encryption.md) pour Linux.
 
 ## <a name="customer-provided-keys-preview"></a>Clés fournies par le client (préversion)
 
 Les clients effectuant des requêtes auprès du stockage d’objets blob Azure ont la possibilité de fournir une clé de chiffrement sur une requête individuelle. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client (préversion) peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
 
+Pour obtenir un exemple qui montre comment spécifier une clé fournie par le client sur une demande au stockage Blob, consultez [Spécifier une clé fournie par le client sur une demande au stockage Blob avec .NET](../blobs/storage-blob-customer-provided-key.md). 
+
 ### <a name="encrypting-read-and-write-operations"></a>Chiffrement des opérations de lecture et d’écriture
 
-Quand une application cliente fournit une clé de chiffrement dans la requête, Stockage Azure effectue le chiffrement et le déchiffrement de manière transparente lors de la lecture et de l’écriture des données blob. Un hachage SHA-256 de la clé de chiffrement est écrit avec le contenu d’un objet blob, et est utilisé pour vérifier que toutes les opérations suivantes sur l’objet blob utilisent la même clé de chiffrement. Stockage Azure ne stocke pas et ne gère pas la clé de chiffrement que le client envoie avec la requête. La clé est supprimée de façon sécurisée dès que le processus de chiffrement ou de déchiffrement est terminé.
+Quand une application cliente fournit une clé de chiffrement dans la requête, Stockage Azure effectue le chiffrement et le déchiffrement de manière transparente lors de la lecture et de l’écriture des données blob. Stockage Azure écrit un hachage SHA-256 de la clé de chiffrement avec le contenu de l’objet blob. Le hachage est utilisé pour vérifier que toutes les opérations suivantes sur l’objet blob utilisent la même clé de chiffrement. 
+
+Stockage Azure ne stocke pas et ne gère pas la clé de chiffrement que le client envoie avec la requête. La clé est supprimée de façon sécurisée dès que le processus de chiffrement ou de déchiffrement est terminé.
 
 Quand un client crée ou met à jour un objet blob à l’aide d’une clé fournie par le client, les requêtes de lecture et d’écriture suivantes pour cet objet blob doivent également fournir la clé. Si la clé n’est pas fournie sur une requête d’objet blob qui a déjà été chiffrée avec une clé fournie par le client, la requête échoue avec le code d’erreur 409 (conflit).
 
@@ -139,58 +171,6 @@ Pour permuter une clé de chiffrement transmise dans la requête, téléchargez 
 > Vous ne pouvez pas utiliser le portail Azure pour lire ou écrire dans un conteneur ou un objet blob chiffré avec une clé fournie dans la requête.
 >
 > Veillez à protéger la clé de chiffrement que vous fournissez dans une requête au stockage d’objets blob dans un magasin de clés sécurisé comme Azure Key Vault. Si vous tentez d’effectuer une opération d’écriture sur un conteneur ou un objet blob sans clé de chiffrement, l’opération échoue et vous perdez l’accès à l’objet.
-
-### <a name="example-use-a-customer-provided-key-to-upload-a-blob-in-net"></a>Exemple : Utiliser une clé fournie par le client pour charger un objet blob dans .NET
-
-L’exemple suivant crée une clé fournie par le client et utilise cette clé pour charger un objet blob. Le code charge un bloc, puis valide la liste de blocs pour écrire l’objet blob dans Stockage Azure. La clé est fournie sur l’objet [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) en définissant la propriété [CustomerProvidedKey](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.customerprovidedkey).
-
-La clé est créée avec la classe [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider). Pour créer une instance de cette classe dans votre code, ajoutez une instruction `using` qui référence l’espace de noms `System.Security.Cryptography` :
-
-```csharp
-public static void UploadBlobWithClientKey(CloudBlobContainer container)
-{
-    // Create a new key using the Advanced Encryption Standard (AES) algorithm.
-    AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
-
-    // Specify the key as an option on the request.
-    BlobCustomerProvidedKey customerProvidedKey = new BlobCustomerProvidedKey(keyAes.Key);
-    var options = new BlobRequestOptions
-    {
-        CustomerProvidedKey = customerProvidedKey
-    };
-
-    string blobName = "sample-blob-" + Guid.NewGuid();
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-
-    try
-    {
-        // Create an array of random bytes.
-        byte[] buffer = new byte[1024];
-        Random rnd = new Random();
-        rnd.NextBytes(buffer);
-
-        using (MemoryStream sourceStream = new MemoryStream(buffer))
-        {
-            // Write the array of random bytes to a block.
-            int blockNumber = 1;
-            string blockId = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("BlockId{0}",
-                blockNumber.ToString("0000000"))));
-
-            // Write the block to Azure Storage.
-            blockBlob.PutBlock(blockId, sourceStream, null, null, options, null);
-
-            // Commit the block list to write the blob.
-            blockBlob.PutBlockList(new List<string>() { blockId }, null, options, null);
-        }
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-}
-```
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Chiffrement du Stockage Azure et chiffrement de disque
 

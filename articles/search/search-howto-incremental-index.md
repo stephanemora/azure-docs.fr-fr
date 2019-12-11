@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112579"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806760"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Configuration de l'indexation incrémentielle de documents enrichis dans la Recherche cognitive Azure
 
@@ -41,13 +41,31 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Étape 2 : Ajouter la propriété du cache
 
-Modifiez la réponse de la demande GET pour ajouter la propriété `cache` à l’indexeur. L'objet cache ne nécessite qu'une seule propriété, à savoir la chaîne de connexion à un compte Stockage Azure.
+Modifiez la réponse de la demande GET pour ajouter la propriété `cache` à l’indexeur. L’objet cache nécessite une seule propriété, `storageConnectionString`, qui est la chaîne de connexion au compte de stockage. 
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>Activer le retraitement
+
+Vous pouvez éventuellement définir dans le cache la propriété booléenne `enableReprocessing` dont la valeur par défaut est true. L’indicateur `enableReprocessing` vous permet de contrôler le comportement de votre indexeur. Dans les scénarios où vous voulez que l’indexeur hiérarchise l’ajout de nouveaux documents à l’index, vous devez définir l’indicateur sur false. Une fois que votre indexeur reflète les nouveaux documents, faire passer l’indicateur sur true permet alors à l’indexeur de commencer à mener les documents existants vers une cohérence éventuelle. Pendant la période où il a la valeur false, l’indicateur `enableReprocessing` ne fait qu’écrire dans le cache, mais il ne traite pas les documents existants en fonction des changements identifiés apportés au pipeline d’enrichissement.
 
 ### <a name="step-3-reset-the-indexer"></a>Étape 3 : Réinitialiser l’indexeur
 

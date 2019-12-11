@@ -1,20 +1,19 @@
 ---
-title: Créer un tableau de bord d’insights client - Azure Logic Apps
+title: Créer un tableau de bord d’insights client
 description: Gérer des retours d’expérience client, des données de médias sociaux, etc., en générant un tableau de bord client avec Azure Logic Apps et Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680107"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792892"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 

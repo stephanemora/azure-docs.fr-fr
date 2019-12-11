@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755703"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704995"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -93,7 +93,7 @@ Pour créer une machine virtuelle Windows Server et la joindre ensuite à un dom
     | Existing Subnet Name      | Nom du sous-réseau du réseau virtuel existant, par exemple *Workloads*. |
     | DNS Label Prefix          | Entrez le nom DNS à utiliser pour la machine virtuelle, par exemple *myvm*. |
     | Taille de la machine virtuelle                   | Spécifiez une taille de machine virtuelle, par exemple *Standard_DS2_v2*. |
-    | Domain To Join            | Nom DNS du domaine managé Azure AD DS, par exemple *contoso.com*. |
+    | Domain To Join            | Nom DNS du domaine managé Azure AD DS, par exemple *aadds.contoso.com*. |
     | Domain Username           | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé. Ce compte doit être membre du groupe *Administrateurs Azure AD DC*. |
     | Domain Password           | Mot de passe du compte d’utilisateur spécifié dans le paramètre précédent. |
     | Optional OU Path          | UO personnalisée dans laquelle ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité d’organisation *AAD DC Computers*. |

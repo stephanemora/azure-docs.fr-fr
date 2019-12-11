@@ -1,5 +1,5 @@
 ---
-title: Transcription de conversation en temps réel (préversion) - Service de reconnaissance vocale
+title: Transcription de conversation en temps réel (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la transcription de conversation en temps réel avec le SDK Speech. Disponible pour C++, C# et Java.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608017"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805805"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcription de conversation en temps réel (préversion)
 
-L’API **ConversationTranscriber** du SDK Speech vous permet de transcrire des réunions et d’autres conversations avec la possibilité d’ajouter, supprimer et identifier des participants en diffusant en streaming du contenu audio vers les services de reconnaissance vocale à l’aide de `PullStream` ou `PushStream`. Cette rubrique exige de savoir comment utiliser la Reconnaissance vocale avec le kit de développement logiciel (SDK) Speech (version 1.8.0 ou ultérieure). Pour plus d’informations, consultez [Qu’est-ce que les services de reconnaissance vocale ?](overview.md).
+L’API **ConversationTranscriber** du SDK Speech vous permet de transcrire des réunions et d’autres conversations avec la possibilité d’ajouter, supprimer et identifier des participants en diffusant en streaming du contenu audio vers le service Speech à l’aide de `PullStream` ou `PushStream`. Cette rubrique exige de savoir comment utiliser la Reconnaissance vocale avec le kit de développement logiciel (SDK) Speech (version 1.8.0 ou ultérieure). Pour plus d’informations, consultez [Qu’est-ce que le service Speech ?](overview.md).
 
 ## <a name="limitations"></a>Limites
 
@@ -37,7 +37,7 @@ Le SDK Speech Devices fournit un exemple de code Java pour la capture audio en t
 
 ## <a name="prerequisites"></a>Prérequis
 
-Une clé d’abonnement Speech Services. Vous pouvez [obtenir un abonnement d’essai Reconnaissance vocale](https://azure.microsoft.com/try/cognitive-services/) si vous n’en avez pas.
+Un abonnement au service Speech. Vous pouvez [obtenir un abonnement d’essai Reconnaissance vocale](https://azure.microsoft.com/try/cognitive-services/) si vous n’en avez pas.
 
 ## <a name="create-voice-signatures"></a>Créer des signatures vocales
 

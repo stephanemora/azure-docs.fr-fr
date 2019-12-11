@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131976"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793288"
 ---
 # <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -34,18 +34,28 @@ Pour obtenir de l’aide supplémentaire, écrivez-nous à l’adresse farmbeats
 
 **Action corrective** : Rendez-vous sur le Portail Azure et suivez les étapes ci-dessous :
 
-1. Accédez à votre groupe de ressources Hub de données FarmBeats.   
-2. Sélectionnez l’**Event Hub** (DatafeedEventHubNamespace…)  et vérifiez le nombre de messages entrants.   
+1. Accédez à votre groupe de ressources Hub de données FarmBeats.   
+2. Sélectionnez le **hub d’événements** (DatafeedEventHubNamespace....) et vérifiez le nombre de messages entrants.   
 3. S’il n’y a **AUCUN message entrant**, contactez votre partenaire d’appareil.  
-4. S’il y a des **messages entrants**, contactez farmbeatssupport@microsoft.com avec le hub de données, les journaux de l’accélérateur et les données de télémétrie capturées en pièces jointes.
+4. S’il y a des **messages entrants**, contactez farmbeatssupport@microsoft.com, en fournissant les journaux du hub de données et de l’accélérateur ainsi que les données de télémétrie capturées.
 
-Voir la [section Journaux](#collect-logs-manually) du document pour comprendre comment télécharger les journaux.    
+Voir la [section Journaux](#collect-logs-manually) du document pour comprendre comment télécharger les journaux.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>Chaîne de connexion du hub d’événements manquante
+
+**Action corrective** : Accédez à Swagger DataHub et effectuez ces étapes :
+1. Accédez à l’API partenaire
+2. Cliquez sur GET -> Try it Out -> Execute (GET -> Essayer -> Exécuter)
+3. Notez l’ID partenaire du partenaire de capteur qui vous intéresse
+4. Revenez dans l’API partenaire et cliquez sur GET/{id}
+5. Spécifiez l’ID noté à l’étape 3, puis cliquez sur Execute (Exécuter)
+6. La réponse de l’API contient normalement la chaîne de connexion du hub d’événements
 
 ### <a name="device-appears-offline"></a>L’appareil apparaît hors connexion
 
 **Symptômes** : Les appareils sont installés et vous avez lié FarmBeats à votre partenaire d’appareil. Les appareils sont en ligne et envoient des données de télémétrie, mais ils apparaissent Hors connexion.
 
-**Action corrective** : L’intervalle de création de rapports n’est pas configurée pour cet appareil. Contactez le fabricant de votre appareil pour définir l’intervalle de création de rapports. 
+**Action corrective** : L’intervalle de création de rapports n’est pas configurée pour cet appareil. Contactez le fabricant de votre appareil pour définir l’intervalle de création de rapports. 
 
 ### <a name="error-deleting-a-resource"></a>Erreur de suppression d’une ressource
 
@@ -125,44 +135,44 @@ Fermez tous les onglets de navigateur pour lesquels l’accélérateur est ouver
 
 **Action corrective** :Exécutez à nouveau le travail défaillant ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours et vérifiez si le travail est réussi.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>URL de hub Azure Sentinel incorrecte ou inaccessible 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>URL du hub Azure Sentinel incorrecte ou inaccessible 
 
-**Message d’échec du travail** :Un problème s’est produit. La page à laquelle vous tentez d’accéder est (temporairement) indisponible. 
+**Message d’échec du travail** :Un problème s’est produit. La page à laquelle vous tentez d’accéder est (temporairement) indisponible. 
 
 **Action corrective** :
-1.  Ouvrez l’URL Azure Sentinel (https://scihub.copernicus.eu/dhus/) dans le navigateur et vérifiez si le site est accessible. 
-2.  Si le site n’est pas accessible, vérifiez si un pare-feu/réseau d’entreprise, etc. le bloque et prenez les mesures nécessaires pour autoriser l’URL ci-dessus. 
+1.  Ouvrez l’URL Azure Sentinel (https://scihub.copernicus.eu/dhus/) dans le navigateur et vérifiez si le site web est accessible. 
+2.  Si le site web n’est pas accessible, vérifiez si un pare-feu/réseau d’entreprise, etc. le bloque et prenez les mesures nécessaires pour autoriser l’URL ci-dessus. 
 3.  Exécutez à nouveau le travail défaillant ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours et vérifiez si le travail est réussi.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Serveur Azure Sentinel hors service pour cause de maintenance
 
-**Message d’échec du travail** : Le Copernicus Open Access Hub est momentanément indisponible. Nous sommes désolés pour ce désagrément, nous effectuons actuellement une opération de maintenance. Le portail sera bientôt de retour en ligne. 
+**Message d’échec du travail** : Le Copernicus Open Access Hub est momentanément indisponible. Nous sommes désolés pour ce désagrément, nous effectuons actuellement une opération de maintenance. Le portail sera bientôt de retour en ligne. 
 
 **Action corrective** :
 
-1.  Ce problème peut se produire si des activités de maintenance sont effectuées sur le serveur Azure Sentinel. 
-2.  Si un travail/pipeline échoue à cause de la raison ci-dessus, renvoyez le travail après un certain temps. 
-3.  L’utilisateur peut se rendre à l’adresse https://scihub.copernicus.eu/news/ pour consulter les informations sur les activités de maintenance de Sentinel planifiées/non planifiées.  
+1.  Ce problème peut se produire si des activités de maintenance sont effectuées sur le serveur Azure Sentinel. 
+2.  Si un travail/pipeline échoue à cause de la raison ci-dessus, renvoyez le travail après un certain temps. 
+3.  L’utilisateur peut accéder à l’adresse https://scihub.copernicus.eu/news/ pour consulter les informations sur les activités de maintenance de Sentinel planifiées et non planifiées.  
 4.  Exécutez à nouveau le travail défaillant ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours et vérifiez si le travail est réussi.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Nombre maximal de connexions Azure Sentinel atteint
 
-**Message d’échec du travail** : Nombre maximal de deux flux simultanés atteints par l’utilisateur « <username> » 
+**Message d’échec du travail** : Nombre maximal de deux flux simultanés atteints par l’utilisateur « <username> » 
 
 **Action corrective** :
-1.  Si un travail échoue à cause de la raison ci-dessus, le même compte Sentinel est utilisé dans un autre déploiement ou logiciel. 
-2.  L’utilisateur peut créer un nouveau compte Sentinel et réexécuter le programme d’installation pour mettre à niveau le hub de données avec le nouveau nom d’utilisateur et mot de passe Sentinel.  
+1.  Si un travail échoue à cause de la raison ci-dessus, le même compte Sentinel est utilisé dans un autre déploiement ou logiciel. 
+2.  L’utilisateur peut créer un autre compte Sentinel et réexécuter le programme d’installation pour mettre à jour le hub de données avec le nouveau nom d’utilisateur/mot de passe Sentinel.  
 3.  Exécutez à nouveau le travail défaillant ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours et vérifiez si le travail est réussi.
 
-### <a name="sentinel-server-refused-connection"></a>Connexion refusée par le serveur Azure Sentinel 
+### <a name="sentinel-server-refused-connection"></a>Connexion refusée par le serveur Azure Sentinel 
 
 **Message d’échec du travail** :
 
-Le serveur a refusé la connexion à : http://172.30.175.69:8983/solr/dhus 
+Le serveur a refusé la connexion à : http://172.30.175.69:8983/solr/dhus 
 
-**Action corrective** : Ce problème peut se produire si des activités de maintenance sont effectuées sur le serveur Azure Sentinel. 
-1.  Si un travail/pipeline échoue à cause de la raison ci-dessus, renvoyez le travail après un certain temps. 
-2.  L’utilisateur peut se rendre à l’adresse https://scihub.copernicus.eu/news/ pour consulter les informations sur les activités de maintenance de Sentinel planifiées/non planifiées.  
+**Action corrective** : Ce problème peut se produire si des activités de maintenance sont effectuées sur le serveur Azure Sentinel. 
+1.  Si un travail/pipeline échoue à cause de la raison ci-dessus, renvoyez le travail après un certain temps. 
+2.  L’utilisateur peut accéder à l’adresse https://scihub.copernicus.eu/news/ pour consulter les informations sur les activités de maintenance de Sentinel planifiées et non planifiées.  
 3.  Exécutez à nouveau le travail défaillant ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours et vérifiez si le travail est réussi.
 
 
@@ -271,11 +281,11 @@ Dans le tableau de bord du groupe de ressources, recherchez le compte de stockag
 
 ## <a name="high-cpu-usage"></a>Utilisation élevée du processeur
 
-**Erreur** : Vous recevez une alerte par e-mail qui fait référence à une alerte d’utilisation élevée de l’UC. 
+**Erreur** : Vous recevez une alerte par e-mail qui fait référence à une alerte d’utilisation élevée de l’UC. 
 
-**Action corrective** : 
+**Action corrective** : 
 1.  Accédez à votre groupe de ressources Hub de données FarmBeats.
-2.  Sélectionnez le service d’application.  
+2.  Sélectionnez le service d’application.  
 3.  Accédez à Monter en puissance (plan App Service) et sélectionnez un [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/windows/) approprié
 
 ## <a name="next-steps"></a>Étapes suivantes

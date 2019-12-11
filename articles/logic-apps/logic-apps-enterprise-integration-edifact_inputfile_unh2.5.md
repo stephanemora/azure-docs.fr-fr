@@ -1,20 +1,19 @@
 ---
-title: Segments UNH2.5 dans les messages EDIFACT - Azure Logic Apps
+title: Segments UNH2.5 dans les messages EDIFACT
 description: Résoudre des messages EDIFACT avec des segments UNH2.5 dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: c30c35375a45171c938f80e94dd7d9be4c3ee8b1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679965"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792544"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Gérer des documents EDIFACT avec des segments UNH2.5 dans Azure Logic Apps
 

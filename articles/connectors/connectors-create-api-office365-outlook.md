@@ -1,22 +1,18 @@
 ---
-title: Se connecter à Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+title: Se connecter à Office 365 Outlook
 description: Gérer la messagerie, les contacts et les calendriers avec les API REST Office 365 et Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105052"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789620"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Prise en main du connecteur Office 365 Outlook
 Le connecteur Office 365 Outlook permet d’interagir avec Outlook dans Office 365. Utilisez ce connecteur pour créer, modifier et mettre à jour des contacts et des éléments de calendrier, ainsi que pour recevoir et envoyer des e-mails et pour y répondre.
@@ -92,5 +88,5 @@ Une action est une opération effectuée par le flux de travail défini dans une
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

@@ -1,17 +1,17 @@
 ---
-title: Sauvegarde et restauration dans Azure Database pour MySQL
+title: Sauvegarde et restauration - Azure Database pour MySQL
 description: Apprenez-en davantage sur la restauration et les sauvegardes automatiques de votre serveur Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: a2a1fb5f84612630d4168c8af908ed86330938c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: d5941ef7ac2236137fada7202a8dd3cf2ebcc120
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213117"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776288"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 

@@ -1,5 +1,5 @@
 ---
-title: Recommandations concernant les transcriptions étiquetés à la main – Service Speech
+title: Recommandations concernant les transcriptions étiquetées à la main – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Pour améliorer la précision de la reconnaissance vocale, par exemple lorsque des mots sont supprimés ou remplacés de manière incorrecte, vous pouvez utiliser des transcriptions étiquetées à la main avec vos données audio. Les transcriptions étiquetées à la main sont des transcriptions mot pour mot et littérales d’un fichier audio.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075813"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806060"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetées à la main
 

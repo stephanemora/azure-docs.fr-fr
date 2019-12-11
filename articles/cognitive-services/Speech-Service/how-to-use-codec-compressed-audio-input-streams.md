@@ -1,7 +1,7 @@
 ---
-title: Diffuser en streaming du contenu audio compressé par codec avec le Kit de développement logiciel (SDK) Speech – Service Speech
+title: Diffuser en streaming du contenu audio compressé par codec avec le SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment diffuser en streaming du contenu audio compressé vers Azure Speech Services avec le SDK Speech. Disponible pour C++, C#et Java pour Linux, Java dans Android et Objective-C dans iOS.
+description: Découvrez comment diffuser en streaming du contenu audio compressé sur le service Speech avec le SDK Speech. Disponible pour C++, C#et Java pour Linux, Java dans Android et Objective-C dans iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 668964c597b8d748220cbeec68e0ba68300cb406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36e4506ea290d6109e1d1ae874b7e0f7c11bf50d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464351"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805822"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilisation d’une entrée audio compressée par codec avec le SDK Speech
 
-L’API **Compressed Audio Input Stream** du SDK Speech permet de diffuser en streaming du contenu audio compressé vers Speech Service à l’aide de PullStream ou PushStream.
+L’API **Compressed Audio Input Stream** du SDK Speech permet de diffuser en streaming du contenu audio compressé sur le service Speech à l’aide de PullStream ou PushStream.
 
 > [!IMPORTANT]
 > La diffusion en continu d’entrée audio compressée est actuellement prise en charge pour C++, C# et Java sur Linux (Ubuntu 16.04, Ubuntu 18.04 et Debian 9). Elle est également prise en charge pour les plateformes [Java dans Android](how-to-use-codec-compressed-audio-input-streams-android.md) et [Objective-C dans iOS](how-to-use-codec-compressed-audio-input-streams-ios.md).
@@ -43,7 +43,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exemple de code utilisant une entrée audio compressé par codec
 
-Pour diffuser en streaming dans un format audio compressé pour Speech Services, créer un élément `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux.
+Pour diffuser en streaming des données dans un format audio compressé sur le service Speech, créez un élément `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux.
 
 Supposons que vous disposez d’une classe de flux d’entrée appelée `myPushStream` et que vous utilisez OPUS/OGG. Voici à quoi peut ressembler votre code :
 

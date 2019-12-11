@@ -1,26 +1,17 @@
 ---
-title: Configurer des applications dans le portail - Azure App Service
-description: Apprenez à configurer les paramètres communs d’une application App Service dans le portail Azure.
+title: Configurer des applications sur le portail
+description: Apprenez à configurer les paramètres communs d’une application App Service dans le portail Azure. Paramètres d’application, chaînes de connexion, plateforme, pile de langage, conteneur, etc.
 keywords: azure app service, web app, paramètres d’app, variables d’environnement
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470938"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671966"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 

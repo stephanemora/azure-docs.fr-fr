@@ -3,18 +3,18 @@ title: Corriger une erreur de mémoire insuffisante Hive dans Azure HDInsight
 description: Corrigez une erreur de mémoire insuffisante Hive dans Azure HDInsight. Le scénario client implique une requête sur de nombreuses tables de grande taille.
 keywords: erreur de mémoire insuffisante, OOM, paramètres Hive
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2e7328b95aecc8e644d7b9e2ec407a62551fff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712789"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687764"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corriger une erreur de mémoire insuffisante Apache Hive dans Azure HDInsight
 
@@ -24,25 +24,27 @@ Découvrez comment résoudre une erreur de mémoire insuffisante (OOM) dans Apac
 
 Un client exécute une requête Hive :
 
-    SELECT
-        COUNT (T1.COLUMN1) as DisplayColumn1,
-        …
-        …
-        ….
-    FROM
-        TABLE1 T1,
-        TABLE2 T2,
-        TABLE3 T3,
-        TABLE5 T4,
-        TABLE6 T5,
-        TABLE7 T6
-    where (T1.KEY1 = T2.KEY1….
-        …
-        …
+```sql
+SELECT
+    COUNT (T1.COLUMN1) as DisplayColumn1,
+    …
+    …
+    ….
+FROM
+    TABLE1 T1,
+    TABLE2 T2,
+    TABLE3 T3,
+    TABLE5 T4,
+    TABLE6 T5,
+    TABLE7 T6
+where (T1.KEY1 = T2.KEY1….
+    …
+    …
+```
 
 Voici quelques caractéristiques de cette requête :
 
-* T1 est un alias correspondant à une très grande table nommée TABLE1 qui comporte de nombreux  types de colonne au format de chaîne.
+* T1 est un alias correspondant à une table volumineuse nommée TABLE1 qui comporte de nombreux types de colonnes au format de chaîne.
 * Les autres tables ne sont pas si volumineuses, mais elles ont un grand nombre de colonnes.
 * Toutes les tables sont associées les unes aux autres, parfois avec plusieurs colonnes dans TABLE1 et d’autres tables.
 
@@ -79,12 +81,11 @@ En utilisant le moteur d’exécution Apache Tez. La même requête a fonctionn�
 
 L’erreur persiste lors de l’utilisation d’une machine virtuelle plus grande (par exemple, D12).
 
-
 ## <a name="debug-the-out-of-memory-error"></a>Déboguer l’erreur de mémoire insuffisante
 
 Nos équipes d’ingénierie et de support technique ont trouvé qu’un des problèmes à l’origine de l’erreur de mémoire insuffisante était [décrit dans Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306) :
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+« Quand hive.auto.convert.join.noconditionaltask = true, nous vérifions noconditionaltask.size ; si la somme des tailles des tables dans la jointure de mappage est inférieure à noconditionaltask.size, le plan génère une jointure de mappage. Le problème ici est que le calcul ne prend pas en compte la surcharge introduite par l’implémentation de HashTable différente comme résultats ; si la somme des tailles d’entrée est légèrement inférieure à la taille noconditionaltask, les requêtes rencontrent un problème de mémoire insuffisante. »
 
 **hive.auto.convert.join.noconditionaltask** dans le fichier hive-site.xml avait la valeur **true** :
 
@@ -100,7 +101,7 @@ Nos équipes d’ingénierie et de support technique ont trouvé qu’un des pro
 </property>
 ```
 
-Il est probable que la jointure de carte a été la cause de l’erreur de mémoire insuffisante de l’espace de tas Java. Comme expliqué dans le billet de blog [Hadoop Yarn memory settings in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), lorsque le moteur d’exécution Tez est utilisé, l’espace de tas utilisé appartient en fait au conteneur Tez. Consultez l’image suivante décrivant la mémoire de conteneur Tez.
+La jointure de mappage est sans doute la cause de l’erreur de mémoire insuffisante dans l’espace de tas Java. Comme expliqué dans le billet de blog [Hadoop Yarn memory settings in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), lorsque le moteur d’exécution Tez est utilisé, l’espace de tas utilisé appartient en fait au conteneur Tez. Consultez l’image suivante décrivant la mémoire de conteneur Tez.
 
 ![Diagramme de mémoire du conteneur tez : Erreur de mémoire insuffisante Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
@@ -108,10 +109,8 @@ Comme le suggère le billet de blog, les deux paramètres de mémoire suivants d
 
 > [!NOTE]  
 > Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size**.
-> 
-> 
 
-Comme un ordinateur D12 a une mémoire de 28 Go, nous avons décidé d’utiliser une taille de conteneur de 10 Go (10 240 Mo) et d’affecter la valeur 80 % à java.opts :
+Comme une machine D12 a une mémoire de 28 Go, nous avons décidé d’utiliser une taille de conteneur de 10 Go (10 240 Mo) et d’affecter la valeur 80 % à java.opts :
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m

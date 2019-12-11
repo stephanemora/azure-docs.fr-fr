@@ -1,7 +1,7 @@
 ---
 title: Options d’aide et de support - Service Speech
 titleSuffix: Azure Cognitive Services
-description: Comment obtenir une assistance par rapport à des questions et à des problèmes rencontrés quand vous créez des applications s’intégrant au service Speech
+description: Découvrez comment obtenir de l’aide en cas de questions ou de problèmes concernant la création d’applications s’intégrant au service Speech
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422608"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815441"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
-Vous commencez juste à explorer les fonctionnalités de Speech Services ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
+Avez-vous commencé à explorer les fonctionnalités du service Speech ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
 
 > [!div class="checklist"]
 > * Tenez-vous informé des nouvelles évolutions d’*Azure Cognitive Services* ou recherchez les dernières informations sur le *service Speech*.
@@ -31,7 +31,7 @@ Vous commencez juste à explorer les fonctionnalités de Speech Services ? Impl
 
 ## <a name="stay-informed"></a>Restez informé
 
-Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur Speech Services, suivez le [blog Speech Services](https://azure.microsoft.com/blog/tag/speech-service/).
+Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur le service Speech, suivez le [blog du service Speech](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notes de publication
 

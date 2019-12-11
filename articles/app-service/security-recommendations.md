@@ -1,20 +1,18 @@
 ---
-title: Suggestions en matière de sécurité pour Azure App Service
-description: Des suggestions de sécurité pour Azure App Service. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée et améliorer la sécurité globale de vos solutions d’application web.
-services: app-service
+title: Recommandations de sécurité
+description: Mettez en œuvre les recommandations de sécurité pour répondre à vos obligations de sécurité comme indiqué dans notre modèle de responsabilité partagée. Améliorez la sécurité de votre application.
 author: barclayn
 manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 71d564dac43328371e9d34684f2d13a26616a99d
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609778"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684125"
 ---
 # <a name="security-recommendations-for-app-service"></a>Suggestions en matière de sécurité pour App Service
 

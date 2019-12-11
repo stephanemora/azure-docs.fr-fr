@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour préparer des données de voix personnalisée – Service Speech
+title: Guide pratique sur la préparation des données pour Custom Voice - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée pour votre marque avec le service Speech. Vous fournissez des enregistrements en studio et les scripts associés et le service génère un modèle de voix unique à partir de la voix enregistrée. Cette voix assure alors la synthèse vocale dans vos produits, outils et applications.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464511"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805975"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Préparer des données en vue de créer une voix personnalisée
 
-Dès que vous êtes prêt à créer une voix personnalisée pour la synthèse vocale dans votre application, vous devez dans un premier temps rassembler les enregistrements audio et les scripts associés pour commencer l’entraînement du modèle de voix. Le service se sert de ces données pour créer une voix unique correspondant à la voix des enregistrements. Après avoir entraîné la voix, vous pouvez commencer la synthèse vocale dans vos applications.
+Dès que vous êtes prêt à créer une voix personnalisée pour la synthèse vocale dans votre application, vous devez dans un premier temps rassembler les enregistrements audio et les scripts associés pour commencer l’entraînement du modèle de voix. Le service Speech se sert de ces données pour créer une voix unique correspondant à la voix des enregistrements. Après avoir entraîné la voix, vous pouvez commencer la synthèse vocale dans vos applications.
 
 Vous pouvez commencer par un petit volume de données pour créer une preuve de concept. Cependant, plus vous fournirez de données, plus votre voix personnalisée semblera naturelle. Avant d’entraîner votre propre modèle vocal pour la synthèse vocale, vous avez besoin d’enregistrements audio et des transcriptions de texte associées. Dans cette page, nous allons passer en revue les différents types de données, leurs utilisations et leur gestion respective.
 

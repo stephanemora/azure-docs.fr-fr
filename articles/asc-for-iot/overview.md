@@ -1,6 +1,6 @@
 ---
 title: Présentation d’Azure Security Center pour IoT | Microsoft Docs
-description: En savoir plus sur les fonctionnalités et le service Azure Security Center pour IoT.
+description: Découvrez-en plus sur le service et les fonctionnalités Azure Security Center pour IoT, puis comprenez comment Azure Security Center pour IoT offre une sécurité IoT complète sur l’ensemble de vos ressources IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 36514c342f8ed8d988f26fcb69daf30c42ee5cf3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b428af1f1c01a3b1b1429f51d76ebfdeb4c1cc6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176630"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664962"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Présentation d’Azure Security Center pour IoT
 

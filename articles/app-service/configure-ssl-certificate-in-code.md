@@ -1,25 +1,16 @@
 ---
-title: Utiliser un certificat SSL dans le code – Azure App Service | Microsoft Docs
-description: Découvrez comment utiliser des certificats clients pour vous connecter aux ressources distantes qui en ont besoin.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Utiliser un certificat SSL dans du code
+description: Découvrez comment utiliser des certificats clients dans votre code. Authentifiez-vous auprès de ressources distantes avec un certificat client ou exécutez des tâches de chiffrement avec celles-ci.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271287"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671893"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Utiliser un certificat SSL dans votre code dans Azure App Service
 

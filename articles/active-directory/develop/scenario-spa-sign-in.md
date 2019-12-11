@@ -1,6 +1,6 @@
 ---
 title: Application monopage (connexion) - Plateforme d’identités Microsoft
-description: En savoir plus sur la création d'une application monopage (connexion)
+description: Apprendre à créer une application monopage (connexion)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,36 +17,36 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031777"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764642"
 ---
-# <a name="single-page-application---sign-in"></a>Application monopage - Connexion
+# <a name="single-page-application-sign-in"></a>Application monopage : Connexion
 
 Découvrez comment ajouter une connexion au code de votre application monopage.
 
-Pour obtenir des jetons d'accès aux API de votre application, il vous faut un contexte d’utilisateur authentifié. Vous pouvez connecter des utilisateurs à votre application dans MSAL.js de deux manières :
+Pour obtenir des jetons d’accès aux API de votre application, vous avez besoin d’un contexte d’utilisateur authentifié. Vous pouvez connecter des utilisateurs à votre application dans MSAL.js de deux manières :
 
-* [Connexion avec une fenêtre indépendante ](#sign-in-with-a-pop-up-window) à l’aide de la méthode `loginPopup`
-* [Connexion avec redirection](#sign-in-with-redirect) à l’aide de la méthode `loginRedirect`
+* [Fenêtre contextuelle](#sign-in-with-a-pop-up-window), au moyen de la méthode `loginPopup`
+* [Redirection](#sign-in-with-redirect), au moyen de la méthode `loginRedirect`
 
-Vous pouvez également passer les étendues des API pour lesquelles l'utilisateur doit donner son consentement au moment de la connexion.
+Vous pouvez également passer les étendues des API, pour lesquelles l’utilisateur doit donner son consentement au moment de la connexion.
 
 > [!NOTE]
-> Si votre application a déjà accès à un contexte d’utilisateur authentifié ou à un jeton d'ID, vous pouvez ignorer l’étape de connexion et obtenir directement des jetons. Pour plus d’informations, consultez [Authentification unique sans connexion msal.js](msal-js-sso.md#sso-without-msaljs-login).
+> Si votre application a déjà accès à un contexte d’utilisateur authentifié ou à un jeton d’ID, vous pouvez ignorer l’étape de connexion et obtenir directement des jetons. Pour obtenir des informations détaillées, consultez [Authentification unique sans connexion via msal.js](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Choix entre une expérience avec fenêtre indépendante ou avec redirection
 
-Vous ne pouvez pas utiliser la combinaison de ces méthodes de fenêtre indépendante et de redirection dans votre application. Le choix entre la fenêtre indépendante et la redirection dépend du flux d'application.
+Vous ne pouvez pas utiliser conjointement ces deux méthodes de fenêtre contextuelle et de redirection dans votre application. Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
 
-* Si vous ne souhaitez pas que l’utilisateur quitte la page principale de votre application lors de l’authentification, il est recommandé d’utiliser la méthode avec fenêtre indépendante. La redirection de l’authentification se produisant dans une fenêtre indépendante, l’état de l’application principale est conservé.
+* Si vous ne souhaitez pas que les utilisateurs quittent la page principale de votre application lors de l’authentification, nous vous recommandons d’utiliser la méthode avec fenêtre contextuelle. La redirection de l’authentification se produisant dans une fenêtre contextuelle, l’état de l’application principale est conservé.
 
-* Dans certains cas, vous pouvez être amené à utiliser les méthodes avec redirection. Si les utilisateurs de votre application ont des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres indépendantes, vous pouvez utiliser les méthodes avec redirection. Utilisez les méthodes avec redirection avec Internet Explorer, dans la mesure où il existe certains [problèmes connus avec Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) lors de la gestion des fenêtres indépendantes.
+* Si les utilisateurs sont soumis à des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres contextuelles, vous pouvez utiliser la méthode avec redirection. Utilisez la méthode avec redirection dans le navigateur Internet Explorer, car il existe des [problèmes connus avec l’utilisation de fenêtres contextuelles dans Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
-## <a name="sign-in-with-a-pop-up-window"></a>Se connecter avec une fenêtre indépendante
+## <a name="sign-in-with-a-pop-up-window"></a>Se connecter avec une fenêtre contextuelle
 
 ### <a name="javascript"></a>JavaScript
 
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques de votre application en ajoutant `MsalGuard` à la définition d’itinéraire. Cette protection appelle la méthode de connexion en cas d'accès à l'itinéraire.
+Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques dans votre application en ajoutant `MsalGuard` à la définition d’itinéraire. Cette protection appelle la méthode de connexion en cas d'accès à l'itinéraire.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques 
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-Pour une expérience de fenêtre contextuelle, activez l'option de configuration `popUp`. Vous pouvez également passer les étendues nécessitant un consentement comme suit :
+Pour une expérience de fenêtre contextuelle, activez l’option de configuration `popUp`. Vous pouvez également passer les étendues nécessitant un consentement comme suit :
 
 ```javascript
 //In app.module.ts
@@ -91,11 +91,11 @@ Pour une expérience de fenêtre contextuelle, activez l'option de configuration
          })
 ```
 
-## <a name="sign-in-with-redirect"></a>Se connecter avec redirection
+## <a name="sign-in-with-redirect"></a>Se connecter avec une redirection
 
 ### <a name="javascript"></a>JavaScript
 
-Les méthodes de redirection ne renvoient pas de promesse en raison de la navigation en dehors de l’application principale. Pour traiter et accéder aux jetons renvoyés, vous devez enregistrer les rappels de réussite et d’erreur avant d’appeler les méthodes de redirection.
+Les méthodes de redirection ne retournent pas de promesse en raison du déplacement en dehors de l’application principale. Pour traiter et accéder aux jetons retournés, vous devez enregistrer les rappels de réussite et d’erreur avant d’appeler les méthodes de redirection.
 
 ```javascript
 function authCallback(error, response) {
@@ -113,16 +113,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-Ce code est identique à celui décrit ci-dessus, sous la section ayant trait à la connexion avec fenêtre contextuelle. La redirection correspond au flux par défaut.
+Ce code est identique à celui décrit plus haut, à la section traitant de la connexion au moyen d’une fenêtre contextuelle. La redirection correspond au flux par défaut.
 
 > [!NOTE]
-> Le jeton d’ID ne contient pas les étendues autorisées et représente uniquement l’utilisateur authentifié. Les étendues autorisées sont renvoyées dans le jeton d’accès que vous obtenez à l’étape suivante.
+> Le jeton d’ID ne contient pas les étendues autorisées et représente uniquement l’utilisateur authentifié. Les étendues acceptées sont retournées dans le jeton d’accès que vous obtenez à l’étape suivante.
 
 ## <a name="sign-out"></a>Se déconnecter
 
-La bibliothèque MSAL fournit une méthode `logout` qui permet d’effacer le cache dans le stockage de navigateur et envoie une requête de déconnexion à Azure AD. Après déconnexion, elle redirige vers la page de démarrage d’application par défaut.
+La bibliothèque MSAL fournit une méthode `logout` qui efface le cache dans le stockage de navigateur, et envoie une requête de déconnexion à Azure Active Directory (Azure AD). Après la déconnexion, la bibliothèque redirige vers la page de démarrage par défaut d’une application.
 
-Vous pouvez configurer l’URI de redirection après déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit également être enregistré en tant qu'URI de déconnexion dans l'inscription de votre application.
+Vous pouvez configurer l’URI de redirection après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit également être enregistré en tant qu’URI de déconnexion dans l’inscription de votre application.
 
 ### <a name="javascript"></a>JavaScript
 

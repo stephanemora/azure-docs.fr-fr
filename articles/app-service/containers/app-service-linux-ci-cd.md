@@ -1,26 +1,19 @@
 ---
-title: Déploiement continu avec Web App pour conteneurs - Azure App Service | Microsoft Docs
-description: Guide pratique pour configurer le déploiement continu avec Web App pour conteneurs.
+title: Intégration continue/Déploiement continu de conteneurs Linux personnalisés
+description: Découvrez comment configurer le déploiement continu sur un conteneur Linux personnalisé dans Azure App Service. Le déploiement continu est pris en charge pour Docker Hub et ACR.
 keywords: azure app service, linux, docker, acr, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071353"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687629"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Déploiement continu avec Web App pour conteneurs
 

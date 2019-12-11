@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 87b065d2ecf9d80c072918c14e7861f72b8d7aba
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304912"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815386"
 ---
-# <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge des langues et des régions des services Speech
+# <a name="language-and-region-support-for-the-speech-service"></a>Prise en charge des langues et des régions pour le service Speech
 
 La prise en charge des langues varie selon les fonctionnalités du service Speech. Les tableaux suivants résument la prise en charge des langues pour les offres de service [Reconnaissance vocale](#speech-to-text), [Synthèse vocale](#text-to-speech) et [Traduction vocale](#speech-translation).
 
@@ -269,5 +269,5 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit à Speech Services](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
 * [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
