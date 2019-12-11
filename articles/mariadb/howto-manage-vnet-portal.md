@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide du portail Azure | Microsoft Docs
+title: Gérer les points de terminaison de réseau virtuel - Portail Azure - Azure Database for MariaDB
 description: Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide du portail Azure
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 392428c0498458f49c439a0553d581a302c0c242
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 12/02/2019
+ms.openlocfilehash: 66e7c2160317d71ced7517e1ec19014c1475c915
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610099"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764097"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Créer et gérer des points de terminaison de service de réseau virtuel et des règles de réseau virtuel Azure Database for MariaDB à l’aide du portail Azure
 

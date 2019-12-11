@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150990"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666492"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>À propos des exigences de chiffrement et des passerelles VPN Azure
 
@@ -20,7 +20,7 @@ Cet article explique comment configurer des passerelles VPN Azure pour satisfair
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>À propos des protocoles IKEv1 et IKEv2 pour les connexions Azure VPN
 
-Jusqu’à présent, nous autorisions les connexions IKEv1 uniquement pour les références SKU De base et nous autorisions les connexions IKEv2 pour toutes les autres références SKU de passerelle VPN. À cause de la limitation des références SKU De base à une seule connexion autorisée et à d’autres limitations comme les performances, les clients qui utilisaient des appareils d’ancienne génération prenant uniquement en charge les protocoles IKEv1 avaient une expérience limitée. Pour améliorer l’expérience des clients utilisant les protocoles IKEv1, nous autorisons maintenant les connexions IKEv1 pour toutes les références SKU de passerelle VPN. Pour plus d’informations, consultez [Références SKU de passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Jusqu’à présent, nous autorisions les connexions IKEv1 uniquement pour les références SKU De base et nous autorisions les connexions IKEv2 pour toutes les autres références SKU de passerelle VPN. À cause de la limitation des références SKU De base à une seule connexion autorisée et à d’autres limitations comme les performances, les clients qui utilisaient des appareils d’ancienne génération prenant uniquement en charge les protocoles IKEv1 avaient une expérience limitée. Pour améliorer l’expérience des clients utilisant les protocoles IKEv1, nous autorisons maintenant les connexions IKEv1 pour toutes les références SKU de passerelle VPN, à l’exception du SKU de base. Pour plus d’informations, consultez [Références SKU de passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
 ![Connexions IKEv1 et IKEv2 pour les passerelles VPN Azure](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 

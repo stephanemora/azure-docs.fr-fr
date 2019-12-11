@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e6645a131766b7ec055ba1c8bb639f054f50c80b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546244"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704381"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurer une synchronisation délimitée entre Azure AD et Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Une fois que le portail Azure a indiqué que le provisionnement du domaine manag
 
 Pour modifier la liste des groupes dont les utilisateurs doivent être synchronisés avec le domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *contoso.com*.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *aadds.contoso.com*.
 1. Sélectionnez **Synchronisation** dans le menu de gauche.
 1. Pour ajouter un groupe, choisissez **+ Sélectionner des groupes** dans la partie supérieure, puis choisissez les groupes à ajouter.
 1. Pour supprimer un groupe de l’étendue de la synchronisation, sélectionnez-le dans la liste des groupes actuellement synchronisés et choisissez **Supprimer les groupes**.
@@ -82,7 +82,7 @@ La modification de l’étendue de la synchronisation conduit le domaine managé
 
 Pour désactiver la synchronisation délimitée basée sur les groupes pour un domaine managé Azure AD DS, effectuez les étapes suivantes :
 
-1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *contoso.com*.
+1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre instance, par exemple *aadds.contoso.com*.
 1. Sélectionnez **Synchronisation** dans le menu de gauche.
 1. Faites passer la définition de la synchronisation de **Inclus dans l’étendue** à **Tout**, puis sélectionnez **Enregistrer l’étendue de la synchronisation**.
 
@@ -194,11 +194,11 @@ Utilisez PowerShell pour cette procédure. Consultez les instructions pour [acti
 
 1. Créez ensuite le domaine managé Azure AD DS et activez la synchronisation délimitée basée sur les groupes. Incluez *"filteredSync" = "Enabled"* dans le paramètre *-Properties*.
 
-    Définissez votre ID d’abonnement Azure, puis fournissez un nom pour le domaine managé, par exemple *contoso.com*. Vous pouvez obtenir votre ID d’abonnement à l’aide de l’applet de commande [Get-AzSubscription][Get-AzSubscription]. Définissez le nom du groupe de ressources, le nom du réseau virtuel et la région en reprenant les valeurs utilisées dans les étapes précédentes où vous avez créé les ressources Azure complémentaires :
+    Définissez votre ID d’abonnement Azure, puis attribuez un nom au domaine managé, par exemple *aadds.contoso.com*. Vous pouvez obtenir votre ID d’abonnement à l’aide de l’applet de commande [Get-AzSubscription][Get-AzSubscription]. Définissez le nom du groupe de ressources, le nom du réseau virtuel et la région en reprenant les valeurs utilisées dans les étapes précédentes où vous avez créé les ressources Azure complémentaires :
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aadds.contoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"

@@ -1,25 +1,18 @@
 ---
-title: Créer et utiliser un équilibreur de charge interne avec un environnement App Service - Azure | Microsoft Docs
-description: Création et utilisation d’un ASE avec un ILB
-services: app-service
-documentationcenter: ''
+title: Créer un environnement ASE ILB v1
+description: Création et utilisation d’un environnement ASE avec un équilibreur de charge (ILB). Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069897"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688719"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 

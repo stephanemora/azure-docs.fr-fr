@@ -1,19 +1,19 @@
 ---
-title: Sécurité dans Azure Database for MariaDB – Serveur unique
-description: Présente une vue d’ensemble des fonctionnalités de sécurité dans Azure Database for MariaDB – Serveur unique.
+title: Sécurité - Azure Database for MariaDB
+description: Présente une vue d’ensemble des fonctionnalités de sécurité dans Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 1a2d7ac449c131519473afaa80eb3a57c287eb28
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484830"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772146"
 ---
-# <a name="security-in-azure-database-for-mariadb---single-server"></a>Sécurité dans Azure Database for MariaDB – Serveur unique
+# <a name="security-in-azure-database-for-mariadb"></a>Sécurité dans Azure Database for MariaDB
 
 Il existe plusieurs couches de sécurité qui permettent de protéger les données d’un serveur Azure Database for MariaDB. Cet article décrit ces différentes options de sécurité.
 

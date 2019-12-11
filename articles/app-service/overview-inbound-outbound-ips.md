@@ -1,24 +1,15 @@
 ---
-title: Adresses IP entrantes/sortantes - Azure App Service | Microsoft Docs
-description: Explique comment les adresses IP entrantes et sortantes sont utilisées dans App Service et comment trouver des informations sur ces adresses pour votre application.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Adresses IP entrantes/sortantes
+description: Découvrez comment les adresses IP entrantes et sortantes sont utilisées dans Azure App Service, à quel moment elles changent et comment trouver les adresses pour votre application.
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470177"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671603"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 

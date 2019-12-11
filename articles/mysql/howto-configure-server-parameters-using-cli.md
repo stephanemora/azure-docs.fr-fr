@@ -1,20 +1,20 @@
 ---
-title: Configurer les paramètres de service - Azure Database pour MySQL
+title: Configurer les paramètres de serveur - Azure CLI - Azure Database pour MySQL
 description: Cet article décrit comment configurer les paramètres de service dans Azure Database pour MySQL à l’aide de l’utilitaire en ligne de commande Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: a107c5130968ca960036d7e0f948cf6ea5d209a8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: 2a53debb72cfd5da73c2bceb7993288eb828237a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350331"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770524"
 ---
-# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personnaliser les paramètres de configuration du serveur à l’aide d’Azure CLI
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Personnaliser les paramètres de serveur à l’aide d’Azure CLI
 Vous pouvez répertorier, afficher et mettre à jour les paramètres de configuration d’un serveur Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure. Un sous-ensemble de configurations de moteur est exposé au niveau du serveur et peut être modifié. 
 
 ## <a name="prerequisites"></a>Prérequis

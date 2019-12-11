@@ -1,25 +1,18 @@
 ---
-title: Créer une application web dans un environnement App Service Environment v1 - Azure
-description: Découvrez comment créer des applications web et des plans App Service dans un environnement App Service Environment v1
-services: app-service
-documentationcenter: ''
+title: Créer une application web dans ASE v1
+description: Découvrez comment créer des applications web dans un environnement App Service v1. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069845"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688715"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
 

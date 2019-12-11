@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL - Serveur unique
+title: Gérer des règles de pare-feu - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Serveur unique à l'aide du portail Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068999"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770303"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Serveur unique à l'aide du portail Azure
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour PostgreSQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifique.

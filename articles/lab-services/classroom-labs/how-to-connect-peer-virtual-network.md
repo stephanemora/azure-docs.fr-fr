@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410988"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701670"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connecter un réseau lab avec un réseau virtuel pair dans Azure Lab Services 
 Cet article fournit des informations concernant le Peering de votre réseau lab avec un autre réseau. 
@@ -31,7 +31,7 @@ Il vous faudra peut-être connecter votre réseau lab avec un réseau virtuel pa
 - Les machines virtuelles du lab disposent d’un logiciel qui se connecte aux serveurs de licences locaux pour obtenir une licence.
 - Les machines virtuelles du lab doivent accéder à des jeux de données (ou à d’autres fichiers) sur les partages réseau de l’université. 
 
-Certains des réseaux locaux sont connectés au réseau virtuel Azure via [ExpressRoute](../../expressroute/expressroute-introduction.md) ou via la [Passerelle de réseau virtuel](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Ces services doivent être configurés en dehors de Azure Lab Services. Pour en savoir plus sur la connexion d’un réseau local à Azure à l’aide de ExpressRoute, consultez [Vue d’ensemble de ExpressRoute])(../expressroute/expressroute-introduction.md). Pour la connectivité locale à l’aide d’une passerelle de réseau virtuel, la passerelle, le réseau virtuel spécifié et le compte lab doivent tous être situés dans la même région.
+Certains des réseaux locaux sont connectés au réseau virtuel Azure via [ExpressRoute](../../expressroute/expressroute-introduction.md) ou via la [Passerelle de réseau virtuel](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Ces services doivent être configurés en dehors de Azure Lab Services. Pour en savoir plus sur la connexion d’un réseau local à Azure à l’aide d’ExpressRoute, consultez [Vue d’ensemble d’ExpressRoute](../../expressroute/expressroute-introduction.md). Pour la connectivité locale à l’aide d’une passerelle de réseau virtuel, la passerelle, le réseau virtuel spécifié et le compte lab doivent tous être situés dans la même région.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création du compte lab
 Lors de la création du nouveau compte lab, vous pouvez choisir un réseau virtuel existant qui s’affiche dans la liste déroulante **Appairer un réseau virtuel**. Le réseau virtuel sélectionné est connecté aux labs créés sous le compte lab. Toutes les machines virtuelles des labs qui sont créées après la création de cette modification auront accès aux ressources sur le réseau virtuel pair. 

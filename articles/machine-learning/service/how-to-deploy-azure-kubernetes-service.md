@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 8e4cc65ceb6e2a4f8093a094617cc7bb4f9e0c26
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 70fe64ac0d2c1211c1b6570a78746e080ba132ed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793413"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ Pour plus d’informations, consultez la référence [az ml computetarget create
 
 **Durée estimée** : 5 minutes environ.
 
-Si vous avez déjà un cluster AKS d’une version inférieure à 1.14 dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
+Si vous avez déjà un cluster AKS d’une version inférieure à 1.15 dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
 
 > [!TIP]
 > Le cluster AKS existant peut se trouver dans une autre région Azure que celle de votre espace de travail Azure Machine Learning.

@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561741"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666033"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
 > [!Important]
-> La fonctionnalité de mise à l’échelle automatique fonctionne uniquement pour les clusters Spark, Hive et MapReduce créés après le 8 mai 2019. 
+> La fonctionnalité de mise à l’échelle automatique fonctionne uniquement pour les clusters Spark, Hive, LLAP et HBase créés après le 8 mai 2019. 
 
 La fonction de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster. Les autres types de nœuds du cluster ne peuvent pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
 

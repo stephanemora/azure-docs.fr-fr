@@ -1,25 +1,18 @@
 ---
-title: Cloner une application avec PowerShell - Azure App Service
-description: Découvrez comment cloner votre application App Service vers une nouvelle application à l’aide de PowerShell.
-services: app-service\web
-documentationcenter: ''
+title: Cloner une application avec PowerShell
+description: Découvrez comment cloner votre application App Service vers une nouvelle application à l’aide de PowerShell. Différents scénarios de clonage sont abordés, dont celui de l’intégration de Traffic Manager.
 author: ahmedelnably
-manager: stefsch
-editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ccff07009d2f46f6d91b8e3c57158aa6ede3607e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983693"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671433"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 

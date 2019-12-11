@@ -1,25 +1,17 @@
 ---
-title: Synchroniser le contenu à partir d’un dossier cloud - Azure App Service
-description: Apprenez à déployer votre application dans Azure App Service via la synchronisation de contenu à partir d’un dossier cloud.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Synchroniser du contenu à partir d’un dossier cloud
+description: Découvrez comment déployer votre application dans Azure App Service via la synchronisation de contenu à partir d’un dossier cloud OneDrive ou Dropbox, par exemple.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070625"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671733"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synchronisation de contenu à partir d’un dossier cloud dans Azure App Service
 Cet article vous explique comment synchroniser votre contenu avec [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) à partir de Dropbox et OneDrive. 

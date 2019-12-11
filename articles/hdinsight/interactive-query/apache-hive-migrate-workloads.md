@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406510"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706018"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrer des charges de travail Azure HDInsight 3.6 Hive vers HDInsight 4.0
 
@@ -174,7 +174,7 @@ Il existe deux façons d’exécuter et de déboguer les requêtes Hive/LLAP au 
 
 Dans HDInsight 4.0, l’interface CLI Hive a été remplacée par BeeLine. HiveCLI est un client Thrift pour Hiveserver 1, et Beeline est un client JDBC qui fournit l’accès à Hiveserver 2. Beeline peut également être utilisé pour se connecter à n’importe quel autre point de terminaison de base de données compatible avec JDBC. Beeline est disponible de manière prédéfinie sur HDInsight 4.0 sans aucune installation nécessaire.
 
-Dans HDInsight 3.6, le client de l’interface graphique utilisateur permettant d’interagir avec le serveur Hive est l’affichage Ambari Hive. HDInsight 4.0 remplace l’affichage Hive par Hortonworks Data Analytics Studio (DAS). DAS n’est pas fourni prédéfini avec les clusters HDInsight et n’est pas un package officiellement pris en charge. Toutefois, vous pouvez installer DAS sur le cluster à l’aide d’une [action de script](../hdinsight-hadoop-customize-cluster-linux.md) comme suit :
+Dans HDInsight 3.6, le client de l’interface graphique utilisateur permettant d’interagir avec le serveur Hive est l’affichage Ambari Hive. HDInsight 4.0 n’est pas fourni avec la vue Ambari. Nous avons fourni à nos clients un moyen d’utiliser Data Analytics Studio (DAS), qui n’est pas un service HDInsight principal. DAS n’est pas intégré aux clusters HDInsight et n’est pas un package pris en charge officiellement. Toutefois, vous pouvez installer DAS sur le cluster à l’aide d’une [action de script](../hdinsight-hadoop-customize-cluster-linux.md) comme suit :
 
 |Propriété | Valeur |
 |---|---|

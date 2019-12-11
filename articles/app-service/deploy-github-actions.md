@@ -1,24 +1,17 @@
 ---
-title: Déployer votre code à partir d’un pipeline CI/CD avec des actions GitHub - Azure App Service | Microsoft Docs
-description: Découvrez comment utiliser GitHub Actions pour déployer votre code sur App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurer CI/CD avec GitHub Actions
+description: Découvrez comment déployer votre code dans Azure App Service à partir d’un pipeline CI/CD avec GitHub Actions. Personnalisez les tâches de génération et exécutez des déploiements complexes.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e3d6e730846388c4b74cfa0b6361629e836b0517
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620514"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670188"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 

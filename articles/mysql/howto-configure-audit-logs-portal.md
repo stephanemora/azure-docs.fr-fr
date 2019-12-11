@@ -1,17 +1,17 @@
 ---
-title: Configurer et consulter les journaux d’audit - Azure Database pour MySQL
+title: Accéder aux journaux d’audit - Portail Azure - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter les journaux d’audit dans Azure Database pour MySQL à partir du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350395"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773708"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit Azure Database pour MySQL dans le portail Azure
 

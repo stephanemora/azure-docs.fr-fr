@@ -1,17 +1,17 @@
 ---
-title: Règles de pare-feu dans Azure Database pour PostgreSQL - Serveur unique
-description: Cet article décrit les règles de pare-feu de Azure Database pour PostgreSQL - Serveur unique.
+title: Règles de pare-feu - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment utiliser des règles de pare-feu pour se connecter à Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 6b4896d78bcc6e9fc1f5d9cd47e60e3df7eba325
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 28c8bccaf6be49b7220a32c781b79f106ad86e52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965282"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768637"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Règles de pare-feu dans Azure Database pour PostgreSQL - Serveur unique
 Le pare-feu du serveur Azure Database pour PostgreSQL empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c20f699a2d2270d11935b0216b1655390ece211c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b7669f9ec804a8fd2801474a845af7e029ee5235
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671055"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664044"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Autorisation d’accès au Stockage Azure
 
@@ -36,8 +36,13 @@ Chaque option d’autorisation est décrite brièvement ci-dessous :
 
 - **Intégration d’Azure AD Domain Services (préversion)** pour les fichiers. Azure Files prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) via Azure AD DS. Ceci fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage. Pour plus d’informations sur l’intégration d’Azure AD pour les fichiers avec des services de domaine, consultez [Vue d’ensemble de la prise en charge de l’authentification Azure Active Directory Domain Services (AAD DS) d’Azure Files pour l’accès SMB (préversion)](../files/storage-files-active-directory-overview.md).
 
-- **Autorisation de clé partagée** pour les objets blob, les fichiers, les files d’attente et les tables. Un client qui utilise une clé partagée transmet avec chaque demande un en-tête signé à l’aide de la clé d’accès au compte de stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
+- **Autorisation de clé partagée** pour les objets blob, les fichiers, les files d’attente et les tables. Un client qui utilise une clé partagée transmet avec chaque demande un en-tête signé à l’aide de la clé d’accès au compte de stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authenticate-with-shared-key/).
 - **Signatures d’accès partagé** pour les objets blob, les fichiers, les files d’attente et les tables. Les signatures d’accès partagé (SAP) fournissent un accès délégué limité aux ressources de votre compte de stockage. L’ajout de contraintes à la période de validité de la signature ou aux autorisations qu’elle accorde garantit la souplesse de la gestion de l’accès. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 - **Accès en lecture public anonyme** pour les conteneurs et les objets blob. L’autorisation n’est pas obligatoire. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).  
 
-Par défaut, toutes les ressources dans le Stockage Azure sont sécurisées et disponibles uniquement pour le propriétaire du compte. Vous pouvez utiliser n’importe quelle stratégie d’autorisation décrite ci-dessus pour accorder aux clients l’accès aux ressources de votre compte de stockage, toutefois, Microsoft recommande d’utiliser Azure AD quand cela est possible pour optimiser la sécurité et la facilité d’utilisation. 
+Par défaut, toutes les ressources dans le Stockage Azure sont sécurisées et disponibles uniquement pour le propriétaire du compte. Vous pouvez utiliser n’importe quelle stratégie d’autorisation décrite ci-dessus pour accorder aux clients l’accès aux ressources de votre compte de stockage, toutefois, Microsoft recommande d’utiliser Azure AD quand cela est possible pour optimiser la sécurité et la facilité d’utilisation.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Documentation Azure Active Directory](/azure/active-directory/)
+- [Évolution de la plateforme d’identités Microsoft](/azure/active-directory/develop/about-microsoft-identity-platform)

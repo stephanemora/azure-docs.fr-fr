@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 11/22/2019
+ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161971"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706056"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -136,7 +136,7 @@ yarn application -kill "application_1499348398273_0003"
 
 Lorsque vous procédez au scale down d’un cluster, HDInsight utilise les interfaces de gestion d’Apache Ambari pour commencer par désactiver les nœuds Worker supplémentaires, qui répliquent leurs blocs HDFS vers d’autres nœuds Worker en ligne. Après cela, HDInsight met à l’échelle le cluster en toute sécurité. HDFS bascule en mode sans échec lors d’opération de mise à l’échelle, et il est censé en sortir une fois la mise à l’échelle terminée. Dans certains cas, toutefois, HDFS se bloque en mode sans échec pendant une opération de mise à l’échelle en raison de la réplication incomplète du bloc de fichiers.
 
-Par défaut, HDFS est configuré avec un paramètre `dfs.replication` de valeur 3, qui contrôle le nombre de copies disponibles de chaque bloc de fichiers. Chaque copie d’un bloc de fichiers est stockée sur un nœud différent du cluster.
+Par défaut, HDFS est configuré avec un paramètre `dfs.replication` de valeur 1, qui contrôle le nombre de copies disponibles de chaque bloc de fichiers. Chaque copie d’un bloc de fichiers est stockée sur un nœud différent du cluster.
 
 Quand HDFS détecte que le nombre attendu de copies de bloc ne sont pas disponibles, HDFS bascule en mode sans échec, et Ambari génère des alertes. Si HDFS bascule en mode sans échec pendant une opération de mise à l’échelle sans pouvoir quitter ce mode ensuite, car le nombre de nœuds requis n’est pas détecté pour la réplication, le cluster peut se retrouver bloqué en mode sans échec.
 

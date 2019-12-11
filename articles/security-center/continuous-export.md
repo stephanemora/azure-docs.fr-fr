@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521491"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665057"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exporter les alertes et recommandations de sécurité (préversion)
 
-Azure Security Center génère des alertes et recommandations de sécurité détaillées. Vous pouvez les examiner dans le portail ou au moyen d’outils programmatiques. Si nécessaire, vous pouvez également exporter ces informations ou les envoyer à d’autres outils de supervision dans votre environnement. 
+Azure Security Center génère des alertes et recommandations de sécurité détaillées. Vous pouvez les afficher dans le portail ou au moyen d’outils de programmation. Si nécessaire, vous pouvez également exporter ces informations ou les envoyer à d’autres outils de supervision dans votre environnement. 
 
 Cet article décrit l’ensemble des outils (en préversion) qui sont à votre disposition pour exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue.
 
@@ -73,6 +73,29 @@ Pour exporter les données vers l’espace de travail Log Analytics, assurez-vou
 Les alertes et les recommandations de sécurité sont stockées dans les tables *SecurityAlert* et *SecurityRecommendations* respectivement. Le nom de la solution Log Analytics contenant ces tables varie selon que vous êtes sur le niveau Gratuit ou Standard (voir les [tarifs](security-center-pricing.md)) : Security ou SecurityCenterFree.
 
 ![Table *SecurityAlert* dans Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Voir les alertes de sécurité exportées et les recommandations les concernant dans Azure Monitor
+
+Dans certains cas, vous pouvez choisir de voir les alertes de sécurité exportées et/ou les recommandations dans [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+
+Azure Monitor fournit une expérience d’alerte unifiée pour diverses alertes Azure, dont le Journal de diagnostic, les Alertes de métriques et les alertes personnalisées basées sur des requêtes d’espace de travail Log Analytics.
+
+Pour voir les alertes et les recommandations à partir de Security Center dans Azure Monitor, configurez une règle d’alerte en fonction des requêtes Log Analytics (Alerte de journal) :
+
+1. Dans la page **Alertes** d’Azure Monitor, cliquez sur **Nouvelle règle d’alerte**.
+
+    ![Page Alertes d’Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
+
+1. Dans la page Créer une règle, configurez votre nouvelle règle (de la même façon que vous configurez une [règle d’alerte de journal dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)) :
+
+    * Pour **Ressource**, sélectionnez l’espace de travail Log Analytics vers lequel vous avez exporté des alertes de sécurité et des recommandations.
+
+    * Pour **Condition**, sélectionnez **Recherche personnalisée dans les journaux**. Dans la page qui s’affiche, configurez la requête, la période de recherche arrière et la période de fréquence. Dans la requête de recherche, vous pouvez taper *SecurityAlert* ou *SecurityRecommendation* pour interroger les types de données vers lequel Security Center exporte en continu quand vous activez la fonctionnalité d’exportation continue vers Log Analytics. 
+    
+    * Vous pouvez éventuellement configurer le [Groupe d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) que vous souhaitez déclencher. Les groupes d’actions peuvent déclencher l’envoi d’e-mails, des tickets ITSM, des webhooks, et plus encore.
+    ![Règle d’alerte Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
+
+Vous voyez maintenant de nouvelles alertes ou recommandations Azure Security Center (en fonction de votre configuration) dans les alertes Azure Monitor, avec un déclenchement automatique d’un groupe d’actions (le cas échéant).
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Exportation ponctuelle et manuelle des alertes de sécurité
 

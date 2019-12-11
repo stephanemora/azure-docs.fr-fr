@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 4b6fea63cd56ddee7eaeaed50a74a01cc8549f0a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032944"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672474"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -356,7 +356,7 @@ Assurez-vous que la machine virtuelle est saine, sécurisé et accessible au pro
 12. Désinstallez tous les autres logiciels ou pilotes tiers liés aux composants physiques ou toute autre technologie de virtualisation.
 
 ### <a name="install-windows-updates"></a>Installer les mises à jour Windows
-Dans l’idéal, vous devez conserver l’ordinateur à jour au *niveau du correctif logiciel*. Si ce n’est pas possible, vérifiez que les mises à jour suivantes sont installées :
+Dans l’idéal, vous devez conserver l’ordinateur à jour au *niveau du correctif logiciel*. Si ce n’est pas possible, vérifiez que les mises à jour suivantes sont installées. Pour obtenir les dernières mises à jour, consultez les pages de l’historique des mises à jour de Windows : [Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/help/4009470) et [Windows 7 SP1 et Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Composant               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|

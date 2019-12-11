@@ -1,28 +1,20 @@
 ---
-title: Présentation de l’architecture réseau des environnements App Service - Azure
-description: Présentation de l'architecture de la topologie de réseau des environnements App Service.
-services: app-service
-documentationcenter: ''
+title: Architecture réseau v1
+description: Présentation de l’architecture de la topologie réseau des environnements App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070064"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687346"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Présentation de l'architecture réseau des environnements App Service
-## <a name="introduction"></a>Introduction
 Les environnements App Service sont toujours créés dans un sous-réseau d’un [réseau virtuel][virtualnetwork]. Les applications exécutées dans un environnement App Service peuvent communiquer avec des points de terminaison privés au sein de la même topologie de réseau virtuel.  Dans la mesure où les clients peuvent verrouiller des parties de leur infrastructure de réseau virtuel, il est important de comprendre les types de flux de communication réseau qui se produisent avec un environnement App Service.
 
 ## <a name="general-network-flow"></a>Flux réseau général

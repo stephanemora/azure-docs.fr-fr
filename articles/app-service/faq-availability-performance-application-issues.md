@@ -1,26 +1,20 @@
 ---
-title: FAQ sur les performances des applications - Azure App Service | Microsoft Docs
-description: Obtenez des réponses aux questions récurrentes sur la disponibilité, les performances et les problèmes d’applications dans la fonctionnalité Web Apps d’Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Questions fréquentes (FAQ) sur les performances des applications
+description: Obtenez des réponses aux questions fréquentes sur la disponibilité, les performances et les problèmes d’applications dans Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122071"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671711"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 

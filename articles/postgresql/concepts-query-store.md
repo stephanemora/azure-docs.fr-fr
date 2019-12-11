@@ -1,17 +1,17 @@
 ---
-title: Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique
+title: Magasin des requêtes - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331314"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768263"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 

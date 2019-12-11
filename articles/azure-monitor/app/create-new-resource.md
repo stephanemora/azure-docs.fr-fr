@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
-ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 12/02/2019
+ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677500"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689209"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -30,9 +30,12 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
 
    | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez. |
+   | **Nom**      | Valeur unique | Nom identifiant l’application que vous analysez. |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
+
+> [!NOTE]
+> Bien que vous puissiez utiliser le même nom de ressource dans différents groupes de ressources, il est préférable d’utiliser un nom global unique. Ce dernier peut s’avérer utile si vous envisagez d’[exécuter des requêtes de ressources croisées](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application), car cela simplifie la syntaxe nécessaire.
 
 Entrez les valeurs appropriées dans les champs obligatoires, puis sélectionnez **Vérifier + créer**.
 

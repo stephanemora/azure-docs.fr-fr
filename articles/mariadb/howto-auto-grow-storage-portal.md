@@ -1,17 +1,17 @@
 ---
-title: Augmenter automatiquement le stockage dans Azure Database for MariaDB à l’aide du portail Azure
+title: Augmenter automatiquement le stockage - Portail Azure - Azure Database for MariaDB
 description: Cet article explique comment activer l’augmentation automatique du stockage pour Azure Database for MariaDB à l’aide du portail Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/29/2019
-ms.openlocfilehash: 9d7b126b5c07cc8661cf50b4c4e13f78592b118e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 12/02/2019
+ms.openlocfilehash: 5c5e9154260a255d9e9b8bc5775a479df7e41522
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136687"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767498"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Augmenter automatiquement le stockage dans Azure Database for MariaDB à l’aide du portail Azure
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database for MariaDB sans affecter la charge de travail.

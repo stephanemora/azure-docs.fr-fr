@@ -1,24 +1,16 @@
 ---
-title: Configurer les informations d’identification de déploiement - Azure App Service | Microsoft Docs
-description: Apprenez à utiliser les informations d’identification du déploiement d’Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: configurer les informations d’identification de déploiement
+description: Découvrez les types d’informations d’identification de déploiement dans Azure App Service et comment les configurer et les utiliser.
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098499"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669968"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.

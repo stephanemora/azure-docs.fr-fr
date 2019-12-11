@@ -1,25 +1,19 @@
 ---
-title: Résoudre les problèmes de domaines et de certificats SSL - Azure App Service | Microsoft Docs
-description: Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
-services: app-service\web
-documentationcenter: ''
+title: Résoudre les problèmes de certificats de domaine et SSL
+description: Trouvez des solutions aux problèmes courants que vous pouvez rencontrer au moment de configurer un certificat de domaine ou SSL dans Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470134"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688346"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 

@@ -1,29 +1,29 @@
 ---
-title: Configurer les clés gérées par le client pour le chiffrement du stockage Azure depuis PowerShell
-description: Découvrez comment utiliser PowerShell afin de configurer des clés gérées par le client pour le chiffrement du stockage Azure. Les clés gérées par le client vous permettent de créer, faire pivoter, désactiver et révoquer des contrôles d'accès.
+title: Configurer des clés gérées par le client avec Azure Key Vault à l’aide de PowerShell - Stockage Azure
+description: Découvrez comment utiliser PowerShell afin de configurer des clés gérées par le client pour le chiffrement du stockage Azure. Les clés gérées par le client vous permettent de créer, faire pivoter, désactiver et révoquer des contrôles d’accès.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249287"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666220"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurer les clés gérées par le client pour le chiffrement du stockage Azure depuis PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configurer des clés gérées par le client pour Stockage Azure à l’aide de PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Cet article explique comment configurer un coffre de clés avec des clés gérées par le client à l’aide de PowerShell.
+Cet article explique comment configurer un coffre de clés Azure avec des clés gérées par le client à l’aide de PowerShell. Pour en savoir plus sur la création d’un coffre de clés à l’aide d’Azure CLI, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
-> Pour utiliser des clés gérées par le client avec un chiffrement Stockage Microsoft Azure, deux propriétés doivent être configurées sur le coffre de clés, **Soft Delete** (Suppression réversible) et **Do Not Purge** (Ne pas purger). Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez PowerShell ou Azure CLI.
+> Pour utiliser des clés gérées par le client avec le chiffrement Stockage Azure, deux propriétés doivent être configurées sur le coffre de clés, **Suppression réversible** et **Ne pas vider**. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez PowerShell ou Azure CLI.
 > Seules les clés RSA et la taille de clé 2048 sont prises en charge.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage
@@ -96,5 +96,5 @@ Lors de la création d’une version d’une clé, vous devez mettre à jour le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md) 
+- [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
 - [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

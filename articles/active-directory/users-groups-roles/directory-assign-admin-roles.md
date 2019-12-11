@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554131"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707027"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -246,7 +246,7 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 > Ces fonctionnalités sont actuellement en cours de développement.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[Administrateur de groupe](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[Administrateur de groupe](#group-administrator-permissions)
 
 Les utilisateurs de ce rôle peuvent créer/gérer des groupes et ses paramètres, comme les stratégies d’attribution de noms et d’expiration. Il est important de comprendre que l’affectation d’un utilisateur à ce rôle lui donne la possibilité de gérer tous les groupes du locataire sur diverses charges de travail, telles que Teams, SharePoint et Yammer en plus d’Outlook. De même, l’utilisateur peut gérer les différents paramètres des groupes à travers divers portails d’administration, comme le centre d’administration Microsoft, le portail Azure, ainsi que des charges de travail spécifiques telles que Teams et les centres d’administration SharePoint.
 
@@ -280,6 +280,8 @@ Ce rôle était auparavant appelé « administrateur de mot de passe » dans l
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Administrateur Intune](#intune-service-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Intune Online, quand le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle (RBAC) avec Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+Ce rôle peut créer et gérer tous les groupes de sécurité. Cependant, l’administrateur Intune ne dispose pas de droits d’administrateur pour les groupes Office. Cela signifie que l’administrateur ne peut pas mettre à jour les propriétaires ou les membres de tous les groupes Office du locataire. Cependant, il peut gérer le groupe Office qu’il crée, ce qui fait partie de ses privilèges d’utilisateur final. Ainsi, tout groupe Office (et non un groupe de sécurité) qu’il crée doit être comptabilisé au titre de son quota de 250.
 
 > [!NOTE]
 > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
@@ -1081,8 +1083,8 @@ Peut lire tous les éléments qu’un administrateur général peut lire, mais n
 | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
 | microsoft.office365.webPortal/allEntities/standard/read   | Lisez les propriétés standard sur toutes les ressources dans microsoft.office365.webPortal. |
 
-### <a name="group-administrator"></a>Administrateur de groupe
-Peut gérer tous les aspects des groupes et des paramètres de groupe comme les stratégies d’expiration et d’attribution de noms
+### <a name="group-administrator-permissions"></a>Autorisations d’administrateur de groupe
+Peut gérer tous les aspects des groupes et des paramètres de groupe comme les stratégies d’expiration et de nommage.
 
 | **Actions** | **Description** |
 | --- | --- |

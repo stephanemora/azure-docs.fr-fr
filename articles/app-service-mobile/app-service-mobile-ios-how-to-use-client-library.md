@@ -1,24 +1,17 @@
 ---
-title: Utilisation du Kit de développement logiciel (SDK) iOS pour Azure Mobile Apps
+title: Utiliser le SDK iOS
 description: Utilisation du Kit de développement logiciel (SDK) iOS pour Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9860ab6b16c6639581d0bcd1783d43f420f88d74
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435399"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668444"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 

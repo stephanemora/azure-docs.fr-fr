@@ -1,17 +1,17 @@
 ---
-title: Scénarios d’utilisation du Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique
+title: Scénarios de magasin des requêtes - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit certains scénarios relatifs au Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3cdb0d4e00e667b0369cdf612662830f18dc5fb8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764274"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768348"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Scénarios d’utilisation du Magasin des requêtes
 

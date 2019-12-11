@@ -1,17 +1,17 @@
 ---
-title: Gérer des réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique à partir d’Azure CLI ou de l’API REST
+title: Gérer des réplicas en lecture - Azure CLI, API REST - Azure Database pour PostgreSQL - Serveur unique
 description: Découvrez comment gérer des réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique à partir d’Azure CLI ou de l’API REST.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: e146a0f42b6487545321ebfbc9ec523da5e78c8a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995355"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770116"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Créer et gérer des réplicas en lecture à partir d’Azure CLI ou de l’API REST
 

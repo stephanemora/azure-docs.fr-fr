@@ -1,25 +1,18 @@
 ---
-title: Mise à l’échelle géodistribuée avec les environnements App Service - Azure
+title: Échelle géodistribuée
 description: Découvrez comment mettre à l’échelle des applications horizontalement en utilisant Traffic Manager et les environnements App Service.
-services: app-service
-documentationcenter: ''
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: eaefebc569f5bf5461ff7c4407fa77a0c62d4fe8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070222"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688812"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
 ## <a name="overview"></a>Vue d'ensemble

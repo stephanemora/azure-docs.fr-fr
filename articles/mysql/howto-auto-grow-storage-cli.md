@@ -1,17 +1,17 @@
 ---
-title: Activer la croissance automatique pour un serveur Azure Database pour MySQL avec Azure CLI
+title: Augmenter automatiquement le stockage - Azure CLI - Azure Database pour MySQL
 description: Cet article explique comment vous pouvez activer la croissance automatique du stockage avec Azure CLI dans Azure Database pour MySQL.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/7/2019
-ms.openlocfilehash: c9faaa5d011a32dfbaa5a841d3bce824f7ba5c9d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: fb39c3afa2977038df7c9a233ba6720771f545dc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390555"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770626"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>Activer la croissance automatique pour un serveur Azure Database pour MySQL avec Azure CLI
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour MySQL sans affecter la charge de travail.

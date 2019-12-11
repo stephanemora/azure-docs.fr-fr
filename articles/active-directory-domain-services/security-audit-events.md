@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569800"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704291"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services (préversion)
 
@@ -82,7 +82,7 @@ Pour activer les événements d’audit de sécurité Azure AD DS à l’aide du
 > Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le logiciel Azure AD DS peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
 
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
-1. Sur le Portail Microsoft Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre domaine managé, par exemple *contoso.com*.
+1. Sur le Portail Microsoft Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre domaine managé, par exemple *aadds.contoso.com*.
 1. Dans la fenêtre Azure AD DS, sélectionnez **Paramètres de diagnostic (préversion)** sur la partie gauche.
 1. Aucun diagnostic n’est configuré par défaut. Pour vous lancer, sélectionnez **Ajouter le paramètre de diagnostic**.
 

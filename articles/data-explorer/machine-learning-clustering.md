@@ -3,16 +3,16 @@ title: Fonctionnalité d’apprentissage automatique dans Azure Data Explorer
 description: Utilisez le clustering d’apprentissage automatique pour l’analyse de la cause racine dans Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe72031ef9ade7473dc4d5de7e090e92ef2a6843
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233501"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769929"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Fonctionnalité d’apprentissage automatique dans Azure Data Explorer
 
@@ -24,7 +24,9 @@ Azure Data Explorer a trois plug-ins de Machine Learning : [`autocluster`](/azur
 
 ## <a name="clustering-a-single-record-set"></a>Clustering d’un jeu d’enregistrements unique
 
-Un scénario courant comprend un jeu de données sélectionné selon un critère spécifique, telle qu’une période montrant un comportement anormal, des mesures de températures élevées sur un appareil, des commandes longue durée et les utilisateurs dépensant le plus. Nous aimerions un moyen simple et rapide de rechercher des modèles courants (segments) dans les données. Les modèles sont un sous-ensemble du jeu de données dont les enregistrements partagent les mêmes valeurs sur plusieurs dimensions (colonnes catégorielles). La requête suivante génère et affiche une série chronologique d’exceptions de service sur une semaine dans des emplacements de dix minutes  :
+Un scénario courant comprend un jeu de données sélectionné selon un critère spécifique, telle qu’une période montrant un comportement anormal, des mesures de températures élevées sur un appareil, des commandes longue durée et les utilisateurs dépensant le plus. Nous aimerions un moyen facile et rapide de rechercher des modèles courants (segments) dans les données. Les modèles sont un sous-ensemble du jeu de données dont les enregistrements partagent les mêmes valeurs sur plusieurs dimensions (colonnes catégorielles). La requête suivante génère et affiche une série chronologique d’exceptions de service sur une semaine dans des emplacements de dix minutes  :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPsaoCQQyF4d6nCFa7oHCtZd9B0F6G8ajByWTJZHS5+PDOgpVgYRn485EkOAnno9NAriWGFKw7QfQYUy0O43zZ0JNKFQnG/5jrbmeIXHBgwd6DjH2/JVqk2QrTL1aYvlifa4tni29YlzaiUK4yRK3Zu54006dBZ1N5/+X6PqpRI23+pFGGfIKRtz5egzk92K+dsycMyz3szhGEKWJ01lxI760O9ABuq0bMcvV2hqFoqnOz7F9BdSHlSgEAAA==) **\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -40,6 +42,8 @@ Le nombre d’exceptions de service se met en corrélation avec l’ensemble du 
 
 Le deuxième pic de données se produit le mardi après-midi. La requête suivante est utilisée pour diagnostiquer ce pic de manière plus approfondie. Utilisez la requête pour redessiner le graphique autour du pic dans une résolution plus élevée (huit heures dans des emplacements d’une minute) pour vérifier s’il s’agit d’un pic pointu et afficher ses bordures.
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAyXNwQrCMBAE0Hu/YvHUooWkghSl/yDoyUsJyWpCk2xJNnjx403pbeYwbzwyBBdnnoxiZBewHYS89GLshzNIeRWiuzUGA83al8yYXPzI5gdBLdjnWjFDLGHSVCK3HVCEe0LtMj4r9mAVVngnCvsLMO3hOFqo2goyVCxhNJhgu9dWJYavY9uyY4/T4UV1XVm2CEM0kFe34AnkBhXGOs7kCzuKh+4P3/XM5M8AAAA=) **\]**
+
 ```kusto
 let min_t=datetime(2016-08-23 11:00);
 demo_clustering1
@@ -51,6 +55,8 @@ demo_clustering1
 
 Nous observons un pic de deux minutes étroit de 15 h 00 à 15 h 02. Dans la requête suivante, comptez les exceptions dans cette fenêtre de deux minutes :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVHIzcyLL0hNzI4vsU1JLEktycxN1TAyMDTTNbDQNTJWMDS1MjDQtObKASlNrCCk1AioNCU1Nz8+Oae0uCS1KDMv3ZCrRqE8I7UoVSGgKDU5szg1BKgvuCQxt0AhKbWkPDU1TwPhBj09hCWaQI3J+aV5JQACnQoRpwAAAA==) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -59,11 +65,13 @@ demo_clustering1
 | count
 ```
 
-|Nombre |
+|Count |
 |---------|
 |972    |
 
 Dans la requête suivante, exemple de 20 exceptions sur 972 :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4XOsQrCMBSF4b1Pccd2aLmJKKL4DoLu4doeNDSJJb1SBx/eOHV0/37OCVCKPrkJMjo9DaJQH1FbNruW963dkNkemJtjFX5U3v+oLXRAfLo+vGZF9uluqg8tD2TQOaP3M66lu6jEiW7QBUj1+qHr1pGmhCojyPIX7QHvzakAAAA=) **\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -100,6 +108,8 @@ demo_clustering1
 
 Même s’il existe moins d’un millier d’exceptions, il est toujours difficile de repérer les segments communs, dans la mesure où chaque colonne comporte plusieurs valeurs. Vous pouvez utiliser le plug-in [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) pour extraire instantanément une petite liste de segments communs et rechercher les clusters intéressants situés dans la période de deux minutes du pic comme indiqué dans la requête suivante :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQrCMBRF937FG5OhJYkoovQfBN1DbC8aTNqSvlgHP94IQkf3c+65AUzRD3aCe1hue8dgHyGM0rta7WuzIb09KCWPVfii7vUPNQXtEUfbhTwzkh9uunrTckcCnRI6P+NSvDO7ONEVvACDWD80zRqRRcTThVxa5DKPv00hP81KL1+4AAAA) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -108,7 +118,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| ID de segment | Nombre | Pourcentage | Région | ScaleUnit | DeploymentId | ServiceHost |
+| ID de segment | Count | Pourcentage | Région | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -124,6 +134,8 @@ Autocluster utilise un algorithme propriétaire pour explorer plusieurs dimensio
 
 Vous pouvez également utiliser le plug-in [`basket()`](/azure/kusto/query/basketplugin) comme indiqué dans la requête suivante :
 
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQ6CMBgGd57iH9sB0tZojMZ3MNG9KfBFG1og7Y84+PDWidH9LncBTNGPdoYbLF96x2AfIYzSh1oda7MjvT8pJc9V+KHu/Q81Be0RJ9uFJTOSHx+6+tD6RAJdEzqfcS/ejV2cqQWvwCi2h6bZIrKIeLmwlBa1Lg9gIb9KJv2TswAAAA==) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -132,7 +144,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| ID de segment | Nombre | Pourcentage | Région | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
+| ID de segment | Count | Pourcentage | Région | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |
@@ -140,7 +152,7 @@ demo_clustering1
 | 3 | 315 | 32.4074074074074 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | 16108 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 4 | 328 | 33.7448559670782 |  |  |  | 0 |  |
 | 5\. | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |  |
-| 6\. | 82 | 8.43621399176955 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |  |
+| 6 | 82 | 8.43621399176955 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |  |
 | 7 | 68 | 6.99588477366255 | scus | su3 | 90d3d2fc7ecc430c9621ece335651a01 |  |  |
 | 8 | 167 | 17.1810699588477 | scus |  |  |  |  |
 | 9 | 55 | 5.65843621399177 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |  |
@@ -150,13 +162,15 @@ demo_clustering1
 
 Cette requête implémente l’algorithme Apriori pour explorer les jeux d’articles et extrait tous les segments dont la couverture du jeu d’enregistrements est au-dessus d’un seuil (valeur par défaut 5 %). Vous pouvez voir qu’un nombre plus important de segments a été extrait avec des segments similaires (par exemple, les segments 0,1 ou 2,3).
 
-Les deux plug-ins sont puissants et simples d’utilisation. Toutefois, leur gros inconvénient réside dans le fait qu’ils mettent en cluster un jeu d’enregistrements unique de manière non supervisée (sans libellé). Il est donc difficile de savoir si les modèles extraits caractérisent le jeu d’enregistrements sélectionné (enregistrements anormaux) ou le jeu d’enregistrements global.
+Les deux plug-ins sont puissants et simples d’utilisation. Toutefois, leur gros inconvénient est qu’ils mettent en cluster un jeu d’enregistrements unique de manière non supervisée (sans libellé). Il est donc difficile de savoir si les modèles extraits caractérisent le jeu d’enregistrements sélectionné (enregistrements anormaux) ou le jeu d’enregistrements global.
 
 ## <a name="clustering-the-difference-between-two-records-sets"></a>Mettre en cluster la différence entre deux jeux d’enregistrements
 
 Le plug-in [`diffpatterns()`](/azure/kusto/query/diffpatternsplugin) permet de résoudre la limite de `autocluster` et `basket`. `Diffpatterns` prend deux jeux d’enregistrements et extrait les principaux segments qui diffèrent entre eux. Un jeu contient généralement le jeu d’enregistrements anormal en cours d’étude (un analysé par `autocluster` et `basket`). L’autre contient le jeu d’enregistrements de référence (de base). 
 
 Dans la requête ci-dessous, nous utilisons `diffpatterns` pour rechercher les clusters intéressants situés dans la période de deux minutes du pic, qui diffèrent de ceux des clusters de la ligne de base. Nous définissons la fenêtre de référence comme correspondant aux huit minutes précédant 15 h 00 (début du pic). Nous devons également étendre par une colonne binaire (AB) indiquant si un enregistrement spécifique appartient au jeu de référence ou au jeu anormal. `Diffpatterns` implémente un algorithme d’apprentissage supervisé, où les deux libellés de classe ont été générés selon le rapport entre l’indicateur anormal et l’indicateur de référence (AB).
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA42QzU+DQBDF7/wVcwOi5UtrmhJM4OzBRO9kWqbtpssuYacfGv94t0CrxFTd02by5jfvPUkMtVBlQ7gtOauQiUVNXhLFD5NoNknuIJ7Oo8hPHXmS4vEvaXKWWuoCDUmh6Jr8fj79Tv6HfOanEIbwRLgnQFhjAwviA5EC3hCcCYCq6gamEVsC1oB7LfoRt6iMYKEVvGtFQXfeNFKc7mXe2MjNVzl+mARR6lRU63Ipd4apFWodOx9w2FBL4D23tBSGXi3mhbG+OPPGVQTB+ITvg24dGN7vlN5JTxhc+dYAHZls4LzIxGr1k/B4iXcLbq50jfLNtd9i8OB2jD3KnW0dKstokG08Zby8uLbyCfX/tG46AgAA) **\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -179,9 +193,11 @@ demo_clustering1
 | 3 | 90 | 336 | 9.26 | 27.27 | 18.01 |  |  |  | 10007006 |
 | 4 | 82 | 318 | 8.44 | 25.81 | 17.38 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |
 | 5\. | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
-| 6\. | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
+| 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
 Le segment plus dominant est le même segment que celui extrait par `autocluster`, sa couverture sur la fenêtre anormale de deux minutes est également de 65,74 %. Toutefois, sa couverture sur la fenêtre de référence de huit minutes est seulement de 1,7 %. La différence est de 64,04 %. Cette différence semble être liée au pic d’activité anormale. Vous pouvez vérifier cette hypothèse en fractionnant le graphique d’origine avec, d’un côté, les enregistrements appartenant à ce segment qui pose problème et, de l’autre, les autres segments comme indiqué dans la requête ci-dessous :
+
+**\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WRsWrDMBCG9zzF4cmGGuJUjh2Ktw7tUkLTzuEsnRNRnRQkuSQlD185yRTo0EWIO913/J8MRWBttxE6iC5INOhzRey20owhktd2V8EZwsiMXv/Q9Dpfe5I60Idm2kTkQ1E8AczMxMLjf1h4/IN1PzY7Ax0jWQWBdomvhyF/p512FroOMsIxA0zdTdpKn1bHSzmMzbX8TAfjTkw2vqpLp69VpYQaatEogXOBsqrbtl5WDake6yabXWjkv7WkFxeuPGqG5VzWqhQrIUqx6B/L1WKB6aBViy01imT2ANnau94QT9c35xlNVqQAjF9UhpSHAtiRO+lGG/MCUoZ7CTB4x7ePie5mNbk4QDVn6E+ThUT0SQh5iGlM7tHHX4WFgLHOAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  

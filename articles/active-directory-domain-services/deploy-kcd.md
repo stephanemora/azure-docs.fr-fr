@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546284"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705274"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurer la délégation Kerberos contrainte (KCD) dans Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ La KCD basée sur la ressource est configurée à l’aide de PowerShell. Vous d
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configurer le mécanisme KCD basé sur les ressources pour un compte d’ordinateur
 
-Dans ce scénario, supposons que vous avez une application web qui s’exécute sur l’ordinateur nommé *contoso-webapp.contoso.com*. L’application web doit accéder à une API web qui s’exécute sur l’ordinateur nommé *contoso-api.contoso.com* dans le contexte des utilisateurs du domaine. Pour configurer ce scénario, effectuez les étapes suivantes :
+Dans ce scénario, supposons que vous avez une application web qui s’exécute sur l’ordinateur nommé *contoso-webapp.aadds.contoso.com*. L’application web doit accéder à une API web qui s’exécute sur l’ordinateur nommé *contoso-api.aadds.contoso.com* dans le contexte des utilisateurs du domaine. Pour configurer ce scénario, effectuez les étapes suivantes :
 
 1. [Créer une unité d’organisation personnalisée](create-ou.md) Vous pouvez déléguer des autorisations à des utilisateurs du domaine managé Azure AD DS pour gérer cette unité d’organisation personnalisée.
 1. [Joignez les machines virtuelles][create-join-windows-vm] au domaine managé Azure AD DS, à la fois celles qui exécutent l’application web et celles qui exécutent l’API web. Créez ces comptes d’ordinateur dans l’unité d’organisation personnalisée de l’étape précédente.
@@ -67,8 +67,8 @@ Dans ce scénario, supposons que vous avez une application web qui s’exécute 
 1. Enfin, configurez le mécanisme KCD basé sur les ressources à l’aide de l’applet de commande PowerShell [Set-ADComputer][Set-ADComputer]. Sur votre machine virtuelle de gestion jointe au domaine, connectez-vous avec un compte d’utilisateur membre du groupe *Azure AD DC Administrators*, puis exécutez les applets de commande suivantes. Indiquez vos propres noms d’ordinateur, si nécessaire :
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
-    Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
+    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configurer le mécanisme KCD basé sur les ressources pour un compte d’utilisateur

@@ -1,24 +1,18 @@
 ---
-title: Intégrer une application à un réseau virtuel Azure – Azure App Service
-description: Explique comment connecter une application d’Azure App Service à un réseau virtuel Azure nouveau ou existant
-services: app-service
-documentationcenter: ''
+title: Intégrer une application au réseau virtuel Microsoft Azure
+description: Découvrez comment Azure App Service s’intègre au réseau virtuel Microsoft Azure et comment connecter une application à un réseau virtuel.
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034729"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688286"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.  

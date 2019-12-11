@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014296"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786365"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -181,7 +181,8 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |90051| Jeton de délégation non valide. L’ID cloud national non valide ({cloudId}) a été spécifié.|
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
-|500021|Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
+|500011| Le principal de ressource nommé <site address> est introuvable dans le locataire nommé <tenant ID>. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
+|500021| Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
 |500121| Échec de l’authentification lors d’une requête d’authentification forte.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
 |530021|L’application ne répond pas aux conditions d’accès conditionnel des applications approuvées.|

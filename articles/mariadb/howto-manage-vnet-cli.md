@@ -1,18 +1,18 @@
 ---
-title: Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide d’Azure CLI | Microsoft Docs
+title: Gérer les points de terminaison de réseau virtuel - Azure CLI - Azure Database for MariaDB
 description: Cet article décrit comment créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide d’Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 5e0f2bb19e5c753c5b327781774d3fd96ec58592
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 12/02/2019
+ms.openlocfilehash: eea6f6751f7e7f6ded1b1c7004115d101f1dcc94
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609851"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764335"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database for MariaDB à l’aide d’Azure CLI
 

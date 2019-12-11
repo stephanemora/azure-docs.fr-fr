@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c122baa21c5d94b57f29cb0530f0a2655faa87d0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897261"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790381"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 
@@ -56,7 +56,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 | --- | --- |
 | **Nouveaux modes d’installation de SQL IaaS** | Il est désormais possible d’installer l’extension IaaS SQL Server en [mode allégé](virtual-machines-windows-sql-server-agent-extension.md) pour éviter de redémarrer le service SQL Server.  |
 | **Modification de l’édition de SQL Server** | Vous pouvez désormais changer la [propriété d’édition](virtual-machines-windows-sql-change-edition.md) de votre machine virtuelle SQL Server. |
-| **Change le fournisseur de ressources de machine virtuelle SQL** | Vous pouvez [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources de machines virtuelles](virtual-machines-windows-sql-register-with-resource-provider.md) en utilisant les nouveaux modes IaaS SQL. Cette fonctionnalité inclut des [ images Windows 2008](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).|
+| **Change le fournisseur de ressources de machine virtuelle SQL** | Vous pouvez [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources de machines virtuelles](virtual-machines-windows-sql-register-with-resource-provider.md) en utilisant les nouveaux modes IaaS SQL. Cette fonctionnalité inclut des images [Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).|
 | **Images BYOL (apportez votre propre licence) à l’aide d’Azure Hybrid Benefit** | Les images BYOL (apportez votre propre licence) déployées à partir de la Place de marché Azure peuvent désormais changer leur [type de licence avec paiement à l'utilisation](virtual-machines-windows-sql-ahb.md#remarks).| 
 | &nbsp; | &nbsp; |
 

@@ -15,42 +15,38 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766104"
 ---
-# <a name="single-page-application---move-to-production"></a>Application monopage (passer en production)
+# <a name="single-page-application-move-to-production"></a>Application monopage : Passer en production
 
 Maintenant que vous savez comment acquérir un jeton pour appeler des API web, découvrez comment passer en production.
 
 ## <a name="improve-your-app"></a>Améliorer votre application
 
-Suivez les étapes nécessaires pour préparer la production de votre application.
-
-- [Activez la journalisation](msal-logging.md) dans votre application.
+[Activez la journalisation](msal-logging.md) pour préparer votre application à la production.
 
 ## <a name="test-your-integration"></a>Tester votre intégration
 
-- Testez votre intégration en suivant la [check-list de l’intégration à la plateforme d’identités Microsoft](identity-platform-integration-checklist.md).
+Testez votre intégration en suivant la [check-list de l’intégration à la plateforme d’identités Microsoft](identity-platform-integration-checklist.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voici quelques autres exemples/didacticiels :
+Présentation approfondie de l’exemple de démarrage rapide, avec explication du code permettant de connecter des utilisateurs et d’obtenir un jeton d’accès pour appeler l’API Microsoft Graph à l’aide de MSAL.js :
 
-- Pour une présentation approfondie d’un exemple de démarrage rapide expliquant le code pour savoir comment connecter des utilisateurs et obtenir un jeton d’accès pour appeler l’API Graph MS utilisant MSAL.js
+> [!div class="nextstepaction"]
+> [Didacticiel JavaScript SPA](./tutorial-v2-javascript-spa.md)
 
-    > [!div class="nextstepaction"]
-    > [Didacticiel JavaScript SPA](./tutorial-v2-javascript-spa.md)
+Exemple qui montre comment obtenir des jetons pour vos propres API web de serveur principal à l’aide de MSAL.js :
 
-- Exemple qui montre comment obtenir des jetons pour vos propres API web de serveur principal à l’aide de MSAL.js
+> [!div class="nextstepaction"]
+> [SPA avec serveur principal ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
 
-     > [!div class="nextstepaction"]
-     > [SPA avec serveur principal ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+Exemple qui montre comment utiliser MSAL.js pour connecter des utilisateurs dans une application inscrite auprès d’Azure Active Directory B2C (Azure AD B2C) :
 
-- Exemple montrant comment utiliser MSAL.js pour connecter des utilisateurs dans une application inscrite avec Azure AD B2C
-
-    > [!div class="nextstepaction"]
-    > [SPA avec Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+> [!div class="nextstepaction"]
+> [SPA avec Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

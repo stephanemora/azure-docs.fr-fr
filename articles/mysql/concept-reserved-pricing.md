@@ -1,17 +1,17 @@
 ---
-title: Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
+title: Prépayer les ressources de calcul avec une capacité de réserve - Azure Database pour MySQL
 description: Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 595a96d07cc1804d3ee0830618a70557b768a3b5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 12/02/2019
+ms.openlocfilehash: 44bdd9a58bfe2f1a8d3a0102aa6652bb340ac719
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773829"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
 

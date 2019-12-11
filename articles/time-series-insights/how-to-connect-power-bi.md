@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114640"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705976"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualiser des données à partir de Time Series Insights dans Power BI
 
@@ -32,7 +32,10 @@ Veillez à vous inscrire pour obtenir un [abonnement Azure gratuit](https://azur
 ## <a name="prerequisites"></a>Prérequis
 
 * Télécharger et installer la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Avoir ou créer une [instance Azure Time Series Insights en disponibilité générale](time-series-insights-get-started.md) ou une [instance Azure Time Series Insights (préversion)](time-series-insights-update-how-to-manage.md)
+* Avoir ou créer une [instance Azure Time Series Insights en préversion](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> Le connecteur Power BI est pris en charge dans les environnements sous licence *paiement à l’utilisation* d’Azure Time Series Insights en préversion configurés pour le **magasin Warm**.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Connecter des données de Time Series Insights à Power BI
 
@@ -65,12 +68,12 @@ Pour commencer :
 
        [![Connecter](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Si vous n’avez pas configuré votre instance Time Series Insights pour le magasin chaud, vous recevrez un avertissement.
+   1. Si vous n’avez pas configuré votre instance Time Series Insights pour le **magasin Warm**, vous recevrez un avertissement.
 
        [![Connecter](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Vous pouvez configurer votre instance existante pour le magasin chaud dans le Portail Azure.
+       > Vous pouvez configurer votre instance existante pour le **magasin Warm** dans le portail Azure.
 
 1. Sélectionnez **Copier la requête dans le Presse-papiers**.
 1. À présent, lancez Power BI Desktop.

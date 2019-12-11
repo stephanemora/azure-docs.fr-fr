@@ -4,12 +4,12 @@ description: En savoir plus sur les groupes de conteneurs dans Azure Container I
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706325"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -48,15 +48,15 @@ Azure Container Instances alloue des ressources telles que UC, mémoire et éven
 
 ### <a name="resource-usage-by-instances"></a>Utilisation des ressources par les instances
 
-Chaque instance de conteneur se voit allouer les ressources spécifiées dans sa demande de ressource. Toutefois, l’utilisation des ressources par une instance de conteneur dans un groupe dépend de la manière dont vous configurez sa propriété facultative de [limite de ressources][resource-limits].
+Chaque instance de conteneur se voit allouer les ressources spécifiées dans sa demande de ressource. Toutefois, l’utilisation des ressources par une instance de conteneur dans un groupe dépend de la manière dont vous configurez sa propriété facultative de [limite de ressources][resource-limits]. La limite de ressources doit être inférieure à la propriété [de demande de ressource][resource-requests] obligatoire.
 
 * Si vous ne spécifiez pas de limite de ressources, l’utilisation maximale des ressources de l’instance est identique à celle de sa demande de ressource.
 
 * Si vous spécifiez une limite de ressources pour une instance, vous pouvez ajuster l’utilisation des ressources de l’instance pour sa charge de travail, en réduisant ou en augmentant l’utilisation par rapport à la demande de ressource. La limite maximale de ressources que vous pouvez définir est le nombre total de ressources allouées au groupe.
     
-    Par exemple, dans un groupe avec deux instances demandant 1 processeur, un de vos conteneurs peut exécuter une charge de travail qui nécessite plus de processeurs que l’autre.
+Par exemple, dans un groupe avec deux instances demandant 1 processeur, un de vos conteneurs peut exécuter une charge de travail qui nécessite plus de processeurs que l’autre.
 
-    Dans ce scénario, vous pouvez définir une limite de ressource de 0,5 UC pour une instance et une limite de 2 UC pour la deuxième. Cette configuration limite l’utilisation des ressources du premier conteneur à 0,5 UC, permettant ainsi au deuxième d’utiliser complètement, si elles sont disponibles, les 2 UC.
+Dans ce scénario, vous pouvez définir une limite de ressource de 0,5 UC pour une instance et une limite de 2 UC pour la deuxième. Cette configuration limite l’utilisation des ressources du premier conteneur à 0,5 UC, permettant ainsi au deuxième d’utiliser complètement, si elles sont disponibles, les 2 UC.
 
 Pour plus d’informations, consultez la propriété [ResourceRequirements][resource-requirements] dans l’API REST des groupes de conteneurs.
 

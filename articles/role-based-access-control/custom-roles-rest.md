@@ -1,6 +1,6 @@
 ---
-title: Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST - Azure | Microsoft Docs
-description: Apprenez à créer des rôles personnalisés avec contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure à l'aide de l'API REST. Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
+title: Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST - Azure | Microsoft Docs
+description: Découvrez comment lister, créer, mettre à jour ou supprimer des rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure à l’aide de l’API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596691"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702979"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST
+# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST
 
-Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec l’API REST.
+Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide de l’API REST.
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
@@ -56,8 +56,8 @@ Pour répertorier les rôles personnalisés dans une étendue, utilisez l’API 
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{filter}* par le type de rôle.
@@ -80,8 +80,8 @@ Pour obtenir des informations sur le rôle personnalisé en fonction de son nom 
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{filter}* par le nom d’affichage du rôle.
@@ -106,8 +106,8 @@ Pour obtenir des informations sur un rôle personnalisé en fonction de son iden
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID de la définition du rôle.
@@ -154,8 +154,8 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.
@@ -219,8 +219,8 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.
@@ -303,8 +303,8 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.

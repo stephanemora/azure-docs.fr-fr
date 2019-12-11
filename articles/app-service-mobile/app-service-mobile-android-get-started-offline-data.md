@@ -1,24 +1,17 @@
 ---
-title: Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Android)
-description: Découvrez comment utiliser Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Android
-documentationcenter: android
-author: elamalani
-manager: crdun
-services: app-service\mobile
+title: Activer la synchronisation hors connexion (Android)
+description: Découvrez comment utiliser Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Android.
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 9c845c09c6b05436017f98323dfa78185cd58aa6
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8449b4f92636a7b73d07c34515f33dc9dc6816ab
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388979"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668934"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

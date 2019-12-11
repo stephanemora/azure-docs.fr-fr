@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052512"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706264"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight : Questions fréquentes (FAQ)
 
@@ -180,6 +180,11 @@ Oui, vous pouvez déployer une machine virtuelle supplémentaire au sein d’un 
 - Nœuds de périphérie : Vous pouvez ajouter un autre nœud de périphérie au cluster, comme décrit dans [Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Nœuds autonomes :  Vous pouvez ajouter une machine virtuelle autonome au même sous-réseau et accéder au cluster à partir de cette machine virtuelle à l’aide du point de terminaison privé `https://<CLUSTERNAME>-int.azurehdinsight.net`. Pour plus d’informations, consultez [Contrôle du trafic réseau](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Dois-je stocker les données sur le disque local d’un nœud de périphérie ?
+
+Non, stocker les données sur un disque local n’est pas une bonne pratique. En cas de défaillance du nœud, toutes les données stockées localement seraient perdues. Nous vous conseillons de stocker les données dans Azure Data Lake Storage Gen2 ou le Stockage Blob Azure, ou dans un partage Azure Files que vous montez à cet usage.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>Puis-je ajouter un cluster HDInsight existant à un autre réseau virtuel ?
 

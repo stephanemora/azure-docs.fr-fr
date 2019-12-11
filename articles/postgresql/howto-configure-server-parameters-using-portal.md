@@ -1,17 +1,17 @@
 ---
-title: Configurer les paramètres de serveur dans Azure Database pour PostgreSQL via le portail Azure
-description: Cet article décrit comment configurer les paramètres de serveur dans Azure Database pour PostgreSQL par le biais du portail Azure.
+title: Configurer les paramètres de serveur - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit comment configurer les paramètres Postgres dans Azure Database pour PostgreSQL par le biais du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067141"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763672"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurer les paramètres de serveur dans Azure Database pour PostgreSQL (serveur unique) via le portail Azure 
 Vous pouvez lister, afficher et mettre à jour les paramètres de configuration d’un serveur Azure Database pour PostgreSQL en utilisant le portail Azure.

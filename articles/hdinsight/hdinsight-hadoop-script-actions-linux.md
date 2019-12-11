@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2019
-ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687447"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687737"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -75,7 +75,7 @@ fi
 
 ### <a name="bps10"></a> Cibler la version du système d’exploitation
 
-HDInsight sous Linux est basé sur la distribution Ubuntu Linux. Les différentes versions de HDInsight s’appuient sur des versions différentes d’Ubuntu, ce qui peut avoir une incidence sur le comportement de votre script. Par exemple, HDInsight 3.4 et les versions antérieures sont basées sur des versions Ubuntu qui utilisent Upstart. Les versions 3.5 et supérieures sont basées sur Ubuntu 16.04, qui utilise Systemd. Systemd et Upstart reposent sur différentes commandes, donc votre script doit être écrit pour travailler avec les deux.
+HDInsight est basé sur la distribution Ubuntu Linux. Les différentes versions de HDInsight s’appuient sur des versions différentes d’Ubuntu, ce qui peut avoir une incidence sur le comportement de votre script. Par exemple, HDInsight 3.4 et les versions antérieures sont basées sur des versions Ubuntu qui utilisent Upstart. Les versions 3.5 et supérieures sont basées sur Ubuntu 16.04, qui utilise Systemd. Systemd et Upstart reposent sur différentes commandes, donc votre script doit être écrit pour travailler avec les deux.
 
 L’autre différence majeure entre HDInsight 3.4 et 3.5 résident dans le fait que `JAVA_HOME` pointe désormais vers Java 8. Le code suivant montre comment déterminer si le script est exécuté sur Ubuntu 14 ou 16 :
 
@@ -137,7 +137,7 @@ Par exemple, un script qui modifie les fichiers de configuration ne doit pas ajo
 
 ### <a name="bPS5"></a>Garantir la haute disponibilité de l’architecture du cluster
 
-Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs au sein du cluster, et les actions de script sont exécutées sur les deux nœuds. Si les composants que vous installez n'attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
+Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs au sein du cluster, et les actions de script sont exécutées sur les deux nœuds. Si les composants que vous installez n’attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
 
 > [!IMPORTANT]  
 > Les services fournis dans le cadre de HDInsight sont conçus pour basculer entre les deux nœuds principaux si nécessaire. Cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide d’actions de script. Si vous avez besoin que les composants personnalisés soient très disponibles, vous devez implémenter votre propre mécanisme de basculement.
@@ -188,7 +188,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire
 
-Lors du téléchargement de fichiers, de l’installation de packages à l’aide d’apt-get ou d’autres actions qui transmettent des données sur Internet, l’action peut échouer en raison d’erreurs réseau temporaires. Par exemple, la ressource distante avec laquelle vous communiquez peut être en train de basculer vers un nœud de secours.
+Lors du téléchargement de fichiers, de l’installation de packages à l’aide d’apt-get ou de l’exécution d’autres actions qui transmettent des données sur Internet, l’action peut échouer à cause d’erreurs réseau temporaires. Par exemple, la ressource distante avec laquelle vous communiquez peut être en cours de basculement vers un nœud de sauvegarde.
 
 Pour rendre votre script résistant aux erreurs temporaires, vous pouvez implémenter la logique de nouvelle tentative. La fonction suivante montre comment implémenter la logique de nouvelle tentative. Elle réessaie l’opération trois fois avant d’échouer.
 
@@ -329,7 +329,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Voici les erreurs que vous pouvez rencontrer lorsque vous utilisez les scripts que vous avez développé :
+Voici des erreurs susceptibles de se produire quand vous utilisez les scripts que vous avez développés :
 
 **Erreur** : `$'\r': command not found`. Parfois suivi par `syntax error: unexpected end of file`.
 

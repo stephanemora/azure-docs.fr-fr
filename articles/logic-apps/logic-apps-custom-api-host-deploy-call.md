@@ -1,21 +1,17 @@
 ---
-title: Déployer et appeler des API web et des API REST à partir d’Azure Logic Apps | Microsoft Docs
+title: Déployer et appeler des API web et des API REST à partir d’Azure Logic Apps
 description: Déployer et appeler des API web et REST pour les workflows d’intégration système dans Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740381"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790758"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Déployer et appeler des API personnalisées à partir de workflows dans Azure Logic Apps
 

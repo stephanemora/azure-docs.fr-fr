@@ -1,19 +1,19 @@
 ---
 title: Utilisation du support de flux de modification dans Azure Cosmos DB
 description: Utilisez le support de flux de modification d’Azure Cosmos DB pour suivre les modifications dans les documents et effectuer des opérations de traitement basées sur les événements tels que des déclencheurs et la mise à jour des systèmes de cache et d’analyse.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757021"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689089"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -33,12 +33,12 @@ Le flux de modification Azure Cosmos DB vous permet de créer des solutions effi
 
 Cette fonctionnalité est prise en charge par les API et les SDK clients Azure Cosmos DB suivants.
 
-| **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
+| **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Azure Cosmos DB pour Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | OUI | Non | Non | OUI | Non |
-|Java|N/D|OUI|Non|Non|OUI|Non|
-|Python|N/D|OUI|Non|Non|OUI|Non|
-|Node/JS|N/D|OUI|Non|Non|OUI|Non|
+| .NET | N/D | OUI | OUI | OUI | OUI | Non |
+|Java|N/D|OUI|OUI|OUI|OUI|Non|
+|Python|N/D|OUI|OUI|OUI|OUI|Non|
+|Node/JS|N/D|OUI|OUI|OUI|OUI|Non|
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 
@@ -119,6 +119,12 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 * Les modifications sont disponibles en parallèle pour toutes les clés de partition logique d’un conteneur Azure Cosmos. Cette fonctionnalité permet à plusieurs consommateurs de traiter en parallèle les modifications de grands conteneurs.
 
 * Les applications peuvent demander plusieurs flux de modification simultanément pour un même conteneur. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Flux de modification dans les API pour Cassandra et MongoDB
+
+La fonctionnalité de flux de modification apparaît comme un flux de modification dans l’API MongoDB et sous la forme Interroger avec un prédicat dans l’API Cassandra. Pour en savoir plus sur les détails d’implémentation de l’API MongoDB, consultez les [flux de modification dans l’API Azure Cosmos DB pour MongoDB](mongodb-change-streams.md).
+
+Native Apache Cassandra propose la capture des changements de données (CDC), un mécanisme de marquage de tables spécifiques à des fins d’archivage, mais aussi de rejet des écritures dans ces tables une fois que la taille sur disque configurable du journal CDC est atteinte. La fonctionnalité de flux de modification dans l’API Azure Cosmos DB pour Cassandra améliore la capacité à interroger les modifications avec un prédicat par le biais du langage CQL. Pour en savoir plus sur les détails d’implémentation, consultez [Flux de modification dans l’API Azure Cosmos DB pour Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

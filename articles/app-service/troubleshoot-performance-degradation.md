@@ -1,27 +1,18 @@
 ---
-title: Résoudre les problèmes de dégradation des performances – Azure App Service | Microsoft Docs
-description: Cet article vous aide à résoudre les problèmes de baisse de performances d’une application dans Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Résoudre les problèmes de détérioration des performances
+description: Découvrez comment résoudre les problèmes de lenteur des applications dans Azure App Service, notamment en supervisant leur comportement, en collectant des données et en atténuant ces problèmes.
 tags: top-support-issue
 keywords: performances d'application web, application lente
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066525"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688313"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).

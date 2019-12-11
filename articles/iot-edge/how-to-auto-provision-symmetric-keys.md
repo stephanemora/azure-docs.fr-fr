@@ -1,5 +1,5 @@
 ---
-title: Approvisionner automatiquement des appareils avec le service Device Provisioning en utilisant une attestation de clé symétrique – Azure IoT Edge | Microsoft Docs
+title: Provisionner un appareil à l’aide d’une attestation de clé symétrique - Azure IoT Edge
 description: Utiliser l’attestation de clé symétrique pour tester l’approvisionnement automatique des appareils pour Azure IoT Edge avec le service Device Provisioning
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828075"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666322"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -194,7 +194,7 @@ Installez le runtime IoT Edge sur l’appareil pour lequel vous avez généré u
 
 Pour plus d’informations sur l’installation d’IoT Edge sous Windows, y compris les conditions préalables et instructions pour des tâches telles que la gestion de conteneurs et la mise à jour d’IoT Edge, voir [Installer le runtime Azure IoT Edge sous Windows](how-to-install-iot-edge-windows.md).
 
-1. Ouvrez une fenêtre PowerShell en mode administrateur. Veillez à utiliser une session AMD64 de PowerShell lors de l’installation d’IoT Edge, plutôt que PowerShell (x86).
+1. Ouvrez une fenêtre PowerShell en mode administrateur. Veillez à utiliser une session AMD64 de PowerShell lors de l'installation d'IoT Edge, plutôt que PowerShell (x86).
 
 1. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, avant de télécharger le runtime moby et le runtime IoT Edge. Par défaut, la commande utilise des conteneurs de Windows.
 

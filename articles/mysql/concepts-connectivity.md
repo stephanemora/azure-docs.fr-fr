@@ -1,18 +1,18 @@
 ---
-title: Gérer les erreurs temporaires et se connecter efficacement à Azure Database pour MySQL | Microsoft Docs
+title: Erreurs de connectivité temporaires - Azure Database pour MySQL
 description: Découvrez comment gérer les erreurs de connectivité temporaires et vous connecter efficacement à Azure Database pour MySQL.
 keywords: connexion mysql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion, se connecter efficacement
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 4bc5281c891a9d4cd27a48aa365e6cfcec16ad82
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 12/02/2019
+ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598257"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765204"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Gérer les erreurs temporaires et se connecter efficacement à Azure Database pour MySQL
 

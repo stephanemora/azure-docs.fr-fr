@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 30e2b880f32f896098778942deb67d7ced9f5c2d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ba3535679f37916a18aae5fe7dbe4e9114cea695
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484224"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664911"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -1130,6 +1130,9 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Nombre d'accès aux règles d'application|Count|Total|Nombre d'accès aux règles d'application|Status, Reason, Protocol|
 |NetworkRuleHit|Nombre d’accès aux règles de réseau|Count|Total|Nombre d’accès aux règles de réseau|Status, Reason, Protocol|
+|DataProcessed|Données traitées|Octets|Total|Quantité de données qui transitent par le pare-feu.|Aucune dimension|
+|FirewallHealthState|État d’intégrité du pare-feu|Pourcentage|Moyenne|Indique l’état d’intégrité du pare-feu.|Statut, Motif|
+|SNATPortUtilization|Utilisation des ports SNAT|Pourcentage|Moyenne|Pourcentage de ports SNAT qui ont été utilisés par le pare-feu.|Aucune dimension|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 

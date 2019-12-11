@@ -1,24 +1,15 @@
 ---
-title: Utilisation avancée de l’authentification et de l’autorisation - Azure App Service | Microsoft Docs
-description: Découvrez comment personnaliser les paramètres d’authentification et d’autorisation dans App Service, mais aussi obtenir des revendications d’utilisateur et des jetons distincts.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Utilisation avancée de l’authentification/autorisation
+description: Apprenez à personnaliser les paramètres d’authentification et d’autorisation dans App Service pour différents scénarios et à obtenir des revendications d’utilisateur et des jetons distincts.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900137"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672234"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 

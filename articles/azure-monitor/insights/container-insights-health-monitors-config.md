@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279696"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664945"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guide de configuration des moniteurs d’intégrité Azure Monitor pour conteneurs
 
@@ -82,7 +82,7 @@ Azure Monitor pour conteneurs comprend un certain nombre de scénarios d’analy
 |Nœuds (parent du pool de nœuds) |Il s’agit d’un moniteur agrégé de tous les pools de nœuds. Son état est basé sur le pire état de ses moniteurs enfants (c’est-à-dire, les pools de nœuds présents dans le cluster). |Le pire de |
 |Cluster (parent des nœuds/<br> infrastructure Kubernetes) |Il s’agit du moniteur parent qui correspond à l’état du moniteur enfant ayant le pire état d’intégrité, c’est-à-dire l’infrastructure kubernetes et les nœuds. |Le pire de |
 |l’infrastructure Kubernetes |Ce moniteur signale l’état d’intégrité combiné des composants de l’infrastructure managée du cluster. Son état est calculé comme étant le « pire de » ses états de moniteurs enfants, c.-à-d. les charges de travail kube-system et l’état du serveur d’API. |Le pire de|
-|la charge de travail système |Ce moniteur signale l’état d’intégrité d’une charge de travail kube-system. Ce moniteur correspond à l’état du moniteur enfant ayant le pire état d’intégrité. Il s’agit du moniteur **Pods à l’état prêt** et des conteneurs de la charge de travail. |Le pire de |
+|la charge de travail système |Ce moniteur signale l’état d’intégrité d’une charge de travail kube-system. Ce moniteur correspond à l’état du moniteur enfant ayant le pire état d’intégrité, à savoir **Pods à l’état prêt** (moniteur et les conteneurs de la charge de travail). |Le pire de |
 |Conteneur |Ce moniteur signale l’état d’intégrité global d’un conteneur dans une charge de travail donnée. Ce moniteur correspond à l’état du moniteur enfant ayant le pire état d’intégrité. Il s’agit des moniteurs **Utilisation de l’UC** et **Utilisation de la mémoire**. |Le pire de |
 
 ## <a name="next-steps"></a>Étapes suivantes

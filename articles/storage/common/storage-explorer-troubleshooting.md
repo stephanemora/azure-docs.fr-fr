@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124008"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775831"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -95,7 +95,7 @@ Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contacte
 
 Les boîtes de dialogue de connexion vides apparaissent le plus souvent quand les services ADFS (Active Directory Federation Services) demandent à l’Explorateur Stockage d’effectuer une redirection, ce qui n’est pas pris en charge par Electron. Pour contourner ce problème, vous pouvez essayer d’utiliser le Flux de code d’appareil pour la connexion. Pour ce faire, procédez comme suit :
 
-1. Dans le menu, accédez à **Preview (Préversion)**  > **Use Device Code Sign-In (Utiliser la connexion par le code de l’appareil**.
+1. Dans la barre d’outils verticale gauche, ouvrez **Paramètres**. Dans le panneau Paramètres, accédez à **Application** > **Se connecter**. Activez **Utiliser la connexion via le flux de code de l’appareil**.
 2. Ouvrez la boîte de dialogue **Connecter** (via l’icône de fiche dans la barre verticale à gauche ou en sélectionnant **Ajouter un compte** dans le panneau de compte).
 3. Choisissez l’environnement auquel vous voulez vous connecter.
 4. Sélectionnez **Connexion**.

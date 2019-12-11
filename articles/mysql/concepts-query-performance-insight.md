@@ -1,17 +1,17 @@
 ---
-title: Query Performance Insight dans Azure Database pour MySQL
+title: Query Performance Insight - Azure Database pour MySQL
 description: Cet article décrit la fonctionnalité Query Performance Insight dans Azure Database pour MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 762353cbc276eb78868c46bbfde4789e792f6d85
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603123"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775986"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight dans Azure Database pour MySQL
 

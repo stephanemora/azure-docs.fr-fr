@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382023"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785992"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -36,13 +36,16 @@ Cette rubrique :
 
 Pour configurer l’authentification basée sur les certificats, les conditions suivantes doivent être remplies :
 
-- L’authentification basée sur les certificats est uniquement prise en charge dans les environnements fédérés pour les applications de navigateur ou les clients natifs qui utilisent l’authentification moderne (ADAL). La seule exception est Exchange Active Sync (EAS) pour Exchange Online (EXO), qui peut être utilisé à la fois pour les comptes fédérés et les comptes managés.
+- L’authentification basée sur les certificats est uniquement prise en charge dans les environnements fédérés pour les applications de navigateur, les clients natifs qui utilisent l’authentification moderne (ADAL) ou les bibliothèques MSAL. La seule exception est Exchange Active Sync (EAS) pour Exchange Online (EXO), qui peut être utilisé à la fois pour les comptes fédérés et les comptes managés.
 - L’autorité de certification racine et les autorités de certification intermédiaires doivent être configurées dans Azure Active Directory.
 - Chaque autorité de certification doit avoir une liste de révocation de certificat (CRL) qui peut être référencée via une URL accessible sur Internet.
 - Vous devez disposer d’au moins une autorité de certification configurée dans Azure Active Directory. Vous trouverez les étapes associées dans la section [Configurer les autorités de certification](#step-2-configure-the-certificate-authorities).
 - Pour les clients Exchange ActiveSync, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans le répertoire.
 - Votre appareil client doit avoir accès à au moins une autorité de certification qui émet des certificats clients.
 - Un certificat client pour l’authentification du client doit avoir été émis pour votre client.
+
+>[!IMPORTANT]
+>La taille maximale d’une liste de révocation de certificats à télécharger et à mettre en cache par Azure Active Directory est de 20 Mo, et le temps nécessaire au téléchargement de cette liste ne doit pas dépasser 10 secondes.  Si Azure Active Directory ne parvient pas à télécharger une liste de révocation de certificats, les authentifications basées sur les certificats émis par l’autorité de certification correspondante échouent. Les bonnes pratiques permettant de s’assurer que les fichiers CRL se trouvent dans des limites de taille acceptables consistent à conserver les durées de vie des certificats dans des limites raisonnables, et à nettoyer les certificats expirés. 
 
 ## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
 

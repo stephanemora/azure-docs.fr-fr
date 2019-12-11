@@ -1,17 +1,17 @@
 ---
-title: Journaux d’activité de serveur pour Azure Database pour MySQL
+title: Journaux des requêtes lentes - Azure Database pour MySQL
 description: Décrit les journaux des requêtes lentes disponibles dans Azure Database pour MySQL et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: cd0d09e4d46747b7f3f8e6fb714dd711beef9484
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434281"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770835"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -23,7 +23,7 @@ Vous pouvez lister et télécharger les journaux des requêtes lentes Azure Data
 
 Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL. Sous l’en-tête **Supervision**, sélectionnez la page **Journaux d’activité des serveurs**.
 
-Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Configuration et accès aux journaux d’activité du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-in-cli.md).
+Pour plus d’informations sur Azure CLI, consultez [Configurer et accéder aux journaux des requêtes lentes à l’aide d’Azure CLI](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Rétention des journaux
 Les journaux d’activité sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux d’activité disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. 

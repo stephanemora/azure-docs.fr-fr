@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cd3b7d6cc75afc5d83ff02a15b920d9f8b05f608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e08860579ca3a18093375652e0243c994c66d75b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391399"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795629"
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -31,8 +31,6 @@ En plus de ces ressources de base, vous devez également envisager d’utiliser 
 
 - Groupes de sécurité réseau
 - Équilibreurs de charge 
-
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="network-interfaces"></a>Interfaces réseau
 
@@ -172,3 +170,4 @@ Il existe également des didacticiels sur l’équilibrage de charge des machine
 - Découvrez comment configurer les [itinéraires définis par l’utilisateur et le transfert IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Découvrez comment configurer [les connexions de réseau virtuel à réseau virtuel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Découvrez comment [résoudre les problèmes relatifs aux itinéraires](../articles/virtual-network/diagnose-network-routing-problem.md).
+- En savoir plus sur la [bande passante réseau des machines virtuelles](../articles/virtual-network/virtual-machine-network-throughput.md)
