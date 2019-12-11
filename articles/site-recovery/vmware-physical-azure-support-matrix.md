@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b75d9e9fc88cabacab912efa17938708eb061b99
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8c5b932a1b44169cc50c8c7214d3f3410c581f4e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232435"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792263"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -86,6 +86,8 @@ Debian | Debian 7/Debian 8[ (voir les versions du noyau prises en charge)](#debi
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [ (voir les versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
 
+> [!Note]
+> Pour chacune des versions de Windows, Azure Site Recovery prend uniquement en charge les builds du [canal de maintenance à long terme (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc).  Les versions du [Canal semi-annuel](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) ne sont actuellement pas prises en charge.
 
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
 

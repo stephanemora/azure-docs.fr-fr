@@ -1,22 +1,20 @@
 ---
-title: Se connecter à Dynamics 365 – Azure Logic Apps
+title: Se connecter à Dynamics 365
 description: Créer et gérer des enregistrements avec les API REST de base de Dynamics 365 (en ligne) et Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-manager: carmonm
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789894"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
