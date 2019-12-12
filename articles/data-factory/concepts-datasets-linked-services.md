@@ -1,5 +1,5 @@
 ---
-title: Jeux de données dans Azure Data Factory
+title: Groupes de données
 description: En savoir plus sur les jeux de données dans Data Factory. Les jeux de données représentent des données d’entrée/sortie.
 services: data-factory
 documentationcenter: ''
@@ -10,13 +10,14 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 74c35d5de74fbf8ecc04cfec336bfeb4a8e669fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681527"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928473"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

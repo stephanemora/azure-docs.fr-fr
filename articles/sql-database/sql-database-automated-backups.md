@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1754168478caf3ca029e003ad0187fc29e85fa8a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997290"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -115,7 +115,7 @@ Lorsque vous migrez votre base de données à partir d’un niveau de service ba
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Comment modifier la période de conservation des sauvegardes PITR ?
 
-Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut à l’aide du portail Microsoft Azure, de PowerShell ou de l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
+Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut à l’aide du portail Microsoft Azure, de PowerShell ou de l’API REST. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
 
 > [!WARNING]
 > Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.

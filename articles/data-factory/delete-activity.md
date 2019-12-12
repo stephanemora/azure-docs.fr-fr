@@ -6,19 +6,18 @@ documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 8efbf5cd6003781450afe70b8019b39d75290546
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675617"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927532"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
 

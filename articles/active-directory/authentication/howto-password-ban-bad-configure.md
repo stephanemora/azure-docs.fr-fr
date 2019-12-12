@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798183"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847913"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuration de la liste de mots de passe interdits personnalisée
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420765"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848746"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 

@@ -4,21 +4,20 @@ description: Apprenez à copier des données vers et à partir d’un système d
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32649b1e13b49979af3ad5042054e1ee8917227a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 47dbd28f301009969ae02acfac6f4b272ef608f0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682469"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918642"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -84,8 +83,8 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
-| Dossier local sur l’ordinateur passerelle de gestion des données : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
-| Dossier partagé distant : <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur passerelle de gestion des données : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
+| Dossier partagé distant : <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 >[!NOTE]
 >Lors d’une création via l’interface utilisateur, vous n’avez pas besoin d’entrer la double barre oblique inverse (`\\`) pour générer une séquence d’échappement comme vous le faites via JSON. Spécifiez simplement une barre oblique inverse unique.

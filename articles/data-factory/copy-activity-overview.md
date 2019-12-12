@@ -4,20 +4,19 @@ description: En savoir plus sur l’activité de copie dans Azure Data Factory. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075560"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927545"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 

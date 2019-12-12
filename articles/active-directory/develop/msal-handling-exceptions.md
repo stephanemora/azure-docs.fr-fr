@@ -3,10 +3,8 @@ title: Erreurs et exceptions (MSAL)
 titleSuffix: Microsoft identity platform
 description: Découvrez comment gérer les erreurs et exceptions, l’accès conditionnel et les revendications dans les applications MSAL.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: twhitney
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753296596982279a14ff2775b0e129048dbe8369
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482078"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916772"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gérer les erreurs et les exceptions MSAL
 

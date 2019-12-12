@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267940"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869299"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
@@ -36,11 +36,11 @@ Assurez-vous que les paramètres de collaboration externe de votre organisation 
 Pour ajouter des utilisateurs B2B Collaboration au répertoire, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’utilisateur affecté à un rôle d’annuaire administrateur limité ou à un rôle Inviteur d’invités.
-2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+2. Recherchez et sélectionnez **Azure Active Directory** à partir de n’importe quelle page.
 3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 4. Sélectionnez **Nouvel utilisateur invité**.
 
-   ![Indique où le nouvel utilisateur invité se trouve dans l’interface utilisateur](./media/add-users-administrator/NewGuestUser-Directory.png) 
+   ![Indique où le nouvel utilisateur invité se trouve dans l’interface utilisateur](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
    > [!NOTE]
    > L’option **Nouvel utilisateur invité** est également disponible sur la page **Relations organisationnelles**. Dans **Azure Active Directory**, sous **Gérer**, sélectionnez **Relations organisationnelles**.
@@ -67,7 +67,7 @@ Après avoir envoyé l’invitation, le compte d’utilisateur est automatiqueme
 Vous pouvez ajouter manuellement des utilisateurs B2B Collaboration à un groupe. Pour cela, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+2. Recherchez et sélectionnez **Azure Active Directory** à partir de n’importe quelle page.
 3. Sous **Gérer**, sélectionnez **Groupes**.
 4. Sélectionnez un groupe (ou cliquez sur **Nouveau groupe** pour en créer un nouveau). Il est judicieux d’inclure dans la description que le groupe contient des utilisateurs invités B2B.
 5. Sélectionnez **Membres**. 
@@ -84,7 +84,7 @@ Vous pouvez également utiliser des groupes dynamiques avec Azure AD B2B Collabo
 Pour ajouter des utilisateurs B2B Collaboration à une application, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+2. Recherchez et sélectionnez **Azure Active Directory** à partir de n’importe quelle page.
 3. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 4. Sélectionnez l’application à laquelle vous souhaitez ajouter des utilisateurs invités.
 5. Dans le tableau de bord de l’application, sélectionnez **Nombre total d’utilisateurs** pour ouvrir le volet **Utilisateurs et groupes**.
@@ -112,13 +112,13 @@ Pour ajouter des utilisateurs B2B Collaboration à une application, procédez co
 Si un utilisateur invité n’a pas encore répondu à son invitation, vous pouvez lui renvoyer l’e-mail d’invitation.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+2. Recherchez et sélectionnez **Azure Active Directory** à partir de n’importe quelle page.
 3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 5. Sélectionnez le compte d’utilisateur.
 6. Sous **Gérer**, sélectionnez **Profil**.
 7. Si l’utilisateur n’a pas encore accepté l’invitation, une option **Renvoyer l’invitation** est disponible. Cliquez sur ce bouton pour la lui renvoyer.
 
-   ![Option Renvoyer l’invitation dans le profil utilisateur](./media/add-users-administrator/Resend-Invitation.png)
+   ![Option Renvoyer l’invitation dans le profil utilisateur](./media/add-users-administrator/b2b-user-resend-invitation.png)
 
 > [!NOTE]
 > Si vous renvoyez une invitation qui au départ, orientait l’utilisateur vers une application spécifique, sachez que le lien contenu dans la nouvelle invitation va au contraire l’orienter vers le volet d’accès de niveau supérieur.

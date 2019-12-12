@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur la résolution des problè
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860a47386b31403b6a3d41fc2473b1e1040889a7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162039"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850106"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 

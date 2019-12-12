@@ -1,18 +1,18 @@
 ---
 title: Services et schémas pris en charge pour les journaux de ressource Azure
-description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de diagnostic Azure.
+description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: 09d1a25b83f405b45bbefd39766c82565ea86925
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476661"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894077"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Services, schémas et catégories pris en charge pour les journaux de ressource Azure
 

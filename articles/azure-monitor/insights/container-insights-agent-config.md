@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: deab16f3b80ada12a7167e90922dc38f3012be91
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478699"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951579"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs
 
@@ -63,12 +63,6 @@ Procédez comme suit pour configurer et déployer votre fichier de configuration
     
     Quelques minutes peuvent être nécessaires pour que la modification de configuration soit effective. Ensuite, tous les pods omsagent du cluster redémarrent. Le redémarrage s’effectue de façon progressive pour tous les pods omsagent. Tous ne redémarrent pas en même temps. Lorsque les redémarrages sont terminés, un message similaire à celui-ci s’affiche avec les résultats : `configmap "container-azm-ms-agentconfig" created`.
 
-4. Créez un ConfigMap en exécutant la commande kubectl suivante : `kubectl apply -f <configmap_yaml_file.yaml>`.
-    
-    Exemple : `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    Quelques minutes peuvent être nécessaires pour que la modification de configuration soit effective. Ensuite, tous les pods omsagent du cluster redémarrent. Le redémarrage s’effectue de façon progressive pour tous les pods omsagent. Tous ne redémarrent pas en même temps. Lorsque les redémarrages sont terminés, un message similaire à celui-ci s’affiche avec les résultats : `configmap "container-azm-ms-agentconfig" created`.
-
 ## <a name="verify-configuration"></a>Vérifier la configuration 
 
 Pour vérifier que la configuration a été correctement appliquée, utilisez la commande suivante pour passer en revue les journaux à partir d’un pod d’agent : `kubectl logs omsagent-fdf58 -n=kube-system`. S’il existe des erreurs de configuration à partir de pods osmagent, la sortie affiche des erreurs similaires à ce qui suit :
@@ -88,7 +82,7 @@ Des erreurs liées à l’application des modifications de configuration sont é
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant les *informations* de gravité, lesquelles ne signalent aucune erreur. La propriété **Balises** contient plus d’informations concernant le pod et l’ID de conteneur sur lequel l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
+- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant les *informations* de gravité, lesquelles ne signalent aucune erreur. La propriété **Balises** contient plus d’informations sur le pod et l’ID de conteneur où l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
 
 Des erreurs empêchent omsagent d’analyser le fichier, ce qui provoque son redémarrage et l’utilisation de la configuration par défaut. Une fois que vous avez corrigé les erreurs dans ConfigMap, enregistrez le fichier yaml et appliquez la ConfigMaps mise à jour en exécutant la commande : `kubectl apply -f <configmap_yaml_file.yaml`.
 

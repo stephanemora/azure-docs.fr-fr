@@ -4,20 +4,19 @@ description: Découvrez comment utiliser l’activité de copie dans un pipeline
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 525599dcc262b8250e96d02707c0baa29d973196
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a885f183dcec49ac857777ae552e97060c656f4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679996"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930866"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copier des données de Zoho à l’aide d’Azure Data Factory (préversion)
 

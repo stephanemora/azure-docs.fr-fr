@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 09aaa998bf011561bd73ad87eda6a2e211ffaa72
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158947"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892632"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows
 
@@ -64,9 +64,9 @@ La cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershel
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement classique
 Vous pouvez utiliser l'applet de commande [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) pour activer une extension de diagnostics sur une machine virtuelle créée à l'aide du modèle de déploiement classique. L'exemple suivant indique comment créer une machine virtuelle à l'aide du modèle de déploiement classique avec l'extension de diagnostics activée.
 
-    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Pour activer l'extension de diagnostics sur une machine virtuelle existante créée avec le modèle de déploiement classique, utilisez d'abord l'applet de commande [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) pour obtenir la configuration de la machine virtuelle. Mettez ensuite à jour la configuration de la machine virtuelle afin d'inclure l'extension de diagnostics à l'aide de l'applet de commande [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Pour finir, appliquez la configuration mise à jour à la machine virtuelle à l'aide de [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).

@@ -4,17 +4,17 @@ description: Cet article décrit les paramètres Windows Update configurables po
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690839"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850412"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configurer les paramètres Windows Update pour une utilisation par Update Management
 

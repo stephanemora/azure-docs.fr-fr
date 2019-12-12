@@ -1,5 +1,5 @@
 ---
-title: Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver | Microsoft Docs
+title: 'SAP sur Azure : Guide de planification et d’implémentation'
 description: Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224704"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951749"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 

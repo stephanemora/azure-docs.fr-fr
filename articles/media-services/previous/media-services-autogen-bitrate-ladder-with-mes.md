@@ -1,6 +1,6 @@
 ---
 title: Utiliser Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission - Azure | Microsoft Docs
-description: Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission basée sur la résolution d’entrée et la vitesse de transmission. La résolution d’entrée et la vitesse de transmission ne seront jamais dépassées. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie restera à 720p maximum démarrera à des vitesses inférieures à 3 Mbits/s.
+description: Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission basée sur la résolution d’entrée et la vitesse de transmission.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543535"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896018"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utiliser Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission  
 

@@ -4,20 +4,19 @@ description: Découvrez comment copier des données d’un système de fichiers 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: a9770edd4e15263ed0ba10ea3dc99f704f078d38
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0d5cac8a9335c93e16667ce71d442c57548157a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680996"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929512"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -139,7 +138,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
 >[!NOTE]
->Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -251,7 +250,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 #### <a name="legacy-source-model"></a>Modèle source hérité
 
 >[!NOTE]
->Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -341,7 +340,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 #### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
 >[!NOTE]
->Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786841"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926450"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -99,7 +99,7 @@ AzCopy crée des fichiers journaux et de plan pour chaque travail. Vous pouvez u
 
 Les journaux d’activité contiennent l’état de la défaillance (`UPLOADFAILED`, `COPYFAILED`et `DOWNLOADFAILED`), le chemin complet et la raison de la défaillance.
 
-Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE$\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement si vous le souhaitez.
+Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement si vous le souhaitez.
 
 > [!IMPORTANT]
 > Lorsque vous soumettez requête au support Microsoft (ou que vous résolvez le problème impliquant un tiers), partagez la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.
@@ -151,7 +151,7 @@ Lorsque vous reprenez un travail, AzCopy examine le fichier de plan de travail. 
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Changer l’emplacement des fichiers journaux et de plan
 
-Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE$\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux. Vous pouvez changer cet emplacement.
+Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux. Vous pouvez changer cet emplacement.
 
 ### <a name="change-the-location-of-plan-files"></a>Changer l’emplacement des fichiers de plan
 

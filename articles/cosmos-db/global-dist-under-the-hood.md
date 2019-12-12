@@ -1,18 +1,18 @@
 ---
 title: Distribution mondiale avec Azure Cosmos DB - Sous le capot
 description: Cet article fournit des détails techniques sur la distribution mondiale d’Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615349"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872126"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 

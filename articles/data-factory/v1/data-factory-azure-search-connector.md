@@ -4,21 +4,20 @@ description: Découvrez comment envoyer des données à l’index Recherche cogn
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809172"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929976"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Transmettre des données vers un index de Recherche cognitive Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

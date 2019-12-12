@@ -2,19 +2,19 @@
 title: Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory, qui font partie d’Azure Automation.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 8dd69b1cf4ac8874175cff84d3c2b9fc5e323922
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374421"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849681"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 

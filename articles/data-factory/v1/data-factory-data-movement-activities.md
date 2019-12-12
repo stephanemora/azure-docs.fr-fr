@@ -4,21 +4,20 @@ description: 'Apprenez-en plus sur le déplacement des données dans les pipelin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f7771c55bfdc837921fb731b29e88c970b5d283
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682645"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931915"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

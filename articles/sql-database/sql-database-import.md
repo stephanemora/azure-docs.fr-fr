@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 4d6997475099420319c52abbbce34b2756e215ed
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8d147248245ca06c145c68ee8ca9cfd02015aa9c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687660"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929163"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Démarrage rapide : Importer un fichier BACPAC dans Azure SQL Database
 
@@ -43,19 +43,19 @@ La migration d’une base de données vers une [instance managée](sql-database-
 
 1. Pour importer à partir d’un fichier BACPAC dans une base de données unique à l’aide du Portail Microsoft Azure, ouvrez la page appropriée du serveur de base de données, puis, dans la barre d’outils, sélectionnez **Importer la base de données**.  
 
-   ![Importation1 de base de données](./media/sql-database-import/import1.png)
+   ![Importation1 de base de données](./media/sql-database-import/sql-server-import-database.png)
 
 1. Sélectionnez le compte de stockage et le conteneur pour le fichier BACPAC, puis sélectionnez le fichier BACPAC à partir duquel importer.
 
 1. Spécifiez la taille de la nouvelle base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination. Pour obtenir la liste des valeurs possibles pour Azure SQL Database, consultez [Créer une base de données](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
-   ![Importation2 de base de données](./media/sql-database-import/import2.png)
+   ![Importation2 de base de données](./media/sql-database-import/sql-server-import-database-settings.png)
 
 1. Cliquez sur **OK**.
 
 1. Pour superviser la progression d’une importation, ouvrez la page du serveur de la base de données et, sous **Paramètres**, sélectionnez **Historique d’importation/exportation**. Une fois achevée, l’importation présente l’état **Terminé**.
 
-   ![Statut d’importation de la base de données](./media/sql-database-import/import-status.png)
+   ![Statut d’importation de la base de données](./media/sql-database-import/sql-server-import-database-history.png)
 
 1. Pour vérifier que la base de données est active sur le serveur de base de données, sélectionnez **Bases de données SQL** et assurez-vous que la nouvelle base de données est **En ligne**.
 
