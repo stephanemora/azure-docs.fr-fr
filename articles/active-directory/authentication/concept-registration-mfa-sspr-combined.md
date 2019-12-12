@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381959"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848627"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 
@@ -52,10 +52,10 @@ L’inscription combinée prend en charge les méthodes et les actions d’authe
 | Microsoft Authenticator | Oui (jusqu'à 5) | Non | OUI |
 | Autre application d’authentification | Oui (jusqu'à 5) | Non | OUI |
 | Jeton matériel | Non | Non | OUI |
-| Téléphone | OUI | OUI | OUI |
-| Autre téléphone | OUI | OUI | OUI |
+| Téléphone | OUI | Oui | OUI |
+| Autre téléphone | OUI | Oui | OUI |
 | Téléphone de bureau | Non | Non | Non |
-| Email | OUI | OUI | OUI |
+| Email | OUI | Oui | OUI |
 | Questions de sécurité | OUI | Non | OUI |
 | Mots de passe d'application | OUI | Non | OUI |
 

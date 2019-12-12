@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ea2bec541c13ec1615113cef184eb5ad502b158c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: a1637ac82c33c2a541bcec9f2848a248c29d56ca
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678281"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872670"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -64,7 +64,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ## <a name="automate-alerts"></a>Automatiser les alertes
 
-Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert).
+Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés | Microsoft Docs
-description: Transmettez votre contenu chiffré à l'aide de clés de chiffrement AES 128 bits en utilisant Microsoft Azure Media Services. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. Cette rubrique montre comment chiffrer dynamiquement avec AES-128 et utiliser le service de distribution des clés.
+description: Cette rubrique montre comment chiffrer dynamiquement avec AES-128 et utiliser le service de distribution des clés.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014972"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895831"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 > [!div class="op_single_selector"]

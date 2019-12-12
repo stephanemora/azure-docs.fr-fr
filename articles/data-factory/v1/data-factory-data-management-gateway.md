@@ -4,21 +4,20 @@ description: Mettez en place une passerelle de données pour déplacer vos donn�
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682714"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932005"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]

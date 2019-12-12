@@ -2,10 +2,8 @@
 title: Bien démarrer avec Azure AD Xamarin | Microsoft Docs
 description: Créez des applications Xamarin qui s’intègrent avec Azure AD pour la connexion et appellent des API protégées par Azure AD en utilisant OAuth.
 services: active-directory
-documentationcenter: xamarin
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
 ms.subservice: develop
@@ -18,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93816168a95fa10639da91d72a070660157a96f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6197a27b9a94de0f9a10407215e5755689cd0b56
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149542"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920818"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
 

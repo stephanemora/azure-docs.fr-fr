@@ -2,27 +2,24 @@
 title: API Graph Azure Active Directory | Microsoft Docs
 description: Vue d’ensemble et guide de démarrage rapide de l’API Azure AD Graph qui permet un accès à Azure AD via les points de terminaison API REST, par l’intermédiaire d’un programme.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c74c02d8a82c27c71ce01cd122082010487b453e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533030"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845040"
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph Azure Active Directory
 

@@ -4,17 +4,17 @@ description: Stockés de manière sécurisée dans Azure Automation, les certifi
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da116dd8c84e4aa96cc3254218f1ab5d14a8bd6b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a66f73e028594cf90f1fa1765910a3df3adbad1a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478191"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849477"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ressources de certificats dans Azure Automation
 

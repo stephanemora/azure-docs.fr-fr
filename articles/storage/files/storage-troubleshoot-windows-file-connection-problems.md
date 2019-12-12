@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560126"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927849"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -97,8 +97,7 @@ Si la connexion a réussi, vous devez voir la sortie suivante :
 Azure File Sync peut transformer votre serveur Windows local en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme une solution de contournement pour accéder à Azure Files à partir de clients dont le port 445 est bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Solution 2 - Utiliser un VPN
-En configurant un VPN pour votre compte de stockage spécifique, le trafic passera par un tunnel sécurisé plutôt que par Internet. Suivez les [instructions pour configurer un VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) pour accéder à Azure Files depuis Windows.
+En configurant un VPN pour votre compte de stockage spécifique, le trafic passera par un tunnel sécurisé plutôt que par Internet. Suivez les [instructions pour configurer un VPN](storage-files-configure-p2s-vpn-windows.md) pour accéder à Azure Files depuis Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solution 3 - Débloquer le port 445 avec l’aide de votre ISP/administrateur informatique
 Contactez votre service informatique ou ISP pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).

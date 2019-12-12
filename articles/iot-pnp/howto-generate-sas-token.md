@@ -1,19 +1,19 @@
 ---
 title: Générer un jeton de sécurité pour accéder au référentiel IoT Plug-and-Play (préversion) | Microsoft Docs
 description: Générez un jeton de signature d’accès partagé à utiliser quand vous accédez à un référentiel de modèles IoT Plug-and-Play (préversion) par programme.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 08/06/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e5d6e7087a7e3d5f4a001e16c5cfa19a6df6a68e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976024"
 ---
 # <a name="generate-sas-token"></a>Générer un jeton SAS
 

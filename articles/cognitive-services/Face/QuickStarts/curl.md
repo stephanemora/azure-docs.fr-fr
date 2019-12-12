@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: da929744922f8653bc293b68dbbadb9347a447e9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 59ffaa68cb2ee537b4eb688746f70eafb492d3a2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859140"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977843"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de cURL
 
@@ -160,4 +160,4 @@ Après avoir apporté vos changements, ouvrez une invite de commandes et entrez 
 Dans ce guide de démarrage rapide, vous avez écrit une commande cURL qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
-> [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

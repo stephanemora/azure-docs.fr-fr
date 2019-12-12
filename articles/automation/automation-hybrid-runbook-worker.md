@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur l’installation et l’ut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743797"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850259"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -34,7 +34,7 @@ Le processus d’installation d’un Runbook Worker hybride diffère selon le sy
 
 Il existe deux méthodes pour installer et configurer un Runbook Worker hybride Windows. La méthode recommandée utilise un runbook Automation afin d’automatiser totalement le processus de configuration d’un ordinateur Windows. La deuxième méthode consiste à suivre la procédure pas à pas pour installer et configurer le rôle manuellement. Pour une machine Linux, vous exécutez un script Python pour installer l’agent.
 
-|OS  |Types de déploiement  |
+|Système d''exploitation  |Types de déploiement  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuel](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |

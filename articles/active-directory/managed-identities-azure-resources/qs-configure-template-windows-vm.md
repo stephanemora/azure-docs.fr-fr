@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b12cd339aee0e9ae0e1cd6d31e523b9b1457c57
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547195"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971058"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
 
@@ -117,12 +117,12 @@ Pour affecter un rôle à l’identité attribuée par le système à votre mach
 
     ```JSON
     "builtInRoleType": {
-          "type": "string",
-          "defaultValue": "Reader"
-        },
-        "rbacGuid": {
-          "type": "string"
-        }
+        "type": "string",
+        "defaultValue": "Reader"
+    },
+    "rbacGuid": {
+        "type": "string"
+    }
     ```
 
     Sous la section `variables`, ajoutez ce qui suit :
@@ -136,16 +136,16 @@ Pour affecter un rôle à l’identité attribuée par le système à votre mach
     ```JSON
     {
         "apiVersion": "2017-09-01",
-         "type": "Microsoft.Authorization/roleAssignments",
-         "name": "[parameters('rbacGuid')]",
-         "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-                "scope": "[resourceGroup().id]"
-          },
-          "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-            ]
+        "type": "Microsoft.Authorization/roleAssignments",
+        "name": "[parameters('rbacGuid')]",
+        "properties": {
+            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+            "scope": "[resourceGroup().id]"
+        },
+         "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ]
     }
     ```
 
@@ -167,17 +167,17 @@ Pour supprimer l’identité managée affectée par le système d’une machine 
    
 L’exemple suivant montre comment supprimer une identité managée affectée par le système sur une machine virtuelle sans identité affectée par l’utilisateur :
 
-```JSON
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[parameters('vmName')]",
-    "location": "[resourceGroup().location]",
-    "identity": { 
-        "type": "None"
-        },
-}
-```
+ ```JSON
+ {
+     "apiVersion": "2018-06-01",
+     "type": "Microsoft.Compute/virtualMachines",
+     "name": "[parameters('vmName')]",
+     "location": "[resourceGroup().location]",
+     "identity": { 
+         "type": "None"
+     }
+ }
+ ```
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
@@ -196,26 +196,26 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    Si votre `apiVersion` est `2018-06-01`, vos identités managées affectées par l’utilisateur sont stockées au format de dictionnaire `userAssignedIdentities`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
 
-   ```json
-   {
-       "apiVersion": "2018-06-01",
-       "type": "Microsoft.Compute/virtualMachines",
-       "name": "[variables('vmName')]",
-       "location": "[resourceGroup().location]",
-       "identity": {
-           "type": "userAssigned",
-           "userAssignedIdentities": {
-               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
-           }
+   ```JSON
+    {
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[resourceGroup().location]",
+        "identity": {
+            "type": "userAssigned",
+            "userAssignedIdentities": {
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+            }
         }
-   }
+    }
    ```
    
    **API Microsoft.Compute/virtualMachines version 2017-12-01**
     
    Si votre `apiVersion` est `2017-12-01`, vos identités managées affectées par l’utilisateur sont stockées dans le tableau `identityIds`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
     
-   ```json
+   ```JSON
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -265,10 +265,10 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
         }
-       }
-    ]
+    ]   
    ```
    **API Microsoft.Compute/virtualMachines version 2017-12-01**
    
@@ -304,8 +304,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
-        }
        }
     ]
    ```
@@ -347,4 +347,3 @@ Pour supprimer une identité affectée par l’utilisateur d’une machine virtu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des identités managées pour ressources Azure](overview.md).
-

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278166"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849142"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -66,13 +66,13 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-   ![Approvisionnement Slack](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Approvisionnement Slack](./media/slack-provisioning-tutorial/slack1.png)
 
 5. Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
 
 6. Dans la nouvelle fenêtre, connectez-vous à Slack à l’aide de votre compte d’administrateur d’équipe. Dans la boîte de dialogue d’autorisation qui s’affiche, sélectionnez l’équipe Slack pour laquelle vous souhaitez activer l’approvisionnement, puis sélectionnez **Autoriser**. Une fois cela terminé, revenez au portail Azure pour terminer la configuration de l’approvisionnement.
 
-    ![Boîte de dialogue d’autorisation](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Boîte de dialogue d’autorisation](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Slack. Si la connexion échoue, vérifiez que votre compte Slack dispose des autorisations d’administrateur d’équipe et recommencez l’étape « Autoriser ».
 

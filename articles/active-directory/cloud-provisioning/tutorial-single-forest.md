@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814098"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868726"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Didacticiel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -34,16 +34,16 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou version ultérieure, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime 
+1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime 
 
 2. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
-   - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* vers Azure AD sur les ports suivants :
+   - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* sur Azure AD sur les ports suivants :
 
      | Numéro de port | Utilisation |
      | --- | --- |
      | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
-     | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
+     | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou proxy vous permet de spécifier des suffixes approuvés, ajoutez des connexions à **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
@@ -64,7 +64,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
    ![Écran d’accueil](media/how-to-install/install1.png)
 
 7. Une fois cette opération terminée, l’Assistant de configuration démarre.  Connectez-vous avec votre compte d’administrateur général Azure AD.  Notez que si la sécurité renforcée d’Internet Explorer est activée, elle bloque la connexion.  Si c’est le cas, fermez l’installation, désactivez la sécurité renforcée d’Internet Explorer dans le Gestionnaire de serveur, puis cliquez sur l’**Assistant Agent de provisionnement AAD Connect** pour redémarrer l’installation.
-8. Dans l’écran **Connexion à Active Directory**, cliquez sur **Ajout d’un annuaire**, puis connectez-vous avec votre compte d’administrateur de domaine Active Directory.  REMARQUE :  Le compte d’administrateur de domaine ne doit pas avoir d’exigences de changement de mot de passe. En cas d’expiration ou de changement du mot de passe, vous devez reconfigurer l’agent avec les nouvelles informations d’identification. Cette opération ajoute votre annuaire local.  Cliquez sur **Suivant**.
+8. Dans l’écran **Connexion à Active Directory**, cliquez sur **Ajout d’un annuaire**, puis connectez-vous avec votre compte d’administrateur de domaine Active Directory.  REMARQUE :  Le compte d’administrateur de domaine ne doit pas vous demander de changer de mot de passe. En cas d’expiration ou de changement du mot de passe, vous devez reconfigurer l’agent avec les nouvelles informations d’identification. Cette opération ajoute votre annuaire local.  Cliquez sur **Suivant**.
 
    ![Écran d’accueil](media/how-to-install/install3.png)
 
@@ -111,7 +111,7 @@ Pour vérifier que l’agent est en cours d’exécution, effectuez les étapes 
 ![](media/how-to-configure/manage1.png).
 5.  Cliquez sur **Nouvelle configuration**
 ![](media/tutorial-single-forest/configure1.png).
-7.  Dans l’écran de configuration, entrez une adresse **E-mail de notification**, déplacez le sélecteur sur **Activer** et cliquez sur **Enregistrer**.
+7.  Dans l’écran de configuration, entrez une adresse **e-mail de notification**, déplacez le sélecteur sur **Activer** et cliquez sur **Enregistrer**.
 ![](media/tutorial-single-forest/configure2.png)
 1.  L’état de la configuration doit maintenant être **Sain**.
 ![](media/how-to-configure/manage4.png)

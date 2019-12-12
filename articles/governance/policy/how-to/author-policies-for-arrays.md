@@ -2,13 +2,13 @@
 title: Créer des stratégies pour les propriétés de tableau sur des ressources
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 11/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.topic: how-to
+ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555165"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873095"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 

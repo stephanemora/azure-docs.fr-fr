@@ -4,21 +4,20 @@ description: Découvrez comment déplacer des données depuis et vers le stockag
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 83f3a34a9b902b3a0e3b3ded34e36c8cbf50ed89
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683075"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918727"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

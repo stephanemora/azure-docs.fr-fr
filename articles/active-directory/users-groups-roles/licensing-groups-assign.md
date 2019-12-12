@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 497efda857dcd7de3079d702be00a094d221b779
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034820"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900833"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
@@ -41,7 +41,7 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 
 1. Sous **Tous les produits**, sélectionnez Office 365 Enterprise E5 et Enterprise Mobility + Security E3 en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Affecter** en haut de la page.
 
-   ![Sélectionnez les produits pour attribuer les licences](./media/licensing-groups-assign/all-products-assign.png)
+   ![Sélectionnez les produits pour attribuer les licences](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. Dans la page **Affecter une licence**, sélectionnez **Utilisateurs et groupes** pour ouvrir la liste des utilisateurs et groupes.
 
@@ -89,7 +89,7 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 
 1. Sélectionnez un utilisateur pour ouvrir la page **Licences** de l’utilisateur. Cette page montre toutes les licences actuellement affectées à l’utilisateur. Dans cet exemple, l’utilisateur a hérité de la licence Office 365 Enterprise E1 du groupe **Kiosk users**. Cette licence est en conflit avec la licence E3 que le système a tenté d’appliquer à partir du groupe **HR Department**. Par conséquent, aucune des licences de ce groupe n’a été assignée à l’utilisateur.
 
-   ![Voir tous les conflits de licence pour un utilisateur](./media/licensing-groups-assign/user-license-view.png)
+   ![Voir tous les conflits de licence pour un utilisateur](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. Pour résoudre ce conflit, nous supprimons l’utilisateur du groupe **Kiosk users**. Lorsqu’Azure AD a traité la modification, les licences **HR Department** sont affectées correctement.
 

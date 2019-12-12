@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0a9e9a4ee42d36e0ae6da3e92e12ae4144f7b670
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cb25f6be358ae8aed18bf392ad933eab87332dcb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034463"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930612"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Démarrage rapide : Rechercher des images à l’aide du SDK Recherche d’images Bing pour Java
 
@@ -25,7 +25,6 @@ Utilisez ce guide de démarrage rapide pour effectuer votre première recherche 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) avec une gestion des erreurs supplémentaire et des annotations.
 
 ## <a name="prerequisites"></a>Prérequis
-Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 La dernière version du [JDK (Java Development Kit)](https://aka.ms/azure-jdks)
 

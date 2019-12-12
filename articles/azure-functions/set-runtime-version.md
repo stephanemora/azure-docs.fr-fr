@@ -3,12 +3,12 @@ title: Comment cibler des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230318"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942271"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -29,9 +29,9 @@ Le tableau suivant précise les valeurs de `FUNCTIONS_EXTENSION_VERSION` pour ch
 
 | Version principale | Valeur `FUNCTIONS_EXTENSION_VERSION` |
 | ------------- | ----------------------------------- |
-| 3.x (préversion) | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 Un changement de version du runtime provoque un redémarrage de l’application de fonction.
 

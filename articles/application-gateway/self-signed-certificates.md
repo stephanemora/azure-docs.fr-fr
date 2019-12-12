@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075089"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975055"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
 
@@ -106,7 +106,7 @@ La requête de signature de certificat est une clé publique qui est donnée à 
 1. Exécutez la commande suivante pour créer le certificat :
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Vérifier le certificat que vous venez de créer
 

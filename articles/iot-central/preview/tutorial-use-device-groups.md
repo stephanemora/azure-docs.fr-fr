@@ -3,17 +3,17 @@ title: Utiliser des groupes d’appareils dans votre application Azure IoT Centr
 description: En tant qu’opérateur, apprenez à utiliser des groupes d’appareils pour analyser la télémétrie des appareils de votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894353"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976211"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>Didacticiel : Utiliser des groupes d’appareils pour analyser les données de télémétrie des appareils (fonctionnalités d’évaluation)
 
@@ -35,7 +35,7 @@ Avant de commencer, vous devez suivre les démarrages rapides [Créer une applic
 
 ## <a name="create-simulated-devices"></a>Créer des appareils simulés
 
-Avant de créer un groupe d’appareils, ajoutez au moins cinq appareils simulés à partir du modèle d’appareil **Capteur d’environnement** à utiliser dans ce didacticiel :
+Avant de créer un groupe d’appareils, ajoutez au moins cinq appareils simulés à partir du modèle de d’appareil **Environment Sensor** (Capteur environnemental) à utiliser dans ce didacticiel :
 
 ![Cinq appareils capteurs environnementaux simulés](./media/tutorial-use-device-groups/simulated-devices.png)
 

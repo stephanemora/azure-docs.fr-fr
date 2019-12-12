@@ -4,12 +4,12 @@ description: Découvrez comment la Sauvegarde Azure vous permet d’envoyer des 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173245"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996321"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 
@@ -218,4 +218,4 @@ Lors de la sauvegarde planifiée suivante, Sauvegarde Azure effectue une sauvega
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
-* Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) de la sauvegarde Azure pour toute question concernant le flux de travail.
+

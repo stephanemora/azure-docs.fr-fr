@@ -4,15 +4,15 @@ description: Surveillance des applications .NET Core/.NET Framework non HTTP av
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/15/2019
-ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131891"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893296"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
@@ -35,7 +35,7 @@ Clé d’instrumentation Application Insights valide. Cette clé est requise pou
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
     </ItemGroup>
 ```
 
@@ -136,6 +136,7 @@ En règle générale, `APPINSIGHTS_INSTRUMENTATIONKEY` spécifie la clé d’ins
 > Une clé d’instrumentation spécifiée dans le code prévaut sur la variable d’environnement `APPINSIGHTS_INSTRUMENTATIONKEY`, qui prévaut sur les autres options.
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>Tâches ASP.NET Core en arrière-plan avec services hébergés
+
 [Ce](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) document décrit la façon de créer des tâches en arrière-plan dans une application ASP.NET Core 2.1/2.2.
 
 Un exemple complet est disponible [ici](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)

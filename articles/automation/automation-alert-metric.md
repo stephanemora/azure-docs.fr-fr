@@ -3,17 +3,17 @@ title: Surveiller les runbooks Azure Automation avec des alertes de métriques
 description: Cet article vous guide tout au long de la procédure de surveillance des runbooks Azure Automation à l’aide de métriques.
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 142fb84624c2b0d3d92868aae5794792ed90b577
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: bea99820bee107b8329dd3c36ac3ceb84a042b86
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478011"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850973"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
 

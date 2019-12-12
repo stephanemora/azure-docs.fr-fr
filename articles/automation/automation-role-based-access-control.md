@@ -5,17 +5,17 @@ keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477733"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850786"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
@@ -216,12 +216,12 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 |**Action**  |**Permission**  |**Étendue minimale**  |
 |---------|---------|---------|
-|Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Abonnement          |
-|Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
-|Créer le nouvel espace de travail par défaut      | Microsoft.OperationalInsights/workspaces/write         | Groupe de ressources         |
-|Créer un compte      |  Microsoft.Automation/automationAccounts/write        |Groupe de ressources         |
+|Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Subscription          |
+|Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Créer le nouvel espace de travail par défaut      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|Créer un compte      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Lier l’espace de travail et le compte      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Espace de travail</br>Compte Automation
-|Créer une solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Groupe de ressources          |
+|Créer une solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |Créer une extension MMA      | Microsoft.Compute/virtualMachines/write         | Machine virtuelle         |
 |Créer une recherche enregistrée      | Microsoft.OperationalInsights/workspaces/write          | Espace de travail         |
 |Créer une configuration d’étendue      | Microsoft.OperationalInsights/workspaces/write          | Espace de travail         |
@@ -231,8 +231,8 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Vérification de l’état d’intégration - Lire la solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Vérification de l’état d’intégration - Lire la machine virtuelle      | Microsoft.Compute/virtualMachines/read         | Machine virtuelle         |
 |Vérification de l’état d’intégration - Lire le compte      | Microsoft.Automation/automationAccounts/read  |  Compte Automation   |
-| Vérification de l’espace de travail d’intégration de la machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
-| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
+| Vérification de l’espace de travail d’intégration de la machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Subscription|
 
 <sup>1</sup> Cette autorisation est nécessaire pour effectuer une intégration via le portail de la machine virtuelle.
 
@@ -240,9 +240,9 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 |**Action**  |**Permission** |**Étendue minimale**  |
 |---------|---------|---------|
-|Créer un déploiement     | Microsoft.Resources/deployments/*        | Abonnement         |
-|Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
-|Panneau AutomationOnboarding - Créer un espace de travail     |Microsoft.OperationalInsights/workspaces/write           | Groupe de ressources        |
+|Créer un déploiement     | Microsoft.Resources/deployments/*        | Subscription         |
+|Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Panneau AutomationOnboarding - Créer un espace de travail     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Panneau AutomationOnboarding - Lire l’espace de travail lié     | Microsoft.Automation/automationAccounts/read        | Compte Automation       |
 |Panneau AutomationOnboarding - Lire la solution     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solution        |
 |Panneau AutomationOnboarding - Lire l’espace de travail     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Espace de travail        |
@@ -252,7 +252,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Créer/modifier la configuration d’étendue     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Subscription|
 |**Étape 2 : Intégrer plusieurs machines virtuelles**     |         |         |
 |Panneau VMOnboarding - Créer l’extension MMA     | Microsoft.Compute/virtualMachines/write           | Machine virtuelle        |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
@@ -267,7 +267,7 @@ La gestion des mises à jour s’étend à plusieurs services pour fournir son s
 |Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
 |Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |
 |Espace de travail Log Analytics     | Contributeur Log Analytics| Espace de travail Log Analytics        |
-|Espace de travail Log Analytics |Lecteur Log Analytics| Abonnement|
+|Espace de travail Log Analytics |Lecteur Log Analytics| Subscription|
 |Solution     |Contributeur Log Analytics         | Solution|
 |Machine virtuelle     | Contributeur de machine virtuelle        | Machine virtuelle        |
 

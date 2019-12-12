@@ -4,17 +4,17 @@ description: Cet article montre comment envoyer des données d’état de travau
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186784"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849732"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers des journaux Azure Monitor
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821259"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973524"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Choisir entre les modèles d’achat vCore et DTU
 
@@ -129,7 +129,7 @@ Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server o
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Charges de travail tirant avantage d’un pool élastique de ressources
 
-Les pools conviennent parfaitement pour des bases de données avec une utilisation moyenne des ressources faible et des pics d’utilisation relativement peu fréquents. SQL Database évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur SQL Database existant et recommande la configuration de pool appropriée dans le portail Azure. Pour plus d’informations, voir [Quand devez-vous envisager d’utiliser un pool élastique SQL Database ?](sql-database-elastic-pool.md).
+Les pools conviennent parfaitement pour des bases de données avec une utilisation moyenne des ressources faible et des pics d’utilisation relativement peu fréquents. Pour plus d’informations, voir [Quand devez-vous envisager d’utiliser un pool élastique SQL Database ?](sql-database-elastic-pool.md).
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 

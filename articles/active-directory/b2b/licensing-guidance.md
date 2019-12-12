@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5968536d0bd0fbe2496fd9bf5fca86c7a1c4053d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 28d02160163da4081ad8adbe233b27fee970a0df
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162267"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868845"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guide d’attribution de licences pour Azure Active Directory B2B Collaboration
 
@@ -25,7 +25,7 @@ Avec la collaboration business-to-business (B2B) Azure Active Directory (Azure A
 > [!NOTE]
 > Pour plus d’informations sur les tarifs d’Azure AD et les fonctionnalités de collaboration B2B, consultez [Tarifs d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-L’attribution de licences aux utilisateurs invités B2B est automatiquement calculée et signalée d’après un ratio de 1 pour 5. Actuellement, il n’est pas possible d’attribuer directement des licences d’utilisateur invité B2B à des utilisateurs invités.
+L’attribution de licences aux utilisateurs invités B2B est automatiquement calculée et signalée d’après un ratio de 1 pour 5. 
 
 De plus, les utilisateurs invités peuvent utiliser des fonctionnalités Azure AD gratuites sans avoir besoin de licences supplémentaires. Les utilisateurs invités ont accès à des fonctionnalités Azure AD gratuites même si vous n’avez acheté aucune licence Azure AD. 
 

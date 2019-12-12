@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555401"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974646"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolation des groupes de charges de travail SQL Data Warehouse (préversion)
 
@@ -24,13 +24,13 @@ Cet article explique comment les groupes de charge de travail peuvent être util
 
 ## <a name="workload-groups"></a>Groupes de charges de travail
 
-Les groupes de charges de travail sont des conteneurs pour un ensemble de requêtes et constituent la base de la configuration de la gestion des charges de travail, y compris l’isolation de la charge de travail, sur un système.  Les groupes de charge de travail sont créés à l’aide de la syntaxe [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Une configuration de gestion de charge de travail simple peut gérer les charges de données et les requêtes utilisateur.  Par exemple, un groupe de charge de travail nommé `wgDataLoads` définit des aspects de charge de travail pour les données chargées dans le système. En outre, un groupe de charge de travail nommé `wgUserQueries` définit des aspects de charge de travail pour les utilisateurs qui exécutent des requêtes afin de lire des données à partir du système.
+Les groupes de charges de travail sont des conteneurs pour un ensemble de requêtes et constituent la base de la configuration de la gestion des charges de travail, y compris l’isolation de la charge de travail, sur un système.  Les groupes de charge de travail sont créés à l’aide de la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Une configuration de gestion de charge de travail simple peut gérer les charges de données et les requêtes utilisateur.  Par exemple, un groupe de charge de travail nommé `wgDataLoads` définit des aspects de charge de travail pour les données chargées dans le système. En outre, un groupe de charge de travail nommé `wgUserQueries` définit des aspects de charge de travail pour les utilisateurs qui exécutent des requêtes afin de lire des données à partir du système.
 
 Les sections suivantes décrivent comment les groupes de charges de travail offrent la possibilité de définir l’isolation, l’autonomie, la définition des ressources de la requête et d’adhérer aux règles d’exécution.
 
 ## <a name="workload-isolation"></a>Isolation des charges de travail
 
-L’isolation de la charge de travail signifie que les ressources sont réservées, exclusivement, pour un groupe de charge de travail.  L’isolation des charges de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur supérieure à zéro dans la syntaxe [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Pour les charges de travail d’exécution continues qui doivent adhérer à des contrats de niveau de service étroits, l’isolation garantit que les ressources sont toujours disponibles pour le groupe de charge de travail. 
+L’isolation de la charge de travail signifie que les ressources sont réservées, exclusivement, pour un groupe de charge de travail.  L’isolation des charges de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur supérieure à zéro dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Pour les charges de travail d’exécution continues qui doivent adhérer à des contrats de niveau de service étroits, l’isolation garantit que les ressources sont toujours disponibles pour le groupe de charge de travail. 
 
 La configuration de l’isolation de la charge de travail définit implicitement un niveau garanti de concurrence.  Avec un MIN_PERCENTAGE_RESOURCE défini sur 30 % et REQUEST_MIN_RESOURCE_GRANT_PERCENT défini sur 2 %, un niveau de concurrence de 15 est garanti pour le groupe de charge de travail.  Considérez la méthode ci-dessous pour déterminer la concurrence garantie :
 
@@ -50,7 +50,7 @@ Les utilisateurs doivent éviter une solution de gestion de la charge de travail
 
 ## <a name="workload-containment"></a>Autonomie de la charge de travail
 
-L’autonomie de la charge de travail fait référence à la limitation de la quantité de ressources qu’un groupe de charge de travail peut consommer.  L’isolation de la charge de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur inférieure à 100 dans la syntaxe [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Considérez le scénario dans lequel les utilisateurs ont besoin d’un accès en lecture au système pour pouvoir exécuter une analyse de scénarios via des requêtes ad hoc.  Ces types de requêtes peuvent avoir un impact négatif sur les autres charges de travail qui s’exécutent sur le système.  La configuration de l’autonomie permet de limiter la quantité de ressources.
+L’autonomie de la charge de travail fait référence à la limitation de la quantité de ressources qu’un groupe de charge de travail peut consommer.  L’isolation de la charge de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur inférieure à 100 dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Considérez le scénario dans lequel les utilisateurs ont besoin d’un accès en lecture au système pour pouvoir exécuter une analyse de scénarios via des requêtes ad hoc.  Ces types de requêtes peuvent avoir un impact négatif sur les autres charges de travail qui s’exécutent sur le système.  La configuration de l’autonomie permet de limiter la quantité de ressources.
 
 La configuration de l’autonomie de la charge de travail définit implicitement un niveau garanti de concurrence.  Avec un CAP_PERCENTAGE_RESOURCE défini sur 60 % et un REQUEST_MIN_RESOURCE_GRANT_PERCENT défini sur 1 %, un niveau jusqu’à 60 concurrences est autorisé pour le groupe de charge de travail.  Considérez la méthode incluse ci-dessous pour déterminer la concurrence maximale :
 
@@ -61,7 +61,7 @@ La configuration de l’autonomie de la charge de travail définit implicitement
 
 ## <a name="resources-per-request-definition"></a>Ressources par définition de requête
 
-Les groupes de charges de travail fournissent un mécanisme permettant de définir le nombre minimal et maximal de ressources qui sont allouées par requête avec les paramètres REQUEST_MIN_RESOURCE_GRANT_PERCENT et REQUEST_MAX_RESOURCE_GRANT_PERCENT dans la syntaxe [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Dans ce cas, les ressources sont l’UC et la mémoire.  La configuration de ces valeurs détermine la quantité de ressources et le niveau de concurrence pouvant être atteint sur le système.
+Les groupes de charges de travail fournissent un mécanisme permettant de définir le nombre minimal et maximal de ressources qui sont allouées par requête avec les paramètres REQUEST_MIN_RESOURCE_GRANT_PERCENT et REQUEST_MAX_RESOURCE_GRANT_PERCENT dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Dans ce cas, les ressources sont l’UC et la mémoire.  La configuration de ces valeurs détermine la quantité de ressources et le niveau de concurrence pouvant être atteint sur le système.
 
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT est un paramètre facultatif qui a comme valeur par défaut la même valeur que celle spécifiée pour REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -75,7 +75,7 @@ La configuration de REQUEST_MAX_RESOURCE_GRANT_PERCENT sur une valeur supérieur
 
 ## <a name="execution-rules"></a>Délai d’exécution
 
-Sur les systèmes de création de rapports ad hoc, les clients peuvent exécuter accidentellement des pertes de contrôle de requêtes qui ont un impact sérieux sur la productivité des autres.  Les administrateurs système sont obligés de perdre du temps en éliminant des pertes de contrôle de requêtes pour libérer des ressources système.  Les groupes de charge de travail permettent de configurer une règle de délai d’expiration d’exécution de requête pour annuler les requêtes qui ont dépassé la valeur spécifiée.  La règle est configurée en définissant le paramètre `QUERY_EXECUTION_TIMEOUT_SEC` dans la syntaxe [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).
+Sur les systèmes de création de rapports ad hoc, les clients peuvent exécuter accidentellement des pertes de contrôle de requêtes qui ont un impact sérieux sur la productivité des autres.  Les administrateurs système sont obligés de perdre du temps en éliminant des pertes de contrôle de requêtes pour libérer des ressources système.  Les groupes de charge de travail permettent de configurer une règle de délai d’expiration d’exécution de requête pour annuler les requêtes qui ont dépassé la valeur spécifiée.  La règle est configurée en définissant le paramètre `QUERY_EXECUTION_TIMEOUT_SEC` dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).
 
 ## <a name="shared-pool-resources"></a>Ressources de pool partagé
 
@@ -88,5 +88,5 @@ L’accès aux ressources du pool partagé est alloué selon l’[importance](sq
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapîde : configurer l’isolation de la charge de travail](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convertir les classes de ressources en groupes de charges de travail](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

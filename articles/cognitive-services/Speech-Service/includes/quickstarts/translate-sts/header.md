@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
-ms.openlocfilehash: 805193c08e57ddc18dfca0a78c6b58cf895baec1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c5f0a0fe032d18cd4f01aebe9a5c736d6d511a74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817381"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980822"
 ---
 Dans ce guide de démarrage rapide, vous allez utiliser le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour traduire de manière interactive de la parole d’une langue dans une autre. Une fois les quelques conditions préalables satisfaites, la traduction de parole en parole ne nécessite que six étapes :
 > [!div class="checklist"]

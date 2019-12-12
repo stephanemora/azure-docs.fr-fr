@@ -4,12 +4,12 @@ description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173300"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997358"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 
@@ -206,4 +206,4 @@ Une fois la sauvegarde initiale terminée, vous pouvez supprimer sans risque les
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
-* Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) de la sauvegarde Azure pour toute question concernant le flux de travail.
+

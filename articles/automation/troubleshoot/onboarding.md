@@ -2,18 +2,18 @@
 title: Résolution des erreurs d’intégration des solutions Update Management, Change Tracking et Inventory
 description: Découvrez comment résoudre les erreurs d’intégration des solutions Update Management, Change Tracking et Inventory.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516399"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849307"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -27,11 +27,11 @@ Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution tel
 
 Un nœud est inscrit sur Azure Automation, puis le nom d’ordinateur du système d’exploitation est modifié.  Les rapports du nœud continuent à s’afficher avec le nom d’origine.
 
-#### <a name="cause"></a>Cause
+#### <a name="cause"></a>Cause :
 
 La modification du nom d’un nœud inscrit n’a pas pour effet de modifier son nom dans Azure Automation.
 
-#### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution :
 
 Annulez l’inscription du nœud dans le service State Configuration d’Azure Automation, puis réinscrivez-le.  Les rapports publiés sur le service avant ce délai ne seront plus disponibles.
 

@@ -3,12 +3,12 @@ title: Connecter votre fonction Java à Stockage Azure
 description: Découvrez comment connecter une fonction Java déclenchée par HTTP à Stockage Azure à l’aide d’une liaison de sortie de stockage de file d’attente.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231205"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926901"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connecter votre fonction Java à Stockage Azure
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Comme vous avez activé des bundles d’extension dans le fichier host.json, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
+> Comme vous avez activé des bundles d’extension dans le fichier host.json, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
 
 Comme précédemment, déclenchez la fonction à partir de la ligne de commande en utilisant cURL dans une nouvelle fenêtre de terminal :
 

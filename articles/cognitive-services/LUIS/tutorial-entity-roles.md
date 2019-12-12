@@ -9,28 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488737"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894603"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Didacticiel : Extraire des données connexes en fonction du contexte d’un énoncé
 
-Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination pour un transfert entre une ville à une autre. Les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.  
+Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination pour un transfert entre une ville à une autre. Les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.
 
-Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles. 
+Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
 > * Créer une application
-> * Ajouter une intention 
+> * Ajouter une intention
 > * Obtenir des informations d’origine et de destination à l’aide de rôles
 > * Former
 > * Publish
@@ -57,9 +57,9 @@ Un rôle doit être utilisé quand les données d’entité à extraire :
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Sélectionnez **Créer une intention**. 
+1. Sélectionnez **Créer une intention**.
 
-1. Entrez `MoveEmployeeToCity` dans la boîte de dialogue contextuelle, puis sélectionnez **Terminé**. 
+1. Entrez `MoveEmployeeToCity` dans la boîte de dialogue contextuelle, puis sélectionnez **Terminé**.
 
     ![Capture d’écran de la boîte de dialogue contextuelle Créer une nouvelle intention](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
 
 1. Dans le panneau de navigation côté gauche, sélectionnez **Entités**.
 
-1. Sélectionnez **Ajouter une entité prédéfinie**, puis `geo` dans la barre de recherche pour filtrer les entités prédéfinies. 
+1. Sélectionnez **Ajouter une entité prédéfinie**, puis `geo` dans la barre de recherche pour filtrer les entités prédéfinies.
 
     ![Ajouter l’entité prédéfinie geographyV2 à l’application](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Cochez la case et sélectionnez **Terminé**.
-1. Dans la liste **Entités**, sélectionnez **geographyV2** pour ouvrir la nouvelle entité. 
-1. Ajoutez deux rôles, `Origin` et `Destination`. 
+1. Dans la liste **Entités**, sélectionnez **geographyV2** pour ouvrir la nouvelle entité.
+1. Ajoutez deux rôles, `Origin` et `Destination`.
 
     ![Ajouter des rôles à des entités prédéfinies](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Sélectionnez **Intentions** dans le panneau de navigation côté gauche, puis sélectionnez l’intention **MoveEmployeeToCity**. Notez que les noms des villes sont étiquetés avec l’entité prédéfinie **geographyV2**.
 1. Dans le premier énoncé de la liste, sélectionnez la localisation d’origine. Un menu déroulant s’affiche. Sélectionnez **geographyV2** dans la liste, puis parcourez le menu pour sélectionner **Origine**.
-1. Utilisez la méthode de l’étape précédente pour marquer tous les rôles des localisations dans tous les énoncés. 
+1. Utilisez la méthode de l’étape précédente pour marquer tous les rôles des localisations dans tous les énoncés.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None » 
+## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None »
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les modifications apportées à l’intention puissent être testées 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les modifications apportées à l’intention puissent être testées
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
       ]
     }
     ```
-    
+
     L’intention correcte est prédite et le tableau d’entités présente les rôles d’origine et de destination dans la propriété **entities** correspondante.
-    
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
 
 Dans ce tutoriel, vous avez créé une intention et ajouté des exemples d’énoncés pour les données des emplacements d’origine et de destination issues d’un apprentissage contextuel. Une fois l’application entraînée et publiée, une application cliente peut utiliser ces informations pour créer un ticket de déménagement avec les informations appropriées.
 
-> [!div class="nextstepaction"] 
-> [Découvrez comment ajouter une entité composite](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Découvrez comment ajouter une entité composite](luis-tutorial-composite-entity.md)

@@ -1,19 +1,18 @@
 ---
-title: 'ExpressRoute : Connecter un réseau virtuel à un circuit : classique'
+title: 'Azure ExpressRoute : Connecter un réseau virtuel à un circuit : classique'
 description: Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell.
 services: expressroute
-documentationcenter: na
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: e02073e777c62be00b5c25c2242294e54795a0d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 53c200b01dfa6bce09cfc058dc24ab8e38d253a6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031605"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930034"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Connectez un réseau virtuel à un circuit ExpressRoute à l’aide de PowerShell (classique)
 > [!div class="op_single_selector"]
@@ -46,40 +45,7 @@ Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. To
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Télécharger les dernières applets de commande PowerShell
 
-Installez les dernières versions des modules PowerShell Azure Service Management (SM) et du module ExpressRoute. Si vous utilisez l’exemple suivant, sachez que le numéro de version (dans cet exemple, 5.1.1) évoluera au fur et à mesure de la publication de nouvelles versions des cmdlets.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Pour plus d’informations sur Azure PowerShell, et notamment une aide détaillée pour configurer son ordinateur de façon à pouvoir utiliser les modules Azure PowerShell, voir [Bien démarrer avec les cmdlets Azure PowerShell](/powershell/azure/overview).
-
-### <a name="sign-in"></a>Se connecter
-
-Pour vous connecter à votre compte Azure, utilisez les exemples suivants :
-
-1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Vérifiez les abonnements associés au compte.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Connecter un réseau virtuel du même abonnement à un circuit
 Vous pouvez lier un réseau virtuel à un circuit ExpressRoute à l’aide de l’applet de commande suivante. Assurez-vous que la passerelle de réseau virtuel est créée et prête pour la liaison avant d’exécuter l’applet de commande.

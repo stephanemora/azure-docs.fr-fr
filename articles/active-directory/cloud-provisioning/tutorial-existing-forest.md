@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf151b98c813feba9de317879106718551b11f9d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814481"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868675"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Intégrer une forêt existante et une nouvelle forêt à un seul locataire Azure AD
 
@@ -36,7 +36,7 @@ Dans ce scénario, une forêt existante est synchronisée sur un locataire Azure
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime. 
+1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime 
 
 2. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* sur Azure AD sur les ports suivants :
@@ -45,7 +45,7 @@ Dans ce scénario, une forêt existante est synchronisée sur un locataire Azure
      | --- | --- |
      | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
-     | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
+     | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou proxy vous permet de spécifier des suffixes sécurisés, ajoutez des connexions à **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
@@ -54,7 +54,7 @@ Dans ce scénario, une forêt existante est synchronisée sur un locataire Azure
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 1. Connectez-vous au serveur joint au domaine.  Si vous utilisez le tutoriel [Environnement de base Active Directory et Azure](tutorial-basic-ad-azure.md), il s’agit de DC1.
-2. Connectez-vous au portail Azure avec des informations d’identification d’administrateur général cloud uniquement.
+2. Connectez-vous au portail Azure à l’aide des informations d’identification d’administrateur général cloud uniquement.
 3. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .</br>
 ![Portail Azure](media/how-to-install/install6.png)</br>
 4. Cliquez sur « Télécharger l’agent ».

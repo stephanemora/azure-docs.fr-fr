@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621013"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976432"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
  
@@ -147,7 +147,7 @@ L’objectif est d’obtenir la parité entre les tâches IoT Edge et les tâche
 Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge pour les tâches de périphérie :
 * Fonctions définies par l’utilisateur en JavaScript. Des fonctions définies par l’utilisateur sont disponibles en [C# pour les tâches IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (préversion).
 * Agrégats définis par l’utilisateur – (UDA).
-* Fonctions Azure ML
+* Fonctions Azure ML.
 * Utilisation de plus de 14 agrégats dans une seule étape.
 * Format AVRO pour l’entrée/sortie. À ce stade, seuls les formats CSV et JSON sont pris en charge.
 * Les opérateurs SQL suivants :

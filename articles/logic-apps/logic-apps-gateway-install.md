@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792099"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893669"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -85,14 +85,6 @@ Cet article explique comment télécharger, installer et configurer votre passer
 ## <a name="install-data-gateway"></a>Installer une passerelle de données
 
 1. [Téléchargez et exécutez le programme d’installation de passerelle sur un ordinateur local](https://aka.ms/on-premises-data-gateway-installer).
-
-1. Une fois le programme d’installation ouvert, sélectionnez **Suivant**.
-
-   ![Écran de présentation pour le programme d’installation de la passerelle](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Sélectionnez **Passerelle de données locale (recommandé)** , qui est le mode standard, puis sélectionnez **Suivant**.
-
-   ![Sélectionner le mode d’exécution pour la passerelle de données](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Passez en revue la configuration minimale requise, conservez le chemin d’installation par défaut, acceptez les conditions d’utilisation, puis sélectionnez **Installer**.
 

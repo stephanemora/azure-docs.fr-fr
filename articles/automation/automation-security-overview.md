@@ -5,18 +5,18 @@ keywords: sécurité de l’automatisation ; automation sécurisée ; authenti
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 88f1826191934ee76c565bd73de907a26d368c88
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0a05497c05051576868c1311857d58caa0d76055
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476837"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850667"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Présentation de l’authentification dans Azure Automation  
 Azure Automation vous permet d’automatiser des tâches sur des ressources dans Azure, en local et avec d’autres fournisseurs de cloud comme Amazon Web Services (AWS).  Pour qu’un Runbook exécute les actions requises, il doit avoir les autorisations nécessaires pour accéder en toute sécurité aux ressources avec les droits minimaux requis dans l’abonnement.

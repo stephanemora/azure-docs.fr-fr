@@ -1,20 +1,21 @@
 ---
-title: Créer une SAP de service pour un conteneur ou un objet blob avec .NET - Stockage Azure
+title: Créer une SAP de service pour un conteneur ou un objet blob avec .NET
+titleSuffix: Azure Storage
 description: Découvrez comment créer une signature d’accès partagé (SAP) de service pour un conteneur ou un objet blob à l’aide de la bibliothèque cliente .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/09/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 6840b65dd63422db38759ee01703155088215fd2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: fd215fe864a3cff7944defef0ecb4e591e7d501c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673355"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894179"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Créer une SAP de service pour un conteneur ou un objet blob avec .NET
 

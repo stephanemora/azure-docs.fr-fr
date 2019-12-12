@@ -1,22 +1,22 @@
 ---
-title: Créer un runtime d’intégration auto-hébergé dans Azure Data Factory
+title: Créer un runtime d’intégration auto-hébergé
 description: Découvrez comment créer un runtime d’intégration auto-hébergé dans Azure Data Factory, permettant aux fabriques de données d’accéder aux magasins de données dans un réseau privé.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 06/18/2019
+ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672292"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928521"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 

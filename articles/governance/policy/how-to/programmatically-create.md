@@ -2,13 +2,13 @@
 title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 01/31/2019
-ms.topic: conceptual
-ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.topic: how-to
+ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463537"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873061"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 

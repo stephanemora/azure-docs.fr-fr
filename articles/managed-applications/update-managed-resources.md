@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043407"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888697"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Utiliser des ressources dans le groupe de ressources managé pour une application managée Azure
 
 Cet article décrit comment mettre à jour des ressources qui sont déployées dans le cadre d’une application managée. En tant qu’éditeur d’une application managée, vous avez accès aux ressources dans le groupe de ressources managé. Pour mettre à jour ces ressources, vous devez trouver le groupe de ressources managé associé à une application managée et accéder à la ressource souhaitée dans ce groupe de ressources.
 
-Cet article part du principe que vous avez déployé l’application managée dans l’exemple de projet [Application web managée (IaaS) avec services de gestion Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app). Cette application managée comprend une machine virtuelle **Standard_D1_v2**. Si vous n’avez pas déployé cette application managée, vous pouvez quand même utiliser cet article pour vous familiariser avec les étapes de mise à jour d’un groupe de ressources managé.
+Cet article part du principe que vous avez déployé l’application managée dans l’exemple de projet [Application web managée (IaaS) avec services de gestion Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app). Cette application managée comprend une machine virtuelle **Standard_D1_v2**. Si vous n’avez pas déployé cette application managée, vous pouvez quand même utiliser cet article pour vous familiariser avec les étapes de mise à jour d’un groupe de ressources managé.
 
 L’illustration suivante montre l’application managée déployée.
 

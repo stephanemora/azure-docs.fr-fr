@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763655"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850123"
 ---
 # <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendre l’intégrité de Windows Runbook Worker hybride dans Update Management
 

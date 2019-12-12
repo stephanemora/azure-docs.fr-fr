@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477844"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997154"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure
 
@@ -121,7 +121,7 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 11. Pour vous connecter en utilisant une ligne de commande, tapez la commande suivante :
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>
+    sudo openvpn –-config <name and path of your VPN profile file>&
     ```
 12. Pour vous connecter à l’aide de l’interface utilisateur graphique, accédez aux paramètres du système.
 13. Cliquez sur **+** pour ajouter une nouvelle connexion VPN.

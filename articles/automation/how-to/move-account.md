@@ -4,17 +4,17 @@ description: Cet article explique comment déplacer votre compte Automation vers
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717239"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849579"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Déplacer votre compte Azure Automation vers un autre abonnement
 

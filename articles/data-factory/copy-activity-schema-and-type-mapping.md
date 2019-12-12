@@ -4,20 +4,19 @@ description: Découvrez comment l’activité de copie dans Azure Data Factory m
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ed0823930b819661baf384d51478547cb2e0eccf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678136"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921993"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 

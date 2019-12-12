@@ -2,18 +2,17 @@
 title: Comment cloner un hub IoT Azure
 description: Comment cloner un hub IoT Azure
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083284"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976143"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Comment cloner un hub IoT Azure dans une autre région
 
@@ -73,9 +72,7 @@ Il s’agit de la méthode générale recommandée pour déplacer un hub IoT d�
    1. Ajoutez tout ce qui n’a pas été exporté dans le modèle. 
    
        Par exemple, les groupes de consommateurs ne sont pas exportés vers le modèle. Vous devez ajouter manuellement les groupes de consommateurs au modèle ou utiliser le [Portail Azure](https://portal.azure.com) une fois le hub créé. Voici un exemple d’ajout d’un groupe de consommateurs à un modèle dans l’article [Utiliser un modèle Azure Resource Manager pour configurer le routage des messages IoT Hub](tutorial-routing-config-message-routing-rm-template.md).
-
-       [Les enrichissements de message](iot-hub-message-enrichments-overview.md) ne sont pas non plus exportés vers le modèle. Ceux-ci sont utilisés conjointement avec les messages de routage et doivent être mises à jour manuellement sur le nouveau hub lorsque la configuration du routage des messages est mise à jour.
-
+       
    1. Copiez les appareils à partir du hub d’origine vers le clone. Ce sujet est abordé dans la section [Gestion des appareils inscrits auprès de l’hub IoT](#managing-the-devices-registered-to-the-iot-hub).
 
 ## <a name="how-to-handle-message-routing"></a>Comment gérer le routage des messages
@@ -103,9 +100,6 @@ Si le hub utilise le routage des messages, vous avez deux possibilités.
    * Le hub fait toujours référence aux ressources de routage d’origine et achemine les messages en fonction de la configuration.
 
    * Vous aurez une faible baisse des performances, car les ressources du hub et du point de terminaison de routage ne se trouvent pas au même emplacement.
-
-> [!NOTE]
-> Si votre hub utilise des [améliorations des messages](iot-hub-message-enrichments-overview.md), vous devez toujours les configurer manuellement sur le nouveau hub IoT, car ils ne sont pas exportés avec le modèle Resource Manager.
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Préparer la migration du hub vers une autre région
 

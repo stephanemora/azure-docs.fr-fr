@@ -1,18 +1,19 @@
 ---
-title: Flux de données de mappage dans Azure Data Factory
+title: Mappage des flux de données
 description: Vue d’ensemble du mappage de flux de données dans Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/7/2019
-ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681557"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928290"
 ---
 # <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 

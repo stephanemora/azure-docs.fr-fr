@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: bc8d20abcc7bc66d319874978e134c5c86c86e1c
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3946f6d034baee528f9cd5abd6467b8c393e73de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859046"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977979"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et JavaScript
 
@@ -233,4 +233,4 @@ Le texte suivant est un exemple de réponse JSON correcte.
 Dans ce guide de démarrage rapide, vous avez écrit un script JavaScript qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
-> [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

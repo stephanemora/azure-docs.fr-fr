@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229423"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851194"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Se connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link
 
@@ -129,9 +129,6 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Accéder au compte Azure Cosmos en privé à partir de la machine virtuelle
 
 Dans cette section, vous allez vous connecter en privé au compte Azure Cosmos à l’aide du point de terminaison privé. 
-
-> [!IMPORTANT]
-> La configuration DNS pour le compte Azure Cosmos nécessite une modification manuelle du fichier hosts afin que ce dernier inclue le nom de domaine complet du compte spécifique. Dans des scénarios de production, vous configurez le serveur DNS pour qu’il utilise les adresses IP privées. Toutefois, à des fins de démonstration, vous pouvez utiliser des autorisations d’administrateur sur la machine virtuelle et modifier le fichier `c:\Windows\System32\Drivers\etc\hosts` (sur Windows) ou `/etc/hosts` (sur Linux) pour inclure l’adresse IP et le mappage DNS.
 
 1. Pour inclure l’adresse IP et le mappage DNS, connectez-vous à votre machine virtuelle *myVM*, ouvrez le fichier `c:\Windows\System32\Drivers\etc\hosts` et incluez les informations DNS de l’étape précédente au format suivant :
 

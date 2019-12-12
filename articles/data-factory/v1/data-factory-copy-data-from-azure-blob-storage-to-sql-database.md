@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5a254979e345ae07bef5c8e79006bd0aaa0bf7df
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0255787ac90e63aff02ea65912ffa37c8ecc09fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682794"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929747"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
 > [!div class="op_single_selector"]

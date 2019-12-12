@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981828"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972657"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Node.js
 
@@ -266,5 +266,5 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 > [!div class="nextstepaction"]
 >[Référence de l’API Vision par ordinateur (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [Qu’est-ce que l’API Vision par ordinateur ?](../Home.md)
+* [Qu’est-ce que le service Vision par ordinateur ?](../Home.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

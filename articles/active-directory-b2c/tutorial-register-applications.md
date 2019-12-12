@@ -1,5 +1,6 @@
 ---
-title: Tutoriel – Inscrire une application – Azure Active Directory B2C
+title: 'Didacticiel : Inscrire une application'
+titleSuffix: Azure AD B2C
 description: Découvrez comment inscrire une application web dans Azure Active Directory B2C à l’aide du portail Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642411"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950780"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Didacticiel : Inscrire une application dans Azure Active Directory B2C
 
@@ -79,7 +80,7 @@ Une fois l’inscription de l’application terminée, activez le flux d’octro
 
 1. Sous **Gérer**, sélectionnez **Authentification**.
 1. Sélectionnez **Essayer la nouvelle expérience** (si elle est indiquée).
-1. Sous **Octroi implicite**, cochez les cases **Jetons d’accès** et **Jetons d’ID**.
+1. Sous **Octroi implicite**, cochez les deux cases **Jetons d’accès** et **Jetons d’ID**.
 1. Sélectionnez **Enregistrer**.
 
 * * *

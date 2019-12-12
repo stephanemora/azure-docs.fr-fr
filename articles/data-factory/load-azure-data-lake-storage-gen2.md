@@ -1,22 +1,23 @@
 ---
-title: Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
+title: Charger des données dans Azure Data Lake Storage Gen2
 description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.author: jingwang
-ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff43173823919f25f85d32996b77265a8a5864c3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560728"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926837"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
@@ -53,7 +54,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     * **Version** : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
    
    ![Page d’accueil Data Factory](./media/load-azure-data-lake-storage-gen2/data-factory-home-page.png)

@@ -3,17 +3,17 @@ title: Tutoriel - Connecter un appareil IoT Plug-and-Play (préversion) à Azure
 description: Ce tutoriel vous montre comment utiliser un modèle de fonctionnalité d’appareil pour générer du code d’appareil. Ensuite, exécutez le code de l’appareil, examinez la connexion d’appareil à votre application IoT Central et utilisez les vues générées automatiquement.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/08/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702856"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977333"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Didacticiel : Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil IoT Plug-and-Play et le connecter à votre application IoT Central
 

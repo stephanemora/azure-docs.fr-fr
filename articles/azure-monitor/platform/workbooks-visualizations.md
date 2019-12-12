@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des visualisations de classeurs Azure Monitor | Microsoft Docs
+title: Visualisations de classeurs Azure Monitor
 description: En savoir plus sur les composants de visualisation des classeurs Azure Monitor, notamment le texte, les graphiques, les grilles, les arborescences et les graphes.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164171"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872789"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualisations de classeurs Azure Monitor
 

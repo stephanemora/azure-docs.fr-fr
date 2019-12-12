@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f2fd771f96056415b78b2ab83d13f290005bd734
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8e31a27a6b9183ed3447d368b094f67524cf2264
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817301"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981193"
 ---
 Si vous préférez vous y mettre tout de suite, affichez ou téléchargez tous les <a href="https://aka.ms/speech/github-csharp">échantillons C# du Kit de développement logiciel (SDK) Speech</a> sur GitHub. Sinon, commençons.

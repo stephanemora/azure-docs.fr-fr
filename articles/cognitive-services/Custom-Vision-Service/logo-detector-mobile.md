@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177787"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970225"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Didacticiel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
@@ -135,7 +135,7 @@ Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropri
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 À ce stade, vous avez donné à l’application l’accès :
 

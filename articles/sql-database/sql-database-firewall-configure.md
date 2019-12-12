@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ed13b5028341637d71dee95f38cc44cc91aa2376
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481433"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851816"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -127,13 +127,15 @@ Pour définir une règle de pare-feu IP au niveau du serveur dans le portail Azu
 
 #### <a name="from-the-database-overview-page"></a>À partir de la page de présentation de la base de données
 
-1. Pour définir une règle de pare-feu IP au niveau du serveur à partir de la page de présentation de la base de données, cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils comme illustré dans l’image suivante. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
+1. Pour définir une règle de pare-feu IP au niveau du serveur à partir de la page de présentation de la base de données, cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils comme illustré dans l’image suivante. 
 
-      ![Règle de pare-feu IP de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png)
+    ![Règle de pare-feu IP de serveur](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
+
+    La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
 2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle.
 
-      ![Règle de pare-feu IP au niveau du serveur définie](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+    ![Règle de pare-feu IP au niveau du serveur définie](./media/sql-database-get-started-portal/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>À partir de la page de présentation du serveur
 

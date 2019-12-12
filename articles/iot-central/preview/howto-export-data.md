@@ -4,16 +4,16 @@ description: Comment exporter des données depuis votre application Azure IoT Ce
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894177"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974459"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Exporter vos données Azure IoT Central (fonctionnalités de préversion)
 
@@ -75,10 +75,10 @@ Maintenant que vous avez une destination pour exporter les données, suivez ces 
 
 1. Connectez-vous à votre application IoT Central.
 
-2. Dans le volet de gauche, sélectionnez **Exportation de données**.
+2. Dans le volet gauche, sélectionnez **Exportation de données**.
 
     > [!Note]
-    > Si vous ne voyez pas l’option d’exportation de données dans le volet de gauche, vous n’êtes pas l’administrateur de votre application. Contactez un administrateur pour configurer l’exportation de données.
+    > Si l’option Exportation de données n’apparaît pas dans le volet gauche, la raison en est que vous n’êtes pas l’administrateur de votre application. Contactez un administrateur pour configurer l’exportation de données.
 
 3. Sélectionnez le bouton **+ Nouveau** dans le coin supérieur droit. Choisissez **Stockage Blob Azure**, **Azure Event Hubs** ou **Azure Service Bus** comme destination de l’exportation. Le nombre maximal d’exportations par application est de cinq.
 

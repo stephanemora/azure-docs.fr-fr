@@ -3,19 +3,19 @@ title: Copier des données à partir de Google Cloud Storage avec Azure Data Fac
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de Google Cloud Storage vers des banques de données réceptrices prises en charge.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 4eedf54f3824adfb92ee22e5338325ccc5de3f75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0856a729fcfccccd9a87f07ba947f4df5d08baa6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680915"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929412"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copier des données à partir de Google Cloud Storage avec Azure Data Factory
 

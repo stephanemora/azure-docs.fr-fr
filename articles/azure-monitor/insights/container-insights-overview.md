@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8267f8148269f8b1a0717435e57614f09c229de1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279627"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841402"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 
@@ -49,7 +49,7 @@ Azure Monitor pour conteneurs offre une expérience de surveillance complète vi
 * Surveiller les charges de travail de conteneur [déployées sur Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
-    >La prise en charge de Red Hat OpenShift est actuellement une fonctionnalité de la préversion publique.
+    >La prise en charge d’Azure Red Hat OpenShift est actuellement une fonctionnalité en préversion publique.
     >
 
 Regardez la vidéo suivante qui fournit une présentation approfondie de niveau intermédiaire pour vous apprendre à surveiller votre cluster AKS avec Azure Monitor pour les conteneurs.

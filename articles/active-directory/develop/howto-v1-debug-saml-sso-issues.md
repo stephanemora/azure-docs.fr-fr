@@ -3,25 +3,22 @@ title: Déboguer l’authentification unique SAML – Azure Active Directory | M
 description: Déboguez l’authentification unique SAML aux applications dans Azure Active Directory.
 services: active-directory
 author: rwike77
-documentationcenter: na
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: luleon, hirsin, smalser
+ms.reviewer: luleon, hirsin, paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 26c3502567df7776e106ae9301aa7ba315cc12cc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482725"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917605"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 

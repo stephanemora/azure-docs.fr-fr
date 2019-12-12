@@ -1,20 +1,20 @@
 ---
 title: Interagir avec un appareil IoT Plug-and-Play (préversion) à partir d’une solution Azure IoT | Microsoft Docs
 description: Avec ce tutoriel destiné aux développeurs de solutions, vous allez découvrir comment utiliser le SDK de service pour interagir avec des appareils IoT Plug-and-Play.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 07/24/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5abfe0300bd61f5ccfbfccedf16659f055eb8ad4
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878610"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977588"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Connectez-vous à un appareil IoT Plug-and-Play (préversion) et interagissez avec celui-ci
 

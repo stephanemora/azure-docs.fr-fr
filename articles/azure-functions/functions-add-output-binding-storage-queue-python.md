@@ -3,12 +3,12 @@ title: Ajouter une liaison de file d’attente Stockage Azure à votre fonction 
 description: Découvrez comment ajouter une liaison de sortie de file d’attente Stockage Azure à votre fonction Python.
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231247"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928876"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Comme vous avez activé des bundles d’extension dans le fichier host.json, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
+> Comme vous avez activé des bundles d’extension dans le fichier host.json, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
 
 Copiez l’URL de votre fonction `HttpTrigger` à partir de la sortie du runtime et collez-la dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. Vous devez voir la même réponse dans le navigateur que dans l’article précédent.
 

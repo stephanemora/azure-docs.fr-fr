@@ -1,24 +1,24 @@
 ---
-title: 'Transformer des données avec Hive dans Réseau virtuel Azure '
+title: Transformer des données avec Hive dans Réseau virtuel Azure
 description: Ce didacticiel fournit des instructions détaillées de transformation des données à l’aide de l’activité Hive dans Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 263eb243ea45963757c50aa031cc17e318d70d98
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.topic: tutorial
+ms.custom: seo-dt-2019
+ms.date: 01/22/2018
+ms.openlocfilehash: f90933dea5421d68116d29df6b9429d298bb0d88
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683311"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925083"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
+
 Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
 title: Streaming en direct avec des encodeurs locaux qui créent des flux multidébits - Azure | Microsoft Docs
-description: "Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l'aide d'un des protocoles de diffusion en continu adaptative suivants : HLS, Smooth Streaming, DASH."
+description: Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015475"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887099"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant un stream multidébit en direct d’encodeurs locaux
 

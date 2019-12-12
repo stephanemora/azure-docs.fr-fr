@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795452"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997103"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cette rubrique fournit des conseils sur le choix et l’utilisation du provisionnement cloud Azure AD Connect en tant que solution d’identité.
@@ -48,7 +48,7 @@ Le reste du document fournit des instructions détaillées pour ces prérequis.
      | --- | --- |
      | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
-     | **8080** (facultatif) | Les agents signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
+     | **8080** (facultatif) | Les agents signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou proxy vous permet de spécifier des suffixes approuvés, ajoutez des connexions à **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.

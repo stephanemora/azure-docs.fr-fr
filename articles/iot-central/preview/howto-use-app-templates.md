@@ -3,17 +3,17 @@ title: Exporter une application Azure IoT Central | Microsoft Docs
 description: En tant que gestionnaire de solutions, je souhaite exporter un modèle d’application pour pouvoir le réutiliser.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9870b18be9fb75e25941a7e1d05e4164239aacbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480371"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977520"
 ---
 # <a name="export-your-application-preview-features"></a>Exporter une application (fonctionnalités en préversion)
 

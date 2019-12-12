@@ -4,23 +4,23 @@ description: Fichier Include
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 12/06/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: dfe16b4e965670d115cfa92f1cb3ca812d6375ad
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990867"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981085"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparaison entre la disponibilité générale et la version préliminaire
 
 Le tableau suivant récapitule quelques différences clés entre les instances Azure Time Series Insights en disponibilité générale et en préversions.
 
-| | Disponibilité générale | Préversion |
+| | GA | PRÉVERSION |
 | --- | --- | ---|
 | Citoyen de première classe | Centrage sur les événements | Centrage sur les séries chronologiques |
 | Raisonnement sémantique | Bas niveau (données de référence) | Haut niveau (modèles) |

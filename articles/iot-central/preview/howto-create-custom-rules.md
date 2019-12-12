@@ -3,18 +3,18 @@ title: Étendre Azure IoT Central avec des notifications et des règles personna
 description: En tant que développeur de solutions, configurez une application IoT Central afin d’envoyer des notifications par e-mail lorsqu’un appareil cesse d’envoyer des données de télémétrie. Cette solution utilise Azure Stream Analytics, Azure Functions et SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff01af6466e90ff4b69cd37c1638265c59b873
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bdaa08e8c3b104c7269c1fb4169779d98b4e0880
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894485"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895726"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid (fonctionnalités d’évaluation)
 
@@ -93,7 +93,7 @@ Utilisez le [portail Azure pour créer une application de fonction](https://port
 | Nom de l’application    | Choisissez le nom de votre application de fonction |
 | Subscription | Votre abonnement |
 | Resource group | DetectStoppedDevices |
-| OS | Windows |
+| Système d''exploitation | Windows |
 | Plan d’hébergement | Plan de consommation |
 | Location | USA Est |
 | Pile d’exécution | .NET |

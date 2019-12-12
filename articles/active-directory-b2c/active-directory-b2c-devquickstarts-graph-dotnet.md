@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119985"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900015"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
 
@@ -363,6 +363,5 @@ Avec `B2CGraphClient`, vous disposez d’une application de service capable de g
 Quand vous intégrez cette fonctionnalité dans votre application, prenez en considération les quelques points clés suivants pour les applications B2C :
 
 * Accordez à l’application les autorisations nécessaires dans le locataire.
-* Pour le moment, vous devez utiliser la bibliothèque ADAL (pas MSAL) pour obtenir des jetons d’accès. (vous pouvez également envoyer des messages de protocole directement, sans utiliser de bibliothèque).
 * Lorsque vous appelez l’API Graph, utilisez `api-version=1.6`.
 * Lorsque vous créez et mettez à jour des utilisateurs clients, certaines propriétés sont requises, comme décrit plus haut.

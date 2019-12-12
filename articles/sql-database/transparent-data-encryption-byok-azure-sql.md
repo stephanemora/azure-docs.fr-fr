@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227980"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995845"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 

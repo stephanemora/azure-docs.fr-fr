@@ -2,7 +2,6 @@
 title: Fonctionnement du consentement d’application | Microsoft Docs
 description: En savoir plus sur le fonctionnement de l’infrastructure de consentement Azure AD pour voir comment vous pouvez l’utiliser lors du développement d’applications sur Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -10,18 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5ccdce6ac9e3107e0cf4dd4b68b49918fffeae
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0c79d9226b3a8965ad6ce853350f2e4c46617b5b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324602"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843425"
 ---
 # <a name="how-application-consent-works"></a>Fonctionnement du consentement d’application
 

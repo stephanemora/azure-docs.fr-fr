@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083583"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931980"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modifier un circuit ExpressRoute à l’aide de PowerShell (Azure Classic)
 
@@ -35,20 +35,7 @@ Cet article vous montre les étapes nécessaires à la vérification de l’éta
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Installez les dernières versions des modules PowerShell Azure Service Management (SM) et du module ExpressRoute. Vous ne pouvez pas utiliser l’environnement Azure CloudShell pour exécuter des modules SM.
-
-1. Suivez les instructions de l’article [Installation du module Service Management](/powershell/azure/servicemanagement/install-azure-ps) pour installer le module Azure Service Management. Si le module Az ou RM est déjà installé, assurez-vous d’utiliser « -AllowClobber ».
-2. Importez les modules installés. Lorsque vous utilisez l’exemple suivant, ajustez le chemin d’accès pour refléter l’emplacement de vos modules PowerShell installés.
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. Pour vous connecter à votre compte Azure, ouvrez votre console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour vous aider à vous connecter à l’aide du module Service Management :
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="get-the-status-of-a-circuit"></a>Récupérer l’état d’un circuit
 

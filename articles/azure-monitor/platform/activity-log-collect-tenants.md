@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 02/06/2019
-ms.openlocfilehash: b11671f20a7e3e6053f90a884777b31196232a38
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048303"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931835"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory
 
-> [!NOTE]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md).
+> [!WARNING]
+> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
 
 Cet article décrit une méthode permettant de collecter les journaux d’activité Azure dans un espace de travail Log Analytics dans Azure Monitor à l’aide du connecteur Azure Log Analytics Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux d’activité à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
 

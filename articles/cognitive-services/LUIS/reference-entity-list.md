@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011984"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849766"
 ---
-# <a name="list-entity"></a>Entité de liste 
+# <a name="list-entity"></a>Entité de liste
 
-Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. 
+Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison.
 
-Une entité de liste n’est pas issue de l’apprentissage automatique. Il s’agit d’une correspondance de texte à l’exact. LUIS marque comme entité chaque correspondance avec un élément d’une liste dans la réponse. 
+Une entité de liste n’est pas issue de l’apprentissage automatique. Il s’agit d’une correspondance de texte à l’exact. LUIS marque comme entité chaque correspondance avec un élément d’une liste dans la réponse.
 
 **L’entité convient bien lorsque les données de texte :**
 
 * Sont un ensemble connu.
-* Ne changent pas souvent. Si vous avez besoin de modifier la liste souvent ou si vous souhaitez que la liste se développe automatiquement, une entité simple améliorée avec une liste d’expressions est un meilleur choix. 
+* Ne changent pas souvent. Si vous avez besoin de modifier la liste souvent ou si vous souhaitez que la liste se développe automatiquement, une entité simple améliorée avec une liste d’expressions est un meilleur choix.
 * L’ensemble ne dépasse pas les [limites](luis-boundaries.md) maximum de LUIS pour ce type d’entité.
 * Le texte de l’énoncé est une correspondance exacte avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà des correspondances de texte exactes. Une simple entité de liste ne suffit pas pour résoudre la correspondance approximative, la recherche de radicaux, de pluriels et d’autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
 
@@ -54,7 +54,7 @@ Une entité de liste n’est pas issue de l’apprentissage automatique. Il s’
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>Exemple de réponse JSON
@@ -130,7 +130,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 }
 ```
 
-* * * 
+* * *
 
 |Objet de données|Nom de l’entité|Valeur|
 |--|--|--|
@@ -139,4 +139,4 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [didacticiel](luis-quickstart-intent-and-list-entity.md), vous allez apprendre à utiliser une **entité de liste** pour extraire des correspondances exactes de texte à partir d’une liste d’éléments connus. 
+Dans ce [didacticiel](tutorial-list-entity.md), vous allez apprendre à utiliser une **entité de liste** pour extraire des correspondances exactes de texte à partir d’une liste d’éléments connus.

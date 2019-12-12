@@ -4,20 +4,19 @@ description: Découvrez comment utiliser l’activité de copie dans un pipeline
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 173cd477aaf257eab7c5130e12bbd7417b6f073d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74d56d553c4049a98b4401c66b27ae33e31da5c0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680714"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927112"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copier des données de Marketo avec Azure Data Factory (préversion)
 

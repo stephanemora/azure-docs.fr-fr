@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695213"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841215"
 ---
-# <a name="regular-expression-entity"></a>Entité d’expression régulière 
+# <a name="regular-expression-entity"></a>Entité d’expression régulière
 
 Une entité d’expression régulière extrait une entité en fonction du modèle d’expression régulière que vous fournissez.
 
-Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Si l’expression régulière est trop complexe (par exemple, si elle utilise de nombreux crochets), vous ne pouvez pas l’ajouter au modèle. Utilise une partie seulement de la bibliothèque [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions). 
+Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Si l’expression régulière est trop complexe (par exemple, si elle utilise de nombreux crochets), vous ne pouvez pas l’ajouter au modèle. Utilise une partie seulement de la bibliothèque [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions).
 
 **L’entité convient bien quand :**
 
 * Les données sont constamment mis en forme avec toute variation également cohérente.
-* L’expression régulière n’a pas besoin de plus de 2 niveaux d’imbrication. 
+* L’expression régulière n’a pas besoin de plus de 2 niveaux d’imbrication.
 
 ![Entité d’expression régulière](./media/luis-concept-entities/regex-entity.png)
 
@@ -36,7 +36,7 @@ Les expressions régulières peuvent correspondre à plus que ce à quoi vous vo
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
+```
 
 Cette expression régulière fait également correspondre les mots qui se terminent par ces nombres, comme `phone`. Pour résoudre les problèmes de ce type, veillez à ce que les correspondances des expressions régulières prennent en compte les limites des mots. L’expression régulière pour utiliser les limites des mots pour cet exemple est utilisée dans l’expression régulière suivante :
 
@@ -102,8 +102,8 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [tutoriel](luis-quickstart-intents-regex-entity.md), créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
+Dans ce [tutoriel](tutorial-regex-entity.md), créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.

@@ -4,21 +4,20 @@ description: Découvrez comment déplacer des données depuis une base de donné
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e6d2acbb848a03d950e830458963ecc4f26dff98
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682410"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929033"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

@@ -6,15 +6,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/06/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031788"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926232"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurer la coexistence de connexions de site à site et ExpressRoute (classique)
 > [!div class="op_single_selector"]
@@ -77,6 +76,10 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
     Vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. La section [Configurer des connexions qui coexistent pour un réseau virtuel existant](#add) de l’article vous guide tout au long des étapes de suppression de la passerelle et de création de connexions ExpressRoute et VPN de site à site. Notez que vous devez effectuer les étapes dans un ordre très spécifique lorsque vous créez les connexions. N’utilisez pas les instructions contenues dans d’autres articles pour créer des connexions et des passerelles.
   
     Lors de cette procédure, si vous créez des connexions pouvant coexister, vous devez supprimer votre passerelle, puis configurer de nouvelles passerelles. En d’autres termes, vous subissez un temps d’arrêt pour les connexions entre différents locaux lorsque vous supprimez et recréez la passerelle et les connexions, mais vous ne devez pas migrer les ordinateurs virtuels ou les services vers un nouveau réseau virtuel. Les machines virtuelles et les services sont toujours en mesure de communiquer via l’équilibreur de charge lorsque vous configurez votre passerelle s’ils sont configurés pour ce faire.
+
+## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
+
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.

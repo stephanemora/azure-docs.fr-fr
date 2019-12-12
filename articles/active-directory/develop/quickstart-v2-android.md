@@ -2,26 +2,22 @@
 title: Guide de démarrage rapide Android pour la plateforme d’identités Microsoft | Azure
 description: Découvrez comment les applications Android peuvent appeler une API qui nécessite des jetons d’accès pour le point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c9a194dcd2ccb353f11aa939200213f0db1c2ea
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84603dfa865afe1c7661f49d7dac7374fa62a2a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73942940"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920784"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -40,7 +36,7 @@ Les applications doivent être représentées par un objet d’application dans 
 > * Android 16+
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : configurer votre application dans le portail Azure 
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure 
 >  Pour que l'exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection compatible avec le répartiteur d'authentification.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
@@ -48,10 +44,10 @@ Les applications doivent être représentées par un objet d’application dans 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-android/green-check.png) Votre application est configurée avec ces attributs
 >
-> ### <a name="step-2-download-the-project"></a>Étape 2 : télécharger le projet 
+> ### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet 
 > * [Téléchargez l’exemple de code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 >
-> ### <a name="step-3-configure-your-project"></a>Étape 3 : configurer votre projet
+> ### <a name="step-3-configure-your-project"></a>Étape 3 : Configurer votre projet
 > 1. Extrayez et ouvrez le projet dans Android Studio.
 > 2. Dans **app** > **src** > **main** > **res** > **raw**, ouvrez **auth_config_multiple_account.json**, puis remplacez-le par le code suivant :
 > ```javascript 
@@ -134,11 +130,11 @@ Les applications doivent être représentées par un objet d’application dans 
 > > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
-> ## <a name="step-1-get-the-sample-app"></a>Étape 1 : obtenir l’exemple d’application
+> ## <a name="step-1-get-the-sample-app"></a>Étape 1 : Obtenir l’exemple d’application
 >
 > [Téléchargez le code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 >
-> ## <a name="step-2-run-the-sample-app"></a>Étape 2 : exécuter l'exemple d'application
+> ## <a name="step-2-run-the-sample-app"></a>Étape 2 : Exécution de l'exemple d'application
 >
 > Sélectionnez votre émulateur (ou votre appareil physique) à partir de la liste déroulante des **Appareils disponibles** d’Android Studio et exécutez l’application.
 >

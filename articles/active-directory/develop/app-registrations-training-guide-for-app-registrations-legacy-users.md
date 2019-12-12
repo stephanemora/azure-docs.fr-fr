@@ -2,27 +2,23 @@
 title: Guide formation pour la transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
 description: Présentation de la nouvelle expérience d’inscription d’application dans le portail Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927092"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844258"
 ---
 # <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
 

@@ -4,21 +4,20 @@ description: Découvrez comment déplacer des données depuis une base de donné
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4a7b42b51f49ab0c11aa8af3af6495c60907d230
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666111"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928104"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
