@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 4aab699ff0141b648066fae0de445c4467be7509
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048391"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928618"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
@@ -31,26 +31,34 @@ Avec Azure Hybrid Benefit, vous pouvez choisir de payer uniquement pour l’infr
 
 Vous pouvez choisir ou modifier votre modèle de licence en utilisant le Portail Azure ou l’une des API suivantes :
 
-- Pour définir ou mettre à jour le type de licence à l’aide de PowerShell :
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+Pour définir ou mettre à jour le type de licence à l’aide de PowerShell :
 
-- Pour définir ou mettre à jour le type de licence à l’aide d’Azure CLI :
+- [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)
+- [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
+- [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
+- [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
-- Pour définir ou mettre à jour le type de licence à l’aide de l’API REST :
+Pour définir ou mettre à jour le type de licence à l’aide d’Azure CLI :
 
-  - [Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Instances managées - Créer ou Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Instances managées - Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
+- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
+- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
+- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+
+# <a name="rest-apitabrest"></a>[API REST](#tab/rest)
+
+Pour définir ou mettre à jour le type de licence à l’aide de l’API REST :
+
+- [Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)
+- [Bases de données - Mettre à jour](/rest/api/sql/databases/update)
+- [Instances managées - Créer ou Mettre à jour](/rest/api/sql/managedinstances/createorupdate)
+- [Instances managées - Mettre à jour](/rest/api/sql/managedinstances/update)
+
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
