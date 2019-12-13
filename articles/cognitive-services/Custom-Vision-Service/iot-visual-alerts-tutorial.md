@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888276"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978030"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Didacticiel : Utiliser Custom Vision avec un appareil IoT pour signaler des états visuels
 
@@ -142,5 +142,5 @@ Dans ce tutoriel, vous avez configuré et exécuté une application qui détecte
 > [Exemple IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * Ajoutez une méthode IoT Hub pour basculer l’application directement vers l’état **En attente du modèle entraîné**. De cette façon, vous pouvez effectuer l’apprentissage du modèle avec des images qui ne sont pas capturées par l’appareil lui-même, puis envoyer (push) le nouveau modèle vers l’appareil sur commande.
-* Suivez le tutoriel [Visualiser des données de capteur en temps réel](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) pour créer un tableau de bord Power BI afin de visualiser les alertes IoT Hub envoyées par l’exemple.
+* Suivez le tutoriel [Visualiser les données de capteur en temps réel](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) pour créer un tableau de bord Power BI afin de visualiser les alertes IoT Hub envoyées par l’exemple.
 * Suivez le tutoriel [Surveillance à distance IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) pour créer une application logique qui répond aux alertes IoT Hub lorsque des états visuels sont détectés.

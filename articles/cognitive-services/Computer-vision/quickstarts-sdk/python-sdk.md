@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719491"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971693"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Python
 
@@ -206,5 +206,5 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèqu
 > [!div class="nextstepaction"]
 >[Référence de l’API Vision par ordinateur (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [Qu’est-ce que l’API Vision par ordinateur ?](../Home.md)
+* [Qu’est-ce que le service Vision par ordinateur ?](../Home.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

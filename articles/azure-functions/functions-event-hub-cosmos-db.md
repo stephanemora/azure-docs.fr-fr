@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: 04cb91a62536c493240998270b5bd8d29fd331ba
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230625"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849834"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Didacticiel : Créer une fonction en Java avec un déclencheur Event Hub et une liaison de sortie Azure Cosmos DB
 
@@ -36,8 +36,6 @@ Pour suivre ce didacticiel, vous devez installer les ressources suivantes :
 
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous devez définir la variable d'environnement `JAVA_HOME` sur l'emplacement d'installation du JDK.
-
-Si vous préférez utiliser directement le code pour ce didacticiel, consultez le référentiel d'exemples [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
